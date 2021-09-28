@@ -1,0 +1,17 @@
+.ins-error p svg{
+    fill: #d63638;
+    width: 17px;
+    height: 26px;
+    float: left;
+}
+.ins-error p strong{
+    height: 26px;
+    line-height: 26px;
+    display: inline-block;
+    margin: 0 0 0 10px;
+    font-size: 14px;
+}
+
+.ins-notice { clear: both; overflow: hidden; transition: 0.5s; }
+.ins-notice .dashicons { height: unset; width: unset; font-size: 12px; vertical-align: middle; }
+.ins-notice a { margin-left: 10px; text-decoration: none; cursor: pointer; }
