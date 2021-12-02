@@ -20,8 +20,6 @@
                 $('.ins-container').addClass('panel-open');
 				$('html').addClass('ins-panel-open');
             }
-            //Update cart on Nav Toggle
-            jQuery('[name="update_cart"]').trigger('click'); // Update Cart
 
         });
 
@@ -43,34 +41,25 @@
         }); 		
 
         /*
-         *  Added to cart JS
-         */
-        $(document.body).on('added_to_cart', function() {
-            setTimeout(function(){
-                if ( wiCartTotal > 0 ) {
-                    $('.ins-toggle-button').addClass( 'open' );
-					$('.ins-container').addClass( 'panel-open' );
-                } else {
-                    $('.ins-toggle-button').removeClass( 'hascart' );
-					$('.ins-container').removeClass( 'hascart' );
-                }
-				// Update Cart on added to card
-            jQuery('[name="update_cart"]').trigger( 'click' );
-
-            jQuery(document).trigger( 'wi_checkout_refresh' );
-            },300);
-        });
-		
-		/*
-		 *  Update cart total JS
-		 */
-        $(document.body).on('updated_cart_totals', function() {
-            jQuery('.woocommerce-cart-form:not(:last)').remove();
-            jQuery('.cart_totals:not(:last)').remove();
-        });
+        *  Auto open panel when add to cart item
+        */
+        if (autotogpanel == 'true') {
+            $(document.body).on('added_to_cart', function() {
+                setTimeout(function(){
+                    if ( wiCartTotal > 0 ) {
+                        $('.ins-toggle-button').addClass( 'open' );
+                        $('.ins-container').addClass( 'panel-open' );
+                        $('html').addClass('ins-panel-open');
+                    } else {
+                        $('.ins-toggle-button').removeClass( 'hascart' );
+                        $('.ins-container').removeClass( 'hascart' );
+                    }
+                    // Update Cart on added to card
+                jQuery('[name="update_cart"]').trigger( 'click' );
+                },300);
+            });
+        }
 
     });
 
 })(jQuery);
-	
-	

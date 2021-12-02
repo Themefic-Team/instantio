@@ -14,7 +14,7 @@ function toggler_1() {
 			<?php instantio_svg_icon(insopt( 'cart-icon' )); ?>
 		<?php } ?>
 		
-		<span class="ins-items-count ins-position-right-top"><?php echo instantio_cart_count(); ?></span>
+		<span class="ins-items-count ins-position-right-top"><span class="ins_cart_total"><?php echo WC()->cart->get_cart_contents_count(); ?></span></span>
 	</div>
     
 <?php }
@@ -32,7 +32,7 @@ function toggler_2() {
 			<?php instantio_svg_icon(insopt( 'cart-icon' )); ?>
 		<?php } ?>
 		
-		<span class="ins-items-count"><?php echo instantio_cart_count(); ?></span>
+		<span class="ins-items-count"><span class="ins_cart_total"><?php echo WC()->cart->get_cart_contents_count(); ?></span></span>
 	</div>
     
 <?php } ?>

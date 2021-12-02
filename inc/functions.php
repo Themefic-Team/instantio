@@ -1,100 +1,96 @@
 <?php 
 defined( 'ABSPATH' ) || exit;
+$detect = new Mobile_Detect;
+$dedicated_mobile = !empty(insopt('mobile')) ? insopt('mobile') : '0';
 
 /**
- * Instantio Cart Fragments
+ * Add instantio class to body
  */
-if ( !function_exists('instantio_cart_fragments') ) {
-	function instantio_cart_fragments( $fragments ) {
-		global $woocommerce;
-
-		ob_start();
-		instantio_cart_count();
-		$fragments['span.ins_cart_total'] = ob_get_clean();
-
-		return $fragments;
-
-	}
-}
-add_filter( 'woocommerce_add_to_cart_fragments', 'instantio_cart_fragments', 10, 1 );
+add_filter( 'body_class', function( $classes ) {
+    return array_merge( $classes, array( 'instantio' ) );
+} );
 
 /**
- * Cart Count function
- * Ajax CSS JS
+ * Ajax cart item count
+ * Conditiional CSS
+ * Cart fragments
  */
-if ( ! function_exists( 'instantio_cart_count' ) ) {
-	function instantio_cart_count() {
-		$hide_toggler = insopt( 'hide-toggler' );
-		$cart_item_count = WC()->cart->get_cart_contents_count();
-?>
-
-		<span class="ins_cart_total">
-			
-			<?php if( $hide_toggler == true ) { 
-				if ($cart_item_count == 0) {
+if ($detect->isMobile() && !$detect->isTablet() && $dedicated_mobile == true) {} else {
+	if (!function_exists('ins_cart_fragments')){
+		function ins_cart_fragments($fragments) {
+			ob_start();
 			?>
-				<script>					
-					(function($) {
-						'use strict';
-						jQuery(document).ready(function() {
-							jQuery('.ins-container').addClass( 'nocart' );
-							$.fancybox.close();
-						});
-					})(jQuery);
+			<div class="ins-cart-fragments">
 
-				</script>
-				<script>
-				
-			</script>
-				<?php } else { ?>
-				<script>
-					jQuery('.ins-container').removeClass( 'nocart' );
-				</script>
-			<?php } 
-			} ?>
-			
-			<script type='text/javascript'>
-			/* <![CDATA[ */
-				var wiCartTotal = <?php echo WC()->cart->get_cart_contents_count(); ?>;
-			/* ]]> */
-			</script>
-			
-			<?php if ( WC()->cart->get_cart_contents_count() == 0 ) { ?>			
-								
-			<style type="text/css">
-				html.ins-panel-open, html.ins-panel-open body { overflow: auto; }					
-				.cart-content { display: none; }
-			</style>
-			
-			<?php } else { ?>
+				<?php
+				$cart_item_count = WC()->cart->get_cart_contents_count();
+				$hide_toggler = insopt( 'hide-toggler' );
+				?>
 
-			<script>
-				jQuery('.ins-container').removeClass( 'nocart' );
-			</script>
-				
-			<style type="text/css">
-				.cart-content { display: inherit; }
-				.empty-cart-content { display: none; }
-			</style>
-			
-			<?php } 
-			echo WC()->cart->get_cart_contents_count(); ?>
-		</span> 
-<?php
+				<script type='text/javascript'>
+					var wiCartTotal = <?php echo $cart_item_count; ?>;
+					jQuery('.ins_cart_total').html('<?php echo $cart_item_count; ?>');
+				</script>
+
+				<?php
+				// Hide toggler when cart count 0
+				if( $hide_toggler == true ) { 
+					if ($cart_item_count == 0) {
+					?>
+						<script>					
+							jQuery(document).ready(function() {
+								jQuery('.ins-container').addClass( 'nocart' );
+								jQuery.fancybox.close();
+							});
+						</script>
+					<?php 
+					} else { 
+					?>
+						<script>
+							jQuery('.ins-container').removeClass( 'nocart' );
+						</script>
+					<?php
+					} 
+				} 
+
+				if ( $cart_item_count == 0 ) {
+				?>												
+					<style type="text/css">
+						.cart-content {display:none !important;}
+					</style>				
+				<?php
+				} else {
+				?>
+					<script>
+						jQuery('.ins-container').removeClass( 'nocart' );
+					</script>				
+					<style type="text/css">
+						.empty-cart-content {display:none !important;}
+					</style>				
+				<?php 
+				}
+				?>
+
+			</div>
+			<?php
+			$fragments['.ins-cart-fragments'] = ob_get_clean();
+			return $fragments;
+		}
 	}
+	add_filter( 'woocommerce_add_to_cart_fragments', 'ins_cart_fragments', 10, 1 );
 }
 
 /**
- *	Instantio Ajax functions
+ *	Ajax variable products quick view
  */
-// variable product quick view ajax actions
+// actions
 add_action('wp_ajax_wi_variable_product_quick_view', 'instantio_ajax_quickview_variable_products');
 add_action('wp_ajax_nopriv_wi_variable_product_quick_view', 'instantio_ajax_quickview_variable_products');
 
-// variable product quick view ajax function
+// function
 function instantio_ajax_quickview_variable_products(){
 	global $post, $product, $woocommerce;
-	check_ajax_referer( 'wi_ajax_nonce', 'security' );
+	check_ajax_referer( 'ins_ajax_nonce', 'security' );
 
 	add_action( 'wcqv_product_data', 'woocommerce_template_single_add_to_cart');
 
@@ -122,11 +118,14 @@ function instantio_ajax_quickview_variable_products(){
 	wp_die();
 }
 
-// single product ajax add to cart actions
+/**
+ *	Ajax single product add to cart
+ */
+// actions
 add_action('wp_ajax_wi_single_ajax_add_to_cart', 'instantio_single_ajax_add_to_cart');
 add_action('wp_ajax_nopriv_wi_single_ajax_add_to_cart', 'instantio_single_ajax_add_to_cart');
 
-// single product ajax add to cart actions
+// function
 function instantio_single_ajax_add_to_cart() {
 
     $product_id = apply_filters('woocommerce_add_to_cart_product_id', absint($_POST['product_id']));
@@ -157,16 +156,14 @@ function instantio_single_ajax_add_to_cart() {
 }
 
 /*
- * Clear Cart
+ * Ajax clear cart
  */
-function ins_empty_cart_url() {
-    if ( isset( $_GET['empty-cart'] ) ) {
-        global $woocommerce;
-        $woocommerce->cart->empty_cart();
-		header('Location: '.$_SERVER['HTTP_REFERER']); exit;
-    }
+add_action( 'wp_ajax_insclearcart', 'insclearcartCallBack' );
+add_action( 'wp_ajax_nopriv_insclearcart', 'insclearcartCallBack' );
+function insclearcartCallBack() {
+    WC()->cart->empty_cart();
+    die();
 }
-add_action( 'init', 'ins_empty_cart_url' );
 
 /*
  * Buttons
@@ -176,12 +173,12 @@ if ( ! function_exists( 'cart_button' ) ) {
 	function cart_button() {
 		if (insopt( 'cart-btn' )['on-cart-btn'] == true) {
 			if (insopt( 'cart-btn' )['cart_button_text']){
-				$cart_text = insopt( 'cart-btn' )['cart_button_text'];
+				$cart_text = wp_strip_all_tags( __( insopt( 'cart-btn' )['cart_button_text'], 'instantio' ));
 			} else {
-				$cart_text = 'View Cart';
+				$cart_text = __( 'View Cart', 'instantio' );
 			}
 			if (insopt( 'cart-btn' )['cart_button_url']){
-				$cart_url = insopt( 'cart-btn' )['cart_button_url'];
+				$cart_url = esc_url(insopt( 'cart-btn' )['cart_button_url']); // PHPCS: XSS ok.
 			} else {
 				$cart_url = wc_get_cart_url();
 			}
@@ -196,12 +193,12 @@ if ( ! function_exists( 'checkout_button' ) ) {
 	function checkout_button() {
 		if (insopt( 'checkout-btn' )['on-checkout-btn'] == true) {
 			if (insopt( 'checkout-btn' )['checkout_button_text']){
-				$checkout_text = insopt( 'checkout-btn' )['checkout_button_text'];
+				$checkout_text = wp_strip_all_tags( __( insopt( 'checkout-btn' )['checkout_button_text'], 'instantio' ));
 			} else {
-				$checkout_text = 'Checkout Now';
+				$checkout_text = __( 'Checkout Now', 'instantio' );
 			}
 			if (insopt( 'checkout-btn' )['checkout_button_url']){
-				$checkout_url = insopt( 'checkout-btn' )['checkout_button_url'];
+				$checkout_url = esc_url(insopt( 'checkout-btn' )['checkout_button_url']); // PHPCS: XSS ok.
 			} else {
 				$checkout_url = wc_get_checkout_url();
 			}
@@ -216,15 +213,20 @@ if ( ! function_exists( 'checkout_button' ) ) {
  *	Including Layouts
  */
 
-if (file_exists( INS_LAYOUTS_PATH . '/toggler.php')) {
+if ($detect->isMobile() && !$detect->isTablet() && $dedicated_mobile == true) {
+	return;
+} else {
+
 	require_once( INS_LAYOUTS_PATH . '/toggler.php' );
+
+	if (insopt( 'ins-layout' ) == 1) {
+		require_once INS_LAYOUTS_PATH . '/layout-1/layout-1.php';
+	} elseif (insopt( 'ins-layout' ) == 2) {
+		require_once INS_LAYOUTS_PATH . '/layout-2/layout-2.php';
+	} elseif (insopt( 'ins-layout' ) == 3) {
+		require_once INS_LAYOUTS_PATH . '/layout-3/layout-3.php';
+	}
 }
 
-if ( file_exists( INS_LAYOUTS_PATH . '/layout-1/layout-1.php' ) && insopt( 'ins-layout' ) == 1 ) {
-	require_once INS_LAYOUTS_PATH . '/layout-1/layout-1.php';
-} elseif ( file_exists( INS_LAYOUTS_PATH . '/layout-2/layout-2.php' ) && insopt( 'ins-layout' ) == 2 ) {
-	require_once INS_LAYOUTS_PATH . '/layout-2/layout-2.php';
-} elseif ( file_exists( INS_LAYOUTS_PATH . '/layout-3/layout-3.php' ) && insopt( 'ins-layout' ) == 3 ) {
-	require_once INS_LAYOUTS_PATH . '/layout-3/layout-3.php';
-}
+
 ?>

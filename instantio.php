@@ -8,8 +8,8 @@
  * Domain Path: /lang/
  * Author URI: https://themefic.com
  * Tags: woocommerce, direct checkout, floating cart, side cart, ajax cart, cart popup, ajax add to cart, one page checkout, single page checkout, fly cart, mini cart, quick buy, instant checkout, quick checkout, same page checkout, sidebar cart, sticky cart, woocommerce ajax, one click checkout, woocommerce one page checkout, direct checkout woocommerce, woocommerce one click checkout, woocommerce quick checkout, woocommerce express checkout, woocommerce simple checkout, skip cart page woocommerce, woocommerce cart popup, edit woocommerce checkout page, woocommerce direct checkout
- * Version: 2.3
- * WC tested up to: 5.8
+ * Version: 2.4
+ * WC tested up to: 5.9
  */
  
 // don't load directly
@@ -17,7 +17,7 @@ defined( 'ABSPATH' ) || exit;
 
 // Define INSTANTIO_VERSION.
 if ( ! defined( 'INSTANTIO_VERSION' ) ) {
-	define( 'INSTANTIO_VERSION', '2.3' );
+	define( 'INSTANTIO_VERSION', '2.4' );
 }
 // INSTANTIO Defines
 define( 'INS_PATH', plugin_dir_path( __FILE__ ) );
@@ -25,6 +25,7 @@ define( 'INS_ADMIN_PATH', INS_PATH.'admin' );
 define( 'INS_INC_PATH', INS_PATH.'inc' );
 define( 'INS_LAYOUTS_PATH', INS_INC_PATH.'/layouts' );
 define( 'INS_URL', plugin_dir_url( __FILE__ ) );
+define( 'INS_INC_URL', INS_URL.'inc' );
 define( 'INS_LAYOUTS_URL', INS_URL.'inc/layouts' );
 define( 'INS_ASSETS_URL', INS_URL.'assets' );
 define( 'INS_ADMIN_URL', INS_URL.'admin' );
@@ -43,11 +44,10 @@ function ins_load_textdomain() {
 add_action( 'init', 'ins_load_textdomain' );
 
 /*
-
  * Plugins Loaded
  * Including Option Framework
  * Including Options
- * 
+ * Disable WooCommerce Notices
  */
 if ( ! function_exists( 'instantio_plugin_loaded_action' ) ) {
 	function instantio_plugin_loaded_action() {
@@ -63,6 +63,11 @@ if ( ! function_exists( 'instantio_plugin_loaded_action' ) ) {
 		} elseif ( file_exists( INS_ADMIN_PATH .'/config.php' ) ) {
 			require_once( INS_ADMIN_PATH .'/config.php' );
 		}
+
+		// Disable WooCommerce Notices
+		remove_action( 'woocommerce_before_shop_loop', 'woocommerce_output_all_notices', 10 );
+		remove_action( 'woocommerce_before_single_product', 'woocommerce_output_all_notices', 10 );
+		add_filter('woocommerce_cart_item_removed_notice_type', '__return_null');
 	}
 }
 add_action( 'plugins_loaded', 'instantio_plugin_loaded_action' );
@@ -77,16 +82,20 @@ if ( ! function_exists( 'insopt' ) ) {
 	}
 }
 
+// Mobile Detect
+if (!class_exists('Mobile_Detect')) {
+	require_once INS_INC_PATH . '/mobile-detect.php';
+}
 // Functions
-if ( file_exists( INS_INC_PATH . '/functions.php' ) && !defined( 'INSTANTIO_PRO_FUNCTIONS' ) ) {
+if (!defined( 'INSTANTIO_PRO_FUNCTIONS' )) {
 	require_once INS_INC_PATH . '/functions.php';
 }
 // SVG Icons
-if ( file_exists(INS_INC_PATH . '/svg-icons.php') && !defined( 'INSTANTIO_PRO_ICONS' )) {
+if (!defined( 'INSTANTIO_PRO_ICONS' )) {
 	require_once( INS_INC_PATH . '/svg-icons.php' );
 }
 // Styles & Scripts
-if ( file_exists( INS_INC_PATH . '/style-script.php' ) && !defined( 'INSTANTIO_PRO_SCRIPT' ) ) {
+if (!defined( 'INSTANTIO_PRO_SCRIPT' )) {
 	require_once INS_INC_PATH . '/style-script.php';
 }
 
@@ -192,50 +201,4 @@ function set_ins_dismiss() {
     update_option( 'ins-dismiss', true );
 }
 register_activation_hook(  plugin_dir_path( __FILE__ ) . 'instantio.php', 'set_ins_dismiss' );
-
-/**
- * Only for 2.3.0 version notice
- */
-function temp_230_notice () { 
-	$display_temp_230 = get_option( 'ins-temp-230', 't1' );
-	if ($display_temp_230 == 't1') { ?>
-
-		<div id="ins-temp-230" class="notice notice-warning is-dismissible">
-			<p style="color:red;"><strong>Important Notice from Instantio</strong></p>
-			<p>Thank you for updating Instantio to version 2.3.0. From this version, we have introduced a completely new option panel. Please make sure you do the following to avoid any issues:</p>
-			<ul>
-				<li>1. Go to <a href="<?php echo get_admin_url();?>admin.php?page=instantio_options">Instantio options</a> and click "Save" button.</li>
-				<li>2. Clear your browser cache (You can do so by click CTRL + F5 button)</li>
-			</ul>
-			<p>Thank you for using Instantio.</p>
-		</div>
-
-		<script>
-			jQuery(document).ready(function($) {
-				$(document).on('click', '#ins-temp-230 .notice-dismiss', function( event ) {
-					jQuery('#ins-temp-230').css('display', 'none')
-					data = {
-						action : 'disable_temp_230',
-					};
-
-					$.post(ajaxurl, data, function (response) {
-					});
-				});
-			});
-		</script>
-
-	<?php }
-}
-add_action( 'admin_notices', 'temp_230_notice' );
-
-function disable_temp_230() {
-	update_option( 'ins-temp-230', 't0' );
-	wp_die();
-}
-add_action( 'wp_ajax_disable_temp_230', 'disable_temp_230' );
-
-function set_temp_230() {
-    update_option( 'ins-temp-230', 't1' );
-}
-register_activation_hook(  plugin_dir_path( __FILE__ ) . 'instantio.php', 'set_temp_230' );
 ?>

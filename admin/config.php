@@ -9,11 +9,11 @@ if( class_exists( 'CSF' ) ) {
 
   // Create options
   CSF::createOptions( $prefix, array(
-    'framework_title' => 'Instantio Settings <small>by <a style="color: #555;text-decoration:none;" href="https://themefic.com" target="_blank">Themefic</a></small>',
+    'framework_title' => 'Instantio Settings <small>by <a style="color: #bfbfbf;text-decoration:none;" href="https://themefic.com" target="_blank">Themefic</a></small>',
     'menu_title' => 'Instantio',
     'menu_slug'  => 'instantio_options',
     'menu_icon'  => 'dashicons-cart',
-    'footer_credit' => '<em>Enjoyed <strong>Instantio</strong>? Please leave us a <a href="https://wordpress.org/support/plugin/instantio/reviews/?filter=5/#new-post" target="_blank">★★★★★</a> rating. We really appreciate your support!</em>',
+    'footer_credit' => '<em>Enjoyed <strong>Instantio</strong>? Please leave us a <a style="color:#e9570a;" href="https://wordpress.org/support/plugin/instantio/reviews/?filter=5/#new-post" target="_blank">★★★★★</a> rating. We really appreciate your support!</em>',
     'show_bar_menu' => false,
   ) );
 
@@ -47,6 +47,20 @@ if( class_exists( 'CSF' ) ) {
   */    
   if ( file_exists( dirname( __FILE__ ) . '/options/toggle-panel.php' ) ) {
     require_once dirname( __FILE__ ) . '/options/toggle-panel.php';
+  }
+
+  /*
+  * Including Others Options
+  */    
+  if ( file_exists( dirname( __FILE__ ) . '/options/others.php' ) ) {
+    require_once dirname( __FILE__ ) . '/options/others.php';
+  }
+
+  /*
+  * Including Mobile Options
+  */ 
+  if ( file_exists( dirname( __FILE__ ) . '/options/mobile.php' ) ) {
+    require_once dirname( __FILE__ ) . '/options/mobile.php';
   }
 
   /*

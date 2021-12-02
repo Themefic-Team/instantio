@@ -18,31 +18,25 @@ if ( !function_exists('fancybox_enqueue_scripts') ) {
 		
 	}
 }
-add_filter( 'wp_enqueue_scripts', 'fancybox_enqueue_scripts' );
+add_filter( 'wp_enqueue_scripts', 'fancybox_enqueue_scripts', 99 );
 
 if ( !function_exists('instantio_layout_3_enqueue_scripts') ) {
 	function instantio_layout_3_enqueue_scripts(){
 
 		wp_enqueue_style('instantio-layout-3', plugin_dir_url( __FILE__ ) . 'layout-3.css','', INSTANTIO_VERSION );
-		wp_enqueue_script( 'instantio-layout-3', plugin_dir_url( __FILE__ ) . 'layout-3.js', array('jquery'), INSTANTIO_VERSION, true );
 		
 	}
 }
-add_filter( 'wp_enqueue_scripts', 'instantio_layout_3_enqueue_scripts' );
+add_filter( 'wp_enqueue_scripts', 'instantio_layout_3_enqueue_scripts', 99999 );
 
 /**
  *	Layout 2 Content
  *
  */
 if ( !function_exists('instantio_layout_3') ) {
-	function instantio_layout_3( ){
-		global $wiopt;	
+	function instantio_layout_3( ){	
 
-		if ( is_checkout() ) {
-			return;
-		}
-	
-		if ( is_page('instantio-checkout') ) {
+		if (is_checkout()) {
 			return;
 		}
 		
@@ -60,11 +54,13 @@ if ( !function_exists('instantio_layout_3') ) {
 						
 			
 		</div>
-		<div id="ins-popup" class="ins-container ins-lay3-container" style="display: none;">
+		<div id="ins-popup" class="ins-container ins-popup ins-lay3-container" style="display: none;">
+			<div class="loader-container"><div class="db-spinner"></div></div>
+			<div class="loader-overlay"></div>
 			<div class="ins-inner">
-				<div class="ins-inner-container">
+				<div class="ins-inner-container ins-free-cart">
 					<div class="ins-header">
-						<h3><?php instantio_svg_icon('shopping-bag'); ?><?php esc_attr_e( 'Your Cart', 'instantio' ); ?></h3>
+						<h3><?php instantio_svg_icon('shopping-bag'); ?><?php _e( 'Your Cart', 'instantio' ); ?></h3>
 						
 						<div class="ins-my-auto">					                
 							<div class="cart-content">
@@ -75,19 +71,19 @@ if ( !function_exists('instantio_layout_3') ) {
 					<div class="ins-body">
 						<div class="ins-my-auto">
 							<div class="empty-cart-content">							
-								<h4><?php esc_attr_e( 'Your cart is empty', 'instantio' ); ?></h4>
+								<h4><?php _e( 'Your cart is empty', 'instantio' ); ?></h4>
 							</div>						                               
 						</div>				
 					</div>
 					<div class="ins-footer">
 						<div class="empty-cart-content">							
-							<a href="<?php echo wc_get_page_permalink( 'shop' ); ?>"><?php esc_attr_e( 'Continue Shopping', 'instantio' ); ?></a>
+							<a href="<?php echo wc_get_page_permalink( 'shop' ); ?>"><?php _e( 'Continue Shopping', 'instantio' ); ?></a>
 						</div>	
 						<div class="cart-content">
-							<div class="cart_totals"><p><?php esc_attr_e( 'Subtotal: ', 'instantio' ); ?><?php echo WC()->cart->get_cart_subtotal(); ?></p></div>
+							<div class="cart_totals"><p><?php _e( 'Subtotal: ', 'instantio' ); ?><?php echo WC()->cart->get_cart_subtotal(); ?></p></div>
 							<div class="footer-button">
 								<?php cart_button(); ?>
-								<?php checkout_button(); ?>							
+								<?php checkout_button(); ?>								
 							</div>	
 						</div>
 					</div>
@@ -95,7 +91,7 @@ if ( !function_exists('instantio_layout_3') ) {
 			</div>
 			
 		</div>
-		
+		<div class="ins-cart-fragments"></div>
 	<?php }
 }
 add_action( 'wp_footer', 'instantio_layout_3', 10 );

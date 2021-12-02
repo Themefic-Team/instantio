@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-27 12:12+0600\n"
+"POT-Creation-Date: 2021-12-01 16:20+0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,316 +17,63 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: instantio.php:103
+#: instantio.php:112
 msgid "Instantio requires WooCommerce to be activated. "
 msgstr ""
 
-#: instantio.php:103
+#: instantio.php:112
 msgid "Activate Now"
 msgstr ""
 
-#: instantio.php:109
+#: instantio.php:118
 msgid "Instantio requires WooCommerce to be installed & activated. "
 msgstr ""
 
-#: instantio.php:109
+#: instantio.php:118
 msgid "Install Now"
 msgstr ""
 
-#: instantio.php:137
+#: instantio.php:146
 msgid "Settings"
 msgstr ""
 
-#: instantio.php:142
+#: instantio.php:151
 msgid "GO PRO"
 msgstr ""
 
-#: admin/config.php:32
-msgid "Design"
+#: inc/functions.php:178
+msgid "View Cart"
 msgstr ""
 
-#: admin/options/general.php:6
-msgid "General"
+#: inc/functions.php:198
+msgid "Checkout Now"
 msgstr ""
 
-#: admin/options/general.php:12
-msgid "General Settings"
+#: inc/style-script.php:55
+msgid "Please fill all required fields."
 msgstr ""
 
-#: admin/options/general.php:18
-msgid "Select Layout"
+#: inc/style-script.php:56
+msgid "Please Enter valid email."
 msgstr ""
 
-#: admin/options/general.php:19
-msgid "Choose cart layout"
+#: inc/layouts/layout-1/layout-1.php:31
+msgid "View Checkout"
 msgstr ""
 
-#: admin/options/general.php:38 admin/options/toggler.php:5
-#: admin/options/toggler.php:10
-msgid "Toggler Design"
-msgstr ""
-
-#: admin/options/general.php:39
-msgid "Select toggler design"
-msgstr ""
-
-#: admin/options/general.php:51
-msgid "Cart Toggler Open on"
-msgstr ""
-
-#: admin/options/general.php:52
-msgid "Choose how cart toggler should open for direct checkout button"
-msgstr ""
-
-#: admin/options/general.php:65
-msgid "Enable/dsiable cart fly animation or change icon"
-msgstr ""
-
-#: admin/options/general.php:70
-msgid "Cart Fly Animation"
-msgstr ""
-
-#: admin/options/general.php:80
-msgid "Cart Fly Animation Icon"
-msgstr ""
-
-#: admin/options/general.php:95
-msgid "Show/hide or change cart button's text & url"
-msgstr ""
-
-#: admin/options/general.php:101
-msgid "Show Cart Button"
-msgstr ""
-
-#: admin/options/general.php:109
-msgid "Cart Button Text"
-msgstr ""
-
-#: admin/options/general.php:110
-msgid "Default: <code>View Cart</code>"
-msgstr ""
-
-#: admin/options/general.php:116
-msgid "Cart Button URL"
-msgstr ""
-
-#: admin/options/general.php:118
-msgid "Default: default cart page"
-msgstr ""
-
-#: admin/options/general.php:129
-msgid "Show/hide or change checkout button's text & url"
-msgstr ""
-
-#: admin/options/general.php:134
-msgid "Show Checkout Button"
-msgstr ""
-
-#: admin/options/general.php:144
-msgid "Checkout Button Text"
-msgstr ""
-
-#: admin/options/general.php:145
-msgid "Default: <code>Checkout Now</code>"
-msgstr ""
-
-#: admin/options/general.php:152
-msgid "Checkout Button URL"
-msgstr ""
-
-#: admin/options/general.php:154
-msgid "Default: default checkout page"
-msgstr ""
-
-#: admin/options/optimization.php:5
-msgid "Optimization"
-msgstr ""
-
-#: admin/options/optimization.php:12
-msgid "FancyBox CDN"
-msgstr ""
-
-#: admin/options/optimization.php:13
-msgid "Enable/disable cloudflare CDN for FancyBox CSS & JS"
-msgstr ""
-
-#: admin/options/optimization.php:25
-msgid "Minify CSS"
-msgstr ""
-
-#: admin/options/optimization.php:26
-msgid "Enable/disable Instantio CSS minification"
-msgstr ""
-
-#: admin/options/optimization.php:38
-msgid "Minify JS"
-msgstr ""
-
-#: admin/options/optimization.php:39
-msgid "Enable/disable Instantio JS minification"
-msgstr ""
-
-#: admin/options/toggle-panel.php:5 admin/options/toggle-panel.php:10
-msgid "Toggle Panel Design"
-msgstr ""
-
-#: admin/options/toggle-panel.php:16
-msgid "Toggle Panel Position"
-msgstr ""
-
-#: admin/options/toggle-panel.php:17
-msgid "Changes position of the Cart Toggle Panel"
-msgstr ""
-
-#: admin/options/toggle-panel.php:29
-msgid "Toggle Panel Background Colors"
-msgstr ""
-
-#: admin/options/toggle-panel.php:30
-msgid "Checkout button background regular & hover color"
-msgstr ""
-
-#: admin/options/toggle-panel.php:41
-msgid "Toggle Panel Border Colors"
-msgstr ""
-
-#: admin/options/toggle-panel.php:42
-msgid "Checkout button border regular & hover color"
-msgstr ""
-
-#: admin/options/toggle-panel.php:53
-msgid "Toggle Panel Text Colors"
-msgstr ""
-
-#: admin/options/toggle-panel.php:54
-msgid "Set regular & hover color of checkout text"
-msgstr ""
-
-#: admin/options/toggler.php:16
-msgid "Hide Toggler when No Cart Item"
-msgstr ""
-
-#: admin/options/toggler.php:17
-msgid "When there is no item in the cart hide toggler"
-msgstr ""
-
-#: admin/options/toggler.php:18
-msgid "Yes"
-msgstr ""
-
-#: admin/options/toggler.php:19
-msgid "No"
-msgstr ""
-
-#: admin/options/toggler.php:26
-msgid "Toggler Icon"
-msgstr ""
-
-#: admin/options/toggler.php:27
-msgid "Select cart icon which will appear in cart toggler"
-msgstr ""
-
-#: admin/options/toggler.php:42
-msgid "Toggler Horizontal Position"
-msgstr ""
-
-#: admin/options/toggler.php:43
-msgid "Changes position of the Cart Toggler horizontally"
-msgstr ""
-
-#: admin/options/toggler.php:54
-msgid "Toggler Vertical Position"
-msgstr ""
-
-#: admin/options/toggler.php:55
-msgid "Changes position of the Cart Toggler vertically"
-msgstr ""
-
-#: admin/options/toggler.php:68
-msgid "Toggler Background Colors"
-msgstr ""
-
-#: admin/options/toggler.php:69 admin/options/toggler.php:80
-msgid "Set regular & hover color"
-msgstr ""
-
-#: admin/options/toggler.php:79
-msgid "Toggler Border Colors"
-msgstr ""
-
-#: admin/options/toggler.php:90
-msgid "Toggler Icon Color"
-msgstr ""
-
-#: admin/options/toggler.php:91 admin/options/toggler.php:123
-msgid "Set regular & hover color of text & icon"
-msgstr ""
-
-#: admin/options/toggler.php:101
-msgid "Toggler Icon Size"
-msgstr ""
-
-#: admin/options/toggler.php:102
-msgid "Set width of the toggler icon"
-msgstr ""
-
-#: admin/options/toggler.php:103
-msgid "Default: 26px"
-msgstr ""
-
-#: admin/options/toggler.php:111
-msgid "Toggler Item Number Background"
-msgstr ""
-
-#: admin/options/toggler.php:112
-msgid "Set regular & hover background color"
-msgstr ""
-
-#: admin/options/toggler.php:122
-msgid "Toggler Item Number Color"
-msgstr ""
-
-#: admin/options/toggler.php:133
-msgid "Toggler Item Number Size"
-msgstr ""
-
-#: admin/options/toggler.php:134
-msgid "Set font size & line height of cart toggler text"
-msgstr ""
-
-#: admin/options/toggler.php:135
-msgid "Default: 14px"
-msgstr ""
-
-#: inc/style-script.php:73
-msgid ""
-"Sorry, no products matched your selection. Please choose a different "
-"combination."
-msgstr ""
-
-#: inc/style-script.php:74
-msgid ""
-"Please select some product options before adding this product to your cart."
-msgstr ""
-
-#: inc/style-script.php:75
-msgid ""
-"Sorry, this product is unavailable. Please choose a different combination."
-msgstr ""
-
-#: inc/layouts/layout-2/layout-2.php:48 inc/layouts/layout-3/layout-3.php:67
+#: inc/layouts/layout-2/layout-2.php:49 inc/layouts/layout-3/layout-3.php:63
 msgid "Your Cart"
 msgstr ""
 
-#: inc/layouts/layout-2/layout-2.php:59 inc/layouts/layout-3/layout-3.php:78
+#: inc/layouts/layout-2/layout-2.php:60 inc/layouts/layout-3/layout-3.php:74
 msgid "Your cart is empty"
 msgstr ""
 
-#: inc/layouts/layout-2/layout-2.php:65 inc/layouts/layout-3/layout-3.php:84
+#: inc/layouts/layout-2/layout-2.php:66 inc/layouts/layout-3/layout-3.php:80
 msgid "Continue Shopping"
 msgstr ""
 
-#: inc/layouts/layout-2/layout-2.php:68 inc/layouts/layout-3/layout-3.php:87
+#: inc/layouts/layout-2/layout-2.php:69 inc/layouts/layout-3/layout-3.php:83
 msgid "Subtotal: "
 msgstr ""
 
@@ -342,7 +89,7 @@ msgstr ""
 msgid "Quantity"
 msgstr ""
 
-#: inc/templates/cart.php:33 inc/templates/cart.php:118
+#: inc/templates/cart.php:33 inc/templates/cart.php:122
 msgid "Total"
 msgstr ""
 
@@ -354,10 +101,6 @@ msgstr ""
 msgid "Available on backorder"
 msgstr ""
 
-#: inc/templates/cart.php:134
+#: inc/templates/cart.php:138
 msgid "Empty Cart"
-msgstr ""
-
-#: inc/templates/cart.php:135
-msgid "Update cart"
 msgstr ""

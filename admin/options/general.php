@@ -29,7 +29,7 @@ CSF::createSection( $prefix, array(
         '5'   => 'Popup Cart + Checkout',
       ),
     ),
-    'default' => '4'
+    'default' => '2'
   ),
 
   array(
@@ -89,6 +89,17 @@ CSF::createSection( $prefix, array(
   ),
 
   array(
+    'id'       => 'auto-tog-panel',
+    'type'     => 'switcher',
+    'title'    => __('Auto Open Toggle Panel', 'instantio'),
+    'subtitle' => __('When an item is added to the cart automatically open the toggle panel', 'instantio'),
+    'text_on'    => 'Yes',
+    'text_off'   => 'No',
+    'default'   => false,
+    'dependency' => array('ins-layout', 'any', '2,4', 'all', 'visiable'),
+  ),
+
+  array(
     'id'     => 'cart-btn',
     'type'   => 'fieldset',
     'title'  => 'Cart Button',
@@ -135,7 +146,7 @@ CSF::createSection( $prefix, array(
         'text_on'  => 'Yes',
         'text_off' => 'No',
         'default'   => true,
-        'dependency' => array('ins-layout','not-any','1,4,5', 'all', 'visible'),	
+        'dependency' => array('ins-layout','!=','1', 'all', 'visible'),	
       ),
 
       array(
@@ -143,10 +154,7 @@ CSF::createSection( $prefix, array(
         'type'     => 'text',
         'title'    => __( 'Checkout Button Text', 'instantio' ),
         'desc'   => __( 'Default: <code>Checkout Now</code>', 'instantio' ),
-        'dependency' => array(
-			array( 'on-checkout-btn', '==','true', '', 'visible' ),
-			array( 'ins-layout',   'not-any','1,4,5', 'all', 'visible' ),
-		  ),	
+        'dependency' => array('on-checkout-btn','==','true', '', 'visible'),				
       ),
 
       array(
@@ -156,66 +164,116 @@ CSF::createSection( $prefix, array(
         'placeholder' => 'https://',
         'desc'   => __( 'Default: default checkout page', 'instantio' ),
         'validate' => 'csf_validate_url',
-        'dependency' => array(
-			array( 'on-checkout-btn', '==','true', '', 'visible' ),
-			array( 'ins-layout',   'not-any','1,4,5', 'all', 'visible' ),
-		  ),	
+        'dependency' => array('on-checkout-btn','==','true', '', 'visible'),
       ),
     ),
   ),
 
-    array(
-        'id'       => 'wi-window-type',
-        'type'     => 'button_set',
-        'title'    => __('Drawer Window Type', 'instantio'),
-        'subtitle' => __( 'Choose the function of Cart Drawer / Side Cart.', 'instantio' ),
-        'desc'   => __( 'Multistep: Cart-> Checkout; Single step: Cart+Checkout on same window', 'instantio' ),
-        'options' => array(
-            '0' => __( 'Multi Step', 'instantio' ),
-            '1' => __( 'Single Step', 'instantio' ),
-         ),
-        'default' => '0',
-        'help'     => __( 'Pro Feature', 'instantio' ),
-        'dependency' => array( '', '==', '', '', 'visible' ),
-    ),
 
-    array(
-        'id'       => 'wi-disable-quickview',
-        'type'     => 'switcher',
-        'title'    => __( 'Disable Quick View', 'instantio' ),
-        'subtitle' => __('You can disable it if you already have quick view function in your theme (Applicable for Variable products).', 'instantio'),
-        'text_on'  => 'Yes',
-        'text_off' => 'No',
-        'default'   => false,
-        'help'     => __( 'Pro Feature', 'instantio' ),
-		'dependency' => array( '', '==', '', '', 'visible' ),
-    ),
+  array(
+      'id'       => 'wi-window-type',
+      'type'     => 'button_set',
+      'title'    => __('Drawer Window Type', 'instantio'),
+      'subtitle' => __( 'Choose the function of Cart Drawer / Side Cart.', 'instantio' ),
+      'desc'   => __( 'Multistep: Cart-> Checkout; Single step: Cart+Checkout on same window', 'instantio' ),
+      'options' => array(
+          '0' => __( 'Multi Step', 'instantio' ),
+          '1' => __( 'Single Step', 'instantio' ),
+      ),
+      'default' => '0',
+      'help'     => __( 'Pro Feature', 'instantio' ),
+      'dependency' => array( '', '==', '', '', 'visible' ),
+  ),
 
-    array(
-        'id'       => 'wi-disable-ajax-add-cart',
-        'type'     => 'switcher',
-        'title'    => __( 'Disable Ajax Add to Cart', 'instantio' ),
-        'subtitle' => __('You can disable it if you already have ajax "add to cart" function in your theme (To avoid conflict).', 'instantio'),
-        'text_on'  => 'Yes',
-        'text_off' => 'No',
-        'default'   => false,
-        'help'     => __( 'Pro Feature', 'instantio' ),
-		'dependency' => array( '', '==', '', '', 'visible' ),
-    ),
+  array(
+      'id'       => 'wi-disable-quickview',
+      'type'     => 'switcher',
+      'title'    => __( 'Disable Quick View', 'instantio' ),
+      'subtitle' => __('You can disable it if you already have quick view function in your theme (Applicable for Variable products).', 'instantio'),
+      'text_on'  => 'Yes',
+      'text_off' => 'No',
+      'default'   => false,
+      'help'     => __( 'Pro Feature', 'instantio' ),
+      'dependency' => array( '', '==', '', '', 'visible' ),
+  ),
 
-    array(
-        'id'       => 'wi-active-window',
-        'type'     => 'button_set',
-        'title'    => __('Choose Active Window', 'instantio'),
-        'subtitle' => __( 'Cart or Checkout, which one should be seen when customers open the "Side Cart', 'instantio' ),
-        'options' => array(
-            '0' => __( 'Cart', 'instantio' ),
-            '1' => __( 'Checkout', 'instantio' ),
-         ),
-        'default' => '0',
-        'help'     => __( 'Pro Feature', 'instantio' ),
-        'dependency' => array( '', '==', '', '', 'visible' ),
-    ),
+  array(
+      'id'       => 'wi-disable-ajax-add-cart',
+      'type'     => 'switcher',
+      'title'    => __( 'Disable Ajax Add to Cart', 'instantio' ),
+      'subtitle' => __('You can disable it if you already have ajax "add to cart" function in your theme (To avoid conflict).', 'instantio'),
+      'text_on'  => 'Yes',
+      'text_off' => 'No',
+      'default'   => false,
+      'help'     => __( 'Pro Feature', 'instantio' ),
+      'dependency' => array( '', '==', '', '', 'visible' ),
+  ),
+
+  array(
+      'id'       => 'wi-active-window',
+      'type'     => 'button_set',
+      'title'    => __('Choose Active Window', 'instantio'),
+      'subtitle' => __( 'Cart or Checkout, which one should be seen when customers open the "Side Cart', 'instantio' ),
+      'options' => array(
+          '0' => __( 'Cart', 'instantio' ),
+          '1' => __( 'Checkout', 'instantio' ),
+      ),
+      'default' => '0',
+      'help'     => __( 'Pro Feature', 'instantio' ),
+      'dependency' => array(
+        array( 'ins-layout', 'any', '4,5' ),
+        array( 'wi-window-type',   '==', '0' ),
+      ),
+      'dependency' => array( '', '==', '', '', 'visible' ),
+  ),
+
+  array(
+    'id'       => 'upsell',
+    'type'     => 'switcher',
+    'title'    => __('Upsells in Cart', 'instantio'),
+    'subtitle' => __('Enable/disable upsells items in cart', 'instantio'),
+    'text_on'    => 'Enabled',
+    'text_off'   => 'Disabled',
+    'text_width' => 100,
+    'default'   => true,
+    'help'  => 'Pro Feature',
+    'dependency' => array( '', '==', '', '', 'visible' ),
+  ),
+
+  array(
+    'id'      => 'upsell-heading',
+    'type'    => 'text',
+    'title'   => __('Upsell Heading', 'instantio'),
+    'subtitle' => __('The text shown before upsell items', 'instantio'),
+    'desc'    => __('Default: Hang on! We have this offer just for you!', 'instantio'),
+    'placeholder' => __('Hang on! We have this offer just for you!', 'instantio'),
+    'help'  => 'Pro Feature',
+    'dependency' => array( '', '==', '', '', 'visible' ),
+  ),
+
+  array(
+    'id'       => 'crosssell',
+    'type'     => 'switcher',
+    'title'    => __('Cross Sells in Checkout', 'instantio'),
+    'subtitle' => __('Enable/disable cross sell items in checkout', 'instantio'),
+    'text_on'    => 'Enabled',
+    'text_off'   => 'Disabled',
+    'text_width' => 100,
+    'default'   => true,
+    'help'  => 'Pro Feature',
+    'dependency' => array( '', '==', '', '', 'visible' ),
+  ),
+
+  array(
+    'id'      => 'crosssell-heading',
+    'type'    => 'text',
+    'title'   => __('Cross Sell Heading', 'instantio'),
+    'subtitle' => __('The text shown before cross sell items', 'instantio'),
+    'desc'    => __('Default: You may be interested in…', 'instantio'),
+    'placeholder' => __('You may be interested in…', 'instantio'),
+    'help'  => 'Pro Feature',
+    'dependency' => array( '', '==', '', '', 'visible' ),
+  ),
 
 ),
 ) );

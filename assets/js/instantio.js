@@ -1,6 +1,31 @@
 (function($) {
 	'use strict';
 	jQuery(document).ready(function() {
+
+		/*
+		* Ajax loader
+		*/
+		//Show when items remove from cart
+		$(document).on('click', '.ins-container .product-remove .remove', function() {
+            $('.loader-container-fixed, .loader-container').css('display', 'inherit');
+            $('.loader-overlay-fixed, .loader-overlay').css('display', 'inherit');
+        });
+
+		/*
+		* Get ins-inner panel width when open
+		* Assign this width to ajax loader
+		*/
+		var ins_inner = jQuery(".ins-inner").width();
+		$(document).on('click', '#ins-toggle-button, .added_to_cart, #ins-close', function(e) {
+            e.preventDefault();         
+			$('.loader-overlay-fixed').css({ 'width': ins_inner + 32 });
+			$('.loader-container-fixed').css({ 'width': ins_inner });
+		});
+
+		$(document.body).on('added_to_cart', function() {	
+			$('.loader-overlay-fixed').css({ 'width': ins_inner + 32 });
+			$('.loader-container-fixed').css({ 'width': ins_inner });
+		});
 		
 		/* 
 		 * Ajax Quick View
@@ -24,10 +49,10 @@
 				})
 				$.ajax({
 					type: 'post',
-					url: instantio_ajax_params.wi_ajax_url,
+					url: ins_ajax_params.ins_ajax_url,
 					data: {
 						action: 'wi_variable_product_quick_view',
-						security: instantio_ajax_params.wi_ajax_nonce,
+						security: ins_ajax_params.ins_ajax_nonce,
 						product_id: product_id,
 					},
 					beforeSend: function(data) {
@@ -47,102 +72,104 @@
 		/* 
 		 * Add To Cart Fly Effect
 		 */
-		if (cartFlyanim == 'on') {
-			if(cartFlyicon == 'toggler') {
-				$(document).on('click', '.add_to_cart_button:not(.product_type_variable), .single_add_to_cart_button:not(.disabled)', function() {
-					$('body').append('<div id="ins-cart-fly">' + instantio_ajax_params.cart_icon + '</div>');
-					var endPos = $("#ins-toggle-button").offset();
-					var startPos = $(this).offset();
-					$('#ins-cart-fly').css({
-						'top': startPos.top + 'px',
-						'left': startPos.left + 'px'
-					}).animate({
-						opacity: 1,
-						top: endPos.top,
-						left: endPos.left
-					}, 1500, function() {
-						$('.cartboom').addClass('cart_boom');
-						setTimeout(function() {
-							$('.cartboom').removeClass('cart_boom');
-						}, 2200);
-						$(this).css({
-							'opacity': '0',
-							'z-index': '0'
+		if (cartflymob == 'yes') {
+			if (cartFlyanim == 'on') {
+				if(cartFlyicon == 'toggler') {
+					$(document).on('click', '.add_to_cart_button:not(.product_type_variable, .no-fly), .single_add_to_cart_button:not(.disabled)', function() {
+						$('body').append('<div id="ins-cart-fly">' + ins_ajax_params.cart_icon + '</div>');
+						var endPos = $("#ins-toggle-button").offset();
+						var startPos = $(this).offset();
+						$('#ins-cart-fly').css({
+							'top': startPos.top + 'px',
+							'left': startPos.left + 'px'
+						}).animate({
+							opacity: 1,
+							top: endPos.top,
+							left: endPos.left
+						}, 1500, function() {
+							$('.cartboom').addClass('cart_boom');
+							setTimeout(function() {
+								$('.cartboom').removeClass('cart_boom');
+							}, 2200);
+							$(this).css({
+								'opacity': '0',
+								'z-index': '0'
+							});
+							$(this).detach();
 						});
-						$(this).detach();
 					});
-				});
-			}
+				}
 
-			if(cartFlyicon == 'thumb') {
-				// Archive Product
-				$(document).on('click', '.add_to_cart_button:not(.product_type_variable)', function() {
-					var productThumb = $(this).parents('.has-post-thumbnail').find('.woocommerce-LoopProduct-link').find('img').attr('src');
-					var startPos = $(this).parents('.has-post-thumbnail').find('.woocommerce-LoopProduct-link').find('img').offset();
-					var productThumbwidth = $(this).parents('.has-post-thumbnail').find('.woocommerce-LoopProduct-link').find('img').width();
+				if(cartFlyicon == 'thumb') {
+					// Archive Product
+					$(document).on('click', '.add_to_cart_button:not(.product_type_variable, .no-fly)', function() {
+						var productThumb = $(this).closest('.product').find('img').attr('src');
+						var startPos = $(this).closest('.product').find('img').offset();
+						var productThumbwidth = $(this).closest('.product').find('img').width();
 
-					$('body').append('<div id="ins-cart-fly"><img src="' + productThumb + '"></div>');
-					var endPos = $("#ins-toggle-button").offset();
-					$('#ins-cart-fly').css({
-						'top': startPos.top + 'px',
-						'left': startPos.left + 'px',
-						'width': productThumbwidth + 'px',
-					}).animate({
-						opacity: 1,
-						top: endPos.top,
-						left: endPos.left,
-						'width': '50px',
-						'height': 'auto',
-					}, 1500, 'linear', function() {
-						$('.cartboom').addClass('cart_boom');
-						setTimeout(function() {
-							$('.cartboom').removeClass('cart_boom');
-						}, 2200);
-						$(this).css({
-							'opacity': '0',
-							'z-index': '0'
+						$('body').append('<div id="ins-cart-fly"><img src="' + productThumb + '"></div>');
+						var endPos = $("#ins-toggle-button").offset();
+						$('#ins-cart-fly').css({
+							'top': startPos.top + 'px',
+							'left': startPos.left + 'px',
+							'width': productThumbwidth + 'px',
+						}).animate({
+							opacity: 1,
+							top: endPos.top,
+							left: endPos.left,
+							'width': '50px',
+							'height': 'auto',
+						}, 1500, 'linear', function() {
+							$('.cartboom').addClass('cart_boom');
+							setTimeout(function() {
+								$('.cartboom').removeClass('cart_boom');
+							}, 2200);
+							$(this).css({
+								'opacity': '0',
+								'z-index': '0'
+							});
+							$(this).detach();
 						});
-						$(this).detach();
 					});
-				});
 
-				// Single & quick view product
-				$(document).on('click', '.single_add_to_cart_button:not(.disabled)', function() {
-					if($(this).parents('.has-post-thumbnail').find('.woocommerce-product-gallery__image').find('img').attr('src')) {
-						var productThumb = $(this).parents('.has-post-thumbnail').find('.woocommerce-product-gallery__image').find('img').attr('src');
-						var startPos = $(this).parents('.has-post-thumbnail').find('.woocommerce-product-gallery__image').find('img').offset();
-						var productThumbwidth = $(this).parents('.has-post-thumbnail').find('.woocommerce-product-gallery__image').width();
-					} else {
-						var productId = $(this).parents('.woocommerce-variation-add-to-cart').find('input[name="add-to-cart"]').attr("value");
-						var productThumb = $(this).parents().find('.post-'+productId).find('.woocommerce-LoopProduct-link').find('img').attr('src');
-						var startPos = $(this).parents().find('.post-'+productId).find('.woocommerce-LoopProduct-link').find('img').offset();
-						var productThumbwidth = $(this).parents().find('.post-'+productId).find('.woocommerce-LoopProduct-link').find('img').width();
-					}
-					$('body').append('<div id="ins-cart-fly"><img src="' + productThumb + '"></div>');
-					var endPos = $("#ins-toggle-button").offset();
-					$('#ins-cart-fly').css({
-						'top': startPos.top + 'px',
-						'left': startPos.left + 'px',
-						'width': productThumbwidth + 'px',
-					}).animate({
-						opacity: 1,
-						top: endPos.top,
-						left: endPos.left,
-						'width': '50px',
-						'height': 'auto',
-					}, 1500, 'linear', function() {
-						$('.cartboom').addClass('cart_boom');
-						setTimeout(function() {
-							$('.cartboom').removeClass('cart_boom');
-						}, 2200);
-						$(this).css({
-							'opacity': '0',
-							'z-index': '0'
+					// Single & quick view product
+					$(document).on('click', '.single_add_to_cart_button:not(.disabled)', function() {
+						if($(this).parents('.has-post-thumbnail').find('.woocommerce-product-gallery__image').find('img').attr('src')) {
+							var productThumb = $(this).parents('.has-post-thumbnail').find('.woocommerce-product-gallery__image').find('img').attr('src');
+							var startPos = $(this).parents('.has-post-thumbnail').find('.woocommerce-product-gallery__image').find('img').offset();
+							var productThumbwidth = $(this).parents('.has-post-thumbnail').find('.woocommerce-product-gallery__image').width();
+						} else {
+							var productId = $(this).parents('.woocommerce-variation-add-to-cart').find('input[name="add-to-cart"]').attr("value");
+							var productThumb = $(this).parents().find('.post-'+productId).find('.woocommerce-LoopProduct-link').find('img').attr('src');
+							var startPos = $(this).parents().find('.post-'+productId).find('.woocommerce-LoopProduct-link').find('img').offset();
+							var productThumbwidth = $(this).parents().find('.post-'+productId).find('.woocommerce-LoopProduct-link').find('img').width();
+						}
+						$('body').append('<div id="ins-cart-fly"><img src="' + productThumb + '"></div>');
+						var endPos = $("#ins-toggle-button").offset();
+						$('#ins-cart-fly').css({
+							'top': startPos.top + 'px',
+							'left': startPos.left + 'px',
+							'width': productThumbwidth + 'px',
+						}).animate({
+							opacity: 1,
+							top: endPos.top,
+							left: endPos.left,
+							'width': '50px',
+							'height': 'auto',
+						}, 1500, 'linear', function() {
+							$('.cartboom').addClass('cart_boom');
+							setTimeout(function() {
+								$('.cartboom').removeClass('cart_boom');
+							}, 2200);
+							$(this).css({
+								'opacity': '0',
+								'z-index': '0'
+							});
+							$(this).detach();
 						});
-						$(this).detach();
 					});
-				});
 
+				}
 			}
 		}
 		/*
@@ -167,7 +194,7 @@
 				$(document.body).trigger('adding_to_cart', [thisbutton, data]);
 				$.ajax({
 					type: 'post',
-					url: instantio_ajax_params.wi_ajax_url,
+					url: ins_ajax_params.ins_ajax_url,
 					data: data,
 					beforeSend: function(response) {
 						thisbutton.removeClass('added').addClass('loading');
@@ -188,5 +215,119 @@
 			});
 		}
 
+		/*
+        * Cart quantity change button
+        */
+		if ( ! String.prototype.getDecimals ) {
+            String.prototype.getDecimals = function() {
+                var num = this,
+                    match = ('' + num).match(/(?:\.(\d+))?(?:[eE]([+-]?\d+))?$/);
+                if ( ! match ) {
+                    return 0;
+                }
+                return Math.max( 0, ( match[1] ? match[1].length : 0 ) - ( match[2] ? +match[2] : 0 ) );
+            }
+        }
+        
+        $( document ).on( 'click', '.ins-plus, .ins-minus', function() {
+            // Get values
+            var $qty		= $( this ).closest( '.product-quantity' ).find( '.qty'),
+                currentVal	= parseFloat( $qty.val() ),
+                max			= parseFloat( $qty.attr( 'max' ) ),
+                min			= parseFloat( $qty.attr( 'min' ) ),
+                step		= $qty.attr( 'step' );
+    
+            // Format values
+            if ( ! currentVal || currentVal === '' || currentVal === 'NaN' ) currentVal = 0;
+            if ( max === '' || max === 'NaN' ) max = '';
+            if ( min === '' || min === 'NaN' ) min = 0;
+            if ( step === 'any' || step === '' || step === undefined || parseFloat( step ) === 'NaN' ) step = 1;
+    
+            // Change the value
+            if ( $( this ).is( '.ins-plus' ) ) {
+                if ( max && ( currentVal >= max ) ) {
+                    $qty.val( max );
+                } else {
+                    $qty.val( ( currentVal + parseFloat( step )).toFixed( step.getDecimals() ) );
+                }
+            } else {
+                if ( min && ( currentVal <= min ) ) {
+                    $qty.val( min );
+                } else if ( currentVal > 0 ) {
+                    $qty.val( ( currentVal - parseFloat( step )).toFixed( step.getDecimals() ) );
+                }
+            }
+    
+            // Trigger change event
+            $qty.trigger( 'change' );
+        });
+
+		/*
+        * Ajax update cart when quantity change
+		* Show ajax loader when quantity change
+        */
+        var timeout;
+	    $('.ins-container').on('change', 'input.qty', function(){
+
+			// Show ajax loader
+			jQuery('.loader-container-fixed, .loader-container').css('display', 'inherit');
+            jQuery('.loader-overlay-fixed, .loader-overlay').css('display', 'inherit');
+
+            if ( timeout !== undefined ) {
+                clearTimeout( timeout );
+            }
+
+            timeout = setTimeout(function() {
+                $("[name='update_cart']").trigger("click");
+            }, 1000 ); // 1 second delay, half a second (500) seems comfortable too
+	    });	
+		
+		/*
+		 * Update_cart_totals js event
+		 * Remove duplicate cart when update cart total JS
+		 * Hide ajax loader
+		 */
+        $(document.body).on('updated_cart_totals', function() {
+			// Remove duplicate cart
+            jQuery('.woocommerce-cart-form:not(:last)').remove();
+            jQuery('.cart_totals:not(:last)').remove();
+			// Hide ajax loader
+			jQuery('.loader-container-fixed, .loader-container').css('display', 'none');
+            jQuery('.loader-overlay-fixed, .loader-overlay').css('display', 'none');
+        });
+
+		/*
+		* For Layout 3, 5
+		* Open popup
+		*/
+		$(document).on('click', '.added_to_cart', function(e) {
+            e.preventDefault();			
+			if( jQuery('.ins-container').hasClass('ins-popup') ) {
+				$.fancybox.open( $('#ins-popup'));
+			}			
+        });
+
 	});
+	
 })(jQuery);
+
+/*
+* Ajax empty cart
+* Show ajax loader when empty cart
+*/
+function insClearCart() {
+	
+	// Ajax loader
+	jQuery('.loader-container-fixed, .loader-container').css('display', 'inherit');
+    jQuery('.loader-overlay-fixed, .loader-overlay').css('display', 'inherit');
+
+	jQuery.post(ins_ajax_params.ins_ajax_url, {"action": "insclearcart"},
+		function(){
+			jQuery(document.body).trigger('wc_fragment_refresh');
+		}				
+	).always(function() {
+		jQuery('.loader-container-fixed, .loader-container').css('display', 'none');
+        jQuery('.loader-overlay-fixed, .loader-overlay').css('display', 'none');
+	});
+}
+
