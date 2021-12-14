@@ -36,8 +36,15 @@ add_filter( 'wp_enqueue_scripts', 'instantio_layout_3_enqueue_scripts', 99999 );
 if ( !function_exists('instantio_layout_3') ) {
 	function instantio_layout_3( ){	
 
-		if (is_checkout()) {
-			return;
+		// Return if WooCommerce not active
+		if ( !class_exists( 'woocommerce' ) ) {
+    		return;
+		}
+		
+		if ( class_exists( 'woocommerce' ) ) {
+    		if (is_checkout()) {
+    			return;
+    		}
 		}
 		
 		$toggle_panel_position = insopt( 'toggle-panel-position' );

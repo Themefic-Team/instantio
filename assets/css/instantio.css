@@ -86,6 +86,13 @@
     top: 0;
     z-index: 999999;
 }
+.ins-container.ins-lay2-container.ins-position-left .loader-container-fixed,
+.ins-container.ins-lay2-container.ins-position-left .loader-overlay-fixed,
+.ins-container.ins-lay4-container.ins-position-left .loader-container-fixed,
+.ins-container.ins-lay4-container.ins-position-left .loader-overlay-fixed{
+	right: unset !important;
+	left: 0 !important;
+}
 
 /* 
 *

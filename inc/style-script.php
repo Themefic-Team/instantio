@@ -1,13 +1,17 @@
 <?php
 defined( 'ABSPATH' ) || exit;
+$detect = new Mobile_Detect;
+$dedicated_mobile = !empty(insopt('mobile')) ? insopt('mobile') : '0';
 
 /**
  *	Dequeue scripts
  */
 if ( !function_exists('ins_dequeue_scripts') ) {
 	function ins_dequeue_scripts() {
-		wp_dequeue_style( 'woocommerce-smallscreen' );
-		wp_deregister_style( 'woocommerce-smallscreen' );
+		if ( class_exists( 'woocommerce' ) ) {
+			wp_dequeue_style( 'woocommerce-smallscreen' );
+			wp_deregister_style( 'woocommerce-smallscreen' );
+		}
 	} 
 }
 add_action( 'wp_enqueue_scripts', 'ins_dequeue_scripts', 999 );
@@ -35,7 +39,7 @@ if ( !function_exists('instantio_enqueue_scripts') ) {
 		$minjs = insopt( 'js-min' ) ? '.min' : '';
 
 		// Modified Woo small screen CSS
-		wp_enqueue_style('woocommerce-smallscreen', INS_INC_URL . '/woocommerce/css/woocommerce-smallscreen.css','', WC_VERSION, 'only screen and (max-width: 768px)' );
+		wp_enqueue_style('woocommerce-smallscreen', INS_INC_URL . '/woocommerce/css/woocommerce-smallscreen.css','', INSTANTIO_VERSION, 'only screen and (max-width: 768px)' );
 		
 		// Instantio CSS
 		wp_enqueue_style( 'instantio-common-styles', INS_ASSETS_URL . '/css/instantio' . $mincss . '.css', '', INSTANTIO_VERSION );
@@ -104,9 +108,11 @@ if ($detect->isMobile() && !$detect->isTablet() && $dedicated_mobile == true) {}
 			$output = '';
 
 			// Common CSS
-			if( $hide_toggler != true && WC()->cart->get_cart_contents_count() == 0 ) { $output .= '
-				.ins-container {visibility: visible !important;}
-			'; }
+			if ( class_exists( 'woocommerce' ) ) {
+    			if( $hide_toggler != true && WC()->cart->get_cart_contents_count() == 0 ) { $output .= '
+    				.ins-container {visibility: visible !important;}
+    			'; }
+			}
 			if( $show_checkout_btn != true || $show_cart_btn != true) { $output .= '
 				.ins-footer .footer-button {grid-template-columns: auto !important;}
 			'; }

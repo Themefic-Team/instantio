@@ -8,7 +8,7 @@
  * Domain Path: /lang/
  * Author URI: https://themefic.com
  * Tags: woocommerce, direct checkout, floating cart, side cart, ajax cart, cart popup, ajax add to cart, one page checkout, single page checkout, fly cart, mini cart, quick buy, instant checkout, quick checkout, same page checkout, sidebar cart, sticky cart, woocommerce ajax, one click checkout, woocommerce one page checkout, direct checkout woocommerce, woocommerce one click checkout, woocommerce quick checkout, woocommerce express checkout, woocommerce simple checkout, skip cart page woocommerce, woocommerce cart popup, edit woocommerce checkout page, woocommerce direct checkout
- * Version: 2.4
+ * Version: 2.4.2
  * WC tested up to: 5.9
  */
  
@@ -17,7 +17,7 @@ defined( 'ABSPATH' ) || exit;
 
 // Define INSTANTIO_VERSION.
 if ( ! defined( 'INSTANTIO_VERSION' ) ) {
-	define( 'INSTANTIO_VERSION', '2.4' );
+	define( 'INSTANTIO_VERSION', '2.4.2' );
 }
 // INSTANTIO Defines
 define( 'INS_PATH', plugin_dir_path( __FILE__ ) );
@@ -65,9 +65,11 @@ if ( ! function_exists( 'instantio_plugin_loaded_action' ) ) {
 		}
 
 		// Disable WooCommerce Notices
-		remove_action( 'woocommerce_before_shop_loop', 'woocommerce_output_all_notices', 10 );
-		remove_action( 'woocommerce_before_single_product', 'woocommerce_output_all_notices', 10 );
-		add_filter('woocommerce_cart_item_removed_notice_type', '__return_null');
+		if ( class_exists( 'woocommerce' ) ) {
+			remove_action( 'woocommerce_before_shop_loop', 'woocommerce_output_all_notices', 10 );
+			remove_action( 'woocommerce_before_single_product', 'woocommerce_output_all_notices', 10 );
+			add_filter('woocommerce_cart_item_removed_notice_type', '__return_null');
+		}
 	}
 }
 add_action( 'plugins_loaded', 'instantio_plugin_loaded_action' );
@@ -87,8 +89,10 @@ if (!class_exists('Mobile_Detect')) {
 	require_once INS_INC_PATH . '/mobile-detect.php';
 }
 // Functions
-if (!defined( 'INSTANTIO_PRO_FUNCTIONS' )) {
-	require_once INS_INC_PATH . '/functions.php';
+if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ){
+	if (!defined( 'INSTANTIO_PRO_FUNCTIONS' )) {
+		require_once INS_INC_PATH . '/functions.php';
+	}
 }
 // SVG Icons
 if (!defined( 'INSTANTIO_PRO_ICONS' )) {
