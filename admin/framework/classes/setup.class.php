@@ -459,7 +459,7 @@ if ( ! class_exists( 'CSF' ) ) {
 
     // Setup textdomain
     public static function textdomain() {
-      load_textdomain( 'csf', self::$dir .'/languages/'. get_locale() .'.mo' );
+      load_plugin_textdomain( 'instantio', false, 'instantio/lang/' );
     }
 
     // Set all of used fields

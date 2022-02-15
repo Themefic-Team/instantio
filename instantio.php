@@ -8,46 +8,97 @@
  * Domain Path: /lang/
  * Author URI: https://themefic.com
  * Tags: woocommerce, direct checkout, floating cart, side cart, ajax cart, cart popup, ajax add to cart, one page checkout, single page checkout, fly cart, mini cart, quick buy, instant checkout, quick checkout, same page checkout, sidebar cart, sticky cart, woocommerce ajax, one click checkout, woocommerce one page checkout, direct checkout woocommerce, woocommerce one click checkout, woocommerce quick checkout, woocommerce express checkout, woocommerce simple checkout, skip cart page woocommerce, woocommerce cart popup, edit woocommerce checkout page, woocommerce direct checkout
- * Version: 2.3
- * WC tested up to: 5.8
+ * Version: 2.4.7
+ * Tested up to: 5.9
+ * Requires PHP: 7.1
+ * WC tested up to: 6.1.1
  */
  
 // don't load directly
 defined( 'ABSPATH' ) || exit;
 
-// Define INSTANTIO_VERSION.
-if ( ! defined( 'INSTANTIO_VERSION' ) ) {
-	define( 'INSTANTIO_VERSION', '2.3' );
-}
-// INSTANTIO Defines
+/**
+ * Including Plugin file
+ * 
+ * @since 1.0
+ */
+include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+
+/**
+ * Instantio All the Defines
+ *
+ * @since 1.0
+ */
+// URLs
+define( 'INS_URL', plugin_dir_url( __FILE__ ) );
+define( 'INS_INC_URL', INS_URL.'inc' );
+define( 'INS_LAYOUTS_URL', INS_URL.'inc/layouts' );
+define( 'INS_ASSETS_URL', INS_URL.'assets' );
+define( 'INS_ADMIN_URL', INS_URL.'admin' );
+// Paths
 define( 'INS_PATH', plugin_dir_path( __FILE__ ) );
 define( 'INS_ADMIN_PATH', INS_PATH.'admin' );
 define( 'INS_INC_PATH', INS_PATH.'inc' );
 define( 'INS_LAYOUTS_PATH', INS_INC_PATH.'/layouts' );
-define( 'INS_URL', plugin_dir_url( __FILE__ ) );
-define( 'INS_LAYOUTS_URL', INS_URL.'inc/layouts' );
-define( 'INS_ASSETS_URL', INS_URL.'assets' );
-define( 'INS_ADMIN_URL', INS_URL.'admin' );
 
 /**
- * Including Plugin file for security
+ * Enqueue Admin scripts
+ * 
+ * @since 1.0
  */
-include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+if ( !function_exists('ins_enqueue_admin_scripts') ) {
+    function ins_enqueue_admin_scripts(){
+
+        // Custom
+		wp_enqueue_style('ins-admin', INS_ADMIN_URL . '/css/admin.css','', '' );
+		wp_enqueue_script( 'ins-admin', INS_ADMIN_URL . '/js/admin.js', array('jquery'), '', true );  
+        wp_localize_script( 'ins-admin', 'ins_params',
+            array(
+                'ins_nonce' => wp_create_nonce( 'updates' ),
+                'ajax_url' => admin_url( 'admin-ajax.php' ),
+            )
+        );    
+    }
+    add_action( 'admin_enqueue_scripts', 'ins_enqueue_admin_scripts' );
+}
+
+/**
+ * Check if WooCommerce is active, and if it isn't, disable the plugin.
+ *
+ * @since 1.0
+ */
+if ( !is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
+	add_action( 'admin_notices', 'ins_is_woo' );
+
+	/**
+     * Ajax install & activate WooCommerce
+     *
+     * @since 1.0
+     * @link https://developer.wordpress.org/reference/functions/wp_ajax_install_plugin/
+     */
+    add_action("wp_ajax_ins_ajax_install_plugin" , "wp_ajax_install_plugin");
+
+	return;
+}
+
+// Define INSTANTIO_VERSION.
+if ( ! defined( 'INSTANTIO_VERSION' ) ) {
+	define( 'INSTANTIO_VERSION', '2.4.7' );
+}
 
 /**
  * Load plugin textdomain.
  */
 function ins_load_textdomain() {
-	load_plugin_textdomain( 'instantio', false, INS_PATH . '/lang/' );
+	load_plugin_textdomain( 'instantio', false, 'instantio/lang/' );
 }
 add_action( 'init', 'ins_load_textdomain' );
 
 /*
-
  * Plugins Loaded
  * Including Option Framework
  * Including Options
- * 
+ * Disable WooCommerce Notices
  */
 if ( ! function_exists( 'instantio_plugin_loaded_action' ) ) {
 	function instantio_plugin_loaded_action() {
@@ -63,6 +114,13 @@ if ( ! function_exists( 'instantio_plugin_loaded_action' ) ) {
 		} elseif ( file_exists( INS_ADMIN_PATH .'/config.php' ) ) {
 			require_once( INS_ADMIN_PATH .'/config.php' );
 		}
+
+		// Disable WooCommerce Notices
+		if ( class_exists( 'woocommerce' ) ) {
+			remove_action( 'woocommerce_before_shop_loop', 'woocommerce_output_all_notices', 10 );
+			remove_action( 'woocommerce_before_single_product', 'woocommerce_output_all_notices', 10 );
+			add_filter('woocommerce_cart_item_removed_notice_type', '__return_null');
+		}
 	}
 }
 add_action( 'plugins_loaded', 'instantio_plugin_loaded_action' );
@@ -77,43 +135,63 @@ if ( ! function_exists( 'insopt' ) ) {
 	}
 }
 
+// Mobile Detect
+if (!class_exists('INS_Mobile_Detect')) {
+    require_once INS_INC_PATH . '/mobile-detect.php';
+}
+
 // Functions
-if ( file_exists( INS_INC_PATH . '/functions.php' ) && !defined( 'INSTANTIO_PRO_FUNCTIONS' ) ) {
-	require_once INS_INC_PATH . '/functions.php';
+if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ){
+	if (!defined( 'INSTANTIO_PRO_FUNCTIONS' )) {
+		require_once INS_INC_PATH . '/functions.php';
+	}
 }
 // SVG Icons
-if ( file_exists(INS_INC_PATH . '/svg-icons.php') && !defined( 'INSTANTIO_PRO_ICONS' )) {
+if (!defined( 'INSTANTIO_PRO_ICONS' )) {
 	require_once( INS_INC_PATH . '/svg-icons.php' );
 }
 // Styles & Scripts
-if ( file_exists( INS_INC_PATH . '/style-script.php' ) && !defined( 'INSTANTIO_PRO_SCRIPT' ) ) {
+if (!defined( 'INSTANTIO_PRO_SCRIPT' )) {
 	require_once INS_INC_PATH . '/style-script.php';
 }
 
 
 /**
- * Notice if WooCommerce is not installed or inactive
+ * Called when WooCommerce is inactive to display an inactive notice.
+ *
+ * @since 1.0
  */
-if ( !function_exists('instantio_is_woocommerce') ) {
-	function instantio_is_woocommerce() {
+function ins_is_woo() {
+    if ( current_user_can( 'activate_plugins' ) ) {
+        if ( !is_plugin_active( 'woocommerce/woocommerce.php' ) && !file_exists( WP_PLUGIN_DIR . '/woocommerce/woocommerce.php' ) ) {
+        ?>
 
-		if ( !class_exists( 'WooCommerce' ) && file_exists( WP_PLUGIN_DIR . '/woocommerce/woocommerce.php' ) ) { ?>
+            <div id="message" class="error">
+                <p><?php printf( __( 'Instantio requires %1$s WooCommerce %2$s to be activated.', 'instantio' ), '<strong><a href="https://wordpress.org/plugins/woocommerce/" target="_blank">', '</a></strong>' ); ?></p>
+                <p><a class="install-now button tf-install" data-plugin-slug="woocommerce"><?php esc_attr_e( 'Install Now', 'instantio' ); ?></a></p>
+            </div>
 
-			<div class="notice notice-error ins-error">
-				<p><?php instantio_svg_icon('close'); ?> <strong><?php esc_attr_e( 'Instantio requires WooCommerce to be activated. ', 'instantio' ); ?> <a href="<?php echo esc_url( admin_url('/plugin-install.php?s=slug:woocommerce&tab=search&type=term') ); ?>"><?php esc_attr_e( 'Activate Now', 'instantio' ); ?></a></strong></p>
-			</div>
+        <?php 
+        } elseif ( !is_plugin_active( 'woocommerce/woocommerce.php' ) && file_exists( WP_PLUGIN_DIR . '/woocommerce/woocommerce.php' ) ) {
+        ?>
 
-		<?php } elseif ( !class_exists( 'WooCommerce' ) && !file_exists( WP_PLUGIN_DIR . '/woocommerce/woocommerce.php' ) ) { ?>
+            <div id="message" class="error">
+                <p><?php printf( __( 'Instantio requires %1$s WooCommerce %2$s to be activated.', 'instantio' ), '<strong><a href="https://wordpress.org/plugins/woocommerce/" target="_blank">', '</a></strong>' ); ?></p>
+                <p><a href="<?php echo get_admin_url(); ?>plugins.php?_wpnonce=<?php echo wp_create_nonce( 'activate-plugin_woocommerce/woocommerce.php' ); ?>&action=activate&plugin=woocommerce/woocommerce.php" class="button activate-now button-primary"><?php esc_attr_e( 'Activate', 'instantio' ); ?></a></p>
+            </div>
 
-			<div class="notice notice-error">
-				<p><strong><?php esc_attr_e( 'Instantio requires WooCommerce to be installed & activated. ', 'instantio' ); ?> <a href="<?php echo esc_url( admin_url('/plugin-install.php?s=slug:woocommerce&tab=search&type=term') ); ?>"><?php esc_attr_e( 'Install Now', 'instantio' ); ?></a></strong></p>
-			</div>
+        <?php 
+        } elseif ( version_compare( get_option( 'woocommerce_db_version' ), '2.5', '<' ) ) {
+        ?>
 
-		<?php }
+            <div id="message" class="error">
+                <p><?php printf( __( '%sInstantio is inactive.%s This plugin requires WooCommerce 2.5 or newer. Please %supdate WooCommerce to version 2.5 or newer%s', 'instantio' ), '<strong>', '</strong>', '<a href="' . admin_url( 'plugins.php' ) . '">', '&nbsp;&raquo;</a>' ); ?></p>
+            </div>
 
-	}
+        <?php 
+        }
+    }
 }
-add_action( 'admin_notices', 'instantio_is_woocommerce' );
 
 /**
  * Add Pro link in menu.
@@ -192,50 +270,4 @@ function set_ins_dismiss() {
     update_option( 'ins-dismiss', true );
 }
 register_activation_hook(  plugin_dir_path( __FILE__ ) . 'instantio.php', 'set_ins_dismiss' );
-
-/**
- * Only for 2.3.0 version notice
- */
-function temp_230_notice () { 
-	$display_temp_230 = get_option( 'ins-temp-230', 't1' );
-	if ($display_temp_230 == 't1') { ?>
-
-		<div id="ins-temp-230" class="notice notice-warning is-dismissible">
-			<p style="color:red;"><strong>Important Notice from Instantio</strong></p>
-			<p>Thank you for updating Instantio to version 2.3.0. From this version, we have introduced a completely new option panel. Please make sure you do the following to avoid any issues:</p>
-			<ul>
-				<li>1. Go to <a href="<?php echo get_admin_url();?>admin.php?page=instantio_options">Instantio options</a> and click "Save" button.</li>
-				<li>2. Clear your browser cache (You can do so by click CTRL + F5 button)</li>
-			</ul>
-			<p>Thank you for using Instantio.</p>
-		</div>
-
-		<script>
-			jQuery(document).ready(function($) {
-				$(document).on('click', '#ins-temp-230 .notice-dismiss', function( event ) {
-					jQuery('#ins-temp-230').css('display', 'none')
-					data = {
-						action : 'disable_temp_230',
-					};
-
-					$.post(ajaxurl, data, function (response) {
-					});
-				});
-			});
-		</script>
-
-	<?php }
-}
-add_action( 'admin_notices', 'temp_230_notice' );
-
-function disable_temp_230() {
-	update_option( 'ins-temp-230', 't0' );
-	wp_die();
-}
-add_action( 'wp_ajax_disable_temp_230', 'disable_temp_230' );
-
-function set_temp_230() {
-    update_option( 'ins-temp-230', 't1' );
-}
-register_activation_hook(  plugin_dir_path( __FILE__ ) . 'instantio.php', 'set_temp_230' );
 ?>

@@ -3,32 +3,34 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-17 18:04+0600\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2022-01-17 22:23+0600\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #: instantio/instantio.php:167 instantio/instantio.php:176
 #, php-format
 msgid "Instantio requires %1$s WooCommerce %2$s to be activated."
-msgstr ""
+msgstr "يتطلب Instantio تنشيط %2$s WooCommerce %1$s."
 
 #: instantio/instantio.php:168 wooinstant/wooinstant.php:171
 msgid "Install Now"
-msgstr ""
+msgstr "تنصيب الان"
 
 #: instantio/instantio.php:177 wooinstant/wooinstant.php:180
 msgid "Activate"
-msgstr ""
+msgstr "تفعيل"
 
 #: instantio/instantio.php:185
 #, php-format
@@ -36,176 +38,199 @@ msgid ""
 "%sInstantio is inactive.%s This plugin requires WooCommerce 2.5 or newer. "
 "Please %supdate WooCommerce to version 2.5 or newer%s"
 msgstr ""
+"%s فوريتيو غير نشط. %s يتطلب هذا البرنامج المساعد WooCommerce 2.5 أو أحدث. "
+"يرجى %s تحديث WooCommerce إلى الإصدار 2.5 أو الأحدث%s"
 
 #: instantio/instantio.php:212 wooinstant/wooinstant.php:193
 msgid "Settings"
-msgstr ""
+msgstr "الإعدادات"
 
 #: instantio/instantio.php:217
+#, fuzzy
 msgid "GO PRO"
-msgstr ""
+msgstr "الذهاب للمحترفين"
 
 #: instantio/admin/config.php:32 wooinstant/admin/config.php:34
 msgid "Design"
-msgstr ""
+msgstr "التصميم"
 
-#: instantio/admin/options/general.php:6
-#: wooinstant/admin/options/general.php:6
+#: instantio/admin/options/general.php:6 wooinstant/admin/options/general.php:6
 msgid "General"
-msgstr ""
+msgstr "عام"
 
 #: instantio/admin/options/general.php:12
 #: wooinstant/admin/options/general.php:12
 msgid "General Settings"
-msgstr ""
+msgstr "الاعدادات العامة"
 
 #: instantio/admin/options/general.php:18
 #: wooinstant/admin/options/general.php:18
 msgid "Select Layout"
-msgstr ""
+msgstr "حدد التنسيق"
 
 #: instantio/admin/options/general.php:19
 #: wooinstant/admin/options/general.php:19
 msgid "Choose cart layout"
-msgstr ""
+msgstr "اختيار تخطيط سلة التسوق"
 
-#: instantio/admin/options/general.php:40
-#: instantio/admin/options/toggler.php:5
+#: instantio/admin/options/general.php:40 instantio/admin/options/toggler.php:5
 #: instantio/admin/options/toggler.php:10
 #: wooinstant/admin/options/general.php:40
 #: wooinstant/admin/options/toggler.php:5
 #: wooinstant/admin/options/toggler.php:10
+#, fuzzy
 msgid "Toggler Design"
-msgstr ""
+msgstr "تصميم المبدل"
 
 #: instantio/admin/options/general.php:41
 #: wooinstant/admin/options/general.php:41
+#, fuzzy
 msgid "Select toggler design"
-msgstr ""
+msgstr "تحديد تصميم المبدل"
 
 #: instantio/admin/options/general.php:53
 #: wooinstant/admin/options/general.php:53
 msgid "Cart Toggler Open on"
-msgstr ""
+msgstr "سلة تبديل فتح على"
 
 #: instantio/admin/options/general.php:54
 #: wooinstant/admin/options/general.php:54
 msgid "Choose how cart toggler should open for direct checkout button"
-msgstr ""
+msgstr "اختيار كيفية فتح مفتاح تبديل العربة لزر السحب المباشر"
 
 #: instantio/admin/options/general.php:67
 #: wooinstant/admin/options/general.php:67
+#, fuzzy
 msgid "Enable/dsiable cart fly animation or change icon"
-msgstr ""
+msgstr "تمكين / dsiable عربة يطير الحركة أو تغيير أيقونة"
 
 #: instantio/admin/options/general.php:72
 #: wooinstant/admin/options/general.php:72
+#, fuzzy
 msgid "Cart Fly Animation"
-msgstr ""
+msgstr "سلة ذبابة الرسوم المتحركة"
 
 #: instantio/admin/options/general.php:82
 #: wooinstant/admin/options/general.php:82
+#, fuzzy
 msgid "Cart Fly Animation Icon"
-msgstr ""
+msgstr "أيقونة حركة الطيران بالعربة"
 
 #: instantio/admin/options/general.php:96
 #: wooinstant/admin/options/general.php:96
+#, fuzzy
 msgid "Auto Open Toggle Panel"
-msgstr ""
+msgstr "لوحة تبديل الفتح التلقائي"
 
 #: instantio/admin/options/general.php:97
 #: wooinstant/admin/options/general.php:97
+#, fuzzy
 msgid "When an item is added to the cart automatically open the toggle panel"
-msgstr ""
+msgstr "عند إضافة عنصر إلى العربة تلقائيا فتح لوحة التبديل"
 
 #: instantio/admin/options/general.php:108
 #: wooinstant/admin/options/general.php:108
+#, fuzzy
 msgid "Show/hide or change cart button's text & url"
-msgstr ""
+msgstr "إظهار/إخفاء أو تغيير نص زر العربة وعنوان URL"
 
 #: instantio/admin/options/general.php:114
 #: wooinstant/admin/options/general.php:114
 msgid "Show Cart Button"
-msgstr ""
+msgstr "إظهار زر العربة"
 
 #: instantio/admin/options/general.php:122
 #: wooinstant/admin/options/general.php:122
+#, fuzzy
 msgid "Cart Button Text"
-msgstr ""
+msgstr "نص زر العربة"
 
 #: instantio/admin/options/general.php:123
 #: wooinstant/admin/options/general.php:123
+#, fuzzy
 msgid "Default: <code>View Cart</code>"
-msgstr ""
+msgstr "افتراضي: <code>View Cart</code>"
 
 #: instantio/admin/options/general.php:129
 #: wooinstant/admin/options/general.php:129
+#, fuzzy
 msgid "Cart Button URL"
-msgstr ""
+msgstr "عنوان URL لزر العربة"
 
 #: instantio/admin/options/general.php:131
 #: wooinstant/admin/options/general.php:131
+#, fuzzy
 msgid "Default: default cart page"
-msgstr ""
+msgstr "الافتراضي: صفحة سلة التسوق الافتراضية"
 
 #: instantio/admin/options/general.php:142
 #: wooinstant/admin/options/general.php:142
+#, fuzzy
 msgid "Show/hide or change checkout button's text & url"
-msgstr ""
+msgstr "إظهار/إخفاء أو تغيير نص زر السحب وعنوان URL"
 
 #: instantio/admin/options/general.php:147
 #: wooinstant/admin/options/general.php:147
+#, fuzzy
 msgid "Show Checkout Button"
-msgstr ""
+msgstr "إظهار زر الدفع"
 
 #: instantio/admin/options/general.php:157
 #: instantio/admin/options/mobile.php:104
 #: wooinstant/admin/options/general.php:157
 #: wooinstant/admin/options/mobile.php:117
 msgid "Checkout Button Text"
-msgstr ""
+msgstr "نص الزر الدفع"
 
 #: instantio/admin/options/general.php:158
 #: instantio/admin/options/mobile.php:105
 #: wooinstant/admin/options/general.php:158
 #: wooinstant/admin/options/mobile.php:118
+#, fuzzy
 msgid "Default: <code>Checkout Now</code>"
-msgstr ""
+msgstr "افتراضي: <code>Checkout Now</code>"
 
 #: instantio/admin/options/general.php:165
 #: wooinstant/admin/options/general.php:165
+#, fuzzy
 msgid "Checkout Button URL"
-msgstr ""
+msgstr "رابط زر السحب"
 
 #: instantio/admin/options/general.php:167
 #: wooinstant/admin/options/general.php:167
+#, fuzzy
 msgid "Default: default checkout page"
-msgstr ""
+msgstr "الافتراضي: صفحة الدفع الافتراضية"
 
 #: instantio/admin/options/general.php:178
 #: wooinstant/admin/options/general.php:177
+#, fuzzy
 msgid "Drawer Window Type"
-msgstr ""
+msgstr "نوع نافذة الدرج"
 
 #: instantio/admin/options/general.php:179
 #: wooinstant/admin/options/general.php:178
+#, fuzzy
 msgid "Choose the function of Cart Drawer / Side Cart."
-msgstr ""
+msgstr "اختيار وظيفة درج عربة / عربة جانبية."
 
 #: instantio/admin/options/general.php:180
 #: wooinstant/admin/options/general.php:179
+#, fuzzy
 msgid "Multistep: Cart-> Checkout; Single step: Cart+Checkout on same window"
 msgstr ""
+"متعدد الخطوات: عربة > الخروج; خطوة واحدة: عربة + الخروج على نفس النافذة"
 
 #: instantio/admin/options/general.php:182
 #: wooinstant/admin/options/general.php:181
 msgid "Multi Step"
-msgstr ""
+msgstr "خطوات متعددة"
 
 #: instantio/admin/options/general.php:183
 #: wooinstant/admin/options/general.php:182
+#, fuzzy
 msgid "Single Step"
-msgstr ""
+msgstr "خطوة واحدة"
 
 #: instantio/admin/options/general.php:186
 #: instantio/admin/options/general.php:198
@@ -218,474 +243,544 @@ msgstr ""
 #: wooinstant/admin/options/general.php:221
 #: wooinstant/admin/options/toggler.php:48
 #: wooinstant/admin/options/toggler.php:59
+#, fuzzy
 msgid "Pro Feature"
-msgstr ""
+msgstr "ميزة برو"
 
 #: instantio/admin/options/general.php:193
 #: wooinstant/admin/options/general.php:192
 msgid "Disable Quick View"
-msgstr ""
+msgstr "تعطيل العرض السريع"
 
 #: instantio/admin/options/general.php:194
 #: wooinstant/admin/options/general.php:193
+#, fuzzy
 msgid ""
 "You can disable it if you already have quick view function in your theme "
 "(Applicable for Variable products)."
 msgstr ""
+"يمكنك تعطيله إذا كان لديك بالفعل وظيفة عرض سريع في السمة (قابل للتطبيق "
+"للمنتجات المتغيرة)."
 
 #: instantio/admin/options/general.php:205
 #: wooinstant/admin/options/general.php:203
+#, fuzzy
 msgid "Disable Ajax Add to Cart"
-msgstr ""
+msgstr "تعطيل أياكس إضافة إلى سلة التسوق"
 
 #: instantio/admin/options/general.php:206
 #: wooinstant/admin/options/general.php:204
+#, fuzzy
 msgid ""
 "You can disable it if you already have ajax \"add to cart\" function in your "
 "theme (To avoid conflict)."
 msgstr ""
+"يمكنك تعطيله إذا كان لديك بالفعل اياكس \"إضافة إلى عربة\" وظيفة في موضوعك "
+"(لتجنب الصراع)."
 
 #: instantio/admin/options/general.php:217
 #: wooinstant/admin/options/general.php:214
+#, fuzzy
 msgid "Choose Active Window"
-msgstr ""
+msgstr "اختر النافذة النشطة"
 
 #: instantio/admin/options/general.php:218
 #: wooinstant/admin/options/general.php:215
+#, fuzzy
 msgid ""
 "Cart or Checkout, which one should be seen when customers open the \"Side "
 "Cart"
 msgstr ""
+"عربة أو الخروج ، والتي ينبغي أن ينظر إليها عند العملاء فتح \"عربة جانبية"
 
 #: instantio/admin/options/general.php:220
 #: wooinstant/admin/options/general.php:217
 #: wooinstant/inc/layouts/mobile/mobile-1.php:86
 msgid "Cart"
-msgstr ""
+msgstr "سلة التسوق"
 
 #: instantio/admin/options/general.php:221
 #: wooinstant/admin/options/general.php:218
 #: wooinstant/inc/layouts/mobile/mobile-1.php:105
 msgid "Checkout"
-msgstr ""
+msgstr "الدفع"
 
 #: instantio/admin/options/general.php:235
 #: wooinstant/admin/options/general.php:231
+#, fuzzy
 msgid "Upsells in Cart"
-msgstr ""
+msgstr "عمليات البيع في العربة"
 
 #: instantio/admin/options/general.php:236
 #: wooinstant/admin/options/general.php:232
+#, fuzzy
 msgid "Enable/disable upsells items in cart"
-msgstr ""
+msgstr "تمكين/تعطيل عمليات بيع العناصر في عربة التسوق"
 
 #: instantio/admin/options/general.php:248
 #: wooinstant/admin/options/general.php:243
+#, fuzzy
 msgid "Upsell Heading"
-msgstr ""
+msgstr "عنوان المبيعات"
 
 #: instantio/admin/options/general.php:249
 #: wooinstant/admin/options/general.php:244
+#, fuzzy
 msgid "The text shown before upsell items"
-msgstr ""
+msgstr "النص المعروض قبل عرض العناصر"
 
 #: instantio/admin/options/general.php:250
 #: wooinstant/admin/options/general.php:245
+#, fuzzy
 msgid "Default: Hang on! We have this offer just for you!"
-msgstr ""
+msgstr "الافتراضي: انتظر! لدينا هذا العرض فقط من أجلكم!"
 
 #: instantio/admin/options/general.php:251
 #: wooinstant/admin/options/general.php:246
 #: wooinstant/inc/templates/single-product/up-sells.php:30
+#, fuzzy
 msgid "Hang on! We have this offer just for you!"
-msgstr ""
+msgstr "انتظر! لدينا هذا العرض فقط من أجلكم!"
 
 #: instantio/admin/options/general.php:259
 #: wooinstant/admin/options/general.php:252
+#, fuzzy
 msgid "Cross Sells in Checkout"
-msgstr ""
+msgstr "عبر تبيع في الخروج"
 
 #: instantio/admin/options/general.php:260
 #: wooinstant/admin/options/general.php:253
+#, fuzzy
 msgid "Enable/disable cross sell items in checkout"
-msgstr ""
+msgstr "تمكين/تعطيل عناصر البيع المتقاطعة في السحب"
 
 #: instantio/admin/options/general.php:272
 #: wooinstant/admin/options/general.php:264
+#, fuzzy
 msgid "Cross Sell Heading"
-msgstr ""
+msgstr "عنوان البيع عبر"
 
 #: instantio/admin/options/general.php:273
 #: wooinstant/admin/options/general.php:265
+#, fuzzy
 msgid "The text shown before cross sell items"
-msgstr ""
+msgstr "النص المعروض قبل بيع العناصر"
 
 #: instantio/admin/options/general.php:274
 #: wooinstant/admin/options/general.php:266
+#, fuzzy
 msgid "Default: You may be interested in…"
-msgstr ""
+msgstr "الافتراضي: قد تكون مهتما ب..."
 
 #: instantio/admin/options/general.php:275
 #: wooinstant/admin/options/general.php:267
 msgid "You may be interested in…"
-msgstr ""
+msgstr "قد يعجبك ايضاً..."
 
 #: instantio/admin/options/mobile.php:5 wooinstant/admin/options/mobile.php:5
 msgid "Mobile"
-msgstr ""
+msgstr "الجوال"
 
-#: instantio/admin/options/mobile.php:12
-#: wooinstant/admin/options/mobile.php:12
+#: instantio/admin/options/mobile.php:12 wooinstant/admin/options/mobile.php:12
+#, fuzzy
 msgid "Dedicated Mobile Version"
-msgstr ""
+msgstr "إصدار مخصص للجوال"
 
-#: instantio/admin/options/mobile.php:13
-#: wooinstant/admin/options/mobile.php:13
+#: instantio/admin/options/mobile.php:13 wooinstant/admin/options/mobile.php:13
+#, fuzzy
 msgid "Enable/disable dedicated mobile version"
-msgstr ""
+msgstr "تمكين/تعطيل إصدار الهاتف المحمول المخصص"
 
 #: instantio/admin/options/mobile.php:24
 #: instantio/admin/options/toggle-panel.php:195
 #: wooinstant/admin/options/mobile.php:23
 #: wooinstant/admin/options/toggle-panel.php:188
+#, fuzzy
 msgid "Cart Section"
-msgstr ""
+msgstr "قسم العربة"
 
-#: instantio/admin/options/mobile.php:30
-#: wooinstant/admin/options/mobile.php:29
+#: instantio/admin/options/mobile.php:30 wooinstant/admin/options/mobile.php:29
+#, fuzzy
 msgid "Enable Cart Panel"
-msgstr ""
+msgstr "تمكين لوحة العربة"
 
-#: instantio/admin/options/mobile.php:31
-#: wooinstant/admin/options/mobile.php:30
+#: instantio/admin/options/mobile.php:31 wooinstant/admin/options/mobile.php:30
+#, fuzzy
 msgid "Enable/disable cart in mobile version"
-msgstr ""
+msgstr "تمكين/تعطيل سلة التسوق في إصدار الجوال"
 
-#: instantio/admin/options/mobile.php:42
-#: wooinstant/admin/options/mobile.php:41
+#: instantio/admin/options/mobile.php:42 wooinstant/admin/options/mobile.php:41
+#, fuzzy
 msgid "Cart URL"
-msgstr ""
+msgstr "عنوان URL للسلة"
 
-#: instantio/admin/options/mobile.php:56
-#: wooinstant/admin/options/mobile.php:58
+#: instantio/admin/options/mobile.php:56 wooinstant/admin/options/mobile.php:58
+#, fuzzy
 msgid "Custom Cart URL"
-msgstr ""
+msgstr "عنوان URL لسلة التسوق المخصصة"
 
-#: instantio/admin/options/mobile.php:64
-#: wooinstant/admin/options/mobile.php:70
+#: instantio/admin/options/mobile.php:64 wooinstant/admin/options/mobile.php:70
+#, fuzzy
 msgid "Checkout Section"
-msgstr ""
+msgstr "قسم الخروج"
 
-#: instantio/admin/options/mobile.php:70
-#: wooinstant/admin/options/mobile.php:76
+#: instantio/admin/options/mobile.php:70 wooinstant/admin/options/mobile.php:76
+#, fuzzy
 msgid "Enable Checkout Panel"
-msgstr ""
+msgstr "تمكين لوحة السحب"
 
-#: instantio/admin/options/mobile.php:71
-#: wooinstant/admin/options/mobile.php:77
+#: instantio/admin/options/mobile.php:71 wooinstant/admin/options/mobile.php:77
+#, fuzzy
 msgid "Enable/disable checkout in mobile version"
-msgstr ""
+msgstr "تمكين/تعطيل الدفع في إصدار الجوال"
 
-#: instantio/admin/options/mobile.php:82
-#: wooinstant/admin/options/mobile.php:88
+#: instantio/admin/options/mobile.php:82 wooinstant/admin/options/mobile.php:88
 msgid "Checkout URL"
-msgstr ""
+msgstr "رابط إتمام الشراء"
 
 #: instantio/admin/options/mobile.php:95
 #: wooinstant/admin/options/mobile.php:104
+#, fuzzy
 msgid "Custom Checkout URL"
-msgstr ""
+msgstr "عنوان URL مخصص للسحب"
 
 #: instantio/admin/options/optimization.php:5
 #: wooinstant/admin/options/optimization.php:5
 msgid "Optimization"
-msgstr ""
+msgstr "تحقيق الأمثلية"
 
 #: instantio/admin/options/optimization.php:12
 #: wooinstant/admin/options/optimization.php:12
+#, fuzzy
 msgid "FancyBox CDN"
-msgstr ""
+msgstr "فانسي بوكس CDN"
 
 #: instantio/admin/options/optimization.php:13
 #: wooinstant/admin/options/optimization.php:13
+#, fuzzy
 msgid "Enable/disable cloudflare CDN for FancyBox CSS & JS"
-msgstr ""
+msgstr "تمكين / تعطيل cloudflare CDN ل FancyBox CSS و JS"
 
 #: instantio/admin/options/optimization.php:25
 #: wooinstant/admin/options/optimization.php:24
 msgid "Minify CSS"
-msgstr ""
+msgstr "تصغير CSS"
 
 #: instantio/admin/options/optimization.php:26
 #: wooinstant/admin/options/optimization.php:25
+#, fuzzy
 msgid "Enable/disable Instantio CSS minification"
-msgstr ""
+msgstr "تمكين/تعطيل التجبير الفوري ل CSS"
 
 #: instantio/admin/options/optimization.php:38
 #: wooinstant/admin/options/optimization.php:36
 msgid "Minify JS"
-msgstr ""
+msgstr "تصغير JS"
 
 #: instantio/admin/options/optimization.php:39
 #: wooinstant/admin/options/optimization.php:37
+#, fuzzy
 msgid "Enable/disable Instantio JS minification"
-msgstr ""
+msgstr "تمكين/تعطيل التجبير الفوري JS"
 
 #: instantio/admin/options/others.php:5 instantio/admin/options/others.php:10
-#: wooinstant/admin/options/others.php:5
-#: wooinstant/admin/options/others.php:10
+#: wooinstant/admin/options/others.php:5 wooinstant/admin/options/others.php:10
 msgid "Others"
-msgstr ""
+msgstr "الآخرين"
 
-#: instantio/admin/options/others.php:16
-#: wooinstant/admin/options/others.php:16
+#: instantio/admin/options/others.php:16 wooinstant/admin/options/others.php:16
+#, fuzzy
 msgid "Quick View Background"
-msgstr ""
+msgstr "خلفية عرض سريع"
 
-#: instantio/admin/options/others.php:17
-#: wooinstant/admin/options/others.php:17
+#: instantio/admin/options/others.php:17 wooinstant/admin/options/others.php:17
+#, fuzzy
 msgid "Instantio Quick View Panel Background Color"
-msgstr ""
+msgstr "Instantio لوحة عرض سريع لون الخلفية"
 
-#: instantio/admin/options/others.php:26
-#: wooinstant/admin/options/others.php:25
+#: instantio/admin/options/others.php:26 wooinstant/admin/options/others.php:25
 msgid "Quick View Color"
-msgstr ""
+msgstr "عرض سريع للون"
 
-#: instantio/admin/options/others.php:27
-#: wooinstant/admin/options/others.php:26
+#: instantio/admin/options/others.php:27 wooinstant/admin/options/others.php:26
+#, fuzzy
 msgid "Instantio Quick View Panel Text & Cross Color"
-msgstr ""
+msgstr "فوريسيو عرض سريع لوحة النص واللون الصليب"
 
-#: instantio/admin/options/others.php:36
-#: wooinstant/admin/options/others.php:34
+#: instantio/admin/options/others.php:36 wooinstant/admin/options/others.php:34
+#, fuzzy
 msgid "If you want to make extra CSS then you can do it from here"
-msgstr ""
+msgstr "إذا كنت ترغب في جعل المغلق اضافية ثم يمكنك أن تفعل ذلك من هنا"
 
 #: instantio/admin/options/toggle-panel.php:5
 #: instantio/admin/options/toggle-panel.php:10
 #: wooinstant/admin/options/toggle-panel.php:5
 #: wooinstant/admin/options/toggle-panel.php:10
+#, fuzzy
 msgid "Toggle Panel Design"
-msgstr ""
+msgstr "تبديل تصميم اللوحة"
 
 #: instantio/admin/options/toggle-panel.php:16
 #: wooinstant/admin/options/toggle-panel.php:21
+#, fuzzy
 msgid "Toggle Panel Position"
-msgstr ""
+msgstr "تبديل موضع اللوحة"
 
 #: instantio/admin/options/toggle-panel.php:17
 #: wooinstant/admin/options/toggle-panel.php:22
+#, fuzzy
 msgid "Changes position of the Cart Toggle Panel"
-msgstr ""
+msgstr "تغيير موضع لوحة تبديل العربة"
 
 #: instantio/admin/options/toggle-panel.php:29
 #: wooinstant/admin/options/toggle-panel.php:34
+#, fuzzy
 msgid "Toggle Panel Background Colors"
-msgstr ""
+msgstr "تبديل ألوان خلفية اللوحة"
 
 #: instantio/admin/options/toggle-panel.php:30
 #: wooinstant/admin/options/toggle-panel.php:35
+#, fuzzy
 msgid "Checkout button background regular & hover color"
-msgstr ""
+msgstr "خلفية زر السحب العادية ولون التحويم"
 
 #: instantio/admin/options/toggle-panel.php:41
 #: wooinstant/admin/options/toggle-panel.php:46
+#, fuzzy
 msgid "Toggle Panel Border Colors"
-msgstr ""
+msgstr "تبديل ألوان حدود اللوحة"
 
 #: instantio/admin/options/toggle-panel.php:42
 #: wooinstant/admin/options/toggle-panel.php:47
+#, fuzzy
 msgid "Checkout button border regular & hover color"
-msgstr ""
+msgstr "حد زر السحب العادية &amp؛ لون التحويم"
 
 #: instantio/admin/options/toggle-panel.php:53
 #: wooinstant/admin/options/toggle-panel.php:58
+#, fuzzy
 msgid "Toggle Panel Text Colors"
-msgstr ""
+msgstr "تبديل ألوان نص اللوحة"
 
 #: instantio/admin/options/toggle-panel.php:54
 #: wooinstant/admin/options/toggle-panel.php:59
+#, fuzzy
 msgid "Set regular & hover color of checkout text"
-msgstr ""
+msgstr "تعيين عادي &amp؛ لون تمرير نص السحب"
 
 #: instantio/admin/options/toggle-panel.php:65
 #: wooinstant/admin/options/toggle-panel.php:70
+#, fuzzy
 msgid "Panel Background"
-msgstr ""
+msgstr "خلفية اللوحة"
 
 #: instantio/admin/options/toggle-panel.php:66
 #: wooinstant/admin/options/toggle-panel.php:71
+#, fuzzy
 msgid "Toggle Panel Background Color"
-msgstr ""
+msgstr "تبديل لون خلفية اللوحة"
 
 #: instantio/admin/options/toggle-panel.php:85
 #: wooinstant/admin/options/toggle-panel.php:88
+#, fuzzy
 msgid "Panel Text Color"
-msgstr ""
+msgstr "لون نص اللوحة"
 
 #: instantio/admin/options/toggle-panel.php:86
 #: wooinstant/admin/options/toggle-panel.php:89
+#, fuzzy
 msgid "Openning heading \"Your Cart\" color"
-msgstr ""
+msgstr "لون عنوان \"سلة التسوق\" المفتوح"
 
 #: instantio/admin/options/toggle-panel.php:95
 #: wooinstant/admin/options/toggle-panel.php:97
+#, fuzzy
 msgid "Panel Button Colors"
-msgstr ""
+msgstr "ألوان زر اللوحة"
 
 #: instantio/admin/options/toggle-panel.php:96
 #: wooinstant/admin/options/toggle-panel.php:98
+#, fuzzy
 msgid "\"Proceed to Checkout\", \"Back to Cart\" button color"
-msgstr ""
+msgstr "\"المضي قدما إلى الخروج\"، \"العودة إلى عربة\" لون الزر"
 
 #: instantio/admin/options/toggle-panel.php:107
 #: wooinstant/admin/options/toggle-panel.php:108
+#, fuzzy
 msgid "Panel Button Border Colors"
-msgstr ""
+msgstr "ألوان حد زر اللوحة"
 
 #: instantio/admin/options/toggle-panel.php:108
 #: wooinstant/admin/options/toggle-panel.php:109
+#, fuzzy
 msgid "\"Proceed to Checkout\", \"Back to Cart\" button border color"
-msgstr ""
+msgstr "\"المضي قدما إلى الخروج\"، \"العودة إلى عربة\" لون الحد زر"
 
 #: instantio/admin/options/toggle-panel.php:119
 #: wooinstant/admin/options/toggle-panel.php:119
+#, fuzzy
 msgid "Panel Button Text Colors"
-msgstr ""
+msgstr "ألوان نص زر اللوحة"
 
 #: instantio/admin/options/toggle-panel.php:120
 #: wooinstant/admin/options/toggle-panel.php:120
+#, fuzzy
 msgid "\"Proceed to Checkout\", \"Back to Cart\" button text color"
-msgstr ""
+msgstr "\"المضي قدما إلى الخروج\"، \"العودة إلى عربة\" لون النص زر"
 
 #: instantio/admin/options/toggle-panel.php:131
 #: wooinstant/admin/options/toggle-panel.php:130
+#, fuzzy
 msgid "Panel Z-index"
-msgstr ""
+msgstr "لوحة Z-مؤشر"
 
 #: instantio/admin/options/toggle-panel.php:132
 #: wooinstant/admin/options/toggle-panel.php:131
+#, fuzzy
 msgid ""
 "Control z-index from this option. More about <a target=\"_blank\" href="
 "\"https://css-tricks.com/almanac/properties/z/z-index/\">z-index</a>"
 msgstr ""
+"التحكم في فهرس z من هذا الخيار. المزيد حول <a target=\"_blank\" href="
+"\"https://css-tricks.com/almanac/properties/z/z-index/\">مؤشر z</a>"
 
 #: instantio/admin/options/toggle-panel.php:142
 #: wooinstant/admin/options/toggle-panel.php:140
+#, fuzzy
 msgid "Toggle Panel Width (1200px-auto)"
-msgstr ""
+msgstr "تبديل عرض اللوحة (1200px-تلقائي)"
 
 #: instantio/admin/options/toggle-panel.php:143
 #: wooinstant/admin/options/toggle-panel.php:141
+#, fuzzy
 msgid ""
 "Set the percent of width of toggle panel for display dimension greater than "
 "1199px."
-msgstr ""
+msgstr "تعيين النسبة المئوية لعرض لوحة تبديل لبعد العرض أكبر من 1199px."
 
 #: instantio/admin/options/toggle-panel.php:144
 #: wooinstant/admin/options/toggle-panel.php:142
+#, fuzzy
 msgid "Range 0%-100%. Default 40"
-msgstr ""
+msgstr "المدى 0%-100%. الافتراضي 40"
 
 #: instantio/admin/options/toggle-panel.php:155
 #: wooinstant/admin/options/toggle-panel.php:152
+#, fuzzy
 msgid "Toggle Panel Width (1024px-1199px)"
-msgstr ""
+msgstr "تبديل عرض اللوحة (1024px-1199px)"
 
 #: instantio/admin/options/toggle-panel.php:156
 #: wooinstant/admin/options/toggle-panel.php:153
+#, fuzzy
 msgid ""
 "Set the percent of width of toggle panel for display dimension greater than "
 "1023px."
-msgstr ""
+msgstr "تعيين النسبة المئوية لعرض لوحة تبديل لبعد العرض أكبر من 1023px."
 
 #: instantio/admin/options/toggle-panel.php:157
 #: wooinstant/admin/options/toggle-panel.php:154
+#, fuzzy
 msgid "Range 0%-100%. Default 48"
-msgstr ""
+msgstr "المدى 0%-100%. الافتراضي 48"
 
 #: instantio/admin/options/toggle-panel.php:168
 #: wooinstant/admin/options/toggle-panel.php:164
+#, fuzzy
 msgid "Toggle Panel Width (501px-1023)"
-msgstr ""
+msgstr "تبديل عرض اللوحة (501px-1023)"
 
 #: instantio/admin/options/toggle-panel.php:169
 #: wooinstant/admin/options/toggle-panel.php:165
+#, fuzzy
 msgid ""
 "Set the percent of width of toggle panel for display dimension greater than "
 "500px."
-msgstr ""
+msgstr "تعيين النسبة المئوية لعرض لوحة تبديل لبعد العرض أكبر من 500px."
 
 #: instantio/admin/options/toggle-panel.php:170
 #: wooinstant/admin/options/toggle-panel.php:166
+#, fuzzy
 msgid "Range 0%-100%. Default 60"
-msgstr ""
+msgstr "المدى 0%-100%. الافتراضي 60"
 
 #: instantio/admin/options/toggle-panel.php:201
 #: wooinstant/admin/options/toggle-panel.php:194
+#, fuzzy
 msgid "Cart Header Background"
-msgstr ""
+msgstr "خلفية رأس العربة"
 
 #: instantio/admin/options/toggle-panel.php:202
 #: wooinstant/admin/options/toggle-panel.php:195
+#, fuzzy
 msgid "Toggle panel cart header background color"
-msgstr ""
+msgstr "تبديل لون خلفية رأس سلة اللوحة"
 
 #: instantio/admin/options/toggle-panel.php:210
 #: wooinstant/admin/options/toggle-panel.php:202
+#, fuzzy
 msgid "Cart Header Text Color"
-msgstr ""
+msgstr "لون نص رأس العربة"
 
 #: instantio/admin/options/toggle-panel.php:211
 #: wooinstant/admin/options/toggle-panel.php:203
+#, fuzzy
 msgid "Toggle panel cart header text color"
-msgstr ""
+msgstr "تبديل لون نص رأس سلة اللوحة"
 
 #: instantio/admin/options/toggle-panel.php:219
 #: wooinstant/admin/options/toggle-panel.php:210
+#, fuzzy
 msgid "Cart Items Background"
-msgstr ""
+msgstr "خلفية عناصر السلة"
 
 #: instantio/admin/options/toggle-panel.php:220
 #: wooinstant/admin/options/toggle-panel.php:211
+#, fuzzy
 msgid "Toggle panel cart items background color"
-msgstr ""
+msgstr "تبديل لون خلفية عناصر سلة اللوحة"
 
 #: instantio/admin/options/toggle-panel.php:228
 #: wooinstant/admin/options/toggle-panel.php:218
+#, fuzzy
 msgid "Cart Item Text Color"
-msgstr ""
+msgstr "لون نص عنصر العربة"
 
 #: instantio/admin/options/toggle-panel.php:229
 #: wooinstant/admin/options/toggle-panel.php:219
+#, fuzzy
 msgid "Toggle panel cart item text color"
-msgstr ""
+msgstr "تبديل لون نص عنصر سلة اللوحة"
 
 #: instantio/admin/options/toggle-panel.php:237
 #: wooinstant/admin/options/toggle-panel.php:226
+#, fuzzy
 msgid "Cart Input Background"
-msgstr ""
+msgstr "خلفية إدخال سلة التسوق"
 
 #: instantio/admin/options/toggle-panel.php:238
 #: wooinstant/admin/options/toggle-panel.php:227
+#, fuzzy
 msgid "Toggle panel cart input background color"
-msgstr ""
+msgstr "تبديل لون خلفية إدخال سلة اللوحة"
 
 #: instantio/admin/options/toggle-panel.php:247
 #: wooinstant/admin/options/toggle-panel.php:235
+#, fuzzy
 msgid "Cart Input Text Color"
-msgstr ""
+msgstr "لون نص إدخال العربة"
 
 #: instantio/admin/options/toggle-panel.php:248
 #: wooinstant/admin/options/toggle-panel.php:236
+#, fuzzy
 msgid "Toggle panel cart input text color"
-msgstr ""
+msgstr "تبديل لون نص إدخال سلة اللوحة"
 
 #: instantio/admin/options/toggle-panel.php:255
 #: wooinstant/admin/options/toggle-panel.php:242
+#, fuzzy
 msgid "Cart Button Background Colors"
-msgstr ""
+msgstr "ألوان خلفية زر العربة"
 
 #: instantio/admin/options/toggle-panel.php:256
 #: instantio/admin/options/toggle-panel.php:268
@@ -695,447 +790,529 @@ msgstr ""
 #: wooinstant/admin/options/toggle-panel.php:254
 #: wooinstant/admin/options/toggler.php:92
 #: wooinstant/admin/options/toggler.php:103
+#, fuzzy
 msgid "Set regular & hover color"
-msgstr ""
+msgstr "تعيين عادي &amp؛ لون التحويم"
 
 #: instantio/admin/options/toggle-panel.php:267
 #: wooinstant/admin/options/toggle-panel.php:253
+#, fuzzy
 msgid "Cart Button Text Colors"
-msgstr ""
+msgstr "ألوان نص زر العربة"
 
 #: instantio/admin/options/toggle-panel.php:279
 #: wooinstant/admin/options/toggle-panel.php:264
+#, fuzzy
 msgid "Cart Pricing Table Background"
-msgstr ""
+msgstr "خلفية جدول تسعير العربة"
 
 #: instantio/admin/options/toggle-panel.php:280
 #: wooinstant/admin/options/toggle-panel.php:265
+#, fuzzy
 msgid "Toggle panel pricing table background color"
-msgstr ""
+msgstr "تبديل لون خلفية جدول تسعير اللوحة"
 
 #: instantio/admin/options/toggle-panel.php:288
 #: wooinstant/admin/options/toggle-panel.php:272
+#, fuzzy
 msgid "Cart Pricing Table Text Color"
-msgstr ""
+msgstr "لون نص جدول تسعير العربة"
 
 #: instantio/admin/options/toggle-panel.php:289
 #: wooinstant/admin/options/toggle-panel.php:273
+#, fuzzy
 msgid "Toggle panel pricing table text color"
-msgstr ""
+msgstr "تبديل لون نص جدول تسعير اللوحة"
 
 #: instantio/admin/options/toggle-panel.php:302
 #: wooinstant/admin/options/toggle-panel.php:285
+#, fuzzy
 msgid "Billing Section"
-msgstr ""
+msgstr "قسم الفوترة"
 
 #: instantio/admin/options/toggle-panel.php:308
 #: wooinstant/admin/options/toggle-panel.php:291
+#, fuzzy
 msgid "Panel Billing Background"
-msgstr ""
+msgstr "خلفية فوترة اللوحة"
 
 #: instantio/admin/options/toggle-panel.php:309
 #: wooinstant/admin/options/toggle-panel.php:292
+#, fuzzy
 msgid "Toggle panel billing section background color"
-msgstr ""
+msgstr "تبديل لون خلفية مقطع فوترة اللوحة"
 
 #: instantio/admin/options/toggle-panel.php:317
 #: wooinstant/admin/options/toggle-panel.php:299
+#, fuzzy
 msgid "Panel Billing Heading Color"
-msgstr ""
+msgstr "لون عنوان فوترة اللوحة"
 
 #: instantio/admin/options/toggle-panel.php:318
 #: wooinstant/admin/options/toggle-panel.php:300
+#, fuzzy
 msgid "Toggle panel billing section heading text color"
-msgstr ""
+msgstr "تبديل لون نص عنوان مقطع فوترة اللوحة"
 
 #: instantio/admin/options/toggle-panel.php:330
 #: wooinstant/admin/options/toggle-panel.php:311
+#, fuzzy
 msgid "Panel Billing Padding"
-msgstr ""
+msgstr "لوحة الفواتير الحشو"
 
 #: instantio/admin/options/toggle-panel.php:331
 #: wooinstant/admin/options/toggle-panel.php:312
+#, fuzzy
 msgid "Toggle panel billing section padding"
-msgstr ""
+msgstr "تبديل حشوة مقطع فوترة اللوحة"
 
 #: instantio/admin/options/toggle-panel.php:345
 #: wooinstant/admin/options/toggle-panel.php:325
+#, fuzzy
 msgid "Panel Billing Label Color"
-msgstr ""
+msgstr "لون تسمية فوترة اللوحة"
 
 #: instantio/admin/options/toggle-panel.php:346
 #: wooinstant/admin/options/toggle-panel.php:326
+#, fuzzy
 msgid "Toggle panel billing section label text color"
-msgstr ""
+msgstr "تبديل لون نص تسمية مقطع فوترة اللوحة"
 
 #: instantio/admin/options/toggle-panel.php:354
 #: wooinstant/admin/options/toggle-panel.php:333
+#, fuzzy
 msgid "Panel Billing Input Background"
-msgstr ""
+msgstr "خلفية إدخال فوترة اللوحة"
 
 #: instantio/admin/options/toggle-panel.php:355
 #: wooinstant/admin/options/toggle-panel.php:334
+#, fuzzy
 msgid "Toggle panel billing section input background color"
-msgstr ""
+msgstr "تبديل لون خلفية إدخال مقطع فوترة اللوحة"
 
 #: instantio/admin/options/toggle-panel.php:363
 #: wooinstant/admin/options/toggle-panel.php:341
+#, fuzzy
 msgid "Panel Billing Input Border Color"
-msgstr ""
+msgstr "لون حد إدخال فوترة اللوحة"
 
 #: instantio/admin/options/toggle-panel.php:364
 #: wooinstant/admin/options/toggle-panel.php:342
+#, fuzzy
 msgid "Toggle panel billing section input border color"
-msgstr ""
+msgstr "تبديل لون حد إدخال مقطع فوترة اللوحة"
 
 #: instantio/admin/options/toggle-panel.php:372
 #: wooinstant/admin/options/toggle-panel.php:349
+#, fuzzy
 msgid "Panel Billing Input Text Color"
-msgstr ""
+msgstr "لون نص إدخال فوترة اللوحة"
 
 #: instantio/admin/options/toggle-panel.php:373
 #: wooinstant/admin/options/toggle-panel.php:350
+#, fuzzy
 msgid "Toggle panel billing section input text color"
-msgstr ""
+msgstr "تبديل لون نص إدخال مقطع فوترة اللوحة"
 
 #: instantio/admin/options/toggle-panel.php:381
 #: wooinstant/admin/options/toggle-panel.php:357
+#, fuzzy
 msgid "Panel Billing Input Shadow Color"
-msgstr ""
+msgstr "لون ظل الإدخال في لوحة الفوترة"
 
 #: instantio/admin/options/toggle-panel.php:382
 #: wooinstant/admin/options/toggle-panel.php:358
+#, fuzzy
 msgid "Toggle panel billing section input shadow color"
-msgstr ""
+msgstr "تبديل لوحة الفوترة المقطع إدخال لون الظل"
 
 #: instantio/admin/options/toggle-panel.php:394
 #: wooinstant/admin/options/toggle-panel.php:369
+#, fuzzy
 msgid "Review Section"
-msgstr ""
+msgstr "قسم المراجعة"
 
 #: instantio/admin/options/toggle-panel.php:400
 #: wooinstant/admin/options/toggle-panel.php:375
+#, fuzzy
 msgid "Order Review Heading"
-msgstr ""
+msgstr "عنوان مراجعة الطلب"
 
 #: instantio/admin/options/toggle-panel.php:401
 #: wooinstant/admin/options/toggle-panel.php:376
+#, fuzzy
 msgid "Toggle panel review section heading color"
-msgstr ""
+msgstr "تبديل لون عنوان قسم مراجعة اللوحة"
 
 #: instantio/admin/options/toggle-panel.php:410
 #: wooinstant/admin/options/toggle-panel.php:384
+#, fuzzy
 msgid "Review Section Background"
-msgstr ""
+msgstr "خلفية قسم المراجعة"
 
 #: instantio/admin/options/toggle-panel.php:411
 #: wooinstant/admin/options/toggle-panel.php:385
+#, fuzzy
 msgid "Toggle panel review section background color"
-msgstr ""
+msgstr "تبديل لون خلفية مقطع مراجعة اللوحة"
 
 #: instantio/admin/options/toggle-panel.php:419
 #: wooinstant/admin/options/toggle-panel.php:392
+#, fuzzy
 msgid "Review Table Head Background"
-msgstr ""
+msgstr "خلفية رأس جدول المراجعة"
 
 #: instantio/admin/options/toggle-panel.php:420
 #: wooinstant/admin/options/toggle-panel.php:393
+#, fuzzy
 msgid "Toggle panel review section table head background color"
-msgstr ""
+msgstr "تبديل لوحة مراجعة لون خلفية رأس الجدول"
 
 #: instantio/admin/options/toggle-panel.php:428
 #: wooinstant/admin/options/toggle-panel.php:400
+#, fuzzy
 msgid "Review Table Head Text Color"
-msgstr ""
+msgstr "مراجعة لون نص رأس الجدول"
 
 #: instantio/admin/options/toggle-panel.php:429
 #: wooinstant/admin/options/toggle-panel.php:401
+#, fuzzy
 msgid "Toggle panel review section table head text color"
-msgstr ""
+msgstr "تبديل لوحة مراجعة المقطع لون النص الرأسي للجدول"
 
 #: instantio/admin/options/toggle-panel.php:437
 #: wooinstant/admin/options/toggle-panel.php:408
+#, fuzzy
 msgid "Review Table Item Background"
-msgstr ""
+msgstr "مراجعة خلفية عنصر الجدول"
 
 #: instantio/admin/options/toggle-panel.php:438
 #: wooinstant/admin/options/toggle-panel.php:409
+#, fuzzy
 msgid "Toggle panel review section table item background color"
-msgstr ""
+msgstr "تبديل لون خلفية عنصر عنصر جدول مراجعة اللوحة"
 
 #: instantio/admin/options/toggle-panel.php:445
 #: wooinstant/admin/options/toggle-panel.php:415
+#, fuzzy
 msgid "Review Table Item Text Color"
-msgstr ""
+msgstr "مراجعة لون نص عنصر الجدول"
 
 #: instantio/admin/options/toggle-panel.php:446
 #: wooinstant/admin/options/toggle-panel.php:416
+#, fuzzy
 msgid "Toggle panel review section table item text color"
-msgstr ""
+msgstr "تبديل لوحة مراجعة مقطع البند لون النص البند"
 
 #: instantio/admin/options/toggle-panel.php:454
 #: wooinstant/admin/options/toggle-panel.php:423
+#, fuzzy
 msgid "Review Pricing Background"
-msgstr ""
+msgstr "مراجعة خلفية التسعير"
 
 #: instantio/admin/options/toggle-panel.php:455
 #: wooinstant/admin/options/toggle-panel.php:424
+#, fuzzy
 msgid "Toggle panel review section pricing background color"
-msgstr ""
+msgstr "تبديل لوحة مراجعة قسم التسعير لون الخلفية"
 
 #: instantio/admin/options/toggle-panel.php:463
 #: wooinstant/admin/options/toggle-panel.php:431
+#, fuzzy
 msgid "Review Pricing Text Color"
-msgstr ""
+msgstr "مراجعة لون نص التسعير"
 
 #: instantio/admin/options/toggle-panel.php:464
 #: wooinstant/admin/options/toggle-panel.php:432
+#, fuzzy
 msgid "Toggle panel review section pricing text color"
-msgstr ""
+msgstr "تبديل لوحة مراجعة قسم تسعير لون النص"
 
 #: instantio/admin/options/toggle-panel.php:477
 #: wooinstant/admin/options/toggle-panel.php:444
+#, fuzzy
 msgid "Payment Section"
-msgstr ""
+msgstr "قسم الدفع"
 
 #: instantio/admin/options/toggle-panel.php:483
 #: wooinstant/admin/options/toggle-panel.php:450
 msgid "Payment Methods Background"
-msgstr ""
+msgstr "الخلفية لطرق الدفع"
 
 #: instantio/admin/options/toggle-panel.php:484
 #: wooinstant/admin/options/toggle-panel.php:451
+#, fuzzy
 msgid "Toggle panel Payment methods background color"
-msgstr ""
+msgstr "تبديل لوحة الدفع أساليب لون الخلفية"
 
 #: instantio/admin/options/toggle-panel.php:492
 #: wooinstant/admin/options/toggle-panel.php:458
+#, fuzzy
 msgid "Payment Methods Text Color"
-msgstr ""
+msgstr "لون نص طرق الدفع"
 
 #: instantio/admin/options/toggle-panel.php:493
 #: wooinstant/admin/options/toggle-panel.php:459
+#, fuzzy
 msgid "Toggle panel Payment methods text color"
-msgstr ""
+msgstr "تبديل لوحة الدفع طرق النص اللون"
 
 #: instantio/admin/options/toggle-panel.php:501
 #: wooinstant/admin/options/toggle-panel.php:466
+#, fuzzy
 msgid "Payment Methods Description Background"
-msgstr ""
+msgstr "خلفية وصف طرق الدفع"
 
 #: instantio/admin/options/toggle-panel.php:502
 #: wooinstant/admin/options/toggle-panel.php:467
+#, fuzzy
 msgid "Toggle panel Payment methods description background color"
-msgstr ""
+msgstr "تبديل لوحة الدفع أساليب وصف لون الخلفية"
 
 #: instantio/admin/options/toggle-panel.php:510
 #: wooinstant/admin/options/toggle-panel.php:474
+#, fuzzy
 msgid "Payment Methods Description Text Color"
-msgstr ""
+msgstr "طرق الدفع وصف لون النص"
 
 #: instantio/admin/options/toggle-panel.php:511
 #: wooinstant/admin/options/toggle-panel.php:475
+#, fuzzy
 msgid "Toggle panel Payment methods description text color"
-msgstr ""
+msgstr "تبديل لوحة الدفع أساليب وصف لون النص"
 
 #: instantio/admin/options/toggle-panel.php:519
 #: wooinstant/admin/options/toggle-panel.php:482
+#, fuzzy
 msgid "Place Order Background"
-msgstr ""
+msgstr "مكان ترتيب الخلفية"
 
 #: instantio/admin/options/toggle-panel.php:520
 #: wooinstant/admin/options/toggle-panel.php:483
+#, fuzzy
 msgid "Toggle panel place order background color"
-msgstr ""
+msgstr "تبديل لوحة مكان ترتيب لون الخلفية"
 
 #: instantio/admin/options/toggle-panel.php:528
 #: wooinstant/admin/options/toggle-panel.php:490
+#, fuzzy
 msgid "Place Order Text Color"
-msgstr ""
+msgstr "وضع ترتيب لون النص"
 
 #: instantio/admin/options/toggle-panel.php:529
 #: wooinstant/admin/options/toggle-panel.php:491
+#, fuzzy
 msgid "Toggle panel place order text color"
-msgstr ""
+msgstr "تبديل لوحة مكان ترتيب لون النص"
 
 #: instantio/admin/options/toggle-panel.php:538
 #: wooinstant/admin/options/toggle-panel.php:499
+#, fuzzy
 msgid "Place Order Button Background"
-msgstr ""
+msgstr "مكان ترتيب زر الخلفية"
 
 #: instantio/admin/options/toggle-panel.php:539
 #: wooinstant/admin/options/toggle-panel.php:500
+#, fuzzy
 msgid "Place order button background regular & hover color"
-msgstr ""
+msgstr "وضع خلفية زر ترتيب عادية ولون التحويم"
 
 #: instantio/admin/options/toggle-panel.php:550
 #: wooinstant/admin/options/toggle-panel.php:510
+#, fuzzy
 msgid "Place Order Button Border Colors"
-msgstr ""
+msgstr "وضع ألوان حد زر الأمر"
 
 #: instantio/admin/options/toggle-panel.php:551
 #: wooinstant/admin/options/toggle-panel.php:511
+#, fuzzy
 msgid "Place order button border regular & hover color"
-msgstr ""
+msgstr "وضع حد زر الأمر العادية &amp؛ لون التحويم"
 
 #: instantio/admin/options/toggle-panel.php:562
 #: wooinstant/admin/options/toggle-panel.php:521
+#, fuzzy
 msgid "Place Order Button Text Colors"
-msgstr ""
+msgstr "وضع ألوان نص زر الأمر"
 
 #: instantio/admin/options/toggle-panel.php:563
 #: wooinstant/admin/options/toggle-panel.php:522
+#, fuzzy
 msgid "Place order button text regular & hover color"
-msgstr ""
+msgstr "وضع نص زر الأمر العادية &amp؛ لون تحوم"
 
 #: instantio/admin/options/toggler.php:16
 #: wooinstant/admin/options/toggler.php:16
+#, fuzzy
 msgid "Hide Toggler when No Cart Item"
-msgstr ""
+msgstr "إخفاء تبديل عند عدم وجود عنصر سلة"
 
 #: instantio/admin/options/toggler.php:17
 #: wooinstant/admin/options/toggler.php:17
+#, fuzzy
 msgid "When there is no item in the cart hide toggler"
-msgstr ""
+msgstr "عندما لا يوجد عنصر في عربة إخفاء toggler"
 
 #: instantio/admin/options/toggler.php:18
 #: wooinstant/admin/options/toggler.php:18
 msgid "Yes"
-msgstr ""
+msgstr "نعم"
 
 #: instantio/admin/options/toggler.php:19
 #: wooinstant/admin/options/toggler.php:19
 msgid "No"
-msgstr ""
+msgstr "لا"
 
 #: instantio/admin/options/toggler.php:26
 #: wooinstant/admin/options/toggler.php:26
+#, fuzzy
 msgid "Toggler Icon"
-msgstr ""
+msgstr "رمز المبدل"
 
 #: instantio/admin/options/toggler.php:27
 #: wooinstant/admin/options/toggler.php:27
+#, fuzzy
 msgid "Select cart icon which will appear in cart toggler"
-msgstr ""
+msgstr "حدد رمز العربة الذي سيظهر في مبدل العربة"
 
 #: instantio/admin/options/toggler.php:42
 #: wooinstant/admin/options/toggler.php:43
+#, fuzzy
 msgid "Custom Image as Toggler Icon"
-msgstr ""
+msgstr "صورة مخصصة كرمز تبديل"
 
 #: instantio/admin/options/toggler.php:43
 #: wooinstant/admin/options/toggler.php:44
+#, fuzzy
 msgid "Set custom image as icon for the toggler instead of the defaults one."
-msgstr ""
+msgstr "تعيين صورة مخصصة كرمز لتبديل بدلا من الافتراضيات واحد."
 
 #: instantio/admin/options/toggler.php:54
 #: wooinstant/admin/options/toggler.php:65
+#, fuzzy
 msgid "Toggler Horizontal Position"
-msgstr ""
+msgstr "تبديل الموضع الأفقي"
 
 #: instantio/admin/options/toggler.php:55
 #: wooinstant/admin/options/toggler.php:66
+#, fuzzy
 msgid "Changes position of the Cart Toggler horizontally"
-msgstr ""
+msgstr "تغيير موضع تبديل العربة أفقيا"
 
 #: instantio/admin/options/toggler.php:66
 #: wooinstant/admin/options/toggler.php:77
+#, fuzzy
 msgid "Toggler Vertical Position"
-msgstr ""
+msgstr "تبديل الموضع العمودي"
 
 #: instantio/admin/options/toggler.php:67
 #: wooinstant/admin/options/toggler.php:78
+#, fuzzy
 msgid "Changes position of the Cart Toggler vertically"
-msgstr ""
+msgstr "تغيير موضع تبديل العربة عموديا"
 
 #: instantio/admin/options/toggler.php:80
 #: wooinstant/admin/options/toggler.php:91
+#, fuzzy
 msgid "Toggler Background Colors"
-msgstr ""
+msgstr "ألوان خلفية المبدل"
 
 #: instantio/admin/options/toggler.php:91
 #: wooinstant/admin/options/toggler.php:102
+#, fuzzy
 msgid "Toggler Border Colors"
-msgstr ""
+msgstr "ألوان حدود المبدل"
 
 #: instantio/admin/options/toggler.php:102
 #: wooinstant/admin/options/toggler.php:113
+#, fuzzy
 msgid "Toggler Icon Color"
-msgstr ""
+msgstr "تبديل رمز اللون"
 
 #: instantio/admin/options/toggler.php:103
 #: instantio/admin/options/toggler.php:135
 #: wooinstant/admin/options/toggler.php:114
 #: wooinstant/admin/options/toggler.php:146
+#, fuzzy
 msgid "Set regular & hover color of text & icon"
-msgstr ""
+msgstr "تعيين عادي &amp؛ لون تمرير النص &amp؛ الرمز"
 
 #: instantio/admin/options/toggler.php:113
 #: wooinstant/admin/options/toggler.php:124
+#, fuzzy
 msgid "Toggler Icon Size"
-msgstr ""
+msgstr "حجم أيقونة المبدل"
 
 #: instantio/admin/options/toggler.php:114
 #: wooinstant/admin/options/toggler.php:125
+#, fuzzy
 msgid "Set width of the toggler icon"
-msgstr ""
+msgstr "تعيين عرض رمز المبدل"
 
 #: instantio/admin/options/toggler.php:115
 #: wooinstant/admin/options/toggler.php:126
 msgid "Default: 26px"
-msgstr ""
+msgstr "الافتراضي : 26px"
 
 #: instantio/admin/options/toggler.php:123
 #: wooinstant/admin/options/toggler.php:134
+#, fuzzy
 msgid "Toggler Item Number Background"
-msgstr ""
+msgstr "خلفية رقم عنصر المبدل"
 
 #: instantio/admin/options/toggler.php:124
 #: wooinstant/admin/options/toggler.php:135
+#, fuzzy
 msgid "Set regular & hover background color"
-msgstr ""
+msgstr "تعيين لون خلفية عادي وتحوم"
 
 #: instantio/admin/options/toggler.php:134
 #: wooinstant/admin/options/toggler.php:145
+#, fuzzy
 msgid "Toggler Item Number Color"
-msgstr ""
+msgstr "تبديل لون رقم العنصر"
 
 #: instantio/admin/options/toggler.php:145
 #: wooinstant/admin/options/toggler.php:156
+#, fuzzy
 msgid "Toggler Item Number Size"
-msgstr ""
+msgstr "تبديل حجم رقم الصنف"
 
 #: instantio/admin/options/toggler.php:146
 #: wooinstant/admin/options/toggler.php:157
+#, fuzzy
 msgid "Set font size & line height of cart toggler text"
-msgstr ""
+msgstr "تعيين حجم الخط وارتفاع سطر نص محول السلة"
 
 #: instantio/admin/options/toggler.php:147
 #: wooinstant/admin/options/toggler.php:158
+#, fuzzy
 msgid "Default: 14px"
-msgstr ""
+msgstr "الافتراضي: 14px"
 
 #: instantio/inc/functions.php:182
 msgid "View Cart"
-msgstr ""
+msgstr "عرض السلة"
 
 #: instantio/inc/functions.php:202
 #: wooinstant/inc/layouts/mobile/mobile-1.php:75
 #: wooinstant/inc/templates/cart-m.php:143
 msgid "Checkout Now"
-msgstr ""
+msgstr "الشراء الان"
 
 #: instantio/inc/style-script.php:48 wooinstant/inc/functions.php:316
 msgid "Please fill all required fields."
-msgstr ""
+msgstr "من فظلك قم بملء كل الحقول المطلوبه."
 
 #: instantio/inc/style-script.php:49
+#, fuzzy
 msgid "Please Enter valid email."
-msgstr ""
+msgstr "الرجاء إدخال بريد إلكتروني صالح."
 
 #: instantio/inc/layouts/layout-1/layout-1.php:38
+#, fuzzy
 msgid "View Checkout"
-msgstr ""
+msgstr "عرض الخروج"
 
 #: instantio/inc/layouts/layout-2/layout-2.php:56
 #: instantio/inc/layouts/layout-3/layout-3.php:57
@@ -1144,7 +1321,7 @@ msgstr ""
 #: wooinstant/inc/layouts/layout-6/layout-6.php:58
 #: wooinstant/inc/layouts/layout-7/layout-7.php:66
 msgid "Your Cart"
-msgstr ""
+msgstr "عربة التسوق"
 
 #: instantio/inc/layouts/layout-2/layout-2.php:67
 #: instantio/inc/layouts/layout-3/layout-3.php:68
@@ -1155,208 +1332,226 @@ msgstr ""
 #: wooinstant/inc/layouts/layout-6/layout-6.php:96
 #: wooinstant/inc/layouts/layout-7/layout-7.php:79
 msgid "Your cart is empty"
-msgstr ""
+msgstr "سلة التسوق فارغة"
 
 #: instantio/inc/layouts/layout-2/layout-2.php:73
 #: instantio/inc/layouts/layout-3/layout-3.php:74
 msgid "Continue Shopping"
-msgstr ""
+msgstr "مواصلة التسوق"
 
 #: instantio/inc/layouts/layout-2/layout-2.php:76
 #: instantio/inc/layouts/layout-3/layout-3.php:77
 #: wooinstant/inc/templates/cart-m.php:132
 msgid "Subtotal: "
-msgstr ""
+msgstr "مبلغ إجمالي :"
 
 #: instantio/inc/templates/cart.php:30 instantio/inc/templates/cart.php:74
 #: wooinstant/inc/templates/cart.php:29 wooinstant/inc/templates/cart.php:73
 msgid "Product"
-msgstr ""
+msgstr "المنتج"
 
 #: instantio/inc/templates/cart.php:31 instantio/inc/templates/cart.php:94
 #: wooinstant/inc/templates/cart.php:30 wooinstant/inc/templates/cart.php:89
 msgid "Price"
-msgstr ""
+msgstr "السعر"
 
 #: instantio/inc/templates/cart.php:32 instantio/inc/templates/cart.php:100
 #: wooinstant/inc/templates/cart-m.php:56 wooinstant/inc/templates/cart.php:31
 #: wooinstant/inc/templates/cart.php:95
 msgid "Quantity"
-msgstr ""
+msgstr "الكمية"
 
 #: instantio/inc/templates/cart.php:33 instantio/inc/templates/cart.php:122
 #: wooinstant/inc/templates/cart-m.php:98 wooinstant/inc/templates/cart.php:32
 msgid "Total"
-msgstr ""
+msgstr "المجموع"
 
 #: instantio/inc/templates/cart.php:55 wooinstant/inc/templates/cart-m.php:89
 #: wooinstant/inc/templates/cart.php:54
 msgid "Remove this item"
-msgstr ""
+msgstr "إزالة هذا العنصر"
 
 #: instantio/inc/templates/cart.php:89
 msgid "Available on backorder"
-msgstr ""
+msgstr "متوفر على لائحة الرد"
 
-#: instantio/inc/templates/cart.php:138
-#: wooinstant/inc/templates/cart-m.php:129
+#: instantio/inc/templates/cart.php:138 wooinstant/inc/templates/cart-m.php:129
 #: wooinstant/inc/templates/cart.php:141
 msgid "Empty Cart"
-msgstr ""
+msgstr "سلة المشتريات فارغة"
 
 #: wooinstant/wooinstant.php:170 wooinstant/wooinstant.php:179
-#, php-format
+#, fuzzy, php-format
 msgid "Instantio Pro requires %1$s Instantio %2$s to be activated."
-msgstr ""
+msgstr "يتطلب Instantio Pro تنشيط %2$s فوريتيو %1$s."
 
 #: wooinstant/admin/options/toggler.php:54
+#, fuzzy
 msgid "Custom Toggler Icon"
-msgstr ""
+msgstr "رمز تبديل مخصص"
 
 #: wooinstant/admin/options/toggler.php:55
+#, fuzzy
 msgid "Upload your cart icon. Recommended size of an icon is 26x26px"
-msgstr ""
+msgstr "قم بتحميل رمز سلة التسوق. الحجم الموصى به لرمز هو 26x26px"
 
 #: wooinstant/admin/options/toggler.php:57
+#, fuzzy
 msgid "https://"
-msgstr ""
+msgstr "https://"
 
 #: wooinstant/inc/functions.php:257
 msgid "Loading..."
-msgstr ""
+msgstr "جار التحميل..."
 
 #: wooinstant/inc/functions.php:308
+#, fuzzy
 msgid "Login successful, reloading..."
-msgstr ""
+msgstr "تسجيل الدخول بنجاح، إعادة تحميل..."
 
 #: wooinstant/inc/layouts/layout-4/layout-4.php:72
 #: wooinstant/inc/layouts/layout-5/layout-5.php:83
 #: wooinstant/inc/layouts/layout-6/layout-6.php:88
 #: wooinstant/inc/layouts/layout-7/layout-7.php:97
 msgid "Back to Cart"
-msgstr ""
+msgstr "العودة لسلة المشتريات"
 
 #: wooinstant/inc/layouts/layout-4/layout-4.php:76
 #: wooinstant/inc/layouts/layout-5/layout-5.php:87
-#, php-format
+#, fuzzy, php-format
 msgid "Returning customer? %1$s Click here to login %2$s."
-msgstr ""
+msgstr "عميل عائد؟ %1$s انقر هنا لتسجيل الدخول %2$s."
 
 #: wooinstant/inc/layouts/mobile/mobile-1.php:69
 msgid "Cart Total"
-msgstr ""
+msgstr "مجموع العربة"
 
 #: wooinstant/inc/layouts/mobile/mobile-1.php:97
 #: wooinstant/inc/layouts/mobile/mobile-1.php:124
+#, fuzzy
 msgid "No Cart Items"
-msgstr ""
+msgstr "لا توجد عناصر سلة"
 
 #: wooinstant/inc/layouts/mobile/mobile-1.php:112
-#, php-format
+#, fuzzy, php-format
 msgid "Returning customer? %1$s Touch here to login. %2$s"
-msgstr ""
+msgstr "عميل عائد؟ %1$s المس هنا لتسجيل الدخول. %2$s"
 
 #: wooinstant/inc/license/license.php:34
 msgid "Please "
-msgstr ""
+msgstr "من فضلك "
 
 #: wooinstant/inc/license/license.php:34
+#, fuzzy
 msgid " key to enable getting future updates for Instantio Pro."
-msgstr ""
+msgstr " المفتاح لتمكين الحصول على التحديثات المستقبلية ل Instantio Pro."
 
 #: wooinstant/inc/license/license.php:116
+#, fuzzy
 msgid "Instantio License Info"
-msgstr ""
+msgstr "معلومات الترخيص الفوري"
 
 #: wooinstant/inc/license/license.php:121
 msgid "Status"
-msgstr ""
+msgstr "الحالة"
 
 #: wooinstant/inc/license/license.php:124
 msgid "Valid"
-msgstr ""
+msgstr "صالح"
 
 #: wooinstant/inc/license/license.php:126
 msgid "Invalid"
-msgstr ""
+msgstr "غير صالح"
 
 #: wooinstant/inc/license/license.php:133
 msgid "License Type"
-msgstr ""
+msgstr "نوع الرخصة"
 
 #: wooinstant/inc/license/license.php:140
+#, fuzzy
 msgid "License Expired on"
-msgstr ""
+msgstr "انتهت صلاحية الترخيص في"
 
 #: wooinstant/inc/license/license.php:153
+#, fuzzy
 msgid "Support Expired on"
-msgstr ""
+msgstr "انتهت مدة صلاحية الدعم على"
 
 #: wooinstant/inc/license/license.php:166
 msgid "Your License Key"
-msgstr ""
+msgstr "مفتاح الترخيص الخاص بك"
 
 #: wooinstant/inc/license/license.php:185
+#, fuzzy
 msgid "Instantio Pro Licensing"
-msgstr ""
+msgstr "فوريسيو برو الترخيص"
 
 #: wooinstant/inc/license/license.php:196
+#, fuzzy
 msgid "If you don't have a license key, please "
-msgstr ""
+msgstr "إذا لم يكن لديك مفتاح ترخيص، من فضلك "
 
 #: wooinstant/inc/license/license.php:196
 msgid "click here"
-msgstr ""
+msgstr "اضغط هنا"
 
 #: wooinstant/inc/license/license.php:196
+#, fuzzy
 msgid " to request a license key."
-msgstr ""
+msgstr " لطلب مفتاح ترخيص."
 
 #: wooinstant/inc/license/license.php:197
+#, fuzzy
 msgid ""
 "Enter your license key here, to activate the product, and get full feature "
 "updates and premium support."
 msgstr ""
+"أدخل مفتاح الترخيص الخاص بك هنا، لتنشيط المنتج، والحصول على تحديثات الميزة "
+"الكاملة والدعم المتميز."
 
 #: wooinstant/inc/license/license.php:199
+#, fuzzy
 msgid "License code"
-msgstr ""
+msgstr "كود الترخيص"
 
 #: wooinstant/inc/license/license.php:203
 msgid "Email Address"
-msgstr ""
+msgstr "عنوان البريد الإلكتروني"
 
 #: wooinstant/inc/license/license.php:208
+#, fuzzy
 msgid ""
 "We will send update news of this product by this email address, don't worry, "
 "we hate spam"
 msgstr ""
+"سوف نرسل تحديث الأخبار من هذا المنتج عن طريق هذا العنوان الإلكتروني، لا "
+"تقلق، ونحن نكره البريد المزعج"
 
 #: wooinstant/inc/templates/cart-m.php:114
 msgid "Update cart"
-msgstr ""
+msgstr "تحديث سلة المشتريات"
 
 #: wooinstant/inc/templates/cart.php:117
 msgid "Subtotal"
-msgstr ""
+msgstr "المجموع الفرعي"
 
 #: wooinstant/inc/templates/cart.php:135
 msgid "Coupon:"
-msgstr ""
+msgstr "القسيمة:"
 
 #: wooinstant/inc/templates/cart.php:135
 msgid "Coupon code"
-msgstr ""
+msgstr "كود الكوبون"
 
 #: wooinstant/inc/templates/cart.php:135
 msgid "Apply coupon"
-msgstr ""
+msgstr "استخدام الكوبون"
 
 #: wooinstant/inc/templates/cross-sells.php:27
 #: wooinstant/inc/templates/cross-sells.php:30
 msgid "You may be interested in&hellip;"
-msgstr ""
+msgstr "قد تكون مهتما أيضا في&hellip;"
 
 #: wooinstant/inc/templates/cross-sells.php:46
 msgid "Add to cart"
-msgstr ""
+msgstr "اضف للسلة"
