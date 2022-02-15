@@ -1,12 +1,7 @@
 /* Popup Panel */
 .fancybox-container .ins-container {
-    min-width: 699px;
     overflow-x: hidden;
     max-width: 700px;
-}
-
- .ins-lay3-container {
-     font-family: 'Roboto', sans-serif;
 }
  .ins-lay3-container .ins-inner .ins-inner-container{
      display: flex;
@@ -65,7 +60,7 @@
 .ins-footer .footer-button {
 	display: grid;
     grid-column-gap: 10px;
-    grid-template-columns: auto auto;
+    grid-template-columns: calc(50% - 5px ) calc(50% - 5px );
 }
  .ins-lay3-container .ins-footer a{
      background: #ffffff;
@@ -82,7 +77,6 @@
      background: #e9570a;
      color: #fff;
 }
-
 .ins-lay3-container .ins-footer a:nth-child(1){
     background: #e9570a;
     border: 1px solid #e9570a;
@@ -96,4 +90,13 @@
 /* Override Main CSS */
 .ins-container table.cart td.product-remove {
     padding: 10px 5px 10px 10px !important;
+}
+
+/*
+* Responsive 
+*/
+@media(min-width: 768px){
+    .fancybox-container .ins-container {
+        min-width: 699px;
+    }
 }

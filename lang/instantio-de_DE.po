@@ -3,209 +3,238 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-17 18:04+0600\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2022-01-17 22:34+0600\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #: instantio/instantio.php:167 instantio/instantio.php:176
 #, php-format
 msgid "Instantio requires %1$s WooCommerce %2$s to be activated."
-msgstr ""
+msgstr "Instantio erfordert, dass %1$s WooCommerce-%2$s aktiviert ist."
 
 #: instantio/instantio.php:168 wooinstant/wooinstant.php:171
 msgid "Install Now"
-msgstr ""
+msgstr "Jetzt installieren"
 
 #: instantio/instantio.php:177 wooinstant/wooinstant.php:180
 msgid "Activate"
-msgstr ""
+msgstr "Aktivieren"
 
 #: instantio/instantio.php:185
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "%sInstantio is inactive.%s This plugin requires WooCommerce 2.5 or newer. "
 "Please %supdate WooCommerce to version 2.5 or newer%s"
 msgstr ""
+"%s Instantio ist inaktiv. %s Dieses Plugin benötigt WooCommerce 2.5 oder "
+"neuer. Bitte %sUpdate WooCommerce auf Version 2.5 oder neuer%s"
 
 #: instantio/instantio.php:212 wooinstant/wooinstant.php:193
 msgid "Settings"
-msgstr ""
+msgstr "Einstellungen"
 
 #: instantio/instantio.php:217
+#, fuzzy
 msgid "GO PRO"
-msgstr ""
+msgstr "GO PRO"
 
 #: instantio/admin/config.php:32 wooinstant/admin/config.php:34
 msgid "Design"
-msgstr ""
+msgstr "Design"
 
-#: instantio/admin/options/general.php:6
-#: wooinstant/admin/options/general.php:6
+#: instantio/admin/options/general.php:6 wooinstant/admin/options/general.php:6
 msgid "General"
-msgstr ""
+msgstr "Allgemein"
 
 #: instantio/admin/options/general.php:12
 #: wooinstant/admin/options/general.php:12
 msgid "General Settings"
-msgstr ""
+msgstr "Allgemeine Einstellungen"
 
 #: instantio/admin/options/general.php:18
 #: wooinstant/admin/options/general.php:18
 msgid "Select Layout"
-msgstr ""
+msgstr "Layout auswählen"
 
 #: instantio/admin/options/general.php:19
 #: wooinstant/admin/options/general.php:19
 msgid "Choose cart layout"
-msgstr ""
+msgstr "Warenkorb-Layout wählen"
 
-#: instantio/admin/options/general.php:40
-#: instantio/admin/options/toggler.php:5
+#: instantio/admin/options/general.php:40 instantio/admin/options/toggler.php:5
 #: instantio/admin/options/toggler.php:10
 #: wooinstant/admin/options/general.php:40
 #: wooinstant/admin/options/toggler.php:5
 #: wooinstant/admin/options/toggler.php:10
+#, fuzzy
 msgid "Toggler Design"
-msgstr ""
+msgstr "Toggler-Design"
 
 #: instantio/admin/options/general.php:41
 #: wooinstant/admin/options/general.php:41
 msgid "Select toggler design"
-msgstr ""
+msgstr "Toggler-Design auswählen"
 
 #: instantio/admin/options/general.php:53
 #: wooinstant/admin/options/general.php:53
+#, fuzzy
 msgid "Cart Toggler Open on"
-msgstr ""
+msgstr "Warenkorb-Toggler Öffnen am"
 
 #: instantio/admin/options/general.php:54
 #: wooinstant/admin/options/general.php:54
+#, fuzzy
 msgid "Choose how cart toggler should open for direct checkout button"
 msgstr ""
+"Wählen Sie aus, wie der Warenkorb-Toggler für die Schaltfläche \"Direkter "
+"Checkout\" geöffnet werden soll"
 
 #: instantio/admin/options/general.php:67
 #: wooinstant/admin/options/general.php:67
+#, fuzzy
 msgid "Enable/dsiable cart fly animation or change icon"
-msgstr ""
+msgstr "Aktivieren/sesable Warenkorbfliegenanimation oder Änderungssymbol"
 
 #: instantio/admin/options/general.php:72
 #: wooinstant/admin/options/general.php:72
+#, fuzzy
 msgid "Cart Fly Animation"
-msgstr ""
+msgstr "Cart Fly Animation"
 
 #: instantio/admin/options/general.php:82
 #: wooinstant/admin/options/general.php:82
+#, fuzzy
 msgid "Cart Fly Animation Icon"
-msgstr ""
+msgstr "Cart Fly Animation Symbol"
 
 #: instantio/admin/options/general.php:96
 #: wooinstant/admin/options/general.php:96
 msgid "Auto Open Toggle Panel"
-msgstr ""
+msgstr "Automatisch geöffnetes Umschaltfeld"
 
 #: instantio/admin/options/general.php:97
 #: wooinstant/admin/options/general.php:97
+#, fuzzy
 msgid "When an item is added to the cart automatically open the toggle panel"
 msgstr ""
+"Wenn ein Artikel zum Warenkorb hinzugefügt wird, öffnen Sie automatisch das "
+"Umschaltfeld"
 
 #: instantio/admin/options/general.php:108
 #: wooinstant/admin/options/general.php:108
+#, fuzzy
 msgid "Show/hide or change cart button's text & url"
 msgstr ""
+"Ein-/Ausblenden oder Ändern des Textes und der URL des Warenkorb-Buttons"
 
 #: instantio/admin/options/general.php:114
 #: wooinstant/admin/options/general.php:114
 msgid "Show Cart Button"
-msgstr ""
+msgstr "\"Warenkorb\"-Schaltfläche anzeigen"
 
 #: instantio/admin/options/general.php:122
 #: wooinstant/admin/options/general.php:122
 msgid "Cart Button Text"
-msgstr ""
+msgstr "Text Warenkorb Schaltfläche"
 
 #: instantio/admin/options/general.php:123
 #: wooinstant/admin/options/general.php:123
+#, fuzzy
 msgid "Default: <code>View Cart</code>"
-msgstr ""
+msgstr "Vorgabe: <code>View Cart</code>"
 
 #: instantio/admin/options/general.php:129
 #: wooinstant/admin/options/general.php:129
+#, fuzzy
 msgid "Cart Button URL"
-msgstr ""
+msgstr "URL der Warenkorbschaltfläche"
 
 #: instantio/admin/options/general.php:131
 #: wooinstant/admin/options/general.php:131
+#, fuzzy
 msgid "Default: default cart page"
-msgstr ""
+msgstr "Standard: Standard-Warenkorbseite"
 
 #: instantio/admin/options/general.php:142
 #: wooinstant/admin/options/general.php:142
+#, fuzzy
 msgid "Show/hide or change checkout button's text & url"
 msgstr ""
+"Anzeigen/Ausblenden oder Ändern des Textes und der URL des Checkout-Buttons"
 
 #: instantio/admin/options/general.php:147
 #: wooinstant/admin/options/general.php:147
+#, fuzzy
 msgid "Show Checkout Button"
-msgstr ""
+msgstr "Schaltfläche \"Zur Kasse\" anzeigen"
 
 #: instantio/admin/options/general.php:157
 #: instantio/admin/options/mobile.php:104
 #: wooinstant/admin/options/general.php:157
 #: wooinstant/admin/options/mobile.php:117
 msgid "Checkout Button Text"
-msgstr ""
+msgstr "Zur Kasse Text"
 
 #: instantio/admin/options/general.php:158
 #: instantio/admin/options/mobile.php:105
 #: wooinstant/admin/options/general.php:158
 #: wooinstant/admin/options/mobile.php:118
+#, fuzzy
 msgid "Default: <code>Checkout Now</code>"
-msgstr ""
+msgstr "Vorgabe: <code>Checkout Now</code>"
 
 #: instantio/admin/options/general.php:165
 #: wooinstant/admin/options/general.php:165
+#, fuzzy
 msgid "Checkout Button URL"
-msgstr ""
+msgstr "URL der Checkout-Schaltfläche"
 
 #: instantio/admin/options/general.php:167
 #: wooinstant/admin/options/general.php:167
+#, fuzzy
 msgid "Default: default checkout page"
-msgstr ""
+msgstr "Standard: Standard-Checkout-Seite"
 
 #: instantio/admin/options/general.php:178
 #: wooinstant/admin/options/general.php:177
+#, fuzzy
 msgid "Drawer Window Type"
-msgstr ""
+msgstr "Schubladenfenstertyp"
 
 #: instantio/admin/options/general.php:179
 #: wooinstant/admin/options/general.php:178
+#, fuzzy
 msgid "Choose the function of Cart Drawer / Side Cart."
-msgstr ""
+msgstr "Wählen Sie die Funktion von Warenkorbschublade / Seitenwagen."
 
 #: instantio/admin/options/general.php:180
 #: wooinstant/admin/options/general.php:179
+#, fuzzy
 msgid "Multistep: Cart-> Checkout; Single step: Cart+Checkout on same window"
 msgstr ""
+"Mehrschritt: Warenkorb->-Kasse; Einzelner Schritt: Warenkorb +Kasse im "
+"selben Fenster"
 
 #: instantio/admin/options/general.php:182
 #: wooinstant/admin/options/general.php:181
 msgid "Multi Step"
-msgstr ""
+msgstr "Mehrstufig"
 
 #: instantio/admin/options/general.php:183
 #: wooinstant/admin/options/general.php:182
 msgid "Single Step"
-msgstr ""
+msgstr "Einzelner Schritt"
 
 #: instantio/admin/options/general.php:186
 #: instantio/admin/options/general.php:198
@@ -219,473 +248,551 @@ msgstr ""
 #: wooinstant/admin/options/toggler.php:48
 #: wooinstant/admin/options/toggler.php:59
 msgid "Pro Feature"
-msgstr ""
+msgstr "Pro Feature"
 
 #: instantio/admin/options/general.php:193
 #: wooinstant/admin/options/general.php:192
 msgid "Disable Quick View"
-msgstr ""
+msgstr "Schnellansicht deaktivieren"
 
 #: instantio/admin/options/general.php:194
 #: wooinstant/admin/options/general.php:193
+#, fuzzy
 msgid ""
 "You can disable it if you already have quick view function in your theme "
 "(Applicable for Variable products)."
 msgstr ""
+"Sie können es deaktivieren, wenn Sie bereits eine Schnellansichtsfunktion in "
+"Ihrem Theme haben (Gilt für variable Produkte)."
 
 #: instantio/admin/options/general.php:205
 #: wooinstant/admin/options/general.php:203
+#, fuzzy
 msgid "Disable Ajax Add to Cart"
-msgstr ""
+msgstr "Deaktivieren Sie Ajax In den Warenkorb"
 
 #: instantio/admin/options/general.php:206
 #: wooinstant/admin/options/general.php:204
+#, fuzzy
 msgid ""
 "You can disable it if you already have ajax \"add to cart\" function in your "
 "theme (To avoid conflict)."
 msgstr ""
+"Sie können es deaktivieren, wenn Sie bereits die Ajax-Funktion \"In den "
+"Warenkorb\" in Ihrem Theme haben (um Konflikte zu vermeiden)."
 
 #: instantio/admin/options/general.php:217
 #: wooinstant/admin/options/general.php:214
+#, fuzzy
 msgid "Choose Active Window"
-msgstr ""
+msgstr "Wählen Sie Aktives Fenster"
 
 #: instantio/admin/options/general.php:218
 #: wooinstant/admin/options/general.php:215
+#, fuzzy
 msgid ""
 "Cart or Checkout, which one should be seen when customers open the \"Side "
 "Cart"
 msgstr ""
+"Warenkorb oder Checkout, den man sehen sollte, wenn Kunden den \"Seitenwagen"
+"\" öffnen"
 
 #: instantio/admin/options/general.php:220
 #: wooinstant/admin/options/general.php:217
 #: wooinstant/inc/layouts/mobile/mobile-1.php:86
 msgid "Cart"
-msgstr ""
+msgstr "Warenkorb"
 
 #: instantio/admin/options/general.php:221
 #: wooinstant/admin/options/general.php:218
 #: wooinstant/inc/layouts/mobile/mobile-1.php:105
 msgid "Checkout"
-msgstr ""
+msgstr "Kasse"
 
 #: instantio/admin/options/general.php:235
 #: wooinstant/admin/options/general.php:231
+#, fuzzy
 msgid "Upsells in Cart"
-msgstr ""
+msgstr "Upsells im Warenkorb"
 
 #: instantio/admin/options/general.php:236
 #: wooinstant/admin/options/general.php:232
+#, fuzzy
 msgid "Enable/disable upsells items in cart"
-msgstr ""
+msgstr "Upselling-Artikel im Warenkorb aktivieren/deaktivieren"
 
 #: instantio/admin/options/general.php:248
 #: wooinstant/admin/options/general.php:243
+#, fuzzy
 msgid "Upsell Heading"
-msgstr ""
+msgstr "Upsell Überschrift"
 
 #: instantio/admin/options/general.php:249
 #: wooinstant/admin/options/general.php:244
+#, fuzzy
 msgid "The text shown before upsell items"
-msgstr ""
+msgstr "Der Text, der vor upselling-Artikeln angezeigt wird"
 
 #: instantio/admin/options/general.php:250
 #: wooinstant/admin/options/general.php:245
+#, fuzzy
 msgid "Default: Hang on! We have this offer just for you!"
-msgstr ""
+msgstr "Standard: Moment mal! Wir haben dieses Angebot nur für Sie!"
 
 #: instantio/admin/options/general.php:251
 #: wooinstant/admin/options/general.php:246
 #: wooinstant/inc/templates/single-product/up-sells.php:30
+#, fuzzy
 msgid "Hang on! We have this offer just for you!"
-msgstr ""
+msgstr "Bleiben Sie dran! Wir haben dieses Angebot nur für Sie!"
 
 #: instantio/admin/options/general.php:259
 #: wooinstant/admin/options/general.php:252
+#, fuzzy
 msgid "Cross Sells in Checkout"
-msgstr ""
+msgstr "Cross-Selling im Checkout"
 
 #: instantio/admin/options/general.php:260
 #: wooinstant/admin/options/general.php:253
+#, fuzzy
 msgid "Enable/disable cross sell items in checkout"
-msgstr ""
+msgstr "Cross-Selling-Artikel an der Kasse aktivieren/deaktivieren"
 
 #: instantio/admin/options/general.php:272
 #: wooinstant/admin/options/general.php:264
+#, fuzzy
 msgid "Cross Sell Heading"
-msgstr ""
+msgstr "Cross-Selling-Rubrik"
 
 #: instantio/admin/options/general.php:273
 #: wooinstant/admin/options/general.php:265
+#, fuzzy
 msgid "The text shown before cross sell items"
-msgstr ""
+msgstr "Der Text, der vor Cross-Selling-Artikeln angezeigt wird"
 
 #: instantio/admin/options/general.php:274
 #: wooinstant/admin/options/general.php:266
+#, fuzzy
 msgid "Default: You may be interested in…"
-msgstr ""
+msgstr "Default: Das könnte Sie auch interessieren..."
 
 #: instantio/admin/options/general.php:275
 #: wooinstant/admin/options/general.php:267
 msgid "You may be interested in…"
-msgstr ""
+msgstr "Vielleicht interessieren Sie sich für..."
 
 #: instantio/admin/options/mobile.php:5 wooinstant/admin/options/mobile.php:5
 msgid "Mobile"
-msgstr ""
+msgstr "Mobil"
 
-#: instantio/admin/options/mobile.php:12
-#: wooinstant/admin/options/mobile.php:12
+#: instantio/admin/options/mobile.php:12 wooinstant/admin/options/mobile.php:12
+#, fuzzy
 msgid "Dedicated Mobile Version"
-msgstr ""
+msgstr "Dedizierte mobile Version"
 
-#: instantio/admin/options/mobile.php:13
-#: wooinstant/admin/options/mobile.php:13
+#: instantio/admin/options/mobile.php:13 wooinstant/admin/options/mobile.php:13
+#, fuzzy
 msgid "Enable/disable dedicated mobile version"
-msgstr ""
+msgstr "Dedizierte mobile Version aktivieren/deaktivieren"
 
 #: instantio/admin/options/mobile.php:24
 #: instantio/admin/options/toggle-panel.php:195
 #: wooinstant/admin/options/mobile.php:23
 #: wooinstant/admin/options/toggle-panel.php:188
+#, fuzzy
 msgid "Cart Section"
-msgstr ""
+msgstr "Warenkorb-Bereich"
 
-#: instantio/admin/options/mobile.php:30
-#: wooinstant/admin/options/mobile.php:29
+#: instantio/admin/options/mobile.php:30 wooinstant/admin/options/mobile.php:29
+#, fuzzy
 msgid "Enable Cart Panel"
-msgstr ""
+msgstr "Warenkorbbereich aktivieren"
 
-#: instantio/admin/options/mobile.php:31
-#: wooinstant/admin/options/mobile.php:30
+#: instantio/admin/options/mobile.php:31 wooinstant/admin/options/mobile.php:30
+#, fuzzy
 msgid "Enable/disable cart in mobile version"
-msgstr ""
+msgstr "Warenkorb in der mobilen Version aktivieren/deaktivieren"
 
-#: instantio/admin/options/mobile.php:42
-#: wooinstant/admin/options/mobile.php:41
+#: instantio/admin/options/mobile.php:42 wooinstant/admin/options/mobile.php:41
 msgid "Cart URL"
-msgstr ""
+msgstr "Warenkorb URL"
 
-#: instantio/admin/options/mobile.php:56
-#: wooinstant/admin/options/mobile.php:58
+#: instantio/admin/options/mobile.php:56 wooinstant/admin/options/mobile.php:58
+#, fuzzy
 msgid "Custom Cart URL"
-msgstr ""
+msgstr "Url des benutzerdefinierten Warenkorbs"
 
-#: instantio/admin/options/mobile.php:64
-#: wooinstant/admin/options/mobile.php:70
+#: instantio/admin/options/mobile.php:64 wooinstant/admin/options/mobile.php:70
+#, fuzzy
 msgid "Checkout Section"
-msgstr ""
+msgstr "Checkout-Bereich"
 
-#: instantio/admin/options/mobile.php:70
-#: wooinstant/admin/options/mobile.php:76
+#: instantio/admin/options/mobile.php:70 wooinstant/admin/options/mobile.php:76
+#, fuzzy
 msgid "Enable Checkout Panel"
-msgstr ""
+msgstr "Checkout-Bereich aktivieren"
 
-#: instantio/admin/options/mobile.php:71
-#: wooinstant/admin/options/mobile.php:77
+#: instantio/admin/options/mobile.php:71 wooinstant/admin/options/mobile.php:77
+#, fuzzy
 msgid "Enable/disable checkout in mobile version"
-msgstr ""
+msgstr "Aktivieren/Deaktivieren des Auscheckens in der mobilen Version"
 
-#: instantio/admin/options/mobile.php:82
-#: wooinstant/admin/options/mobile.php:88
+#: instantio/admin/options/mobile.php:82 wooinstant/admin/options/mobile.php:88
 msgid "Checkout URL"
-msgstr ""
+msgstr "Kassa URL"
 
 #: instantio/admin/options/mobile.php:95
 #: wooinstant/admin/options/mobile.php:104
+#, fuzzy
 msgid "Custom Checkout URL"
-msgstr ""
+msgstr "Benutzerdefinierte Checkout-URL"
 
 #: instantio/admin/options/optimization.php:5
 #: wooinstant/admin/options/optimization.php:5
 msgid "Optimization"
-msgstr ""
+msgstr "Optimierung"
 
 #: instantio/admin/options/optimization.php:12
 #: wooinstant/admin/options/optimization.php:12
+#, fuzzy
 msgid "FancyBox CDN"
-msgstr ""
+msgstr "FancyBox CDN"
 
 #: instantio/admin/options/optimization.php:13
 #: wooinstant/admin/options/optimization.php:13
+#, fuzzy
 msgid "Enable/disable cloudflare CDN for FancyBox CSS & JS"
-msgstr ""
+msgstr "Cloudflare CDN für FancyBox CSS & JS aktivieren/deaktivieren"
 
 #: instantio/admin/options/optimization.php:25
 #: wooinstant/admin/options/optimization.php:24
 msgid "Minify CSS"
-msgstr ""
+msgstr "Minify CSS"
 
 #: instantio/admin/options/optimization.php:26
 #: wooinstant/admin/options/optimization.php:25
+#, fuzzy
 msgid "Enable/disable Instantio CSS minification"
-msgstr ""
+msgstr "Aktivieren/Deaktivieren der Instantio-CSS-Minimierung"
 
 #: instantio/admin/options/optimization.php:38
 #: wooinstant/admin/options/optimization.php:36
 msgid "Minify JS"
-msgstr ""
+msgstr "Minify JS"
 
 #: instantio/admin/options/optimization.php:39
 #: wooinstant/admin/options/optimization.php:37
+#, fuzzy
 msgid "Enable/disable Instantio JS minification"
-msgstr ""
+msgstr "Aktivieren/Deaktivieren der Instantio JS-Minimierung"
 
 #: instantio/admin/options/others.php:5 instantio/admin/options/others.php:10
-#: wooinstant/admin/options/others.php:5
-#: wooinstant/admin/options/others.php:10
+#: wooinstant/admin/options/others.php:5 wooinstant/admin/options/others.php:10
 msgid "Others"
-msgstr ""
+msgstr "Andere"
 
-#: instantio/admin/options/others.php:16
-#: wooinstant/admin/options/others.php:16
+#: instantio/admin/options/others.php:16 wooinstant/admin/options/others.php:16
+#, fuzzy
 msgid "Quick View Background"
-msgstr ""
+msgstr "Hintergrund der Schnellansicht"
 
-#: instantio/admin/options/others.php:17
-#: wooinstant/admin/options/others.php:17
+#: instantio/admin/options/others.php:17 wooinstant/admin/options/others.php:17
+#, fuzzy
 msgid "Instantio Quick View Panel Background Color"
-msgstr ""
+msgstr "Hintergrundfarbe des Instantio-Schnellansichtsbereichs"
 
-#: instantio/admin/options/others.php:26
-#: wooinstant/admin/options/others.php:25
+#: instantio/admin/options/others.php:26 wooinstant/admin/options/others.php:25
+#, fuzzy
 msgid "Quick View Color"
-msgstr ""
+msgstr "Schnellansicht Farbe"
 
-#: instantio/admin/options/others.php:27
-#: wooinstant/admin/options/others.php:26
+#: instantio/admin/options/others.php:27 wooinstant/admin/options/others.php:26
+#, fuzzy
 msgid "Instantio Quick View Panel Text & Cross Color"
-msgstr ""
+msgstr "Instantio Quick View Panel Text & Cross Color"
 
-#: instantio/admin/options/others.php:36
-#: wooinstant/admin/options/others.php:34
+#: instantio/admin/options/others.php:36 wooinstant/admin/options/others.php:34
+#, fuzzy
 msgid "If you want to make extra CSS then you can do it from here"
 msgstr ""
+"Wenn Sie zusätzliches CSS erstellen möchten, können Sie dies von hier aus tun"
 
 #: instantio/admin/options/toggle-panel.php:5
 #: instantio/admin/options/toggle-panel.php:10
 #: wooinstant/admin/options/toggle-panel.php:5
 #: wooinstant/admin/options/toggle-panel.php:10
+#, fuzzy
 msgid "Toggle Panel Design"
-msgstr ""
+msgstr "Bedienfeld-Design ein-/ausschalten"
 
 #: instantio/admin/options/toggle-panel.php:16
 #: wooinstant/admin/options/toggle-panel.php:21
+#, fuzzy
 msgid "Toggle Panel Position"
-msgstr ""
+msgstr "Bedienfeldposition ein-/ausschalten"
 
 #: instantio/admin/options/toggle-panel.php:17
 #: wooinstant/admin/options/toggle-panel.php:22
+#, fuzzy
 msgid "Changes position of the Cart Toggle Panel"
-msgstr ""
+msgstr "Ändert die Position des Warenkorb-Umschaltbereichs"
 
 #: instantio/admin/options/toggle-panel.php:29
 #: wooinstant/admin/options/toggle-panel.php:34
+#, fuzzy
 msgid "Toggle Panel Background Colors"
-msgstr ""
+msgstr "Hintergrundfarben des Bedienfelds ein-/ausschalten"
 
 #: instantio/admin/options/toggle-panel.php:30
 #: wooinstant/admin/options/toggle-panel.php:35
+#, fuzzy
 msgid "Checkout button background regular & hover color"
-msgstr ""
+msgstr "Hintergrund der Checkout-Schaltfläche \" normal & Hover-Farbe"
 
 #: instantio/admin/options/toggle-panel.php:41
 #: wooinstant/admin/options/toggle-panel.php:46
+#, fuzzy
 msgid "Toggle Panel Border Colors"
-msgstr ""
+msgstr "Bedienfeldrahmenfarben ein-/ausschalten"
 
 #: instantio/admin/options/toggle-panel.php:42
 #: wooinstant/admin/options/toggle-panel.php:47
+#, fuzzy
 msgid "Checkout button border regular & hover color"
-msgstr ""
+msgstr "Checkout-Button-Rahmen regelmäßig & Hover-Farbe"
 
 #: instantio/admin/options/toggle-panel.php:53
 #: wooinstant/admin/options/toggle-panel.php:58
+#, fuzzy
 msgid "Toggle Panel Text Colors"
-msgstr ""
+msgstr "Bedienfeld-Textfarben ein-/ausblenden"
 
 #: instantio/admin/options/toggle-panel.php:54
 #: wooinstant/admin/options/toggle-panel.php:59
+#, fuzzy
 msgid "Set regular & hover color of checkout text"
-msgstr ""
+msgstr "Festlegen der regulären und schwebenden Farbe des Checkout-Textes"
 
 #: instantio/admin/options/toggle-panel.php:65
 #: wooinstant/admin/options/toggle-panel.php:70
 msgid "Panel Background"
-msgstr ""
+msgstr "Hintergrund"
 
 #: instantio/admin/options/toggle-panel.php:66
 #: wooinstant/admin/options/toggle-panel.php:71
+#, fuzzy
 msgid "Toggle Panel Background Color"
-msgstr ""
+msgstr "Hintergrundfarbe des Bedienfelds ein-/ausschalten"
 
 #: instantio/admin/options/toggle-panel.php:85
 #: wooinstant/admin/options/toggle-panel.php:88
+#, fuzzy
 msgid "Panel Text Color"
-msgstr ""
+msgstr "Textfarbe des Bedienfelds"
 
 #: instantio/admin/options/toggle-panel.php:86
 #: wooinstant/admin/options/toggle-panel.php:89
+#, fuzzy
 msgid "Openning heading \"Your Cart\" color"
-msgstr ""
+msgstr "Farbe der Öffnenden Überschrift \"Ihr Warenkorb\""
 
 #: instantio/admin/options/toggle-panel.php:95
 #: wooinstant/admin/options/toggle-panel.php:97
+#, fuzzy
 msgid "Panel Button Colors"
-msgstr ""
+msgstr "Farben der Bedienfeldschaltfläche"
 
 #: instantio/admin/options/toggle-panel.php:96
 #: wooinstant/admin/options/toggle-panel.php:98
+#, fuzzy
 msgid "\"Proceed to Checkout\", \"Back to Cart\" button color"
 msgstr ""
+"\"Weiter zur Kasse\", Farbe der Schaltfläche \"Zurück in den Warenkorb\""
 
 #: instantio/admin/options/toggle-panel.php:107
 #: wooinstant/admin/options/toggle-panel.php:108
+#, fuzzy
 msgid "Panel Button Border Colors"
-msgstr ""
+msgstr "Rahmenfarben der Bedienfeldschaltfläche"
 
 #: instantio/admin/options/toggle-panel.php:108
 #: wooinstant/admin/options/toggle-panel.php:109
+#, fuzzy
 msgid "\"Proceed to Checkout\", \"Back to Cart\" button border color"
 msgstr ""
+"\"Weiter zur Kasse\", \"Zurück zum Warenkorb\" Schaltfläche Rahmenfarbe"
 
 #: instantio/admin/options/toggle-panel.php:119
 #: wooinstant/admin/options/toggle-panel.php:119
+#, fuzzy
 msgid "Panel Button Text Colors"
-msgstr ""
+msgstr "Textfarben der Bedienfeldschaltfläche"
 
 #: instantio/admin/options/toggle-panel.php:120
 #: wooinstant/admin/options/toggle-panel.php:120
+#, fuzzy
 msgid "\"Proceed to Checkout\", \"Back to Cart\" button text color"
-msgstr ""
+msgstr "\"Zur Kasse gehen\", \"Zurück zum Warenkorb\" Schaltfläche Textfarbe"
 
 #: instantio/admin/options/toggle-panel.php:131
 #: wooinstant/admin/options/toggle-panel.php:130
+#, fuzzy
 msgid "Panel Z-index"
-msgstr ""
+msgstr "Panel Z-index"
 
 #: instantio/admin/options/toggle-panel.php:132
 #: wooinstant/admin/options/toggle-panel.php:131
+#, fuzzy
 msgid ""
 "Control z-index from this option. More about <a target=\"_blank\" href="
 "\"https://css-tricks.com/almanac/properties/z/z-index/\">z-index</a>"
 msgstr ""
+"Steuern Sie den Z-Index über diese Option. Mehr über <a target=\"_blank\" "
+"href=\"https://css-tricks.com/almanac/properties/z/z-index/\">z-index</a>"
 
 #: instantio/admin/options/toggle-panel.php:142
 #: wooinstant/admin/options/toggle-panel.php:140
+#, fuzzy
 msgid "Toggle Panel Width (1200px-auto)"
-msgstr ""
+msgstr "Bedienfeldbreite umschalten (1200px-auto)"
 
 #: instantio/admin/options/toggle-panel.php:143
 #: wooinstant/admin/options/toggle-panel.php:141
+#, fuzzy
 msgid ""
 "Set the percent of width of toggle panel for display dimension greater than "
 "1199px."
 msgstr ""
+"Legen Sie den Prozentsatz der Breite des Umschaltbereichs für die "
+"Anzeigedimension größer als 1199px fest."
 
 #: instantio/admin/options/toggle-panel.php:144
 #: wooinstant/admin/options/toggle-panel.php:142
+#, fuzzy
 msgid "Range 0%-100%. Default 40"
-msgstr ""
+msgstr "Bereich 0%-100%. Standardwert 40"
 
 #: instantio/admin/options/toggle-panel.php:155
 #: wooinstant/admin/options/toggle-panel.php:152
+#, fuzzy
 msgid "Toggle Panel Width (1024px-1199px)"
-msgstr ""
+msgstr "Breite des Bedienfelds ein-/ausschalten (1024px-1199px)"
 
 #: instantio/admin/options/toggle-panel.php:156
 #: wooinstant/admin/options/toggle-panel.php:153
+#, fuzzy
 msgid ""
 "Set the percent of width of toggle panel for display dimension greater than "
 "1023px."
 msgstr ""
+"Legen Sie den Prozentsatz der Breite des Umschaltbereichs für die "
+"Anzeigedimension größer als 1023px fest."
 
 #: instantio/admin/options/toggle-panel.php:157
 #: wooinstant/admin/options/toggle-panel.php:154
+#, fuzzy
 msgid "Range 0%-100%. Default 48"
-msgstr ""
+msgstr "Bereich 0%-100%. Standardwert 48"
 
 #: instantio/admin/options/toggle-panel.php:168
 #: wooinstant/admin/options/toggle-panel.php:164
+#, fuzzy
 msgid "Toggle Panel Width (501px-1023)"
-msgstr ""
+msgstr "Breite des Bedienfelds umschalten (501px-1023)"
 
 #: instantio/admin/options/toggle-panel.php:169
 #: wooinstant/admin/options/toggle-panel.php:165
+#, fuzzy
 msgid ""
 "Set the percent of width of toggle panel for display dimension greater than "
 "500px."
 msgstr ""
+"Legen Sie den Prozentsatz der Breite des Umschaltbereichs für die "
+"Anzeigedimension größer als 500px fest."
 
 #: instantio/admin/options/toggle-panel.php:170
 #: wooinstant/admin/options/toggle-panel.php:166
+#, fuzzy
 msgid "Range 0%-100%. Default 60"
-msgstr ""
+msgstr "Bereich 0%-100%. Standardwert 60"
 
 #: instantio/admin/options/toggle-panel.php:201
 #: wooinstant/admin/options/toggle-panel.php:194
+#, fuzzy
 msgid "Cart Header Background"
-msgstr ""
+msgstr "WarenkorbKopf Hintergrund"
 
 #: instantio/admin/options/toggle-panel.php:202
 #: wooinstant/admin/options/toggle-panel.php:195
+#, fuzzy
 msgid "Toggle panel cart header background color"
-msgstr ""
+msgstr "Hintergrundfarbe der Warenkorbüberschrift des Bedienfelds einschalten"
 
 #: instantio/admin/options/toggle-panel.php:210
 #: wooinstant/admin/options/toggle-panel.php:202
+#, fuzzy
 msgid "Cart Header Text Color"
-msgstr ""
+msgstr "Farbe des Warenkorbkopfzeilentextes"
 
 #: instantio/admin/options/toggle-panel.php:211
 #: wooinstant/admin/options/toggle-panel.php:203
+#, fuzzy
 msgid "Toggle panel cart header text color"
-msgstr ""
+msgstr "Umschalten der Textfarbe der Warenkorbkopfzeile des Bedienfelds"
 
 #: instantio/admin/options/toggle-panel.php:219
 #: wooinstant/admin/options/toggle-panel.php:210
+#, fuzzy
 msgid "Cart Items Background"
-msgstr ""
+msgstr "Warenkorb Artikel Hintergrund"
 
 #: instantio/admin/options/toggle-panel.php:220
 #: wooinstant/admin/options/toggle-panel.php:211
+#, fuzzy
 msgid "Toggle panel cart items background color"
-msgstr ""
+msgstr "Bedienfeld Warenkorbelemente Hintergrundfarbe umschalten"
 
 #: instantio/admin/options/toggle-panel.php:228
 #: wooinstant/admin/options/toggle-panel.php:218
+#, fuzzy
 msgid "Cart Item Text Color"
-msgstr ""
+msgstr "Textfarbe des Warenkorbartikels"
 
 #: instantio/admin/options/toggle-panel.php:229
 #: wooinstant/admin/options/toggle-panel.php:219
+#, fuzzy
 msgid "Toggle panel cart item text color"
-msgstr ""
+msgstr "Textfarbe des Warenkorbelements im Bedienfeld umschalten"
 
 #: instantio/admin/options/toggle-panel.php:237
 #: wooinstant/admin/options/toggle-panel.php:226
+#, fuzzy
 msgid "Cart Input Background"
-msgstr ""
+msgstr "Hintergrund der Warenkorbeingabe"
 
 #: instantio/admin/options/toggle-panel.php:238
 #: wooinstant/admin/options/toggle-panel.php:227
+#, fuzzy
 msgid "Toggle panel cart input background color"
-msgstr ""
+msgstr "Umschalten der Hintergrundfarbe der Warenkorbeingabe"
 
 #: instantio/admin/options/toggle-panel.php:247
 #: wooinstant/admin/options/toggle-panel.php:235
+#, fuzzy
 msgid "Cart Input Text Color"
-msgstr ""
+msgstr "Farbe des Warenkorbeingabetextes"
 
 #: instantio/admin/options/toggle-panel.php:248
 #: wooinstant/admin/options/toggle-panel.php:236
+#, fuzzy
 msgid "Toggle panel cart input text color"
-msgstr ""
+msgstr "Umschalten der Bedienfeld-Warenkorbeingabe Textfarbe"
 
 #: instantio/admin/options/toggle-panel.php:255
 #: wooinstant/admin/options/toggle-panel.php:242
+#, fuzzy
 msgid "Cart Button Background Colors"
-msgstr ""
+msgstr "Hintergrundfarben der Warenkorbschaltfläche"
 
 #: instantio/admin/options/toggle-panel.php:256
 #: instantio/admin/options/toggle-panel.php:268
@@ -695,447 +802,548 @@ msgstr ""
 #: wooinstant/admin/options/toggle-panel.php:254
 #: wooinstant/admin/options/toggler.php:92
 #: wooinstant/admin/options/toggler.php:103
+#, fuzzy
 msgid "Set regular & hover color"
-msgstr ""
+msgstr "Reguläre & Hover-Farbe einstellen"
 
 #: instantio/admin/options/toggle-panel.php:267
 #: wooinstant/admin/options/toggle-panel.php:253
+#, fuzzy
 msgid "Cart Button Text Colors"
-msgstr ""
+msgstr "Textfarben der Warenkorbschaltfläche"
 
 #: instantio/admin/options/toggle-panel.php:279
 #: wooinstant/admin/options/toggle-panel.php:264
+#, fuzzy
 msgid "Cart Pricing Table Background"
-msgstr ""
+msgstr "Hintergrund der Warenkorbpreistabelle"
 
 #: instantio/admin/options/toggle-panel.php:280
 #: wooinstant/admin/options/toggle-panel.php:265
+#, fuzzy
 msgid "Toggle panel pricing table background color"
-msgstr ""
+msgstr "Hintergrundfarbe der Preistabelle umschalten"
 
 #: instantio/admin/options/toggle-panel.php:288
 #: wooinstant/admin/options/toggle-panel.php:272
+#, fuzzy
 msgid "Cart Pricing Table Text Color"
-msgstr ""
+msgstr "Warenkorb Preistabelle Textfarbe"
 
 #: instantio/admin/options/toggle-panel.php:289
 #: wooinstant/admin/options/toggle-panel.php:273
+#, fuzzy
 msgid "Toggle panel pricing table text color"
-msgstr ""
+msgstr "Bedienfeld umschalten Preistabelle Textfarbe"
 
 #: instantio/admin/options/toggle-panel.php:302
 #: wooinstant/admin/options/toggle-panel.php:285
+#, fuzzy
 msgid "Billing Section"
-msgstr ""
+msgstr "Abschnitt \"Abrechnung\""
 
 #: instantio/admin/options/toggle-panel.php:308
 #: wooinstant/admin/options/toggle-panel.php:291
+#, fuzzy
 msgid "Panel Billing Background"
-msgstr ""
+msgstr "Hintergrund der Panelabrechnung"
 
 #: instantio/admin/options/toggle-panel.php:309
 #: wooinstant/admin/options/toggle-panel.php:292
+#, fuzzy
 msgid "Toggle panel billing section background color"
 msgstr ""
+"Hintergrundfarbe des Abrechnungsbereichs des Bereichs \"Bedienfeld\" ein-/"
+"ausblenden"
 
 #: instantio/admin/options/toggle-panel.php:317
 #: wooinstant/admin/options/toggle-panel.php:299
+#, fuzzy
 msgid "Panel Billing Heading Color"
-msgstr ""
+msgstr "Farbe der Abrechnungsüberschrift des Bereichs"
 
 #: instantio/admin/options/toggle-panel.php:318
 #: wooinstant/admin/options/toggle-panel.php:300
+#, fuzzy
 msgid "Toggle panel billing section heading text color"
 msgstr ""
+"Textfarbe der Überschrift des Abrechnungsabschnitts im Bereich umschalten"
 
 #: instantio/admin/options/toggle-panel.php:330
 #: wooinstant/admin/options/toggle-panel.php:311
+#, fuzzy
 msgid "Panel Billing Padding"
-msgstr ""
+msgstr "Panel-Abrechnungsauffüllung"
 
 #: instantio/admin/options/toggle-panel.php:331
 #: wooinstant/admin/options/toggle-panel.php:312
+#, fuzzy
 msgid "Toggle panel billing section padding"
-msgstr ""
+msgstr "Auffüllung des Abrechnungsbereichs des Bedienfelds umschalten"
 
 #: instantio/admin/options/toggle-panel.php:345
 #: wooinstant/admin/options/toggle-panel.php:325
+#, fuzzy
 msgid "Panel Billing Label Color"
-msgstr ""
+msgstr "Farbe des Abrechnungsetiketts des Panels"
 
 #: instantio/admin/options/toggle-panel.php:346
 #: wooinstant/admin/options/toggle-panel.php:326
+#, fuzzy
 msgid "Toggle panel billing section label text color"
 msgstr ""
+"Beschriftungstextfarbe des Abrechnungsbereichs des Bedienfelds umschalten"
 
 #: instantio/admin/options/toggle-panel.php:354
 #: wooinstant/admin/options/toggle-panel.php:333
+#, fuzzy
 msgid "Panel Billing Input Background"
-msgstr ""
+msgstr "Hintergrund der Panel-Abrechnungseingabe"
 
 #: instantio/admin/options/toggle-panel.php:355
 #: wooinstant/admin/options/toggle-panel.php:334
+#, fuzzy
 msgid "Toggle panel billing section input background color"
 msgstr ""
+"Hintergrundfarbe der Eingabe des Abrechnungsbereichs des Bedienfelds "
+"einschalten"
 
 #: instantio/admin/options/toggle-panel.php:363
 #: wooinstant/admin/options/toggle-panel.php:341
+#, fuzzy
 msgid "Panel Billing Input Border Color"
-msgstr ""
+msgstr "Farbe des Bereichs-Abrechnungseingaberahmens"
 
 #: instantio/admin/options/toggle-panel.php:364
 #: wooinstant/admin/options/toggle-panel.php:342
+#, fuzzy
 msgid "Toggle panel billing section input border color"
 msgstr ""
+"Umschalten der Eingaberahmenfarbe des Abrechnungsbereichs des "
+"Abrechnungsbereichs"
 
 #: instantio/admin/options/toggle-panel.php:372
 #: wooinstant/admin/options/toggle-panel.php:349
+#, fuzzy
 msgid "Panel Billing Input Text Color"
-msgstr ""
+msgstr "Textfarbe der Panel-Abrechnungseingabe"
 
 #: instantio/admin/options/toggle-panel.php:373
 #: wooinstant/admin/options/toggle-panel.php:350
+#, fuzzy
 msgid "Toggle panel billing section input text color"
 msgstr ""
+"Umschalten der Eingabetextfarbe des Abrechnungsbereichs des "
+"Abrechnungsbereichs"
 
 #: instantio/admin/options/toggle-panel.php:381
 #: wooinstant/admin/options/toggle-panel.php:357
+#, fuzzy
 msgid "Panel Billing Input Shadow Color"
-msgstr ""
+msgstr "Schattenfarbe der Panel-Abrechnungseingabe"
 
 #: instantio/admin/options/toggle-panel.php:382
 #: wooinstant/admin/options/toggle-panel.php:358
+#, fuzzy
 msgid "Toggle panel billing section input shadow color"
-msgstr ""
+msgstr "Umschalten der Bedienfeld-Abrechnungsabschnittseingabe Schattenfarbe"
 
 #: instantio/admin/options/toggle-panel.php:394
 #: wooinstant/admin/options/toggle-panel.php:369
 msgid "Review Section"
-msgstr ""
+msgstr "Bewertungsabschnitt"
 
 #: instantio/admin/options/toggle-panel.php:400
 #: wooinstant/admin/options/toggle-panel.php:375
+#, fuzzy
 msgid "Order Review Heading"
-msgstr ""
+msgstr "Überschrift \"Bestellüberprüfung\""
 
 #: instantio/admin/options/toggle-panel.php:401
 #: wooinstant/admin/options/toggle-panel.php:376
+#, fuzzy
 msgid "Toggle panel review section heading color"
 msgstr ""
+"Umschalten der Überschriftenfarbe des Abschnitts \"Überprüfung\" des Bereichs"
 
 #: instantio/admin/options/toggle-panel.php:410
 #: wooinstant/admin/options/toggle-panel.php:384
+#, fuzzy
 msgid "Review Section Background"
-msgstr ""
+msgstr "Hintergrund des Überprüfungsabschnitts"
 
 #: instantio/admin/options/toggle-panel.php:411
 #: wooinstant/admin/options/toggle-panel.php:385
+#, fuzzy
 msgid "Toggle panel review section background color"
-msgstr ""
+msgstr "Hintergrundfarbe des Überprüfungsbereichs des Bedienfelds einschalten"
 
 #: instantio/admin/options/toggle-panel.php:419
 #: wooinstant/admin/options/toggle-panel.php:392
+#, fuzzy
 msgid "Review Table Head Background"
-msgstr ""
+msgstr "Hintergrund der Tabellenüberschrift überprüfen"
 
 #: instantio/admin/options/toggle-panel.php:420
 #: wooinstant/admin/options/toggle-panel.php:393
+#, fuzzy
 msgid "Toggle panel review section table head background color"
 msgstr ""
+"Umschalten der Hintergrundfarbe des Tabellenkopfs des Überprüfungsabschnitts"
 
 #: instantio/admin/options/toggle-panel.php:428
 #: wooinstant/admin/options/toggle-panel.php:400
+#, fuzzy
 msgid "Review Table Head Text Color"
-msgstr ""
+msgstr "Textfarbe des Tabellenkopfs überprüfen"
 
 #: instantio/admin/options/toggle-panel.php:429
 #: wooinstant/admin/options/toggle-panel.php:401
+#, fuzzy
 msgid "Toggle panel review section table head text color"
 msgstr ""
+"Umschalten der Textfarbe des Tabellenkopfs im Bereich \"Überprüfungsabschnitt"
+"\""
 
 #: instantio/admin/options/toggle-panel.php:437
 #: wooinstant/admin/options/toggle-panel.php:408
+#, fuzzy
 msgid "Review Table Item Background"
-msgstr ""
+msgstr "Überprüfen des Tabellenelementhintergrunds"
 
 #: instantio/admin/options/toggle-panel.php:438
 #: wooinstant/admin/options/toggle-panel.php:409
+#, fuzzy
 msgid "Toggle panel review section table item background color"
 msgstr ""
+"Umschalten der Hintergrundfarbe des Tabellenelements im Überprüfungsabschnitt"
 
 #: instantio/admin/options/toggle-panel.php:445
 #: wooinstant/admin/options/toggle-panel.php:415
+#, fuzzy
 msgid "Review Table Item Text Color"
-msgstr ""
+msgstr "Überprüfen der Textfarbe des Tabellenelements"
 
 #: instantio/admin/options/toggle-panel.php:446
 #: wooinstant/admin/options/toggle-panel.php:416
+#, fuzzy
 msgid "Toggle panel review section table item text color"
 msgstr ""
+"Textfarbe des Tabellenelements im Bereich \"Überprüfung des "
+"Überprüfungsabschnitts\" einschalten"
 
 #: instantio/admin/options/toggle-panel.php:454
 #: wooinstant/admin/options/toggle-panel.php:423
+#, fuzzy
 msgid "Review Pricing Background"
-msgstr ""
+msgstr "Preishintergrund ansehen"
 
 #: instantio/admin/options/toggle-panel.php:455
 #: wooinstant/admin/options/toggle-panel.php:424
+#, fuzzy
 msgid "Toggle panel review section pricing background color"
-msgstr ""
+msgstr "Toggle Panel Review Section Preis Hintergrundfarbe"
 
 #: instantio/admin/options/toggle-panel.php:463
 #: wooinstant/admin/options/toggle-panel.php:431
+#, fuzzy
 msgid "Review Pricing Text Color"
-msgstr ""
+msgstr "Überprüfen Sie die Textfarbe der Preise"
 
 #: instantio/admin/options/toggle-panel.php:464
 #: wooinstant/admin/options/toggle-panel.php:432
+#, fuzzy
 msgid "Toggle panel review section pricing text color"
-msgstr ""
+msgstr "Umschalten panel review section pricing text color"
 
 #: instantio/admin/options/toggle-panel.php:477
 #: wooinstant/admin/options/toggle-panel.php:444
 msgid "Payment Section"
-msgstr ""
+msgstr "Zahlungsabteilung"
 
 #: instantio/admin/options/toggle-panel.php:483
 #: wooinstant/admin/options/toggle-panel.php:450
 msgid "Payment Methods Background"
-msgstr ""
+msgstr "Zahlungsmethoden Hintergrund"
 
 #: instantio/admin/options/toggle-panel.php:484
 #: wooinstant/admin/options/toggle-panel.php:451
+#, fuzzy
 msgid "Toggle panel Payment methods background color"
-msgstr ""
+msgstr "Bedienfeld umschalten Zahlungsmethoden Hintergrundfarbe"
 
 #: instantio/admin/options/toggle-panel.php:492
 #: wooinstant/admin/options/toggle-panel.php:458
+#, fuzzy
 msgid "Payment Methods Text Color"
-msgstr ""
+msgstr "Zahlungsmethoden Textfarbe"
 
 #: instantio/admin/options/toggle-panel.php:493
 #: wooinstant/admin/options/toggle-panel.php:459
+#, fuzzy
 msgid "Toggle panel Payment methods text color"
-msgstr ""
+msgstr "Bedienfeld umschalten Zahlungsmethoden Textfarbe"
 
 #: instantio/admin/options/toggle-panel.php:501
 #: wooinstant/admin/options/toggle-panel.php:466
+#, fuzzy
 msgid "Payment Methods Description Background"
-msgstr ""
+msgstr "Zahlungsmethoden Beschreibung Hintergrund"
 
 #: instantio/admin/options/toggle-panel.php:502
 #: wooinstant/admin/options/toggle-panel.php:467
+#, fuzzy
 msgid "Toggle panel Payment methods description background color"
-msgstr ""
+msgstr "Bedienfeld umschalten Zahlungsmethoden Beschreibung Hintergrundfarbe"
 
 #: instantio/admin/options/toggle-panel.php:510
 #: wooinstant/admin/options/toggle-panel.php:474
+#, fuzzy
 msgid "Payment Methods Description Text Color"
-msgstr ""
+msgstr "Zahlungsmethoden Beschreibung Textfarbe"
 
 #: instantio/admin/options/toggle-panel.php:511
 #: wooinstant/admin/options/toggle-panel.php:475
+#, fuzzy
 msgid "Toggle panel Payment methods description text color"
-msgstr ""
+msgstr "Bedienfeld umschalten Zahlungsmethoden Beschreibung Textfarbe"
 
 #: instantio/admin/options/toggle-panel.php:519
 #: wooinstant/admin/options/toggle-panel.php:482
+#, fuzzy
 msgid "Place Order Background"
-msgstr ""
+msgstr "Bestellhintergrund aufgeben"
 
 #: instantio/admin/options/toggle-panel.php:520
 #: wooinstant/admin/options/toggle-panel.php:483
+#, fuzzy
 msgid "Toggle panel place order background color"
-msgstr ""
+msgstr "Hintergrundfarbe der Bedienfeldreihenfolge einschalten"
 
 #: instantio/admin/options/toggle-panel.php:528
 #: wooinstant/admin/options/toggle-panel.php:490
+#, fuzzy
 msgid "Place Order Text Color"
-msgstr ""
+msgstr "Textfarbe der Bestellung aufgeben"
 
 #: instantio/admin/options/toggle-panel.php:529
 #: wooinstant/admin/options/toggle-panel.php:491
+#, fuzzy
 msgid "Toggle panel place order text color"
-msgstr ""
+msgstr "Bedienfeld umschalten, um die Textfarbe der Reihenfolge zu platzieren"
 
 #: instantio/admin/options/toggle-panel.php:538
 #: wooinstant/admin/options/toggle-panel.php:499
+#, fuzzy
 msgid "Place Order Button Background"
-msgstr ""
+msgstr "Schaltfläche \"Bestellung aufgeben\" Hintergrund"
 
 #: instantio/admin/options/toggle-panel.php:539
 #: wooinstant/admin/options/toggle-panel.php:500
+#, fuzzy
 msgid "Place order button background regular & hover color"
-msgstr ""
+msgstr "Order Button Platzieren Hintergrund regelmäßig & Hover-Farbe"
 
 #: instantio/admin/options/toggle-panel.php:550
 #: wooinstant/admin/options/toggle-panel.php:510
+#, fuzzy
 msgid "Place Order Button Border Colors"
-msgstr ""
+msgstr "Rahmenfarben der Schaltfläche \"Bestellung aufgeben\""
 
 #: instantio/admin/options/toggle-panel.php:551
 #: wooinstant/admin/options/toggle-panel.php:511
+#, fuzzy
 msgid "Place order button border regular & hover color"
-msgstr ""
+msgstr "Order Button Rahmen regelmäßig platzieren & Hover-Farbe"
 
 #: instantio/admin/options/toggle-panel.php:562
 #: wooinstant/admin/options/toggle-panel.php:521
+#, fuzzy
 msgid "Place Order Button Text Colors"
-msgstr ""
+msgstr "Textfarben der Schaltfläche \"Bestellung aufgeben\""
 
 #: instantio/admin/options/toggle-panel.php:563
 #: wooinstant/admin/options/toggle-panel.php:522
+#, fuzzy
 msgid "Place order button text regular & hover color"
-msgstr ""
+msgstr "Order Button-Text regulär platzieren & Hover-Farbe"
 
 #: instantio/admin/options/toggler.php:16
 #: wooinstant/admin/options/toggler.php:16
+#, fuzzy
 msgid "Hide Toggler when No Cart Item"
-msgstr ""
+msgstr "Toggler ausblenden, wenn kein Warenkorbartikel vorhanden ist"
 
 #: instantio/admin/options/toggler.php:17
 #: wooinstant/admin/options/toggler.php:17
+#, fuzzy
 msgid "When there is no item in the cart hide toggler"
 msgstr ""
+"Wenn sich kein Artikel im Warenkorb befindet, müssen Sie den Umschalter "
+"ausblenden"
 
 #: instantio/admin/options/toggler.php:18
 #: wooinstant/admin/options/toggler.php:18
 msgid "Yes"
-msgstr ""
+msgstr "Ja"
 
 #: instantio/admin/options/toggler.php:19
 #: wooinstant/admin/options/toggler.php:19
 msgid "No"
-msgstr ""
+msgstr "Nein"
 
 #: instantio/admin/options/toggler.php:26
 #: wooinstant/admin/options/toggler.php:26
+#, fuzzy
 msgid "Toggler Icon"
-msgstr ""
+msgstr "Toggler-Symbol"
 
 #: instantio/admin/options/toggler.php:27
 #: wooinstant/admin/options/toggler.php:27
+#, fuzzy
 msgid "Select cart icon which will appear in cart toggler"
 msgstr ""
+"Wählen Sie das Warenkorbsymbol aus, das im Warenkorb-Toggler angezeigt wird"
 
 #: instantio/admin/options/toggler.php:42
 #: wooinstant/admin/options/toggler.php:43
+#, fuzzy
 msgid "Custom Image as Toggler Icon"
-msgstr ""
+msgstr "Benutzerdefiniertes Bild als Umschaltsymbol"
 
 #: instantio/admin/options/toggler.php:43
 #: wooinstant/admin/options/toggler.php:44
+#, fuzzy
 msgid "Set custom image as icon for the toggler instead of the defaults one."
 msgstr ""
+"Legen Sie ein benutzerdefiniertes Bild als Symbol für den Umschalter "
+"anstelle des Standardbildes fest."
 
 #: instantio/admin/options/toggler.php:54
 #: wooinstant/admin/options/toggler.php:65
+#, fuzzy
 msgid "Toggler Horizontal Position"
-msgstr ""
+msgstr "Horizontale Position des Togglers"
 
 #: instantio/admin/options/toggler.php:55
 #: wooinstant/admin/options/toggler.php:66
+#, fuzzy
 msgid "Changes position of the Cart Toggler horizontally"
-msgstr ""
+msgstr "Ändert die Position des Cart Togglers horizontal"
 
 #: instantio/admin/options/toggler.php:66
 #: wooinstant/admin/options/toggler.php:77
+#, fuzzy
 msgid "Toggler Vertical Position"
-msgstr ""
+msgstr "Vertikale Position des Togglers"
 
 #: instantio/admin/options/toggler.php:67
 #: wooinstant/admin/options/toggler.php:78
+#, fuzzy
 msgid "Changes position of the Cart Toggler vertically"
-msgstr ""
+msgstr "Ändert die Position des Cart Togglers vertikal"
 
 #: instantio/admin/options/toggler.php:80
 #: wooinstant/admin/options/toggler.php:91
+#, fuzzy
 msgid "Toggler Background Colors"
-msgstr ""
+msgstr "Toggler Hintergrundfarben"
 
 #: instantio/admin/options/toggler.php:91
 #: wooinstant/admin/options/toggler.php:102
+#, fuzzy
 msgid "Toggler Border Colors"
-msgstr ""
+msgstr "Toggler-Rahmenfarben"
 
 #: instantio/admin/options/toggler.php:102
 #: wooinstant/admin/options/toggler.php:113
+#, fuzzy
 msgid "Toggler Icon Color"
-msgstr ""
+msgstr "Farbe des Toggler-Symbols"
 
 #: instantio/admin/options/toggler.php:103
 #: instantio/admin/options/toggler.php:135
 #: wooinstant/admin/options/toggler.php:114
 #: wooinstant/admin/options/toggler.php:146
+#, fuzzy
 msgid "Set regular & hover color of text & icon"
-msgstr ""
+msgstr "Festlegen der regulären und schwebenden Farbe von Text und Symbol"
 
 #: instantio/admin/options/toggler.php:113
 #: wooinstant/admin/options/toggler.php:124
+#, fuzzy
 msgid "Toggler Icon Size"
-msgstr ""
+msgstr "Größe des Toggler-Symbols"
 
 #: instantio/admin/options/toggler.php:114
 #: wooinstant/admin/options/toggler.php:125
+#, fuzzy
 msgid "Set width of the toggler icon"
-msgstr ""
+msgstr "Festlegen der Breite des Umschaltsymbols"
 
 #: instantio/admin/options/toggler.php:115
 #: wooinstant/admin/options/toggler.php:126
+#, fuzzy
 msgid "Default: 26px"
-msgstr ""
+msgstr "Standard: 26px"
 
 #: instantio/admin/options/toggler.php:123
 #: wooinstant/admin/options/toggler.php:134
+#, fuzzy
 msgid "Toggler Item Number Background"
-msgstr ""
+msgstr "Hintergrund der Toggler-Elementnummer"
 
 #: instantio/admin/options/toggler.php:124
 #: wooinstant/admin/options/toggler.php:135
+#, fuzzy
 msgid "Set regular & hover background color"
-msgstr ""
+msgstr "Festlegen der regulären Hintergrundfarbe und des Schwebens"
 
 #: instantio/admin/options/toggler.php:134
 #: wooinstant/admin/options/toggler.php:145
+#, fuzzy
 msgid "Toggler Item Number Color"
-msgstr ""
+msgstr "Toggler-Elementnummernfarbe"
 
 #: instantio/admin/options/toggler.php:145
 #: wooinstant/admin/options/toggler.php:156
+#, fuzzy
 msgid "Toggler Item Number Size"
-msgstr ""
+msgstr "Toggler Artikelnummer Größe"
 
 #: instantio/admin/options/toggler.php:146
 #: wooinstant/admin/options/toggler.php:157
+#, fuzzy
 msgid "Set font size & line height of cart toggler text"
-msgstr ""
+msgstr "Schriftgröße und Zeilenhöhe des Warenkorb-Toggler-Textes festlegen"
 
 #: instantio/admin/options/toggler.php:147
 #: wooinstant/admin/options/toggler.php:158
 msgid "Default: 14px"
-msgstr ""
+msgstr "Standard: 14px"
 
 #: instantio/inc/functions.php:182
 msgid "View Cart"
-msgstr ""
+msgstr "Warenkorb anzeigen"
 
 #: instantio/inc/functions.php:202
 #: wooinstant/inc/layouts/mobile/mobile-1.php:75
 #: wooinstant/inc/templates/cart-m.php:143
 msgid "Checkout Now"
-msgstr ""
+msgstr "Zahlungspflichtig bestellen"
 
 #: instantio/inc/style-script.php:48 wooinstant/inc/functions.php:316
 msgid "Please fill all required fields."
-msgstr ""
+msgstr "Bitte füllen Sie alle erforderlichen Felder aus."
 
 #: instantio/inc/style-script.php:49
 msgid "Please Enter valid email."
-msgstr ""
+msgstr "Bitte gib eine gültige E-Mail-Adresse ein."
 
 #: instantio/inc/layouts/layout-1/layout-1.php:38
+#, fuzzy
 msgid "View Checkout"
-msgstr ""
+msgstr "Zur Kasse"
 
 #: instantio/inc/layouts/layout-2/layout-2.php:56
 #: instantio/inc/layouts/layout-3/layout-3.php:57
@@ -1144,7 +1352,7 @@ msgstr ""
 #: wooinstant/inc/layouts/layout-6/layout-6.php:58
 #: wooinstant/inc/layouts/layout-7/layout-7.php:66
 msgid "Your Cart"
-msgstr ""
+msgstr "Dein Warenkorb"
 
 #: instantio/inc/layouts/layout-2/layout-2.php:67
 #: instantio/inc/layouts/layout-3/layout-3.php:68
@@ -1155,208 +1363,227 @@ msgstr ""
 #: wooinstant/inc/layouts/layout-6/layout-6.php:96
 #: wooinstant/inc/layouts/layout-7/layout-7.php:79
 msgid "Your cart is empty"
-msgstr ""
+msgstr "Ihr Warenkorb ist leer"
 
 #: instantio/inc/layouts/layout-2/layout-2.php:73
 #: instantio/inc/layouts/layout-3/layout-3.php:74
 msgid "Continue Shopping"
-msgstr ""
+msgstr "Weiter einkaufen"
 
 #: instantio/inc/layouts/layout-2/layout-2.php:76
 #: instantio/inc/layouts/layout-3/layout-3.php:77
 #: wooinstant/inc/templates/cart-m.php:132
 msgid "Subtotal: "
-msgstr ""
+msgstr "Zwischensumme: "
 
 #: instantio/inc/templates/cart.php:30 instantio/inc/templates/cart.php:74
 #: wooinstant/inc/templates/cart.php:29 wooinstant/inc/templates/cart.php:73
 msgid "Product"
-msgstr ""
+msgstr "Produkt"
 
 #: instantio/inc/templates/cart.php:31 instantio/inc/templates/cart.php:94
 #: wooinstant/inc/templates/cart.php:30 wooinstant/inc/templates/cart.php:89
 msgid "Price"
-msgstr ""
+msgstr "Preis"
 
 #: instantio/inc/templates/cart.php:32 instantio/inc/templates/cart.php:100
 #: wooinstant/inc/templates/cart-m.php:56 wooinstant/inc/templates/cart.php:31
 #: wooinstant/inc/templates/cart.php:95
 msgid "Quantity"
-msgstr ""
+msgstr "Menge"
 
 #: instantio/inc/templates/cart.php:33 instantio/inc/templates/cart.php:122
 #: wooinstant/inc/templates/cart-m.php:98 wooinstant/inc/templates/cart.php:32
+#, fuzzy
 msgid "Total"
-msgstr ""
+msgstr "Gesamt"
 
 #: instantio/inc/templates/cart.php:55 wooinstant/inc/templates/cart-m.php:89
 #: wooinstant/inc/templates/cart.php:54
 msgid "Remove this item"
-msgstr ""
+msgstr "Diesen Artikel entfernen"
 
 #: instantio/inc/templates/cart.php:89
 msgid "Available on backorder"
-msgstr ""
+msgstr "Verfügbar auf Nachbestellung"
 
-#: instantio/inc/templates/cart.php:138
-#: wooinstant/inc/templates/cart-m.php:129
+#: instantio/inc/templates/cart.php:138 wooinstant/inc/templates/cart-m.php:129
 #: wooinstant/inc/templates/cart.php:141
 msgid "Empty Cart"
-msgstr ""
+msgstr "Warenkorb leeren"
 
 #: wooinstant/wooinstant.php:170 wooinstant/wooinstant.php:179
-#, php-format
+#, fuzzy, php-format
 msgid "Instantio Pro requires %1$s Instantio %2$s to be activated."
-msgstr ""
+msgstr "Instantio Pro erfordert, dass %1$s Instantio-%2$s aktiviert ist."
 
 #: wooinstant/admin/options/toggler.php:54
+#, fuzzy
 msgid "Custom Toggler Icon"
-msgstr ""
+msgstr "Benutzerdefiniertes Umschaltsymbol"
 
 #: wooinstant/admin/options/toggler.php:55
+#, fuzzy
 msgid "Upload your cart icon. Recommended size of an icon is 26x26px"
 msgstr ""
+"Laden Sie Ihr Warenkorbsymbol hoch. Die empfohlene Größe eines Symbols "
+"beträgt 26x26px"
 
 #: wooinstant/admin/options/toggler.php:57
 msgid "https://"
-msgstr ""
+msgstr "https://"
 
 #: wooinstant/inc/functions.php:257
 msgid "Loading..."
-msgstr ""
+msgstr "Lade..."
 
 #: wooinstant/inc/functions.php:308
+#, fuzzy
 msgid "Login successful, reloading..."
-msgstr ""
+msgstr "Login erfolgreich, Neuladen..."
 
 #: wooinstant/inc/layouts/layout-4/layout-4.php:72
 #: wooinstant/inc/layouts/layout-5/layout-5.php:83
 #: wooinstant/inc/layouts/layout-6/layout-6.php:88
 #: wooinstant/inc/layouts/layout-7/layout-7.php:97
 msgid "Back to Cart"
-msgstr ""
+msgstr "Zurück zum Warenkorb"
 
 #: wooinstant/inc/layouts/layout-4/layout-4.php:76
 #: wooinstant/inc/layouts/layout-5/layout-5.php:87
-#, php-format
+#, fuzzy, php-format
 msgid "Returning customer? %1$s Click here to login %2$s."
-msgstr ""
+msgstr "Wiederkehrender Kunde? %1$s Klicken Sie hier, um sich %2$s anzumelden."
 
 #: wooinstant/inc/layouts/mobile/mobile-1.php:69
 msgid "Cart Total"
-msgstr ""
+msgstr "Warenkorb Summe"
 
 #: wooinstant/inc/layouts/mobile/mobile-1.php:97
 #: wooinstant/inc/layouts/mobile/mobile-1.php:124
+#, fuzzy
 msgid "No Cart Items"
-msgstr ""
+msgstr "Keine Warenkorbartikel"
 
 #: wooinstant/inc/layouts/mobile/mobile-1.php:112
-#, php-format
+#, fuzzy, php-format
 msgid "Returning customer? %1$s Touch here to login. %2$s"
 msgstr ""
+"Wiederkehrender Kunde? %1$s Berühren Sie hier, um sich anzumelden. %2$s"
 
 #: wooinstant/inc/license/license.php:34
 msgid "Please "
-msgstr ""
+msgstr "Bitte "
 
 #: wooinstant/inc/license/license.php:34
+#, fuzzy
 msgid " key to enable getting future updates for Instantio Pro."
-msgstr ""
+msgstr " -Schlüssel, um zukünftige Updates für Instantio Pro zu erhalten."
 
 #: wooinstant/inc/license/license.php:116
+#, fuzzy
 msgid "Instantio License Info"
-msgstr ""
+msgstr "Instantio Lizenz Info"
 
 #: wooinstant/inc/license/license.php:121
 msgid "Status"
-msgstr ""
+msgstr "Status"
 
 #: wooinstant/inc/license/license.php:124
 msgid "Valid"
-msgstr ""
+msgstr "Gültig"
 
 #: wooinstant/inc/license/license.php:126
 msgid "Invalid"
-msgstr ""
+msgstr "Ungültig"
 
 #: wooinstant/inc/license/license.php:133
 msgid "License Type"
-msgstr ""
+msgstr "Lizenztyp"
 
 #: wooinstant/inc/license/license.php:140
 msgid "License Expired on"
-msgstr ""
+msgstr "Lizenz abgelaufen am"
 
 #: wooinstant/inc/license/license.php:153
 msgid "Support Expired on"
-msgstr ""
+msgstr "Support abgelaufen am"
 
 #: wooinstant/inc/license/license.php:166
 msgid "Your License Key"
-msgstr ""
+msgstr "Ihr Lizenzschlüssel"
 
 #: wooinstant/inc/license/license.php:185
+#, fuzzy
 msgid "Instantio Pro Licensing"
-msgstr ""
+msgstr "Instantio Pro Lizenzierung"
 
 #: wooinstant/inc/license/license.php:196
+#, fuzzy
 msgid "If you don't have a license key, please "
-msgstr ""
+msgstr "Wenn Sie keinen Lizenzschlüssel haben, wenden Sie sich bitte an "
 
 #: wooinstant/inc/license/license.php:196
 msgid "click here"
-msgstr ""
+msgstr "Hier klicken"
 
 #: wooinstant/inc/license/license.php:196
+#, fuzzy
 msgid " to request a license key."
-msgstr ""
+msgstr " , um einen Lizenzschlüssel anzufordern."
 
 #: wooinstant/inc/license/license.php:197
+#, fuzzy
 msgid ""
 "Enter your license key here, to activate the product, and get full feature "
 "updates and premium support."
 msgstr ""
+"Geben Sie hier Ihren Lizenzschlüssel ein, um das Produkt zu aktivieren und "
+"vollständige Funktionsupdates und Premium-Support zu erhalten."
 
 #: wooinstant/inc/license/license.php:199
 msgid "License code"
-msgstr ""
+msgstr "Lizenzcode"
 
 #: wooinstant/inc/license/license.php:203
 msgid "Email Address"
-msgstr ""
+msgstr "E-Mail Adresse"
 
 #: wooinstant/inc/license/license.php:208
+#, fuzzy
 msgid ""
 "We will send update news of this product by this email address, don't worry, "
 "we hate spam"
 msgstr ""
+"Wir werden Update-News zu diesem Produkt über diese E-Mail-Adresse senden, "
+"keine Sorge, wir hassen Spam"
 
 #: wooinstant/inc/templates/cart-m.php:114
 msgid "Update cart"
-msgstr ""
+msgstr "Warenkorb aktualisieren"
 
 #: wooinstant/inc/templates/cart.php:117
+#, fuzzy
 msgid "Subtotal"
-msgstr ""
+msgstr "Zwischensumme"
 
 #: wooinstant/inc/templates/cart.php:135
 msgid "Coupon:"
-msgstr ""
+msgstr "Gutschein:"
 
 #: wooinstant/inc/templates/cart.php:135
 msgid "Coupon code"
-msgstr ""
+msgstr "Gutscheincode"
 
 #: wooinstant/inc/templates/cart.php:135
 msgid "Apply coupon"
-msgstr ""
+msgstr "Gutschein anwenden"
 
 #: wooinstant/inc/templates/cross-sells.php:27
 #: wooinstant/inc/templates/cross-sells.php:30
 msgid "You may be interested in&hellip;"
-msgstr ""
+msgstr "Sind Sie vielleicht interessiert an&hellip;"
 
 #: wooinstant/inc/templates/cross-sells.php:46
 msgid "Add to cart"
-msgstr ""
+msgstr "In den Warenkorb"

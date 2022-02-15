@@ -3,209 +3,238 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-17 18:04+0600\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2022-01-17 23:47+0600\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #: instantio/instantio.php:167 instantio/instantio.php:176
 #, php-format
 msgid "Instantio requires %1$s WooCommerce %2$s to be activated."
-msgstr ""
+msgstr "Instantio требует, %1$s активирован %2$s WooCommerce."
 
 #: instantio/instantio.php:168 wooinstant/wooinstant.php:171
 msgid "Install Now"
-msgstr ""
+msgstr "Установить сейчас"
 
 #: instantio/instantio.php:177 wooinstant/wooinstant.php:180
 msgid "Activate"
-msgstr ""
+msgstr "Активировать"
 
 #: instantio/instantio.php:185
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "%sInstantio is inactive.%s This plugin requires WooCommerce 2.5 or newer. "
 "Please %supdate WooCommerce to version 2.5 or newer%s"
 msgstr ""
+"%s Инстансио неактивен. %s Этот плагин требует WooCommerce 2.5 или новее. "
+"Пожалуйста, %sобновите WooCommerce до версии 2.5 или новее%s"
 
 #: instantio/instantio.php:212 wooinstant/wooinstant.php:193
 msgid "Settings"
-msgstr ""
+msgstr "Настройки"
 
 #: instantio/instantio.php:217
 msgid "GO PRO"
-msgstr ""
+msgstr "Перейти к PRO"
 
 #: instantio/admin/config.php:32 wooinstant/admin/config.php:34
 msgid "Design"
-msgstr ""
+msgstr "Дизайн"
 
-#: instantio/admin/options/general.php:6
-#: wooinstant/admin/options/general.php:6
+#: instantio/admin/options/general.php:6 wooinstant/admin/options/general.php:6
 msgid "General"
-msgstr ""
+msgstr "Общие"
 
 #: instantio/admin/options/general.php:12
 #: wooinstant/admin/options/general.php:12
 msgid "General Settings"
-msgstr ""
+msgstr "Основные настройки"
 
 #: instantio/admin/options/general.php:18
 #: wooinstant/admin/options/general.php:18
 msgid "Select Layout"
-msgstr ""
+msgstr "Выберите Макет"
 
 #: instantio/admin/options/general.php:19
 #: wooinstant/admin/options/general.php:19
+#, fuzzy
 msgid "Choose cart layout"
-msgstr ""
+msgstr "Выберите макет корзины"
 
-#: instantio/admin/options/general.php:40
-#: instantio/admin/options/toggler.php:5
+#: instantio/admin/options/general.php:40 instantio/admin/options/toggler.php:5
 #: instantio/admin/options/toggler.php:10
 #: wooinstant/admin/options/general.php:40
 #: wooinstant/admin/options/toggler.php:5
 #: wooinstant/admin/options/toggler.php:10
+#, fuzzy
 msgid "Toggler Design"
-msgstr ""
+msgstr "Конструкция тоггера"
 
 #: instantio/admin/options/general.php:41
 #: wooinstant/admin/options/general.php:41
 msgid "Select toggler design"
-msgstr ""
+msgstr "Выберите конструкцию тумблера"
 
 #: instantio/admin/options/general.php:53
 #: wooinstant/admin/options/general.php:53
+#, fuzzy
 msgid "Cart Toggler Open on"
-msgstr ""
+msgstr "Корзина Toggler Открыть на"
 
 #: instantio/admin/options/general.php:54
 #: wooinstant/admin/options/general.php:54
+#, fuzzy
 msgid "Choose how cart toggler should open for direct checkout button"
 msgstr ""
+"Выберите, как должен открываться переключатель корзины для кнопки прямого "
+"оформления заказа"
 
 #: instantio/admin/options/general.php:67
 #: wooinstant/admin/options/general.php:67
+#, fuzzy
 msgid "Enable/dsiable cart fly animation or change icon"
-msgstr ""
+msgstr "Включить/дать анимацию мухи корзины или изменить значок"
 
 #: instantio/admin/options/general.php:72
 #: wooinstant/admin/options/general.php:72
+#, fuzzy
 msgid "Cart Fly Animation"
-msgstr ""
+msgstr "Корзина Муха Анимация"
 
 #: instantio/admin/options/general.php:82
 #: wooinstant/admin/options/general.php:82
 msgid "Cart Fly Animation Icon"
-msgstr ""
+msgstr "Корзина Муха Анимация Значок"
 
 #: instantio/admin/options/general.php:96
 #: wooinstant/admin/options/general.php:96
 msgid "Auto Open Toggle Panel"
-msgstr ""
+msgstr "Автоматическое открытие переключателя панели"
 
 #: instantio/admin/options/general.php:97
 #: wooinstant/admin/options/general.php:97
+#, fuzzy
 msgid "When an item is added to the cart automatically open the toggle panel"
 msgstr ""
+"При добавлении товара в корзину автоматически открывается переключатель"
 
 #: instantio/admin/options/general.php:108
 #: wooinstant/admin/options/general.php:108
+#, fuzzy
 msgid "Show/hide or change cart button's text & url"
-msgstr ""
+msgstr "Показать/скрыть или изменить текст и URL-адрес кнопки корзины"
 
 #: instantio/admin/options/general.php:114
 #: wooinstant/admin/options/general.php:114
 msgid "Show Cart Button"
-msgstr ""
+msgstr "Показать кнопку корзины"
 
 #: instantio/admin/options/general.php:122
 #: wooinstant/admin/options/general.php:122
 msgid "Cart Button Text"
-msgstr ""
+msgstr "Текст кнопки В Корзину"
 
 #: instantio/admin/options/general.php:123
 #: wooinstant/admin/options/general.php:123
+#, fuzzy
 msgid "Default: <code>View Cart</code>"
-msgstr ""
+msgstr "По умолчанию: <code>View Cart</code>"
 
 #: instantio/admin/options/general.php:129
 #: wooinstant/admin/options/general.php:129
+#, fuzzy
 msgid "Cart Button URL"
-msgstr ""
+msgstr "URL-адрес кнопки корзины"
 
 #: instantio/admin/options/general.php:131
 #: wooinstant/admin/options/general.php:131
+#, fuzzy
 msgid "Default: default cart page"
-msgstr ""
+msgstr "По умолчанию: страница корзины по умолчанию"
 
 #: instantio/admin/options/general.php:142
 #: wooinstant/admin/options/general.php:142
+#, fuzzy
 msgid "Show/hide or change checkout button's text & url"
 msgstr ""
+"Показать/скрыть или изменить текст и URL-адрес кнопки оформления заказа"
 
 #: instantio/admin/options/general.php:147
 #: wooinstant/admin/options/general.php:147
+#, fuzzy
 msgid "Show Checkout Button"
-msgstr ""
+msgstr "Показать кнопку оформления заказа"
 
 #: instantio/admin/options/general.php:157
 #: instantio/admin/options/mobile.php:104
 #: wooinstant/admin/options/general.php:157
 #: wooinstant/admin/options/mobile.php:117
 msgid "Checkout Button Text"
-msgstr ""
+msgstr "Текст кнопки «Оформить заказ»"
 
 #: instantio/admin/options/general.php:158
 #: instantio/admin/options/mobile.php:105
 #: wooinstant/admin/options/general.php:158
 #: wooinstant/admin/options/mobile.php:118
+#, fuzzy
 msgid "Default: <code>Checkout Now</code>"
-msgstr ""
+msgstr "По умолчанию: <code>Checkout Now</code>"
 
 #: instantio/admin/options/general.php:165
 #: wooinstant/admin/options/general.php:165
+#, fuzzy
 msgid "Checkout Button URL"
-msgstr ""
+msgstr "URL-адрес кнопки оформления заказа"
 
 #: instantio/admin/options/general.php:167
 #: wooinstant/admin/options/general.php:167
+#, fuzzy
 msgid "Default: default checkout page"
-msgstr ""
+msgstr "По умолчанию: страница оформления заказа по умолчанию"
 
 #: instantio/admin/options/general.php:178
 #: wooinstant/admin/options/general.php:177
+#, fuzzy
 msgid "Drawer Window Type"
-msgstr ""
+msgstr "Тип окна ящика"
 
 #: instantio/admin/options/general.php:179
 #: wooinstant/admin/options/general.php:178
+#, fuzzy
 msgid "Choose the function of Cart Drawer / Side Cart."
-msgstr ""
+msgstr "Выберите функцию Ящик корзины / Боковая корзина."
 
 #: instantio/admin/options/general.php:180
 #: wooinstant/admin/options/general.php:179
+#, fuzzy
 msgid "Multistep: Cart-> Checkout; Single step: Cart+Checkout on same window"
 msgstr ""
+"Многоступенчатый: Корзина-> Оформление заказа; Один шаг: Корзина + "
+"Оформление заказа в том же окне"
 
 #: instantio/admin/options/general.php:182
 #: wooinstant/admin/options/general.php:181
+#, fuzzy
 msgid "Multi Step"
-msgstr ""
+msgstr "Многоступенчатый"
 
 #: instantio/admin/options/general.php:183
 #: wooinstant/admin/options/general.php:182
+#, fuzzy
 msgid "Single Step"
-msgstr ""
+msgstr "Один шаг"
 
 #: instantio/admin/options/general.php:186
 #: instantio/admin/options/general.php:198
@@ -219,473 +248,551 @@ msgstr ""
 #: wooinstant/admin/options/toggler.php:48
 #: wooinstant/admin/options/toggler.php:59
 msgid "Pro Feature"
-msgstr ""
+msgstr "Функция Pro"
 
 #: instantio/admin/options/general.php:193
 #: wooinstant/admin/options/general.php:192
 msgid "Disable Quick View"
-msgstr ""
+msgstr "Отключить быстрый просмотр"
 
 #: instantio/admin/options/general.php:194
 #: wooinstant/admin/options/general.php:193
+#, fuzzy
 msgid ""
 "You can disable it if you already have quick view function in your theme "
 "(Applicable for Variable products)."
 msgstr ""
+"Вы можете отключить его, если у вас уже есть функция быстрого просмотра в "
+"вашей теме (Применимо для переменных продуктов)."
 
 #: instantio/admin/options/general.php:205
 #: wooinstant/admin/options/general.php:203
+#, fuzzy
 msgid "Disable Ajax Add to Cart"
-msgstr ""
+msgstr "Отключить Ajax Добавить в корзину"
 
 #: instantio/admin/options/general.php:206
 #: wooinstant/admin/options/general.php:204
+#, fuzzy
 msgid ""
 "You can disable it if you already have ajax \"add to cart\" function in your "
 "theme (To avoid conflict)."
 msgstr ""
+"Вы можете отключить его, если у вас уже есть ajax функция «добавить в "
+"корзину» в вашей теме (во избежание конфликта)."
 
 #: instantio/admin/options/general.php:217
 #: wooinstant/admin/options/general.php:214
+#, fuzzy
 msgid "Choose Active Window"
-msgstr ""
+msgstr "Выберите Активное окно"
 
 #: instantio/admin/options/general.php:218
 #: wooinstant/admin/options/general.php:215
+#, fuzzy
 msgid ""
 "Cart or Checkout, which one should be seen when customers open the \"Side "
 "Cart"
 msgstr ""
+"Корзина или Оформление заказа, которое следует увидеть, когда клиенты "
+"открывают «Боковую корзину»"
 
 #: instantio/admin/options/general.php:220
 #: wooinstant/admin/options/general.php:217
 #: wooinstant/inc/layouts/mobile/mobile-1.php:86
+#, fuzzy
 msgid "Cart"
-msgstr ""
+msgstr "Корзина"
 
 #: instantio/admin/options/general.php:221
 #: wooinstant/admin/options/general.php:218
 #: wooinstant/inc/layouts/mobile/mobile-1.php:105
 msgid "Checkout"
-msgstr ""
+msgstr "Оформить заказ"
 
 #: instantio/admin/options/general.php:235
 #: wooinstant/admin/options/general.php:231
+#, fuzzy
 msgid "Upsells in Cart"
-msgstr ""
+msgstr "Дополнительные продажи в корзине"
 
 #: instantio/admin/options/general.php:236
 #: wooinstant/admin/options/general.php:232
+#, fuzzy
 msgid "Enable/disable upsells items in cart"
-msgstr ""
+msgstr "Включение/отключение дополнительных продаж товаров в корзине"
 
 #: instantio/admin/options/general.php:248
 #: wooinstant/admin/options/general.php:243
 msgid "Upsell Heading"
 msgstr ""
+"Заголовок Upsell (Upsell – это метод продаж, призванный убедить клиентов "
+"приобрести более дорогую версию выбранного товара)"
 
 #: instantio/admin/options/general.php:249
 #: wooinstant/admin/options/general.php:244
+#, fuzzy
 msgid "The text shown before upsell items"
-msgstr ""
+msgstr "Текст, отображаемый перед дополнительными элементами"
 
 #: instantio/admin/options/general.php:250
 #: wooinstant/admin/options/general.php:245
+#, fuzzy
 msgid "Default: Hang on! We have this offer just for you!"
-msgstr ""
+msgstr "По умолчанию: Держитесь! У нас есть это предложение только для Вас!"
 
 #: instantio/admin/options/general.php:251
 #: wooinstant/admin/options/general.php:246
 #: wooinstant/inc/templates/single-product/up-sells.php:30
 msgid "Hang on! We have this offer just for you!"
-msgstr ""
+msgstr "Подождите! У нас есть предложение только для вас!"
 
 #: instantio/admin/options/general.php:259
 #: wooinstant/admin/options/general.php:252
+#, fuzzy
 msgid "Cross Sells in Checkout"
-msgstr ""
+msgstr "Перекрестные продажи при оформлении заказа"
 
 #: instantio/admin/options/general.php:260
 #: wooinstant/admin/options/general.php:253
+#, fuzzy
 msgid "Enable/disable cross sell items in checkout"
-msgstr ""
+msgstr "Включение/отключение перекрестных продаж товаров при оформлении заказа"
 
 #: instantio/admin/options/general.php:272
 #: wooinstant/admin/options/general.php:264
+#, fuzzy
 msgid "Cross Sell Heading"
-msgstr ""
+msgstr "Перекрестная продажа заголовка"
 
 #: instantio/admin/options/general.php:273
 #: wooinstant/admin/options/general.php:265
+#, fuzzy
 msgid "The text shown before cross sell items"
-msgstr ""
+msgstr "Текст, отображаемый перед перекрестной продажей товаров"
 
 #: instantio/admin/options/general.php:274
 #: wooinstant/admin/options/general.php:266
+#, fuzzy
 msgid "Default: You may be interested in…"
-msgstr ""
+msgstr "По умолчанию: Вас может заинтересовать..."
 
 #: instantio/admin/options/general.php:275
 #: wooinstant/admin/options/general.php:267
 msgid "You may be interested in…"
-msgstr ""
+msgstr "Вас может заинтересовать…"
 
 #: instantio/admin/options/mobile.php:5 wooinstant/admin/options/mobile.php:5
 msgid "Mobile"
-msgstr ""
+msgstr "Мобильный"
 
-#: instantio/admin/options/mobile.php:12
-#: wooinstant/admin/options/mobile.php:12
+#: instantio/admin/options/mobile.php:12 wooinstant/admin/options/mobile.php:12
+#, fuzzy
 msgid "Dedicated Mobile Version"
-msgstr ""
+msgstr "Выделенная мобильная версия"
 
-#: instantio/admin/options/mobile.php:13
-#: wooinstant/admin/options/mobile.php:13
+#: instantio/admin/options/mobile.php:13 wooinstant/admin/options/mobile.php:13
+#, fuzzy
 msgid "Enable/disable dedicated mobile version"
-msgstr ""
+msgstr "Включить/выключить выделенную мобильную версию"
 
 #: instantio/admin/options/mobile.php:24
 #: instantio/admin/options/toggle-panel.php:195
 #: wooinstant/admin/options/mobile.php:23
 #: wooinstant/admin/options/toggle-panel.php:188
+#, fuzzy
 msgid "Cart Section"
-msgstr ""
+msgstr "Раздел корзины"
 
-#: instantio/admin/options/mobile.php:30
-#: wooinstant/admin/options/mobile.php:29
+#: instantio/admin/options/mobile.php:30 wooinstant/admin/options/mobile.php:29
+#, fuzzy
 msgid "Enable Cart Panel"
-msgstr ""
+msgstr "Включить панель корзины"
 
-#: instantio/admin/options/mobile.php:31
-#: wooinstant/admin/options/mobile.php:30
+#: instantio/admin/options/mobile.php:31 wooinstant/admin/options/mobile.php:30
+#, fuzzy
 msgid "Enable/disable cart in mobile version"
-msgstr ""
+msgstr "Включить/выключить корзину в мобильной версии"
 
-#: instantio/admin/options/mobile.php:42
-#: wooinstant/admin/options/mobile.php:41
+#: instantio/admin/options/mobile.php:42 wooinstant/admin/options/mobile.php:41
 msgid "Cart URL"
-msgstr ""
+msgstr "Корзина"
 
-#: instantio/admin/options/mobile.php:56
-#: wooinstant/admin/options/mobile.php:58
+#: instantio/admin/options/mobile.php:56 wooinstant/admin/options/mobile.php:58
+#, fuzzy
 msgid "Custom Cart URL"
-msgstr ""
+msgstr "Url-адрес пользовательской корзины"
 
-#: instantio/admin/options/mobile.php:64
-#: wooinstant/admin/options/mobile.php:70
+#: instantio/admin/options/mobile.php:64 wooinstant/admin/options/mobile.php:70
+#, fuzzy
 msgid "Checkout Section"
-msgstr ""
+msgstr "Раздел оформления заказа"
 
-#: instantio/admin/options/mobile.php:70
-#: wooinstant/admin/options/mobile.php:76
+#: instantio/admin/options/mobile.php:70 wooinstant/admin/options/mobile.php:76
+#, fuzzy
 msgid "Enable Checkout Panel"
-msgstr ""
+msgstr "Включить панель оформления заказа"
 
-#: instantio/admin/options/mobile.php:71
-#: wooinstant/admin/options/mobile.php:77
+#: instantio/admin/options/mobile.php:71 wooinstant/admin/options/mobile.php:77
+#, fuzzy
 msgid "Enable/disable checkout in mobile version"
-msgstr ""
+msgstr "Включить/выключить оформление заказа в мобильной версии"
 
-#: instantio/admin/options/mobile.php:82
-#: wooinstant/admin/options/mobile.php:88
+#: instantio/admin/options/mobile.php:82 wooinstant/admin/options/mobile.php:88
 msgid "Checkout URL"
-msgstr ""
+msgstr "URL оформления заказа"
 
 #: instantio/admin/options/mobile.php:95
 #: wooinstant/admin/options/mobile.php:104
+#, fuzzy
 msgid "Custom Checkout URL"
-msgstr ""
+msgstr "Пользовательский URL-адрес оформления заказа"
 
 #: instantio/admin/options/optimization.php:5
 #: wooinstant/admin/options/optimization.php:5
 msgid "Optimization"
-msgstr ""
+msgstr "Оптимизация"
 
 #: instantio/admin/options/optimization.php:12
 #: wooinstant/admin/options/optimization.php:12
+#, fuzzy
 msgid "FancyBox CDN"
-msgstr ""
+msgstr "ФансиБокс CDN"
 
 #: instantio/admin/options/optimization.php:13
 #: wooinstant/admin/options/optimization.php:13
+#, fuzzy
 msgid "Enable/disable cloudflare CDN for FancyBox CSS & JS"
-msgstr ""
+msgstr "Включение/отключение cloudflare CDN для FancyBox CSS & JS"
 
 #: instantio/admin/options/optimization.php:25
 #: wooinstant/admin/options/optimization.php:24
 msgid "Minify CSS"
-msgstr ""
+msgstr "Минимизировать CSS"
 
 #: instantio/admin/options/optimization.php:26
 #: wooinstant/admin/options/optimization.php:25
+#, fuzzy
 msgid "Enable/disable Instantio CSS minification"
-msgstr ""
+msgstr "Включение/отключение минимизации CSS Instantio"
 
 #: instantio/admin/options/optimization.php:38
 #: wooinstant/admin/options/optimization.php:36
 msgid "Minify JS"
-msgstr ""
+msgstr "Минимизировать JS"
 
 #: instantio/admin/options/optimization.php:39
 #: wooinstant/admin/options/optimization.php:37
+#, fuzzy
 msgid "Enable/disable Instantio JS minification"
-msgstr ""
+msgstr "Включение/отключение минимизации Instantio JS"
 
 #: instantio/admin/options/others.php:5 instantio/admin/options/others.php:10
-#: wooinstant/admin/options/others.php:5
-#: wooinstant/admin/options/others.php:10
+#: wooinstant/admin/options/others.php:5 wooinstant/admin/options/others.php:10
 msgid "Others"
-msgstr ""
+msgstr "Другие"
 
-#: instantio/admin/options/others.php:16
-#: wooinstant/admin/options/others.php:16
+#: instantio/admin/options/others.php:16 wooinstant/admin/options/others.php:16
+#, fuzzy
 msgid "Quick View Background"
-msgstr ""
+msgstr "Фон быстрого просмотра"
 
-#: instantio/admin/options/others.php:17
-#: wooinstant/admin/options/others.php:17
+#: instantio/admin/options/others.php:17 wooinstant/admin/options/others.php:17
+#, fuzzy
 msgid "Instantio Quick View Panel Background Color"
-msgstr ""
+msgstr "Цвет фона панели быстрого просмотра Instantio"
 
-#: instantio/admin/options/others.php:26
-#: wooinstant/admin/options/others.php:25
+#: instantio/admin/options/others.php:26 wooinstant/admin/options/others.php:25
 msgid "Quick View Color"
-msgstr ""
+msgstr "Быстрый просмотр цвет"
 
-#: instantio/admin/options/others.php:27
-#: wooinstant/admin/options/others.php:26
+#: instantio/admin/options/others.php:27 wooinstant/admin/options/others.php:26
+#, fuzzy
 msgid "Instantio Quick View Panel Text & Cross Color"
-msgstr ""
+msgstr "Instantio Quick View Panel Text & Cross Color"
 
-#: instantio/admin/options/others.php:36
-#: wooinstant/admin/options/others.php:34
+#: instantio/admin/options/others.php:36 wooinstant/admin/options/others.php:34
+#, fuzzy
 msgid "If you want to make extra CSS then you can do it from here"
 msgstr ""
+"Если вы хотите сделать дополнительный CSS, то вы можете сделать это отсюда"
 
 #: instantio/admin/options/toggle-panel.php:5
 #: instantio/admin/options/toggle-panel.php:10
 #: wooinstant/admin/options/toggle-panel.php:5
 #: wooinstant/admin/options/toggle-panel.php:10
+#, fuzzy
 msgid "Toggle Panel Design"
-msgstr ""
+msgstr "Конструкция переключаемой панели"
 
 #: instantio/admin/options/toggle-panel.php:16
 #: wooinstant/admin/options/toggle-panel.php:21
+#, fuzzy
 msgid "Toggle Panel Position"
-msgstr ""
+msgstr "Переключение положения панели"
 
 #: instantio/admin/options/toggle-panel.php:17
 #: wooinstant/admin/options/toggle-panel.php:22
+#, fuzzy
 msgid "Changes position of the Cart Toggle Panel"
-msgstr ""
+msgstr "Изменяет положение переключателя корзины"
 
 #: instantio/admin/options/toggle-panel.php:29
 #: wooinstant/admin/options/toggle-panel.php:34
+#, fuzzy
 msgid "Toggle Panel Background Colors"
-msgstr ""
+msgstr "Переключение цветов фона панели"
 
 #: instantio/admin/options/toggle-panel.php:30
 #: wooinstant/admin/options/toggle-panel.php:35
+#, fuzzy
 msgid "Checkout button background regular & hover color"
-msgstr ""
+msgstr "Фон кнопки оформления заказа обычный и цвет наведения"
 
 #: instantio/admin/options/toggle-panel.php:41
 #: wooinstant/admin/options/toggle-panel.php:46
+#, fuzzy
 msgid "Toggle Panel Border Colors"
-msgstr ""
+msgstr "Переключение цветов границы панели"
 
 #: instantio/admin/options/toggle-panel.php:42
 #: wooinstant/admin/options/toggle-panel.php:47
+#, fuzzy
 msgid "Checkout button border regular & hover color"
-msgstr ""
+msgstr "Кнопка оформления заказа границы обычный и наведенный цвет"
 
 #: instantio/admin/options/toggle-panel.php:53
 #: wooinstant/admin/options/toggle-panel.php:58
+#, fuzzy
 msgid "Toggle Panel Text Colors"
-msgstr ""
+msgstr "Переключение цветов текста панели"
 
 #: instantio/admin/options/toggle-panel.php:54
 #: wooinstant/admin/options/toggle-panel.php:59
+#, fuzzy
 msgid "Set regular & hover color of checkout text"
-msgstr ""
+msgstr "Установите обычный и наведенный цвет текста оформления заказа"
 
 #: instantio/admin/options/toggle-panel.php:65
 #: wooinstant/admin/options/toggle-panel.php:70
 msgid "Panel Background"
-msgstr ""
+msgstr "Фон панели"
 
 #: instantio/admin/options/toggle-panel.php:66
 #: wooinstant/admin/options/toggle-panel.php:71
+#, fuzzy
 msgid "Toggle Panel Background Color"
-msgstr ""
+msgstr "Переключение цвета фона панели"
 
 #: instantio/admin/options/toggle-panel.php:85
 #: wooinstant/admin/options/toggle-panel.php:88
+#, fuzzy
 msgid "Panel Text Color"
-msgstr ""
+msgstr "Цвет текста панели"
 
 #: instantio/admin/options/toggle-panel.php:86
 #: wooinstant/admin/options/toggle-panel.php:89
+#, fuzzy
 msgid "Openning heading \"Your Cart\" color"
-msgstr ""
+msgstr "Открытие заголовка \"Ваша корзина\" цвет"
 
 #: instantio/admin/options/toggle-panel.php:95
 #: wooinstant/admin/options/toggle-panel.php:97
+#, fuzzy
 msgid "Panel Button Colors"
-msgstr ""
+msgstr "Цвета кнопки панели"
 
 #: instantio/admin/options/toggle-panel.php:96
 #: wooinstant/admin/options/toggle-panel.php:98
+#, fuzzy
 msgid "\"Proceed to Checkout\", \"Back to Cart\" button color"
-msgstr ""
+msgstr "Цвет кнопки \"Перейти к оформлению заказа\", \"Назад в корзину\""
 
 #: instantio/admin/options/toggle-panel.php:107
 #: wooinstant/admin/options/toggle-panel.php:108
+#, fuzzy
 msgid "Panel Button Border Colors"
-msgstr ""
+msgstr "Цвета границы кнопки панели"
 
 #: instantio/admin/options/toggle-panel.php:108
 #: wooinstant/admin/options/toggle-panel.php:109
+#, fuzzy
 msgid "\"Proceed to Checkout\", \"Back to Cart\" button border color"
 msgstr ""
+"\"Перейти к оформлению заказа\", \"Назад в корзину\" цвет границы кнопки "
+"\"Перейти к оформлению заказа\""
 
 #: instantio/admin/options/toggle-panel.php:119
 #: wooinstant/admin/options/toggle-panel.php:119
+#, fuzzy
 msgid "Panel Button Text Colors"
-msgstr ""
+msgstr "Цвета текста кнопки панели"
 
 #: instantio/admin/options/toggle-panel.php:120
 #: wooinstant/admin/options/toggle-panel.php:120
+#, fuzzy
 msgid "\"Proceed to Checkout\", \"Back to Cart\" button text color"
 msgstr ""
+"Цвет текста кнопки \"Перейти к оформлению заказа\", \"Назад в корзину\""
 
 #: instantio/admin/options/toggle-panel.php:131
 #: wooinstant/admin/options/toggle-panel.php:130
+#, fuzzy
 msgid "Panel Z-index"
-msgstr ""
+msgstr "Панель Z-индекс"
 
 #: instantio/admin/options/toggle-panel.php:132
 #: wooinstant/admin/options/toggle-panel.php:131
+#, fuzzy
 msgid ""
 "Control z-index from this option. More about <a target=\"_blank\" href="
 "\"https://css-tricks.com/almanac/properties/z/z-index/\">z-index</a>"
 msgstr ""
+"Управление z-индексом из этого параметра. Подробнее о <a target=\"_blank\" "
+"href=\"https://css-tricks.com/almanac/properties/z/z-index/\">z-индексе</a>"
 
 #: instantio/admin/options/toggle-panel.php:142
 #: wooinstant/admin/options/toggle-panel.php:140
+#, fuzzy
 msgid "Toggle Panel Width (1200px-auto)"
-msgstr ""
+msgstr "Ширина панели переключения (1200px-auto)"
 
 #: instantio/admin/options/toggle-panel.php:143
 #: wooinstant/admin/options/toggle-panel.php:141
+#, fuzzy
 msgid ""
 "Set the percent of width of toggle panel for display dimension greater than "
 "1199px."
 msgstr ""
+"Установите процент ширины переключателя для размера дисплея больше 1199 "
+"пикселей."
 
 #: instantio/admin/options/toggle-panel.php:144
 #: wooinstant/admin/options/toggle-panel.php:142
+#, fuzzy
 msgid "Range 0%-100%. Default 40"
-msgstr ""
+msgstr "Диапазон 0%-100%. По умолчанию 40"
 
 #: instantio/admin/options/toggle-panel.php:155
 #: wooinstant/admin/options/toggle-panel.php:152
+#, fuzzy
 msgid "Toggle Panel Width (1024px-1199px)"
-msgstr ""
+msgstr "Ширина панели переключения (1024px-1199px)"
 
 #: instantio/admin/options/toggle-panel.php:156
 #: wooinstant/admin/options/toggle-panel.php:153
+#, fuzzy
 msgid ""
 "Set the percent of width of toggle panel for display dimension greater than "
 "1023px."
 msgstr ""
+"Установите процент ширины переключаемой панели для размера дисплея больше "
+"1023 пикселей."
 
 #: instantio/admin/options/toggle-panel.php:157
 #: wooinstant/admin/options/toggle-panel.php:154
+#, fuzzy
 msgid "Range 0%-100%. Default 48"
-msgstr ""
+msgstr "Диапазон 0%-100%. По умолчанию 48"
 
 #: instantio/admin/options/toggle-panel.php:168
 #: wooinstant/admin/options/toggle-panel.php:164
+#, fuzzy
 msgid "Toggle Panel Width (501px-1023)"
-msgstr ""
+msgstr "Ширина панели переключения (501px-1023)"
 
 #: instantio/admin/options/toggle-panel.php:169
 #: wooinstant/admin/options/toggle-panel.php:165
+#, fuzzy
 msgid ""
 "Set the percent of width of toggle panel for display dimension greater than "
 "500px."
 msgstr ""
+"Установите процент ширины переключателя для размера дисплея больше 500 "
+"пикселей."
 
 #: instantio/admin/options/toggle-panel.php:170
 #: wooinstant/admin/options/toggle-panel.php:166
+#, fuzzy
 msgid "Range 0%-100%. Default 60"
-msgstr ""
+msgstr "Диапазон 0%-100%. По умолчанию 60"
 
 #: instantio/admin/options/toggle-panel.php:201
 #: wooinstant/admin/options/toggle-panel.php:194
+#, fuzzy
 msgid "Cart Header Background"
-msgstr ""
+msgstr "Фон заголовка корзины"
 
 #: instantio/admin/options/toggle-panel.php:202
 #: wooinstant/admin/options/toggle-panel.php:195
+#, fuzzy
 msgid "Toggle panel cart header background color"
-msgstr ""
+msgstr "Переключение цвета фона заголовка корзины панели"
 
 #: instantio/admin/options/toggle-panel.php:210
 #: wooinstant/admin/options/toggle-panel.php:202
 msgid "Cart Header Text Color"
-msgstr ""
+msgstr "Корзина Заголовок Текст Цвет"
 
 #: instantio/admin/options/toggle-panel.php:211
 #: wooinstant/admin/options/toggle-panel.php:203
+#, fuzzy
 msgid "Toggle panel cart header text color"
-msgstr ""
+msgstr "Переключение цвета текста заголовка корзины панели"
 
 #: instantio/admin/options/toggle-panel.php:219
 #: wooinstant/admin/options/toggle-panel.php:210
+#, fuzzy
 msgid "Cart Items Background"
-msgstr ""
+msgstr "Предыстория элементов корзины"
 
 #: instantio/admin/options/toggle-panel.php:220
 #: wooinstant/admin/options/toggle-panel.php:211
+#, fuzzy
 msgid "Toggle panel cart items background color"
-msgstr ""
+msgstr "Переключение панели корзины элементов фона"
 
 #: instantio/admin/options/toggle-panel.php:228
 #: wooinstant/admin/options/toggle-panel.php:218
+#, fuzzy
 msgid "Cart Item Text Color"
-msgstr ""
+msgstr "Цвет текста элемента корзины"
 
 #: instantio/admin/options/toggle-panel.php:229
 #: wooinstant/admin/options/toggle-panel.php:219
+#, fuzzy
 msgid "Toggle panel cart item text color"
-msgstr ""
+msgstr "Переключение цвета текста элемента корзины панели"
 
 #: instantio/admin/options/toggle-panel.php:237
 #: wooinstant/admin/options/toggle-panel.php:226
+#, fuzzy
 msgid "Cart Input Background"
-msgstr ""
+msgstr "Фон ввода корзины"
 
 #: instantio/admin/options/toggle-panel.php:238
 #: wooinstant/admin/options/toggle-panel.php:227
+#, fuzzy
 msgid "Toggle panel cart input background color"
-msgstr ""
+msgstr "Переключатель панели корзины ввода цвета фона"
 
 #: instantio/admin/options/toggle-panel.php:247
 #: wooinstant/admin/options/toggle-panel.php:235
+#, fuzzy
 msgid "Cart Input Text Color"
-msgstr ""
+msgstr "Корзина Ввод Текста Цвет"
 
 #: instantio/admin/options/toggle-panel.php:248
 #: wooinstant/admin/options/toggle-panel.php:236
+#, fuzzy
 msgid "Toggle panel cart input text color"
-msgstr ""
+msgstr "Переключатель панели корзины ввода цвета текста"
 
 #: instantio/admin/options/toggle-panel.php:255
 #: wooinstant/admin/options/toggle-panel.php:242
+#, fuzzy
 msgid "Cart Button Background Colors"
-msgstr ""
+msgstr "Цвета фона кнопки корзины"
 
 #: instantio/admin/options/toggle-panel.php:256
 #: instantio/admin/options/toggle-panel.php:268
@@ -695,447 +802,533 @@ msgstr ""
 #: wooinstant/admin/options/toggle-panel.php:254
 #: wooinstant/admin/options/toggler.php:92
 #: wooinstant/admin/options/toggler.php:103
+#, fuzzy
 msgid "Set regular & hover color"
-msgstr ""
+msgstr "Установите обычный и наведенный цвет"
 
 #: instantio/admin/options/toggle-panel.php:267
 #: wooinstant/admin/options/toggle-panel.php:253
+#, fuzzy
 msgid "Cart Button Text Colors"
-msgstr ""
+msgstr "Цвета текста кнопки корзины"
 
 #: instantio/admin/options/toggle-panel.php:279
 #: wooinstant/admin/options/toggle-panel.php:264
+#, fuzzy
 msgid "Cart Pricing Table Background"
-msgstr ""
+msgstr "Справочная информация о таблице цен в корзине"
 
 #: instantio/admin/options/toggle-panel.php:280
 #: wooinstant/admin/options/toggle-panel.php:265
+#, fuzzy
 msgid "Toggle panel pricing table background color"
-msgstr ""
+msgstr "Переключение цвета фона таблицы цен панели"
 
 #: instantio/admin/options/toggle-panel.php:288
 #: wooinstant/admin/options/toggle-panel.php:272
+#, fuzzy
 msgid "Cart Pricing Table Text Color"
-msgstr ""
+msgstr "Корзина Цены Таблица Цвет текста"
 
 #: instantio/admin/options/toggle-panel.php:289
 #: wooinstant/admin/options/toggle-panel.php:273
+#, fuzzy
 msgid "Toggle panel pricing table text color"
-msgstr ""
+msgstr "Переключение цвета текста таблицы цен панели"
 
 #: instantio/admin/options/toggle-panel.php:302
 #: wooinstant/admin/options/toggle-panel.php:285
 msgid "Billing Section"
-msgstr ""
+msgstr "Отдел выставления счетов"
 
 #: instantio/admin/options/toggle-panel.php:308
 #: wooinstant/admin/options/toggle-panel.php:291
+#, fuzzy
 msgid "Panel Billing Background"
-msgstr ""
+msgstr "Панельная предыстория биллинга"
 
 #: instantio/admin/options/toggle-panel.php:309
 #: wooinstant/admin/options/toggle-panel.php:292
+#, fuzzy
 msgid "Toggle panel billing section background color"
-msgstr ""
+msgstr "Переключение цвета фона раздела биллинга панели"
 
 #: instantio/admin/options/toggle-panel.php:317
 #: wooinstant/admin/options/toggle-panel.php:299
+#, fuzzy
 msgid "Panel Billing Heading Color"
-msgstr ""
+msgstr "Цвет заголовка панели биллинга"
 
 #: instantio/admin/options/toggle-panel.php:318
 #: wooinstant/admin/options/toggle-panel.php:300
+#, fuzzy
 msgid "Toggle panel billing section heading text color"
-msgstr ""
+msgstr "Переключение цвета текста заголовка раздела биллинга панели"
 
 #: instantio/admin/options/toggle-panel.php:330
 #: wooinstant/admin/options/toggle-panel.php:311
+#, fuzzy
 msgid "Panel Billing Padding"
-msgstr ""
+msgstr "Панель Биллинг Набивка"
 
 #: instantio/admin/options/toggle-panel.php:331
 #: wooinstant/admin/options/toggle-panel.php:312
+#, fuzzy
 msgid "Toggle panel billing section padding"
-msgstr ""
+msgstr "Набивка раздела биллинга панели"
 
 #: instantio/admin/options/toggle-panel.php:345
 #: wooinstant/admin/options/toggle-panel.php:325
+#, fuzzy
 msgid "Panel Billing Label Color"
-msgstr ""
+msgstr "Цвет наклейки для выставления счетов"
 
 #: instantio/admin/options/toggle-panel.php:346
 #: wooinstant/admin/options/toggle-panel.php:326
+#, fuzzy
 msgid "Toggle panel billing section label text color"
-msgstr ""
+msgstr "Переключение цвета текста метки раздела биллинга панели"
 
 #: instantio/admin/options/toggle-panel.php:354
 #: wooinstant/admin/options/toggle-panel.php:333
+#, fuzzy
 msgid "Panel Billing Input Background"
-msgstr ""
+msgstr "Фон ввода биллинга панели"
 
 #: instantio/admin/options/toggle-panel.php:355
 #: wooinstant/admin/options/toggle-panel.php:334
+#, fuzzy
 msgid "Toggle panel billing section input background color"
-msgstr ""
+msgstr "Переключение панели биллинга раздела ввода цвета фона"
 
 #: instantio/admin/options/toggle-panel.php:363
 #: wooinstant/admin/options/toggle-panel.php:341
+#, fuzzy
 msgid "Panel Billing Input Border Color"
-msgstr ""
+msgstr "Цвет границы ввода панели для выставления счетов"
 
 #: instantio/admin/options/toggle-panel.php:364
 #: wooinstant/admin/options/toggle-panel.php:342
+#, fuzzy
 msgid "Toggle panel billing section input border color"
-msgstr ""
+msgstr "Переключение цвета границы ввода раздела биллинга панели"
 
 #: instantio/admin/options/toggle-panel.php:372
 #: wooinstant/admin/options/toggle-panel.php:349
+#, fuzzy
 msgid "Panel Billing Input Text Color"
-msgstr ""
+msgstr "Панель Биллинг Ввод Текста Цвет"
 
 #: instantio/admin/options/toggle-panel.php:373
 #: wooinstant/admin/options/toggle-panel.php:350
+#, fuzzy
 msgid "Toggle panel billing section input text color"
-msgstr ""
+msgstr "Переключение панели биллинга раздела ввода текста"
 
 #: instantio/admin/options/toggle-panel.php:381
 #: wooinstant/admin/options/toggle-panel.php:357
+#, fuzzy
 msgid "Panel Billing Input Shadow Color"
-msgstr ""
+msgstr "Панель Биллинг Входной теневой цвет"
 
 #: instantio/admin/options/toggle-panel.php:382
 #: wooinstant/admin/options/toggle-panel.php:358
+#, fuzzy
 msgid "Toggle panel billing section input shadow color"
-msgstr ""
+msgstr "Переключение панели биллинга раздела ввода тени"
 
 #: instantio/admin/options/toggle-panel.php:394
 #: wooinstant/admin/options/toggle-panel.php:369
+#, fuzzy
 msgid "Review Section"
-msgstr ""
+msgstr "Раздел \"Обзор\""
 
 #: instantio/admin/options/toggle-panel.php:400
 #: wooinstant/admin/options/toggle-panel.php:375
+#, fuzzy
 msgid "Order Review Heading"
-msgstr ""
+msgstr "Заголовок обзора заказа"
 
 #: instantio/admin/options/toggle-panel.php:401
 #: wooinstant/admin/options/toggle-panel.php:376
+#, fuzzy
 msgid "Toggle panel review section heading color"
-msgstr ""
+msgstr "Переключение цвета заголовка раздела обзора панели"
 
 #: instantio/admin/options/toggle-panel.php:410
 #: wooinstant/admin/options/toggle-panel.php:384
+#, fuzzy
 msgid "Review Section Background"
-msgstr ""
+msgstr "Обзор раздела Предыстория"
 
 #: instantio/admin/options/toggle-panel.php:411
 #: wooinstant/admin/options/toggle-panel.php:385
+#, fuzzy
 msgid "Toggle panel review section background color"
-msgstr ""
+msgstr "Переключение цвета фона раздела обзора панели"
 
 #: instantio/admin/options/toggle-panel.php:419
 #: wooinstant/admin/options/toggle-panel.php:392
+#, fuzzy
 msgid "Review Table Head Background"
-msgstr ""
+msgstr "Обзор фона заголовка таблицы"
 
 #: instantio/admin/options/toggle-panel.php:420
 #: wooinstant/admin/options/toggle-panel.php:393
+#, fuzzy
 msgid "Toggle panel review section table head background color"
-msgstr ""
+msgstr "Переключение панели обзора раздела таблицы цвет фона"
 
 #: instantio/admin/options/toggle-panel.php:428
 #: wooinstant/admin/options/toggle-panel.php:400
+#, fuzzy
 msgid "Review Table Head Text Color"
-msgstr ""
+msgstr "Обзор таблицы Цвет текста заголовка"
 
 #: instantio/admin/options/toggle-panel.php:429
 #: wooinstant/admin/options/toggle-panel.php:401
+#, fuzzy
 msgid "Toggle panel review section table head text color"
-msgstr ""
+msgstr "Переключение цвета текста заголовка заголовка таблицы обзора панели"
 
 #: instantio/admin/options/toggle-panel.php:437
 #: wooinstant/admin/options/toggle-panel.php:408
+#, fuzzy
 msgid "Review Table Item Background"
-msgstr ""
+msgstr "Просмотр фона элемента таблицы"
 
 #: instantio/admin/options/toggle-panel.php:438
 #: wooinstant/admin/options/toggle-panel.php:409
+#, fuzzy
 msgid "Toggle panel review section table item background color"
 msgstr ""
+"Переключение цвета фона элемента элемента таблицы раздела рецензирования "
+"панели"
 
 #: instantio/admin/options/toggle-panel.php:445
 #: wooinstant/admin/options/toggle-panel.php:415
+#, fuzzy
 msgid "Review Table Item Text Color"
-msgstr ""
+msgstr "Просмотр цвета текста элемента таблицы"
 
 #: instantio/admin/options/toggle-panel.php:446
 #: wooinstant/admin/options/toggle-panel.php:416
+#, fuzzy
 msgid "Toggle panel review section table item text color"
 msgstr ""
+"Переключение цвета текста элемента таблицы раздела рецензирования панели"
 
 #: instantio/admin/options/toggle-panel.php:454
 #: wooinstant/admin/options/toggle-panel.php:423
+#, fuzzy
 msgid "Review Pricing Background"
-msgstr ""
+msgstr "Обзор предыстории ценообразования"
 
 #: instantio/admin/options/toggle-panel.php:455
 #: wooinstant/admin/options/toggle-panel.php:424
+#, fuzzy
 msgid "Toggle panel review section pricing background color"
-msgstr ""
+msgstr "Переключение панели обзора раздела цены цвет фона"
 
 #: instantio/admin/options/toggle-panel.php:463
 #: wooinstant/admin/options/toggle-panel.php:431
+#, fuzzy
 msgid "Review Pricing Text Color"
-msgstr ""
+msgstr "Просмотр цен Цвет текста"
 
 #: instantio/admin/options/toggle-panel.php:464
 #: wooinstant/admin/options/toggle-panel.php:432
+#, fuzzy
 msgid "Toggle panel review section pricing text color"
-msgstr ""
+msgstr "Переключение выбора раздела обзора панели цены цвет текста"
 
 #: instantio/admin/options/toggle-panel.php:477
 #: wooinstant/admin/options/toggle-panel.php:444
+#, fuzzy
 msgid "Payment Section"
-msgstr ""
+msgstr "Раздел оплаты"
 
 #: instantio/admin/options/toggle-panel.php:483
 #: wooinstant/admin/options/toggle-panel.php:450
+#, fuzzy
 msgid "Payment Methods Background"
-msgstr ""
+msgstr "Способы оплаты Предыстория"
 
 #: instantio/admin/options/toggle-panel.php:484
 #: wooinstant/admin/options/toggle-panel.php:451
+#, fuzzy
 msgid "Toggle panel Payment methods background color"
-msgstr ""
+msgstr "Переключатель панели Способы оплаты Цвет фона"
 
 #: instantio/admin/options/toggle-panel.php:492
 #: wooinstant/admin/options/toggle-panel.php:458
+#, fuzzy
 msgid "Payment Methods Text Color"
-msgstr ""
+msgstr "Способы оплаты Цвет текста"
 
 #: instantio/admin/options/toggle-panel.php:493
 #: wooinstant/admin/options/toggle-panel.php:459
+#, fuzzy
 msgid "Toggle panel Payment methods text color"
-msgstr ""
+msgstr "Переключатель панели Способы оплаты Цвет текста"
 
 #: instantio/admin/options/toggle-panel.php:501
 #: wooinstant/admin/options/toggle-panel.php:466
+#, fuzzy
 msgid "Payment Methods Description Background"
-msgstr ""
+msgstr "Способы оплаты Описание Предыстория"
 
 #: instantio/admin/options/toggle-panel.php:502
 #: wooinstant/admin/options/toggle-panel.php:467
+#, fuzzy
 msgid "Toggle panel Payment methods description background color"
-msgstr ""
+msgstr "Переключатель панели Способы оплаты описание цвет фона"
 
 #: instantio/admin/options/toggle-panel.php:510
 #: wooinstant/admin/options/toggle-panel.php:474
+#, fuzzy
 msgid "Payment Methods Description Text Color"
-msgstr ""
+msgstr "Способы оплаты Описание Цвет текста"
 
 #: instantio/admin/options/toggle-panel.php:511
 #: wooinstant/admin/options/toggle-panel.php:475
+#, fuzzy
 msgid "Toggle panel Payment methods description text color"
-msgstr ""
+msgstr "Переключатель панели Способы оплаты описание текста цвет"
 
 #: instantio/admin/options/toggle-panel.php:519
 #: wooinstant/admin/options/toggle-panel.php:482
+#, fuzzy
 msgid "Place Order Background"
-msgstr ""
+msgstr "Предыстория размещения заказа"
 
 #: instantio/admin/options/toggle-panel.php:520
 #: wooinstant/admin/options/toggle-panel.php:483
+#, fuzzy
 msgid "Toggle panel place order background color"
-msgstr ""
+msgstr "Переключение цвета фона порядка размещения панели"
 
 #: instantio/admin/options/toggle-panel.php:528
 #: wooinstant/admin/options/toggle-panel.php:490
+#, fuzzy
 msgid "Place Order Text Color"
-msgstr ""
+msgstr "Цвет текста заказать"
 
 #: instantio/admin/options/toggle-panel.php:529
 #: wooinstant/admin/options/toggle-panel.php:491
+#, fuzzy
 msgid "Toggle panel place order text color"
-msgstr ""
+msgstr "Переключение цвета текста в порядке размещения панели"
 
 #: instantio/admin/options/toggle-panel.php:538
 #: wooinstant/admin/options/toggle-panel.php:499
+#, fuzzy
 msgid "Place Order Button Background"
-msgstr ""
+msgstr "Фон кнопки \"Разместить заказ\""
 
 #: instantio/admin/options/toggle-panel.php:539
 #: wooinstant/admin/options/toggle-panel.php:500
+#, fuzzy
 msgid "Place order button background regular & hover color"
-msgstr ""
+msgstr "Разместить кнопку заказа фон обычный и цвет наведения"
 
 #: instantio/admin/options/toggle-panel.php:550
 #: wooinstant/admin/options/toggle-panel.php:510
+#, fuzzy
 msgid "Place Order Button Border Colors"
-msgstr ""
+msgstr "Цвета границы кнопки \"Заказать\""
 
 #: instantio/admin/options/toggle-panel.php:551
 #: wooinstant/admin/options/toggle-panel.php:511
+#, fuzzy
 msgid "Place order button border regular & hover color"
-msgstr ""
+msgstr "Разместить кнопку заказа границы обычный и цвет наведения"
 
 #: instantio/admin/options/toggle-panel.php:562
 #: wooinstant/admin/options/toggle-panel.php:521
+#, fuzzy
 msgid "Place Order Button Text Colors"
-msgstr ""
+msgstr "Цвет текста кнопки \"Разместить заказ\""
 
 #: instantio/admin/options/toggle-panel.php:563
 #: wooinstant/admin/options/toggle-panel.php:522
+#, fuzzy
 msgid "Place order button text regular & hover color"
-msgstr ""
+msgstr "Разместить текст кнопки заказа обычный и цвет наведения"
 
 #: instantio/admin/options/toggler.php:16
 #: wooinstant/admin/options/toggler.php:16
+#, fuzzy
 msgid "Hide Toggler when No Cart Item"
-msgstr ""
+msgstr "Скрыть Toggler, когда нет элемента корзины"
 
 #: instantio/admin/options/toggler.php:17
 #: wooinstant/admin/options/toggler.php:17
+#, fuzzy
 msgid "When there is no item in the cart hide toggler"
-msgstr ""
+msgstr "Когда в корзине нет товара, скрыть тоглер"
 
 #: instantio/admin/options/toggler.php:18
 #: wooinstant/admin/options/toggler.php:18
 msgid "Yes"
-msgstr ""
+msgstr "Да"
 
 #: instantio/admin/options/toggler.php:19
 #: wooinstant/admin/options/toggler.php:19
 msgid "No"
-msgstr ""
+msgstr "Нет"
 
 #: instantio/admin/options/toggler.php:26
 #: wooinstant/admin/options/toggler.php:26
+#, fuzzy
 msgid "Toggler Icon"
-msgstr ""
+msgstr "Значок тоггера"
 
 #: instantio/admin/options/toggler.php:27
 #: wooinstant/admin/options/toggler.php:27
+#, fuzzy
 msgid "Select cart icon which will appear in cart toggler"
-msgstr ""
+msgstr "Выберите значок корзины, который появится в корзине toggler"
 
 #: instantio/admin/options/toggler.php:42
 #: wooinstant/admin/options/toggler.php:43
+#, fuzzy
 msgid "Custom Image as Toggler Icon"
-msgstr ""
+msgstr "Пользовательское изображение в виде значка toggler"
 
 #: instantio/admin/options/toggler.php:43
 #: wooinstant/admin/options/toggler.php:44
+#, fuzzy
 msgid "Set custom image as icon for the toggler instead of the defaults one."
 msgstr ""
+"Установите пользовательское изображение в качестве значка для переключателя "
+"вместо значка по умолчанию."
 
 #: instantio/admin/options/toggler.php:54
 #: wooinstant/admin/options/toggler.php:65
+#, fuzzy
 msgid "Toggler Horizontal Position"
-msgstr ""
+msgstr "Горизонтальное положение тоггера"
 
 #: instantio/admin/options/toggler.php:55
 #: wooinstant/admin/options/toggler.php:66
+#, fuzzy
 msgid "Changes position of the Cart Toggler horizontally"
-msgstr ""
+msgstr "Изменяет положение тележки по горизонтали"
 
 #: instantio/admin/options/toggler.php:66
 #: wooinstant/admin/options/toggler.php:77
+#, fuzzy
 msgid "Toggler Vertical Position"
-msgstr ""
+msgstr "Вертикальное положение тоггера"
 
 #: instantio/admin/options/toggler.php:67
 #: wooinstant/admin/options/toggler.php:78
+#, fuzzy
 msgid "Changes position of the Cart Toggler vertically"
-msgstr ""
+msgstr "Изменяет положение тележки по вертикали"
 
 #: instantio/admin/options/toggler.php:80
 #: wooinstant/admin/options/toggler.php:91
+#, fuzzy
 msgid "Toggler Background Colors"
-msgstr ""
+msgstr "Цвета фона Toggler"
 
 #: instantio/admin/options/toggler.php:91
 #: wooinstant/admin/options/toggler.php:102
+#, fuzzy
 msgid "Toggler Border Colors"
-msgstr ""
+msgstr "Цвета границы toggler"
 
 #: instantio/admin/options/toggler.php:102
 #: wooinstant/admin/options/toggler.php:113
+#, fuzzy
 msgid "Toggler Icon Color"
-msgstr ""
+msgstr "Цвет значка toggler"
 
 #: instantio/admin/options/toggler.php:103
 #: instantio/admin/options/toggler.php:135
 #: wooinstant/admin/options/toggler.php:114
 #: wooinstant/admin/options/toggler.php:146
+#, fuzzy
 msgid "Set regular & hover color of text & icon"
-msgstr ""
+msgstr "Установите обычный и наведенный цвет текста и значка"
 
 #: instantio/admin/options/toggler.php:113
 #: wooinstant/admin/options/toggler.php:124
+#, fuzzy
 msgid "Toggler Icon Size"
-msgstr ""
+msgstr "Размер значка toggler"
 
 #: instantio/admin/options/toggler.php:114
 #: wooinstant/admin/options/toggler.php:125
+#, fuzzy
 msgid "Set width of the toggler icon"
-msgstr ""
+msgstr "Установка ширины значка переключателя"
 
 #: instantio/admin/options/toggler.php:115
 #: wooinstant/admin/options/toggler.php:126
 msgid "Default: 26px"
-msgstr ""
+msgstr "По умолчанию: 26px"
 
 #: instantio/admin/options/toggler.php:123
 #: wooinstant/admin/options/toggler.php:134
+#, fuzzy
 msgid "Toggler Item Number Background"
-msgstr ""
+msgstr "Фон номера элемента Toggler"
 
 #: instantio/admin/options/toggler.php:124
 #: wooinstant/admin/options/toggler.php:135
+#, fuzzy
 msgid "Set regular & hover background color"
-msgstr ""
+msgstr "Установка обычного цвета фона и наведения"
 
 #: instantio/admin/options/toggler.php:134
 #: wooinstant/admin/options/toggler.php:145
+#, fuzzy
 msgid "Toggler Item Number Color"
-msgstr ""
+msgstr "Цвет номера элемента Toggler"
 
 #: instantio/admin/options/toggler.php:145
 #: wooinstant/admin/options/toggler.php:156
+#, fuzzy
 msgid "Toggler Item Number Size"
-msgstr ""
+msgstr "Размер номера элемента Toggler"
 
 #: instantio/admin/options/toggler.php:146
 #: wooinstant/admin/options/toggler.php:157
+#, fuzzy
 msgid "Set font size & line height of cart toggler text"
-msgstr ""
+msgstr "Установка размера шрифта и высоты строки текста переключателя корзины"
 
 #: instantio/admin/options/toggler.php:147
 #: wooinstant/admin/options/toggler.php:158
+#, fuzzy
 msgid "Default: 14px"
-msgstr ""
+msgstr "По умолчанию: 14px"
 
 #: instantio/inc/functions.php:182
 msgid "View Cart"
-msgstr ""
+msgstr "Просмотр корзины"
 
 #: instantio/inc/functions.php:202
 #: wooinstant/inc/layouts/mobile/mobile-1.php:75
 #: wooinstant/inc/templates/cart-m.php:143
 msgid "Checkout Now"
-msgstr ""
+msgstr "Оформить сейчас"
 
 #: instantio/inc/style-script.php:48 wooinstant/inc/functions.php:316
 msgid "Please fill all required fields."
-msgstr ""
+msgstr "Пожалуйста, заполните все необходимые поля."
 
 #: instantio/inc/style-script.php:49
+#, fuzzy
 msgid "Please Enter valid email."
-msgstr ""
+msgstr "Пожалуйста, введите действительный адрес электронной почты."
 
 #: instantio/inc/layouts/layout-1/layout-1.php:38
 msgid "View Checkout"
-msgstr ""
+msgstr "Просмотр Оформления Заказа"
 
 #: instantio/inc/layouts/layout-2/layout-2.php:56
 #: instantio/inc/layouts/layout-3/layout-3.php:57
@@ -1144,7 +1337,7 @@ msgstr ""
 #: wooinstant/inc/layouts/layout-6/layout-6.php:58
 #: wooinstant/inc/layouts/layout-7/layout-7.php:66
 msgid "Your Cart"
-msgstr ""
+msgstr "Ваша корзина"
 
 #: instantio/inc/layouts/layout-2/layout-2.php:67
 #: instantio/inc/layouts/layout-3/layout-3.php:68
@@ -1155,208 +1348,219 @@ msgstr ""
 #: wooinstant/inc/layouts/layout-6/layout-6.php:96
 #: wooinstant/inc/layouts/layout-7/layout-7.php:79
 msgid "Your cart is empty"
-msgstr ""
+msgstr "Ваша корзина пуста"
 
 #: instantio/inc/layouts/layout-2/layout-2.php:73
 #: instantio/inc/layouts/layout-3/layout-3.php:74
 msgid "Continue Shopping"
-msgstr ""
+msgstr "Продолжить покупки"
 
 #: instantio/inc/layouts/layout-2/layout-2.php:76
 #: instantio/inc/layouts/layout-3/layout-3.php:77
 #: wooinstant/inc/templates/cart-m.php:132
 msgid "Subtotal: "
-msgstr ""
+msgstr "Подытог: "
 
 #: instantio/inc/templates/cart.php:30 instantio/inc/templates/cart.php:74
 #: wooinstant/inc/templates/cart.php:29 wooinstant/inc/templates/cart.php:73
 msgid "Product"
-msgstr ""
+msgstr "Товар"
 
 #: instantio/inc/templates/cart.php:31 instantio/inc/templates/cart.php:94
 #: wooinstant/inc/templates/cart.php:30 wooinstant/inc/templates/cart.php:89
 msgid "Price"
-msgstr ""
+msgstr "Цена"
 
 #: instantio/inc/templates/cart.php:32 instantio/inc/templates/cart.php:100
 #: wooinstant/inc/templates/cart-m.php:56 wooinstant/inc/templates/cart.php:31
 #: wooinstant/inc/templates/cart.php:95
 msgid "Quantity"
-msgstr ""
+msgstr "Количество"
 
 #: instantio/inc/templates/cart.php:33 instantio/inc/templates/cart.php:122
 #: wooinstant/inc/templates/cart-m.php:98 wooinstant/inc/templates/cart.php:32
 msgid "Total"
-msgstr ""
+msgstr "Всего"
 
 #: instantio/inc/templates/cart.php:55 wooinstant/inc/templates/cart-m.php:89
 #: wooinstant/inc/templates/cart.php:54
 msgid "Remove this item"
-msgstr ""
+msgstr "Удалить этот элемент"
 
 #: instantio/inc/templates/cart.php:89
 msgid "Available on backorder"
-msgstr ""
+msgstr "Доступно по заказу"
 
-#: instantio/inc/templates/cart.php:138
-#: wooinstant/inc/templates/cart-m.php:129
+#: instantio/inc/templates/cart.php:138 wooinstant/inc/templates/cart-m.php:129
 #: wooinstant/inc/templates/cart.php:141
 msgid "Empty Cart"
-msgstr ""
+msgstr "Очистить корзину"
 
 #: wooinstant/wooinstant.php:170 wooinstant/wooinstant.php:179
-#, php-format
+#, fuzzy, php-format
 msgid "Instantio Pro requires %1$s Instantio %2$s to be activated."
-msgstr ""
+msgstr "Для работы Instantio Pro необходимо активировать %1$s %2$s Instantio."
 
 #: wooinstant/admin/options/toggler.php:54
+#, fuzzy
 msgid "Custom Toggler Icon"
-msgstr ""
+msgstr "Пользовательский значок тоггера"
 
 #: wooinstant/admin/options/toggler.php:55
+#, fuzzy
 msgid "Upload your cart icon. Recommended size of an icon is 26x26px"
-msgstr ""
+msgstr "Загрузите значок корзины. Рекомендуемый размер значка 26x26px"
 
 #: wooinstant/admin/options/toggler.php:57
 msgid "https://"
-msgstr ""
+msgstr "https://"
 
 #: wooinstant/inc/functions.php:257
 msgid "Loading..."
-msgstr ""
+msgstr "Загрузка..."
 
 #: wooinstant/inc/functions.php:308
+#, fuzzy
 msgid "Login successful, reloading..."
-msgstr ""
+msgstr "Вход в систему успешный, перезагрузка..."
 
 #: wooinstant/inc/layouts/layout-4/layout-4.php:72
 #: wooinstant/inc/layouts/layout-5/layout-5.php:83
 #: wooinstant/inc/layouts/layout-6/layout-6.php:88
 #: wooinstant/inc/layouts/layout-7/layout-7.php:97
 msgid "Back to Cart"
-msgstr ""
+msgstr "Вернуться в корзину"
 
 #: wooinstant/inc/layouts/layout-4/layout-4.php:76
 #: wooinstant/inc/layouts/layout-5/layout-5.php:87
-#, php-format
+#, fuzzy, php-format
 msgid "Returning customer? %1$s Click here to login %2$s."
-msgstr ""
+msgstr "Возвращающийся клиент? %1$s Нажмите здесь, чтобы войти %2$s."
 
 #: wooinstant/inc/layouts/mobile/mobile-1.php:69
 msgid "Cart Total"
-msgstr ""
+msgstr "Общая сумма в корзине"
 
 #: wooinstant/inc/layouts/mobile/mobile-1.php:97
 #: wooinstant/inc/layouts/mobile/mobile-1.php:124
 msgid "No Cart Items"
-msgstr ""
+msgstr "Корзина пуста."
 
 #: wooinstant/inc/layouts/mobile/mobile-1.php:112
-#, php-format
+#, fuzzy, php-format
 msgid "Returning customer? %1$s Touch here to login. %2$s"
-msgstr ""
+msgstr "Возвращающийся клиент? %1$s Нажмите здесь, чтобы войти. %2$s"
 
 #: wooinstant/inc/license/license.php:34
 msgid "Please "
-msgstr ""
+msgstr "Пожалуйста "
 
 #: wooinstant/inc/license/license.php:34
+#, fuzzy
 msgid " key to enable getting future updates for Instantio Pro."
-msgstr ""
+msgstr " для включения получения будущих обновлений для Instantio Pro."
 
 #: wooinstant/inc/license/license.php:116
+#, fuzzy
 msgid "Instantio License Info"
-msgstr ""
+msgstr "Информация о лицензии Instantio"
 
 #: wooinstant/inc/license/license.php:121
 msgid "Status"
-msgstr ""
+msgstr "Статус"
 
 #: wooinstant/inc/license/license.php:124
 msgid "Valid"
-msgstr ""
+msgstr "Действительный"
 
 #: wooinstant/inc/license/license.php:126
 msgid "Invalid"
-msgstr ""
+msgstr "Недействительный"
 
 #: wooinstant/inc/license/license.php:133
 msgid "License Type"
-msgstr ""
+msgstr "Тип лицензии"
 
 #: wooinstant/inc/license/license.php:140
 msgid "License Expired on"
-msgstr ""
+msgstr "Срок действия лицензии истек на"
 
 #: wooinstant/inc/license/license.php:153
 msgid "Support Expired on"
-msgstr ""
+msgstr "Срок поддержки истек"
 
 #: wooinstant/inc/license/license.php:166
 msgid "Your License Key"
-msgstr ""
+msgstr "Ваш лицензионный ключ"
 
 #: wooinstant/inc/license/license.php:185
+#, fuzzy
 msgid "Instantio Pro Licensing"
-msgstr ""
+msgstr "Лицензирование Instantio Pro"
 
 #: wooinstant/inc/license/license.php:196
+#, fuzzy
 msgid "If you don't have a license key, please "
-msgstr ""
+msgstr "Если у вас нет лицензионного ключа, пожалуйста, "
 
 #: wooinstant/inc/license/license.php:196
 msgid "click here"
-msgstr ""
+msgstr "нажмите здесь"
 
 #: wooinstant/inc/license/license.php:196
+#, fuzzy
 msgid " to request a license key."
-msgstr ""
+msgstr " , чтобы запросить лицензионный ключ."
 
 #: wooinstant/inc/license/license.php:197
 msgid ""
 "Enter your license key here, to activate the product, and get full feature "
 "updates and premium support."
 msgstr ""
+"Введите здесь свой лицензионный ключ, чтобы активировать продукт и получить "
+"полные обновления функций и премиум-поддержку."
 
 #: wooinstant/inc/license/license.php:199
 msgid "License code"
-msgstr ""
+msgstr "Ключ лицензии"
 
 #: wooinstant/inc/license/license.php:203
 msgid "Email Address"
-msgstr ""
+msgstr "Адрес электронной почты"
 
 #: wooinstant/inc/license/license.php:208
 msgid ""
 "We will send update news of this product by this email address, don't worry, "
 "we hate spam"
 msgstr ""
+"Мы будем отправлять новости обновления этого продукта по этому адресу "
+"электронной почты, не волнуйтесь, мы ненавидим спам"
 
 #: wooinstant/inc/templates/cart-m.php:114
 msgid "Update cart"
-msgstr ""
+msgstr "Обновить корзину"
 
 #: wooinstant/inc/templates/cart.php:117
 msgid "Subtotal"
-msgstr ""
+msgstr "Промежуточный итог"
 
 #: wooinstant/inc/templates/cart.php:135
 msgid "Coupon:"
-msgstr ""
+msgstr "Купон:"
 
 #: wooinstant/inc/templates/cart.php:135
 msgid "Coupon code"
-msgstr ""
+msgstr "Код купона"
 
 #: wooinstant/inc/templates/cart.php:135
 msgid "Apply coupon"
-msgstr ""
+msgstr "Применить купон"
 
 #: wooinstant/inc/templates/cross-sells.php:27
 #: wooinstant/inc/templates/cross-sells.php:30
 msgid "You may be interested in&hellip;"
-msgstr ""
+msgstr "Вы можете быть заинтересованы в&hellip;"
 
 #: wooinstant/inc/templates/cross-sells.php:46
 msgid "Add to cart"
-msgstr ""
+msgstr "Добавить в корзину"

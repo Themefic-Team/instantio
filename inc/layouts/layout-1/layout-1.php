@@ -11,17 +11,21 @@ if ( !function_exists('instantio_layout_1_enqueue_scripts') ) {
 
 	}
 }
-add_filter( 'wp_enqueue_scripts', 'instantio_layout_1_enqueue_scripts' );
+add_filter( 'wp_enqueue_scripts', 'instantio_layout_1_enqueue_scripts', 99999 );
 
 if ( !function_exists('instantio_layout_1') ) {
 	function instantio_layout_1( ){
 
-		if ( insopt( 'wi-show-oncheckout' ) != '1' && is_checkout() ) {
-			return;
+		// Return if WooCommerce not active
+		if ( !class_exists( 'woocommerce' ) ) {
+    		return;
 		}
-	
-		if ( is_page('instantio-checkout') ) {
-			return;
+		
+		// Return if checkout page
+		if ( class_exists( 'woocommerce' ) ) {
+    		if (is_checkout()) {
+    			return;
+    		}
 		}
 		
 		$toggle_position_horizontal = insopt( 'toggle-position-horizontal' );
@@ -29,13 +33,13 @@ if ( !function_exists('instantio_layout_1') ) {
 		$checkout_btn_url = insopt( 'checkout-btn' )['checkout_button_url'];
 		
 		if ($checkout_btn_txt) {
-			$checkout_txt = $checkout_btn_txt;
+			$checkout_txt = wp_strip_all_tags( __( $checkout_btn_txt, 'instantio' ));
 		} else {
-			$checkout_txt = 'View Checkout';
+			$checkout_txt = __( 'View Checkout', 'instantio' );
 		}
 
 		if ($checkout_btn_url) {
-			$checkout_url = $checkout_btn_url;
+			$checkout_url = esc_url($checkout_btn_url); // PHPCS: XSS ok.
 		} else {
 			$checkout_url = wc_get_checkout_url();
 		}
@@ -43,9 +47,8 @@ if ( !function_exists('instantio_layout_1') ) {
 			<div class="ins-container ins-lay1-container ins-position-<?php echo $toggle_position_horizontal; ?> <?php if( insopt( 'hide-toggler' ) == true ) { if( WC()->cart->get_cart_contents_count() <= 0 ){ echo 'nocart'; } } ?>">
 
 				<div id="ins-toggle-button" class="ins-cart-button">
-					<!-- Cart Icon -->
 					<?php instantio_svg_icon(insopt( 'cart-icon' )); ?>				
-					<?php echo instantio_cart_count(); ?>
+					<span class="ins_cart_total"><?php echo WC()->cart->get_cart_contents_count(); ?></span>
 				</div>
 				
 				<a href="<?php echo $checkout_url; ?>" class="ins-inner">
@@ -55,6 +58,7 @@ if ( !function_exists('instantio_layout_1') ) {
 				</a>
 
 			</div>
+			<div class="ins-cart-fragments"></div>
 			<?php
 	}
 }
@@ -205,5 +209,5 @@ if( !function_exists( 'instantio_layout_1_custom_css' ) ){
 		wp_add_inline_style( 'instantio-common-styles', $output );
 	}
 }
-add_action( 'wp_enqueue_scripts', 'instantio_layout_1_custom_css', 200 );
+add_action( 'wp_enqueue_scripts', 'instantio_layout_1_custom_css', 999999 );
 ?>
