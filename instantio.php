@@ -8,10 +8,10 @@
  * Domain Path: /lang/
  * Author URI: https://themefic.com
  * Tags: woocommerce, direct checkout, floating cart, side cart, ajax cart, cart popup, ajax add to cart, one page checkout, single page checkout, fly cart, mini cart, quick buy, instant checkout, quick checkout, same page checkout, sidebar cart, sticky cart, woocommerce ajax, one click checkout, woocommerce one page checkout, direct checkout woocommerce, woocommerce one click checkout, woocommerce quick checkout, woocommerce express checkout, woocommerce simple checkout, skip cart page woocommerce, woocommerce cart popup, edit woocommerce checkout page, woocommerce direct checkout
- * Version: 2.4.7
+ * Version: 2.4.9
  * Tested up to: 5.9
  * Requires PHP: 7.1
- * WC tested up to: 6.1.1
+ * WC tested up to: 6.2
  */
  
 // don't load directly
@@ -198,7 +198,7 @@ function ins_is_woo() {
  */
 if ( !is_plugin_active( 'wooinstant/wooinstant.php' ) ) {
 	function add_pro_link_menu() {
-		$prolink = 'https://wpinstant.io/';
+		$prolink = 'https://wpinstant.io/go/upgrade';
 		$menuname = '<span style="color:#ffba00;">Upgrade to Pro</span>';
 		add_submenu_page( 'instantio_options', 'Upgrade to Pro', $menuname, 'manage_options', $prolink);
 	}
@@ -217,7 +217,7 @@ function instantio_plugin_action_links( $links ) {
 
 	if ( !is_plugin_active( 'wooinstant/wooinstant.php' ) ) {
 		$gopro_link = array(
-			'<a href="https://wpinstant.io/" target="_blank" style="color:#cc0000;font-weight: bold;text-shadow: 0px 1px 1px hsl(0deg 0% 0% / 28%);">' . esc_html__( 'GO PRO', 'instantio' ) . '</a>',
+			'<a href="https://wpinstant.io/go/upgrade" target="_blank" style="color:#cc0000;font-weight: bold;text-shadow: 0px 1px 1px hsl(0deg 0% 0% / 28%);">' . esc_html__( 'GO PRO', 'instantio' ) . '</a>',
 		);
 	} else {
 		$gopro_link = array('');

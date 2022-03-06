@@ -1,7 +1,11 @@
 <?php
 defined( 'ABSPATH' ) || exit;
-$detect = new INS_Mobile_Detect;
-$dedicated_mobile = !empty(insopt('mobile')) ? insopt('mobile') : '0';
+
+// Mobile detect
+if( class_exists( 'INS_Mobile_Detect' ) ) {
+	$detect = new INS_Mobile_Detect;
+	$dedicated_mobile = !empty(insopt('mobile')) ? insopt('mobile') : '0';
+}
 
 /**
  *	Dequeue scripts
@@ -13,8 +17,8 @@ if ( !function_exists('ins_dequeue_scripts') ) {
 			wp_deregister_style( 'woocommerce-smallscreen' );
 		}
 	} 
+	add_action( 'wp_enqueue_scripts', 'ins_dequeue_scripts', 999 );
 }
-add_action( 'wp_enqueue_scripts', 'ins_dequeue_scripts', 999 );
 
 /**
  *	Enqueue frontend scripts
@@ -63,8 +67,8 @@ if ( !function_exists('instantio_enqueue_scripts') ) {
 		}
 
 	}
+	add_action( 'wp_enqueue_scripts', 'instantio_enqueue_scripts', 9999 );
 }
-add_action( 'wp_enqueue_scripts', 'instantio_enqueue_scripts', 9999 );
 
 /*
  * 
@@ -77,22 +81,22 @@ if ($detect->isMobile() && !$detect->isTablet() && $dedicated_mobile == true) {}
 			
 			// Store as PHP variables
 			// Common CSS
-			$hide_toggler = insopt( 'hide-toggler' );
-			$show_checkout_btn = insopt( 'checkout-btn' )['on-checkout-btn'];
-			$show_cart_btn = insopt( 'cart-btn' )['on-cart-btn'];
+			$hide_toggler = !empty(insopt( 'hide-toggler' )) ? insopt( 'hide-toggler' ) : '';
+			$show_checkout_btn = !empty(insopt( 'checkout-btn' )['on-checkout-btn']) ? insopt( 'checkout-btn' )['on-checkout-btn'] : '';
+			$show_cart_btn = !empty(insopt( 'cart-btn' )['on-cart-btn']) ? insopt( 'cart-btn' )['on-cart-btn'] : '';
 			// Toggler CSS
-			$tg_bg_color_reg = insopt( 'wi-header-bg-colors' )['regular'];
-			$tg_bg_color_hov = insopt( 'wi-header-bg-colors' )['hover'];
-			$tg_bor_color_reg = insopt( 'wi-header-border-colors' )['regular'];
-			$tg_bor_color_hov = insopt( 'wi-header-border-colors' )['hover'];
-			$ins_toggler_icon_color_reg = insopt( 'ins-tog-icon-colors' )['regular'];
-			$ins_toggler_icon_color_hov = insopt( 'ins-tog-icon-colors' )['hover'];
-			$tg_icon_size = insopt( 'wi-header-icon-size' )['width'];
-			$tg_item_numb_bg_reg = insopt( 'ins-tog-item-bg' )['regular'];
-			$tg_item_numb_bg_hov = insopt( 'ins-tog-item-bg' )['hover'];
-			$tg_item_numb_color_reg = insopt( 'wi-header-text-colors' )['regular'];
-			$tg_item_numb_color_hov = insopt( 'wi-header-text-colors' )['hover'];
-			$tg_item_numb_size = insopt( 'wi-header-text-size' )['font-size'];
+			$tg_bg_color_reg = !empty(insopt( 'wi-header-bg-colors' )['regular']) ? insopt( 'wi-header-bg-colors' )['regular'] : '';
+			$tg_bg_color_hov = !empty(insopt( 'wi-header-bg-colors' )['hover']) ? insopt( 'wi-header-bg-colors' )['hover'] : '';
+			$tg_bor_color_reg = !empty(insopt( 'wi-header-border-colors' )['regular']) ? insopt( 'wi-header-border-colors' )['regular'] : '';
+			$tg_bor_color_hov = !empty(insopt( 'wi-header-border-colors' )['hover']) ? insopt( 'wi-header-border-colors' )['hover'] : '';
+			$ins_toggler_icon_color_reg = !empty(insopt( 'ins-tog-icon-colors' )['regular']) ? insopt( 'ins-tog-icon-colors' )['regular'] : '';
+			$ins_toggler_icon_color_hov = !empty(insopt( 'ins-tog-icon-colors' )['hover']) ? insopt( 'ins-tog-icon-colors' )['hover'] : '';
+			$tg_icon_size = !empty(insopt( 'wi-header-icon-size' )['width']) ? insopt( 'wi-header-icon-size' )['width'] : '';
+			$tg_item_numb_bg_reg = !empty(insopt( 'ins-tog-item-bg' )['regular']) ? insopt( 'ins-tog-item-bg' )['regular'] : '';
+			$tg_item_numb_bg_hov = !empty(insopt( 'ins-tog-item-bg' )['hover']) ? insopt( 'ins-tog-item-bg' )['hover'] : '';
+			$tg_item_numb_color_reg = !empty(insopt( 'wi-header-text-colors' )['regular']) ? insopt( 'wi-header-text-colors' )['regular'] : '';
+			$tg_item_numb_color_hov = !empty(insopt( 'wi-header-text-colors' )['hover']) ? insopt( 'wi-header-text-colors' )['hover'] : '';
+			$tg_item_numb_size = !empty(insopt( 'wi-header-text-size' )['font-size']) ? insopt( 'wi-header-text-size' )['font-size'] : '';
 			
 			$output = '';
 
@@ -161,48 +165,57 @@ if( !function_exists( 'instantio_custom_js' ) ){
 
 		global $detect, $dedicated_mobile;
 
+		// Backend options as variables
+		$ins_layout = !empty(insopt( 'ins-layout' )) ? insopt( 'ins-layout' ) : '';
+		$cart_fly_anim = !empty(insopt( 'cart-fly' )['cart-fly-anim']) ? insopt( 'cart-fly' )['cart-fly-anim'] : '';
+		$cart_fly_icon = !empty(insopt( 'cart-fly' )['cart-fly-icon']) ? insopt( 'cart-fly' )['cart-fly-icon'] : '';
+		$auto_tog_panel = !empty(insopt( 'auto-tog-panel' )) ? insopt( 'auto-tog-panel' ) : '';
+		$disable_quickview = !empty(insopt( 'wi-disable-quickview' )) ? insopt( 'wi-disable-quickview' ) : '';
+		$disable_ajax_add_cart = !empty(insopt( 'wi-disable-ajax-add-cart' )) ? insopt( 'wi-disable-ajax-add-cart' ) : '';
+		$active_window = !empty(insopt( 'wi-active-window' )) ? insopt( 'wi-active-window' ) : '';
+
 		$output = '';
 			
 		// For Lite Version
-		$output .= "var ins_layout = '" .insopt( 'ins-layout' ). "'; ";
+		$output .= "var ins_layout = '" .$ins_layout. "'; ";
 
-		if( insopt( 'cart-fly' )['cart-fly-anim'] == true ) {
+		if( $cart_fly_anim == true ) {
 			$output .= "var cartFlyanim = 'on'; ";
 		} else {
 			$output .= "var cartFlyanim = 'off'; ";
 		}
 		
-		if( insopt( 'cart-fly' )['cart-fly-icon'] == 1 ) {
+		if( $cart_fly_icon == 1 ) {
 			$output .= "var cartFlyicon = 'toggler'; ";
 		} else {
 			$output .= "var cartFlyicon = 'thumb'; ";
 		}
 
-		if( insopt( 'auto-tog-panel' ) == true ) {
+		if( $auto_tog_panel == true ) {
 			$output .= "var autotogpanel = 'true'; ";
 		} else {
 			$output .= "var autotogpanel = 'false'; ";
 		}
 
-		if( insopt( 'ins-layout' ) == 1 ) {
+		if( $ins_layout == 1 ) {
 			$output .= "var cartButton = '" .insopt( 'cart-button-open' ). "'; ";
 		}
 
 		// For Pro Version
 
-		if( insopt( 'wi-disable-quickview' ) == 0 ) {
+		if( $disable_quickview == 0 ) {
 			$output .= "var noquickview = 'no'; ";
 		} else {
 			$output .= "var noquickview = 'yes'; ";
 		}
 
-		if( insopt( 'wi-disable-ajax-add-cart' ) == 0 ) {
+		if( $disable_ajax_add_cart == 0 ) {
 			$output .= "var noajaxaddtocart = 'no'; ";
 		} else {
 			$output .= "var noajaxaddtocart = 'yes'; ";
 		}
 
-		if( insopt( 'wi-active-window' ) == 1 ) {
+		if( $active_window == 1 ) {
 			$output .= "var activewindow = 'ck'; ";
 		} else {
 			$output .= "var activewindow = 'cart'; ";
@@ -218,6 +231,6 @@ if( !function_exists( 'instantio_custom_js' ) ){
 
 		wp_add_inline_script( 'instantio-inline-scripts', $output );
 	}
+	add_action( 'wp_enqueue_scripts', 'instantio_custom_js', 99999 );
 }
-add_action( 'wp_enqueue_scripts', 'instantio_custom_js', 99999 );
 ?>

@@ -44,6 +44,7 @@ if ($detect->isMobile() && !$detect->isTablet() && $dedicated_mobile == true) {}
 						<script>					
 							jQuery(document).ready(function() {
 								jQuery('.ins-container').addClass( 'nocart' );
+								jQuery('html').removeClass('ins-panel-open');
 								jQuery.fancybox.close();
 							});
 						</script>
