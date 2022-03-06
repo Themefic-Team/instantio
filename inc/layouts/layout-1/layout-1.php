@@ -1,4 +1,6 @@
 <?php
+defined( 'ABSPATH' ) || exit;
+
 /**
  *	Enqueue Layout 1 scripts
  *
@@ -28,9 +30,9 @@ if ( !function_exists('instantio_layout_1') ) {
     		}
 		}
 		
-		$toggle_position_horizontal = insopt( 'toggle-position-horizontal' );
-		$checkout_btn_txt = insopt( 'checkout-btn' )['checkout_button_text'];
-		$checkout_btn_url = insopt( 'checkout-btn' )['checkout_button_url'];
+		$toggle_position_horizontal = !empty(insopt( 'toggle-position-horizontal' )) ? insopt( 'toggle-position-horizontal' ) : '';
+		$checkout_btn_txt = !empty(insopt( 'checkout-btn' )['checkout_button_text']) ? insopt( 'checkout-btn' )['checkout_button_text'] : '';
+		$checkout_btn_url = !empty(insopt( 'checkout-btn' )['checkout_button_url']) ? insopt( 'checkout-btn' )['checkout_button_url'] : '';
 		
 		if ($checkout_btn_txt) {
 			$checkout_txt = wp_strip_all_tags( __( $checkout_btn_txt, 'instantio' ));
@@ -61,8 +63,8 @@ if ( !function_exists('instantio_layout_1') ) {
 			<div class="ins-cart-fragments"></div>
 			<?php
 	}
+	add_action( 'wp_footer', 'instantio_layout_1', 10 );
 }
-add_action( 'wp_footer', 'instantio_layout_1', 10 );
 
 /**
  *	Custom CSS function fot layout 1
@@ -72,7 +74,7 @@ if( !function_exists( 'instantio_layout_1_custom_css' ) ){
 
 		$output = '';
 
-		if( insopt( 'wi-header-bg-colors' )['regular']  ) :
+		if( !empty(insopt( 'wi-header-bg-colors' )['regular'])  ) :
 			$output .= '
 			.ins-lay1-container .ins-cart-button{
 				background-color: '.insopt( 'wi-header-bg-colors' )['regular'].';
@@ -80,7 +82,7 @@ if( !function_exists( 'instantio_layout_1_custom_css' ) ){
 			';
 		endif;
 		
-		if( insopt( 'wi-header-bg-colors' )['hover']  ) :
+		if( !empty(insopt( 'wi-header-bg-colors' )['hover'])  ) :
 			$output .= '
 			.ins-lay1-container .ins-cart-button:hover{
 				background-color: '.insopt( 'wi-header-bg-colors' )['hover'].';
@@ -88,7 +90,7 @@ if( !function_exists( 'instantio_layout_1_custom_css' ) ){
 			';
 		endif;
 		
-		if( insopt( 'wi-header-border-colors' )['regular']  ) :
+		if( !empty(insopt( 'wi-header-border-colors' )['regular'])  ) :
 			$output .= '
 			.ins-lay1-container .ins-cart-button{
 				border: 1px solid '.insopt( 'wi-header-border-colors' )['regular'].';
@@ -96,7 +98,7 @@ if( !function_exists( 'instantio_layout_1_custom_css' ) ){
 			';
 		endif;
 		
-		if( insopt( 'wi-header-border-colors' )['hover']  ) :
+		if( !empty(insopt( 'wi-header-border-colors' )['hover'])  ) :
 			$output .= '
 			.ins-lay1-container .ins-cart-button:hover{
 				border: 1px solid '.insopt( 'wi-header-border-colors' )['hover'].';
@@ -104,7 +106,7 @@ if( !function_exists( 'instantio_layout_1_custom_css' ) ){
 			';
 		endif;
 		
-		if( insopt( 'wi-header-icon-size' )['width']  ) :
+		if( !empty(insopt( 'wi-header-icon-size' )['width'])  ) :
 			$output .= '
 				.ins-lay1-container .ins-cart-button .cart-icon{
 					width: '.insopt( 'wi-header-icon-size' )['width'].'px !important;
@@ -112,7 +114,7 @@ if( !function_exists( 'instantio_layout_1_custom_css' ) ){
 				';
 		endif;
 		
-		if( insopt( 'wi-header-text-size' )['font-size']  ) :
+		if( !empty(insopt( 'wi-header-text-size' )['font-size'])  ) :
 			$output .= '
 				.ins-lay1-container .ins-cart-button span.ins_cart_total{
 					font-size: '.insopt( 'wi-header-text-size' )['font-size'].'px;
@@ -120,7 +122,7 @@ if( !function_exists( 'instantio_layout_1_custom_css' ) ){
 				';
 		endif;
 
-		if( insopt( 'wi-header-text-colors' )['regular']  ) :
+		if( !empty(insopt( 'wi-header-text-colors' )['regular'])  ) :
 			$output .= '
 			.ins-lay1-container .ins-cart-button,
 			.ins-lay1-container .ins-cart-button:not([href]):not([tabindex]){ /*for bootstrap override*/
@@ -134,7 +136,7 @@ if( !function_exists( 'instantio_layout_1_custom_css' ) ){
 			';
 		endif;
 		
-		if( insopt( 'wi-header-text-colors' )['hover'] != '' ) :
+		if( !empty(insopt( 'wi-header-text-colors' )['hover']) != '' ) :
 			$output .= '
 			.ins-lay1-container .ins-cart-button:hover,
 			.ins-lay1-container .ins-cart-button:not([href]):not([tabindex]):hover,
@@ -145,7 +147,7 @@ if( !function_exists( 'instantio_layout_1_custom_css' ) ){
 			';
 		endif;
 		
-		if( insopt( 'wi-inner-bg-colors' )['regular']  ) :
+		if( !empty(insopt( 'wi-inner-bg-colors' )['regular'])  ) :
 			$output .= '
 			.ins-lay1-container .ins-inner{
 				background: '.insopt( 'wi-inner-bg-colors' )['regular'].';
@@ -154,7 +156,7 @@ if( !function_exists( 'instantio_layout_1_custom_css' ) ){
 			';
 		endif;
 		
-		if( insopt( 'wi-inner-bg-colors' )['hover']  ) :
+		if( !empty(insopt( 'wi-inner-bg-colors' )['hover'])  ) :
 			$output .= '
 			.ins-lay1-container .ins-inner:hover{
 				background: '.insopt( 'wi-inner-bg-colors' )['hover'].';
@@ -162,7 +164,7 @@ if( !function_exists( 'instantio_layout_1_custom_css' ) ){
 			';
 		endif;
 		
-		if( insopt( 'wi-inner-border-colors' )['regular']  ) :
+		if( !empty(insopt( 'wi-inner-border-colors' )['regular'])  ) :
 			$output .= '
 			.ins-lay1-container .ins-inner{
 				border: 1px solid '.insopt( 'wi-inner-border-colors' )['regular'].';
@@ -170,7 +172,7 @@ if( !function_exists( 'instantio_layout_1_custom_css' ) ){
 			';
 		endif;
 		
-		if( insopt( 'wi-inner-border-colors' )['hover']  ) :
+		if( !empty(insopt( 'wi-inner-border-colors' )['hover'])  ) :
 			$output .= '
 			.ins-lay1-container .ins-inner:hover{
 				border: 1px solid '.insopt( 'wi-inner-border-colors' )['hover'].';
@@ -178,7 +180,7 @@ if( !function_exists( 'instantio_layout_1_custom_css' ) ){
 			';
 		endif;
 
-		if( insopt( 'wi-inner-text-colors' )['regular']  ) :
+		if( !empty(insopt( 'wi-inner-text-colors' )['regular'])  ) :
 			$output .= '
 			.ins-lay1-container .ins-inner .ins-content{
 				color: '.insopt( 'wi-inner-text-colors' )['regular'].';
@@ -187,7 +189,7 @@ if( !function_exists( 'instantio_layout_1_custom_css' ) ){
 			';
 		endif;
 		
-		if( insopt( 'wi-inner-text-colors' )['hover']  ) :
+		if( !empty(insopt( 'wi-inner-text-colors' )['hover'])  ) :
 			$output .= '
 			.ins-lay1-container .ins-inner:hover .ins-content{
 				color: '.insopt( 'wi-inner-text-colors' )['hover'].';
@@ -195,7 +197,7 @@ if( !function_exists( 'instantio_layout_1_custom_css' ) ){
 			';
 		endif;
 		
-		if( insopt( 'cart-button-open' ) == 'mouseover'  ) :
+		if( !empty(insopt( 'cart-button-open' )) == 'mouseover'  ) :
 			$output .= '
 			.ins-container.ins-position-right:hover a.ins-inner {
     		transform: translate(-67px, -50%);

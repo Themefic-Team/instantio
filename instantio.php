@@ -122,8 +122,8 @@ if ( ! function_exists( 'instantio_plugin_loaded_action' ) ) {
 			add_filter('woocommerce_cart_item_removed_notice_type', '__return_null');
 		}
 	}
+	add_action( 'plugins_loaded', 'instantio_plugin_loaded_action' );
 }
-add_action( 'plugins_loaded', 'instantio_plugin_loaded_action' );
 
 /*
  * Global Admin Get Option
@@ -198,9 +198,9 @@ function ins_is_woo() {
  */
 if ( !is_plugin_active( 'wooinstant/wooinstant.php' ) ) {
 	function add_pro_link_menu() {
-		$prolink = 'https://wpinstant.io/go/upgrade';
-		$menuname = '<span style="color:#ffba00;">Upgrade to Pro</span>';
-		add_submenu_page( 'instantio_options', 'Upgrade to Pro', $menuname, 'manage_options', $prolink);
+		$prolink = 'https://wpinstant.io/pricing/';
+		$menuname = '<span style="color:#ffba00;">' .__("Upgrade to Pro", "instantio"). '</span>';
+		add_submenu_page( 'instantio_options', __('Upgrade to Pro', 'instantio'), $menuname, 'manage_options', $prolink);
 	}
 	add_action('admin_menu', 'add_pro_link_menu', 9999);
 }
@@ -217,7 +217,7 @@ function instantio_plugin_action_links( $links ) {
 
 	if ( !is_plugin_active( 'wooinstant/wooinstant.php' ) ) {
 		$gopro_link = array(
-			'<a href="https://wpinstant.io/go/upgrade" target="_blank" style="color:#cc0000;font-weight: bold;text-shadow: 0px 1px 1px hsl(0deg 0% 0% / 28%);">' . esc_html__( 'GO PRO', 'instantio' ) . '</a>',
+			'<a href="https://wpinstant.io/pricing/" target="_blank" style="color:#cc0000;font-weight: bold;text-shadow: 0px 1px 1px hsl(0deg 0% 0% / 28%);">' . esc_html__( 'GO PRO', 'instantio' ) . '</a>',
 		);
 	} else {
 		$gopro_link = array('');
@@ -234,11 +234,11 @@ function ins_admin_rating_notice () {
 	if ($display_status) { ?>
 
 		<div id='ins-notice' class="ins-notice notice notice-info">
-			<p style="float: left;">If you like <strong>Instantio</strong> please leave a review</p>
+			<p style="float: left;"><?php echo sprintf(__('If you like %1$sInstantio%2$s please leave a review', 'instantio'), '<strong>', '</strong>'); ?></p>
 			<p style="float: right;">
-				<a href="//wordpress.org/plugins/instantio" target="_blank">Rate Us <span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span></a>
-				<a class="maybe-dis">Maybe later</a>
-				<a class="done-dis">Already Rated <span class="dashicons dashicons-smiley"></span></a>
+				<a href="//wordpress.org/plugins/instantio" target="_blank"><?php _e('Rate Us', 'instantio'); ?> <span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span></a>
+				<a class="maybe-dis"><?php _e('Maybe later', 'instantio'); ?></a>
+				<a class="done-dis"><?php _e('Already Rated', 'instantio'); ?> <span class="dashicons dashicons-smiley"></span></a>
 			</p>
 		</div>
 

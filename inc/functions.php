@@ -1,6 +1,11 @@
 <?php 
 defined( 'ABSPATH' ) || exit;
-$detect = new INS_Mobile_Detect;
+
+// Mobile detect
+if( class_exists( 'INS_Mobile_Detect' ) ) {
+	$detect = new INS_Mobile_Detect;
+}
+
 if ( is_plugin_active( 'wooinstant/wooinstant.php' ) ) {
 	$dedicated_mobile = !empty(insopt('mobile')) ? insopt('mobile') : '0';
 } else {
@@ -28,7 +33,7 @@ if ($detect->isMobile() && !$detect->isTablet() && $dedicated_mobile == true) {}
 
 				<?php
 				$cart_item_count = WC()->cart->get_cart_contents_count();
-				$hide_toggler = insopt( 'hide-toggler' );
+				$hide_toggler = !empty(insopt( 'hide-toggler' )) ? insopt( 'hide-toggler' ) : '';
 				?>
 
 				<script type='text/javascript'>
@@ -92,7 +97,6 @@ if ($detect->isMobile() && !$detect->isTablet() && $dedicated_mobile == true) {}
 add_action('wp_ajax_wi_variable_product_quick_view', 'instantio_ajax_quickview_variable_products');
 add_action('wp_ajax_nopriv_wi_variable_product_quick_view', 'instantio_ajax_quickview_variable_products');
 
-// function
 function instantio_ajax_quickview_variable_products(){
 	global $post, $product, $woocommerce;
 	check_ajax_referer( 'ins_ajax_nonce', 'security' );
@@ -130,7 +134,6 @@ function instantio_ajax_quickview_variable_products(){
 add_action('wp_ajax_wi_single_ajax_add_to_cart', 'instantio_single_ajax_add_to_cart');
 add_action('wp_ajax_nopriv_wi_single_ajax_add_to_cart', 'instantio_single_ajax_add_to_cart');
 
-// function
 function instantio_single_ajax_add_to_cart() {
 
     $product_id = apply_filters('woocommerce_add_to_cart_product_id', absint($_POST['product_id']));
@@ -176,14 +179,19 @@ function insclearcartCallBack() {
 // Cart Button
 if ( ! function_exists( 'cart_button' ) ) {
 	function cart_button() {
-		if (insopt( 'cart-btn' )['on-cart-btn'] == true) {
-			if (insopt( 'cart-btn' )['cart_button_text']){
-				$cart_text = wp_strip_all_tags( __( insopt( 'cart-btn' )['cart_button_text'], 'instantio' ));
+
+		$on_cart_btn = !empty(insopt( 'cart-btn' )['on-cart-btn']) ? insopt( 'cart-btn' )['on-cart-btn'] : '';
+		$cart_button_text = !empty(insopt( 'cart-btn' )['cart_button_text']) ? insopt( 'cart-btn' )['cart_button_text'] : '';
+		$cart_button_url = !empty(insopt( 'cart-btn' )['cart_button_url']) ? insopt( 'cart-btn' )['cart_button_url'] : '';
+
+		if ($on_cart_btn == true) {
+			if ($cart_button_text){
+				$cart_text = wp_strip_all_tags( __( $cart_button_text, 'instantio' ));
 			} else {
 				$cart_text = __( 'View Cart', 'instantio' );
 			}
-			if (insopt( 'cart-btn' )['cart_button_url']){
-				$cart_url = esc_url(insopt( 'cart-btn' )['cart_button_url']); // PHPCS: XSS ok.
+			if ($cart_button_url){
+				$cart_url = esc_url($cart_button_url); // PHPCS: XSS ok.
 			} else {
 				$cart_url = wc_get_cart_url();
 			}
@@ -196,14 +204,19 @@ if ( ! function_exists( 'cart_button' ) ) {
 // Checkout Button
 if ( ! function_exists( 'checkout_button' ) ) {
 	function checkout_button() {
-		if (insopt( 'checkout-btn' )['on-checkout-btn'] == true) {
-			if (insopt( 'checkout-btn' )['checkout_button_text']){
-				$checkout_text = wp_strip_all_tags( __( insopt( 'checkout-btn' )['checkout_button_text'], 'instantio' ));
+
+		$on_checkout_btn = !empty(insopt( 'checkout-btn' )['on-checkout-btn']) ? insopt( 'checkout-btn' )['on-checkout-btn'] : '';
+		$checkout_button_text = !empty(insopt( 'checkout-btn' )['checkout_button_text']) ? insopt( 'checkout-btn' )['checkout_button_text'] : '';
+		$checkout_button_url = !empty(insopt( 'checkout-btn' )['checkout_button_url']) ? insopt( 'checkout-btn' )['checkout_button_url'] : '';
+
+		if ($on_checkout_btn == true) {
+			if ($checkout_button_text){
+				$checkout_text = wp_strip_all_tags( __( $checkout_button_text, 'instantio' ));
 			} else {
 				$checkout_text = __( 'Checkout Now', 'instantio' );
 			}
-			if (insopt( 'checkout-btn' )['checkout_button_url']){
-				$checkout_url = esc_url(insopt( 'checkout-btn' )['checkout_button_url']); // PHPCS: XSS ok.
+			if ($checkout_button_url){
+				$checkout_url = esc_url($checkout_button_url); // PHPCS: XSS ok.
 			} else {
 				$checkout_url = wc_get_checkout_url();
 			}
@@ -221,7 +234,9 @@ if ( ! function_exists( 'checkout_button' ) ) {
 if ( !function_exists('fancybox_enqueue_scripts') ) {
 	function fancybox_enqueue_scripts(){
 
-		if (insopt( 'fancy-cdn' ) == true) {
+		$fancy_cdn = !empty(insopt( 'fancy-cdn' )) ? insopt( 'fancy-cdn' ) : '';
+
+		if ($fancy_cdn == true) {
 			wp_enqueue_style( 'fancyBox-3', '//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css', array(), '3.5.7' );
 			wp_enqueue_script( 'fancyBox-3', '//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js', array( 'jquery' ), '3.5.7', true );
 		} else {
@@ -243,11 +258,13 @@ if ($detect->isMobile() && !$detect->isTablet() && $dedicated_mobile == true) {
 
 	require_once( INS_LAYOUTS_PATH . '/toggler.php' );
 
-	if (insopt( 'ins-layout' ) == 1) {
+	$ins_layout = !empty(insopt( 'ins-layout' )) ? insopt( 'ins-layout' ) : '';
+
+	if ($ins_layout == 1) {
 		require_once INS_LAYOUTS_PATH . '/layout-1/layout-1.php';
-	} elseif (insopt( 'ins-layout' ) == 2) {
+	} elseif ($ins_layout == 2) {
 		require_once INS_LAYOUTS_PATH . '/layout-2/layout-2.php';
-	} elseif (insopt( 'ins-layout' ) == 3) {
+	} elseif ($ins_layout == 3) {
 		require_once INS_LAYOUTS_PATH . '/layout-3/layout-3.php';
 	}
 }

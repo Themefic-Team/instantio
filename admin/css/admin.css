@@ -35,3 +35,41 @@
 .csf-container .csf-field-switcher .csf--active {
     background: #e9570a;
 }
+
+.csf-section .csf-field.ins-csf-disable {
+    opacity: 1;
+    user-select: none;
+    border-top: 1px solid #eee;
+}
+.csf-section .csf-field.ins-csf-disable .clear:before {
+    content: "";
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    background-color: #eee;
+    opacity: 0.25;
+    z-index: 10;
+}
+
+.csf-section .csf-field.ins-csf-pro {
+    cursor: pointer;
+}
+.ins-csf-badge .ins-upcoming, .ins-csf-badge .ins-pro {
+    display: inline-block;
+    color: #fff;
+    padding: 3px 10px 3px 10px;
+    border-radius: 3px;
+    text-align: center;
+    margin: 5px 0 0 0;
+    font-size: 12px;
+    font-weight: 600;
+}
+.ins-csf-badge .ins-upcoming {
+    background: #006600;
+    margin-right: 5px;
+}
+.ins-csf-badge .ins-pro {
+    background: #b30000;
+}

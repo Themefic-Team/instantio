@@ -1,4 +1,10 @@
-<?php 
+<?php
+// don't load directly
+defined( 'ABSPATH' ) || exit;
+
+$badge_up = '<div class="ins-csf-badge"><span class="ins-upcoming">' .__("Upcoming", "instantio"). '</span></div>';
+$badge_pro = '<div class="ins-csf-badge"><span class="ins-pro">' .__("Pro Feature", "instantio"). '</span></div>';
+$badge_up_pro = '<div class="ins-csf-badge"><span class="ins-upcoming">' .__("Upcoming", "instantio"). '</span><span class="ins-pro">' .__("Pro Feature", "instantio"). '</span></div>';
 
 // General Settings
 CSF::createSection( $prefix, array(
@@ -174,107 +180,99 @@ CSF::createSection( $prefix, array(
 
   array(
       'id'       => 'wi-window-type',
+      'class' => 'ins-csf-disable ins-csf-pro',
       'type'     => 'button_set',
       'title'    => __('Drawer Window Type', 'instantio'),
-      'subtitle' => __( 'Choose the function of Cart Drawer / Side Cart.', 'instantio' ),
+      'subtitle' => __( 'Choose the function of Cart Drawer / Side Cart.' .$badge_pro, 'instantio' ),
       'desc'   => __( 'Multistep: Cart-> Checkout; Single step: Cart+Checkout on same window', 'instantio' ),
       'options' => array(
           '0' => __( 'Multi Step', 'instantio' ),
           '1' => __( 'Single Step', 'instantio' ),
       ),
       'default' => '0',
-      'help'     => __( 'Pro Feature', 'instantio' ),
-      'dependency' => array( '', '==', '', '', 'visible' ),
   ),
 
   array(
       'id'       => 'wi-disable-quickview',
+      'class' => 'ins-csf-disable ins-csf-pro',
       'type'     => 'switcher',
       'title'    => __( 'Disable Quick View', 'instantio' ),
-      'subtitle' => __('You can disable it if you already have quick view function in your theme (Applicable for Variable products).', 'instantio'),
+      'subtitle' => __('You can disable it if you already have quick view function in your theme (Applicable for Variable products).' .$badge_pro, 'instantio'),
       'text_on'  => __('Yes', 'instantio'),
       'text_off' => __('No', 'instantio'),
       'default'   => false,
-      'help'     => __( 'Pro Feature', 'instantio' ),
-      'dependency' => array( '', '==', '', '', 'visible' ),
   ),
 
   array(
       'id'       => 'wi-disable-ajax-add-cart',
+      'class' => 'ins-csf-disable ins-csf-pro',
       'type'     => 'switcher',
       'title'    => __( 'Disable Ajax Add to Cart', 'instantio' ),
-      'subtitle' => __('You can disable it if you already have ajax "add to cart" function in your theme (To avoid conflict).', 'instantio'),
+      'subtitle' => __('You can disable it if you already have ajax "add to cart" function in your theme (To avoid conflict).' .$badge_pro, 'instantio'),
       'text_on'  => __('Yes', 'instantio'),
       'text_off' => __('No', 'instantio'),
       'default'   => false,
-      'help'     => __( 'Pro Feature', 'instantio' ),
-      'dependency' => array( '', '==', '', '', 'visible' ),
   ),
 
   array(
       'id'       => 'wi-active-window',
+      'class' => 'ins-csf-disable ins-csf-pro',
       'type'     => 'button_set',
       'title'    => __('Choose Active Window', 'instantio'),
-      'subtitle' => __( 'Cart or Checkout, which one should be seen when customers open the "Side Cart', 'instantio' ),
+      'subtitle' => __( 'Cart or Checkout, which one should be seen when customers open the "Side Cart' .$badge_pro, 'instantio' ),
       'options' => array(
           '0' => __( 'Cart', 'instantio' ),
           '1' => __( 'Checkout', 'instantio' ),
       ),
       'default' => '0',
-      'help'     => __( 'Pro Feature', 'instantio' ),
       'dependency' => array(
         array( 'ins-layout', 'any', '4,5' ),
         array( 'wi-window-type',   '==', '0' ),
       ),
-      'dependency' => array( '', '==', '', '', 'visible' ),
   ),
 
   array(
     'id'       => 'upsell',
+    'class' => 'ins-csf-disable ins-csf-pro',
     'type'     => 'switcher',
     'title'    => __('Upsells in Cart', 'instantio'),
-    'subtitle' => __('Enable/disable upsells items in cart', 'instantio'),
+    'subtitle' => __('Enable/disable upsells items in cart' .$badge_pro, 'instantio'),
     'text_on'    => __('Enabled', 'instantio'),
     'text_off'   => __('Disabled', 'instantio'),
     'text_width' => 100,
     'default'   => true,
-    'help'  => __('Pro Feature', 'instantio'),
-    'dependency' => array( '', '==', '', '', 'visible' ),
   ),
 
   array(
     'id'      => 'upsell-heading',
+    'class' => 'ins-csf-disable ins-csf-pro',
     'type'    => 'text',
     'title'   => __('Upsell Heading', 'instantio'),
-    'subtitle' => __('The text shown before upsell items', 'instantio'),
+    'subtitle' => __('The text shown before upsell items' .$badge_pro, 'instantio'),
     'desc'    => __('Default: Hang on! We have this offer just for you!', 'instantio'),
     'placeholder' => __('Hang on! We have this offer just for you!', 'instantio'),
-    'help'  => __('Pro Feature', 'instantio'),
-    'dependency' => array( '', '==', '', '', 'visible' ),
   ),
 
   array(
     'id'       => 'crosssell',
+    'class' => 'ins-csf-disable ins-csf-pro',
     'type'     => 'switcher',
     'title'    => __('Cross Sells in Checkout', 'instantio'),
-    'subtitle' => __('Enable/disable cross sell items in checkout', 'instantio'),
+    'subtitle' => __('Enable/disable cross sell items in checkout' .$badge_pro, 'instantio'),
     'text_on'    => __('Enabled', 'instantio'),
     'text_off'   => __('Disabled', 'instantio'),
     'text_width' => 100,
     'default'   => true,
-    'help'  => __('Pro Feature', 'instantio'),
-    'dependency' => array( '', '==', '', '', 'visible' ),
   ),
 
   array(
     'id'      => 'crosssell-heading',
+    'class' => 'ins-csf-disable ins-csf-pro',
     'type'    => 'text',
     'title'   => __('Cross Sell Heading', 'instantio'),
-    'subtitle' => __('The text shown before cross sell items', 'instantio'),
+    'subtitle' => __('The text shown before cross sell items' .$badge_pro, 'instantio'),
     'desc'    => __('Default: You may be interested in…', 'instantio'),
     'placeholder' => __('You may be interested in…', 'instantio'),
-    'help'  => __('Pro Feature', 'instantio'),
-    'dependency' => array( '', '==', '', '', 'visible' ),
   ),
 
 ),

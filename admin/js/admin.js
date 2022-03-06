@@ -52,6 +52,17 @@
             });
         });
 
+        /**
+         * Pro Feature button link
+         */
+         $(document).on('click', '.ins-pro', function(e) {
+            window.open('https://wpinstant.io/pricing/');
+        });
+
+        $(document).on('click', '.ins-csf-pro', function(e) {
+            window.open('https://wpinstant.io/pricing/');
+        });
+
     });
 
 })(jQuery);
