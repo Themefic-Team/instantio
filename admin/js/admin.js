@@ -56,11 +56,11 @@
          * Pro Feature button link
          */
          $(document).on('click', '.ins-pro', function(e) {
-            window.open('https://wpinstant.io/pricing/');
+            window.open('https://wpinstant.io/go/upgrade');
         });
 
         $(document).on('click', '.ins-csf-pro', function(e) {
-            window.open('https://wpinstant.io/pricing/');
+            window.open('https://wpinstant.io/go/upgrade');
         });
 
     });
