@@ -404,6 +404,17 @@
 
 		}
 
+		/**
+		 * WooCommerce Subscription plugin auto update cart
+		 */
+		$('.ins-container').on('change', '.wcsatt-options input', function(){
+			// Show ajax loader
+			jQuery('.loader-container-fixed, .loader-container').css('display', 'inherit');
+            jQuery('.loader-overlay-fixed, .loader-overlay').css('display', 'inherit');
+			// Update cart
+            $("[name='update_cart']").trigger("click");
+	    });
+
 	});
 	
 })(jQuery);
