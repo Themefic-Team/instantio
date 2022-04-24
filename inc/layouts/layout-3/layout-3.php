@@ -39,7 +39,7 @@ if ( !function_exists('instantio_layout_3') ) {
 		$toggler = !empty(insopt( 'ins-toggler' )) ? insopt( 'ins-toggler' ) : '';
 ?>
 		
-		<div class="ins-container ins-lay3-container ins-position-<?php echo $toggle_panel_position; ?> <?php if( insopt( 'hide-toggler' ) == true ) { if( WC()->cart->get_cart_contents_count() <= 0 ){ echo 'nocart'; } } ?>">
+		<div class="ins-container ins-lay3-container ins-position-<?php echo $toggle_panel_position; ?> <?php if( insopt( 'hide-toggler' ) == true ) { if( !is_object(WC()->cart) || WC()->cart->get_cart_contents_count() <= 0 ){ echo 'nocart'; } } ?>">
 			
 		<?php if ($toggler == 'tog-1'){			
 			toggler_1();			

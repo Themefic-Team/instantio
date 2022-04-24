@@ -317,7 +317,7 @@
 			/**
 			 * Open sidebar on click
 			 */
-			$(document).on('click', '#ins-toggle-button, .added_to_cart, #ins-close, .ins-overlay', function(e) {
+			$(document).on('click', '#ins-toggle-button, .added_to_cart, #ins-close, .ins-overlay, .empty-cart-content a', function(e) {
 				e.preventDefault();
 	
 				var targetClass = $('.ins-toggle-button, .added_to_cart');
@@ -339,7 +339,7 @@
 			 * After adding item in the cart
 			 */
 			if (autotogpanel == 'true') {
-				$(document).on('added_to_cart', function() {
+				$(document).on('wc_fragments_refreshed', function() {
 					setTimeout(function(){
 						if ( wiCartTotal > 0 ) {
 							$('.ins-toggle-button').addClass( 'open' );
