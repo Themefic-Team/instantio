@@ -9,8 +9,8 @@ if( class_exists( 'CSF' ) ) {
 
   // Create options
   CSF::createOptions( $prefix, array(
-    'framework_title' => 'Instantio Settings <small>by <a style="color: #bfbfbf;text-decoration:none;" href="https://themefic.com" target="_blank">Themefic</a></small>',
-    'menu_title' => 'Instantio',
+    'framework_title' => __( 'Instantio Settings <small>by <a style="color: #bfbfbf;text-decoration:none;" href="https://themefic.com" target="_blank">Themefic</a></small>', 'instantio' ),
+    'menu_title' => __( 'Instantio', 'instantio' ),
     'menu_slug'  => 'instantio_options',
     'menu_icon'  => 'dashicons-cart',
     'footer_credit' => __('<em>Enjoyed <strong>Instantio</strong>? Please leave us a <a style="color:#e9570a;" href="https://wordpress.org/support/plugin/instantio/reviews/?filter=5/#new-post" target="_blank">★★★★★</a> rating. We really appreciate your support!</em>', 'instantio'),

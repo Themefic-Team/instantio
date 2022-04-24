@@ -1,4 +1,5 @@
 <?php
+defined( 'ABSPATH' ) || exit;
 
 /**
  * Enqueue FancyBox
@@ -34,11 +35,11 @@ if ( !function_exists('instantio_layout_3') ) {
     		}
 		}
 		
-		$toggle_panel_position = insopt( 'toggle-panel-position' );
-		$toggler = insopt( 'ins-toggler' );
+		$toggle_panel_position = !empty(insopt( 'toggle-panel-position' )) ? insopt( 'toggle-panel-position' ) : '';
+		$toggler = !empty(insopt( 'ins-toggler' )) ? insopt( 'ins-toggler' ) : '';
 ?>
 		
-		<div class="ins-container ins-lay3-container ins-position-<?php echo $toggle_panel_position; ?> <?php if( insopt( 'hide-toggler' ) == true ) { if( WC()->cart->get_cart_contents_count() <= 0 ){ echo 'nocart'; } } ?>">
+		<div class="ins-container ins-lay3-container ins-position-<?php echo $toggle_panel_position; ?> <?php if( insopt( 'hide-toggler' ) == true ) { if( !is_object(WC()->cart) || WC()->cart->get_cart_contents_count() <= 0 ){ echo 'nocart'; } } ?>">
 			
 		<?php if ($toggler == 'tog-1'){			
 			toggler_1();			
@@ -58,7 +59,7 @@ if ( !function_exists('instantio_layout_3') ) {
 						
 						<div class="ins-my-auto">					                
 							<div class="cart-content">
-								<?php require_once INS_INC_PATH . '/templates/cart.php'; ?>							
+							<?php require_once apply_filters( 'ins_cart_path', INS_INC_PATH . '/templates/cart.php' ); ?>					
 							</div>                
 						</div>	
 					</div>
@@ -87,7 +88,7 @@ if ( !function_exists('instantio_layout_3') ) {
 		</div>
 		<div class="ins-cart-fragments"></div>
 	<?php }
+	add_action( 'wp_footer', 'instantio_layout_3', 10 );
 }
-add_action( 'wp_footer', 'instantio_layout_3', 10 );
 
 ?>

@@ -8,10 +8,10 @@
  * Domain Path: /lang/
  * Author URI: https://themefic.com
  * Tags: woocommerce, direct checkout, floating cart, side cart, ajax cart, cart popup, ajax add to cart, one page checkout, single page checkout, fly cart, mini cart, quick buy, instant checkout, quick checkout, same page checkout, sidebar cart, sticky cart, woocommerce ajax, one click checkout, woocommerce one page checkout, direct checkout woocommerce, woocommerce one click checkout, woocommerce quick checkout, woocommerce express checkout, woocommerce simple checkout, skip cart page woocommerce, woocommerce cart popup, edit woocommerce checkout page, woocommerce direct checkout
- * Version: 2.4.7
- * Tested up to: 5.9
- * Requires PHP: 7.1
- * WC tested up to: 6.1.1
+ * Version: 2.5.1
+ * Tested up to: 5.9.3
+ * Requires PHP: 7.2
+ * WC tested up to: 6.4.1
  */
  
 // don't load directly
@@ -83,7 +83,7 @@ if ( !is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
 
 // Define INSTANTIO_VERSION.
 if ( ! defined( 'INSTANTIO_VERSION' ) ) {
-	define( 'INSTANTIO_VERSION', '2.4.7' );
+	define( 'INSTANTIO_VERSION', '2.5.1' );
 }
 
 /**
@@ -122,8 +122,8 @@ if ( ! function_exists( 'instantio_plugin_loaded_action' ) ) {
 			add_filter('woocommerce_cart_item_removed_notice_type', '__return_null');
 		}
 	}
+	add_action( 'plugins_loaded', 'instantio_plugin_loaded_action' );
 }
-add_action( 'plugins_loaded', 'instantio_plugin_loaded_action' );
 
 /*
  * Global Admin Get Option
@@ -198,9 +198,9 @@ function ins_is_woo() {
  */
 if ( !is_plugin_active( 'wooinstant/wooinstant.php' ) ) {
 	function add_pro_link_menu() {
-		$prolink = 'https://wpinstant.io/';
-		$menuname = '<span style="color:#ffba00;">Upgrade to Pro</span>';
-		add_submenu_page( 'instantio_options', 'Upgrade to Pro', $menuname, 'manage_options', $prolink);
+		$prolink = 'https://wpinstant.io/go/upgrade';
+		$menuname = '<span style="color:#ffba00;">' .__("Upgrade to Pro", "instantio"). '</span>';
+		add_submenu_page( 'instantio_options', __('Upgrade to Pro', 'instantio'), $menuname, 'manage_options', $prolink);
 	}
 	add_action('admin_menu', 'add_pro_link_menu', 9999);
 }
@@ -217,7 +217,7 @@ function instantio_plugin_action_links( $links ) {
 
 	if ( !is_plugin_active( 'wooinstant/wooinstant.php' ) ) {
 		$gopro_link = array(
-			'<a href="https://wpinstant.io/" target="_blank" style="color:#cc0000;font-weight: bold;text-shadow: 0px 1px 1px hsl(0deg 0% 0% / 28%);">' . esc_html__( 'GO PRO', 'instantio' ) . '</a>',
+			'<a href="https://wpinstant.io/go/upgrade" target="_blank" style="color:#cc0000;font-weight: bold;text-shadow: 0px 1px 1px hsl(0deg 0% 0% / 28%);">' . esc_html__( 'GO PRO', 'instantio' ) . '</a>',
 		);
 	} else {
 		$gopro_link = array('');
@@ -234,11 +234,11 @@ function ins_admin_rating_notice () {
 	if ($display_status) { ?>
 
 		<div id='ins-notice' class="ins-notice notice notice-info">
-			<p style="float: left;">If you like <strong>Instantio</strong> please leave a review</p>
+			<p style="float: left;"><?php echo sprintf(__('If you like %1$sInstantio%2$s please leave a review', 'instantio'), '<strong>', '</strong>'); ?></p>
 			<p style="float: right;">
-				<a href="//wordpress.org/plugins/instantio" target="_blank">Rate Us <span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span></a>
-				<a class="maybe-dis">Maybe later</a>
-				<a class="done-dis">Already Rated <span class="dashicons dashicons-smiley"></span></a>
+				<a href="//wordpress.org/plugins/instantio" target="_blank"><?php _e('Rate Us', 'instantio'); ?> <span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span></a>
+				<a class="maybe-dis"><?php _e('Maybe later', 'instantio'); ?></a>
+				<a class="done-dis"><?php _e('Already Rated', 'instantio'); ?> <span class="dashicons dashicons-smiley"></span></a>
 			</p>
 		</div>
 
