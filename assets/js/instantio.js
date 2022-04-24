@@ -317,7 +317,7 @@
 			/**
 			 * Open sidebar on click
 			 */
-			$(document).on('click', '#ins-toggle-button, .added_to_cart, #ins-close, .ins-overlay', function(e) {
+			$(document).on('click', '#ins-toggle-button, .added_to_cart, #ins-close, .ins-overlay, .empty-cart-content a', function(e) {
 				e.preventDefault();
 	
 				var targetClass = $('.ins-toggle-button, .added_to_cart');
