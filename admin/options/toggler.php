@@ -1,4 +1,10 @@
 <?php 
+// don't load directly
+defined( 'ABSPATH' ) || exit;
+
+$badge_up = '<div class="ins-csf-badge"><span class="ins-upcoming">' .__("Upcoming", "instantio"). '</span></div>';
+$badge_pro = '<div class="ins-csf-badge"><span class="ins-pro">' .__("Pro Feature", "instantio"). '</span></div>';
+$badge_up_pro = '<div class="ins-csf-badge"><span class="ins-upcoming">' .__("Upcoming", "instantio"). '</span><span class="ins-pro">' .__("Pro Feature", "instantio"). '</span></div>';
 
 CSF::createSection( $prefix, array(
 'parent' => 'design', // The slug id of the parent section
@@ -38,14 +44,13 @@ CSF::createSection( $prefix, array(
 
   array(
     'id'       => 'wi-icon-choice',
+    'class' => 'ins-csf-disable ins-csf-pro',
     'type'     => 'switcher', 
     'title'    => __('Custom Image as Toggler Icon', 'instantio'),
-    'subtitle' => __('Set custom image as icon for the toggler instead of the defaults one.', 'instantio'),
-          'text_on'  => 'Yes',
-          'text_off' => 'No',
+    'subtitle' => __('Set custom image as icon for the toggler instead of the defaults one.' .$badge_pro, 'instantio'),
+          'text_on'  => __('Yes', 'instantio'),
+          'text_off' => __('No', 'instantio'),
     'default'  => false,
-    'help'     => __( 'Pro Feature', 'instantio' ),
-    'dependency' => array( '', '==', '', '', 'visible' ),
   ),
 
   array(
@@ -54,8 +59,8 @@ CSF::createSection( $prefix, array(
     'title'    => __('Toggler Horizontal Position', 'instantio'),
 		'subtitle' => __('Changes position of the Cart Toggler horizontally', 'instantio'),
     'options' => array(
-      'left' => 'Left', 
-      'right' => 'Right', 
+      'left' => __('Left', 'instantio'),
+      'right' => __('Right', 'instantio'),
      ), 
     'default' => 'right'
   ),
@@ -66,9 +71,9 @@ CSF::createSection( $prefix, array(
     'title'    => __('Toggler Vertical Position', 'instantio'),
 		'subtitle' => __('Changes position of the Cart Toggler vertically', 'instantio'),
     'options' => array(
-      'top' => 'Top', 
-      'middle' => 'Middle',
-      'bottom' => 'Bottom',				
+      'top' => __('Top', 'instantio'),
+      'middle' => __('Middle', 'instantio'),
+      'bottom' => __('Bottom', 'instantio'),				
      ), 
     'default' => 'bottom',
     'dependency' => array('ins-toggler|ins-layout','!=|!=', 'tog-2|1', 'all', 'visible'),
@@ -80,8 +85,8 @@ CSF::createSection( $prefix, array(
     'title'    => __( 'Toggler Background Colors', 'instantio' ),
     'subtitle' => __( 'Set regular & hover color', 'instantio' ),
     'options'   => array(
-      'regular' => 'Regular',
-      'hover' => 'Hover',
+      'regular' => __('Regular', 'instantio'),
+      'hover' => __('Hover', 'instantio'),
     )
   ),
 
@@ -91,8 +96,8 @@ CSF::createSection( $prefix, array(
     'title'    => __( 'Toggler Border Colors', 'instantio' ),
     'subtitle' => __( 'Set regular & hover color', 'instantio' ),
     'options'   => array(
-      'regular' => 'Regular',
-      'hover' => 'Hover',
+      'regular' => __('Regular', 'instantio'),
+      'hover' => __('Hover', 'instantio'),
     )
   ),
 
@@ -102,8 +107,8 @@ CSF::createSection( $prefix, array(
     'title'    => __( 'Toggler Icon Color', 'instantio' ),
     'subtitle' => __( 'Set regular & hover color of text & icon', 'instantio' ),
     'options'   => array(
-      'regular' => 'Regular',
-      'hover' => 'Hover',
+      'regular' => __('Regular', 'instantio'),
+      'hover' => __('Hover', 'instantio'),
     )
   ),
 
@@ -123,8 +128,8 @@ CSF::createSection( $prefix, array(
     'title'    => __( 'Toggler Item Number Background', 'instantio' ),
     'subtitle' => __( 'Set regular & hover background color', 'instantio' ),
     'options'   => array(
-      'regular' => 'Regular',
-      'hover' => 'Hover',
+      'regular' => __('Regular', 'instantio'),
+      'hover' => __('Hover', 'instantio'),
     )
   ),
 
@@ -134,8 +139,8 @@ CSF::createSection( $prefix, array(
     'title'    => __( 'Toggler Item Number Color', 'instantio' ),
     'subtitle' => __( 'Set regular & hover color of text & icon', 'instantio' ),
     'options'   => array(
-      'regular' => 'Regular',
-      'hover' => 'Hover',
+      'regular' => __('Regular', 'instantio'),
+      'hover' => __('Hover', 'instantio'),
     )
   ),
 
