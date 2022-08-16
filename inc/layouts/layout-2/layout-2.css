@@ -125,12 +125,12 @@ html.ins-panel-open, html.ins-panel-open body {
 }
 /* Responsiveness */
 @media(max-width: 767px){
-
-}
-@media(max-width: 470px){
     .ins-lay2-container .ins-inner {
         width: 100%;
    }
+}
+@media(max-width: 470px){
+    
     .ins-lay2-container .ins-cart-button.ins-position-right-bottom.open {
         display: none;
    }
