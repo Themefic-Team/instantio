@@ -1,0 +1,220 @@
+2.5.4
+(August 18, 2022)
+- Added: WooCommerce Subcription compatibility
+- Changed: Clicking on "Continue shopping" will close the sidebar/popup
+- Fixed: WooCommerce not object error on layouts 2, 3
+- Fixed: Auto sidebar opens when item added to cart
+- Fixed: Side Cart & Popup Cart Responsive issues
+- Updated: Compatibility check with WooCommerce 6.8.0
+- Updated: Compatibility check with WordPress 6.0.1
+
+
+2.5.3
+( July 10, 2022 )
+– Updated: Compatibility check with WooCommerce 6.6.1
+– Updated: Compatibility check with WordPress 6.0
+
+2.5.2
+( May 12, 2022 )
+– Fixed: Some CSS bugs
+– Updated: Compatibility check with WooCommerce 6.5.0
+
+2.5.1
+( April 24, 2022 )
+– Changed: Clicking on “Continue shopping” will close the sidebar/popup
+– Fixed: WooCommerce not object error on layouts 2, 3
+– Fixed: Auto sidebar opens when item added to cart
+– Updated: Compatibility check with WordPress 5.9.3
+– Updated: Compatibility check with WooCommerce 6.4.1
+
+2.5.0
+( March 07, 2022 )
+– Added: In the mobile version hide the mobile bar if no items are in the cart (Pro)
+– Added: Translation files: Arabic, Bengali, Deutsch, Espa�ol, Fran�ais, Hindi, Italiano, Dutch, Russian, Chinese
+– Added: Some new WP filters
+– Fixed: Scroll freezes after empty cart items.
+– Fixed: “Thank you” page loads in the iframe layout (Pro)
+– Fixed: Option for layout width (Pro)
+– Improved: Backend option panel
+– Improved: Conditional check, error check
+
+2.4.9
+( March 05, 2022 )
+– Fixed: Some Common Issues
+– Updated: Compatibility check with WooCommerce 6.2.1
+
+2.4.8
+( March 01, 2022 )
+– Updated: Compatibility check with WordPress 5.9.1
+
+2.4.7
+( February 15, 2022 )
+– Fixed: Some CSS bugs
+– Improved: CSS codes
+
+2.4.6
+( January 26, 2022 )
+– Updated: Compatibility with Instantio Pro 2.4.6 version
+– Updated: Compatibility check with WordPress 5.9
+– Updated: Compatibility check with WooCommerce 6.1.1
+
+2.4.5
+( January 13, 2022 )
+– Added: Auto Open Popup when an item is added to the cart
+– Fixed: (PHP) In smartphone toggler doesn’t show up
+– Fixed: (CSS) Opening/closing causes the fixed element to jump
+– Fixed: Some JavaScript bugs
+– Improved: JavaScript codes
+– Updated: WooCommerce 6.1.0 Compatibility Check
+
+2.4.3
+( January 2, 2022 )
+– WooCommerce 6.0.0 Compatiblity Check
+
+2.4.2
+( December 02, 2021 )
+– Fixed: WooCommerce bugs
+
+2.4.1
+( December 02, 2021 )
+– Fixed: CSS bugs
+
+2.4.0
+( December 01, 2021 )
+– Added: Ajax based auto increment/decrement cart items
+– Added: Ajax based empty cart button
+– Added: Custom ajax loader
+– Added: Option: Enable/disable Auto Open Toggle Panel
+– Fixed: Hide Toggler when No Cart Item CSS issue
+– Fixed: Some CSS bugs
+– Fixed: Some JS bugs
+– Improved: Translations code
+– Updated: Compatibility with the pro version
+– Updated: WooCommerce 5.9 Compatiblity Check
+
+2.3.3
+( November 24, 2021 )
+– Fixed: Some bugs
+– Removed Instant Review Notice
+
+2.3.2
+( October 24, 2021 )
+– Fixed: Some bugs
+
+2.3.1
+( September 28, 2021 )
+– Fixed: Some bugs
+
+2.3.0
+( September 27, 2021 )
+– Introduced: Brand new options panel. Lightweight & faster!
+– Added: Cart fly animation enable/disable option
+– Fixed: Some bugs
+– Improved: Checkout System, Faster and less loading time (Pro)
+
+2.2.3
+( September 12, 2021 )
+– Fixed Bug of Variable Product Instant Checkout
+
+2.2.0
+( September 06, 2021 )
+– WooCommerce 5.6.0 Compatiblity Check
+– Two Toggler Design. Selectable from option panel.
+– Cart Fly Animation uses default icon or product thumbnail (Option to choose).
+– Cart & Checkout button can be shown/hiden, change text, change url from option panel.
+– Show/Hide Toggler when cart item is 0.
+– Change Toggler Position (6 positions)
+– Complete css customization of Toggler in option panel
+– Change Toggle Panel position (2 positions)
+– Fixed Side cart alignment issue
+– 5 layouts (Direct, Side Cart, Popup Cart, Side Cart + Checkout, Popup Cart + Checkout) (Pro)
+– New Side Cart + Checkout design (Pro)
+– Full Toggle Panel Design in the option panel (Pro)
+– Speed Optimization feature (Pro)
+– Lite features (Pro)
+– Fixed WooCommerce style sheet for non-supported WooCommerce theme (Pro)
+
+2.1.3
+( August 15, 2021 )
+– WooCommerce 5.5.2 Compatiblity Check
+
+2.1.2
+( July 25, 2021 )
+– WordPress 5.8 Compatiblity Check
+– WooCommerce 5.5.1 Compatiblity Check
+– Fixed a PHP Error Notice
+
+2.1.0
+( July 19, 2021 )
+– Added Side Cart
+– Added Popup Cart
+– Added 5+ Cart Icons to choose from
+– Fixed licensing issues (Pro)
+
+2.0.0
+( July 05, 2021 )
+– Added New Style Panel with options to change colors and backgrounds.
+– Fixed Icon color styling Bug
+– Connected Pro Version with Free.
+
+1.3.0
+( June 27, 2021 )
+– Tested: WooCommerce 5.4.1 compatibility
+
+1.2.9
+( May 13, 2021 )
+– Tested: WordPress 5.7.2 compatibility
+
+1.2.8
+( April 27, 2021 )
+– Fixed: minor CSS issues
+
+1.2.7
+( April 12, 2021 )
+– Fixed: minor CSS issues
+
+1.2.6
+( March 27, 2021 )
+– Fixed: Cross-Site Request Forgery Bypass (Security Issue)
+
+1.2.5
+( March 20, 2021 )
+– Tested: WooCommerce 5.1.0 compatibity
+
+1.2.4
+( March 12, 2021 )
+– Tested: WordPress 5.7 compatibility
+
+1.2.3
+( March 10, 2021 )
+– Fixed: minor CSS issues
+
+1.2.2
+( March 2, 2021 )
+– Fixed: wc validation error
+– Tested: WooCommerce 5.0.0 compatibity
+
+1.2.1
+( Feb 12, 2021 )
+– Capability Test
+– Fixed: wc validation error
+
+1.1.1
+( Feb 08, 2021 )
+– Added: Option Panel Added
+– Added: Option – Cart Button Text
+– Added: Option – Cart Toggler Background
+– Added: Option – Cart Toggler Text Color
+– Added: Option – Cart Toggler Text Hover Color
+– Added: Option – Import Options
+– Added: Option – Export Options
+– Added: Some Functions
+
+1.1
+( Feb 06, 2021 )
+– fixed: WooCommerce Require Notice
+– Some Code Improvement
+
+1.0
+( Jan 25, 2021 )
+– Initial release

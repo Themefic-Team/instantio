@@ -512,11 +512,11 @@
 }
 .ins-container table.shop_table .cart_item td {
 	border: none;
-	padding: 10px 20px 10px 20px;
+	padding: 10px 0px 10px 15px;
     font-size: 14px;
 }
 .ins-container table.cart td.product-remove {
-    padding: 10px 5px 10px 10px;
+    padding: 10px 0px 10px 10px;
     vertical-align: middle;
 }
 .ins-container table.cart td.product-remove a.remove {
@@ -551,6 +551,7 @@
     color: #e9570a;
 	text-decoration: none;
 }
+.ins-container table.shop_table .cart_item .product-quantity .ins-quantity .qty,
 .ins-container .quantity .qty {
 	background: #f2f2f2;
     color: #43454b;
@@ -560,7 +561,7 @@
     box-shadow: inset 0 1px 1px rgb(0 0 0 / 13%);
     padding: 2px 0;
     line-height: 24px;
-    width: 40px;
+    width: 35px !important;
     margin: 0;
 	text-align: center;
 }
@@ -729,7 +730,7 @@
     */
     .ins-container table.shop_table .cart_item .product-quantity .ins-quantity {
         display: grid;
-        grid-template-columns: auto auto auto;
+        grid-template-columns: auto auto auto !important;
         padding: 0;
         margin: 0;
         justify-items: center;
@@ -757,7 +758,7 @@
         background: transparent;
         box-shadow: none;
         text-align: center;
-        padding: 0;
+        padding: 0 !important;
         margin: 0;
     }
     .ins-container table.shop_table .cart_item .product-quantity .qty::-webkit-inner-spin-button,
@@ -775,7 +776,7 @@
     */
     .ins-container table.shop_table .cart_item .product-quantity .ins-quantity {
         display: grid;
-        grid-template-columns: 24px 60px 24px;
+        grid-template-columns: auto auto auto;
         padding: 0;
         margin: 0;
         grid-column-gap: 0;

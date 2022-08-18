@@ -100,3 +100,9 @@
         min-width: 699px;
     }
 }
+
+@media(min-width: 384px){
+    .ins-lay3-container .ins-footer a{
+        padding: 7px 0px;
+    }
+}
