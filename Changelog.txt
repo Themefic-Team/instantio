@@ -1,5 +1,5 @@
 2.5.5
-(August 18, 2022)
+(September 18, 2022)
 - Improvement: The system has been further improved
 - Fixed: Auto sidebar opens when Page Reload With Ajax Without Ajax
 - Updated: Compatibility check with WooCommerce 6.9.2
