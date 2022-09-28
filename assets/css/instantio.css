@@ -1,6 +1,21 @@
 /* 
 * Common
 */
+
+/* .kadence-woo-cart-form-wrap>form {
+    width: 100% !important;
+    padding: 0 !important;
+} */
+
+.ins-quantity .quantity a,
+.ins-quantity .quantity input[type="button"]{
+    display: none !important;
+}
+
+.ins-quantity .quantity{
+    border: none !important;
+}
+
 .ins-panel-open .ins-overlay {
     position: fixed;
     top: 0;
