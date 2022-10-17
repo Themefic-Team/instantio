@@ -4,7 +4,7 @@ Donate link:
 Tags: woocommerce, direct checkout, floating cart, side cart, ajax cart, cart popup, popup cart, ajax add to cart, one page checkout, single page checkout, fly cart, mini cart, quick buy, instant checkout, quick checkout, same page checkout, sidebar cart, sticky cart, woocommerce ajax, one click checkout, woocommerce one page checkout, direct checkout woocommerce, woocommerce one click checkout, woocommerce quick checkout, woocommerce express checkout, woocommerce simple checkout, skip cart page woocommerce, woocommerce cart popup, edit woocommerce checkout page, woocommerce direct checkout, checkout manager, woocommerce checkout manager, One Page Checkout, WooCommerce One Page Checkout
 Requires at least: 4.0
 Tested up to: 6.0.2
-Stable tag: 2.5.6
+Stable tag: 2.5.7
 WC requires at least: 5.0
 WC tested up to: 6.9.4
 Requires PHP: 7.2
@@ -283,6 +283,10 @@ Yes, Instantio offers a simple checkout WooCommerce solution. You can also <stro
 
 
 == Changelog ==
+
+= 2.5.7 = ( October 10, 2022 )
+- Updated: Compatibility check with WordPress
+- Fixed: Css update in the cart popup
 
 = 2.5.6 = ( September 28, 2022 )
 - Improvement: The payment gateway has been further improved
