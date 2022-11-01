@@ -132,32 +132,21 @@ if ( ! function_exists( 'instantio_plugin_loaded_action' ) ) {
  *
  * @return void
  */
-function appsero_init_tracker_appsero_test() {
 
-    // if ( ! class_exists( 'Appsero\Client' ) ) {
-    //   require_once __DIR__ . '/inc/app/src/Client.php';
-    // }
+function appsero_init_tracker_instantio() {
 
-    $client = new Appsero\Client( 'bfcd2add-d2e2-45e6-8b83-c6ce4ecb2b94', 'instantio', __FILE__ );
+    if ( ! class_exists( 'Appsero\Client' ) ) {
+      require_once __DIR__ . '/inc/app/src/Client.php';
+    }
+
+    $client = new Appsero\Client( '29e55a76-0819-490f-b692-8368956cbf12', 'instantio', __FILE__ );
 
     // Active insights
     $client->insights()->init();
 
-    // // Active automatic updater
-    // $client->updater();
-
-    // // Active license page and checker
-    // $args = array(
-    //     'type'       => 'options',
-    //     'menu_title' => 'Akismet',
-    //     'page_title' => 'Akismet License Settings',
-    //     'menu_slug'  => 'akismet_settings',
-    // );
-    // $client->license()->add_settings_page( $args );
-	
 }
 
-appsero_init_tracker_appsero_test();
+appsero_init_tracker_instantio();
 
 
 /*
