@@ -288,6 +288,7 @@ Yes, Instantio offers a simple checkout WooCommerce solution. You can also <stro
 == Changelog ==
 
 
+
 = 2.5.10 = ( November 3, 2022 )
 - Updated: Compatibility check with WordPress 6.1
 - Updated: Compatibility check with WC 7.0.1
@@ -301,6 +302,7 @@ Yes, Instantio offers a simple checkout WooCommerce solution. You can also <stro
 - Updated: Compatibility check with WordPress 6.0.3
 - Updated: Compatibility check with WC 7.0.0
 - Improvement: Css/Js code
+
 
 = 2.5.7 = ( October 10, 2022 )
 - Updated: Compatibility check with WordPress

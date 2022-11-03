@@ -12,7 +12,7 @@
  * Tested up to: 6.1
  * Requires PHP: 7.2
  * WC tested up to: 7.0.1
- */
+
  
 // don't load directly
 defined( 'ABSPATH' ) || exit;
