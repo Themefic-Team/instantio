@@ -1,12 +1,11 @@
 === Instantio - WooCommerce Quick Checkout | Instant Checkout, Side Cart & Popup Cart ==
-Contributors: themefic, fida02, mdshuvo, hasanet
-Donate link: 
-Tags: woocommerce, direct checkout, floating cart, side cart, ajax cart, cart popup, popup cart, ajax add to cart, one page checkout, single page checkout, fly cart, mini cart, quick buy, instant checkout, quick checkout, same page checkout, sidebar cart, sticky cart, woocommerce ajax, one click checkout, woocommerce one page checkout, direct checkout woocommerce, woocommerce one click checkout, woocommerce quick checkout, woocommerce express checkout, woocommerce simple checkout, skip cart page woocommerce, woocommerce cart popup, edit woocommerce checkout page, woocommerce direct checkout, checkout manager, woocommerce checkout manager, One Page Checkout, WooCommerce One Page Checkout
+Contributors: themefic, hemelhasan, hasanet, fida02, mdshuvo
+Tags: woocommerce, direct checkout, woocommerce checkout, floating cart, side cart, ajax cart, cart popup, popup cart, ajax add to cart, one page checkout, single page checkout, fly cart, mini cart, quick buy, instant checkout, quick checkout, same page checkout, sidebar cart, sticky cart, woocommerce ajax, one click checkout, woocommerce one page checkout, direct checkout woocommerce, woocommerce one click checkout, woocommerce quick checkout, woocommerce express checkout, woocommerce simple checkout, skip cart page woocommerce, woocommerce cart popup, edit woocommerce checkout page, woocommerce direct checkout, checkout manager, woocommerce checkout manager, One Page Checkout, WooCommerce One Page Checkout
 Requires at least: 4.0
-Tested up to: 6.0.2
-Stable tag: 2.5.6
+Tested up to: 6.1
+Stable tag: 2.5.9
 WC requires at least: 5.0
-WC tested up to: 6.9.4
+WC tested up to: 7.0.1
 Requires PHP: 7.2
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -17,10 +16,10 @@ Checkout Instantly within 10-15 seconds using Side Cart, Popup Cart, Slide Check
 
 = The easiest and fastest WooCommerce Checkout Process by Instantio =
 
-👉 Official Demo Link: [Instantio Live Preview](https://wpinstant.io/go/free/)
-👉 Installation Guide: [How to Setup Instantio](https://www.youtube.com/watch?v=1biwrwu-Io8)
-👉 Join Our FB Community: [Instantio Facebook Group](https://www.facebook.com/groups/instantio.wp)
-👉 Development Roadmaps: [Upcoming Plan for 2021](https://wpinstant.io/roadmap/)
+ðŸ‘‰ Official Demo Link: [Instantio Live Preview](https://wpinstant.io/go/free/)
+ðŸ‘‰ Installation Guide: [How to Setup Instantio](https://www.youtube.com/watch?v=1biwrwu-Io8)
+ðŸ‘‰ Join Our FB Community: [Instantio Facebook Group](https://www.facebook.com/groups/instantio.wp)
+ðŸ‘‰ Development Roadmaps: [Upcoming Plan for 2021](https://wpinstant.io/roadmap/)
 
 <strong>8 Different Checkout Options (Quick Demo): </strong>
 
@@ -37,7 +36,7 @@ Checkout Instantly within 10-15 seconds using Side Cart, Popup Cart, Slide Check
 
 Instantio reduces your Cart Abandonment rate by minimizing the steps of Woocommerce Checkout process. With Instantio's floating cart icon, your customer will be able to skip the cart page and go directly to the checkout page. The Whole WooCommerce checkout process would take only 15-25 seconds. Yes, you heard it right! Only 15-25 Seconds! 
 
-All your customer has to do is “Add to Cart”, a cart drawer will appear with the checkout button. Your customer can Instantly Checkout your WooCommerce based store and order from a single page! Such a process will motivate your customers to complete the shopping and return again for more.
+All your customer has to do is â€œAdd to Cartâ€, a cart drawer will appear with the checkout button. Your customer can Instantly Checkout your WooCommerce based store and order from a single page! Such a process will motivate your customers to complete the shopping and return again for more.
 
 = Why Choose Instantio =
 * Quick & Simplified WooCommerce checkout process
@@ -94,7 +93,7 @@ This <a href="https://wpinstant.io/side-checkout/product/perfume-de-lora/">featu
 
 = Option & Style Panel =
 
-Instantio has a built-in easy-to-use options panel. You can add or remove any options from this panel. It also has a built-in color-style panel. The button and icons’ color and background color can be easily edited from the panel.
+Instantio has a built-in easy-to-use options panel. You can add or remove any options from this panel. It also has a built-in color-style panel. The button and iconsâ€™ color and background color can be easily edited from the panel.
 
 = Floating Cart Icon =
 
@@ -183,11 +182,15 @@ We provide full support on the WordPress.org forums. You can also post questions
 
 <strong>Privacy Policy : </strong>
 
-This plugin doesn’t collect/store any user-related information.
+Instantio uses <a href="https://appsero.com/">Appsero</a> SDK to collect some telemetry data upon user’s confirmation. This helps us to troubleshoot problems faster & make product improvements.
+
+Appsero SDK does not gather any data by default. The SDK only starts gathering basic telemetry data when a user allows it via the admin notice. We collect the data to ensure great user experience for all our users.
+
+Integrating Appsero SDK DOES NOT IMMEDIATELY start gathering data, without confirmation from users in any case.
 
 <strong>Our Other Plugins</strong>
 
-* <a href="https://wordpress.org/plugins/tourfic/" target="_blank">Tourfic – Travel Booking Solution for WooCommerce</a>
+* <a href="https://wordpress.org/plugins/tourfic/" target="_blank">Tourfic â€“ Travel Booking Solution for WooCommerce</a>
 * <a href="https://wordpress.org/plugins/before-after-for-woocommerce/">Before After Slider for WooCommerce - eBEAF</a>
 * <a href="https://wordpress.org/plugins/ultimate-addons-for-contact-form-7/">Ultimate Addons For Contact Form 7</a>
 * <a href="https://wordpress.org/plugins/beaf-before-and-after-gallery/" target="_blank">Ultimate Before After Image Slider & Gallery - BEAF</a>
@@ -284,6 +287,25 @@ Yes, Instantio offers a simple checkout WooCommerce solution. You can also <stro
 
 == Changelog ==
 
+
+= 2.5.10 = ( November 3, 2022 )
+- Updated: Compatibility check with WordPress 6.1
+- Updated: Compatibility check with WC 7.0.1
+- Added: Appsero to collection  
+
+= 2.5.9 = ( October 27, 2022 )
+- Fixed : Item loading issue on sidecart
+- Updated : Improvement: Css/Js code
+
+= 2.5.8 = ( October 20, 2022 )
+- Updated: Compatibility check with WordPress 6.0.3
+- Updated: Compatibility check with WC 7.0.0
+- Improvement: Css/Js code
+
+= 2.5.7 = ( October 10, 2022 )
+- Updated: Compatibility check with WordPress
+- Fixed: Css update in the cart popup
+
 = 2.5.6 = ( September 28, 2022 )
 - Improvement: The payment gateway has been further improved
 - Updated: Compatibility check with WooCommerce 6.9.4
@@ -321,7 +343,7 @@ Yes, Instantio offers a simple checkout WooCommerce solution. You can also <stro
 
 = 2.5.0 = ( March 07, 2022 )
 - Added: In the mobile version hide the mobile bar if no items are in the cart (Pro)
-- Added: Translation files: Arabic, Bengali, Deutsch, Espa�ol, Fran�ais, Hindi, Italiano, Dutch, Russian, Chinese
+- Added: Translation files: Arabic, Bengali, Deutsch, Espaï¿½ol, Franï¿½ais, Hindi, Italiano, Dutch, Russian, Chinese
 - Added: Some new WP filters
 - Fixed: Scroll freezes after empty cart items.
 - Fixed: "Thank you" page loads in the iframe layout  (Pro)
