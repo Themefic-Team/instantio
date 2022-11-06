@@ -8,7 +8,7 @@
  * Domain Path: /lang/
  * Author URI: https://themefic.com
  * Tags: woocommerce, direct checkout, floating cart, side cart, ajax cart, cart popup, ajax add to cart, one page checkout, single page checkout, fly cart, mini cart, quick buy, instant checkout, quick checkout, same page checkout, sidebar cart, sticky cart, woocommerce ajax, one click checkout, woocommerce one page checkout, direct checkout woocommerce, woocommerce one click checkout, woocommerce quick checkout, woocommerce express checkout, woocommerce simple checkout, skip cart page woocommerce, woocommerce cart popup, edit woocommerce checkout page, woocommerce direct checkout
- * Version: 2.5.6
+ * Version: 2.5.10
  * Tested up to: 6.1
  * Requires PHP: 7.2
  * WC tested up to: 7.0.1
@@ -23,6 +23,7 @@ defined( 'ABSPATH' ) || exit;
  * @since 1.0
  */
 include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+
 
 /**
  * Instantio All the Defines
@@ -40,6 +41,8 @@ define( 'INS_PATH', plugin_dir_path( __FILE__ ) );
 define( 'INS_ADMIN_PATH', INS_PATH.'admin' );
 define( 'INS_INC_PATH', INS_PATH.'inc' );
 define( 'INS_LAYOUTS_PATH', INS_INC_PATH.'/layouts' );
+
+require_once (INS_INC_PATH . '/app/src/Client.php');
 
 /**
  * Enqueue Admin scripts
@@ -83,7 +86,7 @@ if ( !is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
 
 // Define INSTANTIO_VERSION.
 if ( ! defined( 'INSTANTIO_VERSION' ) ) {
-	define( 'INSTANTIO_VERSION', '2.5.5' );
+	define( 'INSTANTIO_VERSION', '2.5.10' );
 }
 
 /**
@@ -124,6 +127,29 @@ if ( ! function_exists( 'instantio_plugin_loaded_action' ) ) {
 	}
 	add_action( 'plugins_loaded', 'instantio_plugin_loaded_action' );
 }
+
+
+/**
+ * Initialize the tracker
+ *
+ * @return void
+ */
+
+function appsero_init_tracker_instantio() {
+
+    if ( ! class_exists( 'Appsero\Client' ) ) {
+      require_once __DIR__ . '/inc/app/src/Client.php';
+    }
+
+    $client = new Appsero\Client( '29e55a76-0819-490f-b692-8368956cbf12', 'instantio', __FILE__ );
+
+    // Active insights
+    $client->insights()->init();
+
+}
+
+appsero_init_tracker_instantio();
+
 
 /*
  * Global Admin Get Option
