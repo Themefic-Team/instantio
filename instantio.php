@@ -254,7 +254,7 @@ add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'instantio_plu
 
 
 
-function activate() {
+function ins_activate() {
 	$installed = get_option( 'instantio_active_time' );
 
 	if ( ! $installed ) {
@@ -311,8 +311,12 @@ function ins_admin_rating_notice () {
 
 	<?php }
 }
+$ins_activetime = get_option('instantio_active_time' );
+$ins_activetime=+120;
+if( time() < $ins_activetime){
+	add_action( 'admin_notices', 'ins_admin_rating_notice' );
+}
 
-add_action( 'admin_notices', 'ins_admin_rating_notice' );
 
 function disable_ins_notice() {
 	update_option( 'ins-dismiss', false );
@@ -324,7 +328,7 @@ function set_ins_dismiss() {
     update_option( 'ins-dismiss', true );
 }
 register_activation_hook(  plugin_dir_path( __FILE__ ) . 'instantio.php', 'set_ins_dismiss' );
-register_activation_hook(  plugin_dir_path( __FILE__ ) . 'instantio.php',  'activate');
+register_activation_hook(  plugin_dir_path( __FILE__ ) . 'instantio.php',  'ins_activate');
 register_deactivation_hook( plugin_dir_path( __FILE__ ) . 'instantio.php', 'ins_deactivate' );
 
 ?>

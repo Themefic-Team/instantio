@@ -123,10 +123,11 @@ CSF::createSection( $prefix, array(
         'default'   => true,
       ),
       array(
-        'id'       => 'cart_button_text',
-        'type'     => 'text',
-        'title'    => __( 'Cart Button Text', 'instantio' ),
-        'desc'   => __( 'Default: <code>View Cart</code>', 'instantio' ),
+        'id'        => 'cart_button_text',
+        'type'      => 'text',
+        'default '  => 'View Cart',
+        'title'     => __( 'Cart Button Text', 'instantio' ),
+        'desc'      => __( 'Default: <code>View Cart</code>', 'instantio' ),
         'dependency' => array('on-cart-btn','==','true'),				
       ),
       array(
