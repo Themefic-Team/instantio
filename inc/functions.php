@@ -269,5 +269,33 @@ if ($detect->isMobile() && !$detect->isTablet() && $dedicated_mobile == true) {
 	}
 }
 
+/**
+ * Black Friday Deals 2022
+ */ 
+if(!function_exists('ins_black_friday_20222_admin_notice')){
+	function ins_black_friday_20222_admin_notice(){
+		$deal_link =sanitize_url('https://themefic.com/go/instantio-bf-deal');
+		$get_current_screen = get_current_screen();  
+		?>
+		<style> 
+			.tf_black_friday_20222_admin_notice a:focus {
+				box-shadow: none;
+			} 
+			.tf_black_friday_20222_admin_notice {
+				padding: 7px;
+			}
+		</style>
+		<div class="notice notice-success tf_black_friday_20222_admin_notice">
+		
+			<a href="<?php echo $deal_link; ?>" target="_blank" >
+				<img  style="width: auto; height: 100px;" src="<?php echo INS_URL ?>/assets/img/BLACK_FRIDAY_BACKGROUND_GRUNGE.jpg" alt="BLACK FRIDAY 2022">
+			</a> 
+		</div>
+		
+		<?php 
+	} 
+	
+	// add_action( 'admin_notices', 'ins_black_friday_20222_admin_notice' ); 
+}
 
 ?>
