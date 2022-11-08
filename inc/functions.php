@@ -321,7 +321,7 @@ if(!function_exists('ins_black_friday_20222_admin_notice')){
 		
 	} 
 	if (strtotime('2022-12-01') > time()) {
-		add_action( 'admin_notices', 'ins_black_friday_20222_admin_notice' ); 
+		// add_action( 'admin_notices', 'ins_black_friday_20222_admin_notice' ); 
 	}    
 	
 	function ins_black_friday_notice_dismiss_callback() { 
