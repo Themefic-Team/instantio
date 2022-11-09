@@ -42,7 +42,7 @@ define( 'INS_ADMIN_PATH', INS_PATH.'admin' );
 define( 'INS_INC_PATH', INS_PATH.'inc' );
 define( 'INS_LAYOUTS_PATH', INS_INC_PATH.'/layouts' );
 
-require_once (INS_INC_PATH . '/app/src/Client.php');
+// require_once (INS_INC_PATH . '/app/src/Client.php');
 
 /**
  * Enqueue Admin scripts

@@ -14,6 +14,7 @@
 
 .ins-quantity .quantity {
   border: none !important;
+  min-width: auto;
 }
 
 .ins-panel-open .ins-overlay {
