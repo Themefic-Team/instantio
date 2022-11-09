@@ -5,7 +5,7 @@ Requires at least: 4.0
 Tested up to: 6.1
 Stable tag: 2.5.11
 WC requires at least: 5.0
-WC tested up to: 7.0.1
+WC tested up to: 7.1.0
 Requires PHP: 7.2
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -290,7 +290,7 @@ Yes, Instantio offers a simple checkout WooCommerce solution. You can also <stro
 = 2.5.11 = ( November 9, 2022 )
 
 - Fixed : Fragment loading issue.
-- Updated: Compatibility check with WordPress 6.1
+- Updated: Compatibility check with WC 7.1.0
 
 = 2.5.10 = ( November 3, 2022 )
 - Updated: Compatibility check with WordPress 6.1
