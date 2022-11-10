@@ -301,7 +301,7 @@ if(!function_exists('ins_black_friday_20222_admin_notice')){
 				<div class="notice notice-success tf_black_friday_20222_admin_notice">
 				
 					<a href="<?php echo $deal_link; ?>" target="_blank" >
-						<img  style="width: auto; height: 150px;" src="<?php echo INS_URL ?>/assets/img/BLACK_FRIDAY_BACKGROUND_GRUNGE_notice.png" alt="BLACK FRIDAY 2022">
+						<img  style="width: 100%; height: 150px;" src="<?php echo INS_URL ?>/assets/img/BLACK_FRIDAY_BACKGROUND_GRUNGE_notice.png" alt="BLACK FRIDAY 2022">
 					</a> 
 					<button type="button" class="notice-dismiss tf_black_friday_notice_dismiss"><span class="screen-reader-text">Dismiss this notice.</span></button>
 				</div> 
