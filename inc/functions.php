@@ -275,53 +275,65 @@ if ($detect->isMobile() && !$detect->isTablet() && $dedicated_mobile == true) {
 if(!function_exists('ins_black_friday_20222_admin_notice')){
 	function ins_black_friday_20222_admin_notice(){
 		$deal_link =sanitize_url('https://themefic.com/go/instantio-bf-deal');
-		// $get_current_screen = get_current_screen(); 
+		$get_current_screen = get_current_screen();  
 		if(!isset($_COOKIE['ins_dismiss_admin_notice'])){
-			?>
-			<style> 
-				.tf_black_friday_20222_admin_notice a:focus {
-					box-shadow: none;
-				} 
-				.tf_black_friday_20222_admin_notice {
-					padding: 7px;
-					position: relative;
-						z-index: 10;
-				}
-			</style>
-			<div class="notice notice-success tf_black_friday_20222_admin_notice">
-			
-				<a href="<?php echo $deal_link; ?>" target="_blank" >
-					<img  style="width: auto; height: 100px;" src="<?php echo INS_URL ?>/assets/img/BLACK_FRIDAY_BACKGROUND_GRUNGE.jpg" alt="BLACK FRIDAY 2022">
-				</a> 
-				<button type="button" class="notice-dismiss tf_black_friday_notice_dismiss"><span class="screen-reader-text">Dismiss this notice.</span></button>
-			</div> 
-			<script>
-				jQuery(document).ready(function($) {
-					$(document).on('click', '.tf_black_friday_notice_dismiss', function( event ) {
-						jQuery('.tf_black_friday_20222_admin_notice').css('display', 'none')
-						data = {
-							action : 'ins_black_friday_notice_dismiss_callback',
-						};
-
-						$.ajax({
-							url: ajaxurl,
-							type: 'post',
-							data: data,
-							success: function (data) { ;
-							},
-							error: function (data) { 
-							}
+			if($get_current_screen->base == 'dashboard' || $get_current_screen->base == 'toplevel_page_instantio_options'){ 
+				?>
+				<style> 
+					.tf_black_friday_20222_admin_notice a:focus {
+						box-shadow: none;
+					} 
+					.tf_black_friday_20222_admin_notice {
+						padding: 7px;
+						position: relative;
+							z-index: 10;
+					}
+					.tf_black_friday_20222_admin_notice { 
+						max-width: 585px;
+					}
+					.tf_black_friday_20222_admin_notice button:before {
+						color: #fff !important;
+					}
+					.tf_black_friday_20222_admin_notice button:hover::before {
+						color: #d63638 !important;
+					}
+				</style>
+				<div class="notice notice-success tf_black_friday_20222_admin_notice">
+				
+					<a href="<?php echo $deal_link; ?>" target="_blank" >
+						<img  style="width: auto; height: 150px;" src="<?php echo INS_URL ?>/assets/img/BLACK_FRIDAY_BACKGROUND_GRUNGE_notice.png" alt="BLACK FRIDAY 2022">
+					</a> 
+					<button type="button" class="notice-dismiss tf_black_friday_notice_dismiss"><span class="screen-reader-text">Dismiss this notice.</span></button>
+				</div> 
+				<script>
+					jQuery(document).ready(function($) {
+						$(document).on('click', '.tf_black_friday_notice_dismiss', function( event ) {
+							jQuery('.tf_black_friday_20222_admin_notice').css('display', 'none')
+							data = {
+								action : 'ins_black_friday_notice_dismiss_callback',
+							};
+	
+							$.ajax({
+								url: ajaxurl,
+								type: 'post',
+								data: data,
+								success: function (data) { ;
+								},
+								error: function (data) { 
+								}
+							});
 						});
 					});
-				});
-			</script>
-			
-			<?php 
+				</script>
+				
+				<?php 
+			}
+		
 		} 
 		
 	} 
 	if (strtotime('2022-12-01') > time()) {
-		// add_action( 'admin_notices', 'ins_black_friday_20222_admin_notice' ); 
+		add_action( 'admin_notices', 'ins_black_friday_20222_admin_notice' ); 
 	}    
 	
 	function ins_black_friday_notice_dismiss_callback() { 
