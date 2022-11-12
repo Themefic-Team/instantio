@@ -33,6 +33,13 @@ if ( !function_exists('instantio_layout_2') ) {
     			return;
     		}
 		}
+
+		// Return if cart page
+		if ( class_exists( 'woocommerce' ) ) {
+    		if (is_page( 'cart' ) || is_cart()) {
+    			return;
+    		}
+		}
 		
 		$toggle_panel_position = !empty(insopt( 'toggle-panel-position' )) ? insopt( 'toggle-panel-position' ) : '';
 		$toggler = !empty(insopt( 'ins-toggler' )) ? insopt( 'ins-toggler' ) : '';
