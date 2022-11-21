@@ -7,6 +7,54 @@
     padding: 0 !important;
 } */
 
+.ins-my-auto .cart-content .woocommerce-cart-form .woocommerce-content-box {
+  border: none;
+  border-color: transparent;
+  padding: 0;
+  margin-left: 0;
+  margin: 0;
+}
+
+.ins-my-auto .cart-content .woocommerce-cart-form .woocommerce-content-box h2 {
+  display: none;
+}
+
+.ins-my-auto
+  .cart-content
+  .woocommerce-cart-form
+  table
+  tbody
+  tr.woocommerce-cart-form__cart-item {
+  height: 70px;
+}
+
+.ins-container table.shop_table thead {
+  background: #f2f2f2;
+}
+
+.ins-container table.shop_table .product-thumbnail {
+  /* margin: 0; */
+  float: none;
+}
+
+.ins-inner
+  .woocommerce-cart-form
+  .woocommerce-cart-form__cart-item
+  .product-quantity
+  .ins-quantity
+  .quantity {
+  width: 35px !important;
+  height: 35px;
+}
+
+.ins-inner
+  .woocommerce-cart-form
+  .woocommerce-cart-form__cart-item
+  .product-quantity
+  .quantity {
+  height: 35px;
+}
+
 .ins-quantity .quantity a,
 .ins-quantity .quantity input[type="button"] {
   display: none !important;
