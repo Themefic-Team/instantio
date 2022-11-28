@@ -8,16 +8,11 @@
  * Domain Path: /lang/
  * Author URI: https://themefic.com
  * Tags: woocommerce, direct checkout, floating cart, side cart, ajax cart, cart popup, ajax add to cart, one page checkout, single page checkout, fly cart, mini cart, quick buy, instant checkout, quick checkout, same page checkout, sidebar cart, sticky cart, woocommerce ajax, one click checkout, woocommerce one page checkout, direct checkout woocommerce, woocommerce one click checkout, woocommerce quick checkout, woocommerce express checkout, woocommerce simple checkout, skip cart page woocommerce, woocommerce cart popup, edit woocommerce checkout page, woocommerce direct checkout
-<<<<<<< HEAD
- * Version: 2.5.11
- * Tested up to: 6.1
-=======
  * Version: 2.5.13
  * Tested up to: 6.1.1
->>>>>>> b3c1ca84dd37b77e84c465426ea2e0fd6c3b4def
  * Requires PHP: 7.2
  * WC tested up to: 7.1.0
-
+**/
  
 // don't load directly
 defined( 'ABSPATH' ) || exit;
@@ -47,13 +42,9 @@ define( 'INS_ADMIN_PATH', INS_PATH.'admin' );
 define( 'INS_INC_PATH', INS_PATH.'inc' );
 define( 'INS_LAYOUTS_PATH', INS_INC_PATH.'/layouts' );
 
-<<<<<<< HEAD
 if ( ! class_exists( 'Appsero\Client' ) ) { 
 	require_once (INS_INC_PATH . '/app/src/Client.php');
 }
-=======
-// require_once (INS_INC_PATH . '/app/src/Client.php');
->>>>>>> b3c1ca84dd37b77e84c465426ea2e0fd6c3b4def
 
 /**
  * Enqueue Admin scripts
@@ -97,11 +88,7 @@ if ( !is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
 
 // Define INSTANTIO_VERSION.
 if ( ! defined( 'INSTANTIO_VERSION' ) ) {
-<<<<<<< HEAD
-	define( 'INSTANTIO_VERSION', '2.5.10' );
-=======
 	define( 'INSTANTIO_VERSION', '2.5.13' );
->>>>>>> b3c1ca84dd37b77e84c465426ea2e0fd6c3b4def
 }
 
 /**
@@ -144,10 +131,6 @@ if ( ! function_exists( 'instantio_plugin_loaded_action' ) ) {
 	add_action( 'plugins_loaded', 'instantio_plugin_loaded_action' );
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> b3c1ca84dd37b77e84c465426ea2e0fd6c3b4def
 /**
  * Initialize the tracker
  *
@@ -157,11 +140,7 @@ if ( ! function_exists( 'instantio_plugin_loaded_action' ) ) {
 function appsero_init_tracker_instantio() {
 
     if ( ! class_exists( 'Appsero\Client' ) ) {
-<<<<<<< HEAD
-      require_once __DIR__ . '/inc/app/src/Client.php';
-=======
 	  require_once (INS_INC_PATH . '/app/src/Client.php');
->>>>>>> b3c1ca84dd37b77e84c465426ea2e0fd6c3b4def
     }
 
     $client = new Appsero\Client( '29e55a76-0819-490f-b692-8368956cbf12', 'instantio', __FILE__ );
