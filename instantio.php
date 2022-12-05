@@ -13,7 +13,7 @@
  * Requires PHP: 7.2
  * WC tested up to: 7.1.0
 **/
- 
+
 // don't load directly
 defined( 'ABSPATH' ) || exit;
 
@@ -42,9 +42,6 @@ define( 'INS_ADMIN_PATH', INS_PATH.'admin' );
 define( 'INS_INC_PATH', INS_PATH.'inc' );
 define( 'INS_LAYOUTS_PATH', INS_INC_PATH.'/layouts' );
 
-if ( ! class_exists( 'Appsero\Client' ) ) { 
-	require_once (INS_INC_PATH . '/app/src/Client.php');
-}
 
 /**
  * Enqueue Admin scripts
@@ -89,7 +86,8 @@ if ( !is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
 // Define INSTANTIO_VERSION.
 if ( ! defined( 'INSTANTIO_VERSION' ) ) {
 	define( 'INSTANTIO_VERSION', '2.5.13' );
-} 
+}
+
 
 /**
  * Load plugin textdomain.
@@ -140,7 +138,7 @@ if ( ! function_exists( 'instantio_plugin_loaded_action' ) ) {
 function appsero_init_tracker_instantio() {
 
     if ( ! class_exists( 'Appsero\Client' ) ) {
-	  require_once (INS_INC_PATH . '/app/src/Client.php');
+	    require_once (INS_INC_PATH . '/app/src/Client.php');
     }
 
     $client = new Appsero\Client( '29e55a76-0819-490f-b692-8368956cbf12', 'instantio', __FILE__ );
@@ -334,3 +332,4 @@ register_activation_hook(  plugin_dir_path( __FILE__ ) . 'instantio.php',  'ins_
 register_deactivation_hook( plugin_dir_path( __FILE__ ) . 'instantio.php', 'ins_deactivate' );
 
 ?>
+
