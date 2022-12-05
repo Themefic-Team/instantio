@@ -88,6 +88,7 @@
 .ins-container .ins-inner .cart-content form {
   width: 100%;
   padding: 0 !important;
+  margin: 0 !important;
 }
 
 /* Remove spinner of WooCommerce */
@@ -633,6 +634,9 @@
 .ins-container a.remove:hover {
   color: transparent !important;
   background: none;
+}
+.ins-container table.cart td {
+  vertical-align: middle;
 }
 .ins-container table.cart td.product-thumbnail {
   padding: 10px 0px 10px 10px;
