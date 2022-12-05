@@ -42,6 +42,7 @@ define( 'INS_ADMIN_PATH', INS_PATH.'admin' );
 define( 'INS_INC_PATH', INS_PATH.'inc' );
 define( 'INS_LAYOUTS_PATH', INS_INC_PATH.'/layouts' );
 
+
 /**
  * Enqueue Admin scripts
  * 
@@ -127,6 +128,7 @@ if ( ! function_exists( 'instantio_plugin_loaded_action' ) ) {
 	add_action( 'plugins_loaded', 'instantio_plugin_loaded_action' );
 }
 
+
 /**
  * Initialize the tracker
  *
@@ -136,7 +138,7 @@ if ( ! function_exists( 'instantio_plugin_loaded_action' ) ) {
 function appsero_init_tracker_instantio() {
 
     if ( ! class_exists( 'Appsero\Client' ) ) {
-	  require_once (INS_INC_PATH . '/app/src/Client.php');
+	      require_once (INS_INC_PATH . '/app/src/Client.php');
     }
 
     $client = new Appsero\Client( '29e55a76-0819-490f-b692-8368956cbf12', 'instantio', __FILE__ );
