@@ -89,7 +89,7 @@ if ( !is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
 // Define INSTANTIO_VERSION.
 if ( ! defined( 'INSTANTIO_VERSION' ) ) {
 	define( 'INSTANTIO_VERSION', '2.5.13' );
-}
+} 
 
 /**
  * Load plugin textdomain.
