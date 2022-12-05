@@ -11,7 +11,7 @@
  * Version: 2.5.13
  * Tested up to: 6.1.1
  * Requires PHP: 7.2
- * WC tested up to: 6.9.4
+ * WC tested up to: 7.1.0
  */
  
 // don't load directly
@@ -41,8 +41,6 @@ define( 'INS_PATH', plugin_dir_path( __FILE__ ) );
 define( 'INS_ADMIN_PATH', INS_PATH.'admin' );
 define( 'INS_INC_PATH', INS_PATH.'inc' );
 define( 'INS_LAYOUTS_PATH', INS_INC_PATH.'/layouts' );
-
-// require_once (INS_INC_PATH . '/app/src/Client.php');
 
 /**
  * Enqueue Admin scripts
