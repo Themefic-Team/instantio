@@ -180,7 +180,7 @@ function insclearcartCallBack() {
 if ( ! function_exists( 'cart_button' ) ) {
 	function cart_button() {
 
-		$on_cart_btn = !empty(insopt( 'cart-btn' )['on-cart-btn']) ? insopt( 'cart-btn' )['on-cart-btn'] : '';
+		$on_cart_btn = !empty(insopt( 'cart-btn' )['on-cart-btn']) ? insopt( 'cart-btn' )['on-cart-btn'] : true;
 		$cart_button_text = !empty(insopt( 'cart-btn' )['cart_button_text']) ? insopt( 'cart-btn' )['cart_button_text'] : '';
 		$cart_button_url = !empty(insopt( 'cart-btn' )['cart_button_url']) ? insopt( 'cart-btn' )['cart_button_url'] : '';
 
@@ -205,7 +205,7 @@ if ( ! function_exists( 'cart_button' ) ) {
 if ( ! function_exists( 'checkout_button' ) ) {
 	function checkout_button() {
 
-		$on_checkout_btn = !empty(insopt( 'checkout-btn' )['on-checkout-btn']) ? insopt( 'checkout-btn' )['on-checkout-btn'] : '';
+		$on_checkout_btn = !empty(insopt( 'checkout-btn' )['on-checkout-btn']) ? insopt( 'checkout-btn' )['on-checkout-btn'] : true;
 		$checkout_button_text = !empty(insopt( 'checkout-btn' )['checkout_button_text']) ? insopt( 'checkout-btn' )['checkout_button_text'] : '';
 		$checkout_button_url = !empty(insopt( 'checkout-btn' )['checkout_button_url']) ? insopt( 'checkout-btn' )['checkout_button_url'] : '';
 

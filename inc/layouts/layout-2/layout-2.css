@@ -84,6 +84,15 @@ html.ins-panel-open body {
   font-size: 18px;
 }
 
+/* Inner Cart Total */
+.cart-content .cart_totals h2 {
+  font-weight: 500;
+}
+
+.cart-content .cart_totals .wc-proceed-to-checkout {
+  display: none;
+}
+
 /* Inner Footer */
 .ins-lay2-container .ins-footer {
   padding: 10px 10px 20px 10px;
@@ -99,6 +108,7 @@ html.ins-panel-open body {
   display: grid;
   grid-column-gap: 10px;
   grid-template-columns: calc(50% - 5px) calc(50% - 5px);
+  margin-top: 20px;
 }
 .ins-lay2-container .ins-footer a {
   background: #ffffff;

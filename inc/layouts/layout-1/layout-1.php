@@ -29,6 +29,13 @@ if ( !function_exists('instantio_layout_1') ) {
     			return;
     		}
 		}
+
+		// Return if cart page
+		if ( class_exists( 'woocommerce' ) ) {
+    		if (is_page( 'cart' ) || is_cart()) {
+    			return;
+    		}
+		}
 		
 		$toggle_position_horizontal = !empty(insopt( 'toggle-position-horizontal' )) ? insopt( 'toggle-position-horizontal' ) : '';
 		$checkout_btn_txt = !empty(insopt( 'checkout-btn' )['checkout_button_text']) ? insopt( 'checkout-btn' )['checkout_button_text'] : '';

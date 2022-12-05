@@ -8,11 +8,11 @@
  * Domain Path: /lang/
  * Author URI: https://themefic.com
  * Tags: woocommerce, direct checkout, floating cart, side cart, ajax cart, cart popup, ajax add to cart, one page checkout, single page checkout, fly cart, mini cart, quick buy, instant checkout, quick checkout, same page checkout, sidebar cart, sticky cart, woocommerce ajax, one click checkout, woocommerce one page checkout, direct checkout woocommerce, woocommerce one click checkout, woocommerce quick checkout, woocommerce express checkout, woocommerce simple checkout, skip cart page woocommerce, woocommerce cart popup, edit woocommerce checkout page, woocommerce direct checkout
- * Version: 2.5.12
+ * Version: 2.5.13
  * Tested up to: 6.1.1
  * Requires PHP: 7.2
  * WC tested up to: 7.1.0
-
+ */
  
 // don't load directly
 defined( 'ABSPATH' ) || exit;
@@ -42,9 +42,6 @@ define( 'INS_ADMIN_PATH', INS_PATH.'admin' );
 define( 'INS_INC_PATH', INS_PATH.'inc' );
 define( 'INS_LAYOUTS_PATH', INS_INC_PATH.'/layouts' );
 
-if ( ! class_exists( 'Appsero\Client' ) ) { 
-	require_once (INS_INC_PATH . '/app/src/Client.php');
-}
 
 /**
  * Enqueue Admin scripts
@@ -88,7 +85,7 @@ if ( !is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
 
 // Define INSTANTIO_VERSION.
 if ( ! defined( 'INSTANTIO_VERSION' ) ) {
-	define( 'INSTANTIO_VERSION', '2.5.10' );
+	define( 'INSTANTIO_VERSION', '2.5.13' );
 }
 
 /**
@@ -98,6 +95,7 @@ function ins_load_textdomain() {
 	load_plugin_textdomain( 'instantio', false, 'instantio/lang/' );
 }
 add_action( 'init', 'ins_load_textdomain' );
+
 
 /*
  * Plugins Loaded
@@ -140,7 +138,7 @@ if ( ! function_exists( 'instantio_plugin_loaded_action' ) ) {
 function appsero_init_tracker_instantio() {
 
     if ( ! class_exists( 'Appsero\Client' ) ) {
-      require_once __DIR__ . '/inc/app/src/Client.php';
+	    require_once (INS_INC_PATH . '/app/src/Client.php');
     }
 
     $client = new Appsero\Client( '29e55a76-0819-490f-b692-8368956cbf12', 'instantio', __FILE__ );
@@ -254,6 +252,26 @@ function instantio_plugin_action_links( $links ) {
 }
 add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'instantio_plugin_action_links' );
 
+
+
+function ins_activate() {
+	$installed = get_option( 'instantio_active_time' );
+
+	if ( ! $installed ) {
+		update_option( 'instantio_active_time', time() );
+	}
+	
+}
+
+function ins_deactivate() {
+	$installed = get_option( 'instantio_active_time' );
+	if($installed){
+		delete_option('instantio_active_time' );
+	}
+}
+
+
+
 /**
  * Admin review notice
  */
@@ -262,7 +280,14 @@ function ins_admin_rating_notice () {
 	if ($display_status) { ?>
 
 		<div id='ins-notice' class="ins-notice notice notice-info">
-			<p style="float: left;"><?php echo sprintf(__('If you like %1$sInstantio%2$s please leave a review', 'instantio'), '<strong>', '</strong>'); ?></p>
+			<p style="float: left;">
+				<?php 
+					echo sprintf(__('If you like %1$sInstantio%2$s please leave a review ', 'instantio'), '<strong>', '</strong>');
+					
+					$ins_activetime = get_option('instantio_active_time' );
+ 					echo date("F d, Y h:i:s", $ins_activetime); 
+				?>
+			</p>
 			<p style="float: right;">
 				<a href="//wordpress.org/plugins/instantio" target="_blank"><?php _e('Rate Us', 'instantio'); ?> <span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span></a>
 				<a class="maybe-dis"><?php _e('Maybe later', 'instantio'); ?></a>
@@ -286,7 +311,12 @@ function ins_admin_rating_notice () {
 
 	<?php }
 }
-add_action( 'admin_notices', 'ins_admin_rating_notice' );
+$ins_activetime = get_option('instantio_active_time' );
+$ins_activetime= 00;
+if( time() < $ins_activetime){
+	add_action( 'admin_notices', 'ins_admin_rating_notice' );
+}
+
 
 function disable_ins_notice() {
 	update_option( 'ins-dismiss', false );
@@ -298,4 +328,7 @@ function set_ins_dismiss() {
     update_option( 'ins-dismiss', true );
 }
 register_activation_hook(  plugin_dir_path( __FILE__ ) . 'instantio.php', 'set_ins_dismiss' );
+register_activation_hook(  plugin_dir_path( __FILE__ ) . 'instantio.php',  'ins_activate');
+register_deactivation_hook( plugin_dir_path( __FILE__ ) . 'instantio.php', 'ins_deactivate' );
+
 ?>
