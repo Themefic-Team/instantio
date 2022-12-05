@@ -314,7 +314,7 @@ function ins_admin_rating_notice () {
 	<?php }
 }
 $ins_activetime = get_option('instantio_active_time' );
-$ins_activetime=+120;
+$ins_activetime= 00;
 if( time() < $ins_activetime){
 	add_action( 'admin_notices', 'ins_admin_rating_notice' );
 }
