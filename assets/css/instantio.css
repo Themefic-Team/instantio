@@ -46,6 +46,17 @@
   .woocommerce-cart-form
   .woocommerce-cart-form__cart-item
   .product-quantity
+  .ins-quantity
+  .quantity
+  input {
+  width: 100%;
+  height: 100%;
+}
+
+.ins-inner
+  .woocommerce-cart-form
+  .woocommerce-cart-form__cart-item
+  .product-quantity
   .quantity {
   height: 35px;
 }
