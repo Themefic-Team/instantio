@@ -271,63 +271,6 @@ function ins_deactivate() {
 }
 
 
-
-/**
- * Admin review notice
- */
-function ins_admin_rating_notice () { 
-	$display_status = get_option( 'ins-dismiss' );
-	if ($display_status) { ?>
-
-		<div id='ins-notice' class="ins-notice notice notice-info">
-			<p style="float: left;">
-				<?php 
-					echo sprintf(__('If you like %1$sInstantio%2$s please leave a review ', 'instantio'), '<strong>', '</strong>');
-					
-					$ins_activetime = get_option('instantio_active_time' );
- 					echo date("F d, Y h:i:s", $ins_activetime); 
-				?>
-			</p>
-			<p style="float: right;">
-				<a href="//wordpress.org/plugins/instantio" target="_blank"><?php _e('Rate Us', 'instantio'); ?> <span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span></a>
-				<a class="maybe-dis"><?php _e('Maybe later', 'instantio'); ?></a>
-				<a class="done-dis"><?php _e('Already Rated', 'instantio'); ?> <span class="dashicons dashicons-smiley"></span></a>
-			</p>
-		</div>
-
-		<script>
-			jQuery(document).ready(function($) {
-				$(document).on('click', '#ins-notice .maybe-dis, #ins-notice .done-dis', function( event ) {
-					jQuery('#ins-notice').css('display', 'none')
-					data = {
-						action : 'disable_ins_notice',
-					};
-
-					$.post(ajaxurl, data, function (response) {
-					});
-				});
-			});
-		</script>
-
-	<?php }
-}
-$ins_activetime = get_option('instantio_active_time' );
-$ins_activetime= 00;
-if( time() < $ins_activetime){
-	add_action( 'admin_notices', 'ins_admin_rating_notice' );
-}
-
-
-function disable_ins_notice() {
-	update_option( 'ins-dismiss', false );
-	wp_die();
-}
-add_action( 'wp_ajax_disable_ins_notice', 'disable_ins_notice' );
-
-function set_ins_dismiss() {
-    update_option( 'ins-dismiss', true );
-}
-register_activation_hook(  plugin_dir_path( __FILE__ ) . 'instantio.php', 'set_ins_dismiss' );
 register_activation_hook(  plugin_dir_path( __FILE__ ) . 'instantio.php',  'ins_activate');
 register_deactivation_hook( plugin_dir_path( __FILE__ ) . 'instantio.php', 'ins_deactivate' );
 
