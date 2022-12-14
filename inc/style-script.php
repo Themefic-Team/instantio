@@ -70,6 +70,8 @@ if ( !function_exists('instantio_enqueue_scripts') ) {
 	add_action( 'wp_enqueue_scripts', 'instantio_enqueue_scripts', 9999 );
 }
 
+
+
 /*
  * 
  * CUSTOM CSS
@@ -106,9 +108,19 @@ if ($detect->isMobile() && !$detect->isTablet() && $dedicated_mobile == true) {}
     				.ins-container {visibility: visible !important;}
     			'; }
 			}
-			// if( $show_checkout_btn != true || $show_cart_btn != true) { $output .= '
-			// 	.ins-footer .footer-button {grid-template-columns: auto !important;}
-			// '; }
+
+			//Cart Footer Button 
+			if( $show_checkout_btn != true || $show_cart_btn != true) { $output .= '
+				.ins-footer .footer-button {grid-template-columns: auto !important;}
+			'; }
+
+			if( $show_cart_btn != true) { $output .= '
+				.ins-lay2-container .ins-footer a:nth-child(1){display: none !important;}
+			'; }
+
+			if( $show_checkout_btn != true) { $output .= '
+				.ins-lay2-container .ins-footer a:nth-child(2){display: none !important;}
+			'; }
 			
 			// Toggler CSS
 			if( $tg_bg_color_reg  ) { $output .= '
