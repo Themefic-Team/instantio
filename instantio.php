@@ -11,9 +11,9 @@
  * Version: 2.5.14
  * Tested up to: 6.1.1
  * Requires PHP: 7.2
- * WC tested up to: 7.1.0
- */
- 
+ * WC tested up to: 7.1.1
+**/
+
 // don't load directly
 defined( 'ABSPATH' ) || exit;
 
@@ -88,6 +88,7 @@ if ( ! defined( 'INSTANTIO_VERSION' ) ) {
 	define( 'INSTANTIO_VERSION', '2.5.14' );
 }
 
+
 /**
  * Load plugin textdomain.
  */
@@ -127,7 +128,6 @@ if ( ! function_exists( 'instantio_plugin_loaded_action' ) ) {
 	}
 	add_action( 'plugins_loaded', 'instantio_plugin_loaded_action' );
 }
-
 
 /**
  * Initialize the tracker
@@ -278,5 +278,7 @@ function ins_deactivate() {
 }
 
 
+
 register_activation_hook( plugin_dir_path( __FILE__ ) . 'instantio.php',  'ins_activate');
 register_deactivation_hook( plugin_dir_path( __FILE__ ) . 'instantio.php', 'ins_deactivate');
+
