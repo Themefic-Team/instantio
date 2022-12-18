@@ -8,10 +8,10 @@
  * Domain Path: /lang/
  * Author URI: https://themefic.com
  * Tags: woocommerce, direct checkout, floating cart, side cart, ajax cart, cart popup, ajax add to cart, one page checkout, single page checkout, fly cart, mini cart, quick buy, instant checkout, quick checkout, same page checkout, sidebar cart, sticky cart, woocommerce ajax, one click checkout, woocommerce one page checkout, direct checkout woocommerce, woocommerce one click checkout, woocommerce quick checkout, woocommerce express checkout, woocommerce simple checkout, skip cart page woocommerce, woocommerce cart popup, edit woocommerce checkout page, woocommerce direct checkout
- * Version: 2.5.14
+ * Version: 2.5.15
  * Tested up to: 6.1.1
  * Requires PHP: 7.2
- * WC tested up to: 7.1.1
+ * WC tested up to: 7.2.0
 **/
 
 // don't load directly
@@ -85,7 +85,7 @@ if ( !is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
 
 // Define INSTANTIO_VERSION.
 if ( ! defined( 'INSTANTIO_VERSION' ) ) {
-	define( 'INSTANTIO_VERSION', '2.5.14' );
+	define( 'INSTANTIO_VERSION', '2.5.15' );
 }
 
 
@@ -143,10 +143,17 @@ function appsero_init_tracker_instantio() {
 
     $client = new Appsero\Client( '29e55a76-0819-490f-b692-8368956cbf12', 'instantio', __FILE__ );
 
+	$notice = sprintf( $client->__trans( 'I agree to get Important Product Updates & Discount related information on my email from  %1$s (I can unsubscribe anytime).' ), $client->name );
+       
+	// Change notice text
+	$client->insights()->notice($notice);
+
     // Active insights
     $client->insights()->init();
 
 }
+
+
 
 appsero_init_tracker_instantio();
 
@@ -271,8 +278,7 @@ function ins_deactivate() {
 }
 
 
-register_activation_hook(  plugin_dir_path( __FILE__ ) . 'instantio.php',  'ins_activate');
-register_deactivation_hook( plugin_dir_path( __FILE__ ) . 'instantio.php', 'ins_deactivate' );
 
-?>
+register_activation_hook( plugin_dir_path( __FILE__ ) . 'instantio.php',  'ins_activate');
+register_deactivation_hook( plugin_dir_path( __FILE__ ) . 'instantio.php', 'ins_deactivate');
 
