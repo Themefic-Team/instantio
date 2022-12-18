@@ -88,6 +88,7 @@ if ( ! defined( 'INSTANTIO_VERSION' ) ) {
 	define( 'INSTANTIO_VERSION', '2.5.15' );
 }
 
+
 /**
  * Load plugin textdomain.
  */
@@ -127,7 +128,6 @@ if ( ! function_exists( 'instantio_plugin_loaded_action' ) ) {
 	}
 	add_action( 'plugins_loaded', 'instantio_plugin_loaded_action' );
 }
-
 
 /**
  * Initialize the tracker
@@ -278,5 +278,7 @@ function ins_deactivate() {
 }
 
 
+
 register_activation_hook( plugin_dir_path( __FILE__ ) . 'instantio.php',  'ins_activate');
 register_deactivation_hook( plugin_dir_path( __FILE__ ) . 'instantio.php', 'ins_deactivate');
+
