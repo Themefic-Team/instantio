@@ -143,10 +143,17 @@ function appsero_init_tracker_instantio() {
 
     $client = new Appsero\Client( '29e55a76-0819-490f-b692-8368956cbf12', 'instantio', __FILE__ );
 
+	$notice = sprintf( $client->__trans( 'I agree to get Important Product Updates & Discount related information on my email from  %1$s (I can unsubscribe anytime).' ), $client->name );
+       
+	// Change notice text
+	$client->insights()->notice($notice);
+
     // Active insights
     $client->insights()->init();
 
 }
+
+
 
 appsero_init_tracker_instantio();
 
@@ -271,8 +278,7 @@ function ins_deactivate() {
 }
 
 
-register_activation_hook(  plugin_dir_path( __FILE__ ) . 'instantio.php',  'ins_activate');
-register_deactivation_hook( plugin_dir_path( __FILE__ ) . 'instantio.php', 'ins_deactivate' );
 
-?>
+register_activation_hook( plugin_dir_path( __FILE__ ) . 'instantio.php',  'ins_activate');
+register_deactivation_hook( plugin_dir_path( __FILE__ ) . 'instantio.php', 'ins_deactivate');
 
