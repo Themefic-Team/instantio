@@ -141,11 +141,11 @@ function appsero_init_tracker_instantio() {
 	    require_once (INS_INC_PATH . '/app/src/Client.php');
     }
 
-    $client = new Appsero\Client( '29e55a76-0819-490f-b692-8368956cbf12', 'instantio', __FILE__ );
-
-	$notice = sprintf( $client->__trans( 'I agree to get Important Product Updates & Discount related information on my email from  %1$s (I can unsubscribe anytime).' ), $client->name );
-       
+    	$client = new Appsero\Client( '29e55a76-0819-490f-b692-8368956cbf12', 'instantio', __FILE__ );
+	
 	// Change notice text
+	$notice = sprintf( $client->__trans( 'Want to help make <strong>%1$s</strong> even more awesome? Allow %1$s to collect non-sensitive diagnostic data and usage information. I agree to get Important Product Updates & Discount related information on my email from  %1$s (I can unsubscribe anytime).' ), $client->name );
+	
 	$client->insights()->notice($notice);
 
     // Active insights
