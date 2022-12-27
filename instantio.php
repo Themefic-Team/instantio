@@ -260,7 +260,6 @@ function instantio_plugin_action_links( $links ) {
 add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'instantio_plugin_action_links' );
 
 
-
 function ins_activate() {
 	$installed = get_option( 'instantio_active_time' );
 
@@ -281,4 +280,3 @@ function ins_deactivate() {
 
 register_activation_hook( plugin_dir_path( __FILE__ ) . 'instantio.php',  'ins_activate');
 register_deactivation_hook( plugin_dir_path( __FILE__ ) . 'instantio.php', 'ins_deactivate');
-
