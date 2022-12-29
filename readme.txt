@@ -3,9 +3,9 @@ Contributors: themefic, hemelhasan, hasanet, fida02, mdshuvo
 Tags: woocommerce, direct checkout, woocommerce checkout, floating cart, side cart, ajax cart, cart popup, popup cart, ajax add to cart, one page checkout, single page checkout, fly cart, mini cart, quick buy, instant checkout, quick checkout, same page checkout, sidebar cart, sticky cart, woocommerce ajax, one click checkout, woocommerce one page checkout, direct checkout woocommerce, woocommerce one click checkout, woocommerce quick checkout, woocommerce express checkout, woocommerce simple checkout, skip cart page woocommerce, woocommerce cart popup, edit woocommerce checkout page, woocommerce direct checkout, checkout manager, woocommerce checkout manager, One Page Checkout, WooCommerce One Page Checkout
 Requires at least: 4.0
 Tested up to: 6.1.1
-Stable tag: 2.5.15
+Stable tag: 2.5.16
 WC requires at least: 5.0
-WC tested up to: 7.2.0
+WC tested up to: 7.2.2
 Requires PHP: 7.2
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -16,10 +16,10 @@ Checkout Instantly within 10-15 seconds using Side Cart, Popup Cart, Slide Check
 
 = The easiest and fastest WooCommerce Checkout Process by Instantio =
 
-ðŸ‘‰ Official Demo Link: [Instantio Live Preview](https://wpinstant.io/go/free/)
-ðŸ‘‰ Installation Guide: [How to Setup Instantio](https://www.youtube.com/watch?v=1biwrwu-Io8)
-ðŸ‘‰ Join Our FB Community: [Instantio Facebook Group](https://www.facebook.com/groups/instantio.wp)
-ðŸ‘‰ Development Roadmaps: [Upcoming Plan for 2021](https://wpinstant.io/roadmap/)
+👉 Official Demo Link: [Instantio Live Preview](https://wpinstant.io/go/free/)
+👉 Installation Guide: [How to Setup Instantio](https://www.youtube.com/watch?v=1biwrwu-Io8)
+👉 Join Our FB Community: [Instantio Facebook Group](https://www.facebook.com/groups/instantio.wp)
+👉 Development Roadmaps: [Upcoming Plan for 2021](https://wpinstant.io/roadmap/)
 
 <strong>8 Different Checkout Options (Quick Demo): </strong>
 
@@ -286,6 +286,11 @@ Yes, Instantio offers a simple checkout WooCommerce solution. You can also <stro
 
 
 == Changelog ==
+
+= 2.5.16 = ( December 29, 2022 )
+
+- WC tested up to: 7.2.2
+- Fixed: Css Issue
 
 = 2.5.15 = ( December 18, 2022 )
 
