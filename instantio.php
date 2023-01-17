@@ -63,6 +63,14 @@ if ( !function_exists('ins_enqueue_admin_scripts') ) {
     }
     add_action( 'admin_enqueue_scripts', 'ins_enqueue_admin_scripts' );
 }
+/**
+ * Check if WooCommerce is active, and if it isn't, disable the plugin.
+ *
+ * @since 1.0
+ */
+if(is_admin()){
+	require_once( INS_ADMIN_PATH.'/admin-notice.php' ); 
+}
 
 /**
  * Check if WooCommerce is active, and if it isn't, disable the plugin.
