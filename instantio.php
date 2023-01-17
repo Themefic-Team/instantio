@@ -8,6 +8,7 @@
  * Domain Path: /lang/
  * Author URI: https://themefic.com
  * Tags: woocommerce, direct checkout, floating cart, side cart, ajax cart, cart popup, ajax add to cart, one page checkout, single page checkout, fly cart, mini cart, quick buy, instant checkout, quick checkout, same page checkout, sidebar cart, sticky cart, woocommerce ajax, one click checkout, woocommerce one page checkout, direct checkout woocommerce, woocommerce one click checkout, woocommerce quick checkout, woocommerce express checkout, woocommerce simple checkout, skip cart page woocommerce, woocommerce cart popup, edit woocommerce checkout page, woocommerce direct checkout
+
  * Version: 2.5.17
  * Tested up to: 6.1.1
  * Requires PHP: 7.2
@@ -63,6 +64,14 @@ if ( !function_exists('ins_enqueue_admin_scripts') ) {
     }
     add_action( 'admin_enqueue_scripts', 'ins_enqueue_admin_scripts' );
 }
+/**
+ * Check if WooCommerce is active, and if it isn't, disable the plugin.
+ *
+ * @since 1.0
+ */
+if(is_admin()){
+	require_once( INS_ADMIN_PATH.'/admin-notice.php' ); 
+}
 
 /**
  * Check if WooCommerce is active, and if it isn't, disable the plugin.
@@ -85,7 +94,9 @@ if ( !is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
 
 // Define INSTANTIO_VERSION.
 if ( ! defined( 'INSTANTIO_VERSION' ) ) {
+
 	define( 'INSTANTIO_VERSION', '2.5.17' );
+
 }
 
 
@@ -260,7 +271,6 @@ function instantio_plugin_action_links( $links ) {
 add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'instantio_plugin_action_links' );
 
 
-
 function ins_activate() {
 	$installed = get_option( 'instantio_active_time' );
 
@@ -281,4 +291,3 @@ function ins_deactivate() {
 
 register_activation_hook( plugin_dir_path( __FILE__ ) . 'instantio.php',  'ins_activate');
 register_deactivation_hook( plugin_dir_path( __FILE__ ) . 'instantio.php', 'ins_deactivate');
-
