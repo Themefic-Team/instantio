@@ -8,12 +8,13 @@
  * Domain Path: /lang/
  * Author URI: https://themefic.com
  * Tags: woocommerce, direct checkout, floating cart, side cart, ajax cart, cart popup, ajax add to cart, one page checkout, single page checkout, fly cart, mini cart, quick buy, instant checkout, quick checkout, same page checkout, sidebar cart, sticky cart, woocommerce ajax, one click checkout, woocommerce one page checkout, direct checkout woocommerce, woocommerce one click checkout, woocommerce quick checkout, woocommerce express checkout, woocommerce simple checkout, skip cart page woocommerce, woocommerce cart popup, edit woocommerce checkout page, woocommerce direct checkout
- * Version: 2.5.15
+
+ * Version: 2.5.17
  * Tested up to: 6.1.1
  * Requires PHP: 7.2
- * WC tested up to: 7.2.0
- */
- 
+ * WC tested up to: 7.2.2
+**/
+
 // don't load directly
 defined( 'ABSPATH' ) || exit;
 
@@ -93,7 +94,9 @@ if ( !is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
 
 // Define INSTANTIO_VERSION.
 if ( ! defined( 'INSTANTIO_VERSION' ) ) {
-	define( 'INSTANTIO_VERSION', '2.5.15' );
+
+	define( 'INSTANTIO_VERSION', '2.5.17' );
+
 }
 
 
@@ -149,11 +152,11 @@ function appsero_init_tracker_instantio() {
 	    require_once (INS_INC_PATH . '/app/src/Client.php');
     }
 
-    $client = new Appsero\Client( '29e55a76-0819-490f-b692-8368956cbf12', 'instantio', __FILE__ );
-
-	$notice = sprintf( $client->__trans( 'I agree to get Important Product Updates & Discount related information on my email from  %1$s (I can unsubscribe anytime).' ), $client->name );
-       
+    	$client = new Appsero\Client( '29e55a76-0819-490f-b692-8368956cbf12', 'instantio', __FILE__ );
+	
 	// Change notice text
+	$notice = sprintf( $client->__trans( 'Want to help make <strong>%1$s</strong> even more awesome? Allow %1$s to collect non-sensitive diagnostic data and usage information. I agree to get Important Product Updates & Discount related information on my email from  %1$s (I can unsubscribe anytime).' ), $client->name );
+	
 	$client->insights()->notice($notice);
 
     // Active insights
