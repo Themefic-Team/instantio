@@ -61,6 +61,8 @@
   height: 35px;
 }
 
+.ins-quantity button.plus,
+.ins-quantity button.minus,
 .ins-quantity .quantity a,
 .ins-quantity .quantity input[type="button"] {
   display: none !important;
