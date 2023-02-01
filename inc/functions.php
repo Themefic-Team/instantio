@@ -1,10 +1,6 @@
 <?php 
 defined( 'ABSPATH' ) || exit;
-
-// Mobile detect
-if( class_exists( 'INS_Mobile_Detect' ) ) {
-	$detect = new INS_Mobile_Detect;
-}
+ 
 
 if ( is_plugin_active( 'wooinstant/wooinstant.php' ) ) {
 	$dedicated_mobile = !empty(insopt('mobile')) ? insopt('mobile') : '0';
@@ -19,77 +15,11 @@ add_filter( 'body_class', function( $classes ) {
     return array_merge( $classes, array( 'instantio' ) );
 } );
 
-/**
- * Ajax cart item count
- * Conditiional CSS
- * Cart fragments
- */
-if ($detect->isMobile() && !$detect->isTablet() && $dedicated_mobile == true) {} else {
-	if (!function_exists('ins_cart_fragments')){
-		function ins_cart_fragments($fragments) {
-			ob_start();
-			?>
-			<div class="ins-cart-fragments">
-
-				<?php
-				$cart_item_count = WC()->cart->get_cart_contents_count();
-				$hide_toggler = !empty(insopt( 'hide-toggler' )) ? insopt( 'hide-toggler' ) : '';
-				?>
-
-				<script type='text/javascript'>
-					var wiCartTotal = <?php echo $cart_item_count; ?>;
-					jQuery('.ins_cart_total').html('<?php echo $cart_item_count; ?>');
-				</script>
-
-				<?php
-				// Hide toggler when cart count 0
-				if( $hide_toggler == true ) { 
-					if ($cart_item_count == 0) {
-					?>
-						<script>					
-							jQuery(document).ready(function() {
-								jQuery('.ins-container').addClass( 'nocart' );
-								jQuery('html').removeClass('ins-panel-open');
-								jQuery.fancybox.close();
-							});
-						</script>
-					<?php 
-					} else { 
-					?>
-						<script>
-							jQuery('.ins-container').removeClass( 'nocart' );
-						</script>
-					<?php
-					} 
-				} 
-
-				if ( $cart_item_count == 0 ) {
-				?>												
-					<style type="text/css">
-						.cart-content {display:none !important;}
-					</style>				
-				<?php
-				} else {
-				?>
-					<script>
-						jQuery('.ins-container').removeClass( 'nocart' );
-					</script>				
-					<style type="text/css">
-						.empty-cart-content {display:none !important;}
-					</style>				
-				<?php 
-				}
-				?>
-
-			</div>
-			<?php
-			$fragments['.ins-cart-fragments'] = ob_get_clean();
-			return $fragments;
-		}
-	}
-	add_filter( 'woocommerce_add_to_cart_fragments', 'ins_cart_fragments', 10, 1 );
+function insopt( $option = '', $default = null ) {
+    $options = get_option( 'wiopt' ); 
+    return ( isset( $options[$option] ) ) ? $options[$option] : $default;
 }
-
+ 
 /**
  *	Ajax variable products quick view
  */
@@ -252,22 +182,22 @@ if ( !function_exists('fancybox_enqueue_scripts') ) {
  *	Including Layouts
  */
 
-if ($detect->isMobile() && !$detect->isTablet() && $dedicated_mobile == true) {
-	return;
-} else {
+// if ($detect->isMobile() && !$detect->isTablet() && $dedicated_mobile == true) {
+// 	return;
+// } else {
 
-	require_once( INS_LAYOUTS_PATH . '/toggler.php' );
+// 	require_once( INS_LAYOUTS_PATH . '/toggler.php' );
 
-	$ins_layout = !empty(insopt( 'ins-layout' )) ? insopt( 'ins-layout' ) : '';
+// 	$ins_layout = !empty(insopt( 'ins-layout' )) ? insopt( 'ins-layout' ) : '';
 
-	if ($ins_layout == 1) {
-		require_once INS_LAYOUTS_PATH . '/layout-1/layout-1.php';
-	} elseif ($ins_layout == 2) {
-		require_once INS_LAYOUTS_PATH . '/layout-2/layout-2.php';
-	} elseif ($ins_layout == 3) {
-		require_once INS_LAYOUTS_PATH . '/layout-3/layout-3.php';
-	}
-}
+// 	if ($ins_layout == 1) {
+// 		require_once INS_LAYOUTS_PATH . '/layout-1/layout-1.php';
+// 	} elseif ($ins_layout == 2) {
+// 		require_once INS_LAYOUTS_PATH . '/layout-2/layout-2.php';
+// 	} elseif ($ins_layout == 3) {
+// 		require_once INS_LAYOUTS_PATH . '/layout-3/layout-3.php';
+// 	}
+// }
 
 /**
  * Black Friday Deals 2022
