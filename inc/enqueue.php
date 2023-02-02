@@ -1,6 +1,14 @@
 <?php 
+/**
+ * Enqueue scripts and styles.
+ *
+ * @link https://developer.wordpress.org/themes/basics/theme-functions/
+ *
+ * @package instantio
+ */
+namespace INS\Includes;
 
-class INS_ENQUEUE {
+class Enqueue {
     public function __construct() {  
         add_action( 'admin_enqueue_scripts', array($this, 'ins_enqueue_admin_scripts') );
         add_action( 'wp_enqueue_scripts', array($this, 'ins_dequeue_scripts'), 999 );
@@ -235,6 +243,6 @@ class INS_ENQUEUE {
 		wp_add_inline_script( 'instantio-inline-scripts', $output );
 	}
 }
-new INS_ENQUEUE();
+// new INS_ENQUEUE();
  
 ?>
