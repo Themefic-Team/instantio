@@ -17,6 +17,8 @@ if( class_exists( 'CSF' ) ) {
     'show_bar_menu' => false,
   ) );
 
+
+
   /*
   * Including General Options
   */    

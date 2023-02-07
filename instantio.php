@@ -18,275 +18,114 @@
 // don't load directly
 defined( 'ABSPATH' ) || exit;
 
-/**
- * Including Plugin file
- * 
- * @since 1.0
- */
-include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
-
-
-/**
- * Instantio All the Defines
- *
- * @since 1.0
- */
-// URLs
-define( 'INS_URL', plugin_dir_url( __FILE__ ) );
-define( 'INS_INC_URL', INS_URL.'inc' );
-define( 'INS_LAYOUTS_URL', INS_URL.'inc/layouts' );
-define( 'INS_ASSETS_URL', INS_URL.'assets' );
-define( 'INS_ADMIN_URL', INS_URL.'admin' );
-// Paths
-define( 'INS_PATH', plugin_dir_path( __FILE__ ) );
-define( 'INS_ADMIN_PATH', INS_PATH.'admin' );
-define( 'INS_INC_PATH', INS_PATH.'inc' );
-define( 'INS_LAYOUTS_PATH', INS_INC_PATH.'/layouts' );
-
-
-/**
- * Enqueue Admin scripts
- * 
- * @since 1.0
- */
-if ( !function_exists('ins_enqueue_admin_scripts') ) {
-    function ins_enqueue_admin_scripts(){
-
-        // Custom
-		wp_enqueue_style('ins-admin', INS_ADMIN_URL . '/css/admin.css','', '' );
-		wp_enqueue_script( 'ins-admin', INS_ADMIN_URL . '/js/admin.js', array('jquery'), '', true );  
-        wp_localize_script( 'ins-admin', 'ins_params',
-            array(
-                'ins_nonce' => wp_create_nonce( 'updates' ),
-                'ajax_url' => admin_url( 'admin-ajax.php' ),
-            )
-        );    
-    }
-    add_action( 'admin_enqueue_scripts', 'ins_enqueue_admin_scripts' );
-}
-/**
- * Check if WooCommerce is active, and if it isn't, disable the plugin.
- *
- * @since 1.0
- */
-if(is_admin()){
-	require_once( INS_ADMIN_PATH.'/admin-notice.php' ); 
-}
-
-/**
- * Check if WooCommerce is active, and if it isn't, disable the plugin.
- *
- * @since 1.0
- */
-if ( !is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
-	add_action( 'admin_notices', 'ins_is_woo' );
+class INSTANTIO {
+	
+	public function __construct() {
+		$this->define_constants();
+		$this->includes();
+		$this->init_hooks();
+	}
 
 	/**
-     * Ajax install & activate WooCommerce
-     *
-     * @since 1.0
-     * @link https://developer.wordpress.org/reference/functions/wp_ajax_install_plugin/
-     */
-    add_action("wp_ajax_ins_ajax_install_plugin" , "wp_ajax_install_plugin");
-
-	return;
-}
-
-// Define INSTANTIO_VERSION.
-if ( ! defined( 'INSTANTIO_VERSION' ) ) {
-	define( 'INSTANTIO_VERSION', '2.5.19' );
-
-}
-
-
-/**
- * Load plugin textdomain.
- */
-function ins_load_textdomain() {
-	load_plugin_textdomain( 'instantio', false, 'instantio/lang/' );
-}
-add_action( 'init', 'ins_load_textdomain' );
-
-
-/*
- * Plugins Loaded
- * Including Option Framework
- * Including Options
- * Disable WooCommerce Notices
- */
-if ( ! function_exists( 'instantio_plugin_loaded_action' ) ) {
-	function instantio_plugin_loaded_action() {
+	 * Define constants
+	 */
+	private function define_constants() {
+		if ( ! defined( 'INSTANTIO_VERSION' ) ) { 
+			define( 'INSTANTIO_VERSION', '2.5.18' ); 
+		} 
+		define( 'INS_ROOT_URL', plugin_dir_url( __FILE__ ) );
+		define( 'INS_CLASSIC_URL', INS_ROOT_URL.'classic' );
+		define( 'INS_MODERN_URL', INS_ROOT_URL.'modern' );
+		define( 'INS_ROOT_PATH', plugin_dir_path( __FILE__ ) ); 
+		define( 'INS_CLASSIC_PATH', INS_ROOT_PATH.'classic' );
+		define( 'INS_MODERN_PATH', INS_ROOT_PATH.'modern' ); 
 		
-		// Option Framework
-		if ( file_exists( INS_ADMIN_PATH .'/framework/framework.php' ) ) {
-			require_once( INS_ADMIN_PATH .'/framework/framework.php' );
-		}
 		
-		// Options
-		if ( file_exists( WP_PLUGIN_DIR .'/wooinstant/admin/config.php' )  && defined( 'INSTANTIO_PRO_CONFIG' ) && defined( 'INSTANTIO_PRO' ) ) {
-			require_once( WP_PLUGIN_DIR .'/wooinstant/admin/config.php' );
-		} elseif ( file_exists( INS_ADMIN_PATH .'/config.php' ) ) {
-			require_once( INS_ADMIN_PATH .'/config.php' );
-		}
-
-		// Disable WooCommerce Notices
-		if ( class_exists( 'woocommerce' ) ) {
-			remove_action( 'woocommerce_before_shop_loop', 'woocommerce_output_all_notices', 10 );
-			remove_action( 'woocommerce_before_single_product', 'woocommerce_output_all_notices', 10 );
-			add_filter('woocommerce_cart_item_removed_notice_type', '__return_null');
-		}
 	}
-	add_action( 'plugins_loaded', 'instantio_plugin_loaded_action' );
-}
 
-/**
- * Initialize the tracker
- *
- * @return void
- */
-
-function appsero_init_tracker_instantio() {
-
-    if ( ! class_exists( 'Appsero\Client' ) ) {
-	    require_once (INS_INC_PATH . '/app/src/Client.php');
-    }
-
-    	$client = new Appsero\Client( '29e55a76-0819-490f-b692-8368956cbf12', 'instantio', __FILE__ );
-	
-	// Change notice text
-	$notice = sprintf( $client->__trans( 'Want to help make <strong>%1$s</strong> even more awesome? Allow %1$s to collect non-sensitive diagnostic data and usage information. I agree to get Important Product Updates & Discount related information on my email from  %1$s (I can unsubscribe anytime).' ), $client->name );
-	
-	$client->insights()->notice($notice);
-
-    // Active insights
-    $client->insights()->init();
-
-}
-
-
-
-appsero_init_tracker_instantio();
-
-
-/*
- * Global Admin Get Option
- */
-if ( ! function_exists( 'insopt' ) ) {
-	function insopt( $option = '', $default = null ) {
-	  $options = get_option( 'wiopt' ); 
-	  return ( isset( $options[$option] ) ) ? $options[$option] : $default;
+	/**
+	 * Include required core files used in admin and on the frontend.
+	 */
+	private function includes() { 
+		require_once __DIR__ . '/vendor/autoload.php';
+		include_once( ABSPATH . 'wp-admin/includes/plugin.php' ); 
+		// require_once( 'functions.php' );
 	}
-}
 
-// Mobile Detect
-if (!class_exists('INS_Mobile_Detect')) {
-    require_once INS_INC_PATH . '/mobile-detect.php';
-}
+	/**
+	 * Init Instantio when WordPress Initialises.
+	 */
+	private function init_hooks() {  
 
-// Functions
-if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ){
-	if (!defined( 'INSTANTIO_PRO_FUNCTIONS' )) {
-		require_once INS_INC_PATH . '/functions.php';
+		// add_action( 'plugins_loaded', array( $this, 'init' ), 0 );
+		add_action( 'plugins_loaded', array( $this, 'ins_version_swich_register' ), 0 );
 	}
-}
-// SVG Icons
-if (!defined( 'INSTANTIO_PRO_ICONS' )) {
-	require_once( INS_INC_PATH . '/svg-icons.php' );
-}
-// Styles & Scripts
-if (!defined( 'INSTANTIO_PRO_SCRIPT' )) {
-	require_once INS_INC_PATH . '/style-script.php';
-}
+
+	/**
+	 *  init Instantio when WordPress Initialises.
+	 *
+	 * @since 1.0
+	 */
+	public function init() {  
+		require_once( INS_CLASSIC_PATH.'/classic.php' );
+	} 
+
+	public function ins_version_swich_register(){
+		require_once( INS_CLASSIC_PATH .'/admin/framework/framework.php' );
+		// Control core classes for avoid errors
+		// if( class_exists( 'CSF' ) ) {
+			// Set a unique slug-like ID
+  			$prefix = 'wiopt_mood';
+			// Create options
+			CSF::createOptions( $prefix, array(
+				'framework_title' => __( 'Instantio Settings <small>by <a style="color: #bfbfbf;text-decoration:none;" href="https://themefic.com" target="_blank">Themefic</a></small>', 'instantio' ),
+				'menu_title' => __( 'Instantio', 'instantio' ),
+				'menu_slug'  => 'instantio_options',
+				'menu_icon'  => 'dashicons-cart',
+				'footer_credit' => __('<em>Enjoyed <strong>Instantio</strong>? Please leave us a <a style="color:#e9570a;" href="https://wordpress.org/support/plugin/instantio/reviews/?filter=5/#new-post" target="_blank">★★★★★</a> rating. We really appreciate your support!</em>', 'instantio'),
+				'show_bar_menu' => false,
+			) );
+			// General Settings
+			CSF::createSection( $prefix, array(
+				'id'    => 'general', // Set a unique slug-like ID
+				'title' => __( 'General', 'instantio' ),
+				'icon'  => 'fas fa-cogs',
+				'fields' => array(
+					array(
+						'id'     => 'cart-fly',
+						'type'   => 'fieldset',
+						'title'  => __('Cart Fly Animation', 'instantio'),
+						'subtitle' => __('Enable/dsiable cart fly animation or change icon', 'instantio'),
+						'fields' => array(
+							array(
+							'id'       => 'cart-fly-anim',
+							'type'     => 'switcher',
+							'title'    => __('Cart Fly Animation', 'instantio'), 
+							'text_on'    => __('Enabled', 'instantio'),
+							'text_off'   => __('Disabled', 'instantio'),
+							'text_width' => 100,
+							'default'   => true,
+							),
+				
+							array(
+							'id'       => 'cart-fly-icon',
+							'type'     => 'button_set',
+							'title'    => __('Cart Fly Animation Icon', 'instantio'), 
+							'options'  => array(
+								'1' => __('Toggler Icon', 'instantio'),
+								'2' => __('Product Thumbnail', 'instantio'),
+							),
+							'default'  => '2',
+							'dependency' => array('cart-fly-anim', '==', true, '', 'visiable'),
+						),
+					),
+				),
+			),
+			) );
 
 
-/**
- * Called when WooCommerce is inactive to display an inactive notice.
- *
- * @since 1.0
- */
-function ins_is_woo() {
-    if ( current_user_can( 'activate_plugins' ) ) {
-        if ( !is_plugin_active( 'woocommerce/woocommerce.php' ) && !file_exists( WP_PLUGIN_DIR . '/woocommerce/woocommerce.php' ) ) {
-        ?>
+		// }
 
-            <div id="message" class="error">
-                <p><?php printf( __( 'Instantio requires %1$s WooCommerce %2$s to be activated.', 'instantio' ), '<strong><a href="https://wordpress.org/plugins/woocommerce/" target="_blank">', '</a></strong>' ); ?></p>
-                <p><a class="install-now button tf-install" data-plugin-slug="woocommerce"><?php esc_attr_e( 'Install Now', 'instantio' ); ?></a></p>
-            </div>
-
-        <?php 
-        } elseif ( !is_plugin_active( 'woocommerce/woocommerce.php' ) && file_exists( WP_PLUGIN_DIR . '/woocommerce/woocommerce.php' ) ) {
-        ?>
-
-            <div id="message" class="error">
-                <p><?php printf( __( 'Instantio requires %1$s WooCommerce %2$s to be activated.', 'instantio' ), '<strong><a href="https://wordpress.org/plugins/woocommerce/" target="_blank">', '</a></strong>' ); ?></p>
-                <p><a href="<?php echo get_admin_url(); ?>plugins.php?_wpnonce=<?php echo wp_create_nonce( 'activate-plugin_woocommerce/woocommerce.php' ); ?>&action=activate&plugin=woocommerce/woocommerce.php" class="button activate-now button-primary"><?php esc_attr_e( 'Activate', 'instantio' ); ?></a></p>
-            </div>
-
-        <?php 
-        } elseif ( version_compare( get_option( 'woocommerce_db_version' ), '2.5', '<' ) ) {
-        ?>
-
-            <div id="message" class="error">
-                <p><?php printf( __( '%sInstantio is inactive.%s This plugin requires WooCommerce 2.5 or newer. Please %supdate WooCommerce to version 2.5 or newer%s', 'instantio' ), '<strong>', '</strong>', '<a href="' . admin_url( 'plugins.php' ) . '">', '&nbsp;&raquo;</a>' ); ?></p>
-            </div>
-
-        <?php 
-        }
-    }
-}
-
-/**
- * Add Pro link in menu.
- */
-if ( !is_plugin_active( 'wooinstant/wooinstant.php' ) ) {
-	function add_pro_link_menu() {
-		$prolink = 'https://wpinstant.io/go/upgrade';
-		$menuname = '<span style="color:#ffba00;">' .__("Upgrade to Pro", "instantio"). '</span>';
-		add_submenu_page( 'instantio_options', __('Upgrade to Pro', 'instantio'), $menuname, 'manage_options', $prolink);
-	}
-	add_action('admin_menu', 'add_pro_link_menu', 9999);
-}
-
-/**
- * Add plugin action links.
- *
- */
-function instantio_plugin_action_links( $links ) {
-
-	$settings_link = array(
-		'<a href="admin.php?page=instantio_options">' . esc_html__( 'Settings', 'instantio' ) . '</a>',
-	);
-
-	if ( !is_plugin_active( 'wooinstant/wooinstant.php' ) ) {
-		$gopro_link = array(
-			'<a href="https://wpinstant.io/go/upgrade" target="_blank" style="color:#cc0000;font-weight: bold;text-shadow: 0px 1px 1px hsl(0deg 0% 0% / 28%);">' . esc_html__( 'GO PRO', 'instantio' ) . '</a>',
-		);
-	} else {
-		$gopro_link = array('');
-	}
-	return array_merge( $settings_link, $links, $gopro_link );
-}
-add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'instantio_plugin_action_links' );
-
-
-function ins_activate() {
-	$installed = get_option( 'instantio_active_time' );
-
-	if ( ! $installed ) {
-		update_option( 'instantio_active_time', time() );
-	}
-	
-}
-
-function ins_deactivate() {
-	$installed = get_option( 'instantio_active_time' );
-	if($installed){
-		delete_option('instantio_active_time' );
 	}
 }
-
-
-
-register_activation_hook( plugin_dir_path( __FILE__ ) . 'instantio.php',  'ins_activate');
-register_deactivation_hook( plugin_dir_path( __FILE__ ) . 'instantio.php', 'ins_deactivate');
+new INSTANTIO();
