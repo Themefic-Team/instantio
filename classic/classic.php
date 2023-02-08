@@ -20,10 +20,8 @@ define( 'INS_URL', INS_CLASSIC_URL.'/' );
 define( 'INS_INC_URL', INS_URL.'inc' );
 define( 'INS_LAYOUTS_URL', INS_URL.'inc/layouts' );
 define( 'INS_ASSETS_URL', INS_URL.'assets' );
-define( 'INS_ADMIN_URL', INS_URL.'admin' );
 // Paths
 define( 'INS_PATH', INS_CLASSIC_PATH.'/' );
-define( 'INS_ADMIN_PATH', INS_PATH.'admin' );
 define( 'INS_INC_PATH', INS_PATH.'inc' );
 define( 'INS_LAYOUTS_PATH', INS_INC_PATH.'/layouts' );
 

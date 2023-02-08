@@ -235,11 +235,12 @@ if( !function_exists( 'instantio_custom_js' ) ){
 
 		$output .= "var iframe_src = '" .esc_url(home_url( '/instantio-checkout')). "'; ";
 
-		if( $detect->isMobile() && !$detect->isTablet() ) {
-			$output .= "var cartflymob = 'no'; ";
-		} else {
-			$output .= "var cartflymob = 'yes'; ";
-		}
+		// if( $detect->isMobile() && !$detect->isTablet() ) {
+		// 	$output .= "var cartflymob = 'no'; ";
+		// } else {
+		// 	$output .= "var cartflymob = 'yes'; ";
+		// }
+		$output .= "var cartflymob = 'yes'; ";
 
 		wp_add_inline_script( 'instantio-inline-scripts', $output );
 	}

@@ -33,10 +33,13 @@ class INSTANTIO {
 		if ( ! defined( 'INSTANTIO_VERSION' ) ) { 
 			define( 'INSTANTIO_VERSION', '2.5.18' ); 
 		} 
-		define( 'INS_ROOT_URL', plugin_dir_url( __FILE__ ) );
+		define( 'INS_ROOT_URL', plugin_dir_url( __FILE__ ) ); 
+		define( 'INS_ADMIN_URL', INS_ROOT_URL.'admin' );
 		define( 'INS_CLASSIC_URL', INS_ROOT_URL.'classic' );
 		define( 'INS_MODERN_URL', INS_ROOT_URL.'modern' );
-		define( 'INS_ROOT_PATH', plugin_dir_path( __FILE__ ) ); 
+
+		define( 'INS_ROOT_PATH', plugin_dir_path( __FILE__ ) );  
+		define( 'INS_ADMIN_PATH', INS_ROOT_PATH.'admin' );
 		define( 'INS_CLASSIC_PATH', INS_ROOT_PATH.'classic' );
 		define( 'INS_MODERN_PATH', INS_ROOT_PATH.'modern' ); 
 		
@@ -46,19 +49,18 @@ class INSTANTIO {
 	/**
 	 * Include required core files used in admin and on the frontend.
 	 */
-	private function includes() { 
-		require_once __DIR__ . '/vendor/autoload.php';
-		include_once( ABSPATH . 'wp-admin/includes/plugin.php' ); 
-		// require_once( 'functions.php' );
+	private function includes() {  
+		include_once( ABSPATH . 'wp-admin/includes/plugin.php' );  
+		require_once( 'functions.php' );
 	}
+
 
 	/**
 	 * Init Instantio when WordPress Initialises.
 	 */
 	private function init_hooks() {  
 
-		// add_action( 'plugins_loaded', array( $this, 'init' ), 0 );
-		add_action( 'plugins_loaded', array( $this, 'ins_version_swich_register' ), 0 );
+		add_action( 'plugins_loaded', array( $this, 'init' ), 0 ); 
 	}
 
 	/**
@@ -67,65 +69,14 @@ class INSTANTIO {
 	 * @since 1.0
 	 */
 	public function init() {  
-		require_once( INS_CLASSIC_PATH.'/classic.php' );
+		
+		if(!empty(insopt('ins_enable_classic')) && insopt('ins_enable_classic') == '1'){ 
+			require_once( INS_CLASSIC_PATH.'/classic.php' );
+		}else{
+			require_once( INS_MODERN_PATH.'/modern.php' );
+		}
+		
 	} 
-
-	public function ins_version_swich_register(){
-		require_once( INS_CLASSIC_PATH .'/admin/framework/framework.php' );
-		// Control core classes for avoid errors
-		// if( class_exists( 'CSF' ) ) {
-			// Set a unique slug-like ID
-  			$prefix = 'wiopt_mood';
-			// Create options
-			CSF::createOptions( $prefix, array(
-				'framework_title' => __( 'Instantio Settings <small>by <a style="color: #bfbfbf;text-decoration:none;" href="https://themefic.com" target="_blank">Themefic</a></small>', 'instantio' ),
-				'menu_title' => __( 'Instantio', 'instantio' ),
-				'menu_slug'  => 'instantio_options',
-				'menu_icon'  => 'dashicons-cart',
-				'footer_credit' => __('<em>Enjoyed <strong>Instantio</strong>? Please leave us a <a style="color:#e9570a;" href="https://wordpress.org/support/plugin/instantio/reviews/?filter=5/#new-post" target="_blank">★★★★★</a> rating. We really appreciate your support!</em>', 'instantio'),
-				'show_bar_menu' => false,
-			) );
-			// General Settings
-			CSF::createSection( $prefix, array(
-				'id'    => 'general', // Set a unique slug-like ID
-				'title' => __( 'General', 'instantio' ),
-				'icon'  => 'fas fa-cogs',
-				'fields' => array(
-					array(
-						'id'     => 'cart-fly',
-						'type'   => 'fieldset',
-						'title'  => __('Cart Fly Animation', 'instantio'),
-						'subtitle' => __('Enable/dsiable cart fly animation or change icon', 'instantio'),
-						'fields' => array(
-							array(
-							'id'       => 'cart-fly-anim',
-							'type'     => 'switcher',
-							'title'    => __('Cart Fly Animation', 'instantio'), 
-							'text_on'    => __('Enabled', 'instantio'),
-							'text_off'   => __('Disabled', 'instantio'),
-							'text_width' => 100,
-							'default'   => true,
-							),
-				
-							array(
-							'id'       => 'cart-fly-icon',
-							'type'     => 'button_set',
-							'title'    => __('Cart Fly Animation Icon', 'instantio'), 
-							'options'  => array(
-								'1' => __('Toggler Icon', 'instantio'),
-								'2' => __('Product Thumbnail', 'instantio'),
-							),
-							'default'  => '2',
-							'dependency' => array('cart-fly-anim', '==', true, '', 'visiable'),
-						),
-					),
-				),
-			),
-			) );
-
-
-		// }
-
-	}
+ 
 }
 new INSTANTIO();

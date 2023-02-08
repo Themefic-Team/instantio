@@ -18,6 +18,17 @@ CSF::createSection( $prefix, array(
 		  'content' => __('General Settings', 'instantio'),
 	  ),
 
+    array(
+      'id'       => 'ins_enable_classic',
+      'type'     => 'switcher',
+      'title'    => __('Enable Classic Mode', 'instantio'),
+      'subtitle' => __('Enable/Dsiable Classic Mode', 'instantio'),
+      'text_on'    => __('Yes', 'instantio'),
+      'text_off'   => __('No', 'instantio'),
+      'default'   => false, 
+    ),
+  
+
   array(
     'id'          => 'ins-layout',
     'type'        => 'select',
@@ -52,6 +63,7 @@ CSF::createSection( $prefix, array(
     'default'   => 'tog-1',
     'dependency' => array('ins-layout', '!=', '1', '', 'visible'),
   ),
+
 
   array(
 		'id'       => 'cart-button-open',
