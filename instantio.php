@@ -59,7 +59,6 @@ class INSTANTIO {
 	 * Init Instantio when WordPress Initialises.
 	 */
 	private function init_hooks() {  
-
 		add_action( 'plugins_loaded', array( $this, 'init' ), 0 ); 
 	}
 

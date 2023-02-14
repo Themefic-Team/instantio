@@ -2,7 +2,13 @@
 namespace INS\Controller;
 
 class App {
-    public function __construct() { 
+
+    private $layouts;
+
+    public function __construct() {
+        $layouts =  "/layouts/layout.php";
+
+        // wp_die( INS_INC_PATH . $layouts,  );
         
         add_action( 'wp_footer', array($this, 'ins_layout_three'), 10 );
         add_filter( 'woocommerce_add_to_cart_fragments', array($this, 'ins_cart_count_fragments'), 50, 1 );
@@ -27,15 +33,11 @@ class App {
         add_action( 'wp_ajax_nopriv_ins_ajax_remove_coupon', array( $this, 'ins_ajax_remove_coupon' ));
         add_action( 'wp_ajax_ins_ajax_remove_coupon', array( $this, 'ins_ajax_remove_coupon' ));
  
-
         // Plus Minus Button added to cart
         add_action( 'woocommerce_after_quantity_input_field', array( $this, 'ins_after_quantity_input_field' ), 20 ); 
-        add_action( 'woocommerce_before_quantity_input_field', array( $this, 'ins_before_quantity_input_field' ), 20 );
-           
- 
-
-
+        add_action( 'woocommerce_before_quantity_input_field', array( $this, 'ins_before_quantity_input_field' ), 20 );   
     }
+
    
     // Plus Minus Button added to cart
     public function ins_after_quantity_input_field() {
@@ -60,7 +62,7 @@ class App {
     // Ajax Cart reload After Product Add to Cart
     public function ins_ajax_cart_reload() { 
         ob_start();
-        require_once INS_INC_PATH . '/layouts/layout.php';
+        require_once INS_INC_PATH . $layouts;
         echo ob_get_clean(); 
         wp_die();
        
@@ -81,7 +83,7 @@ class App {
         WC()->cart->maybe_set_cart_cookies();
         
         ob_start();
-        require_once INS_INC_PATH . '/layouts/layout.php';
+        require_once INS_INC_PATH . $layouts;
         $cart_data = ob_get_clean(); 
         // Fragments and mini cart are returned
         $data = array(
@@ -114,7 +116,7 @@ class App {
         WC()->cart->maybe_set_cart_cookies(); 
 
         ob_start();
-        require_once INS_INC_PATH . '/layouts/layout.php';
+        require_once INS_INC_PATH . $layouts;
         $cart_data = ob_get_clean(); 
         // Fragments and mini cart are returned
         $data = array(
@@ -135,7 +137,7 @@ class App {
         WC()->cart->maybe_set_cart_cookies();
         
         ob_start();
-        require_once INS_INC_PATH . '/layouts/layout.php';
+        require_once INS_INC_PATH . $layouts;
         $cart_data = ob_get_clean(); 
         // Fragments and mini cart are returned
         $data = array(
@@ -157,7 +159,7 @@ class App {
         WC()->cart->maybe_set_cart_cookies();
         
         ob_start();
-        require_once INS_INC_PATH . '/layouts/layout.php';
+        require_once INS_INC_PATH . $layouts;
         $cart_data = ob_get_clean(); 
         // Fragments and mini cart are returned
         $data = array(
@@ -197,8 +199,7 @@ class App {
         ?>
         <div class="ins-checkout-overlay"></div>
         <div class="ins-checkout-layout ins-checkout-layout-3 slide">
-            
-            <?php require_once INS_INC_PATH . '/layouts/layout.php' ?>	
+            <?php require_once INS_INC_PATH . $layouts ?>	
         </div>
         <?php
         $output = ob_get_clean();

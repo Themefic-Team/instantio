@@ -14,13 +14,10 @@ defined( 'ABSPATH' ) || exit;
 <h4 class="ins-label">Your Cart</h4>
 <?php if(WC()->cart->is_empty()): 
 	echo '<div class="woocommerce-message" role="alert">Cart is empty.</div>';
-
-
 else:
 ?>
 <div class="ins-content">
 	<div class="ins-cart-inner">
-		
 		<?php require_once apply_filters( 'ins_cart_path', INS_INC_PATH . '/templates/cart.php' ); ?>	
 	</div> 
 	<div class="ins-cart-btns">
@@ -31,7 +28,6 @@ else:
 
 <?php
 endif;
-
 
  echo ob_get_clean();
 ?>
