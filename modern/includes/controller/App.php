@@ -6,9 +6,9 @@ class App {
     private $layouts;
 
     public function __construct() {
-        $layouts =  "/layouts/layout.php";
+        // $layouts =  "\layouts\layout.php";
 
-        // wp_die( INS_INC_PATH . $layouts,  );
+        // wp_die( INS_INC_PATH . $layouts );
         
         add_action( 'wp_footer', array($this, 'ins_layout_three'), 10 );
         add_filter( 'woocommerce_add_to_cart_fragments', array($this, 'ins_cart_count_fragments'), 50, 1 );
@@ -62,7 +62,7 @@ class App {
     // Ajax Cart reload After Product Add to Cart
     public function ins_ajax_cart_reload() { 
         ob_start();
-        require_once INS_INC_PATH . $layouts;
+        require_once INS_INC_PATH . "\layouts\layout.php";
         echo ob_get_clean(); 
         wp_die();
        
@@ -83,7 +83,7 @@ class App {
         WC()->cart->maybe_set_cart_cookies();
         
         ob_start();
-        require_once INS_INC_PATH . $layouts;
+        require_once INS_INC_PATH . "\layouts\layout.php";
         $cart_data = ob_get_clean(); 
         // Fragments and mini cart are returned
         $data = array(
@@ -116,7 +116,7 @@ class App {
         WC()->cart->maybe_set_cart_cookies(); 
 
         ob_start();
-        require_once INS_INC_PATH . $layouts;
+        require_once INS_INC_PATH . "\layouts\layout.php";
         $cart_data = ob_get_clean(); 
         // Fragments and mini cart are returned
         $data = array(
@@ -137,7 +137,7 @@ class App {
         WC()->cart->maybe_set_cart_cookies();
         
         ob_start();
-        require_once INS_INC_PATH . $layouts;
+        require_once INS_INC_PATH . "\layouts\layout.php";
         $cart_data = ob_get_clean(); 
         // Fragments and mini cart are returned
         $data = array(
@@ -199,7 +199,7 @@ class App {
         ?>
         <div class="ins-checkout-overlay"></div>
         <div class="ins-checkout-layout ins-checkout-layout-3 slide">
-            <?php require_once INS_INC_PATH . $layouts ?>	
+            <?php require_once INS_INC_PATH . "\layouts\layout.php" ?>	
         </div>
         <?php
         $output = ob_get_clean();
