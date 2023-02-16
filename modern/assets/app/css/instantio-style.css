@@ -431,7 +431,7 @@
 }
 
 .ins-cart-btns a {
-  width: 50%;
+  width: 100% !important;
   display: inline-block;
   text-align: center;
   text-decoration: none;

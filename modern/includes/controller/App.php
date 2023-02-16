@@ -35,7 +35,11 @@ class App {
         add_action( 'wp_ajax_nopriv_ins_ajax_remove_coupon', array( $this, 'ins_ajax_remove_coupon' ));
         add_action( 'wp_ajax_ins_ajax_remove_coupon', array( $this, 'ins_ajax_remove_coupon' ));
 
-        add_action( 'ins_button_toggle', array( $this, 'ins_button_toggle' ));
+        // Ins Cart Toggle
+        add_action( 'ins_cart_toggle', array( $this, 'ins_cart_toggle' ));
+
+        // Ins Cart Buttons
+        add_action( 'ins_cart_buttons', array( $this, 'ins_cart_buttons' ));
    
     }
 
@@ -59,7 +63,7 @@ class App {
     }
 
     // Ins Toggle button
-    public function ins_button_toggle() {
+    public function ins_cart_toggle() {
         ob_start();
         $ins_toggler =  insopt( 'ins-toggler' );
          ?>
@@ -72,6 +76,45 @@ class App {
          echo ob_get_clean();
     }
  
+    // Ins Cart Buttons
+    public function ins_cart_buttons() {
+        ob_start();
+
+        // Cart Button
+        $on_cart_btn = isset(insopt( 'cart-btn' )['on-cart-btn']) ? insopt( 'cart-btn' )['on-cart-btn'] : true; 
+		$cart_button_text = isset(insopt( 'cart-btn' )['cart_button_text']) ? insopt( 'cart-btn' )['cart_button_text'] : '';
+		$cart_button_url = isset(insopt( 'cart-btn' )['cart_button_url']) ? insopt( 'cart-btn' )['cart_button_url'] : '';
+
+        $cart_button_text = !empty($cart_button_text) ? wp_strip_all_tags( __( $cart_button_text, 'instantio' )) : __( 'View Cart', 'instantio' );
+        $cart_button_url = !empty($cart_button_url) ? $cart_button_url : wc_get_cart_url();
+
+        // Cart Button Link
+        $cart_button = $on_cart_btn == true ? '<a href="'.esc_url( $cart_button_url ).'" class="view-cart active">'.esc_html( $cart_button_text ).'</a>' : '';
+
+
+        // Checkout Button
+        $on_checkout_btn = isset(insopt( 'checkout-btn' )['on-checkout-btn']) ? insopt( 'checkout-btn' )['on-checkout-btn'] : true;
+        
+		$checkout_button_text = isset(insopt( 'checkout-btn' )['checkout_button_text']) ? insopt( 'checkout-btn' )['checkout_button_text'] : '';
+		$checkout_button_url = isset(insopt( 'checkout-btn' )['checkout_button_url']) ? insopt( 'checkout-btn' )['checkout_button_url'] : '';
+
+        $checkout_button_text = !empty($checkout_button_text) ? wp_strip_all_tags( __( $checkout_button_text, 'instantio' )) : __( 'Checkout Now', 'instantio' ); 
+        $checkout_button_url = !empty($checkout_button_url) ? $checkout_button_url : wc_get_checkout_url();
+
+        //  Checkout button Link
+        $checkout_button = $on_checkout_btn == true ? '<a href="'.esc_url( $checkout_button_url ).'" class="checkout">'.esc_html( $checkout_button_text ).'</a>' : '';
+
+        
+        ?> 
+        <div class="ins-cart-btns"> 
+            <?php echo $cart_button; ?> 
+            <?php echo $checkout_button; ?>
+        </div>  
+
+        <?php
+        echo ob_get_clean();
+    }
+
     // Cart Count Fragments
     public function ins_cart_count_fragments(){
         ob_start();
@@ -238,7 +281,8 @@ class App {
        
         ob_start();
         if( $this->layout == 3 ){
-                do_action('ins_button_toggle');
+
+                do_action('ins_cart_toggle');
         }
         ?>
         <div class="ins-checkout-popup <?php echo esc_attr( $this->layout_class ) ?>">

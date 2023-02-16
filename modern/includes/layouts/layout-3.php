@@ -19,10 +19,8 @@ defined( 'ABSPATH' ) || exit;
 	<div class="ins-cart-inner">
 		<?php require_once apply_filters( 'ins_cart_path', INS_INC_PATH . '/templates/cart.php' ); ?>	
 	</div> 
-	<div class="ins-cart-btns">
-		<a href="#" class="view-cart active">View Cart</a>
-		<a href="#" class="checkout">Checkout Now</a>
-	</div>  
+	
+	<?php do_action( 'ins_cart_buttons' ) ?>
 </div>
 
 <?php
