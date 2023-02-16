@@ -49,6 +49,8 @@
                 $('.ins-checkout-layout').append(response);
                 $('.ins-checkout-layout-3').addClass('active');
                 $('.ins-checkout-overlay').addClass('active');
+                $(".ins-checkout-popup").toggleClass('active');
+                $(".ins-checkout-popup").toggleClass('fadeIn'); 
 
             }
 
@@ -58,8 +60,9 @@
     // Ins Qty plus Minus Script
     $(document).on("click", ".ins-cart-minus", function(e){ 
         e.preventDefault();
-        let minus = $(this).closest('.quantity').find('input[type="number"].qty');
-        let qty = minus.val();
+        let minus = $(this).closest('.ins-cart-qty-wrap').find('.quantity input[type="number"].qty');
+       
+        let qty = minus.val(); 
         if(qty  >= 1){
             minus.val(qty-1)
         }  
@@ -68,7 +71,7 @@
     
     $(document).on("click", ".ins-cart-plus", function(e){ 
         e.preventDefault();
-        let plus = $(this).closest('.quantity').find('input[type="number"].qty');
+        let plus = $(this).closest('.ins-cart-qty-wrap').find('.quantity input[type="number"].qty');
         let qty = plus.val(); 
         plus.val(parseInt(qty)+1) 
         $( '.ins-checkout-layout button[name="update_cart"]' ).trigger( "click" );

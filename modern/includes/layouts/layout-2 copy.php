@@ -14,7 +14,8 @@ defined( 'ABSPATH' ) || exit;
 <h4 class="ins-label">Your Cart</h4>
 <?php if(WC()->cart->is_empty()): 
 	echo '<div class="woocommerce-message" role="alert">Cart is empty.</div>';
-else:
+	elseif(WC()->cart->is_empty() == false):
+
 ?>
 <div class="ins-content">
 	<div class="ins-cart-inner">
@@ -27,6 +28,7 @@ else:
 </div>
 
 <?php
+
 endif;
 
  echo ob_get_clean();
