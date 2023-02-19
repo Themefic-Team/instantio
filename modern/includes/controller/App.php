@@ -19,6 +19,10 @@ class App {
         add_action( 'wp_ajax_nopriv_ins_ajax_cart_reload', array( $this, 'ins_ajax_cart_reload' ), 20 );  
         add_action( 'wp_ajax_ins_ajax_cart_reload', array( $this, 'ins_ajax_cart_reload' ), 20 ); 
 
+        // Single Product Page Ajax Add to Cart
+        add_action( 'wp_ajax_nopriv_ins_ajax_cart_single', array( $this, 'ins_ajax_cart_single' ), 20 );  
+        add_action( 'wp_ajax_ins_ajax_cart_single', array( $this, 'ins_ajax_cart_single' ), 20 ); 
+
         // Ajax Cart Remove To cart
         add_action( 'wp_ajax_nopriv_ins_ajax_cart_item_remove', array( $this, 'ins_ajax_cart_item_remove' ), 20 );  
         add_action( 'wp_ajax_ins_ajax_cart_item_remove', array( $this, 'ins_ajax_cart_item_remove' ), 20 ); 
@@ -132,6 +136,34 @@ class App {
         echo ob_get_clean(); 
         wp_die();
        
+    }
+
+    // Ajax Single Page Add to Cart
+    public function ins_ajax_cart_single() {
+        $product_id = apply_filters('woocommerce_add_to_cart_product_id', absint($_POST['product_id']));
+        $quantity = empty($_POST['quantity']) ? 1 : wc_stock_amount($_POST['quantity']);
+        $variation_id = absint($_POST['variation_id']);
+        $passed_validation = apply_filters('woocommerce_add_to_cart_validation', true, $product_id, $quantity);
+        $product_status = get_post_status($product_id);
+
+        if ($passed_validation && WC()->cart->add_to_cart($product_id, $quantity, $variation_id) && $product_status === 'publish') {
+
+            do_action('woocommerce_ajax_added_to_cart', $product_id);
+
+            if (get_option('woocommerce_cart_redirect_after_add') === 'yes' ) {
+                wc_add_to_cart_message(array($product_id => $quantity), true);
+            }
+
+            $this->ins_ajax_cart_reload();
+
+        } else {
+            $data = array(
+                'error' => true,
+                'product_url' => apply_filters('woocommerce_cart_redirect_after_error', get_permalink($product_id), $product_id));
+    
+            echo wp_send_json($data);
+        }
+        wp_die();
     }
 
     // Ajax Cart Remove To cart
@@ -281,9 +313,9 @@ class App {
        
         ob_start();
         if( $this->layout == 3 ){
-
                 do_action('ins_cart_toggle');
         }
+
         ?>
         <div class="ins-checkout-popup <?php echo esc_attr( $this->layout_class ) ?>">
             <div class="ins-checkout-overlay"></div>
