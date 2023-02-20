@@ -45,6 +45,8 @@ class App {
 
     public function ins_layout_set_data() {
         $ins_layout = !empty(insopt( 'ins-layout' )) ? insopt( 'ins-layout' ) : '';
+
+        require_once INS_INC_PATH .  "/controller/icon-svg.php";
         
         if ($ins_layout == 1) {
             $this->layout = $ins_layout;
@@ -66,13 +68,25 @@ class App {
     public function ins_cart_toggle() {
         ob_start();
         $ins_toggler =  insopt( 'ins-toggler' );
-         ?>
+        $cart_icon =  insopt( 'cart-icon' );
+        if($this->layout == 1 ){
+            $ins_toggler = 'tog-1';
+            ?>
+            <a class="ins-toggle-btn  <?php echo esc_attr( $ins_toggler ) ?>" href="<?php echo esc_url(wc_get_checkout_url());  ?>"> 
+                <?php echo instantio_svg_icon($cart_icon); ?>
+
+                <span class="ins-items-count"><span id="ins_cart_total" class="ins_cart_total"><?php echo WC()->cart->get_cart_contents_count(); ?></span></span> 
+           </a> 
+            <?php
+        }else{
+            ?> 
             <div class="ins-click-to-show ins-toggle-btn <?php echo esc_attr( $ins_toggler ) ?>">
-                <svg class="cart-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" xmlns:v="https://vecta.io/nano"><path d="M490.299 185.717H384.08L324.496 49.284c-3.315-7.591-12.157-11.06-19.749-7.743s-11.059 12.158-7.743 19.75l54.34 124.427H160.656l54.34-124.427c3.315-7.592-.151-16.434-7.743-19.75a15 15 0 0 0-19.749 7.743L127.92 185.717H21.701c-13.895 0-24.207 12.579-21.167 25.82l55.935 243.63c2.221 9.674 11.015 16.55 21.167 16.55h356.728c10.152 0 18.946-6.876 21.167-16.55l55.935-243.63c3.04-13.24-7.273-25.82-21.167-25.82zm-359.557 46.004c-2.004 0-4.041-.404-5.996-1.258-7.592-3.315-11.059-12.157-7.743-19.75l11.268-25.802h32.736l-16.512 37.808c-2.461 5.639-7.971 9.002-13.753 9.002zM181 391.717c0 8.284-6.716 15-15 15s-15-6.716-15-15v-110c0-8.284 6.716-15 15-15s15 6.716 15 15zm90 0c0 8.284-6.716 15-15 15s-15-6.716-15-15v-110c0-8.284 6.716-15 15-15s15 6.716 15 15zm90 0c0 8.284-6.716 15-15 15s-15-6.716-15-15v-110c0-8.284 6.716-15 15-15s15 6.716 15 15zm26.253-161.254a14.94 14.94 0 0 1-5.995 1.258c-5.782 0-11.292-3.362-13.754-9.001l-16.512-37.808h32.736l11.268 25.802a15 15 0 0 1-7.743 19.749z"></path></svg>
- 
+                <?php echo instantio_svg_icon($cart_icon); ?>
                 <span class="ins-items-count"><span id="ins_cart_total" class="ins_cart_total"><?php echo WC()->cart->get_cart_contents_count(); ?></span></span>
-            </div>
-         <?php
+            </div> 
+            <?php
+        }
+        
          echo ob_get_clean();
     }
  
@@ -109,8 +123,7 @@ class App {
         <div class="ins-cart-btns"> 
             <?php echo $cart_button; ?> 
             <?php echo $checkout_button; ?>
-        </div>  
-
+        </div>   
         <?php
         echo ob_get_clean();
     }
@@ -276,23 +289,24 @@ class App {
     		if (is_page( 'cart' ) || is_cart()) {
     			return;
     		}
-		}
-       
-       
+		} 
         ob_start();
-        if( $this->layout == 3 ){
+        if( $this->layout == 1 ||  $this->layout == 3):
+        ?>
+            <div class="ins-fixed-toogle"> <?php echo do_action('ins_cart_toggle'); ?></div>
+        <?php 
+        endif; 
 
-                do_action('ins_cart_toggle');
-        }
+        if($this->layout == 2 ||  $this->layout == 3):
         ?>
         <div class="ins-checkout-popup <?php echo esc_attr( $this->layout_class ) ?>">
             <div class="ins-checkout-overlay"></div>
-            <div class="ins-checkout-layout ins-checkout-layout-3 <?php echo esc_attr( $this->layout_class ) ?>"> 
-
-                <?php require_once INS_INC_PATH .  $this->layouts_slug ?>	
+            <div class="ins-checkout-layout ins-checkout-layout-3 <?php echo esc_attr( $this->layout_class ) ?>">
+                <?php require_once INS_INC_PATH .  $this->layouts_slug; ?>
             </div>
-        </div>
-        <?php
+        </div> 
+        <?php  
+        endif; 
         $output = ob_get_clean();
         echo $output;
     } 

@@ -86,6 +86,7 @@ if ($detect->isMobile() && !$detect->isTablet() && $dedicated_mobile == true) {}
 			$hide_toggler = !empty(insopt( 'hide-toggler' )) ? insopt( 'hide-toggler' ) : '';
 			$show_checkout_btn = !empty(insopt( 'checkout-btn' )['on-checkout-btn']) ? insopt( 'checkout-btn' )['on-checkout-btn'] : '';
 			$show_cart_btn = !empty(insopt( 'cart-btn' )['on-cart-btn']) ? insopt( 'cart-btn' )['on-cart-btn'] : '';
+			
 			// Toggler CSS
 			$tg_bg_color_reg = !empty(insopt( 'wi-header-bg-colors' )['regular']) ? insopt( 'wi-header-bg-colors' )['regular'] : '';
 			$tg_bg_color_hov = !empty(insopt( 'wi-header-bg-colors' )['hover']) ? insopt( 'wi-header-bg-colors' )['hover'] : '';
@@ -172,6 +173,7 @@ if ($detect->isMobile() && !$detect->isTablet() && $dedicated_mobile == true) {}
  * CUSTOM JS
  * 
  */
+
 if( !function_exists( 'instantio_custom_js' ) ){
 	function instantio_custom_js(){
 

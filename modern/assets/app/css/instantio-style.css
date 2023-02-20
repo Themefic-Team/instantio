@@ -78,7 +78,7 @@
 }
 
 /* Toggle Button */
-.ins-click-to-show.ins-toggle-btn {
+.ins-toggle-btn.ins-toggle-btn {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -102,8 +102,14 @@
 	-ms-border-radius: 5px 0px 0px 5px;
 	-o-border-radius: 5px 0px 0px 5px;
 }
+.ins-fixed-toogle {
+	position: fixed; 
+    position: fixed;
+    right: 0;
+    bottom: 80px; 
+}
 
-.ins-click-to-show.ins-toggle-btn svg {
+.ins-toggle-btn.ins-toggle-btn svg {
 	width: 24px;
 	margin: 0 2px 0 0;
 	height: auto;
@@ -226,7 +232,9 @@
   text-align: center;
   margin: 5px;
 }
-
+.ins-label svg {
+	height: 20px;
+}
 .ins-checkout-overlay {
   position: fixed;
   height: 100%;

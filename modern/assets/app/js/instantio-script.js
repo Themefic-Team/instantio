@@ -43,8 +43,7 @@
                 id: '1',
                 action: 'ins_ajax_cart_reload',
             },
-            success: function( response ) { 
-                console.log(response);
+            success: function( response ) {
                 $('.ins-checkout-layout').html('');
                 $('.ins-checkout-layout').append(response);
                 $('.ins-checkout-layout-3').addClass('active');
