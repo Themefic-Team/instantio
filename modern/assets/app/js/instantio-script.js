@@ -33,7 +33,26 @@
 			$(".ins-single-step").removeClass("active");
 			$("." + step).addClass("active");
 		});
+
+		// Hide toggle button if empty cart
+		hide_toggle_btn();
+
+		
 	});
+
+	// Hide Toggle Button
+	function hide_toggle_btn() {
+		if (hide_toggler == true) {
+			var cart_item_count = $('.ins-checkout-layout').find('.ins-single-cart-item').length;
+			if(cart_item_count == 0){
+				$(".ins-toggle-btn").hide();
+				$(".ins-checkout-layout-3").removeClass("active");
+				$(".ins-checkout-overlay").removeClass("active");
+				$(".ins-checkout-popup").removeClass("active");
+			} 
+			
+		}
+	}
 
 	// Ajax Add To Cart
 	$(document.body).on("added_to_cart", function () {
@@ -199,12 +218,14 @@
 	// Ins Cart Item Remove
 	$(document).on("click", ".ins-cart-item-remove", function (e) {
 		e.preventDefault();
-		let id = $(this).find("a.remove").data("product_id");
+		let product_id = $(this).find("a.remove").data("product_id");
+		let variation_id = $(this).find("a.remove").data("variation_id");
 		$.ajax({
 			url: ins_params.ajax_url,
 			type: "POST",
 			data: {
-				id: id,
+				product_id: product_id,
+				variation_id: variation_id,
 				action: "ins_ajax_cart_item_remove",
 			},
 			beforeSend: function (response) {
@@ -216,6 +237,8 @@
 			success: function (response) {
 				$(".ins-checkout-layout").html("");
 				$(".ins-checkout-layout").html(response.cart_data);
+				// Hide toggle button if empty cart
+				hide_toggle_btn();
 			},
 		});
 	});
@@ -239,6 +262,8 @@
 			success: function (response) {
 				$(".ins-checkout-layout").html("");
 				$(".ins-checkout-layout").html(response.cart_data);
+				// Hide toggle button if empty cart
+				hide_toggle_btn();
 			},
 		});
 	});
@@ -254,7 +279,7 @@
 				$form = $this.closest("form"),
 				cart_item_keys = [],
 				product_ids = [],
-				quantities = [];
+				quantities = [],
 			coupon_code = $form.find('input[name="coupon_code"]').val();
 
 			$form.find(".cart_item").each(function () {
@@ -286,6 +311,9 @@
 				success: function (response) {
 					$(".ins-checkout-layout").html("");
 					$(".ins-checkout-layout").html(response.cart_data);
+					
+					// Hide toggle button if empty cart
+					hide_toggle_btn();
 				},
 			});
 			return false;

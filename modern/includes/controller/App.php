@@ -58,12 +58,12 @@ class App {
             $this->layouts_slug =  "/layouts/layout-1.php";
         } elseif ($ins_layout == 2) {
             $this->layout = $ins_layout;
-            $this->layout_class = 'slide'; 
+            $this->layout_class = 'slide '; 
             $this->layouts_slug =  "/layouts/layout-2.php";
             
         } elseif ($ins_layout == 3) { 
             $this->layout = $ins_layout;
-            $this->layout_class = 'popup';
+            $this->layout_class = 'popup ';
             $this->layouts_slug =  "/layouts/layout-3.php";
         }
     }
@@ -181,12 +181,14 @@ class App {
 
     // Ajax Cart Remove To cart
     public function ins_ajax_cart_item_remove() { 
-        $id = $_POST['id'];  
+        $product_id = $_POST['product_id'];  
+        $variation_id = $_POST['variation_id'];  
         
         $cart = WC()->cart->get_cart();  
 
         foreach ($cart as $cart_item_key => $cart_item){
-            if($cart_item['product_id'] == $id ){ 
+            if($cart_item['product_id'] == $product_id && $cart_item['variation_id'] == $variation_id ){ 
+             
                 // Remove product in the cart using  cart_item_key.
                 WC()->cart->remove_cart_item($cart_item_key); 
             }
@@ -322,6 +324,12 @@ class App {
     			return;
     		}
 		} 
+        $toggle_position_horizontal = insopt( 'toggle-position-horizontal' );
+        $toggle_position_vertical = insopt( 'toggle-position-vertical' );
+        $this->layout_class .= !empty($toggle_position_horizontal) ? 'ins-hori-'.$toggle_position_horizontal.' ' :  'ins-hori-right ';
+        $this->layout_class .= !empty($toggle_position_vertical) ? 'ins-var-'.$toggle_position_vertical.' ' :  'ins-var-bottom ';
+
+        
         ob_start();
         if( $this->layout == 1 ||  $this->layout == 3):
         ?>
@@ -331,7 +339,7 @@ class App {
 
         if($this->layout == 2 ||  $this->layout == 3):
         ?>
-        <div class="ins-checkout-popup <?php echo esc_attr( $this->layout_class ) ?>">
+        <div class="ins-checkout-popup <?php echo esc_attr( $this->layout_class ) ?>"> 
             <div class="ins-checkout-overlay"></div>
             <div class="ins-checkout-layout ins-checkout-layout-3 <?php echo esc_attr( $this->layout_class ) ?>">
                 <?php require_once INS_INC_PATH .  $this->layouts_slug; ?>

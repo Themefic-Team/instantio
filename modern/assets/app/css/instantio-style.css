@@ -1,3 +1,18 @@
+/* INS CSS Variable */
+/* :root {
+  --ins_toggle_bg: #fffdfd;
+  --ins_toggle_hover_bg: #fffdfd;
+  --ins_toggle_border: #e9570a;
+  --ins_toggle_hover_border: #e9570a;
+  --ins_toggle_icon: #e9570a;
+  --ins_toggle_icon_hover: #e9570a;
+  --ins_toggle_icon_size: 24px;
+  --ins_toggle_item_bg: #ffd200;
+  --ins_toggle_item_bg_hover: #ffd200;
+  --ins_toggle_item_color: #000;
+  --ins_toggle_item_color_hover: #000;
+  --ins_toggle_item_size: 14px; 
+} */
 /* Track */
 .ins-cart-item-wrap::-webkit-scrollbar-track {
   box-shadow: inset 0 0 5px #ddd;
@@ -102,17 +117,20 @@
   overflow: auto;
 }
 
-.ins-cart-item-wrap {
-  max-height: 300px;
+.ins-cart-item-wrap { 
+  overflow: auto;
+  max-height: 300px; 
+}
+.ins-checkout-popup.slide .ins-cart-item-wrap {
+ 
   overflow: auto;
 }
-
 .ins-cart-item-wrap::-webkit-scrollbar {
   width: 5px;
 }
 
 /* Toggle Button */
-.ins-click-to-show.ins-toggle-btn {
+.ins-toggle-btn {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -120,8 +138,8 @@
   height: 80px;
   position: absolute;
   left: -80px;
-  background-color: #fffdfd;
-  color: #000;
+  background-color: var(--ins_toggle_bg) ;
+  color: var(--ins_toggle_icon);
   top: 50%;
   margin-top: -80px;
   border-radius: 5px 0px 0px 5px;
@@ -129,12 +147,18 @@
   transition: 0.4s;
   gap: 8px;
   box-shadow: -9px 0px 16px -16px;
-  border: 1px solid #f5f2f2;
+  border: 1px solid;
+  border-color: var(--ins_toggle_border) !important;
   border-right: none;
   -webkit-border-radius: 5px 0px 0px 5px;
   -moz-border-radius: 5px 0px 0px 5px;
   -ms-border-radius: 5px 0px 0px 5px;
   -o-border-radius: 5px 0px 0px 5px;
+}
+.ins-toggle-btn:hover {
+  background-color: var(--ins_toggle_hover_bg); 
+  color: var(--ins_toggle_icon_hover);
+  border-color: var(--ins_toggle_hover_border) !important;
 }
 .ins-fixed-toogle {
 	position: fixed; 
@@ -143,18 +167,24 @@
     bottom: 80px; 
 }
 
-.ins-toggle-btn.ins-toggle-btn svg {
-	width: 24px;
+.ins-toggle-btn svg {
+	width: var(--ins_toggle_icon_size);
+  fill: var(--ins_toggle_icon);
 	margin: 0 2px 0 0;
 	height: auto;
 }
-.ins-toggle-button-1.ins-position-right-bottom {
+.ins-toggle-btn:hover svg { 
+  fill: var(--ins_toggle_icon_hover); 
+}
+/* .ins-toggle-btn svg */
+/* .ins-toggle-button-1.ins-position-right-bottom {
   right: 25px;
   bottom: 25px;
-}
+} */
 
 .ins-toggle-btn.tog-1 {
-  border: 2px solid #e9570a !important;
+  border: 2px solid !important;
+  border-color: var(--ins_toggle_border) !important;
   border-radius: 5px !important;
   left: -90px;
   top: 83%;
@@ -163,15 +193,25 @@
   height: 60px;
   width: 60px;
 }
+.ins-toggle-btn.tog-1:hover {
+  border-color: var(--ins_toggle_hover_border) !important;
+}
+.ins-toggle-btn .ins-items-count { 
+  background: var(--ins_toggle_item_bg); 
+  color: var(--ins_toggle_item_color);
+  font-size: var(--ins_toggle_item_size); 
+}
+.ins-toggle-btn:hover .ins-items-count { 
+  background: var(--ins_toggle_item_bg_hover); 
+  color: var(--ins_toggle_item_color_hover); 
+}
 .ins-toggle-btn.tog-1 .ins-items-count {
   right: -12px;
-  top: -12px;
-  background: #ffd200;
+  top: -12px; 
   position: absolute;
   width: 28px;
   height: 28px;
-  box-shadow: 0 0 0 0;
-  color: #000;
+  box-shadow: 0 0 0 0; 
   border-radius: 50%;
   text-align: center;
   letter-spacing: -1px;
@@ -179,6 +219,30 @@
   font-weight: bold;
   line-height: 28px;
   transition: 0.5s;
+}
+
+.ins-checkout-layout.ins-hori-left .ins-toggle-btn.tog-1 {
+  left: auto;
+  right: -90px;
+}
+.ins-checkout-layout.ins-hori-left .ins-toggle-btn.tog-2 {
+  left: auto;
+  right: -80px !important;
+  border-radius: 0px 5px 5px 0px;
+}
+.ins-checkout-popup.slide.ins-var-middle .ins-toggle-btn.tog-1 {
+	top: 50% !important; 
+	margin-top: -30px !important;
+}
+.ins-checkout-popup.slide.ins-var-top .ins-toggle-btn.tog-1 {
+	top: 5% !important; 
+}
+.ins-checkout-popup.slide.ins-var-top .ins-toggle-btn.tog-2 {
+	top: 5% !important; 
+  margin-top: 0 !important;
+}
+.ins-checkout-popup.slide.ins-var-bottom .ins-toggle-btn.tog-2 {
+	top: 95% !important;  
 }
 /* Toggle Button */
 
@@ -209,7 +273,7 @@
 .ins-checkout-layout-3.popup {
   margin: 0 auto;
   position: relative;
-  max-height: 70% !important;
+  max-height: 90% !important;
   width: 650px !important;
 }
 .ins-checkout-layout-3.popup .ins-content {
@@ -219,8 +283,28 @@
 }
 .ins-checkout-layout-3.popup .ins-cart-item-wrap {
   height: auto !important;
-  overflow: hidden !important;
+  /* overflow: hidden !important; */
 }
+ 
+.ins-checkout-layout.slide.ins-hori-left {
+  left: -600px;
+  right: auto;
+  transform: translate(0, 0) !important;
+  -webkit-transform: translate(0, 0) !important;
+  -moz-transform: translate(0, 0) !important;
+  -ms-transform: translate(0, 0) !important;
+  -o-transform: translate(0, 0) !important;
+}
+.ins-checkout-layout.slide.ins-hori-left.active {
+  left: -600px;
+  right: auto;
+  transform: translate(100%, 0) !important;
+  -webkit-transform: translate(100%, 0) !important;
+  -moz-transform: translate(100%, 0) !important;
+  -ms-transform: translate(100%, 0) !important;
+  -o-transform: translate(100%, 0) !important;
+}
+
 .loader-container-fixed {
   display: block !important;
   position: fixed;
@@ -230,8 +314,24 @@
   z-index: 9999999;
 }
 .loader-container {
-  display: none;
+	display: none;  
   visibility: hidden;
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	left: 0;
+	top: 0;
+	z-index: 1;
+}
+.loader-container::after {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  content: '';
+  background-color: #00000017; 
+  z-index: -1;
 }
 .loader-container.active {
   position: absolute;
