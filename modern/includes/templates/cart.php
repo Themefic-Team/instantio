@@ -113,7 +113,9 @@ do_action( 'woocommerce_before_cart' ); ?>
 									echo apply_filters( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 										'woocommerce_cart_item_remove_link',
 										sprintf(
-											'<a href="%s" class="remove" aria-label="%s" data-product_id="%s" data-variation_id="%s" data-product_sku="%s">&times;</a>',
+											'<a href="%s" class="remove" aria-label="%s" data-product_id="%s" data-product_sku="%s">
+												<img class="remove-img" src="'. INS_ASSETS_URL . '/img/delete.png" />
+											</a>',
 											esc_url( wc_get_cart_remove_url( $cart_item_key ) ),
 											esc_html__( 'Remove this item', 'woocommerce' ),
 											esc_attr( $product_id ),

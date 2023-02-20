@@ -280,7 +280,7 @@
 				cart_item_keys = [],
 				product_ids = [],
 				quantities = [],
-			coupon_code = $form.find('input[name="coupon_code"]').val();
+				coupon_code = $form.find('input[name="coupon_code"]').val();
 
 			$form.find(".cart_item").each(function () {
 				var $cart_item = $(this),
