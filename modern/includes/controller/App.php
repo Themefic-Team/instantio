@@ -302,9 +302,6 @@ class App {
     }
 
 
-
-    
-
     public function ins_layout_three(){
         // Return if WooCommerce not active
 		if ( !class_exists( 'woocommerce' ) ) {
