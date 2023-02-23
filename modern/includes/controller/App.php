@@ -327,13 +327,12 @@ class App {
         $toggle_position_horizontal = insopt( 'toggle-position-horizontal' );
         $toggle_position_vertical = insopt( 'toggle-position-vertical' );
         $this->layout_class .= !empty($toggle_position_horizontal) ? 'ins-hori-'.$toggle_position_horizontal.' ' :  'ins-hori-right ';
-        $this->layout_class .= !empty($toggle_position_vertical) ? 'ins-var-'.$toggle_position_vertical.' ' :  'ins-var-bottom ';
-
+        $this->layout_class .= !empty($toggle_position_vertical) ? 'ins-var-'.$toggle_position_vertical.' ' :  'ins-var-bottom '; 
         
         ob_start();
         if( $this->layout == 1 ||  $this->layout == 3):
         ?>
-            <div class="ins-fixed-toogle"> <?php echo do_action('ins_cart_toggle'); ?></div>
+            <div class="ins-fixed-toogle <?php echo esc_attr( $this->layout_class ) ?>"> <?php echo do_action('ins_cart_toggle'); ?></div>
         <?php 
         endif; 
 

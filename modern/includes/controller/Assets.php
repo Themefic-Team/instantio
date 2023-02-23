@@ -32,11 +32,16 @@ class Assets {
         $ins_toggle_icon_hover = !empty(insopt( 'ins-tog-icon-colors' )['hover']) ? insopt( 'ins-tog-icon-colors' )['hover'] : '#e9570a';
         $ins_toggle_icon_size = !empty(insopt( 'wi-header-icon-size' )['width']) ? insopt( 'wi-header-icon-size' )['width'].'px' : '24px';
         $ins_toggle_item_bg = !empty(insopt( 'ins-tog-item-bg' )['regular']) ? insopt( 'ins-tog-item-bg' )['regular'] : '#ffd200';
-        $ins_toggle_item_bg_hover = !empty(insopt( 'ins-tog-item-bg' )['hover']) ? insopt( 'ins-tog-item-bg' )['hover'] : '#ddd';
+        $ins_toggle_item_bg_hover = !empty(insopt( 'ins-tog-item-bg' )['hover']) ? insopt( 'ins-tog-item-bg' )['hover'] : '#ffd200';
         $ins_toggle_item_color = !empty(insopt( 'wi-header-text-colors' )['regular']) ? insopt( 'wi-header-text-colors' )['regular'] : '#000';
         $ins_toggle_item_color_hover = !empty(insopt( 'wi-header-text-colors' )['hover']) ? insopt( 'wi-header-text-colors' )['hover'] : '#000';
         $ins_toggle_item_size = !empty(insopt( 'wi-header-text-size' )['font-size']) ? insopt( 'wi-header-text-size' )['font-size'].'px' : '14px';
-        
+        if( insopt( 'ins-toggler' ) == 'tog-2' ){
+            $ins_toggle_item_color = '#000';
+            $ins_toggle_item_color_hover = '#000';
+            $ins_toggle_item_bg = '#fff';
+            $ins_toggle_item_bg_hover = '#fff';
+        }
         $output = '
         :root {
             --ins_toggle_bg: '.$ins_toggle_bg.';

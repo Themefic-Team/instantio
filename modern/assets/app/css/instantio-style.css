@@ -167,12 +167,17 @@
   border-color: var(--ins_toggle_hover_border) !important;
 }
 .ins-fixed-toogle {
-  position: fixed;
-  position: fixed;
+  position: fixed; 
   right: 0;
   bottom: 80px;
 }
-
+.ins-fixed-toogle.ins-hori-left {
+	right: auto;
+	left: 0;
+}
+.ins-fixed-toogle.ins-hori-left .ins-toggle-btn.tog-1 {
+	left: 20px;
+}
 .ins-toggle-btn svg {
 	width: var(--ins_toggle_icon_size);
   fill: var(--ins_toggle_icon);
