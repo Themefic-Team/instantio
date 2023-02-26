@@ -25,7 +25,7 @@ if(!function_exists('ins_review_notice')){
             <div class="notice notice-info themefic_review_notice"> 
                
                 <?php echo sprintf( 
-                        __( ' <p>Hey %1$s 👋, You have been using %2$s for quite a while. If you feel %2$s is helping your business to grow in any way, would you please help %2$s to grow by simply leaving a 5* review on the WordPress Forum?', 'ultimate-addons-cf7' ),
+                        __( ' <p>Hey %1$s 👋, You have been using %2$s for quite a while. If you feel %2$s is helping your business to grow in any way, would you please help %2$s to grow by simply leaving a 5* review on the WordPress Forum?</p>', 'ultimate-addons-cf7' ),
                         $current_user->user_login,
                         'Instantio'
                     ); ?> 
@@ -95,6 +95,41 @@ if(!function_exists('ins_review_notice_callback')){
     }
     add_action( 'wp_ajax_ins_review_notice_callback', 'ins_review_notice_callback' );
 
+}
+
+if(!function_exists('new_updated_announcement')){
+    function new_updated_announcement() { 
+        $current_user = wp_get_current_user();
+        ?>
+
+        <div class="notice themefic_review_notice new_updated_anno">  
+            <?php echo sprintf( 
+                    __( '
+                        <p>
+                            Hey %1$s 👋, </br> We are delighted to announce that new updates for %2$s are forthcoming! Our team has been striving to create innovative exciting new versions and improvements to enhance your experience. 
+                        </p>
+                        <p>
+                            Users can look forward to improved performance with faster load times, an optimized user interface, an enhanced Ajax Cart and Checkout, added security features, and extended functionality to maximize %2$s potential.
+                        </p>
+                        <p>
+                            We prioritize providing our users with an optimal experience when using %2$s. To this end, we are continuously seeking to enhance our plugin to provide you with the best experience possible. Additionally, you may choose to use our existing version if you prefer. In the new version, you will have the option to use the existing version instead. We are not discontinuing our existing version for now.
+                        </p>
+                        <p>
+                            We appreciate you choosing %2$s and are excited to bring you these new updates soon.
+                        </p>
+                    ', 'instantio' ),
+                    $current_user->user_login,
+                    'Instantio'
+                ); ?>
+
+            <a class="new_updated_anno_close" href="#" class="never" data-status="never">
+                <span class="dashicons dashicons-dismiss"></span>
+            </a>
+
+        </div>
+
+    <?php }
+    add_action( 'admin_notices', 'new_updated_announcement' );  
 }
 
 ?>
