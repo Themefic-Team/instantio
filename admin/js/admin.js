@@ -1,10 +1,10 @@
-(function($) {
-	
-	jQuery(document).ready(function(){
+(function ($) {
 
-        $( ".ins-scroll-to" ).parent().css( {"padding": "0", "margin": "0", "visibility": "hidden"} );
+    jQuery(document).ready(function () {
 
-        $(".admin-scroll").click(function(e) {
+        $(".ins-scroll-to").parent().css({ "padding": "0", "margin": "0", "visibility": "hidden" });
+
+        $(".admin-scroll").click(function (e) {
 
             e.preventDefault();
 
@@ -12,7 +12,7 @@
             console.log(secID);
 
             $('html, body').animate({
-                scrollTop: $('#'+secID).offset().top
+                scrollTop: $('#' + secID).offset().top
             }, 1000);
         });
 
@@ -21,7 +21,7 @@
          * 
          * @since 1.0
          */
-        $(document).on('click', '.tf-install', function(e) {
+        $(document).on('click', '.tf-install', function (e) {
             e.preventDefault();
 
             var current = $(this);
@@ -35,33 +35,43 @@
                 slug: plugin_slug,
             };
 
-            jQuery.post( ins_params.ajax_url, data, function(response) {
+            jQuery.post(ins_params.ajax_url, data, function (response) {
                 //console.log(response);
                 //console.log(response.data.activateUrl);
                 current.removeClass('updating-message');
                 current.addClass('updated-message').text('Installed!');
                 current.attr("href", response.data.activateUrl);
             })
-            .fail(function() {
-                current.removeClass('updating-message').text('Failed!');
-            })
-            .always(function() {
-                current.removeClass('install-now updated-message').addClass('activate-now button-primary').text('Activating...');
-                current.unbind(e);
-                current[0].click();
-            });
+                .fail(function () {
+                    current.removeClass('updating-message').text('Failed!');
+                })
+                .always(function () {
+                    current.removeClass('install-now updated-message').addClass('activate-now button-primary').text('Activating...');
+                    current.unbind(e);
+                    current[0].click();
+                });
         });
 
         /**
          * Pro Feature button link
          */
-         $(document).on('click', '.ins-pro', function(e) {
+        $(document).on('click', '.ins-pro', function (e) {
             window.open('https://wpinstant.io/go/upgrade');
         });
 
-        $(document).on('click', '.ins-csf-pro', function(e) {
+        $(document).on('click', '.ins-csf-pro', function (e) {
             window.open('https://wpinstant.io/go/upgrade');
         });
+
+
+        /**
+         * New updated Announcement Notice
+         */
+        $(document).on('click', '.new_updated_anno_close', function (e) {
+            e.preventDefault();
+            $(this).closest('.themefic_review_notice.new_updated_anno').css('display', 'none');
+        });
+
 
     });
 

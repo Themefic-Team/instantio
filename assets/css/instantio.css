@@ -633,6 +633,8 @@
   color: transparent !important;
   background: none;
   border: none;
+  line-height: 13px !important;
+  font-size: 14px !important;
 }
 .ins-container a.remove::before {
   content: url(../img/times-circle.svg);
