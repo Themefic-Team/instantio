@@ -155,6 +155,7 @@
   justify-content: center;
   height: 60px;
   width: 60px;
+  transition: 0.2s ease-out;
   background-color: var(--ins_toggle_bg);
   color: var(--ins_toggle_icon);
   transition: 0.4s;
@@ -165,6 +166,10 @@
   -o-border-radius: 5px;
   border: 2px solid !important;
   border-color: var(--ins_toggle_border) !important;
+}
+
+.ins-toggle-btn.hide {
+  display: none;
 }
 
 .ins-toggle-btn:hover {
@@ -207,6 +212,11 @@
   font-weight: bold;
   line-height: 28px;
   transition: 0.5s;
+}
+
+.ins-checkout-layout.ins-var-bottom .ins-toggle-btn.tog-1 {
+  left: -80px;
+  bottom: 40px;
 }
 
 .ins-checkout-layout.ins-hori-left .ins-toggle-btn.tog-1 {
@@ -376,7 +386,7 @@
 
 .ins-checkout-overlay.active {
   visibility: visible;
-  opacity: 0.1;
+  opacity: 0.7;
   width: 100%;
   right: 0;
   transition: 0.7s;
@@ -854,7 +864,7 @@
 }
 
 @media (max-width: 576px) {
-  .ins-checkout-layout-3.popup{
+  .ins-checkout-layout-3.popup {
     max-height: 100%;
     width: 100%;
     height: 100%;
