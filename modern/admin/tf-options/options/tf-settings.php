@@ -27,6 +27,16 @@ TF_Settings::option( 'wiopt', array(
 						'tour'  => __( 'Tours', 'tourfic' ),
 					),
 				),
+				array(
+					'id' => 'tf-text',
+					'type' => 'text',
+					'label' => 'Enter your label',
+					'subtitle' => 'Enter your subtitle',
+					'placeholder' => 'Enter your placeholder',
+					'description' => 'Enter your description',
+					'class' => 'tf-field-class',
+					'default' => 'Enter your default value',
+				)
 			),
 		),
 		'hotel_option'       => array(

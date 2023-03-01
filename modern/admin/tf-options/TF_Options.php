@@ -169,11 +169,8 @@ if ( ! class_exists( 'TF_Options' ) ) {
 				wp_enqueue_script( 'tf-flatpickr', '//cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.js', array( 'jquery' ), $this->tf_options_version(), true );
 				wp_enqueue_script( 'tf-select2', '//cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js', array( 'jquery' ), $this->tf_options_version(), true );
 				wp_enqueue_script( 'wp-color-picker-alpha', '//raw.githubusercontent.com/kallookoo/wp-color-picker-alpha/master/src/wp-color-picker-alpha.js', array( 'jquery', 'wp-color-picker' ), $this->tf_options_version(), true );
-				
 				wp_enqueue_script( 'notyf-js', $this->tf_options_file_url('assets/libs/notyf/notyf.min.js'), array( 'jquery'), $this->tf_options_version(), true ); 
-	 
-
-
+				
 				$tf_google_map = function_exists( 'is_tf_pro' ) && is_tf_pro() && ! empty( tfopt( 'google-page-option' ) ) ? tfopt( 'google-page-option' ) : "false";
 				if ( $tf_google_map != "googlemap" ) {
 					wp_enqueue_script( 'tf-leaflet', esc_url( '//cdn.jsdelivr.net/npm/leaflet@' . '1.9' . '/dist/leaflet.js' ), array( 'jquery' ), '1.9', true );
