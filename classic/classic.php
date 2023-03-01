@@ -35,8 +35,8 @@ if ( !function_exists('ins_enqueue_admin_scripts') ) {
     function ins_enqueue_admin_scripts(){
 
         // Custom
-		wp_enqueue_style('ins-admin', INS_ADMIN_URL . '/css/admin.css','', '' );
-		wp_enqueue_script( 'ins-admin', INS_ADMIN_URL . '/js/admin.js', array('jquery'), '', true );  
+		wp_enqueue_style('ins-admin', INS_URL . '/admin/css/admin.css','', '' );
+		wp_enqueue_script( 'ins-admin', INS_URL . '/admin/js/admin.js', array('jquery'), '', true );  
         wp_localize_script( 'ins-admin', 'ins_params',
             array(
                 'ins_nonce' => wp_create_nonce( 'updates' ),
@@ -52,7 +52,36 @@ if ( !function_exists('ins_enqueue_admin_scripts') ) {
  * @since 1.0
  */
 if(is_admin()){ 
-	require_once( INS_ADMIN_PATH.'/admin-notice.php' ); 
+	require_once( INS_PATH.'/admin/admin-notice.php' ); 
+}
+
+/*
+ * Plugins Loaded
+ * Including Option Framework
+ * Including Options
+ * Disable WooCommerce Notices
+ */
+
+ if ( ! function_exists( 'instantio_plugin_loaded_action' ) ) {
+	function instantio_plugin_loaded_action() {
+		
+		require_once( INS_PATH .'/admin/framework/framework.php' );
+		
+		// Options
+		if ( file_exists( WP_PLUGIN_DIR .'/wooinstant/admin/config.php' )  && defined( 'INSTANTIO_PRO_CONFIG' ) && defined( 'INSTANTIO_PRO' ) ) {
+			require_once( WP_PLUGIN_DIR .'/wooinstant/admin/config.php' );
+		} elseif ( file_exists( INS_PATH .'/admin/config.php' ) ) {
+			require_once( INS_PATH .'/admin/config.php' );
+		}
+
+		// Disable WooCommerce Notices
+		if ( class_exists( 'woocommerce' ) ) {
+			remove_action( 'woocommerce_before_shop_loop', 'woocommerce_output_all_notices', 10 );
+			remove_action( 'woocommerce_before_single_product', 'woocommerce_output_all_notices', 10 );
+			add_filter('woocommerce_cart_item_removed_notice_type', '__return_null');
+		}
+	}
+	add_action( 'plugins_loaded', 'instantio_plugin_loaded_action' ); 
 }
 
 /**
@@ -136,10 +165,9 @@ if (!class_exists('INS_Mobile_Detect')) {
 }
 
 // Functions
-if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ){
-	if (!defined( 'INSTANTIO_PRO_FUNCTIONS' )) {
-		require_once INS_INC_PATH . '/functions.php';
-	}
+
+if (!defined( 'INSTANTIO_PRO_FUNCTIONS' )) {
+	require_once INS_INC_PATH . '/functions.php';
 }
 // SVG Icons
 if (!defined( 'INSTANTIO_PRO_ICONS' )) {

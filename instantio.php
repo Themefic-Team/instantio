@@ -67,8 +67,7 @@ class INSTANTIO {
 	 *
 	 * @since 1.0
 	 */
-	public function init() {  
-		
+	public function init() {    
 		if(!empty(insopt('ins_enable_classic')) && insopt('ins_enable_classic') == '1'){ 
 			require_once( INS_CLASSIC_PATH.'/classic.php' );
 		}else{
