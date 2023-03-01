@@ -73,18 +73,25 @@ class App {
         ob_start();
         $ins_toggler =  insopt( 'ins-toggler' );
         $cart_icon =  insopt( 'cart-icon' );
+
+        if( $this->layout == 2){
+            $togglebtnClass = 'sidecart';
+        } elseif($this->layout == 3){
+            $togglebtnClass = 'popupcart';
+        }
+
         if($this->layout == 1 ){
             $ins_toggler = 'tog-1';
             ?>
-            <a class="ins-toggle-btn  <?php echo esc_attr( $ins_toggler ) ?>" href="<?php echo esc_url(wc_get_checkout_url());  ?>"> 
+            <a class="ins-toggle-btn <?php echo esc_attr( $ins_toggler ) ?>" href="<?php echo esc_url(wc_get_checkout_url());  ?>"> 
                 <?php echo instantio_svg_icon($cart_icon); ?>
 
                 <span class="ins-items-count"><span id="ins_cart_total" class="ins_cart_total"><?php echo WC()->cart->get_cart_contents_count(); ?></span></span> 
            </a> 
             <?php
-        }else{
+        }else {
             ?> 
-            <div class="ins-click-to-show ins-toggle-btn <?php echo esc_attr( $ins_toggler ) ?>">
+            <div class="ins-click-to-show ins-toggle-btn <?php echo esc_attr( $togglebtnClass ) ?> <?php echo esc_attr( $ins_toggler ) ?>">
                 <?php echo instantio_svg_icon($cart_icon); ?>
                 <span class="ins-items-count"><span id="ins_cart_total" class="ins_cart_total"><?php echo WC()->cart->get_cart_contents_count(); ?></span></span>
             </div> 
@@ -334,6 +341,7 @@ class App {
         endif; 
 
         if($this->layout == 2 ||  $this->layout == 3):
+            
         ?>
         <div class="ins-checkout-popup <?php echo esc_attr( $this->layout_class ) ?>"> 
             <div class="ins-checkout-overlay"></div>

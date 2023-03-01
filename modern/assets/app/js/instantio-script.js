@@ -7,20 +7,29 @@
 			$(".ins-checkout-overlay").removeClass("active");
 			$(".ins-checkout-popup").removeClass("active");
 			$(".ins-checkout-popup").removeClass("fadeIn");
+			$(".ins-click-to-show.popupcart").removeClass("hide");
 		});
-		$(document).on("click", ".ins-click-to-show", function (e) {
+		$(document).on("click", ".ins-click-to-show.sidecart", function (e) {
 			e.preventDefault();
 			$(".ins-checkout-layout-3.slide").toggleClass("active");
 			$(".ins-checkout-overlay").toggleClass("active");
+		});
+
+		$(document).on("click", ".ins-click-to-show.popupcart", function (e) {
+			e.preventDefault();
+			$(".ins-checkout-overlay").toggleClass("active");
 			$(".ins-checkout-popup").toggleClass("active");
 			$(".ins-checkout-popup").toggleClass("fadeIn");
+			$(this).toggleClass("hide");
 		});
+
 		$(document).on("click", ".ins-checkout-overlay", function (e) {
 			e.preventDefault();
 			$(".ins-checkout-layout-3.slide").removeClass("active");
 			$(".ins-checkout-overlay").removeClass("active");
 			$(".ins-checkout-popup").removeClass("active");
 			$(".ins-checkout-popup").removeClass("fadeIn");
+			$(".ins-click-to-show.popupcart").removeClass("hide");
 		});
 
 		// Instantio Multistep Checkout
@@ -37,20 +46,20 @@
 		// Hide toggle button if empty cart
 		hide_toggle_btn();
 
-		
+
 	});
 
 	// Hide Toggle Button
 	function hide_toggle_btn() {
 		if (hide_toggler == true) {
 			var cart_item_count = $('.ins-checkout-layout').find('.ins-single-cart-item').length;
-			if(cart_item_count == 0){
+			if (cart_item_count == 0) {
 				$(".ins-toggle-btn").hide();
 				$(".ins-checkout-layout-3").removeClass("active");
 				$(".ins-checkout-overlay").removeClass("active");
 				$(".ins-checkout-popup").removeClass("active");
-			} 
-			
+			}
+
 		}
 	}
 
@@ -311,7 +320,7 @@
 				success: function (response) {
 					$(".ins-checkout-layout").html("");
 					$(".ins-checkout-layout").html(response.cart_data);
-					
+
 					// Hide toggle button if empty cart
 					hide_toggle_btn();
 				},
