@@ -36,7 +36,21 @@ TF_Settings::option( 'wiopt', array(
 					),
 				),
 				array(
-<<<<<<< HEAD
+					'id'        => 'ins-toggler',
+					'type'      => 'imageselect',
+					'label'     => __('Toggler Design', 'instantio'), 
+					'subtitle' => __('Select toggler design', 'instantio'),
+					'multiple' => true,
+					'inline'   => true,
+					'options'   => array(
+					'tog-1' => INS_MODERN_URL.'/admin/tf-options/img/toggler-1.png',
+					'tog-2' => INS_MODERN_URL.'/admin/tf-options/img/toggler-2.png',
+					),
+					'default'   => 'tog-1',
+					
+				),
+
+				array(
 					'id'        => 'woins-quickview-enable',
 					'class'     => 'ins-csf-disable badge_pro',
 					'type'      => 'switch',
@@ -62,18 +76,18 @@ TF_Settings::option( 'wiopt', array(
 
 				array(
 					'id'       => 'ins-upsell',
-					'class' => 'ins-csf-disable badge_pro',
+					'class' => 'ins-csf-disable ins-csf-pro',
 					'type'     => 'switch',
 					'label'    => __('Show Upsells Product in Cart', 'instantio'),
 					'subtitle' => __('Enable/disable upsells items in cart', 'instantio'),
 					'label_on'    => __('Enabled', 'instantio'),
 					'label_off'   => __('Disabled', 'instantio'),
-					'text_width' => 100,
+					'width' => 100,
 					'is_pro'    => true,
 					'default'   => false,
-				  ),
+				),
 				
-				  array(
+				array(
 					'id'      => 'upsell-heading',
 					'class' => 'ins-csf-disable ins-csf-pro',
 					'type'    => 'text',
@@ -81,9 +95,10 @@ TF_Settings::option( 'wiopt', array(
 					'subtitle' => __('The text shown before upsell items', 'instantio'),
 					'desc'    => __('Default: Hang on! We have this offer just for you!', 'instantio'),
 					'placeholder' => __('Hang on! We have this offer just for you!', 'instantio'),
-				  ),
+					'is_pro'    => true,
+				),
 				
-				  array(
+				array(
 					'id'       => 'crosssell',
 					'class' => 'ins-csf-disable ins-csf-pro',
 					'type'     => 'switch',
@@ -91,11 +106,12 @@ TF_Settings::option( 'wiopt', array(
 					'subtitle' => __('Enable/disable cross sell items in checkout', 'instantio'),
 					'label_on'    => __('Enabled', 'instantio'),
 					'label_off'   => __('Disabled', 'instantio'),
-					'text_width' => 100,
-					'default'   => true,
-				  ),
+					'width' => 100,
+					'default'   => false,
+					'is_pro'    => true,
+				),
 				
-				  array(
+				array(
 					'id'      => 'crosssell-heading',
 					'class' => 'ins-csf-disable ins-csf-pro',
 					'type'    => 'text',
@@ -103,19 +119,9 @@ TF_Settings::option( 'wiopt', array(
 					'subtitle' => __('The text shown before cross sell items', 'instantio'),
 					'desc'    => __('Default: You may be interested in…', 'instantio'),
 					'placeholder' => __('You may be interested in…', 'instantio'),
-				  ),
-				
-=======
-					'id' => 'tf-text',
-					'type' => 'text',
-					'label' => 'Enter your label',
-					'subtitle' => 'Enter your subtitle',
-					'placeholder' => 'Enter your placeholder',
-					'description' => 'Enter your description',
-					'class' => 'tf-field-class',
 					'default' => 'Enter your default value',
-				)
->>>>>>> 854d52f5d395f2ef73b1607c80d7e9b9ccf4750d
+					'is_pro'    => true,
+				),
 			),
 		),
 

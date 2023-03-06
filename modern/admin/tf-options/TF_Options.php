@@ -197,13 +197,6 @@ if ( ! class_exists( 'TF_Options' ) ) {
 				'tf_chart_enable'   => isset( $tf_chart_enable ) ? $tf_chart_enable : '',
 				'option_id' => TF_OPTION_ID,
 			) );
-
-			
-
-		
-
-			
-		
 		}
 
 		/**
