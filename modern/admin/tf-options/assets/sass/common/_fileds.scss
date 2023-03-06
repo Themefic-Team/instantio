@@ -19,9 +19,21 @@
     .tf-csf-badge {
       margin-left: 13px;
       .tf-pro {
-        background-color: #F44336 !important;
+        display: inline-block;
+        color: #fff;
+        padding: 3px 10px 3px 10px;
+        border-radius: 3px;
+        text-align: center;
+        margin: 5px 0 0 0;
+        font-size: 12px;
+        font-weight: 600;
+        line-height: 13px;
+        background: #b30000;
+        background-color: #f44336 !important;
         margin: 0;
       }
+      
+       
 
       .tf-upcoming {
         background-color: #006600 !important;
@@ -31,6 +43,10 @@
 
   }
 
+  &.tf-field-disable {
+    user-select: none;
+    opacity: .6;
+  }
   .tf-fieldset {
     font-style: normal;
     font-size: 14px;

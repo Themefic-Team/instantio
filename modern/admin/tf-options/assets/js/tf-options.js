@@ -1442,77 +1442,20 @@ var frame, gframe;
                 })
             }
         });
+        /**
+         * Pro Feature button link
+         */ 
+
+        $(window).on('load', function() {
+            $('.tf-field-disable').find('input, select, textarea, button, div, span').attr('disabled', 'disabled');
+        });
+
+        $(document).on('click', '.tf-field-pro', function(e) {
+            e.preventDefault();
+            window.open('https://tourfic.com/');
+        });
     });
 })(jQuery);
 
-/**
- * Shortcode generator js
- * @author Abu Hena
- * @since 2.9.3
- */
-(function ($){
-    //get each of the field value
-    $(document).on('click', '.tf-generate-tour .tf-btn', function (event) {
-        event.preventDefault();
-        var arr = [];
-    
-        $(this).parents('.tf-shortcode-generator-single').find(".tf-sg-field-wrap").each(function () {
-            var $this = $(this);
-            var data = $this.find('.tf-setting-field').val();
-            var option_name = $this.find('.tf-setting-field').attr('data-term');
-            var post_count = $this.find('.post-count').attr('data-count');
-    
-            if (option_name != undefined && option_name != '') {
-                data = option_name + '=' + (data.length ? data : '""');
-            }
-            if (post_count != undefined && post_count != '') {
-                data = post_count + '=' + (data.length ? data : '""');
-            }
-            arr.push(data);
-        });        
-        
-        var allData = arr.filter(Boolean);
-        var shortcode = "[" + allData.join(' ') + "]";
-    
-        $(this).parents('.tf-shortcode-generator-single').find('.tf-shortcode-value').val(shortcode);
-        $(this).parents('.tf-shortcode-generator-single').find('.tf-copy-item').slideDown();
-    });
 
-    $(document).on('click', '.tf-sg-close', function (event) {
-        $(this).parents('.tf-shortcode-generators').find('.tf-sg-form-wrapper').fadeOut();
-    });
-
-    $(document).on('click', '.tf-shortcode-btn', function (event) {
-        var $this = $(this);
-        $this.parents('.tf-shortcode-generator-single').find('.tf-sg-form-wrapper').fadeIn();
-  
-        $this.parents('.tf-shortcode-generator-single').mouseup(function (e) {
-            var container = $(this).find(".tf-shortcode-generator-form");
-            var container_parent = container.parent(".tf-sg-form-wrapper");
-            if (!container.is(e.target) && container.has(e.target).length === 0) {
-                container_parent.fadeOut();
-            }
-        });
-  
-    });
-
-    //Copy the shortcode value
-    $(document).on('click','.tf-copy-btn',function(){
-        var fieldIdValue = $(this).parent('.tf-shortcode-field').find('#tf-shortcode');
-        if (fieldIdValue) {
-            fieldIdValue.select();
-            document.execCommand("copy");
-        }
-        //show the copied message
-        $(this).parents('.tf-copy-item').append('<div><span class="tf-copied-msg">Copied<span></div>');
-        $("span.tf-copied-msg").animate({ opacity: 0 }, 1000, function(){
-            $(this).slideUp('slow',function(){
-                $(this).remove();
-            });
-        });
-    });
-
-
-
-})(jQuery);
 

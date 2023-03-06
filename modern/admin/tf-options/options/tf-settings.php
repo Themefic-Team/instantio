@@ -36,6 +36,7 @@ TF_Settings::option( 'wiopt', array(
 					),
 				),
 				array(
+<<<<<<< HEAD
 					'id'        => 'woins-quickview-enable',
 					'class'     => 'ins-csf-disable badge_pro',
 					'type'      => 'switch',
@@ -104,6 +105,17 @@ TF_Settings::option( 'wiopt', array(
 					'placeholder' => __('You may be interested in…', 'instantio'),
 				  ),
 				
+=======
+					'id' => 'tf-text',
+					'type' => 'text',
+					'label' => 'Enter your label',
+					'subtitle' => 'Enter your subtitle',
+					'placeholder' => 'Enter your placeholder',
+					'description' => 'Enter your description',
+					'class' => 'tf-field-class',
+					'default' => 'Enter your default value',
+				)
+>>>>>>> 854d52f5d395f2ef73b1607c80d7e9b9ccf4750d
 			),
 		),
 
