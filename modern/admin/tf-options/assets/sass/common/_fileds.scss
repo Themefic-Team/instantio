@@ -75,3 +75,11 @@
 .tf-inline-list {
   display: inline-block;
 }
+
+.tf-depend-hidden {
+  display: block;
+}
+
+.tf-depend-hidden.tf-depend-on {
+  display: none;
+}

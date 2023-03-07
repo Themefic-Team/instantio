@@ -3,7 +3,7 @@
 defined( 'ABSPATH' ) || exit;
 
 /**
- * Field: text
+ * Field: image
  */
 if ( ! class_exists( 'TF_image' ) ) {
 	class TF_image extends TF_Fields {
