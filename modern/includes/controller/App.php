@@ -40,14 +40,18 @@ class App {
         add_action( 'wp_ajax_ins_ajax_remove_coupon', array( $this, 'ins_ajax_remove_coupon' ));
 
         // Ins Cart Toggle
-        add_action( 'ins_cart_toggle', array( $this, 'ins_cart_toggle' )); 
-
-        // Ins Cart Buttons
-        add_action( 'ins_cart_buttons', array( $this, 'ins_cart_buttons' ));
+        add_action( 'ins_cart_toggle', array( $this, 'ins_cart_toggle' ), 11); 
 
         // Ins Cart Toggle
-        // add_action( 'ins_cart_content', array( $this, 'ins_cart_content' ));
-        add_action( 'ins_cart_content', array( $this, 'ins_cart_content_modern' ));
+        // add_action( 'ins_cart_header', array( $this, 'ins_cart_header' ), 11); 
+        add_action( 'ins_cart_header', array( $this, 'ins_cart_modern_header' ), 10); 
+
+        // Ins Cart Buttons
+        add_action( 'ins_cart_buttons', array( $this, 'ins_cart_buttons' ), 11);
+
+        // Ins Cart Toggle
+        add_action( 'ins_cart_content', array( $this, 'ins_cart_content' ), 11);
+        add_action( 'ins_cart_content', array( $this, 'ins_cart_content_modern' ), 10);
    
     }
 
@@ -70,6 +74,52 @@ class App {
             $this->layout_class = 'popup ';
             $this->layouts_slug =  "/layouts/layout-3.php";
         }
+    }
+
+    public function ins_cart_header(){
+        ob_start();
+        ?>
+        <span class="ins-checkout-close"><svg width="18px" height="18px" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path fill="#000000" d="M764.288 214.592 512 466.88 259.712 214.592a31.936 31.936 0 0 0-45.12 45.12L466.752 512 214.528 764.224a31.936 31.936 0 1 0 45.12 45.184L512 557.184l252.288 252.288a31.936 31.936 0 0 0 45.12-45.12L557.12 512.064l252.288-252.352a31.936 31.936 0 1 0-45.12-45.184z"/></svg></span> 
+
+        <h4 class="ins-label"><?php echo instantio_svg_icon('shopping-bag'); ?> <?php echo esc_html( 'Your Cart', 'instantio' ) ?> </h4>
+
+        <?php
+    }
+
+    public function ins_cart_modern_header() {
+        ob_start();
+        ?>
+           <div class="ins-checkout-header">
+                <span class="ins-checkout-header-icon">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_139_572)">
+                        <path d="M8.5489 9.0962L5.00006 5.54846L6.54851 4.00002L10.0962 7.54885H26.7757C26.9462 7.54884 27.1145 7.5887 27.2669 7.66525C27.4193 7.7418 27.5517 7.85292 27.6536 7.98974C27.7554 8.12657 27.8239 8.2853 27.8535 8.45328C27.8831 8.62126 27.873 8.79384 27.824 8.95723L25.1977 17.7117C25.1301 17.9372 24.9916 18.1349 24.8028 18.2755C24.6139 18.416 24.3848 18.4919 24.1493 18.4919H10.7375V20.6805H22.7749V22.8692H9.64321C9.35298 22.8692 9.07464 22.7539 8.86941 22.5486C8.66419 22.3434 8.5489 22.0651 8.5489 21.7748V9.0962ZM10.7375 9.73747V16.3033H23.3352L25.3049 9.73747H10.7375ZM10.1904 27.2464C9.75502 27.2464 9.3375 27.0734 9.02967 26.7656C8.72184 26.4578 8.5489 26.0403 8.5489 25.6049C8.5489 25.1696 8.72184 24.7521 9.02967 24.4442C9.3375 24.1364 9.75502 23.9635 10.1904 23.9635C10.6257 23.9635 11.0432 24.1364 11.351 24.4442C11.6589 24.7521 11.8318 25.1696 11.8318 25.6049C11.8318 26.0403 11.6589 26.4578 11.351 26.7656C11.0432 27.0734 10.6257 27.2464 10.1904 27.2464ZM23.322 27.2464C22.8867 27.2464 22.4692 27.0734 22.1614 26.7656C21.8535 26.4578 21.6806 26.0403 21.6806 25.6049C21.6806 25.1696 21.8535 24.7521 22.1614 24.4442C22.4692 24.1364 22.8867 23.9635 23.322 23.9635C23.7574 23.9635 24.1749 24.1364 24.4827 24.4442C24.7906 24.7521 24.9635 25.1696 24.9635 25.6049C24.9635 26.0403 24.7906 26.4578 24.4827 26.7656C24.1749 27.0734 23.7574 27.2464 23.322 27.2464Z" fill="#494E5C"/>
+                        </g>
+                        <defs>
+                        <clipPath id="clip0_139_572">
+                        <rect width="32" height="32" rx="4" fill="white"/>
+                        </clipPath>
+                        </defs>
+                    </svg>  
+                </span>
+                <span class="ins-checkout-header-title">Your cart</span>
+                <span class="ins-checkout-close">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_139_578)">
+                        <path d="M16 14.1147L22.6 7.51467L24.4853 9.4L17.8853 16L24.4853 22.6L22.6 24.4853L16 17.8853L9.4 24.4853L7.51466 22.6L14.1147 16L7.51466 9.4L9.4 7.51467L16 14.1147Z" fill="#494E5C"/>
+                        </g>
+                        <defs>
+                        <clipPath id="clip0_139_578">
+                        <rect width="32" height="32" rx="4" fill="white"/>
+                        </clipPath>
+                        </defs>
+                        </svg>  
+                </span>  
+            </div>
+        <?php 
+
+
+        echo ob_get_clean(); 
     }
 
     // Ins Toggle button
@@ -148,6 +198,7 @@ class App {
     public function ins_cart_content(){
         ob_start();
         ?>
+         
         <div class="ins-content">
             <div class="ins-cart-inner">
                 <?php require_once apply_filters( 'ins_cart_path', INS_INC_PATH . '/templates/cart.php' ); ?>	
@@ -161,7 +212,7 @@ class App {
     // Ins Cart Content Modern
     public function ins_cart_content_modern(){
         ob_start();
-        ?>
+        ?> 
         <div class="ins-content">
             <div class="ins-cart-inner">
                 <?php require_once apply_filters( 'ins_cart_path', INS_INC_PATH . '/templates/cart-modern.php' ); ?>	
