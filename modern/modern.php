@@ -58,10 +58,13 @@ class MODERN{
      *
      * Including Options
      */ 
-    public function tf_plugin_loaded_action() { 
-        if ( file_exists( INS_PATH . 'admin/tf-options/TF_Options.php' ) ) {
-            require_once INS_PATH . 'admin/tf-options/TF_Options.php';
-        }  
+    public function tf_plugin_loaded_action() {  
+        
+        if ( file_exists( WP_PLUGIN_DIR .'/wooinstant/admin/config.php' )  && defined( 'INSTANTIO_PRO_CONFIG' ) && defined( 'INSTANTIO_PRO' ) ) {
+			require_once INS_PATH . 'admin/tf-options/TF_Options.php';
+		} elseif ( file_exists( INS_PATH . 'admin/tf-options/TF_Options.php' ) ) {
+			require_once INS_PATH . 'admin/tf-options/TF_Options.php';
+		}
 
     }  
 

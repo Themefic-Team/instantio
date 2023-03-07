@@ -40,10 +40,14 @@ class App {
         add_action( 'wp_ajax_ins_ajax_remove_coupon', array( $this, 'ins_ajax_remove_coupon' ));
 
         // Ins Cart Toggle
-        add_action( 'ins_cart_toggle', array( $this, 'ins_cart_toggle' ));
+        add_action( 'ins_cart_toggle', array( $this, 'ins_cart_toggle' )); 
 
         // Ins Cart Buttons
         add_action( 'ins_cart_buttons', array( $this, 'ins_cart_buttons' ));
+
+        // Ins Cart Toggle
+        // add_action( 'ins_cart_content', array( $this, 'ins_cart_content' ));
+        add_action( 'ins_cart_content', array( $this, 'ins_cart_content_modern' ));
    
     }
 
@@ -100,6 +104,7 @@ class App {
         
          echo ob_get_clean();
     }
+
  
     // Ins Cart Buttons
     public function ins_cart_buttons() {
@@ -139,6 +144,34 @@ class App {
         echo ob_get_clean();
     }
 
+    // Ins Cart Content old
+    public function ins_cart_content(){
+        ob_start();
+        ?>
+        <div class="ins-content">
+            <div class="ins-cart-inner">
+                <?php require_once apply_filters( 'ins_cart_path', INS_INC_PATH . '/templates/cart.php' ); ?>	
+            </div>  
+            <?php do_action( 'ins_cart_buttons' ) ?> 
+        </div> 
+        <?php
+        echo ob_get_clean();
+    }
+
+    // Ins Cart Content Modern
+    public function ins_cart_content_modern(){
+        ob_start();
+        ?>
+        <div class="ins-content">
+            <div class="ins-cart-inner">
+                <?php require_once apply_filters( 'ins_cart_path', INS_INC_PATH . '/templates/cart-modern.php' ); ?>	
+            </div>  
+            <?php do_action( 'ins_cart_buttons' ) ?> 
+        </div> 
+        <?php
+        echo ob_get_clean();
+    }
+ 
     // Cart Count Fragments
     public function ins_cart_count_fragments(){
         ob_start();
@@ -343,7 +376,7 @@ class App {
         if($this->layout == 2 ||  $this->layout == 3):
             
         ?>
-        <div class="ins-checkout-popup <?php echo esc_attr( $this->layout_class ) ?>"> 
+        <div class="ins-checkout-popup ins-checkout-modern <?php echo esc_attr( $this->layout_class ) ?>"> 
             <div class="ins-checkout-overlay"></div>
             <div class="ins-checkout-layout ins-checkout-layout-3 <?php echo esc_attr( $this->layout_class ) ?>">
                 <?php require_once INS_INC_PATH .  $this->layouts_slug; ?>

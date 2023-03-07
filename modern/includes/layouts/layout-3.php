@@ -1,7 +1,7 @@
 <?php
 defined( 'ABSPATH' ) || exit;
  
- ob_start();
+//  ob_start();
 ?> 
 <div class="loader-container"><div class="db-spinner"></div></div>
 
@@ -13,15 +13,7 @@ defined( 'ABSPATH' ) || exit;
 <?php if(WC()->cart->is_empty()): 
 	echo '<div class="woocommerce-message" role="alert">Cart is empty.</div>';
 	elseif(WC()->cart->is_empty() == false):
-
-?>
-<div class="ins-content">
-	<div class="ins-cart-inner">
-		<?php require_once apply_filters( 'ins_cart_path', INS_INC_PATH . '/templates/cart.php' ); ?>	
-	</div>
-	<?php do_action( 'ins_cart_buttons' ) ?>
-</div> 
-<?php
+	do_action( 'ins_cart_content' );
 endif;
- echo ob_get_clean();
+//  echo ob_get_clean();
 ?>
