@@ -31,7 +31,7 @@ class INSTANTIO {
 	 */
 	private function define_constants() {
 		if ( ! defined( 'INSTANTIO_VERSION' ) ) { 
-			define( 'INSTANTIO_VERSION', '2.5.18' ); 
+			define( 'INSTANTIO_VERSION', '2.5.19' ); 
 		} 
 		define( 'INS_ROOT_URL', plugin_dir_url( __FILE__ ) ); 
 		define( 'INS_ADMIN_URL', INS_ROOT_URL.'admin' );

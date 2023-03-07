@@ -32,20 +32,17 @@
         background-color: #f44336 !important;
         margin: 0;
       }
-      
-       
 
       .tf-upcoming {
         background-color: #006600 !important;
         margin: 0;
       }
     }
-
   }
 
   &.tf-field-disable {
     user-select: none;
-    opacity: .6;
+    opacity: 0.6;
   }
   .tf-fieldset {
     font-style: normal;
@@ -58,14 +55,14 @@
   }
 
   .tf-field-sub-title {
-    color: #87888B;
+    color: #87888b;
     font-size: 14px;
     margin-bottom: 0px;
     display: block;
   }
 }
-.tf-field.tf-field-heading{
-  .tf-fieldset{
+.tf-field.tf-field-heading {
+  .tf-fieldset {
     margin-top: 0px;
   }
 }
@@ -73,4 +70,8 @@
   .tf-field {
     padding: 12px 0;
   }
+}
+
+.tf-inline-list {
+  display: inline-block;
 }
