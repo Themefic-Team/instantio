@@ -558,7 +558,7 @@
 }
 
 .ins-content {
-  margin: 15px 0;
+  /* margin: 15px 0; */
   display: grid;
   align-content: space-between;
   height: -webkit-fill-available;
@@ -853,75 +853,3 @@
 }
 
 /* CSS Animation */
-
-/* Breakpoints */
-@media (max-width: 992px) {
-}
-
-@media (max-width: 768px) {
-}
-
-@media (max-width: 576px) {
-  .ins-checkout-layout-3.popup {
-    max-height: 100%;
-    width: 100%;
-    height: 100%;
-  }
-  .ins-checkout-layout-3 {
-    width: 310px;
-  }
-  .ins-checkout-layout.slide.ins-hori-left.active {
-    left: -310px; 
-  }
-  .ins-checkout-layout.slide.ins-hori-left {
-    left: -310px; 
-  }
-  .ins-cart-inner form.woocommerce-cart-form .ins-cart-coupon .coupon {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    row-gap: 5px;
-  }
-
-  .ins-cart-coupon .coupon input {
-    max-width: 100%;
-  }
-
-  .ins-cart-inner
-    form.woocommerce-cart-form
-    .ins-cart-coupon
-    .ins-cart-coupon-updated-cart {
-    display: none;
-  }
-}
-
-@media (max-width: 480px) {
-  .ins-checkout-layout {
-    padding: 10px;
-  }
-
-  .ins-content {
-    height: calc(100% - 8%);
-  }
-
-  .ins-cart-item-title {
-    margin-left: 5px;
-  }
-
-  .ins-cart-item-quantity {
-    max-width: 175px !important;
-    margin-left: 5px;
-  }
-
-  .ins-cart-plus,
-  .ins-cart-minus {
-    line-height: 12px;
-    height: 20px !important;
-    width: 20px !important;
-  }
-  .ins-cart-qty-wrap input[type="number"] {
-    width: 28px !important;
-  }
-}
-
-/* End breakpoints */

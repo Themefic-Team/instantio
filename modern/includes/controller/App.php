@@ -50,7 +50,7 @@ class App {
         add_action( 'ins_cart_buttons', array( $this, 'ins_cart_buttons' ), 11);
 
         // Ins Cart Toggle
-        add_action( 'ins_cart_content', array( $this, 'ins_cart_content' ), 11);
+        // add_action( 'ins_cart_content', array( $this, 'ins_cart_content' ), 11);
         add_action( 'ins_cart_content', array( $this, 'ins_cart_content_modern' ), 10);
    
     }
