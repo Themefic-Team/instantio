@@ -126,7 +126,7 @@ class App {
     public function ins_cart_toggle() {
         ob_start();
         $ins_toggler =  insopt( 'ins-toggler' );
-        $cart_icon =  insopt( 'cart-icon' );
+        $cart_icon = !empty(insopt( 'cart-icon' )) ? insopt( 'cart-icon' ) : 'shopping-bag';
 
         if( $this->layout == 2){
             $togglebtnClass = 'sidecart';
@@ -214,7 +214,7 @@ class App {
         ob_start();
         ?> 
         <div class="ins-content">
-            <div class="ins-cart-inner">
+            <div class="ins-cart-inner step-1">
                 <?php require_once apply_filters( 'ins_cart_path', INS_INC_PATH . '/templates/cart-modern.php' ); ?>	
             </div>  
             <?php do_action( 'ins_cart_buttons' ) ?> 

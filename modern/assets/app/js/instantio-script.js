@@ -224,6 +224,12 @@
 		$('.ins-checkout-layout button[name="update_cart"]').trigger("click");
 	});
 
+	// Ins Cart Item Quantity Change
+	$(document).on("change", ".ins-cart-item-quantity .quantity .qty", function (e) { 
+		e.preventDefault(); 
+		$('.ins-checkout-layout button[name="update_cart"]').trigger("click");
+	});
+
 	// Ins Cart Item Remove
 	$(document).on("click", ".ins-cart-item-remove", function (e) {
 		e.preventDefault();

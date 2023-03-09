@@ -10,7 +10,7 @@ class Assets {
     } 
     public function enqueue_scripts() { 
         wp_enqueue_style( 'ins-style', INS_ASSETS_URL.'/app/css/instantio-style.css', array(), INSTANTIO_VERSION ); 
-        wp_enqueue_style( 'ins-style-modern', INS_ASSETS_URL.'/app/css/instantio-modern-style.css', array(), INSTANTIO_VERSION ); 
+        // wp_enqueue_style( 'ins-style-modern', INS_ASSETS_URL.'/app/css/instantio-modern-style.css', array(), INSTANTIO_VERSION ); 
         wp_enqueue_script( 'ins-script', INS_ASSETS_URL.'/app/js/instantio-script.js', array('jquery'), INSTANTIO_VERSION, true ); 
         wp_localize_script( 'ins-script', 'ins_params',
             array( 
@@ -25,11 +25,11 @@ class Assets {
     }
 
     public function enqueue_custom_css_scripts(){
-        $ins_toggle_bg = !empty(insopt( 'wi-header-bg-colors' )['regular']) ? insopt( 'wi-header-bg-colors' )['regular'] : '#fffdfd'; 
+        $ins_toggle_bg = !empty(insopt( 'wi-header-bg-colors' )['regular']) ? insopt( 'wi-header-bg-colors' )['regular'] : '#e9570a'; 
         $ins_toggle_bg_hover = !empty(insopt( 'wi-header-bg-colors' )['hover']) ? insopt( 'wi-header-bg-colors' )['hover'] : '#fffdfd';
         $ins_toggle_border = !empty(insopt( 'wi-header-border-colors' )['regular']) ? insopt( 'wi-header-border-colors' )['regular'] : '#e9570a'; 
         $ins_toggle_border_hover = !empty(insopt( 'wi-header-border-colors' )['hover']) ? insopt( 'wi-header-border-colors' )['hover'] : '#e9570a';
-        $ins_toggle_icon = !empty(insopt( 'ins-tog-icon-colors' )['regular']) ? insopt( 'ins-tog-icon-colors' )['regular'] : '#e9570a';
+        $ins_toggle_icon = !empty(insopt( 'ins-tog-icon-colors' )['regular']) ? insopt( 'ins-tog-icon-colors' )['regular'] : '#fff';
         $ins_toggle_icon_hover = !empty(insopt( 'ins-tog-icon-colors' )['hover']) ? insopt( 'ins-tog-icon-colors' )['hover'] : '#e9570a';
         $ins_toggle_icon_size = !empty(insopt( 'wi-header-icon-size' )['width']) ? insopt( 'wi-header-icon-size' )['width'].'px' : '24px';
         $ins_toggle_item_bg = !empty(insopt( 'ins-tog-item-bg' )['regular']) ? insopt( 'ins-tog-item-bg' )['regular'] : '#ffd200';
