@@ -982,26 +982,14 @@
      */
     $(document).ready(function () {
         var $this = $(".tf-field-imageselect").find(".tf-image-seletor-wrap"),
-            $siblings = $this.find(".tf-image-seletor-items"),
-            multiple = $this.data("multiple") || false;
+            $siblings = $this.find(".tf-image-seletor-items");
         $this.each(function () {
             $siblings.on("click", function () {
-                console.log("click");
                 var $sibling = $(this);
+                $this.find("input").prop("checked", false);
+                $sibling.find("input").prop("checked", true).trigger("change");
+                $sibling.addClass("tf-active").siblings().removeClass("tf-active");
 
-                if (multiple) {
-                    if ($sibling.hasClass("tf-active")) {
-                        $sibling.removeClass("tf-active");
-                        $sibling.find("input").prop("checked", false).trigger("change");
-                    } else {
-                        $sibling.addClass("tf-active");
-                        $sibling.find("input").prop("checked", true).trigger("change");
-                    }
-                } else {
-                    $this.find("input").prop("checked", false);
-                    $sibling.find("input").prop("checked", true).trigger("change");
-                    $sibling.addClass("tf-active").siblings().removeClass("tf-active");
-                }
             });
         });
     });

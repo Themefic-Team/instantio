@@ -22,8 +22,6 @@ TF_Settings::option( 'wiopt', array(
 					'type'      => 'select',
 					'label'     => 'Select Layout',
 					'subtitle'  => 'Choose cart layout',
-					// 'placeholder' => 'Enter your placeholder',
-					// 'description' => 'Enter your description',
 					'class'     => 'tf-field-class',
 					'options'   => array(
 						'1' => 'Direct Checkout Button',
@@ -34,7 +32,7 @@ TF_Settings::option( 'wiopt', array(
 						'6' => 'Side Cart + Checkout Design 1 V2',
 						'7' => 'Popup Cart + Checkout Design 1 V2',
 					),
-					'default'   => 'option-2',
+					'default'   => '2',
 				),
 				array(
 					'id'        => 'ins-toggler',
@@ -48,8 +46,9 @@ TF_Settings::option( 'wiopt', array(
 					'tog-2' => INS_MODERN_URL.'/admin/tf-options/img/toggler-2.png',
 					),
 					'default'   => 'tog-1',
-					'dependency' => array('ins-layout',  '!=', 'option-1' ),
+					'dependency' => array('ins-layout',  '!=', '1' ),
 				),
+
 				array(
 					'id'       => 'auto-tog-panel',
 					'type'     => 'switch',
@@ -59,6 +58,7 @@ TF_Settings::option( 'wiopt', array(
 					'width' => 100,
 					'default'   => false,
 				),
+				
 				array(
 					'id'     => 'cart-fly',
 					'type'   => 'fieldset',
@@ -78,8 +78,8 @@ TF_Settings::option( 'wiopt', array(
 						  'id'       => 'cart-fly-icon',
 						  'type'     => 'switch',
 						  'label'    => __('Cart Fly Animation Icon', 'instantio'),
-						  'label_on'    => __('Enabled', 'instantio'),
-						  'label_off'   => __('Disabled', 'instantio'),
+						  'label_on'    => __('Icon', 'instantio'),
+						  'label_off'   => __('Thum', 'instantio'),
 						  'width' => 100,
 						  'default'   => true,
 						  'dependency' => array('cart-fly-anim', '==', 1),
@@ -91,7 +91,7 @@ TF_Settings::option( 'wiopt', array(
 					'type'   => 'fieldset',
 					'label'  => __('Cart Button', 'instantio'),
 					'subtitle' => __('Show/hide or change cart button\'s text & url', 'instantio'),
-					'dependency' => array('ins-layout','!=', 'option-1'),
+					'dependency' => array('ins-layout','!=', '1'),
 					'fields' => array(
 						array(
 							'id'       		=> 'on-cart-btn',
@@ -126,7 +126,7 @@ TF_Settings::option( 'wiopt', array(
 					'type'   		=> 'fieldset',
 					'label'  		=> __('Checkout Button', 'instantio'),
 					'subtitle' 		=> __('Show/hide or change checkout button\'s text & url', 'instantio'),
-					'dependency'	=> array('ins-layout','!=', 'option-1'),
+					'dependency'	=> array('ins-layout','!=', '1'),
 					'fields' 		=> array(
 						array(
 							'id'        	=> 'on-checkout-btn',
@@ -161,7 +161,7 @@ TF_Settings::option( 'wiopt', array(
 					'id'        => 'woins-quickview-enable',
 					'class'     => 'ins-csf-disable badge_pro',
 					'type'      => 'switch',
-					'label'     => __( 'Disable Quick View', 'instantio' ),
+					'label'     => __( 'Enable Quick View', 'instantio' ),
 					'subtitle'  => __('You can disable it if you already have quick view function in your theme (Applicable for Variable products)', 'instantio'),
 					'is_pro'    => true,
 					'label_on'  => __('Yes', 'instantio'),
@@ -173,7 +173,7 @@ TF_Settings::option( 'wiopt', array(
 					'id'        => 'wi-disable-ajax-add-cart',
 					'class'     => 'ins-csf-disable badge_pro',
 					'type'      => 'switch',
-					'label'     => __( 'Disable Ajax Add to Cart', 'instantio' ),
+					'label'     => __( 'Enable Ajax Add to Cart', 'instantio' ),
 					'subtitle'  => __('You can disable it if you already have ajax "add to cart" function in your theme (To avoid conflict)', 'instantio'),
 					'is_pro'    => true,
 					'label_on'  => __('Yes', 'instantio'),
@@ -240,7 +240,7 @@ TF_Settings::option( 'wiopt', array(
 		'toggle_page'        => array(
 			'title'  => esc_html__( 'Toggle Design', 'instantio' ),
 			'parent' => 'design_option',
-			'icon'   => 'fa fa-cog',
+			'icon'   => 'fa fa-cogs',
 			'fields' => array(
 				array(
 					'id'        => 'label_off_heading',
@@ -259,29 +259,117 @@ TF_Settings::option( 'wiopt', array(
 				),
 
 				array(
-					'id'        => 'ins-image-asa-cart-icon',
-					'type'      => 'switch',
-					'label'     => __( 'Custom Image as Toggler Icon', 'instantio' ),
-					'label_on'  => __( 'Yes', 'instantio' ),
-					'label_off' => __( 'No', 'instantio' ),
-					'default'   => false
+					'id'       => 'cart-icon',
+					'class'    => 'imageset-inline',
+					'type'     => 'imageselect',
+					'label'    => __('Toggler Icon', 'instantio'), 
+					'subtitle' => __('Select cart icon which will appear in cart toggler', 'instantio'),
+					'options'  => array(
+					  'cart-1' => INS_MODERN_URL.'/admin/tf-options/img/cart-1.svg',
+					  'cart-2' => INS_MODERN_URL.'/admin/tf-options/img/cart-2.svg',
+					  'cart-3' => INS_MODERN_URL.'/admin/tf-options/img/cart-3.svg',
+					  'cart-4' => INS_MODERN_URL.'/admin/tf-options/img/cart-4.svg',
+					  'cart-5' => INS_MODERN_URL.'/admin/tf-options/img/cart-5.svg',
+					  'cart-6' => INS_MODERN_URL.'/admin/tf-options/img/cart-6.svg',
+					),
+					'default' => 'cart-1'
 				),
+
 				array(
-					'id'        => 'feature-filter',
-					'type'      => 'switch',
-					'label'     => __( 'Filter By Feature', 'instantio' ),
-					'label_on'  => __( 'Yes', 'instantio' ),
-					'label_off' => __( 'No', 'instantio' ),
-					'default'   => true,
-					'is_pro'    => true
+					'id'       => 'wi-icon-choice',
+					'class'    => 'ins-csf-disable',
+					'type'     => 'switch', 
+					'label'    => __('Custom Image as Toggler Icon', 'instantio'),
+					'subtitle' => __('Set custom image as icon for the toggler instead of the defaults one.','instantio'),
+					'label_on'  => __('Yes', 'instantio'),
+					'label_off' => __('No', 'instantio'),
+					'default'  => false,
+					'is_pro'    => true,
 				),
+
 				array(
-					'id'       => 'h-enquiry-email',
-					'type'     => 'text',
-					'label'    => __( 'Email for Enquiry Form', 'instantio' ),
-					'subtitle' => __( 'The Email to receive all enquiry form submissions', 'instantio' ),
-					'is_pro'   => true,
+					'id'       => 'toggle-position-horizontal',
+					'type'     => 'radio',
+					'label'    => __('Toggler Horizontal Position', 'instantio'),
+					'subtitle' => __('Changes position of the Cart Toggler horizontally', 'instantio'),
+					'options'  => array(
+						'left'   => __('Left', 'instantio'),
+						'right'  => __('Right', 'instantio'),
+					), 
+					'default'  => 'right',
+					'inline'   => true,
 				),
+
+				array(
+					'id'       => 'toggle-position-vertical',
+					'type'     => 'radio',
+					'label'    => __('Toggler Vertical Position', 'instantio'),
+					'subtitle' => __('Changes position of the Cart Toggler vertically', 'instantio'),
+					'options' => array(
+						'top' => __('Top', 'instantio'),
+						'middle' => __('Middle', 'instantio'),
+						'bottom' => __('Bottom', 'instantio'),				
+					), 
+					'default' => 'bottom',
+					'inline'   => true,
+					// 'dependency' => [    
+					// 	array( 'ins-layout',  '!=', '1' ),   
+					// 	array( 'ins-toggler', '!=', 'tog-2' ),    
+					// ],			
+				),
+
+				array(
+					'id'        => 'wi-header-bg-colors',
+					'type'      => 'color',
+					'label'     => __( 'Toggler Background Colors', 'instantio' ),
+					'subtitle'  => __( 'Set regular & hover color', 'instantio' ),
+					'default'   => '#ffffff',
+					'multiple'  => true,
+					'inline'    => true,
+					'colors' => array(
+						'regular' => __('Regular', 'instantio'),
+						'hover' => __('Hover', 'instantio'),
+					 ),
+				),
+
+				array(
+					'id'        => 'wi-header-border-colors',
+					'type'      => 'color',
+					'label'    => __( 'Toggler Border Colors', 'instantio' ),
+					'subtitle' => __( 'Set regular & hover color', 'instantio' ),
+					'default'   => '#ffffff',
+					'multiple'  => true,
+					'inline'    => true,
+					'colors'   => array(
+					  'regular' => __('Regular', 'instantio'),
+					  'hover' => __('Hover', 'instantio'),
+					)
+				),
+
+				array(
+					'id'        => 'ins-tog-icon-colors',
+					'type'      => 'color',
+					'label'    => __( 'Toggler Icon Color', 'instantio' ),
+					'subtitle' => __( 'Set regular & hover color of text & icon', 'instantio' ),
+					'default'   => '#ffffff',
+					'multiple'  => true,
+					'inline'    => true,
+					'colors'   => array(
+					  'regular' => __('Regular', 'instantio'),
+					  'hover' => __('Hover', 'instantio'),
+					)
+				),
+
+				array(
+					'id'     		=> 'wi-header-icon-size',
+					'type'   		=> 'number',
+					'label'  		=> __('Toggler Icon Size', 'instantio'),
+					'subtitle' 		=> __('Set width of the toggler icon', 'instantio'),
+					'placeholder'   => __('Default: 26', 'instantio'),
+					'description'   => __('Default: 26 px', 'instantio'),
+				),
+
+				
 			),
 		),
 		'toggle_panel'        => array(
