@@ -1535,6 +1535,15 @@
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
 
+.tf-field-imageselect.imageset-inline .tf-image-seletor-wrap {
+  display: flex;
+  -moz-column-gap: 4px;
+       column-gap: 4px;
+}
+.tf-field-imageselect.imageset-inline .tf-image-seletor-wrap .tf-image-seletor-items figure img {
+  padding: 5px;
+}
+
 .tf-fieldset-content {
   max-width: 95%;
   padding: 20px;

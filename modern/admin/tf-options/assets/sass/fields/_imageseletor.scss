@@ -21,3 +21,15 @@
     box-shadow: 0 0 20px rgb(0 0 0 / 20%);
   }
 }
+
+.tf-field-imageselect.imageset-inline {
+  .tf-image-seletor-wrap {
+    display: flex;
+    column-gap: 4px;
+    .tf-image-seletor-items {
+      figure img {
+        padding: 5px;
+      }
+    }
+  }
+}
