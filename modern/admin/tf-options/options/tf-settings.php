@@ -58,6 +58,18 @@ TF_Settings::option( 'wiopt', array(
 					'width' 		=> 100,
 					'default'   	=> false,
 				),
+
+				array(
+					'id'       		=> 'bottom-cart-panel',
+					'type'     		=> 'switch',
+					'label'    		=> __('Bottom Full With Cart Panel', 'instantio'),
+					'description'   => __( 'If auto cart open on then it would work', 'instantio' ), 
+					'label_on'    	=> __('Enabled', 'instantio'),
+					'label_off'   	=> __('Disabled', 'instantio'),
+					'width' 		=> 100,
+					'default'   	=> false,
+					'dependency' 	=> array('auto-tog-panel',  '==', 'false' ),
+				),
 				
 				array(
 					'id'     		=> 'cart-fly',
@@ -447,6 +459,7 @@ TF_Settings::option( 'wiopt', array(
 				array(
 					'id'        	=> 'wi-container-bg',
 					'type'      	=> 'color',
+					'class'      	=> 'tf-field-color-single',
 					'label'    		=> __( 'Panel Background', 'instantio' ),
 					'subtitle' 		=> __( 'Toggle Panel Background Color', 'instantio' ),
 				),
@@ -472,6 +485,7 @@ TF_Settings::option( 'wiopt', array(
 						array(
 							'id'        	=> 'ins_panel_border_color',
 							'type'      	=> 'color',
+							'class'      	=> 'tf-field-color-single',
 							'label'    		=> __( 'Border Color', 'instantio' ),
 							'subtitle' 		=> __( 'Toggle Panel Border Color', 'instantio' ),
 						),
@@ -516,7 +530,7 @@ TF_Settings::option( 'wiopt', array(
 				array(
 					'id'        	=> 'ins-panel-text-color',
 					'type'      	=> 'color',
-					'inline'    	=> true,
+					'class'      	=> 'tf-field-color-single',
 					'label'    		=> __( 'Panel Text Color', 'instantio' ),
 					'subtitle' 		=> __( 'Openning heading "Your Cart" color', 'instantio' )
 				),
@@ -559,6 +573,7 @@ TF_Settings::option( 'wiopt', array(
 						'hover' 			=> __('Hover', 'instantio' ),
 					)
 				),
+
 				array(
 					'id'    		=> 'wi-zindex',
 					'type'  		=> 'number',
@@ -570,6 +585,7 @@ TF_Settings::option( 'wiopt', array(
 						'max' 				=> 9999999,
 					),
 				),
+
 				array(
 					'id'        	=> 'panel-width-1200',
 					'type'      	=> 'number',
@@ -581,30 +597,547 @@ TF_Settings::option( 'wiopt', array(
 						"min"       		=> 1,
 						"max"       		=> 100,
 					),
-					
+				),
+
+				array(
+					'id'        	=> 'panel-width-1024',
+					'type'     	 	=> 'number',
+					'label'     	=> __('Toggle Panel Width (1024px-1199px)', 'instantio'),
+					'subtitle'  	=> __('Set the percent of width of toggle panel for display dimension greater than 1023px.', 'instantio'),
+					'description'  	=> __('Range 0%-100%. Default 48', 'instantio'),
+					"default"   	=> 48,
+					'attributes'	=> array(
+						"min"       		=> 1,
+						"max"       		=> 100,
+					),
+				),
+
+				array(
+					'id'        	=> 'panel-width-767',
+					'type'      	=> 'number',
+					'label'     	=> __('Toggle Panel Width (501px-1023)', 'instantio'),
+					'subtitle'  	=> __('Set the percent of width of toggle panel for display dimension greater than 500px.', 'instantio'),
+					'description'  	=> __('Range 0%-100%. Default 60 <br/> <br/> Width is 100% for devices which dimension up to 500px.', 'instantio'),
+					"default"   	=> 60,
+					'attributes'	=> array(
+						"min"       		=> 1,
+						"max"       		=> 100,
+					),
+				),
+
+				array(
+					'type'    		=> 'heading',
+					'content' 		=> __('Cart Section', 'instantio'),
+				),
+
+				array(
+					'id'       		=> 'cart-header-bg',
+					'type'     		=> 'color',
+					'class'      	=> 'tf-field-color-single',
+					'label'    		=> __( 'Cart Header Background', 'instantio' ),
+					'subtitle' 		=> __( 'Toggle panel cart header background color', 'instantio' ),
+				),
+
+				array(
+					'id'       		=> 'cart-header-text',
+					'type'     		=> 'color',
+					'class'      	=> 'tf-field-color-single',
+					'label'    		=> __( 'Cart Header Text Color', 'instantio' ),
+					'subtitle' 		=> __( 'Toggle panel cart header text color', 'instantio' ),
+				),
+
+				array(
+					'id'       		=> 'cart-item-bg',
+					'type'    		=> 'color',
+					'class'      	=> 'tf-field-color-single',
+					'label'    		=> __( 'Cart Items Background', 'instantio' ),
+					'subtitle' 		=> __( 'Toggle panel cart items background color', 'instantio' ),
+				),
+
+				array(
+					'id'       		=> 'cart-item-text-color',
+					'type'     		=> 'color',
+					'class'      	=> 'tf-field-color-single',
+					'label'    		=> __( 'Cart Item Text Color', 'instantio' ),
+					'subtitle' 		=> __( 'Toggle panel cart item text color', 'instantio' ),
+				),
+
+				array(
+					'id'       		=> 'cart-input-bg',
+					'type'     		=> 'color',
+					'class'      	=> 'tf-field-color-single',
+					'label'    		=> __( 'Cart Input Background', 'instantio' ),
+					'subtitle' 		=> __( 'Toggle panel cart input background color', 'instantio' ),
+				),
+
+				array(
+					'id'       		=> 'cart-input-text-color',
+					'type'     		=> 'color',
+					'class'      	=> 'tf-field-color-single',
+					'label'    		=> __( 'Cart Input Text Color', 'instantio' ),
+					'subtitle' 		=> __( 'Toggle panel cart input text color', 'instantio' ),
+				),
+
+				array(
+					'id'       		=> 'cart-pricing-bg',
+					'type'     		=> 'color',
+					'class'      	=> 'tf-field-color-single',
+					'label'    		=> __( 'Cart Pricing Table Background', 'instantio' ),
+					'subtitle' 		=> __( 'Toggle panel pricing table background color', 'instantio' ),
+				),
+
+				array(
+					'id'       		=> 'cart-pricing-text',
+					'type'     		=> 'color',
+					'class'      	=> 'tf-field-color-single',
+					'label'    		=> __( 'Cart Pricing Table Text Color', 'instantio' ),
+					'subtitle' 		=> __( 'Toggle panel pricing table text color', 'instantio' ),
+				),
+
+				array(
+					'id'        	=> 'cart-button-background-colors',
+					'type'      	=> 'color',
+					'multiple'  	=> true,
+					'inline'    	=> true,
+					'label'    		=> __( 'Cart Button Background Colors', 'instantio' ),
+					'subtitle' 		=> __( 'Set regular & hover color', 'instantio' ),
+					'colors'   		=> array(
+						'regular' 			=> __('Regular', 'instantio'),
+						'hover' 			=> __('Hover', 'instantio'),
+					),
+				),
+
+				array(
+					'id'        	=> 'cart-button-text-colors',
+					'type'      	=> 'color',
+					'multiple'  	=> true,
+					'inline'    	=> true,
+					'label'    		=> __( 'Cart Button Text Colors', 'instantio' ),
+					'subtitle' 		=> __( 'Set regular & hover color', 'instantio' ),
+					'colors'   		=> array(
+						'regular' 			=> __('Regular', 'instantio'),
+						'hover' 			=> __('Hover', 'instantio'),
+					),
+				),
+
+				array(
+					'type'    		=> 'heading',
+					'content' 		=> __('Billing Section', 'instantio'),
+				),
+
+				array(
+					'id'       		=> 'ins-bill-bg',
+					'type'     		=> 'color',
+					'class'      	=> 'tf-field-color-single',
+					'label'    		=> __( 'Panel Billing Background', 'instantio' ),
+					'subtitle' 		=> __( 'Toggle panel billing section background color', 'instantio' ),
+				),
+
+				array(
+					'id'       		=> 'ins-bill-heading',
+					'type'     		=> 'color',
+					'class'      	=> 'tf-field-color-single',
+					'label'    		=> __( 'Panel Billing Heading Color', 'instantio' ),
+					'subtitle' 		=> __( 'Toggle panel billing section heading text color', 'instantio' ),
+				),
+
+				array(
+					'id'       		=> 'ins-bill-label',
+					'type'     		=> 'color',
+					'class'			=> 'tf-field-color-single',
+					'label'    		=> __( 'Panel Billing Label Color', 'instantio' ),
+					'subtitle' 		=> __( 'Toggle panel billing section label text color', 'instantio' ),
+					'output'    	=> array('.ins-checkout-body form.woocommerce-checkout .form-row label'),
+				),
+
+				array(
+					'id'       		=> 'ins-bill-bg-padding_option',
+					'type'     		=> 'switch', 
+					'label'    		=> __('Enable Panel Billing Padding', 'instantio'),
+					'subtitle' 		=> __('Set Panel Billing Padding','instantio'),
+					'label_on'  	=> __('Enable', 'instantio'),
+					'label_off' 	=> __('Disable', 'instantio'),
+					'width'   		=> 100,
+					'default'  		=> false,
+				),
+
+				array(
+					'id'            => 'ins-bill-bg-padding',
+					'type'   		=> 'fieldset',
+					'label'  		=> __('Panel Billing Padding', 'instantio'),
+					'subtitle' 		=> __('Toggle panel billing section padding', 'instantio'),
+					'dependency' 	=> array('ins-bill-bg-padding_option','==','true'),
+					'fields' 		=> array(
+						array(
+							'id' 			=> 'ins-bill-bg-padding-top',
+							'class' 		=> 'tf-field-inline',
+							'type' 			=> 'number',
+							'label' 		=> 'Border Top',
+							'subtitle' 		=> 'Border Top ',
+							'placeholder' 	=> '1px',
+							'default' 		=> '1px',
+						),
+						array(
+							'id' 			=> 'ins-bill-bg-padding-right',
+							'class' 		=> 'tf-field-inline',
+							'type' 			=> 'number',
+							'label' 		=> 'Border Right',
+							'subtitle' 		=> 'Border Right ',
+							'placeholder' 	=> '1px',
+							'default' 		=> '1px',
+						),
+						array(
+							'id' 			=> 'ins-bill-bg-padding-bottom',
+							'class' 		=> 'tf-field-inline',
+							'type' 			=> 'number',
+							'label' 		=> 'Border Bottom',
+							'subtitle' 		=> 'Border Bottom ',
+							'placeholder' 	=> '1px',
+							'default' 		=> '1px',
+						),
+						array(
+							'id' 			=> 'ins-bill-bg-padding-left',
+							'class' 		=> 'tf-field-inline',
+							'type' 			=> 'number',
+							'label' 		=> 'Border Left',
+							'subtitle' 		=> 'Border Left ',
+							'placeholder' 	=> '1px',
+							'default' 		=> '1px',
+						),
+					),
+				),
+
+				array(
+					'id'       		=> 'ins-bill-label',
+					'type'     		=> 'color',
+					'class'			=> 'tf-field-color-single',
+					'label'    		=> __( 'Panel Billing Label Color', 'instantio' ),
+					'subtitle' 		=> __( 'Toggle panel billing section label text color', 'instantio' ),
+				),
+				
+				array(
+					'id'       		=> 'ins-bill-input-bg',
+					'type'     		=> 'color',
+					'class'			=> 'tf-field-color-single',
+					'label'    		=> __( 'Panel Billing Input Background', 'instantio' ),
+					'subtitle' 		=> __( 'Toggle panel billing section input background color', 'instantio' ),
+				),
+				
+				array(
+					'id'       		=> 'ins-bill-input-border',
+					'type'     		=> 'color',
+					'class'			=> 'tf-field-color-single',
+					'label'    		=> __( 'Panel Billing Input Border Color', 'instantio' ),
+					'subtitle' 		=> __( 'Toggle panel billing section input border color', 'instantio' ),
+				),
+				
+				array(
+					'id'       		=> 'ins-bill-input-text',
+					'type'     		=> 'color',
+					'class'			=> 'tf-field-color-single',
+					'label'    		=> __( 'Panel Billing Input Text Color', 'instantio' ),
+					'subtitle' 		=> __( 'Toggle panel billing section input text color', 'instantio' ),
+				),
+				
+				array(
+					'id'       		=> 'ins-bill-input-shadow',
+					'type'     		=> 'color',
+					'class'			=> 'tf-field-color-single',
+					'label'    		=> __( 'Panel Billing Input Shadow Color', 'instantio' ),
+					'subtitle' 		=> __( 'Toggle panel billing section input shadow color', 'instantio' ),
+				),
+
+				array(
+					'type'    		=> 'heading',
+					'content' 		=> __('Review Section', 'instantio'),
+				),
+
+				array(
+					'id'       		=> 'ins-review-heading',
+					'type'     		=> 'color',
+					'class'			=> 'tf-field-color-single',
+					'label'    		=> __( 'Order Review Heading', 'instantio' ),
+					'subtitle' 		=> __( 'Toggle panel review section heading color', 'instantio' ),
+				),
+				
+				array(
+					'id'       		=> 'ins-review-bg',
+					'type'     		=> 'color',
+					'class'			=> 'tf-field-color-single',
+					'label'    		=> __( 'Review Section Background', 'instantio' ),
+					'subtitle' 		=> __( 'Toggle panel review section background color', 'instantio' ),
+				),
+				
+				array(
+					'id'       		=> 'ins-review-tbl-head-bg',
+					'type'     		=> 'color',
+					'class'			=> 'tf-field-color-single',
+					'label'    		=> __( 'Review Table Head Background', 'instantio' ),
+					'subtitle' 		=> __( 'Toggle panel review section table head background color', 'instantio' ),
+				),
+
+				array(
+					'id'       		=> 'ins-review-tbl-head-txt',
+					'type'     		=> 'color',
+					'class'			=> 'tf-field-color-single',
+					'label'    		=> __( 'Review Table Head Text Color', 'instantio' ),
+					'subtitle' 		=> __( 'Toggle panel review section table head text color', 'instantio' ),
+				),
+				
+				array(
+					'id'       		=> 'ins-review-tbl-item-bg',
+					'type'     		=> 'color',
+					'class'			=> 'tf-field-color-single',
+					'label'    		=> __( 'Review Table Item Background', 'instantio' ),
+					'subtitle' 		=> __( 'Toggle panel review section table item background color', 'instantio' ),
+				),
+				
+				array(
+					'id'       		=> 'ins-review-tbl-item-txt',
+					'type'     		=> 'color',
+					'class'			=> 'tf-field-color-single',
+					'label'    		=> __( 'Review Table Item Text Color', 'instantio' ),
+					'subtitle' 		=> __( 'Toggle panel review section table item text color', 'instantio' ),
+				),
+				
+				array(
+					'id'       		=> 'ins-review-pricing-bg',
+					'type'     		=> 'color',
+					'class'			=> 'tf-field-color-single',
+					'label'    		=> __( 'Review Pricing Background', 'instantio' ),
+					'subtitle' 		=> __( 'Toggle panel review section pricing background color', 'instantio' ),
+				),
+
+				array(
+					'id'       		=> 'ins-review-pricing-txt',
+					'type'     		=> 'color',
+					'class'			=> 'tf-field-color-single',
+					'label'    		=> __( 'Review Pricing Text Color', 'instantio' ),
+					'subtitle' 		=> __( 'Toggle panel review section pricing text color', 'instantio' ),
+				),
+
+				array(
+					'type'    		=> 'heading',
+					'content'	 	=> __('Payment Section', 'instantio'),
+				),
+		
+				array(
+					'id'       		=> 'ins-pay-item-bg',
+					'type'     		=> 'color',
+					'class'			=> 'tf-field-color-single',
+					'label'    		=> __( 'Payment Methods Background', 'instantio' ),
+					'subtitle' 		=> __( 'Toggle panel Payment methods background color', 'instantio' ),
+				),
+				
+				array(
+					'id'       		=> 'ins-pay-item-txt',
+					'type'     		=> 'color',
+					'class'			=> 'tf-field-color-single',
+					'label'    		=> __( 'Payment Methods Text Color', 'instantio' ),
+					'subtitle' 		=> __( 'Toggle panel Payment methods text color', 'instantio' ),
+				),
+				
+				array(
+					'id'       		=> 'ins-pay-item-des-bg',
+					'type'     		=> 'color',
+					'class'			=> 'tf-field-color-single',
+					'label'    		=> __( 'Payment Methods Description Background', 'instantio' ),
+					'subtitle' 		=> __( 'Toggle panel Payment methods description background color', 'instantio' ),
+				),
+				
+				array(
+					'id'       		=> 'ins-pay-item-des-txt',
+					'type'     		=> 'color',
+					'class'			=> 'tf-field-color-single',
+					'label'    		=> __( 'Payment Methods Description Text Color', 'instantio' ),
+					'subtitle' 		=> __( 'Toggle panel Payment methods description text color', 'instantio' ),
+				),
+				
+				array(
+					'id'       		=> 'ins-place-order-bg',
+					'type'     		=> 'color',
+					'class'			=> 'tf-field-color-single',
+					'label'    		=> __( 'Place Order Background', 'instantio' ),
+					'subtitle' 		=> __( 'Toggle panel place order background color', 'instantio' ),
+				),
+				
+				array(
+					'id'       		=> 'ins-place-order-txt',
+					'type'     		=> 'color',
+					'class'			=> 'tf-field-color-single',
+					'label'    		=> __( 'Place Order Text Color', 'instantio' ),
+					'subtitle' 		=> __( 'Toggle panel place order text color', 'instantio' ),
+				),
+		
+				array(
+					'id'        	=> 'ins-place-order-button-bg',
+					'type'      	=> 'color',
+					'multiple'  	=> true,
+					'inline'    	=> true,
+					'label'    		=> __( 'Place Order Button Background', 'instantio' ),
+					'subtitle' 		=> __( 'Place order button background regular & hover color', 'instantio' ),
+					'colors'   		=> array(
+						'regular' 			=> __('Regular', 'instantio' ),
+						'hover'				=> __('Hover', 'instantio' ),
+					),
+				),
+		
+				array(
+					'id'        	=> 'ins-place-order-button-border',
+					'type'      	=> 'color',
+					'multiple'  	=> true,
+					'inline'    	=> true,
+					'label'    		=> __( 'Place Order Button Border Colors', 'instantio' ),
+					'subtitle' 		=> __( 'Place order button border regular & hover color', 'instantio' ),
+					'colors'   		=> array(
+						'regular' 			=> __('Regular', 'instantio' ),
+						'hover' 			=> __('Hover', 'instantio' ),
+					),
+				),
+		
+				array(
+					'id'        	=> 'ins-place-order-button-text',
+					'type'      	=> 'color',
+					'multiple'  	=> true,
+					'inline'    	=> true,
+					'label'    		=> __( 'Place Order Button Text Colors', 'instantio' ),
+					'subtitle' 		=> __( 'Place order button text regular & hover color', 'instantio' ),
+					'colors'   		=> array(
+						'regular' 			=> __('Regular', 'instantio' ),
+						'hover' 			=> __('Hover', 'instantio' ),
+					),
 				),
 			),
 		),
 
-		// 'other_design' 				=> array(
-		// 	'title'  				=> esc_html__( 'Toggle Design', 'instantio' ),
-		// 	'parent' 				=> 'design_option',
-		// 	'icon'   				=> 'fa fa-cog',
-		// 	'fields' 				=> array(),
-		// ),
-	 
+		'other_design' 				=> array(
+			'title'  				=> esc_html__( 'Toggle Design', 'instantio' ),
+			'parent' 				=> 'design_option',
+			'icon'   				=> 'fa fa-cog',
+			'fields' 				=> array(
 
+				array(
+					'id'       		=> 'wi-quickview-bg',
+					'type'     		=> 'color',
+					'class'			=> 'tf-field-color-single',
+					'label'    		=> __( 'Quick View Background', 'instantio' ),
+					'subtitle' 		=> __( 'Instantio Quick View Panel Background Color', 'instantio' ),
+				),
+
+				array(
+					'id'       		=> 'ins-quickview-color',
+					'type'     		=> 'color',
+					'class'			=> 'tf-field-color-single',
+					'label'    		=> __( 'Quick View Color', 'instantio' ),
+					'subtitle' 		=> __( 'Instantio Quick View Panel Text & Cross Color', 'instantio' ),  		
+				),
+
+				array(
+					'id'       		=> 'wi-custom-css',
+					'type'     		=> 'code_editor',
+					'label'    		=> __('Custom CSS', 'instantio' ),
+					'subtitle' 		=> __( 'If you want to make extra CSS then you can do it from here', 'instantio' ),
+					'settings' 		=> array(
+					  	'theme'  			=> 'monokai',
+						'mode'   			=> 'css',
+					),
+				),
+			),
+		),
+	 
 		/**
-		 * Import/Export
-		 *
+		 * Mobile
 		 * Main menu
 		 */
-		// 'import_export' 			=> array(
-		// 	'title' 				=> __( 'Import/Export', 'instantio' ),
-		// 	'icon' 					=> 'fas fa-hdd',
-		// 	'fields' 				=> array(
-		// 	),
-		// ),
+		'mobile' 					=> array(
+			'title' 				=> __( 'Mobile', 'instantio' ),
+			'icon' 					=> 'fas fa-mobile-alt',
+			'fields' 				=> array(
+
+				array(
+					'id'       		=> 'mobile',
+					'type'     		=> 'switch',
+					'label'    		=> __('Dedicated Mobile Version', 'instantio'),
+					'subtitle' 		=> __('Enable/disable dedicated mobile version', 'instantio'),
+					'label_on'    	=> __('Enabled', 'instantio' ),
+					'label_off'   	=> __('Disabled', 'instantio' ),
+					'width' 		=> 100,
+					'default'   	=> false,          
+				),
+
+				array(
+					'type'    		=> 'heading',
+					'content' 		=> __('Cart Section', 'instantio'),
+				),
+
+				array(
+					'id'       		=> 'mobile-cart-coupon',
+					'type'     		=> 'switch',
+					'label'    		=> __('Enable Cart Coupon', 'instantio'),
+					'subtitle' 		=> __('Enable/disable Coupon field in the cart in mobile version', 'instantio'),
+					'label_on'    	=> __('Yes', 'instantio' ),
+					'label_off'   	=> __('No', 'instantio' ),
+					'default'   	=> false,          
+					'dependency' 	=> array('mobile', '==', 'true'),
+				),
+
+				array(
+					'id'       		=> 'mobile-cart-panel',
+					'type'     		=> 'switch',
+					'label'    		=> __('Enable Cart Panel', 'instantio'),
+					'subtitle' 		=> __('Enable/disable cart in mobile version', 'instantio'),
+					'label_on'    	=> __('Yes', 'instantio' ),
+					'label_off'   	=> __('No', 'instantio' ),
+					'default'   	=> false,          
+					'dependency' => array('mobile', '==', 'true'),
+				),
+
+			),
+		),
+
+
+		'optimization'				=> array(
+			'title' 				=> __( 'Optimization', 'instantio' ),
+			'icon'  				=> 'fas fa-bolt',
+			'fields' 				=> array(
+				
+				array(
+					'id'       		=> 'fancy-cdn',
+					'type'     		=> 'switch',
+					'label'    		=> __('FancyBox CDN', 'instantio'),
+					'subtitle' 		=> __('Enable/disable cloudflare CDN for FancyBox CSS & JS', 'instantio'),
+					'label_on'    	=> __('Enabled', 'instantio' ),
+					'label_off'   	=> __('Disabled', 'instantio' ),
+					'width' 		=> 100,
+					'default'   	=> false,
+				),
+		
+				array(
+					'id'       		=> 'css-min',
+					'type'     		=> 'switch',
+					'label'    		=> __('Minify CSS', 'instantio'),
+					'subtitle' 		=> __('Enable/disable Instantio CSS minification', 'instantio'),
+					'label_on'    	=> __('Enabled', 'instantio' ),
+					'label_off'   	=> __('Disabled', 'instantio' ),
+					'width' 		=> 100,
+					'default'   	=> false,           
+				),
+		
+				array(
+					'id'       		=> 'js-min',
+					'type'     		=> 'switch',
+					'label'    		=> __('Minify JS', 'instantio'),
+					'subtitle' 		=> __('Enable/disable Instantio JS minification', 'instantio'),
+					'label_on'    	=> __('Enabled', 'instantio' ),
+					'label_off'   	=> __('Disabled', 'instantio' ),
+					'width' 	=> 100,
+					'default'   	=> false,           
+				),
+			),
+		),
+
+
+
 	),
 ) );
 
