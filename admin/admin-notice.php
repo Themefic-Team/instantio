@@ -25,17 +25,17 @@ if(!function_exists('ins_review_notice')){
             <div class="notice notice-info themefic_review_notice"> 
                
                 <?php echo sprintf( 
-                        __( ' <p>Hey %1$s 👋, You have been using %2$s for quite a while. If you feel %2$s is helping your business to grow in any way, would you please help %2$s to grow by simply leaving a 5* review on the WordPress Forum?</p>', 'ultimate-addons-cf7' ),
+                        __( ' <p>Hey %1$s 👋, You have been using %2$s for quite a while. If you feel %2$s is helping your business to grow in any way, would you please help %2$s to grow by simply leaving a 5* review on the WordPress Forum?</p>', 'instantio' ),
                         $current_user->user_login,
                         'Instantio'
                     ); ?> 
                 
                 <ul>
-                    <li><a target="_blank" href="<?php echo esc_url('https://wordpress.org/support/plugin/instantio/reviews/#new-post') ?>" class=""><span class="dashicons dashicons-external"></span><?php _e(' Ok, you deserve it!', 'ultimate-addons-cf7' ) ?></a></li>
-                    <li><a href="#" class="already_done" data-status="already"><span class="dashicons dashicons-smiley"></span> <?php _e('I already did', 'ultimate-addons-cf7') ?></a></li>
-                    <li><a href="#" class="later" data-status="later"><span class="dashicons dashicons-calendar-alt"></span> <?php _e('Maybe Later', 'ultimate-addons-cf7') ?></a></li>
-                    <li><a target="_blank"  href="<?php echo esc_url('https://themefic.com/docs/instantio/') ?>" class=""><span class="dashicons dashicons-sos"></span> <?php _e('I need help', 'ultimate-addons-cf7') ?></a></li>
-                    <li><a href="#" class="never" data-status="never"><span class="dashicons dashicons-dismiss"></span><?php _e('Never show again', 'ultimate-addons-cf7') ?> </a></li> 
+                    <li><a target="_blank" href="<?php echo esc_url('https://wordpress.org/support/plugin/instantio/reviews/#new-post') ?>" class=""><span class="dashicons dashicons-external"></span><?php _e(' Ok, you deserve it!', 'instantio' ) ?></a></li>
+                    <li><a href="#" class="already_done" data-status="already"><span class="dashicons dashicons-smiley"></span> <?php _e('I already did', 'instantio') ?></a></li>
+                    <li><a href="#" class="later" data-status="later"><span class="dashicons dashicons-calendar-alt"></span> <?php _e('Maybe Later', 'instantio') ?></a></li>
+                    <li><a target="_blank"  href="<?php echo esc_url('https://themefic.com/docs/instantio/') ?>" class=""><span class="dashicons dashicons-sos"></span> <?php _e('I need help', 'instantio') ?></a></li>
+                    <li><a href="#" class="never" data-status="never"><span class="dashicons dashicons-dismiss"></span><?php _e('Never show again', 'instantio') ?> </a></li> 
                 </ul>
             </div>
 
@@ -129,7 +129,12 @@ if(!function_exists('new_updated_announcement')){
         </div>
 
     <?php }
-    add_action( 'admin_notices', 'new_updated_announcement' );  
+
+    if(isset($ins_review_notice_status) && $ins_review_notice_status <= 0 && $ins_installation_date == 1 && !isset($_COOKIE['ins_review_notice_status']) && !isset($_COOKIE['ins_installation_date'])){ 
+        add_action( 'admin_notices', 'new_updated_announcement' );
+    }
+
+ 
 }
 
 ?>
