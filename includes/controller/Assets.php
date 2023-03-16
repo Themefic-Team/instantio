@@ -68,16 +68,18 @@ class Assets {
         $output = '';
         $hide_toggler = insopt( 'hide-toggler' );
         $auto_open_toggle = insopt( 'auto-tog-panel' ); 
-        $cart_fly_anim = insopt( 'cart-fly' )['cart-fly-anim']; 
-        $cart_fly_icon = insopt( 'cart-fly' )['cart-fly-icon'];  
+        $cart_fly_anim = isset(insopt( 'cart-fly' )['cart-fly-anim']) ? insopt( 'cart-fly' )['cart-fly-anim'] : false; 
+        $cart_fly_icon = isset(insopt( 'cart-fly' )['cart-fly-icon']) ? insopt( 'cart-fly' )['cart-fly-icon'] : false;  
         if($cart_fly_icon == true){
             $cart_icon = !empty(insopt( 'cart-icon' )) ? insopt( 'cart-icon' ) : 'shopping-bag';
             $cart_fly_icon = instantio_svg_icon($cart_icon);
+        }else{
+            $cart_fly_icon = false;
         }
         $output .=  isset($hide_toggler) ? 'var hide_toggler = '.$hide_toggler.';' : 'var hide_toggler = false;';
         $output .=  isset($auto_open_toggle) && $auto_open_toggle == true ? 'var auto_open_toggle = true;' : 'var auto_open_toggle = false;';
         $output .=  isset($cart_fly_anim) && $cart_fly_anim == true ? 'var cart_fly_anim = true;' : 'var cart_fly_anim = false;';
-        $output .=  isset($cart_fly_icon) && $cart_fly_icon != '' ? 'var cart_fly_icon = `'.$cart_fly_icon.'`' : 'var cart_fly_icon = false;'; 
+        $output .=  isset($cart_fly_icon) && $cart_fly_icon != false ? 'var cart_fly_icon = `'.$cart_fly_icon.'`' : 'var cart_fly_icon = false;'; 
          
 		wp_add_inline_script( 'ins-script', $output );
     }
