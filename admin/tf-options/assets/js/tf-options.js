@@ -990,12 +990,8 @@
                 $this.find("input").prop("checked", false);
                 $sibling.find("input").prop("checked", true).trigger("change");
                 $sibling.addClass("tf-active").siblings().removeClass("tf-active");
-<<<<<<< HEAD:modern/admin/tf-options/assets/js/tf-options.js
-            });
-=======
 
             }); 
->>>>>>> 0ecc3f662b743c6803b9510947b066d5625a2097:admin/tf-options/assets/js/tf-options.js
         });
     });
 })(jQuery);

@@ -25,18 +25,9 @@ if ( ! class_exists( 'TF_fieldset' ) ) {
         $field_value   = ( isset( $this->value[$field_id] ) ) ? $this->value[$field_id] : $field_default;
         $unique_id     = ( ! empty( $this->settings_id ) ) ? $this->settings_id .'['. $this->field['id'] .']' : $this->field['id'];
 
-<<<<<<< HEAD:modern/admin/tf-options/fields/fieldset/TF_fieldset.php
-        // TF_Options::field( $field, $field_value, $unique_id, $this->$parent_field );
-        $tf_option = new TF_Options();
-        $tf_option->field(  $field, $field_value, $unique_id, $this->parent_field);
-      }
-
-      echo '</div>';
-=======
         // TF_Options::field( $field, $field_value, $unique_id, $this->parent_field );
         $tf_option = new TF_Options();
 				$tf_option->field(  $field, $field_value, $unique_id, $this->parent_field); 
->>>>>>> 0ecc3f662b743c6803b9510947b066d5625a2097:admin/tf-options/fields/fieldset/TF_fieldset.php
 
       } 
       echo '</div>'; 
