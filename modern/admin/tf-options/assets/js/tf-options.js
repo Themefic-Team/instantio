@@ -989,7 +989,6 @@
                 $this.find("input").prop("checked", false);
                 $sibling.find("input").prop("checked", true).trigger("change");
                 $sibling.addClass("tf-active").siblings().removeClass("tf-active");
-
             });
         });
     });
@@ -1636,7 +1635,7 @@ var frame, gframe;
 
         $(document).on("click", ".tf-field-pro", function (e) {
             e.preventDefault();
-            window.open("https://tourfic.com/");
+            window.open("https://wpinstantio.com/");
         });
     });
 })(jQuery);

@@ -13,7 +13,7 @@ class MODERN{
      */
     private function define_constants() {
         if ( ! defined( 'INSTANTIO_VERSION' ) ) { 
-            define( 'INSTANTIO_VERSION', '2.5.18' ); 
+            define( 'INSTANTIO_VERSION', '2.5.20' ); 
         } 
         // URLs
         define( 'INS_URL', INS_MODERN_URL.'/' );
