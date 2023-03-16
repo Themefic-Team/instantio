@@ -33,16 +33,16 @@ class INSTANTIO {
 		if ( ! defined( 'INSTANTIO_VERSION' ) ) { 
 			define( 'INSTANTIO_VERSION', '2.5.20' ); 
 		} 
-		define( 'INS_ROOT_URL', plugin_dir_url( __FILE__ ) ); 
-		define( 'INS_ADMIN_URL', INS_ROOT_URL.'admin' );
-		define( 'INS_CLASSIC_URL', INS_ROOT_URL.'classic' );
-		define( 'INS_MODERN_URL', INS_ROOT_URL.'modern' );
+		define( 'INS_URL', plugin_dir_url( __FILE__ ) ); 
+		define( 'INS_INC_URL', INS_URL.'includes' );
+		define( 'INS_LAYOUTS_URL', INS_URL.'includes/layouts' );
+		define( 'INS_ASSETS_URL', INS_URL.'assets' );
+		define( 'INS_ADMIN_URL', INS_URL.'admin' ); 
 
-		define( 'INS_ROOT_PATH', plugin_dir_path( __FILE__ ) );  
-		define( 'INS_ADMIN_PATH', INS_ROOT_PATH.'admin' );
-		define( 'INS_CLASSIC_PATH', INS_ROOT_PATH.'classic' );
-		define( 'INS_MODERN_PATH', INS_ROOT_PATH.'modern' ); 
-		
+		define( 'INS_PATH', plugin_dir_path( __FILE__ ) );  
+		define( 'INS_INC_PATH', INS_PATH.'includes' );
+		define( 'INS_LAYOUTS_PATH', INS_INC_PATH.'includes' );
+		define( 'INS_ADMIN_PATH', INS_PATH.'admin' );
 		
 	}
 
@@ -50,6 +50,7 @@ class INSTANTIO {
 	 * Include required core files used in admin and on the frontend.
 	 */
 	private function includes() {  
+		require_once __DIR__ . '/vendor/autoload.php'; 
 		include_once( ABSPATH . 'wp-admin/includes/plugin.php' );  
 		require_once( 'functions.php' );
 	}
@@ -68,13 +69,33 @@ class INSTANTIO {
 	 * @since 1.0
 	 */
 	public function init() {    
-		if(!empty(insopt('ins_enable_classic')) && insopt('ins_enable_classic') == '1'){ 
-			require_once( INS_CLASSIC_PATH.'/classic.php' );
-		}else{
-			require_once( INS_MODERN_PATH.'/modern.php' );
-		}
+		add_action( 'plugins_loaded', array( $this, 'tf_plugin_loaded_action' ) );
+        new INS\Controller\Assets(); 
+
+        if ( is_admin() && !wp_doing_ajax() ) {   
+            new INS\Controller\Admin();
+        }else{  
+			new INS\Controller\App();
+        }
 		
 	} 
+
+	/**
+     * Plugins Loaded Actions
+     *
+     * Including Option Panel
+     *
+     * Including Options
+     */ 
+    public function tf_plugin_loaded_action() {  
+        
+        if ( file_exists( WP_PLUGIN_DIR .'/wooinstant/admin/config.php' )  && defined( 'INSTANTIO_PRO_CONFIG' ) && defined( 'INSTANTIO_PRO' ) ) {
+			require_once INS_PATH . 'admin/tf-options/TF_Options.php';
+		} elseif ( file_exists( INS_PATH . 'admin/tf-options/TF_Options.php' ) ) {
+			require_once INS_PATH . 'admin/tf-options/TF_Options.php';
+		}
+
+    } 
  
 }
 new INSTANTIO();
