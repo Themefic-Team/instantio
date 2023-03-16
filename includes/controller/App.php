@@ -133,7 +133,7 @@ class App {
         } elseif($this->layout == 3){
             $togglebtnClass = 'popupcart';
         } 
-        if($this->layout == 1 ){
+        if($this->layout == 1 || $this->layout == ''){
             $ins_toggler = 'tog-1';
             ?>
             <a class="ins-toggle-btn <?php echo esc_attr( $ins_toggler ) ?>" href="<?php echo esc_url(wc_get_checkout_url());  ?>"> 

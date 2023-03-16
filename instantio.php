@@ -44,22 +44,6 @@ class INSTANTIO {
 		define( 'INS_LAYOUTS_PATH', INS_INC_PATH.'includes' );
 		define( 'INS_ADMIN_PATH', INS_PATH.'admin' );
 		
-
-		// asjdf
-		// if ( ! defined( 'INSTANTIO_VERSION' ) ) { 
-        //     define( 'INSTANTIO_VERSION', '2.5.18' ); 
-        // } 
-        // // URLs
-        // define( 'INS_URL', INS_MODERN_URL.'/' );
-        // define( 'INS_INC_URL', INS_URL.'includes' );
-        // define( 'INS_LAYOUTS_URL', INS_URL.'includes/layouts' );
-        // define( 'INS_ASSETS_URL', INS_URL.'assets' );
-        // // Paths 
-        // // define( 'INS_MODERN_PATH', INS_ROOT_PATH.'modern/' );
-        // define( 'INS_PATH', INS_MODERN_PATH.'/' );
-        // define( 'INS_INC_PATH', INS_PATH.'includes' );
-        // define( 'INS_LAYOUTS_PATH', INS_INC_PATH.'/layouts' );
-		
 	}
 
 	/**

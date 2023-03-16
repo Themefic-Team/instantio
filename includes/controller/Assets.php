@@ -45,6 +45,7 @@ class Assets {
         }
         $output = '
         :root {
+            --ins_checkout_theme: #e9570a;
             --ins_toggle_bg: '.$ins_toggle_bg.';
             --ins_toggle_hover_bg: '.$ins_toggle_bg_hover.';
             --ins_toggle_border: '.$ins_toggle_border.';
