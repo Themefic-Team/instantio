@@ -319,9 +319,9 @@ TF_Settings::option( 'wiopt', array(
 					'label'    		=> __('Toggler Vertical Position', 'instantio'),
 					'subtitle' 		=> __('Changes position of the Cart Toggler vertically', 'instantio'),
 					'options' 		=> array(
-						'top' 		=> __('Top', 'instantio'),
-						'middle' 	=> __('Middle', 'instantio'),
-						'bottom' 	=> __('Bottom', 'instantio'),				
+						'top' 				=> __('Top', 'instantio'),
+						'middle' 			=> __('Middle', 'instantio'),
+						'bottom' 			=> __('Bottom', 'instantio'),				
 					), 
 					'default' 		=> 'bottom',
 					'inline'   		=> true,
@@ -414,10 +414,7 @@ TF_Settings::option( 'wiopt', array(
 					'label'  		=> __('Toggler Item Number Size', 'instantio'),
 					'subtitle' 		=> __('Set font size & line height of cart toggler text', 'instantio'),
 					'description'   => __('Default: 14px', 'instantio'),
-				),
-
-
-				
+				),	
 			),
 		),
 

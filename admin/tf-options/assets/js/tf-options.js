@@ -1637,7 +1637,7 @@ var frame, gframe;
 
         $(document).on("click", ".tf-field-pro", function (e) {
             e.preventDefault();
-            window.open("https://tourfic.com/");
+            window.open("https://wpinstantio.com/");
         });
     });
 })(jQuery);
