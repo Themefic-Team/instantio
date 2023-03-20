@@ -190,14 +190,16 @@ class App {
             <?php echo $checkout_button; ?>
         </div>   
         <?php
-        echo ob_get_clean();
+
+        $html = ob_get_clean();
+        echo apply_filters( 'ins_cart_buttons_pro', $html ); 
     }
 
     // Ins Cart Content old
     public function ins_cart_content(){
         ob_start();
-        ?>
-         
+        ?> 
+
         <div class="ins-content">
             <div class="ins-cart-inner">
                 <?php require_once apply_filters( 'ins_cart_path', INS_INC_PATH . '/templates/cart.php' ); ?>	
@@ -211,12 +213,15 @@ class App {
     // Ins Cart Content Modern
     public function ins_cart_content_modern(){
         ob_start();
+        
+        do_action('ins_template_steps') 
         ?> 
         <div class="ins-content">
-            <div class="ins-cart-inner step-1">
-                <?php require_once apply_filters( 'ins_cart_path', INS_INC_PATH . '/templates/cart-modern.php' ); ?>	
+            <div class="ins-cart-inner step-1 active">
+                <?php require_once apply_filters( 'ins_cart_template', INS_INC_PATH . '/templates/cart-modern.php' ); ?> 
+                <?php do_action( 'ins_cart_buttons' ) ?> 	
             </div>  
-            <?php do_action( 'ins_cart_buttons' ) ?> 
+            <?php do_action('ins_template_step_content'); ?>
         </div> 
         <?php
         echo ob_get_clean();
@@ -415,7 +420,8 @@ class App {
         $toggle_position_vertical = insopt( 'toggle-position-vertical' );
         $this->layout_class .= !empty($toggle_position_horizontal) ? 'ins-hori-'.$toggle_position_horizontal.' ' :  'ins-hori-right ';
         $this->layout_class .= !empty($toggle_position_vertical) ? 'ins-var-'.$toggle_position_vertical.' ' :  'ins-var-bottom '; 
-        
+  
+        $ins_layout_class = apply_filters( 'ins_layout_class', $this->layout_class );
         ob_start();
         if( $this->layout == 1 ||  $this->layout == 3):
         ?>
@@ -426,10 +432,10 @@ class App {
         if($this->layout == 2 ||  $this->layout == 3):
             
         ?>
-        <div class="ins-checkout-popup ins-checkout-modern <?php echo esc_attr( $this->layout_class ) ?>"> 
+        <div class="ins-checkout-popup ins-checkout-modern <?php echo esc_attr( $ins_layout_class ) ?>"> 
             <div class="ins-checkout-overlay"></div>
-            <div class="ins-checkout-layout ins-checkout-layout-3 <?php echo esc_attr( $this->layout_class ) ?>">
-                <?php require_once INS_INC_PATH .  $this->layouts_slug; ?>
+            <div class="ins-checkout-layout ins-checkout-layout-3 <?php echo esc_attr( $ins_layout_class ) ?>">
+                <?php require_once apply_filters( 'ins_layout_slug', INS_INC_PATH . $this->layouts_slug );  ?>
             </div>
         </div> 
         <?php  
