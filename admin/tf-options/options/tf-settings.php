@@ -13,42 +13,16 @@ TF_Settings::option( 'wiopt', array(
 	'icon'     			=> 'dashicons-cart',
 	'position' 			=> 25,
 	'sections' 			=> array(
+
+		/**
+		 * General
+		 * Main menu
+		 */
 		'general'            		=> array(
 			'title'  				=> esc_html__( 'General', 'tourfic' ),
 			'icon'   				=> 'fa fa-cog',
 			'fields' 				=> array(
-				array(
-					'id'        	=> 'ins-layout',
-					'type'      	=> 'select',
-					'label'     	=> 'Select Layout',
-					'subtitle'  	=> 'Choose cart layout',
-					'class'     	=> 'tf-field-class',
-					'options'   	=> array(
-						'1' 		=> 'Direct Checkout Button',
-						'2' 		=> 'Side Cart',
-						'3' 		=> 'Popup Cart',
-						'4' 		=> 'Side Cart + Checkout Design 1',
-						'5' 		=> 'Popup Cart + Checkout Design 1',
-						'6' 		=> 'Side Cart + Checkout Design 1 V2',
-						'7' 		=> 'Popup Cart + Checkout Design 1 V2',
-					),
-					'default'   	=> '2',
-				),
-				array(
-					'id'        	=> 'ins-toggler',
-					'type'      	=> 'imageselect',
-					'label'     	=> __('Toggler Design', 'instantio'), 
-					'subtitle' 		=> __('Select toggler design', 'instantio'),
-					'multiple' 		=> true,
-					'inline'   		=> true,
-					'options'   	=> array(
-						'tog-1' 	=> plugin_dir_url( __FILE__ ).'../img/toggler-1.png',
-						'tog-2' 	=> plugin_dir_url( __FILE__ ).'../img/toggler-2.png',
-					),
-					'default'   	=> 'tog-1',
-					'dependency' 	=> array('ins-layout',  '!=', '1' ),
-				),
-
+				
 				array(
 					'id'       		=> 'auto-tog-panel',
 					'type'     		=> 'switch',
@@ -243,6 +217,93 @@ TF_Settings::option( 'wiopt', array(
 				),
 			),
 		),
+
+		'layout_option'       		=> array(
+			'title'  				=> esc_html__( 'Layout', 'instantio' ),
+			'parent' 				=> 'general',
+			'icon'  				=> 'fas fa-palette',
+			'fields' 				=> array(
+
+				array(
+					'id'        	=> 'ins-layout-options',
+					'type'      	=> 'select',
+					'label'     	=> 'Select PopUp or Side Cart',
+					'subtitle'  	=> 'Choose cart options',
+					'class'     	=> 'tf-field-class',
+					'options'   	=> array(
+						'1' 		=> 'PopUp Cart',
+						'2' 		=> 'Side Cart',
+					),
+					'default'   	=> '2',
+				),
+
+				array(
+					'id'        	=> 'ins-layout-mode',
+					'type'      	=> 'select',
+					'label'     	=> 'Select Mode',
+					'subtitle'  	=> 'Choose cart Mode',
+					'class'     	=> 'tf-field-class',
+					'options'   	=> array(
+						'1' 		=> 'Light',
+						'2' 		=> 'Dark',
+						'3' 		=> 'Glass morphism',
+						'4' 		=> 'Gradient',
+					),
+					'default'   	=> '2',
+				),
+
+				array(
+					'id'        	=> 'ins-layout',
+					'type'      	=> 'select',
+					'label'     	=> 'Select Layout',
+					'subtitle'  	=> 'Choose cart layout',
+					'class'     	=> 'tf-field-class',
+					'options'   	=> array(
+						'1' 		=> 'Direct Checkout Button',
+						'2' 		=> 'Side Cart',
+						'3' 		=> 'Popup Cart',
+						'4' 		=> 'Side Cart + Checkout Design 1',
+						'5' 		=> 'Popup Cart + Checkout Design 1',
+						'6' 		=> 'Side Cart + Checkout Design 1 V2',
+						'7' 		=> 'Popup Cart + Checkout Design 1 V2',
+					),
+					'default'   	=> '2',
+				),
+
+
+			),
+		),
+
+		'general_toggle'       		=> array(
+			'title'  				=> esc_html__( 'Toggle', 'instantio' ),
+			'parent' 				=> 'general',
+			'icon'  				=> 'fas fa-palette',
+			'fields' 				=> array(
+				array(
+					'id'        	=> 'ins-toggler',
+					'type'      	=> 'imageselect',
+					'label'     	=> __('Toggler Design', 'instantio'), 
+					'subtitle' 		=> __('Select toggler design', 'instantio'),
+					'multiple' 		=> true,
+					'inline'   		=> true,
+					'options'   	=> array(
+						'tog-1' 	=> plugin_dir_url( __FILE__ ).'../img/toggler-1.png',
+						'tog-2' 	=> plugin_dir_url( __FILE__ ).'../img/toggler-2.png',
+					),
+					'default'   	=> 'tog-1',
+					'dependency' 	=> array('ins-layout',  '!=', '1' ),
+				),
+			),
+		),
+
+		'general_cart'       		=> array(
+			'title'  				=> esc_html__( 'Cart', 'instantio' ),
+			'parent' 				=> 'general',
+			'icon'  				=> 'fas fa-palette',
+			'fields' 				=> array(),
+		),
+
+
 
 		'design_option'       		=> array(
 			'title'  				=> esc_html__( 'Design', 'instantio' ),
@@ -1012,7 +1073,7 @@ TF_Settings::option( 'wiopt', array(
 		),
 
 		'other_design' 				=> array(
-			'title'  				=> esc_html__( 'Toggle Design', 'instantio' ),
+			'title'  				=> esc_html__( 'Others', 'instantio' ),
 			'parent' 				=> 'design_option',
 			'icon'   				=> 'fa fa-cog',
 			'fields' 				=> array(
