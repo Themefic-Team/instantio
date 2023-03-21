@@ -240,7 +240,8 @@ class App {
     // Ajax Cart reload After Product Add to Cart
     public function ins_ajax_cart_reload() { 
         ob_start();
-        require_once INS_INC_PATH .  $this->layouts_slug;
+        require_once apply_filters( 'ins_layout_slug', INS_INC_PATH . $this->layouts_slug ); 
+        // require_once INS_INC_PATH .  $this->layouts_slug;
         echo ob_get_clean(); 
         wp_die();
        
@@ -292,7 +293,8 @@ class App {
         WC()->cart->maybe_set_cart_cookies();
       
         ob_start();
-        require_once INS_INC_PATH .  $this->layouts_slug; 
+
+        require_once apply_filters( 'ins_layout_slug', INS_INC_PATH . $this->layouts_slug ); 
         
         $cart_data = ob_get_clean(); 
         // Fragments and mini cart are returned
@@ -340,7 +342,8 @@ class App {
         // }
     
         ob_start();
-        require_once INS_INC_PATH .  $this->layouts_slug;
+        // require_once INS_INC_PATH .  $this->layouts_slug;
+        require_once apply_filters( 'ins_layout_slug', INS_INC_PATH . $this->layouts_slug ); 
         $cart_data = ob_get_clean(); 
         // Fragments and mini cart are returned
         $data = array(
@@ -361,7 +364,8 @@ class App {
         WC()->cart->maybe_set_cart_cookies();
         
         ob_start();
-        require_once INS_INC_PATH .  $this->layouts_slug;
+        // require_once INS_INC_PATH .  $this->layouts_slug;
+        require_once apply_filters( 'ins_layout_slug', INS_INC_PATH . $this->layouts_slug ); 
         $cart_data = ob_get_clean(); 
         // Fragments and mini cart are returned
         $data = array(
@@ -383,7 +387,8 @@ class App {
         WC()->cart->maybe_set_cart_cookies();
         
         ob_start();
-        require_once INS_INC_PATH .  $this->layouts_slug;
+        // require_once INS_INC_PATH .  $this->layouts_slug;
+        require_once apply_filters( 'ins_layout_slug', INS_INC_PATH . $this->layouts_slug ); 
         $cart_data = ob_get_clean(); 
         // Fragments and mini cart are returned
         $data = array(
