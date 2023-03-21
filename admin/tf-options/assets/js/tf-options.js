@@ -1,5 +1,23 @@
 (function ($) {
     "use strict";
+
+    var TF = TF || {};
+
+    TF.funcs = {};
+
+    TF.vars = {
+        onloaded: false,
+        $body: $('body'),
+        $window: $(window),
+        $document: $(document),
+        $form_warning: null,
+        is_confirm: false,
+        form_modified: false,
+        code_themes: [],
+        is_rtl: $('body').hasClass('rtl'),
+    };
+
+
     $(document).ready(function () {
         // Create an instance of Notyf
         const notyf = new Notyf({
@@ -204,7 +222,7 @@
                                 conditions = $field.data("condition").split("|"),
                                 values = $field.data("value").toString().split("|"),
                                 is_global = $field.data("depend-global") ? true : false,
-                                ruleset = normal_ruleset;
+                                ruleset = (is_global) ? global_ruleset : normal_ruleset;
 
                             $.each(controllers, function (index, depend_id) {
                                 var value = values[index] || "",
@@ -226,12 +244,15 @@
                             });
                         });
 
+                        console.log(`229 linr ${TF.vars.$body}`)
+
                         if (normal_depends.length) {
                             $.tf_deps.enable($this, normal_ruleset, normal_depends);
                         }
 
                         if (global_depends.length) {
                             $.tf_deps.enable(TF.vars.$body, global_ruleset, global_depends);
+                            console.log(`255 linr ${TF.vars.$body}`)
                         }
                     }
                 });
@@ -981,17 +1002,17 @@
      * Image Seletor
      */
     $(document).ready(function () {
-        $(".tf-field-imageselect").each(function () { 
+        $(".tf-field-imageselect").each(function () {
             var $this = $(this).find(".tf-image-seletor-wrap"),
-                $siblings = $this.find(".tf-image-seletor-items"); 
-                
-            $siblings.on("click", function () { 
+                $siblings = $this.find(".tf-image-seletor-items");
+
+            $siblings.on("click", function () {
                 var $sibling = $(this);
                 $this.find("input").prop("checked", false);
                 $sibling.find("input").prop("checked", true).trigger("change");
                 $sibling.addClass("tf-active").siblings().removeClass("tf-active");
 
-            }); 
+            });
         });
     });
 })(jQuery);
