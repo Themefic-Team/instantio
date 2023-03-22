@@ -992,8 +992,7 @@ ins-cart-fly-icon svg{
   display: none;
 }
 
-.ins-cart-footer-content {
-  margin: 16px;
+.ins-cart-footer-content { 
   padding: 16px;
   background: #FCF4F2;
   border: 1px solid #FCF4F2;
