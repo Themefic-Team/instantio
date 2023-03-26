@@ -530,7 +530,7 @@ ins-cart-fly-icon svg{
   color: #fff;
 }
 
-.ins-cart-btns a {
+.ins-cart-btns a, .ins-cart-btns button {
   width: 100% !important;
   display: inline-block;
   font-size: 16px;
@@ -550,12 +550,12 @@ ins-cart-fly-icon svg{
   padding: 16px;
 }
 
-.ins-cart-btns a.active {
+.ins-cart-btns a.active, .ins-cart-btns button.active  {
   background-color: #e9570a !important;
   color: #fff !important;
 }
 
-.ins-cart-btns a:hover {
+.ins-cart-btns a:hover, .ins-cart-btns button:hover {
   background-color: #e9570a;
   color: #fff;
 }
@@ -1117,7 +1117,7 @@ ins-cart-fly-icon svg{
   gap: 10px;
 } */
 
-.ins-cart-btns a {
+.ins-cart-btns a, .ins-cart-btns button {
   padding: 16px;
   border-radius: 8px !important;
   transition: 0.4s;
@@ -1128,9 +1128,13 @@ ins-cart-fly-icon svg{
   font-size: 14px;
   text-align: center;
   text-decoration: none;
+  -webkit-border-radius: 8px !important;
+  -moz-border-radius: 8px !important;
+  -ms-border-radius: 8px !important;
+  -o-border-radius: 8px !important;
 }
 
-.ins-cart-btns a.active {
+.ins-cart-btns a.active, .ins-cart-btns button.active {
   background-color: #e9570a !important;
   color: #fff !important;
 }
