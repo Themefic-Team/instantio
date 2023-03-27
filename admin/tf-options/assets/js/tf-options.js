@@ -244,15 +244,17 @@
                             });
                         });
 
-                        console.log(`229 linr ${TF.vars.$body}`)
+
 
                         if (normal_depends.length) {
                             $.tf_deps.enable($this, normal_ruleset, normal_depends);
+                            // console.log(`255 line ${global_depends}`);
                         }
 
                         if (global_depends.length) {
+                            // console.log(`255 line ${global_depends}`);
                             $.tf_deps.enable(TF.vars.$body, global_ruleset, global_depends);
-                            console.log(`255 linr ${TF.vars.$body}`)
+                            // $.tf_deps.enable($this, global_ruleset, global_depends);
                         }
                     }
                 });

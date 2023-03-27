@@ -747,6 +747,11 @@
   transition: all 0.3s ease;
 }
 .tf-setting-wrapper .tf-option-form .tf-option .tf-admin-tab {
+  position: sticky !important;
+  top: 50px;
+  left: 0;
+  height: 100%;
+  overflow: auto;
   min-width: 280px;
   transition: all 0.3s ease;
 }
@@ -900,6 +905,13 @@
 .tf-setting-wrapper .tf-option-form .tf-option .tf-tab-wrapper .tf-tab-content > .tf-field.tf-field-color-single {
   background-color: #fff;
   padding: 20px 30px;
+}
+.tf-setting-wrapper .tf-option-form .tf-option .tf-tab-wrapper .tf-option-footer {
+  position: sticky !important;
+  bottom: 0;
+  background-color: #fff;
+  left: 0;
+  width: 100%;
 }
 
 .tf-shortcode-generator-section {
@@ -1536,7 +1548,7 @@
 .tf-image-seletor-items.tf-active figure {
   border-color: transparent;
   border-radius: 6px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 20px #ddd;
 }
 
 .tf-field-imageselect.imageset-inline .tf-image-seletor-wrap {
@@ -2001,7 +2013,7 @@
 .tf-field-color .tf-fieldset ul.tf-inline li {
   display: flex;
   justify-content: space-between;
-  background-color: #fff;
+  background-color: #fcfcff;
   margin: 10px 0px;
   border-radius: 8px;
   padding: 20px 30px 13px 30px;

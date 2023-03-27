@@ -145,11 +145,14 @@ if ( ! class_exists( 'TF_Options' ) ) {
 		 * @author Foysal
 		 */
 		public function tf_options_admin_enqueue_scripts($screen) {
+			// var_dump($screen);
 			global $post_type; 
-			$tf_options_screens   = array( 'toplevel_page_'. TF_OPTION_ID, 'tourfic-settings_page_tf_license_info' );
-			$tf_options_post_type = array( 'tf_hotel', 'tf_tours', 'tf_apartment' ); 
+			$tf_options_screens   = array( 'toplevel_page_'. TF_OPTION_ID, 'tourfic-settings_page_tf_license_info', 'instantio_page_ins_get_help' );
+			$tf_options_post_type = array( 'tf_hotel', 'tf_tours', 'tf_apartment', 'ins_get_help' ); 
 
 			//Css
+			// wp_enqueue_style( 'tf-options', $this->tf_options_file_url('assets/css/tf-options.css'), array(), $this->tf_options_version() ); 
+			
 			if ( in_array( $screen, $tf_options_screens ) || in_array( $post_type, $tf_options_post_type ) ) {
 				wp_enqueue_style( 'wp-color-picker' );
 				wp_enqueue_style( 'tf-fontawesome-4', '//cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css', array(), $this->tf_options_version() );
@@ -160,7 +163,6 @@ if ( ! class_exists( 'TF_Options' ) ) {
 				wp_enqueue_style( 'tf-flatpickr', '//cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.css', array(), $this->tf_options_version() );
 				wp_enqueue_style( 'tf-options', $this->tf_options_file_url('assets/css/tf-options.css'), array(), $this->tf_options_version() ); 
 				wp_enqueue_style( 'notyf-css', $this->tf_options_file_url('assets/libs/notyf/notyf.min.css'), array(), $this->tf_options_version() );
-		 
 			}
 
 			//Js
@@ -195,7 +197,7 @@ if ( ! class_exists( 'TF_Options' ) ) {
 				'tf_complete_order' => isset( $tf_complete_orders ) ? $tf_complete_orders : '',
 				'tf_cancel_orders'  => isset( $tf_cancel_orders ) ? $tf_cancel_orders : '',
 				'tf_chart_enable'   => isset( $tf_chart_enable ) ? $tf_chart_enable : '',
-				'option_id' => TF_OPTION_ID,
+				'option_id' 		=> TF_OPTION_ID,
 			) );
 		}
 
@@ -267,7 +269,8 @@ if ( ! class_exists( 'TF_Options' ) ) {
 				$depend .= ' data-value="' . esc_attr( $data_value ) . '"';
 				$depend .= ( ! empty( $data_global ) ) ? ' data-depend-global="true"' : '';
 
-				$visible = ( ! empty( $depend_visible ) ) ? ' tf-depend-visible' : ' tf-depend-hidden';
+				$visible  = ' tf-dependency-control';
+				$visible .= ( ! empty( $depend_visible ) ) ? ' tf-depend-visible' : ' tf-depend-hidden';
 			}
 
 			//field width
@@ -286,10 +289,10 @@ if ( ! class_exists( 'TF_Options' ) ) {
                     <label for="<?php echo esc_attr( $id ) ?>" class="tf-field-label">
 						<?php echo esc_html( $field['label'] ) ?>
 						<?php if ( $is_pro ): ?>
-                            <div class="tf-csf-badge"><span class="tf-pro"><?php _e( "Pro", "tourfic" ); ?></span></div>
+                            <div class="tf-csf-badge"><span class="tf-pro"><?php _e( "Pro", "instantio" ); ?></span></div>
 						<?php endif; ?>
 						<?php if ( $badge_up ): ?>
-                            <div class="tf-csf-badge"><span class="tf-upcoming"><?php _e( "Upcoming", "tourfic" ); ?></span></div>
+                            <div class="tf-csf-badge"><span class="tf-upcoming"><?php _e( "Upcoming", "instantio" ); ?></span></div>
 						<?php endif; ?>
                     </label>
 				<?php endif; ?>
@@ -305,7 +308,7 @@ if ( ! class_exists( 'TF_Options' ) ) {
 						$_field = new $fieldClass( $field, $value, $settings_id, $parent );
 						$_field->render();
 					} else {
-						echo '<p>' . __( 'Field not found!', 'tourfic' ) . '</p>';
+						echo '<p>' . __( 'Field not found!', 'instantio' ) . '</p>';
 					}
 					?>
                 </div>
@@ -317,7 +320,7 @@ if ( ! class_exists( 'TF_Options' ) ) {
 		}
 
 		public function is_tf_pro_active() {
-			if ( is_plugin_active( 'tourfic-pro/tourfic-pro.php' ) && defined( 'TF_PRO' ) ) {
+			if ( is_plugin_active( 'wooinstant/wooinstant.php' ) && defined( 'TF_PRO' ) ) {
 				return true;
 			}
 
