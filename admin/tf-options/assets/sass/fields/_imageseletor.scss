@@ -1,6 +1,9 @@
 .tf-image-seletor-items {
   margin-right: 10px;
   figure {
+    img {
+      border-radius: 8px;
+    }
     cursor: pointer;
     position: relative;
     display: inline-block;
@@ -17,8 +20,9 @@
   }
   &.tf-active figure {
     border-color: transparent;
-    border-radius: 6px;
+    border-radius: 8px;
     // box-shadow: 0 0 20px rgb(0 0 0 / 20%);
+    border: 2px solid #e9570a;
     box-shadow: 0 0 20px #ddd;
   }
 }
@@ -30,6 +34,20 @@
     .tf-image-seletor-items {
       figure img {
         padding: 5px;
+        border-radius: 8px;
+      }
+    }
+  }
+}
+
+.tf-field-imageselect.ins-layout-options-imageset {
+  .tf-fieldset {
+    .tf-image-seletor-wrap {
+      .tf-image-seletor-items {
+        width: 250px;
+        img {
+          width: 100%;
+        }
       }
     }
   }

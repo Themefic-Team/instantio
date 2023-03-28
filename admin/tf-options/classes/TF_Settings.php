@@ -268,7 +268,7 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 								<div class="tf-field tf-field-text" style="width: 100%;">
 									<label for="tf_settings[license-email]" class="tf-field-label"> <?php _e("License Email ","instantio"); ?></label>
 
-									<span class="tf-field-sub-title"><?php _e("We will send update news of this product by this email address, don't worry, we hate spam","tourfic"); ?></span>
+									<span class="tf-field-sub-title"><?php _e("We will send update news of this product by this email address, don't worry, we hate spam","instantio"); ?></span>
 
 									<div class="tf-fieldset">
 										<input type="text" name="tf_settings[license-email]" id="tf_settings[license-email]" value="" />
@@ -382,7 +382,7 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 
 									<!-- Footer -->
 									<div class="tf-option-footer">
-										<button type="submit" class="tf-admin-btn tf-btn-secondary tf-submit-btn"><?php _e( 'Save', 'tourfic' ); ?></button>
+										<button type="submit" class="tf-admin-btn tf-btn-secondary tf-submit-btn"><?php _e( 'Save', 'instantio' ); ?></button>
 									</div>
                             </div>
                         </div>
@@ -472,14 +472,14 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 		public function tf_ajax_save_options() {
 			$response    = [
 				'status'  => 'error',
-				'message' => __( 'Something went wrong!', 'tourfic' ),
+				'message' => __( 'Something went wrong!', 'instantio' ),
 			];
 
             if( ! empty( $_POST['tf_option_nonce'] ) && wp_verify_nonce( $_POST['tf_option_nonce'], 'tf_option_nonce_action' ) ) {
                 $this->save_options();
                 $response = [
                     'status'  => 'success',
-                    'message' => __( 'Options saved successfully!', 'tourfic' ),
+                    'message' => __( 'Options saved successfully!', 'instantio' ),
                 ];
             }
 

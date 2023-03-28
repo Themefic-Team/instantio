@@ -21,7 +21,13 @@ TF_Settings::option( 'wiopt', array(
 		'general'            		=> array(
 			'title'  				=> esc_html__( 'General', 'tourfic' ),
 			'icon'   				=> 'fa fa-cog',
-			'fields' 				=> array(),
+			'fields' 				=> array(
+				array(
+					'id'    		=> 'cart_section',
+					'type'    		=> 'heading',
+					'content' 		=> __('Welcome to the instantio Settion', 'instantio'),
+				),
+			),
 		),
 
 		'layout_option'       		=> array(
@@ -29,19 +35,24 @@ TF_Settings::option( 'wiopt', array(
 			'parent' 				=> 'general',
 			'icon'  				=> 'fas fa-layer-group',
 			'fields' 				=> array(
+
 				array(
 					'id'        	=> 'ins-layout-options',
-					'type'      	=> 'select',
-					'label'     	=> 'Select PopUp or Side Cart',
-					'subtitle'  	=> 'Choose cart options',
-					'class'     	=> 'tf-field-class',
+					'type'      	=> 'imageselect',
+					'class' 		=> 'ins-layout-options-imageset',
+					'label'     	=> __('Choose cart options', 'instantio'), 
+					'subtitle' 		=> __('Select PopUp or Side Cart ', 'instantio'),
+					'multiple' 		=> true,
+					'inline'   		=> true,
 					'options'   	=> array(
-						'1' 		=> 'PopUp Cart',
-						'2' 		=> 'Side Cart',
+						'tog-1' 	=> plugin_dir_url( __FILE__ ).'../img/layout/popup.png',
+						'tog-2' 	=> plugin_dir_url( __FILE__ ).'../img/layout/sidecart.png',
 					),
-					'default'   	=> '2',
+					'default'   	=> 'tog-1',
+					// 'dependency' 	=> array('ins-layout',  '!=', '1', '', 'visible' ),
 				),
 
+				
 				array(
 					'id'        	=> 'ins-layout-mode',
 					'type'      	=> 'select',
@@ -79,12 +90,10 @@ TF_Settings::option( 'wiopt', array(
 					'class'     	=> 'tf-field-class',
 					'options'   	=> array(
 						'1' 		=> 'Direct Checkout Button',
-						'2' 		=> 'Side Cart',
-						'3' 		=> 'Popup Cart',
-						'4' 		=> 'Side Cart + Checkout Design 1',
-						'5' 		=> 'Popup Cart + Checkout Design 1',
-						'6' 		=> 'Side Cart + Checkout Design 1 V2',
-						'7' 		=> 'Popup Cart + Checkout Design 1 V2',
+						'2' 		=> 'Cart',
+						'3' 		=> 'Cart + Checkout Pro',
+						'4' 		=> 'Cart + Checkout Design 1 Pro',
+						'5' 		=> 'Cart + Checkout Design v1 Pro',
 					),
 					'default'   	=> '2',
 				),
@@ -150,17 +159,6 @@ TF_Settings::option( 'wiopt', array(
 					'default'   	=> false,
 				),
 
-				array(
-					'id'       		=> 'bottom-cart-panel',
-					'type'     		=> 'switch',
-					'label'    		=> __('Bottom Full With Cart Panel', 'instantio'),
-					'description'   => __( 'If auto cart open on then it would work', 'instantio' ), 
-					'label_on'    	=> __('Enabled', 'instantio'),
-					'label_off'   	=> __('Disabled', 'instantio'),
-					'width' 		=> 100,
-					'default'   	=> false,
-					'dependency' 	=> array('auto-tog-panel',  '==', 'false' ),
-				),
 			),
 		),
 
