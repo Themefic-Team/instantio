@@ -1,6 +1,6 @@
-(function($) {
-	
-	$(document).ready(function(){	
+(function ($) {
+
+    $(document).ready(function () {
 
         // Create an instance of Notyf
         const notyf = new Notyf({
@@ -47,13 +47,13 @@
          * Delete room order ids
          * @author fida
          */
-         $(document).on('click', '.remove-order-ids', function (e) {
+        $(document).on('click', '.remove-order-ids', function (e) {
 
             e.preventDefault();
-            
+
             var $this = $(this);
             var post_id = $("#post_ID").val();
-            var meta_field = $this.closest( '.tf-repeater-content-wrap' ).find('.tf-order_id input').attr('name');
+            var meta_field = $this.closest('.tf-repeater-content-wrap').find('.tf-order_id input').attr('name');
             var data = {
                 action: 'tf_remove_room_order_ids',
                 meta_field: meta_field,
@@ -78,41 +78,16 @@
 
         });
 
-        /**
-         * Tour location required
-         * 
-         * show notyf error
-         */
-        $(document).on('click', '.post-type-tf_tours #publish, .post-type-tf_tours #save-post', function(e) {
-            if( $('textarea[name="tf_tours_opt[text_location]"]').val().length === 0 ) {
-                e.preventDefault;
-                e.stopImmediatePropagation();
-                notyf.error(tf_admin_params.tour_location_required);
-                return false;
-            }
-        });
 
-        /**
-         * Hotel location required
-         *
-         * show notyf error
-         */
-        $(document).on('click', '.post-type-tf_hotel #publish, .post-type-tf_hotel #save-post', function(e) {
-            if( $('textarea[name="tf_hotels_opt[address]"]').val().length === 0 ) {
-                e.preventDefault;
-                e.stopImmediatePropagation();
-                notyf.error(tf_admin_params.hotel_location_required);
-                return false;
-            }
-        });
 
-        
+
+
         /**
          * Ajax install
          * 
          * @since 1.0
          */
-        $(document).on('click', '.tf-install', function(e) {
+        $(document).on('click', '.tf-install', function (e) {
             e.preventDefault();
 
             var current = $(this);
@@ -126,56 +101,40 @@
                 slug: plugin_slug,
             };
 
-            jQuery.post( tf_admin_params.ajax_url, data, function(response) {
+            jQuery.post(tf_admin_params.ajax_url, data, function (response) {
                 current.removeClass('updating-message');
                 current.addClass('updated-message').text(tf_admin_params.installed);
                 current.attr("href", response.data.activateUrl);
             })
-            .fail(function() {
-                current.removeClass('updating-message').text(tf_admin_params.install_failed);
-            })
-            .always(function() {
-                current.removeClass('install-now updated-message').addClass('activate-now button-primary').text(tf_admin_params.activating);
-                current.unbind(e);
-                current[0].click();
-            });
+                .fail(function () {
+                    current.removeClass('updating-message').text(tf_admin_params.install_failed);
+                })
+                .always(function () {
+                    current.removeClass('install-now updated-message').addClass('activate-now button-primary').text(tf_admin_params.activating);
+                    current.unbind(e);
+                    current[0].click();
+                });
         });
 
         /**
          * Pro Feature button link
          */
-        $(document).on('click', '.tf-pro', function(e) {
+        $(document).on('click', '.tf-pro', function (e) {
             e.preventDefault();
-            window.open('https://tourfic.com/');
+            window.open('https://wpinstant.io/');
         });
 
-        $(window).on('load', function() {
+        $(window).on('load', function () {
             $('.tf-field-disable').find('input, select, textarea, button, div, span').attr('disabled', 'disabled');
         });
 
-        $(document).on('click', '.tf-field-pro', function(e) {
+        $(document).on('click', '.tf-field-pro', function (e) {
             e.preventDefault();
-            window.open('https://tourfic.com/');
+            window.open('https://wpinstant.io/');
         });
 
-        /**
-         * Generate & set unique id for hotel rooms
-         */
-        $(document).on('click', '.room-repeater > div.csf-fieldset > a.csf-repeater-add', function(e) {
-
-            var repeaterNumber = $('.room-repeater .csf-repeater-wrapper [data-depend-id="room"]').length - 2;
-
-            $('.room-repeater .unique-id input').each(function() {
-                repeaterNumber++;
-                if( $('.room-repeater [data-depend-id="room"] [data-depend-id="unique_id"]').val().length === 0 ) {
-                    $('.room-repeater [name="tf_hotel[room]['+repeaterNumber+'][unique_id]"]').val(new Date().valueOf() + repeaterNumber);
-                }
-            });
-
-        });
-        
         //documentation link open in new tab
-        $('.tf-go-docs').parent().attr('target','_blank');
+        $('.tf-go-docs').parent().attr('target', '_blank');
 
     });
 
