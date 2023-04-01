@@ -951,7 +951,7 @@ ins-cart-fly-icon svg{
   height: 42px;
   display: inline-block;
   border-radius: 11px;
-  background-color: #FCFCFC !important;
+  background-color: #FCFCFC;
   -webkit-border-radius: 11px;
   -moz-border-radius: 11px;
   -ms-border-radius: 11px;
