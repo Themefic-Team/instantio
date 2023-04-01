@@ -1231,6 +1231,7 @@ TF_Settings::option( 'wiopt', array(
 					'label_on'    	=> __('Enabled', 'instantio' ),
 					'label_off'   	=> __('Disabled', 'instantio' ),
 					'width' 		=> 100,
+					'is_pro'    	=> true,
 					'default'   	=> false,          
 				),
 
@@ -1274,6 +1275,7 @@ TF_Settings::option( 'wiopt', array(
 				array(
 					'id'       		=> 'fancy-cdn',
 					'type'     		=> 'switch',
+					'is_pro'    	=> true,
 					'label'    		=> __('FancyBox CDN', 'instantio'),
 					'subtitle' 		=> __('Enable/disable cloudflare CDN for FancyBox CSS & JS', 'instantio'),
 					'label_on'    	=> __('Enabled', 'instantio' ),
@@ -1285,6 +1287,7 @@ TF_Settings::option( 'wiopt', array(
 				array(
 					'id'       		=> 'css-min',
 					'type'     		=> 'switch',
+					'is_pro'    	=> true,
 					'label'    		=> __('Minify CSS', 'instantio'),
 					'subtitle' 		=> __('Enable/disable Instantio CSS minification', 'instantio'),
 					'label_on'    	=> __('Enabled', 'instantio' ),
@@ -1296,6 +1299,7 @@ TF_Settings::option( 'wiopt', array(
 				array(
 					'id'       		=> 'js-min',
 					'type'     		=> 'switch',
+					'is_pro'    	=> true,
 					'label'    		=> __('Minify JS', 'instantio'),
 					'subtitle' 		=> __('Enable/disable Instantio JS minification', 'instantio'),
 					'label_on'    	=> __('Enabled', 'instantio' ),
@@ -1305,9 +1309,6 @@ TF_Settings::option( 'wiopt', array(
 				),
 			),
 		),
-
-
-
 	),
 ) );
 
