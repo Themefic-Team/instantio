@@ -170,10 +170,14 @@ do_action( 'woocommerce_before_cart' ); ?>
                     }
                 ?>
             </div>
-        </div>
+        </div> 
+       
     </div>
     
     <?php do_action( 'woocommerce_cart_contents' ); ?>
+
+    
+    <?php echo apply_filters( 'ins_show_items_cross_sell', ''); ?>
     <!-- Cart Footer Content -->
     <div class="ins-cart-footer-content">
         <div class="ins-footer-cart-button">
@@ -203,13 +207,17 @@ do_action( 'woocommerce_before_cart' ); ?>
 
         <div class="ins-cart-collaterals cart-collaterals">
             <?php
+ 
                 /**
                  * Cart collaterals hook.
                  *
                  * @hooked woocommerce_cross_sell_display
                  * @hooked woocommerce_cart_totals - 10
                  */
-                do_action( 'woocommerce_cart_collaterals' );
+                
+                // do_action( 'woocommerce_cart_collaterals' );
+ 
+		        woocommerce_cart_totals();  
             ?>
         </div>
     </div> 
