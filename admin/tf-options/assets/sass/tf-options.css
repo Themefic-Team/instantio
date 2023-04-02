@@ -1541,6 +1541,9 @@
      -moz-user-select: none;
           user-select: none;
   transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  border: 2px solid transparent;
 }
 .tf-image-seletor-items figure img {
   border-radius: 8px;
@@ -1566,7 +1569,7 @@
 }
 
 .tf-field-imageselect.ins-layout-options-imageset .tf-fieldset .tf-image-seletor-wrap .tf-image-seletor-items {
-  width: 250px;
+  width: 100px;
 }
 .tf-field-imageselect.ins-layout-options-imageset .tf-fieldset .tf-image-seletor-wrap .tf-image-seletor-items img {
   width: 100%;

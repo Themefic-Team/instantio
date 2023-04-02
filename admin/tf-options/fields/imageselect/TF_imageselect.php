@@ -4,6 +4,7 @@ defined( 'ABSPATH' ) || exit;
 
 /**
  * Field: imageselect
+ * Author MHemel Hasan
  */
 if ( ! class_exists( 'TF_imageselect' ) ) {
   class TF_imageselect extends TF_Fields {
@@ -15,9 +16,9 @@ if ( ! class_exists( 'TF_imageselect' ) ) {
     public function render() {
 
       $args = wp_parse_args( $this->field, array(
-        'multiple' => false,
-        'inline'   => false,
-        'options'  => array(),
+        'multiple'    => false,
+        'inline'      => false,
+        'options'     => array(),
       ) );
 
       $inline = ( $args['inline'] ) ? ' tf-inline-list' : '';

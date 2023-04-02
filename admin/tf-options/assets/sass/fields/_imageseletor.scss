@@ -17,6 +17,9 @@
     input {
       display: none;
     }
+    display: flex;
+    align-items: center;
+    border: 2px solid transparent;
   }
   &.tf-active figure {
     border-color: transparent;
@@ -44,7 +47,7 @@
   .tf-fieldset {
     .tf-image-seletor-wrap {
       .tf-image-seletor-items {
-        width: 250px;
+        width: 100px;
         img {
           width: 100%;
         }
