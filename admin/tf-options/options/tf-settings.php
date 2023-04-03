@@ -55,17 +55,19 @@ TF_Settings::option( 'wiopt', array(
 				
 				array(
 					'id'        	=> 'ins-layout-mode',
-					'type'      	=> 'select',
+					'class'     	=> 'ins-layout-options-imageset',
+					'type'      	=> 'imageselect',
 					'label'     	=> 'Select Mode',
 					'subtitle'  	=> 'Choose cart Mode',
-					'class'     	=> 'tf-field-class',
+					'multiple' 		=> true,
+					'inline'   		=> true,
 					'options'   	=> array(
-						'1' 		=> 'Light',
-						'2' 		=> 'Dark',
-						'3' 		=> 'Glass morphism',
-						'4' 		=> 'Gradient',
+						'light' 			=> plugin_dir_url( __FILE__ ).'../img/layout/light.png',
+						'dark' 				=> plugin_dir_url( __FILE__ ).'../img/layout/dark.png',
+						'glass-morphism' 	=> plugin_dir_url( __FILE__ ).'../img/layout/glass-morphism.png',
+						'gradient' 			=> plugin_dir_url( __FILE__ ).'../img/layout/gradient.png',
 					),
-					'default'   	=> '2',
+					'default'   	=> 'light',
 				),
 
 				array(
@@ -73,16 +75,16 @@ TF_Settings::option( 'wiopt', array(
 					'type'      	=> 'imageselect',
 					'label'     	=> 'Select layout progress bar',
 					'subtitle'  	=> 'Choose progress bar options',
-					'class'     	=> 'ins-layout-options-imageset',
-					// 'is_pro'    	=> true,
+					'class'     	=> 'ins-layout-options-imageset400',
+					'is_pro'    	=> true,
 					'multiple' 		=> true,
 					'inline'   		=> true,
 					'options'   	=> array(
 						'progress1' 		=> plugin_dir_url( __FILE__ ).'../img/layout/progress1.png',
 						'progress2' 		=> plugin_dir_url( __FILE__ ).'../img/layout/progress2.png',
-						// 'progress3' 		=> plugin_dir_url( __FILE__ ).'../img/layout/progress3.png',
-						// 'progress4' 		=> plugin_dir_url( __FILE__ ).'../img/layout/progress4.png',
-						// 'progress5' 		=> plugin_dir_url( __FILE__ ).'../img/layout/progress5.png',
+						'progress3' 		=> plugin_dir_url( __FILE__ ).'../img/layout/progress3.png',
+						'progress4' 		=> plugin_dir_url( __FILE__ ).'../img/layout/progress4.png',
+						'progress5' 		=> plugin_dir_url( __FILE__ ).'../img/layout/progress5.png',
 					),
 					'default'   	=> 'progress2',
 				),
@@ -384,12 +386,13 @@ TF_Settings::option( 'wiopt', array(
 									'label_on'  	=> __('Yes', 'instantio'),
 									'label_off' 	=> __('No', 'instantio'),
 									'default'  		=> false,
-									'is_pro'		=> true
+									'is_pro'		=> true,
 								),
 
 								array(
 									'id' 			=> 'wi-icon-choice-uploder',
 									'type' 			=> 'image',
+									'is_pro'		=> true,
 									'label' 		=> 'Custom Toggler Icon',
 									'subtitle' 		=> __('Upload your cart icon. Recommended size of an icon is 26x26px','instantio'),
 									'description' 	=> __('If Custom Image as Toggler Icon it\'s then it will work', 'instantio'),
@@ -397,15 +400,18 @@ TF_Settings::option( 'wiopt', array(
 				
 								array(
 									'id'       		=> 'toggle-position-horizontal',
-									'type'     		=> 'radio',
+									'type'     		=> 'imageselect',
+									'class' 		=> 'ins-layout-options-imageset',
 									'label'    		=> __('Toggler Horizontal Position', 'instantio'),
 									'subtitle' 		=> __('Changes position of the Cart Toggler horizontally', 'instantio'),
-									'default'  		=> 'right',
+									'multiple' 		=> true,
+									'inline'   		=> true,
 									'inline'   		=> true,
 									'options'  		=> array(
-										'left'   			=> __('Left', 'instantio'),
-										'right'  			=> __('Right', 'instantio'),
+										'left'   			=> plugin_dir_url( __FILE__ ).'../img/layout/toggle-middle.png',
+										'right'  			=> plugin_dir_url( __FILE__ ).'../img/layout/toggle-right.png',
 									), 
+									'default'  		=> 'right',
 								),
 
 								array(
@@ -547,12 +553,15 @@ TF_Settings::option( 'wiopt', array(
 
 								array(
 									'id'       		=> 'toggle-panel-position',
-									'type'     		=> 'radio',
+									'type'     		=> 'imageselect',
+									'multiple' 		=> true,
+									'inline'   		=> true,
+									'class' 		=> 'ins-layout-options-imageset',
 									'label'    		=> __('Toggle Panel Position', 'instantio'),
 									'subtitle' 		=> __('Changes position of the Cart Toggle Panel', 'instantio'),
 									'options'  		=> array(
-										'left'   			=> __('Left', 'instantio'),
-										'right'  			=> __('Right', 'instantio'),
+										'left'   			=> plugin_dir_url( __FILE__ ).'../img/layout/sidecartleft.png',
+										'right'  			=> plugin_dir_url( __FILE__ ).'../img/layout/sidecart.png',
 									), 
 									'default'  		=> 'right',
 									'inline'   		=> true,

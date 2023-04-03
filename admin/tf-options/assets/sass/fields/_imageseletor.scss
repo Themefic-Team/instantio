@@ -1,6 +1,7 @@
 .tf-image-seletor-items {
   margin-right: 10px;
   figure {
+    border-radius: 8px;
     img {
       border-radius: 8px;
     }
@@ -48,6 +49,19 @@
     .tf-image-seletor-wrap {
       .tf-image-seletor-items {
         width: 100px;
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+.tf-field-imageselect.ins-layout-options-imageset400 {
+  .tf-fieldset {
+    .tf-image-seletor-wrap {
+      .tf-image-seletor-items {
+        width: 230px;
         img {
           width: 100%;
         }
