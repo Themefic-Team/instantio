@@ -76,7 +76,7 @@ TF_Settings::option( 'wiopt', array(
 					'label'     	=> 'Select layout progress bar',
 					'subtitle'  	=> 'Choose progress bar options',
 					'class'     	=> 'ins-layout-options-imageset400',
-					// 'is_pro'    	=> true,
+					'is_pro'    	=> true,
 					'multiple' 		=> true,
 					'inline'   		=> true,
 					'options'   	=> array(
