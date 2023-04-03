@@ -56,7 +56,7 @@ class App {
     }
 
     public function ins_layout_set_data() {
-        $ins_layout = !empty(insopt( 'ins-layout' )) ? insopt( 'ins-layout' ) : '';
+        $ins_layout = !empty(insopt( 'ins-layout-options' )) ? insopt( 'ins-layout-options' ) : '1';
 
         require_once INS_INC_PATH .  "/controller/icon-svg.php";
         
