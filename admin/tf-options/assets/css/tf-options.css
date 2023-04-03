@@ -889,7 +889,7 @@
   display: flex;
 }
 .tf-setting-wrapper .tf-option-form .tf-option .tf-tab-wrapper .tf-tab-content > .tf-field {
-  background-color: #fff;
+  background-color: #dadaef;
   margin: 5px 0px;
   border-radius: 8px;
   padding: 20px 30px;
@@ -1529,6 +1529,7 @@
   margin-right: 10px;
 }
 .tf-image-seletor-items figure {
+  border-radius: 8px;
   cursor: pointer;
   position: relative;
   display: inline-block;
@@ -1572,6 +1573,13 @@
   width: 100px;
 }
 .tf-field-imageselect.ins-layout-options-imageset .tf-fieldset .tf-image-seletor-wrap .tf-image-seletor-items img {
+  width: 100%;
+}
+
+.tf-field-imageselect.ins-layout-options-imageset400 .tf-fieldset .tf-image-seletor-wrap .tf-image-seletor-items {
+  width: 230px;
+}
+.tf-field-imageselect.ins-layout-options-imageset400 .tf-fieldset .tf-image-seletor-wrap .tf-image-seletor-items img {
   width: 100%;
 }
 

@@ -524,7 +524,7 @@
         position: sticky !important;
         top: 50px;
         left: 0;
-        height: 100%; 
+        height: 100%;
         overflow: auto;
         min-width: 280px;
         @include transition(all, 0.3s, ease);
@@ -672,7 +672,7 @@
             @include flexbox();
           }
           > .tf-field {
-            background-color: #fff;
+            background-color: #dadaef;
             margin: 5px 0px;
             border-radius: 8px;
             padding: 20px 30px;
@@ -690,7 +690,7 @@
             background-color: #fff;
             padding: 20px 30px;
           }
-        } 
+        }
         .tf-option-footer {
           position: sticky !important;
           bottom: 0;
