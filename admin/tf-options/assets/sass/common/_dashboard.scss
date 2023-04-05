@@ -664,7 +664,7 @@
           @include flex-wrap(wrap);
           @include justify-content(space-between);
           padding: 20px 20px;
-          background: #ededf8;
+          background: #fcf9f7;
           margin: 0px 0px 0px 20px;
           border-radius: 5px;
 
@@ -672,7 +672,7 @@
             @include flexbox();
           }
           > .tf-field {
-            background-color: #dadaef;
+            background-color: #fcf9f7;
             margin: 5px 0px;
             border-radius: 8px;
             padding: 20px 30px;
