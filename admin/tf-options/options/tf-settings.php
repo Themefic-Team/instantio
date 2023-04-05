@@ -45,6 +45,7 @@ TF_Settings::option( 'wiopt', array(
 					'multiple' 		=> true,
 					'inline'   		=> true,
 					'options'   	=> array(
+						'dco' 				=> plugin_dir_url( __FILE__ ).'../img/layout/Directcheckout.svg',
 						'popup' 	=> plugin_dir_url( __FILE__ ).'../img/layout/Popup.svg',
 						'sidecart' 	=> plugin_dir_url( __FILE__ ).'../img/layout/Sidecart.svg',
 					),
@@ -97,7 +98,6 @@ TF_Settings::option( 'wiopt', array(
 					'multiple' 		=> true,
 					'inline'   		=> true,
 					'options'   	=> array(
-						'dco' 				=> plugin_dir_url( __FILE__ ).'../img/layout/Directcheckout.svg',
 						'cart' 				=> plugin_dir_url( __FILE__ ).'../img/layout/Cart.svg',
 						'cartandcheckout' 	=> plugin_dir_url( __FILE__ ).'../img/layout/CartCheckout.svg',
 					),
@@ -878,12 +878,14 @@ TF_Settings::option( 'wiopt', array(
 									'label_off' 	=> __('Disable', 'instantio'),
 									'width'   		=> 100,
 									'default'  		=> false,
+									'is_pro'		=> true,
 								),
 				
 								array(
 									'id'            => 'ins-bill-bg-padding',
 									'type'   		=> 'fieldset',
 									'label'  		=> __('Panel Billing Padding', 'instantio'),
+									'is_pro'		=> true,
 									'subtitle' 		=> __('Toggle panel billing section padding', 'instantio'),
 									// 'dependency' 	=> array('ins-bill-bg-padding_option','==','true'),
 									'fields' 		=> array(
@@ -932,6 +934,7 @@ TF_Settings::option( 'wiopt', array(
 									'class'      	=> 'tf-field-color-single',
 									'label'    		=> __( 'Panel Billing Background', 'instantio' ),
 									'subtitle' 		=> __( 'Toggle panel billing section background color', 'instantio' ),
+									'is_pro'		=> true,
 								),
 				
 								array(
@@ -940,6 +943,7 @@ TF_Settings::option( 'wiopt', array(
 									'class'      	=> 'tf-field-color-single',
 									'label'    		=> __( 'Panel Billing Heading Color', 'instantio' ),
 									'subtitle' 		=> __( 'Toggle panel billing section heading text color', 'instantio' ),
+									'is_pro'		=> true,
 								),
 				
 								array(
@@ -949,6 +953,7 @@ TF_Settings::option( 'wiopt', array(
 									'label'    		=> __( 'Panel Billing Label Color', 'instantio' ),
 									'subtitle' 		=> __( 'Toggle panel billing section label text color', 'instantio' ),
 									'output'    	=> array('.ins-checkout-body form.woocommerce-checkout .form-row label'),
+									'is_pro'		=> true,
 								),
 				
 								array(
@@ -957,6 +962,7 @@ TF_Settings::option( 'wiopt', array(
 									'class'			=> 'tf-field-color-single',
 									'label'    		=> __( 'Panel Billing Label Color', 'instantio' ),
 									'subtitle' 		=> __( 'Toggle panel billing section label text color', 'instantio' ),
+									'is_pro'		=> true,
 								),
 								
 								array(
@@ -965,6 +971,7 @@ TF_Settings::option( 'wiopt', array(
 									'class'			=> 'tf-field-color-single',
 									'label'    		=> __( 'Panel Billing Input Background', 'instantio' ),
 									'subtitle' 		=> __( 'Toggle panel billing section input background color', 'instantio' ),
+									'is_pro'		=> true,
 								),
 								
 								array(
@@ -973,6 +980,7 @@ TF_Settings::option( 'wiopt', array(
 									'class'			=> 'tf-field-color-single',
 									'label'    		=> __( 'Panel Billing Input Border Color', 'instantio' ),
 									'subtitle' 		=> __( 'Toggle panel billing section input border color', 'instantio' ),
+									'is_pro'		=> true,
 								),
 								
 								array(
@@ -981,6 +989,7 @@ TF_Settings::option( 'wiopt', array(
 									'class'			=> 'tf-field-color-single',
 									'label'    		=> __( 'Panel Billing Input Text Color', 'instantio' ),
 									'subtitle' 		=> __( 'Toggle panel billing section input text color', 'instantio' ),
+									'is_pro'		=> true,
 								),
 								
 								array(
@@ -989,6 +998,7 @@ TF_Settings::option( 'wiopt', array(
 									'class'			=> 'tf-field-color-single',
 									'label'    		=> __( 'Panel Billing Input Shadow Color', 'instantio' ),
 									'subtitle' 		=> __( 'Toggle panel billing section input shadow color', 'instantio' ),
+									'is_pro'		=> true,
 								),
 
 							),	 
@@ -1010,6 +1020,7 @@ TF_Settings::option( 'wiopt', array(
 									'class'			=> 'tf-field-color-single',
 									'label'    		=> __( 'Payment Methods Background', 'instantio' ),
 									'subtitle' 		=> __( 'Toggle panel Payment methods background color', 'instantio' ),
+									'is_pro'		=> true,
 								),
 								
 								array(
@@ -1018,6 +1029,7 @@ TF_Settings::option( 'wiopt', array(
 									'class'			=> 'tf-field-color-single',
 									'label'    		=> __( 'Payment Methods Text Color', 'instantio' ),
 									'subtitle' 		=> __( 'Toggle panel Payment methods text color', 'instantio' ),
+									'is_pro'		=> true,
 								),
 								
 								array(
@@ -1026,6 +1038,7 @@ TF_Settings::option( 'wiopt', array(
 									'class'			=> 'tf-field-color-single',
 									'label'    		=> __( 'Payment Methods Description Background', 'instantio' ),
 									'subtitle' 		=> __( 'Toggle panel Payment methods description background color', 'instantio' ),
+									'is_pro'		=> true,
 								),
 								
 								array(
@@ -1034,6 +1047,7 @@ TF_Settings::option( 'wiopt', array(
 									'class'			=> 'tf-field-color-single',
 									'label'    		=> __( 'Payment Methods Description Text Color', 'instantio' ),
 									'subtitle' 		=> __( 'Toggle panel Payment methods description text color', 'instantio' ),
+									'is_pro'		=> true,
 								),
 								
 								array(
@@ -1042,6 +1056,7 @@ TF_Settings::option( 'wiopt', array(
 									'class'			=> 'tf-field-color-single',
 									'label'    		=> __( 'Place Order Background', 'instantio' ),
 									'subtitle' 		=> __( 'Toggle panel place order background color', 'instantio' ),
+									'is_pro'		=> true,
 								),
 								
 								array(
@@ -1050,6 +1065,7 @@ TF_Settings::option( 'wiopt', array(
 									'class'			=> 'tf-field-color-single',
 									'label'    		=> __( 'Place Order Text Color', 'instantio' ),
 									'subtitle' 		=> __( 'Toggle panel place order text color', 'instantio' ),
+									'is_pro'		=> true,
 								),
 						
 								array(
@@ -1063,6 +1079,7 @@ TF_Settings::option( 'wiopt', array(
 										'regular' 			=> __('Regular', 'instantio' ),
 										'hover'				=> __('Hover', 'instantio' ),
 									),
+									'is_pro'		=> true,
 								),
 						
 								array(
@@ -1076,6 +1093,7 @@ TF_Settings::option( 'wiopt', array(
 										'regular' 			=> __('Regular', 'instantio' ),
 										'hover' 			=> __('Hover', 'instantio' ),
 									),
+									'is_pro'		=> true,
 								),
 						
 								array(
@@ -1089,6 +1107,7 @@ TF_Settings::option( 'wiopt', array(
 										'regular' 			=> __('Regular', 'instantio' ),
 										'hover' 			=> __('Hover', 'instantio' ),
 									),
+									'is_pro'		=> true,
 								),
 							),
 						),
@@ -1103,6 +1122,7 @@ TF_Settings::option( 'wiopt', array(
 									'class'			=> 'tf-field-color-single',
 									'label'    		=> __( 'Confirmation Page ThankYou', 'instantio' ),
 									'subtitle' 		=> __( 'Confirmation Page Thank You message Color', 'instantio' ),
+									'is_pro'		=> true,
 								),
 
 								array(
@@ -1111,6 +1131,7 @@ TF_Settings::option( 'wiopt', array(
 									'class'			=> 'tf-field-color-single',
 									'label'    		=> __( 'Confirmation Page Contact', 'instantio' ),
 									'subtitle' 		=> __( 'Confirmation Page Contact Info Color', 'instantio' ),
+									'is_pro'		=> true,
 								),
 
 								array(
@@ -1119,6 +1140,7 @@ TF_Settings::option( 'wiopt', array(
 									'class'			=> 'tf-field-color-single',
 									'label'    		=> __( 'Confirmation Page Shipping', 'instantio' ),
 									'subtitle' 		=> __( 'Confirmation Page Shipping Info Color', 'instantio' ),
+									'is_pro'		=> true,
 								),
 							),
 						),
@@ -1139,6 +1161,7 @@ TF_Settings::option( 'wiopt', array(
 									'class'			=> 'tf-field-color-single',
 									'label'    		=> __( 'Order Review Heading', 'instantio' ),
 									'subtitle' 		=> __( 'Toggle panel review section heading color', 'instantio' ),
+									'is_pro'		=> true,
 								),
 								
 								array(
@@ -1147,6 +1170,7 @@ TF_Settings::option( 'wiopt', array(
 									'class'			=> 'tf-field-color-single',
 									'label'    		=> __( 'Review Section Background', 'instantio' ),
 									'subtitle' 		=> __( 'Toggle panel review section background color', 'instantio' ),
+									'is_pro'		=> true,
 								),
 								
 								array(
@@ -1155,6 +1179,7 @@ TF_Settings::option( 'wiopt', array(
 									'class'			=> 'tf-field-color-single',
 									'label'    		=> __( 'Review Table Head Background', 'instantio' ),
 									'subtitle' 		=> __( 'Toggle panel review section table head background color', 'instantio' ),
+									'is_pro'		=> true,
 								),
 				
 								array(
@@ -1163,6 +1188,7 @@ TF_Settings::option( 'wiopt', array(
 									'class'			=> 'tf-field-color-single',
 									'label'    		=> __( 'Review Table Head Text Color', 'instantio' ),
 									'subtitle' 		=> __( 'Toggle panel review section table head text color', 'instantio' ),
+									'is_pro'		=> true,
 								),
 								
 								array(
@@ -1171,6 +1197,7 @@ TF_Settings::option( 'wiopt', array(
 									'class'			=> 'tf-field-color-single',
 									'label'    		=> __( 'Review Table Item Background', 'instantio' ),
 									'subtitle' 		=> __( 'Toggle panel review section table item background color', 'instantio' ),
+									'is_pro'		=> true,
 								),
 								
 								array(
@@ -1179,6 +1206,7 @@ TF_Settings::option( 'wiopt', array(
 									'class'			=> 'tf-field-color-single',
 									'label'    		=> __( 'Review Table Item Text Color', 'instantio' ),
 									'subtitle' 		=> __( 'Toggle panel review section table item text color', 'instantio' ),
+									'is_pro'		=> true,
 								),
 								
 								array(
@@ -1187,6 +1215,7 @@ TF_Settings::option( 'wiopt', array(
 									'class'			=> 'tf-field-color-single',
 									'label'    		=> __( 'Review Pricing Background', 'instantio' ),
 									'subtitle' 		=> __( 'Toggle panel review section pricing background color', 'instantio' ),
+									'is_pro'		=> true,
 								),
 				
 								array(
@@ -1195,6 +1224,7 @@ TF_Settings::option( 'wiopt', array(
 									'class'			=> 'tf-field-color-single',
 									'label'    		=> __( 'Review Pricing Text Color', 'instantio' ),
 									'subtitle' 		=> __( 'Toggle panel review section pricing text color', 'instantio' ),
+									'is_pro'		=> true,
 								),
 							),
 						)
@@ -1216,6 +1246,7 @@ TF_Settings::option( 'wiopt', array(
 					'class'			=> 'tf-field-color-single',
 					'label'    		=> __( 'Quick View Background', 'instantio' ),
 					'subtitle' 		=> __( 'Instantio Quick View Panel Background Color', 'instantio' ),
+					'is_pro'		=> true,
 				),
 
 				array(
@@ -1223,7 +1254,8 @@ TF_Settings::option( 'wiopt', array(
 					'type'     		=> 'color',
 					'class'			=> 'tf-field-color-single',
 					'label'    		=> __( 'Quick View Color', 'instantio' ),
-					'subtitle' 		=> __( 'Instantio Quick View Panel Text & Cross Color', 'instantio' ),  		
+					'subtitle' 		=> __( 'Instantio Quick View Panel Text & Cross Color', 'instantio' ), 
+					'is_pro'		=> true, 		
 				),
 
 				array(
@@ -1235,6 +1267,7 @@ TF_Settings::option( 'wiopt', array(
 					  	'theme'  			=> 'monokai',
 						'mode'   			=> 'css',
 					),
+					'is_pro'		=> true,
 				),
 			),
 		),
