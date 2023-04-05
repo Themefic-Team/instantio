@@ -207,19 +207,17 @@ ins-cart-fly-icon svg{
   margin: 0 auto;
   position: relative;
   max-height: 90%;
-  width: 650px;
+  width: 65% !important;
 }
 
-.ins-checkout-layout-3.popup .ins-content {
-  overflow: auto !important;
-  max-height: 86% !important;
+.ins-checkout-layout-3.popup .ins-content { 
+  height: 80% !important;
   margin-bottom: 0 !important;
-  
+  overflow: auto; 
 }
 
 .ins-checkout-layout-3.popup .ins-cart-item-wrap {
-  height: auto !important;
-  /* overflow: hidden !important; */
+  height: auto !important; 
 }
 
 .ins-checkout-layout.slide.ins-hori-left {
@@ -299,6 +297,27 @@ ins-cart-fly-icon svg{
   margin-left: -20px;
   top: 50%;
   margin-top: -20px;
+}
+
+
+.ins-checkout-layout.popup .woocommerce-cart-form {
+  display: flex;
+  gap: 16px;
+}
+.ins-checkout-layout.popup .woocommerce-cart-form .ins-checkout-body.ins-content {
+	width: 65%;
+}
+.ins-checkout-layout.popup .woocommerce-cart-form .coupon {
+  width: 100% !important;
+}
+.ins-checkout-layout.popup .woocommerce-cart-form .ins-cart-coupon {
+  width: 100% !important;
+}
+.ins-checkout-layout.popup .woocommerce-cart-form .ins-footer-cart-button {
+  display: inline-block;
+}
+.ins-checkout-layout.popup .woocommerce-cart-form .ins-footer-cart-button > div {
+  width: 100%;
 }
 
 /* Popup */
@@ -808,6 +827,11 @@ ins-cart-fly-icon svg{
 .ins-checkout-modern .ins-checkout-layout {
   width: 690px !important;
 }
+.ins-checkout-modern.popup .ins-checkout-layout.popup {
+  width: 80% !important;
+  height: auto !important;
+  /* overflow: auto; */
+}
 
 .ins-checkout-modern .ins-checkout-layout.slide.ins-hori-left.active {
   left: -690px;
@@ -998,6 +1022,7 @@ ins-cart-fly-icon svg{
   border: 1px solid #FCF4F2;
   box-shadow: 0px 10px 20px rgba(0, 77, 209, 0.05);
   border-radius: 8px;
+  margin-bottom: 16px;
 }
 
 .ins-cart-coupon .coupon {
@@ -1370,7 +1395,21 @@ ins-cart-fly-icon svg{
 
 
 /* Breakpoints */
-@media (max-width: 992px) {}
+@media (max-width: 1240px) {
+  .ins-checkout-modern.popup .ins-checkout-layout.popup {
+    width: 90% !important;
+  }
+  
+}
+@media (max-width: 992px) {
+  .ins-checkout-layout.popup .woocommerce-cart-form {
+    display: block; 
+  }
+  .ins-checkout-layout.popup .woocommerce-cart-form .ins-checkout-body.ins-content {
+    width: 100%;
+  }
+
+}
 
 
 @media (max-width: 768px) {
@@ -1557,6 +1596,7 @@ ins-cart-fly-icon svg{
     width: 28px !important;
   }
 }
+
 
 @media (max-width: 360px) {
   .ins-cart-item-image {
