@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Instantio - Instant Checkout for WooCommerce
- * Plugin URI: https://wpinstant.io/
+ * Plugin URI: https://themefic.com/instantio/
  * Description: WooCommerce Quick Checkout through Side Cart, Floating Cart, Popup Cart & Direct Checkout Button. The whole checkout process would take only 15-25 seconds. Less Cart Abandonment and Better Sales Rate.
  * Author: Themefic
  * Text Domain: instantio
