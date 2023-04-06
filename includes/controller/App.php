@@ -126,7 +126,8 @@ class App {
     public function ins_cart_toggle() {
         ob_start();
         $ins_toggler =  insopt( 'ins-toggler' );
-        $cart_icon = !empty(insopt( 'cart-icon' )) ? insopt( 'cart-icon' ) : 'shopping-bag';
+        $cart_icon = !empty(insopt( 'ins-toggle-tab' )['cart-icon']) ? insopt( 'ins-toggle-tab' )['cart-icon'] : 'shopping-bag';
+        
 
         if( $this->layout == 2){
             $togglebtnClass = 'sidecart';
@@ -138,7 +139,7 @@ class App {
             ?>
             <a class="ins-toggle-btn <?php echo esc_attr( $ins_toggler ) ?>" href="<?php echo esc_url(wc_get_checkout_url());  ?>"> 
                 <?php echo instantio_svg_icon($cart_icon); ?>
-
+                <?php echo insopt( 'ins-toggle-tab' )['ins-cart-emty-hide']; ?>
                 <span class="ins-items-count"><span id="ins_cart_total" class="ins_cart_total"><?php echo WC()->cart->get_cart_contents_count(); ?></span></span> 
            </a> 
             <?php
@@ -421,10 +422,11 @@ class App {
     			return;
     		}
 		} 
-        $toggle_position_horizontal = insopt( 'toggle-position-horizontal' );
-        $toggle_position_vertical = insopt( 'toggle-position-vertical' );
+        $toggle_position_horizontal = insopt( 'ins-toggle-tab' )['toggle-position-horizontal'];
+        $toggle_position_vertical = insopt( 'ins-toggle-tab' )['toggle-position-vertical'];
         $this->layout_class .= !empty($toggle_position_horizontal) ? 'ins-hori-'.$toggle_position_horizontal.' ' :  'ins-hori-right ';
         $this->layout_class .= !empty($toggle_position_vertical) ? 'ins-var-'.$toggle_position_vertical.' ' :  'ins-var-bottom '; 
+        $this->layout_class .= !empty(insopt( 'ins-layout-mode' )) ? 'ins-layout-' .  insopt( 'ins-layout-mode' ).' ' : ''; 
   
         $ins_layout_class = apply_filters( 'ins_layout_class', $this->layout_class );
         ob_start();

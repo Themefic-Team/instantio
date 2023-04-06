@@ -44,9 +44,10 @@ TF_Settings::option( 'wiopt', array(
 					'subtitle' 		=> __('Select PopUp or Side Cart ', 'instantio'),
 					'multiple' 		=> true,
 					'inline'   		=> true,
-					'options'   	=> array(
-						'popup' 	=> plugin_dir_url( __FILE__ ).'../img/layout/Popup.svg',
-						'sidecart' 	=> plugin_dir_url( __FILE__ ).'../img/layout/Sidecart.svg',
+					'options'   	=> array( 
+						'1' 				=> plugin_dir_url( __FILE__ ).'../img/layout/Directcheckout.svg',
+						'2' 	=> plugin_dir_url( __FILE__ ).'../img/layout/Sidecart.svg',
+						'3' 	=> plugin_dir_url( __FILE__ ).'../img/layout/Popup.svg', 
 					),
 					'default'   	=> 'sidecart',
 					// 'dependency' 	=> array('ins-layout',  '!=', '1', '', 'visible' ),
@@ -85,7 +86,7 @@ TF_Settings::option( 'wiopt', array(
 						'progress3' 		=> plugin_dir_url( __FILE__ ).'../img/layout/version3.svg',
 						'progress4' 		=> plugin_dir_url( __FILE__ ).'../img/layout/version4.svg',
 					),
-					'default'   	=> 'progress2',
+					// 'default'   	=> 'progress2',
 				),
 
 				array(
@@ -95,9 +96,9 @@ TF_Settings::option( 'wiopt', array(
 					'label'     	=> __('Select Layout', 'instantio'), 
 					'subtitle' 		=> __('Choose cart and checkout layout', 'instantio'),
 					'multiple' 		=> true,
+					'is_pro'    	=> true,
 					'inline'   		=> true,
 					'options'   	=> array(
-						'dco' 				=> plugin_dir_url( __FILE__ ).'../img/layout/Directcheckout.svg',
 						'cart' 				=> plugin_dir_url( __FILE__ ).'../img/layout/Cart.svg',
 						'cartandcheckout' 	=> plugin_dir_url( __FILE__ ).'../img/layout/CartCheckout.svg',
 					),
@@ -334,7 +335,7 @@ TF_Settings::option( 'wiopt', array(
 			'icon'   				=> 'fa fa-cogs',
 			'fields' 				=> array(
 				array(
-					'id' 			=> 'tf-tab',
+					'id' 			=> 'ins-toggle-tab',
 					'type' 			=> 'tab',
 					'class' 		=> 'toggle_page_tab_parent',
 					'tabs' 				=> array(
@@ -424,7 +425,7 @@ TF_Settings::option( 'wiopt', array(
 									'options'   	=> array(
 										'cart-top' 				=> plugin_dir_url( __FILE__ ).'../img/layout/toggle-top.png',
 										'cart-middle' 				=> plugin_dir_url( __FILE__ ).'../img/layout/toggle-middle.png',
-										'cart-button' 	=> plugin_dir_url( __FILE__ ).'../img/layout/toggle-button.png',
+										'cart-bottom' 	=> plugin_dir_url( __FILE__ ).'../img/layout/toggle-button.png',
 									),
 									'default'   	=> 'cart',
 									
@@ -537,7 +538,7 @@ TF_Settings::option( 'wiopt', array(
 			'icon'   				=> 'fa fa-toggle-off',
 			'fields' 				=> array(
 				array(
-					'id' 			=> 'tf-tab',
+					'id' 			=> 'ins-toggle-panel-tab',
 					'type' 			=> 'tab',
 					'tabs' 			=> array(
 						array(
