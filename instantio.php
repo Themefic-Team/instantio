@@ -242,7 +242,7 @@ function ins_is_woo() {
  */
 if ( !is_plugin_active( 'wooinstant/wooinstant.php' ) ) {
 	function add_pro_link_menu() {
-		$prolink = 'https://wpinstant.io/go/upgrade';
+		$prolink = 'https://themefic.com/instantio/go/upgrade';
 		$menuname = '<span style="color:#ffba00;">' .__("Upgrade to Pro", "instantio"). '</span>';
 		add_submenu_page( 'instantio_options', __('Upgrade to Pro', 'instantio'), $menuname, 'manage_options', $prolink);
 	}
@@ -261,7 +261,7 @@ function instantio_plugin_action_links( $links ) {
 
 	if ( !is_plugin_active( 'wooinstant/wooinstant.php' ) ) {
 		$gopro_link = array(
-			'<a href="https://wpinstant.io/go/upgrade" target="_blank" style="color:#cc0000;font-weight: bold;text-shadow: 0px 1px 1px hsl(0deg 0% 0% / 28%);">' . esc_html__( 'GO PRO', 'instantio' ) . '</a>',
+			'<a href="https://themefic.com/instantio/go/upgrade" target="_blank" style="color:#cc0000;font-weight: bold;text-shadow: 0px 1px 1px hsl(0deg 0% 0% / 28%);">' . esc_html__( 'GO PRO', 'instantio' ) . '</a>',
 		);
 	} else {
 		$gopro_link = array('');
