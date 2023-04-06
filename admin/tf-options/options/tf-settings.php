@@ -45,9 +45,18 @@ TF_Settings::option( 'wiopt', array(
 					'multiple' 		=> true,
 					'inline'   		=> true,
 					'options'   	=> array(
-						'dco' 				=> plugin_dir_url( __FILE__ ).'../img/layout/Directcheckout.svg',
-						'popup' 	=> plugin_dir_url( __FILE__ ).'../img/layout/Popup.svg',
-						'sidecart' 	=> plugin_dir_url( __FILE__ ).'../img/layout/Sidecart.svg',
+						'dco' 			=> array( 
+							'url'   		=> plugin_dir_url( __FILE__ ).'../img/layout/Directcheckout.svg',
+							'title'			=> 'Direct checkout'
+						),
+						'sidecart' 	=> array(
+							'url'   		=> plugin_dir_url( __FILE__ ).'../img/layout/Sidecart.svg',
+							'title'			=> 'Side Cart'
+						),
+						'popup' 	=> array(
+							'url'   		=> plugin_dir_url( __FILE__ ).'../img/layout/Popup.svg',
+							'title'			=> 'Popup'
+						)	
 					),
 					'default'   	=> 'sidecart',
 					// 'dependency' 	=> array('ins-layout',  '!=', '1', '', 'visible' ),
@@ -63,10 +72,22 @@ TF_Settings::option( 'wiopt', array(
 					'multiple' 		=> true,
 					'inline'   		=> true,
 					'options'   	=> array(
-						'light' 			=> plugin_dir_url( __FILE__ ).'../img/layout/Light.svg',
-						'dark' 				=> plugin_dir_url( __FILE__ ).'../img/layout/Dark.svg',
-						'glass-morphism' 	=> plugin_dir_url( __FILE__ ).'../img/layout/GlassMorphism.svg',
-						'gradient' 			=> plugin_dir_url( __FILE__ ).'../img/layout/Gradient.svg',
+						'light' 		=> array(
+							'url'   		=> plugin_dir_url( __FILE__ ).'../img/layout/Light.svg',
+							'title'			=> 'Light'
+						),
+						'dark' 				=> array(
+							'url'   		=> plugin_dir_url( __FILE__ ).'../img/layout/Dark.svg',
+							'title'			=> 'Dark'
+						),
+						'glass-morphism' 				=> array(
+							'url'   		=> plugin_dir_url( __FILE__ ).'../img/layout/GlassMorphism.svg',
+							'title'			=> 'Glass Morphism'
+						),
+						'gradient' 				=> array(
+							'url'   		=> plugin_dir_url( __FILE__ ).'../img/layout/Gradient.svg',
+							'title'			=> 'Gradient'
+						)
 					),
 					'default'   	=> 'light',
 				),
@@ -81,10 +102,22 @@ TF_Settings::option( 'wiopt', array(
 					'multiple' 		=> true,
 					'inline'   		=> true,
 					'options'   	=> array(
-						'progress1' 		=> plugin_dir_url( __FILE__ ).'../img/layout/version1.svg',
-						'progress2' 		=> plugin_dir_url( __FILE__ ).'../img/layout/version2.svg',
-						'progress3' 		=> plugin_dir_url( __FILE__ ).'../img/layout/version3.svg',
-						'progress4' 		=> plugin_dir_url( __FILE__ ).'../img/layout/version4.svg',
+						'progress1' 		=> array(
+							'url'   			=> plugin_dir_url( __FILE__ ).'../img/layout/version1.svg',
+							'title'				=> 'version V1'
+						),
+						'progress2' 		=> array(
+							'url'   			=> plugin_dir_url( __FILE__ ).'../img/layout/version2.svg',
+							'title'				=> 'version V2'
+						),
+						'progress3' 		=> array(
+							'url'   			=> plugin_dir_url( __FILE__ ).'../img/layout/version3.svg',
+							'title'				=> 'version V3'
+						),
+						'progress4' 		=> array(
+							'url'   			=> plugin_dir_url( __FILE__ ).'../img/layout/version4.svg',
+							'title'				=> 'version V4'
+						)
 					),
 					'default'   	=> 'progress2',
 				),
@@ -98,8 +131,14 @@ TF_Settings::option( 'wiopt', array(
 					'multiple' 		=> true,
 					'inline'   		=> true,
 					'options'   	=> array(
-						'cart' 				=> plugin_dir_url( __FILE__ ).'../img/layout/Cart.svg',
-						'cartandcheckout' 	=> plugin_dir_url( __FILE__ ).'../img/layout/CartCheckout.svg',
+						'cart' 				=> array(
+							'url'   			=> plugin_dir_url( __FILE__ ).'../img/layout/Cart.svg',
+							'title'				=> 'Cart'
+						),
+						'cartandcheckout' 	=> array(
+							'url'   			=> plugin_dir_url( __FILE__ ).'../img/layout/CartCheckout.svg',
+							'title'				=> 'Cart Checkout'
+						)
 					),
 					'default'   	=> 'cart',
 					// 'dependency' 	=> array('ins-layout',  '!=', '1', '', 'visible' ),
@@ -121,8 +160,14 @@ TF_Settings::option( 'wiopt', array(
 					'multiple' 		=> true,
 					'inline'   		=> true,
 					'options'   	=> array(
-						'tog-1' 	=> plugin_dir_url( __FILE__ ).'../img/toggler-1.png',
-						'tog-2' 	=> plugin_dir_url( __FILE__ ).'../img/toggler-2.png',
+						'tog-1' 		=> array(
+							'url'   		=> plugin_dir_url( __FILE__ ).'../img/toggler-1.png',
+							'title'			=> 'Toggle 1'
+						),
+						'tog-2' 		=> array(
+							'url'   		=> plugin_dir_url( __FILE__ ).'../img/toggler-2.png',
+							'title'			=> 'Toggle 2'
+						),
 					),
 					'default'   	=> 'tog-1',
 					// 'dependency' 	=> array('ins-layout',  '!=', '1', '', 'visible' ),
@@ -366,12 +411,24 @@ TF_Settings::option( 'wiopt', array(
 									'label'    		=> __('Toggle Icon', 'instantio'), 
 									'subtitle' 		=> __('Select cart icon which will appear in cart toggler', 'instantio'),
 									'options'  		=> array(
-										'cart-1' 			=> plugin_dir_url( __FILE__ ).'../img/cart-1.svg',
-										'cart-2' 			=> plugin_dir_url( __FILE__ ).'../img/cart-2.svg',
-										'cart-3' 			=> plugin_dir_url( __FILE__ ).'../img/cart-3.svg',
-										'cart-4' 			=> plugin_dir_url( __FILE__ ).'../img/cart-4.svg',
-										'cart-5' 			=> plugin_dir_url( __FILE__ ).'../img/cart-5.svg',
-										'cart-6' 			=> plugin_dir_url( __FILE__ ).'../img/cart-6.svg',
+										'cart-1' 		=> array(
+											'url'   		=> plugin_dir_url( __FILE__ ).'../img/cart-1.svg',
+										),
+										'cart-2' 		=> array(
+											'url'   		=> plugin_dir_url( __FILE__ ).'../img/cart-2.svg',
+										),
+										'cart-3' 		=> array(
+											'url'   		=> plugin_dir_url( __FILE__ ).'../img/cart-3.svg',
+										),
+										'cart-4' 		=> array(
+											'url'   		=> plugin_dir_url( __FILE__ ).'../img/cart-4.svg',
+										),
+										'cart-5' 		=> array(
+											'url'   		=> plugin_dir_url( __FILE__ ).'../img/cart-5.svg',
+										),
+										'cart-6' 		=> array(
+											'url'   		=> plugin_dir_url( __FILE__ ).'../img/cart-6.svg',
+										),
 									),
 									'default' 		=> 'cart-1'
 								),
@@ -407,8 +464,14 @@ TF_Settings::option( 'wiopt', array(
 									'inline'   		=> true,
 									'inline'   		=> true,
 									'options'  		=> array(
-										'left'   			=> plugin_dir_url( __FILE__ ).'../img/layout/toggle-middle.png',
-										'right'  			=> plugin_dir_url( __FILE__ ).'../img/layout/toggle-right.png',
+										'left' 		=> array(
+											'url'   		=> plugin_dir_url( __FILE__ ).'../img/layout/toggle-middle.png',
+											'title'			=> 'Left'
+										),
+										'right' 		=> array(
+											'url'   		=> plugin_dir_url( __FILE__ ).'../img/layout/toggle-right.png',
+											'title'			=> 'Right'
+										),
 									), 
 									'default'  		=> 'right',
 								),
