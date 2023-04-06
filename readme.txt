@@ -3,7 +3,7 @@ Contributors: themefic, hemelhasan, hasanet, fida02, mdshuvo
 Tags: woocommerce, direct checkout, woocommerce checkout, floating cart, side cart, ajax cart, cart popup, popup cart, ajax add to cart, one page checkout, single page checkout, fly cart, mini cart, quick buy, instant checkout, quick checkout, same page checkout, sidebar cart, sticky cart, woocommerce ajax, one click checkout, woocommerce one page checkout, direct checkout woocommerce, woocommerce one click checkout, woocommerce quick checkout, woocommerce express checkout, woocommerce simple checkout, skip cart page woocommerce, woocommerce cart popup, edit woocommerce checkout page, woocommerce direct checkout, checkout manager, woocommerce checkout manager, One Page Checkout, WooCommerce One Page Checkout
 Requires at least: 4.0
 Tested up to: 6.2
-Stable tag: 2.5.22
+Stable tag: 2.5.23
 WC requires at least: 5.0
 WC tested up to: 7.5.1
 Requires PHP: 7.2
@@ -16,10 +16,9 @@ Checkout Instantly within 10-15 seconds using Side Cart, Popup Cart, Slide Check
 
 = The easiest and fastest WooCommerce Checkout Process by Instantio =
 
-👉 Official Demo Link: [Instantio Live Preview](https://wpinstant.io/go/free/)
+👉 Official Demo Link: [Instantio Live Preview](https://themefic.com/instantio/lite)
 👉 Installation Guide: [How to Setup Instantio](https://www.youtube.com/watch?v=1biwrwu-Io8)
 👉 Join Our FB Community: [Instantio Facebook Group](https://www.facebook.com/groups/instantio.wp)
-👉 Development Roadmaps: [Upcoming Plan for 2021](https://wpinstant.io/roadmap/)
 
 <strong>8 Different Checkout Options (Quick Demo): </strong>
 
@@ -50,7 +49,7 @@ All your customer has to do is â€œAdd to Cartâ€, a cart drawer will app
 * RTL Support
 
 <strong>Demo Link </strong>
-> <strong><a href="https://wpinstant.io/go/free/" target="_blank">Check out the demo</a></strong> to see it in action!
+> <strong><a href="https://themefic.com/instantio/lite/" target="_blank">Check out the demo</a></strong> to see it in action!
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/1biwrwu-Io8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -60,7 +59,7 @@ All your customer has to do is â€œAdd to Cartâ€, a cart drawer will app
 
 > We believe the free version is good enough for most businesses. However, we have a **Pro version** of this plugin which has more advanced features. With Instantio Pro, Your Customer can checkout and order from a single window.  No Page Reload whatsoever!  It converts the Long & Boring Multi-step checkout of WooCommerce into Same Page Instant Checkout. The whole checkout process would take only 10-15 seconds.
 
-> <strong><a href="https://wpinstant.io/go/pricing" target="_blank">Buy Instantio Pro</a></strong>
+> <strong><a href="https://themefic.com/instantio/pricing/" target="_blank">Buy Instantio Pro</a></strong>
 
 Want to know all the latest news and be a part of the Instantio community? Join our <a href="https://www.facebook.com/groups/instantio.wp" target="_blank">Facebook Community group!</a>
 
@@ -127,7 +126,7 @@ Instantio offers an animated floating cart icon. Thus customers can immediately 
 
 == Pro Features ==
 
-There is also a <strong><a href="https://wpinstant.io/go/pricing" target="_blank">Pro Version</a></strong> of this plugin. You will get more features and advantages on the pro version. Here are the features of the Pro Version:
+There is also a <strong><a href="https://themefic.com/instantio/pricing/" target="_blank">Pro Version</a></strong> of this plugin. You will get more features and advantages on the pro version. Here are the features of the Pro Version:
 
 = Preview Styles =
 Instantio (Pro) comes up with 5 Additional Preview Styles:
@@ -174,11 +173,11 @@ Instantio Pro offers a side cart that lets users access cart items from anywhere
 
 * **Edit WooCommerce Checkout page:** You can Edit WooCommerce Checkout page to convert into WooCommerce quick checkout or WooCommerce one-click checkout.
 
-> <strong><a href="https://wpinstant.io/go/pricing" target="_blank">Buy Pro Version</a></strong>
+> <strong><a href="https://themefic.com/instantio/pricing/" target="_blank">Buy Pro Version</a></strong>
 
 <strong>Premium Support</strong>
 
-We provide full support on the WordPress.org forums. You can also post questions or bug reports through our <a href="https://www.facebook.com/groups/instantio.wp/" target="_blank">Facebook group</a> or <a href="https://themefic.com/contact/">our website</a>. However, please note that, for free version's support/replies, there can be delays upto 24-48 hours. So, if you need urgent support, we recommend purchasing <strong><a href="https://wpinstant.io/go/pricing" target="_blank">Pro Version</a></strong>.
+We provide full support on the WordPress.org forums. You can also post questions or bug reports through our <a href="https://www.facebook.com/groups/instantio.wp/" target="_blank">Facebook group</a> or <a href="https://themefic.com/contact/">our website</a>. However, please note that, for free version's support/replies, there can be delays upto 24-48 hours. So, if you need urgent support, we recommend purchasing <strong><a href="https://themefic.com/instantio/pricing/" target="_blank">Pro Version</a></strong>.
 
 <strong>Privacy Policy : </strong>
 
@@ -256,11 +255,11 @@ Yes, Instantio converts the default multistep WooCommerce checkout process into 
 
 = I need WooCommerce fast checkout, is it possible? =
 
-Yes, Instantio offers a fast checkout WooCommerce solution. You can also <strong><a href="https://wpinstant.io/go/pricing" target="_blank">Check Our Pro Version</a></strong> for a faster solution.
+Yes, Instantio offers a fast checkout WooCommerce solution. You can also <strong><a href="https://themefic.com/instantio/pricing/" target="_blank">Check Our Pro Version</a></strong> for a faster solution.
 
 = I want my checkout process to be simple, is it possible? =
 
-Yes, Instantio offers a simple checkout WooCommerce solution. You can also <strong><a href="https://wpinstant.io/go/pricing" target="_blank">Check Our Pro Version</a></strong> for a more WooCommerce simple checkout solution.
+Yes, Instantio offers a simple checkout WooCommerce solution. You can also <strong><a href="https://themefic.com/instantio/pricing/" target="_blank">Check Our Pro Version</a></strong> for a more WooCommerce simple checkout solution.
 
 =  =
 
@@ -286,6 +285,12 @@ Yes, Instantio offers a simple checkout WooCommerce solution. You can also <stro
 
 
 == Changelog ==
+
+= 2.5.23 = ( April 06, 2023 )
+
+- Updated: Demo URL
+- Updated: Readme.txt
+- Optimized Code
 
 = 2.5.22 = ( March 31, 2023 )
 
