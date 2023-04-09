@@ -217,9 +217,9 @@
   line-height: 11px;
   color: #000;
   font-weight: 700;
-  border: 1px solid #003c79;
+  border: 1px solid #db5209;
   border-radius: 4px;
-  background-color: rgba(0, 60, 121, 0.0392156863);
+  background-color: rgba(219, 82, 9, 0.0392156863);
   display: inline-block;
   padding: 2px 6px;
   margin-left: 10px;
@@ -572,18 +572,18 @@
   display: inline-block;
   margin-bottom: 0;
   display: inline-block;
-  border: 2px solid #003c79;
+  border: 2px solid #db5209;
   border-radius: 6px;
   padding: 9px 16px;
   font-size: 15px;
   font-weight: 600;
-  color: #003c79;
+  color: #db5209;
   margin-top: 20px;
   line-height: 1;
   transition: 0.3s all ease;
 }
 .tf-settings-help-center .tf-support-document .tf-single-support a span:hover {
-  background-color: #003c79;
+  background-color: #db5209;
   color: #fff;
 }
 .tf-settings-help-center .tf-settings-faq {
@@ -790,8 +790,8 @@
   outline: none;
 }
 .tf-setting-wrapper .tf-option-form .tf-option .tf-admin-tab a.tf-tablinks.active {
-  background-color: rgba(0, 60, 121, 0.1098039216);
-  color: #003c79;
+  background-color: rgba(219, 82, 9, 0.1098039216);
+  color: #db5209;
   position: relative;
   overflow: hidden;
   border-radius: 0px 5px 0px 0px;
@@ -802,13 +802,13 @@
   }
 }
 .tf-setting-wrapper .tf-option-form .tf-option .tf-admin-tab a.tf-tablinks.active .tf-sec-icon {
-  color: #003c79;
+  color: #db5209;
 }
 .tf-setting-wrapper .tf-option-form .tf-option .tf-admin-tab a.tf-tablinks.active::before {
   position: absolute;
   content: "\f105";
   font-size: 14px;
-  color: #003c79;
+  color: #db5209;
   font-family: "FontAwesome" !important;
   right: 10px;
 }
@@ -820,7 +820,7 @@
   left: -4px;
   bottom: 0;
   top: 0;
-  background: #003c79;
+  background: #db5209;
   height: 28px;
   margin: auto;
   border-radius: 25px;
@@ -969,7 +969,7 @@
   padding: 0 20px;
   margin-left: 15px;
   height: 45px;
-  background-color: #003c79;
+  background-color: #db5209;
   color: #fff;
   border: none;
   box-shadow: none !important;
@@ -1458,7 +1458,7 @@
   width: 90%;
   padding: 12px 8px 12px 12px;
   background-color: #f5f8ff;
-  border: 1px solid #c4cbd4;
+  border: 1px solid #db5209;
   border-radius: 4px;
   height: 48px;
   color: #363e4a;
@@ -1472,8 +1472,8 @@
   line-height: 48px;
   text-align: center;
   text-transform: capitalize;
-  background-color: #003c79;
-  border-color: #003c79;
+  background-color: #db5209;
+  border-color: #db5209;
 }
 
 .tf-taxonomy-metabox {
@@ -1529,27 +1529,32 @@
   margin-right: 10px;
 }
 .tf-image-seletor-items figure {
+  background-color: #fff;
   border-radius: 8px;
+  box-shadow: 0px 10px 20px rgba(75, 26, 0, 0.05);
+  padding: 10px;
   cursor: pointer;
   position: relative;
-  display: inline-block;
-  max-width: 100%;
   margin: 0;
-  vertical-align: bottom;
-  border: 1px solid transparent;
+  border: 2px solid transparent;
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
   transition: all 0.2s;
-  display: flex;
-  align-items: center;
-  border: 2px solid transparent;
 }
 .tf-image-seletor-items figure img {
   border-radius: 8px;
+  margin-bottom: 10px;
 }
 .tf-image-seletor-items figure input {
   display: none;
+}
+.tf-image-seletor-items figure .tf-image-seletor-card-info {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: #665f5c;
 }
 .tf-image-seletor-items.tf-active figure {
   border-color: transparent;
@@ -1575,13 +1580,6 @@
   width: 100%;
 }
 
-.tf-field-imageselect.ins-layout-options-imageset300 .tf-fieldset .tf-image-seletor-wrap .tf-image-seletor-items {
-  width: 281px;
-}
-.tf-field-imageselect.ins-layout-options-imageset300 .tf-fieldset .tf-image-seletor-wrap .tf-image-seletor-items img {
-  width: 100%;
-}
-
 .tf-field-imageselect.ins-layout-options-imageset200 .tf-fieldset .tf-image-seletor-wrap .tf-image-seletor-items {
   width: 203px;
 }
@@ -1589,12 +1587,20 @@
   width: 100%;
 }
 
+.tf-field-imageselect.ins-layout-options-imageset300 .tf-fieldset .tf-image-seletor-wrap .tf-image-seletor-items {
+  width: 281px;
+}
+.tf-field-imageselect.ins-layout-options-imageset300 .tf-fieldset .tf-image-seletor-wrap .tf-image-seletor-items img {
+  width: 100%;
+}
+
 .tf-fieldset-content {
   max-width: 95%;
   padding: 20px;
   border-radius: 6px;
-  border: 1px solid #ddd;
-  background-color: aliceblue;
+  border: 1px solid #f0f2f4;
+  background-color: #fef8f5;
+  box-shadow: 0px 10px 20px rgba(75, 26, 0, 0.05);
 }
 
 .tf-field-gallery .tf-fieldset .tf-fieldset-gallery-preview img {
@@ -1622,7 +1628,7 @@
 .tf-field-heading {
   padding: 16px 24px;
   margin: 0 -24px;
-  background-color: #f0f2f4;
+  background-color: #fef2eb;
 }
 .tf-field-heading .tf-field-heading-inner {
   display: flex;
@@ -1951,7 +1957,7 @@
   font-weight: 600;
   font-size: 16px;
   line-height: 24px;
-  color: #607085;
+  color: #db5209;
   cursor: pointer;
   transition: 0.4s;
   border-radius: 8px 8px 0px 0px;
@@ -1959,18 +1965,19 @@
   margin-bottom: 0 !important;
 }
 .tf-tablist ul.tf-nav-tabs li.show {
-  background-color: #f0f2f4;
-  border-bottom: 4px solid #607085;
+  background-color: #fef2eb;
+  border-bottom: 4px solid #db5209;
   color: #404040;
+  box-shadow: 0px 5px 15px rgba(233, 87, 10, 0.2);
 }
 .tf-tablist ul.tf-nav-tabs li.tf-tab-item:hover {
-  background-color: #f8f9fb;
-  border-bottom: 4px solid #f8f9fb;
+  background-color: #fef2eb;
+  border-bottom: 4px solid #db5209;
 }
 .tf-tablist ul.tf-nav-tabs li.show:hover {
-  background-color: #f0f2f4;
-  border-bottom: 4px solid #607085;
-  color: #404040;
+  background-color: #fef2eb;
+  border-bottom: 4px solid #db5209;
+  color: #db5209;
 }
 .tf-tablist .tf-tab-field-content .tf-tab-item-content {
   border: 1px solid #f0f2f4;
@@ -2277,16 +2284,18 @@
   width: 100%;
   padding: 12px 8px 12px 12px;
   border: 1px solid #c4cbd4;
-  background-color: #f5f8ff;
+  background-color: #fcfcff;
   border-radius: 4px;
   height: 48px;
   color: #363e4a;
   font-size: 14px;
 }
 .tf-field-number input:focus {
-  background: #FFFFFF;
-  box-shadow: 0 0 0 2px #2979ff;
+  background: #ffffff;
+  box-shadow: 0px 5px 15px rgba(233, 87, 10, 0.2);
   border-radius: 4px;
+  border-color: #db5209;
+  outline: transparent;
 }
 .tf-field-number input::-moz-placeholder {
   opacity: 1;

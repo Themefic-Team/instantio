@@ -40,14 +40,22 @@ TF_Settings::option( 'wiopt', array(
 					'id'        	=> 'ins-layout-options',
 					'type'      	=> 'imageselect',
 					'class' 		=> 'ins-layout-options-imageset200',
-					'label'     	=> __('Choose cart options', 'instantio'), 
-					'subtitle' 		=> __('Select PopUp or Side Cart ', 'instantio'),
+					'label'     	=> __('Choose cart options', 'instantio'),
 					'multiple' 		=> true,
 					'inline'   		=> true,
 					'options'   	=> array( 
-						'1' 				=> plugin_dir_url( __FILE__ ).'../img/layout/Directcheckout.svg',
-						'2' 	=> plugin_dir_url( __FILE__ ).'../img/layout/Sidecart.svg',
-						'3' 	=> plugin_dir_url( __FILE__ ).'../img/layout/Popup.svg', 
+						'1' 				=> array(
+							'title'			=> 'Direct Checkout',
+							'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/Directcheckout.jpg',
+						),
+						'2' 				=> array(
+							'title'			=> 'Side Cart',
+							'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/sidecart.jpg',
+						),
+						'3' 				=> array(
+							'title'			=> 'Popup Cart',
+							'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/Popup.jpg',
+						) 
 					),
 					'default'   	=> 'sidecart',
 					// 'dependency' 	=> array('ins-layout',  '!=', '1', '', 'visible' ),
@@ -58,15 +66,29 @@ TF_Settings::option( 'wiopt', array(
 					'id'        	=> 'ins-layout-mode',
 					'class'     	=> 'ins-layout-options-imageset200',
 					'type'      	=> 'imageselect',
-					'label'     	=> 'Select Mode',
-					'subtitle'  	=> 'Choose cart Mode',
+					'label'     	=> 'Choose mode',
 					'multiple' 		=> true,
 					'inline'   		=> true,
 					'options'   	=> array(
-						'light' 			=> plugin_dir_url( __FILE__ ).'../img/layout/Light.svg',
-						'dark' 				=> plugin_dir_url( __FILE__ ).'../img/layout/Dark.svg',
-						'glass-morphism' 	=> plugin_dir_url( __FILE__ ).'../img/layout/GlassMorphism.svg',
-						'gradient' 			=> plugin_dir_url( __FILE__ ).'../img/layout/Gradient.svg',
+						'light' 			=> array(
+							'title'			=> 'Light',
+							'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/Light.svg',
+						),
+						
+						
+						'dark' 				=> array(
+							'title'			=> 'Dark',
+							'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/Dark.svg',
+						),
+
+						'glass-morphism' 	=> array(
+							'title'			=> 'Glass morphism',
+							'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/GlassMorphism.svg',
+						),
+						'gradient' 			=> array(
+							'title'			=> 'Gradient',
+							'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/Gradient.svg',
+						)
 					),
 					'default'   	=> 'light',
 				),
@@ -74,17 +96,28 @@ TF_Settings::option( 'wiopt', array(
 				array(
 					'id'        	=> 'ins-layout-progressbar',
 					'type'      	=> 'imageselect',
-					'label'     	=> 'Select layout progress bar',
-					'subtitle'  	=> 'Choose progress bar options',
+					'label'     	=> 'Choose progress bar',
 					'class'     	=> 'ins-layout-options-imageset300',
 					'is_pro'    	=> true,
 					'multiple' 		=> true,
 					'inline'   		=> true,
 					'options'   	=> array(
-						'progress1' 		=> plugin_dir_url( __FILE__ ).'../img/layout/version1.svg',
-						'progress2' 		=> plugin_dir_url( __FILE__ ).'../img/layout/version2.svg',
-						'progress3' 		=> plugin_dir_url( __FILE__ ).'../img/layout/version3.svg',
-						'progress4' 		=> plugin_dir_url( __FILE__ ).'../img/layout/version4.svg',
+						'progress1' 		=> array(
+							'title'			=> 'Version 1',
+							'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/version1.svg',
+						),
+						'progress2' 		=> array(
+							'title'			=> 'Version 2',
+							'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/version2.svg',
+						),
+						'progress3' 		=> array(
+							'title'			=> 'Version 3',
+							'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/version3.svg',
+						),
+						'progress4' 		=> array(
+							'title'			=> 'Version 4',
+							'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/version4.svg',
+						),
 					),
 					// 'default'   	=> 'progress2',
 				),
@@ -93,14 +126,19 @@ TF_Settings::option( 'wiopt', array(
 					'id'        	=> 'ins-layout',
 					'type'      	=> 'imageselect',
 					'class' 		=> 'ins-layout-options-imageset200',
-					'label'     	=> __('Select Layout', 'instantio'), 
-					'subtitle' 		=> __('Choose cart and checkout layout', 'instantio'),
+					'label'     	=> __('Choose layout', 'instantio'),
 					'multiple' 		=> true,
-					'is_pro'    	=> true,
 					'inline'   		=> true,
 					'options'   	=> array(
-						'cart' 				=> plugin_dir_url( __FILE__ ).'../img/layout/Cart.svg',
-						'cartandcheckout' 	=> plugin_dir_url( __FILE__ ).'../img/layout/CartCheckout.svg',
+						'cart' 				=> array(
+							'title'			=> 'Cart',
+							'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/Cart.svg',
+						),
+
+						'cartandcheckout' 	=> array(
+							'title'			=> 'Cart & Checkout',
+							'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/CartCheckout.svg',
+						)
 					),
 					'default'   	=> 'cart',
 					// 'dependency' 	=> array('ins-layout',  '!=', '1', '', 'visible' ),
@@ -117,13 +155,19 @@ TF_Settings::option( 'wiopt', array(
 				array(
 					'id'        	=> 'ins-toggler',
 					'type'      	=> 'imageselect',
-					'label'     	=> __('Toggler Design', 'instantio'), 
-					'subtitle' 		=> __('Select toggler design', 'instantio'),
+					'label'     	=> __('Choose toggler design', 'instantio'),
+					'class' 		=> 'ins-layout-options-imageset',
 					'multiple' 		=> true,
 					'inline'   		=> true,
 					'options'   	=> array(
-						'tog-1' 	=> plugin_dir_url( __FILE__ ).'../img/toggler-1.png',
-						'tog-2' 	=> plugin_dir_url( __FILE__ ).'../img/toggler-2.png',
+						'tog-1' 	=> array(
+							'title'			=> '',
+							'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/toggler-1.svg',
+						),
+						'tog-2' 	=> array(
+							'title'			=> '',
+							'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/toggler-2.svg',
+						)
 					),
 					'default'   	=> 'tog-1',
 					// 'dependency' 	=> array('ins-layout',  '!=', '1', '', 'visible' ),
@@ -367,12 +411,22 @@ TF_Settings::option( 'wiopt', array(
 									'label'    		=> __('Toggle Icon', 'instantio'), 
 									'subtitle' 		=> __('Select cart icon which will appear in cart toggler', 'instantio'),
 									'options'  		=> array(
-										'cart-1' 			=> plugin_dir_url( __FILE__ ).'../img/cart-1.svg',
-										'cart-2' 			=> plugin_dir_url( __FILE__ ).'../img/cart-2.svg',
-										'cart-3' 			=> plugin_dir_url( __FILE__ ).'../img/cart-3.svg',
-										'cart-4' 			=> plugin_dir_url( __FILE__ ).'../img/cart-4.svg',
-										'cart-5' 			=> plugin_dir_url( __FILE__ ).'../img/cart-5.svg',
-										'cart-6' 			=> plugin_dir_url( __FILE__ ).'../img/cart-6.svg',
+										'cart-1' 			=> array(
+											'title'			=> '',
+											'url' 			=> plugin_dir_url( __FILE__ ).'../img/cart-1.svg',
+										),
+										'cart-2' 			=> array(
+											'title'			=> '',
+											'url' 			=> plugin_dir_url( __FILE__ ).'../img/cart-2.svg',
+										),
+										'cart-3' 			=> array(
+											'title'			=> '',
+											'url' 			=> plugin_dir_url( __FILE__ ).'../img/cart-3.svg',
+										),
+										'cart-4' 			=> array(
+											'title'			=> '',
+											'url' 			=> plugin_dir_url( __FILE__ ).'../img/cart-4.svg',
+										)
 									),
 									'default' 		=> 'cart-1'
 								),
@@ -401,15 +455,21 @@ TF_Settings::option( 'wiopt', array(
 								array(
 									'id'       		=> 'toggle-position-horizontal',
 									'type'     		=> 'imageselect',
-									'class' 		=> 'ins-layout-options-imageset',
+									'class' 		=> 'ins-layout-options-imageset200',
 									'label'    		=> __('Toggler Horizontal Position', 'instantio'),
 									'subtitle' 		=> __('Changes position of the Cart Toggler horizontally', 'instantio'),
 									'multiple' 		=> true,
 									'inline'   		=> true,
 									'inline'   		=> true,
 									'options'  		=> array(
-										'left'   			=> plugin_dir_url( __FILE__ ).'../img/layout/toggle-middle.png',
-										'right'  			=> plugin_dir_url( __FILE__ ).'../img/layout/toggle-right.png',
+										'left'   			=> array(
+											'title'			=> 'Toggle Left',
+											'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/toggle-middle.png',
+										),
+										'right'  			=> array(
+											'title'			=> 'Toggle Right',
+											'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/toggle-right.png',
+										)
 									), 
 									'default'  		=> 'right',
 								),
@@ -417,15 +477,24 @@ TF_Settings::option( 'wiopt', array(
 								array(
 									'id'        	=> 'toggle-position-vertical',
 									'type'      	=> 'imageselect',
-									'class' 		=> 'ins-layout-options-imageset',
+									'class' 		=> 'ins-layout-options-imageset200',
 									'label'     	=> __('Toggler Vertical Position', 'instantio'), 
 									'subtitle' 		=> __('Changes position of the Cart Toggler vertically', 'instantio'),
 									'multiple' 		=> true,
 									'inline'   		=> true,
 									'options'   	=> array(
-										'cart-top' 				=> plugin_dir_url( __FILE__ ).'../img/layout/toggle-top.png',
-										'cart-middle' 				=> plugin_dir_url( __FILE__ ).'../img/layout/toggle-middle.png',
-										'cart-bottom' 	=> plugin_dir_url( __FILE__ ).'../img/layout/toggle-button.png',
+										'cart-top' 			=> array(
+											'title'			=> 'Toggle Top',
+											'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/toggle-top.png',
+										),
+										'cart-middle' 		=> array(
+											'title'			=> 'Toggle Middle',
+											'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/toggle-middle.png',
+										),
+										'cart-bottom' 		=> array(
+											'title'			=> 'Toggle Button',
+											'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/toggle-button.png',
+										)
 									),
 									'default'   	=> 'cart',
 									
@@ -556,12 +625,18 @@ TF_Settings::option( 'wiopt', array(
 									'type'     		=> 'imageselect',
 									'multiple' 		=> true,
 									'inline'   		=> true,
-									'class' 		=> 'ins-layout-options-imageset',
+									'class' 		=> 'ins-layout-options-imageset200',
 									'label'    		=> __('Toggle Panel Position', 'instantio'),
-									'subtitle' 		=> __('Changes position of the Cart Toggle Panel', 'instantio'),
+									'subtitle' 		=> __('Changes position of the Cart Toggle Panel (Cart Panel)', 'instantio'),
 									'options'  		=> array(
-										'left'   			=> plugin_dir_url( __FILE__ ).'../img/layout/sidecartleft.png',
-										'right'  			=> plugin_dir_url( __FILE__ ).'../img/layout/sidecart.png',
+										'left'   			=> array(
+											'title'			=> 'Cart Panel Left',
+											'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/sidecartleft.png',
+										),
+										'right'  			=> array(
+											'title'			=> 'Cart Panel Right',
+											'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/Cart.svg',
+										),
 									), 
 									'default'  		=> 'right',
 									'inline'   		=> true,

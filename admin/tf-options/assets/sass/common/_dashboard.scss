@@ -18,9 +18,9 @@
         line-height: 11px;
         color: #000;
         font-weight: 700;
-        border: 1px solid #003c79;
+        border: 1px solid #db5209;
         border-radius: 4px;
-        background-color: #003c790a;
+        background-color: #db52090a;
         display: inline-block;
         padding: 2px 6px;
         margin-left: 10px;
@@ -347,17 +347,17 @@
           display: inline-block;
           margin-bottom: 0;
           display: inline-block;
-          border: 2px solid #003c79;
+          border: 2px solid #db5209;
           border-radius: 6px;
           padding: 9px 16px;
           font-size: 15px;
           font-weight: 600;
-          color: #003c79;
+          color: #db5209;
           margin-top: 20px;
           line-height: 1;
           transition: 0.3s all ease;
           &:hover {
-            background-color: #003c79;
+            background-color: #db5209;
             color: #fff;
           }
         }
@@ -565,8 +565,8 @@
           }
 
           &.active {
-            background-color: #003c791c;
-            color: #003c79;
+            background-color: #db52091c;
+            color: #db5209;
             position: relative;
             overflow: hidden;
             border-radius: 0px 5px 0px 0px;
@@ -575,14 +575,14 @@
             }
 
             .tf-sec-icon {
-              color: #003c79;
+              color: #db5209;
             }
 
             &::before {
               position: absolute;
               content: "\f105";
               font-size: 14px;
-              color: #003c79;
+              color: #db5209;
               font-family: "FontAwesome" !important;
               right: 10px;
             }
@@ -594,7 +594,7 @@
               left: -4px;
               bottom: 0;
               top: 0;
-              background: #003c79;
+              background: #db5209;
               height: 28px;
               margin: auto;
               border-radius: 25px;
@@ -757,7 +757,7 @@
         padding: 0 20px;
         margin-left: 15px;
         height: 45px;
-        background-color: #003c79;
+        background-color: #db5209;
         color: #fff;
         border: none;
         box-shadow: none !important;

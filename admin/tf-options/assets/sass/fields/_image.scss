@@ -44,7 +44,7 @@
         width: 90%;
         padding: 12px 8px 12px 12px;
         background-color: $blue0;
-        border: 1px solid $slate20;
+        border: 1px solid #db5209;
         border-radius: 4px;
         height: 48px;
         color: #363e4a;
@@ -59,8 +59,8 @@
         line-height: 48px;
         text-align: center;
         text-transform: capitalize;
-        background-color: #003c79;
-        border-color: #003c79;
+        background-color: #db5209;
+        border-color: #db5209;
       }
     }
   }
@@ -71,7 +71,6 @@
 
   .tf-field-image {
     .tf-fieldset {
-
       .tf-fieldset-media {
         display: flex;
 
