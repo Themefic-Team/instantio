@@ -74,6 +74,7 @@ class INSTANTIO {
 
         if ( is_admin() && !wp_doing_ajax() ) {   
             new INS\Controller\Admin();
+			require_once INS_INC_PATH . '/controller/class-setup-wizard.php'; 
         }else{  
 			new INS\Controller\App();
         }
