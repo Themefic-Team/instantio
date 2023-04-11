@@ -720,8 +720,8 @@ TF_Settings::option( 'wiopt', array(
 									'field_width'	=> '50',
 									'label'     	=> __('Toggle Panel Width (1200px-auto)', 'instantio'),
 									'subtitle'  	=> __('Set the percent of width of toggle panel for display dimension greater than 1199px.', 'instantio'),
-									'description'  	=> __('Range 0%-100%. Default 40', 'instantio'),
-									"default"   	=> 35,
+									'description'  	=> __('Range 0%-100%. Default 45', 'instantio'),
+									"default"   	=> 45,
 									'attributes'	=> array(
 										"min"       		=> 1,
 										"max"       		=> 100,
@@ -760,21 +760,7 @@ TF_Settings::option( 'wiopt', array(
 									'id'    		=> 'toggle_panel_heading',
 									'type' 			=> 'heading',
 									'label' 		=> __( 'Toggle Panel Colors', 'instantio' ),
-								),
-
-								array(
-									'id'        	=> 'wi-inner-bg-colors',
-									'type'      	=> 'color',
-									'label'    		=> __( 'Toggle Panel Background Colors', 'instantio' ),
-									'subtitle' 		=> __( 'Checkout button background regular & hover color', 'instantio' ),
-									'multiple'  	=> true,
-									'inline'    	=> true,
-									'colors'   		=> array(
-										'regular' 			=> __('Regular', 'instantio'),
-										'hover' 			=> __('Hover', 'instantio'),
-									),
-								),
-				
+								), 
 								array(
 									'id'        	=> 'wi-container-bg',
 									'type'      	=> 'color',

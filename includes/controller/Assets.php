@@ -61,6 +61,10 @@ class Assets {
             --ins_toggle_item_size: '.$ins_toggle_item_size.'; 
           } 
         ';  
+
+        // ins-toggle-panel-tab
+        $ins_toggle_panel_tab = insopt('ins-toggle-panel-tab');
+
         // ins-toggle-panel-tab
         $ins_panel_border_option = insopt('ins-toggle-panel-tab')['ins_panel_border_option'];
        
@@ -82,6 +86,117 @@ class Assets {
                 }
             '; 
         }
+
+        // Panel Style
+        $wi_zindex = isset($ins_toggle_panel_tab['wi-zindex']) ? $ins_toggle_panel_tab['wi-zindex'] : '9999';
+        $panel_width_1200 = isset($ins_toggle_panel_tab['panel-width-1200']) ? $ins_toggle_panel_tab['panel-width-1200'] : '45';
+        $panel_width_1024 = isset($ins_toggle_panel_tab['panel-width-1024']) ? $ins_toggle_panel_tab['panel-width-1024'] : '50';
+        $panel_width_767 = isset($ins_toggle_panel_tab['panel-width-767']) ? $ins_toggle_panel_tab['panel-width-767'] : '60';
+        $wi_inner_bg_colors_regular = isset($ins_toggle_panel_tab['wi-inner-bg-colors']['regular']) ? $ins_toggle_panel_tab['wi-inner-bg-colors']['regular'] : '#fff';
+        $wi_inner_bg_colors_hover = isset($ins_toggle_panel_tab['wi-inner-bg-colors']['hover']) ? $ins_toggle_panel_tab['wi-inner-bg-colors']['hover'] : '#fff';
+        $ins_panel_text_color = isset($ins_toggle_panel_tab['ins-panel-text-color']) ? $ins_toggle_panel_tab['ins-panel-text-color'] : '#665F5C';
+
+        $output .= '
+                .ins-checkout-layout {
+                    background-color: '.$wi_inner_bg_colors_regular.' !important;
+                    color: '.$ins_panel_text_color.' !important;
+                    width: '.$panel_width_1200.'% !important;
+                    z-index: '.$wi_zindex.' !important;
+                } 
+                .ins-checkout-layout:hover {
+                    background-color: '.$wi_inner_bg_colors_hover.' !important; 
+                }
+
+                @media (min-widht: 1199px) and (max-width: 1240px) {
+                    .ins-checkout-layout { 
+                        width: '.$panel_width_1024.'% !important; 
+                    }
+                }
+                @media (min-widht: 501px) and (max-width: 1023px) {
+                    .ins-checkout-layout { 
+                        width: '.$panel_width_767.'% !important; 
+                    }
+                }
+            '; 
+
+        // Panel Button Color
+        $ins_panel_button_bg_regular = isset($ins_toggle_panel_tab['ins-panel-button-bg']['regular']) && !empty($ins_toggle_panel_tab['ins-panel-button-bg']['regular']) ? $ins_toggle_panel_tab['ins-panel-button-bg']['regular'] : '#DB5209';
+        $ins_panel_button_bg_hover = isset($ins_toggle_panel_tab['ins-panel-button-bg']['hover']) && !empty($ins_toggle_panel_tab['ins-panel-button-bg']['hover']) ? $ins_toggle_panel_tab['ins-panel-button-bg']['hover'] : '#DB5209';
+        $ins_panel_button_border_regular = isset($ins_toggle_panel_tab['ins-panel-button-border']['regular']) && !empty($ins_toggle_panel_tab['ins-panel-button-border']['regular']) ? $ins_toggle_panel_tab['ins-panel-button-border']['regular'] : '#DB5209';
+        $ins_panel_button_border_hover = isset($ins_toggle_panel_tab['ins-panel-button-border']['hover']) && !empty($ins_toggle_panel_tab['ins-panel-button-border']['hover']) ? $ins_toggle_panel_tab['ins-panel-button-border']['hover'] : '#DB5209';
+        $ins_panel_button_text_regular = isset($ins_toggle_panel_tab['ins-panel-button-text']['regular']) && !empty($ins_toggle_panel_tab['ins-panel-button-text']['regular']) ? $ins_toggle_panel_tab['ins-panel-button-text']['regular'] : '#FCF9F7';
+        $ins_panel_button_text_hover = isset($ins_toggle_panel_tab['ins-panel-button-text']['hover']) && !empty($ins_toggle_panel_tab['ins-panel-button-text']['hover']) ? $ins_toggle_panel_tab['ins-panel-button-text']['hover'] : '#FCF9F7';
+
+        $output .= '
+                .ins-cart-btns a, .ins-cart-btns a.active {
+                    background-color: '.$ins_panel_button_bg_regular.' !important;
+                    color: '.$ins_panel_button_text_regular.' !important;
+                    border-color: '.$ins_panel_button_border_regular.' !important;
+                }
+                .ins-cart-btns a:hover {
+                    background-color: '.$ins_panel_button_bg_hover.' !important;
+                    color: '.$ins_panel_button_text_hover.' !important;
+                    border-color: '.$ins_panel_button_border_hover.' !important;
+                }
+            ';
+
+         // Cart Customize Color
+         $cart_header_bg = isset($ins_toggle_panel_tab['cart-header-bg']) && !empty($ins_toggle_panel_tab['cart-header-bg']) ? $ins_toggle_panel_tab['cart-header-bg'] : '#FCF9F7';
+         $cart_header_text = isset($ins_toggle_panel_tab['cart-header-text']) && !empty($ins_toggle_panel_tab['cart-header-text']) ? $ins_toggle_panel_tab['cart-header-text'] : '#140701';
+ 
+         $cart_item_bg = isset($ins_toggle_panel_tab['cart-item-bg']) && !empty($ins_toggle_panel_tab['cart-item-bg']) ? $ins_toggle_panel_tab['cart-item-bg'] : '#FCF9F7';
+         $cart_item_text_color = isset($ins_toggle_panel_tab['cart-item-text-color']) && !empty($ins_toggle_panel_tab['cart-item-text-color']) ? $ins_toggle_panel_tab['cart-item-text-color'] : '#665F5C';
+         $cart_input_bg = isset($ins_toggle_panel_tab['cart-input-bg']) && !empty($ins_toggle_panel_tab['cart-input-bg']) ? $ins_toggle_panel_tab['cart-input-bg'] : '#FCF9F7';
+         $cart_input_text_color = isset($ins_toggle_panel_tab['cart-input-text-color']) && !empty($ins_toggle_panel_tab['cart-input-text-color']) ? $ins_toggle_panel_tab['cart-input-text-color'] : '#DB5209';
+         $cart_pricing_bg = isset($ins_toggle_panel_tab['cart-pricing-bg']) && !empty($ins_toggle_panel_tab['cart-pricing-bg']) ? $ins_toggle_panel_tab['cart-pricing-bg'] : '#FCF9F7';
+         $cart_pricing_text = isset($ins_toggle_panel_tab['cart-pricing-text']) && !empty($ins_toggle_panel_tab['cart-pricing-text']) ? $ins_toggle_panel_tab['cart-pricing-text'] : '#665F5C'; 
+ 
+         $cart_button_background_colors_regular = isset($ins_toggle_panel_tab['cart-button-background-colors']['regular']) && !empty($ins_toggle_panel_tab['cart-button-background-colors']['regular']) ? $ins_toggle_panel_tab['cart-button-background-colors']['regular'] : '#DB5209';
+         $cart_button_background_colors_hover = isset($ins_toggle_panel_tab['cart-button-background-colors']['hover']) && !empty($ins_toggle_panel_tab['cart-button-background-colors']['hover']) ? $ins_toggle_panel_tab['cart-button-background-colors']['hover'] : '#DB5209';
+ 
+         $cart_button_text_colors_regular = isset($ins_toggle_panel_tab['cart-button-text-colors']['regular']) && !empty($ins_toggle_panel_tab['cart-button-text-colors']['regular']) ? $ins_toggle_panel_tab['cart-button-text-colors']['regular'] : '#DB5209';
+         $cart_button_text_colors_hover = isset($ins_toggle_panel_tab['cart-button-text-colors']['hover']) && !empty($ins_toggle_panel_tab['cart-button-text-colors']['hover']) ? $ins_toggle_panel_tab['cart-button-text-colors']['hover'] : '#DB5209';
+ 
+         $output .= ' 
+             .ins-checkout-header {
+                 background-color: '.$cart_header_bg.' !important;
+             }
+             
+             .ins-checkout-header .ins-checkout-header-title {
+                 color: '.$cart_header_text .' !important;
+             }
+             .ins-checkout-header path {
+                fill: '.$cart_header_text .' !important;
+             }
+             .ins-cart-inner.ins-cart-step .ins-cart-content-wrap {
+                 background-color: '.$cart_item_bg.' !important;
+                 color: '.$cart_item_text_color.' !important;
+             }
+             .ins-cart-inner.ins-cart-step .ins-cart-item-heading span  { 
+                 color: '.$cart_item_text_color.' !important;
+             }
+             .ins-cart-inner.ins-cart-step .ins-cart-qty-wrap .quantity input[type="number"] {
+                 background-color: '.$cart_input_bg.' !important;
+                 color: '.$cart_input_text_color.' !important;
+             }
+             .ins-cart-inner.ins-cart-step .ins-cart-footer-content {
+                 background-color: '.$cart_pricing_bg.' !important;
+                 color: '.$cart_pricing_text.' !important;
+             }
+             .ins-cart-inner.ins-cart-step .cart_totals h2, .ins-cart-inner.ins-cart-step td,  .ins-cart-inner.ins-cart-step th {
+                 background-color: '.$cart_pricing_bg.' !important;
+                 color: '.$cart_pricing_text.' !important;
+             }
+             .ins-cart-inner.ins-cart-step .ins-cart-btns a, .ins-cart-btns a.active {
+                 background-color: '.$cart_button_background_colors_regular.' !important;
+                 color: '.$cart_button_text_colors_regular.' !important; 
+             }
+             .ins-cart-inner.ins-cart-step .ins-cart-btns a:hover {
+                 background-color: '.$cart_button_background_colors_hover.' !important;
+                 color: '.$cart_button_text_colors_hover.' !important; 
+             }
+         '; 
+
         wp_add_inline_style( 'ins-style', $output );
     }
 

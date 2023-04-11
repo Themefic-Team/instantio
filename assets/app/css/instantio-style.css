@@ -126,8 +126,7 @@ ins-cart-fly-icon svg{
  padding-bottom: 16px;
 }
 .ins-checkout-layout-3 {
-  background-color: #fff;
-  width: 600px;
+  background-color: #fff; 
   padding: 35px;
   height: 100vh;
   z-index: 9999;
@@ -864,10 +863,7 @@ ins-cart-fly-icon svg{
 .ins-checkout-popup {
   visibility: hidden;
 }
-
-.ins-checkout-modern .ins-checkout-layout {
-  width: 690px !important;
-}
+ 
 .ins-checkout-modern.popup .ins-checkout-layout.popup {
   width: 80% !important;
   height: auto !important;
