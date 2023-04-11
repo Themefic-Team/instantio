@@ -116,8 +116,8 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 			//What's New submenu
 			add_submenu_page(
 				$this->option_id,
-				__('Whats New', 'instantio'),
-				__('Whats New', 'instantio'),
+				__('Get Help', 'instantio'),
+				__('Get Help', 'instantio'),
 				'manage_options',
 				'ins_whats_new',
 				array( $this,'tf_get_help_callback'),
@@ -138,8 +138,8 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 			//Get Help submenu
 			add_submenu_page(
 				$this->option_id,
-				__('Get Help', 'instantio'),
-				__('Get Help', 'instantio'),
+				__('What’s new', 'instantio'),
+				__('What’s new', 'instantio'),
 				'manage_options',
 				'ins_get_help',
 				array( $this,'tf_get_help_callback'),
@@ -226,49 +226,34 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 							<p>Click the button below to run the setup wizard of Instantio. Your existing settings will not change.</p>
 							<a href="<?php echo esc_url( admin_url('admin.php?page=tf-setup-wizard'))?>" class="tf-admin-btn tf-btn-secondary">Setup Wizard</a>
 						</div>
-						<div class="tf-help-center-image">
-							<img src="http://test.local/wp-content/plugins/tourfic/assets/app/images/setup_wizard.png" alt="setup wizard">
-						</div>
+						
 					</div>
 
-					<div class="tf-help-center-banner">
-						<div class="tf-help-center-content">
-							<h2>Help Center</h2>
-							<p>To help you to get started, we put together the documentation, support link, videos and FAQs here.</p>
-						</div>
-						<div class="tf-help-center-image">
-							<img src="http://test.local/wp-content/plugins/tourfic/assets/app/images/help-center.jpg" alt="HELP Center Image">
-						</div>
-					</div>
+
 
 					<div class="tf-support-document">
 						<div class="tf-single-support">
-							<a href="https://themefic.com/docs/tourfic/" target="_blank">
-								<img src="http://test.local/wp-content/plugins/tourfic/assets/app/images/tf-documents.png" alt="Document">
+							<a href="https://themefic.com/docs/instantio/" target="_blank">
+								<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/wizard/tf-documents.png' ?>" alt="Document">
 								<h3>Documentation</h3>
+								<p>How the plugin works, what it can do, and how to use it.</p>
 								<span>Read More</span>
 							</a>
 						</div>
 						<div class="tf-single-support">
 							<a href="https://portal.themefic.com/support/" target="_blank">
-								<img src="http://test.local/wp-content/plugins/tourfic/assets/app/images/tf-mail.png" alt="Document">
+								<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/wizard/tf-mail.png' ?>" alt="Document">
 								<h3>Email Support</h3>
+								<p>As part of our overall support strategy to provide the best experience.</p>
 								<span>Contact Us</span>
 							</a>
 						</div>
 						
 						<div class="tf-single-support">
-							<a href="https://themefic.com/tourfic/" target="_blank">
-								<img src="http://test.local/wp-content/plugins/tourfic/assets/app/images/tf-comment.png" alt="Document">
-								<h3>Live Chat</h3>
-								<span>Chat Now</span>
-							</a>
-						</div>
-						
-						<div class="tf-single-support">
-							<a href="https://www.youtube.com/playlist?list=PLY0rtvOwg0ylCl7NTwNHUPq-eY1qwUH_N" target="_blank">
-								<img src="http://test.local/wp-content/plugins/tourfic/assets/app/images/tf-tutorial.png" alt="Document">
+							<a href="https://www.youtube.com/playlist?list=PLY0rtvOwg0ykIvNBa8XI3SR7WEbdqqKoO" target="_blank">
+								<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/wizard/tf-tutorial.png'?>" alt="Document">
 								<h3>Video Tutorials</h3>
+								<p>As part of our overall support strategy to provide the best experience.</p>
 								<span>Watch Video</span>
 							</a>
 						</div>
