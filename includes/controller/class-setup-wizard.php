@@ -41,8 +41,8 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
 			if ( current_user_can( 'manage_options' ) ) {
 				add_submenu_page(
 					'',
-					esc_html__( 'TF Setup Wizard', 'tourfic' ),
-					esc_html__( 'TF Setup Wizard', 'tourfic' ),
+					esc_html__( 'Instantio Setup Wizard', 'instantio' ),
+					esc_html__( 'Instantio Setup Wizard', 'instantio' ),
 					'manage_options',
 					'tf-setup-wizard',
 					[ $this, 'tf_wizard_page' ],
@@ -65,12 +65,6 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
 		 * Setup wizard page
 		 */
 		public function tf_wizard_page() {
-
-            // $slug = get_post_field( 'post_name', get_post() );
-            $post = $wp_query->get_queried_object();
-            $pagename = $post->post_name;
-            var_dump($pagename);
-            die();
 			?>
             <div class="tf-setup-wizard-wrapper" id="tf-setup-wizard-wrapper">
                 <div class="tf-setup-container">
@@ -79,7 +73,7 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
                             <a href="<?php echo esc_url( admin_url( 'admin.php?page=tf_settings' ) ); ?>" class="tf-admin-btn tf-btn-secondary back-to-dashboard"><span><?php _e( 'Back to Dashboard', 'tourfic' ) ?></span></a>
                         </div>
                         <div class="tf-setup-header-right">
-                            <span class="get-help-link"><?php _e('Having troubles?', 'tourfic') ?> <a class="" target="_blank" href="https://portal.themefic.com/support/"><?php _e('Get help', 'torufic') ?></a></span>
+                            <span class="get-help-link"><?php _e('Having troubles?', 'instantio') ?> <a class="" target="_blank" href="https://portal.themefic.com/support/"><?php _e('Get help', 'torufic') ?></a></span>
                         </div>
                     </div>
                     <form method="post" id="tf-setup-wizard-form" data-skip-steps="">
@@ -105,11 +99,11 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
 			?>
             <div class="tf-setup-content-layout tf-welcome-step <?php echo self::$current_step == 'welcome' ? 'active' : ''; ?>">
                 <div class="welcome-img"><img src="<?php echo TF_ASSETS_ADMIN_URL . 'images/welcome.png' ?>" alt="<?php esc_attr_e( 'Welcome to Tourfic!', 'tourfic' ) ?>"></div>
-                <h1 class="tf-setup-welcome-title"><?php _e( 'Welcome to Tourfic!', 'tourfic' ) ?></h1>
-                <div class="tf-setup-welcome-description"><?php _e( 'Thanks for choosing Tourfic for your travel/hotel business. We are excited to have you on board. This quick setup wizard is simple and straightforward and shouldn’t take longer than five minutes. It will help you configure the basic settings of Tourfic to get started. Please note that this setup guide is entirely optional.', 'tourfic' ) ?></div>
+                <h1 class="tf-setup-welcome-title"><?php _e( 'Welcome to instantio!', 'instantio' ) ?></h1>
+                <div class="tf-setup-welcome-description"><?php _e( 'Thanks for choosing instantio for your business. We are excited to have you on board. This quick setup wizard is simple and straightforward and shouldn’t take longer than five minutes. It will help you configure the basic settings of instantio to get started. Please note that this setup guide is entirely optional.', 'instantio' ) ?></div>
                 <div class="tf-setup-welcome-footer">
-                    <button type="button" class="tf-admin-btn tf-btn-secondary tf-setup-start-btn"><span><?php _e( 'Get Started', 'tourfic' ) ?></span></button>
-                    <a href="<?php echo esc_url( admin_url( 'admin.php?page=tf_settings' ) ); ?>" class="tf-link-btn"><?php _e( 'Skip to Dashboard', 'tourfic' ) ?></a>
+                    <button type="button" class="tf-admin-btn tf-btn-secondary tf-setup-start-btn"><span><?php _e( 'Get Started', 'instantio' ) ?></span></button>
+                    <a href="<?php echo esc_url( admin_url( 'admin.php?page=wiopt#tab=general' ) ); ?>" class="tf-link-btn"><?php _e( 'Skip to Dashboard', 'instantio' ) ?></a>
                 </div>
             </div>
 			<?php
@@ -123,21 +117,21 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
             <div class="tf-setup-step-container tf-setup-step-1 <?php echo self::$current_step == 'step_1' ? 'active' : ''; ?>" data-step="1">
                 <section class="tf-setup-step-layout">
 					<?php $this->tf_setup_wizard_steps_header() ?>
-                    <h1 class="tf-setup-step-title"><?php _e( 'Select your service type', 'tourfic' ) ?></h1>
-                    <p class="tf-setup-step-desc"><?php _e( '(You can choose any one or both)', 'tourfic' ) ?></p>
+                    <h1 class="tf-setup-step-title"><?php _e( 'Select your service type', 'instantio' ) ?></h1>
+                    <p class="tf-setup-step-desc"><?php _e( '(You can choose any one or both)', 'instantio' ) ?></p>
                     <ul class="tf-select-service">
                         <li>
                             <input type="checkbox" id="tf-hotel" name="tf-services[]" value="hotel" checked/>
                             <label for="tf-hotel">
-                                <img src="<?php echo TF_ASSETS_ADMIN_URL . 'images/hotel.png' ?>" alt="<?php esc_attr_e( 'Hotel', 'tourfic' ) ?>">
-                                <span><?php _e( 'Hotel', 'tourfic' ) ?></span>
+                                <img src="<?php echo TF_ASSETS_ADMIN_URL . 'images/hotel.png' ?>" alt="<?php esc_attr_e( 'Hotel', 'instantio' ) ?>">
+                                <span><?php _e( 'Hotel', 'instantio' ) ?></span>
                             </label>
                         </li>
                         <li>
                             <input type="checkbox" id="tf-tour" name="tf-services[]" value="tour" checked/>
                             <label for="tf-tour">
-                                <img src="<?php echo TF_ASSETS_ADMIN_URL . 'images/tour.png' ?>" alt="<?php esc_attr_e( 'Tour', 'tourfic' ) ?>">
-                                <span><?php _e( 'Tour', 'tourfic' ) ?></span>
+                                <img src="<?php echo TF_ASSETS_ADMIN_URL . 'images/tour.png' ?>" alt="<?php esc_attr_e( 'Tour', 'instantio' ) ?>">
+                                <span><?php _e( 'Tour', 'instantio' ) ?></span>
                             </label>
                         </li>
                     </ul>
@@ -145,8 +139,8 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
                 <div class="tf-setup-action-btn-wrapper">
                     <div></div>
                     <div class="tf-setup-action-btn-next">
-                        <button type="button" class="tf-setup-skip-btn tf-link-btn"><?php _e( 'Skip this step', 'tourfic' ) ?></button>
-                        <button type="button" class="tf-setup-next-btn tf-admin-btn tf-btn-secondary"><?php _e( 'Next', 'tourfic' ) ?></button>
+                        <button type="button" class="tf-setup-skip-btn tf-link-btn"><?php _e( 'Skip this step', 'instantio' ) ?></button>
+                        <button type="button" class="tf-setup-next-btn tf-admin-btn tf-btn-secondary"><?php _e( 'Next', 'instantio' ) ?></button>
                     </div>
                 </div>
             </div>
@@ -161,12 +155,12 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
             <div class="tf-setup-step-container tf-setup-step-2 <?php echo self::$current_step == 'step_2' ? 'active' : ''; ?>" data-step="2">
                 <section class="tf-setup-step-layout">
 					<?php $this->tf_setup_wizard_steps_header( 2 ) ?>
-                    <h1 class="tf-setup-step-title"><?php _e( 'General Settings', 'tourfic' ) ?></h1>
+                    <h1 class="tf-setup-step-title"><?php _e( 'General Settings', 'instantio' ) ?></h1>
                     <div class="tf-setup-form-item">
-                        <div class="tf-setup-form-item-label"><label class=""><?php _e( 'Select Search Result Page', 'tourfic' ) ?></label></div>
+                        <div class="tf-setup-form-item-label"><label class=""><?php _e( 'Select Search Result Page', 'instantio' ) ?></label></div>
                         <div class="tf-setup-form-item-input">
                             <select name="tf-search-result-page" id="tf-search-result-page">
-                                <option value=""><?php _e( 'Select a page', 'tourfic' ) ?></option>
+                                <option value=""><?php _e( 'Select a page', 'instantio' ) ?></option>
 								<?php
 								$pages              = get_pages();
 								$search_result_page = get_option( 'tf_search_page_id' );
@@ -180,7 +174,7 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
 
                     <!--Search result posts per page-->
                     <div class="tf-setup-form-item">
-                        <div class="tf-setup-form-item-label"><label class=""><?php _e( 'Posts Per Page on Search Result', 'tourfic' ) ?></label></div>
+                        <div class="tf-setup-form-item-label"><label class=""><?php _e( 'Posts Per Page on Search Result', 'instantio' ) ?></label></div>
                         <div class="tf-setup-form-item-input">
                             <input type="number" name="tf-search-result-posts-per-page" id="tf-search-result-posts-per-page" value="10">
                         </div>
@@ -188,10 +182,10 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
 
                     <!--wishlist page-->
                     <div class="tf-setup-form-item">
-                        <div class="tf-setup-form-item-label"><label class=""><?php _e( 'Select Wishlist Page', 'tourfic' ) ?></label></div>
+                        <div class="tf-setup-form-item-label"><label class=""><?php _e( 'Select Wishlist Page', 'instantio' ) ?></label></div>
                         <div class="tf-setup-form-item-input">
                             <select name="tf-wishlist-page" id="tf-wishlist-page">
-                                <option value=""><?php _e( 'Select a page', 'tourfic' ) ?></option>
+                                <option value=""><?php _e( 'Select a page', 'instantio' ) ?></option>
 								<?php
 								$pages         = get_pages();
 								$wishlist_page = get_option( 'tf_wishlist_page_id' );
@@ -371,7 +365,7 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
                                 <?php echo $active_step == 2 ? $active_icon : ( $active_step > 2 ? $finish_icon : $inactive_icon ); ?>
                             </span>
                         </div>
-                        <div class="tf-steps-item-title"><?php _e( 'Step 2', 'tourfic' ); ?></div>
+                        <div class="tf-steps-item-title"><?php _e( 'Step 2', 'instantio' ); ?></div>
                     </div>
                 </div>
                 <div class="tf-steps-item <?php echo $active_step == 3 ? 'active' : ''; ?>">
@@ -382,7 +376,7 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
                                 <?php echo $active_step == 3 ? $active_icon : ( $active_step > 3 ? $finish_icon : $inactive_icon ); ?>
                             </span>
                         </div>
-                        <div class="tf-steps-item-title"><?php _e( 'Step 3', 'tourfic' ); ?></div>
+                        <div class="tf-steps-item-title"><?php _e( 'Step 3', 'instantio' ); ?></div>
                     </div>
                 </div>
             </div>
