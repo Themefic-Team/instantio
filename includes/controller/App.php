@@ -52,7 +52,33 @@ class App {
         // Ins Cart Toggle
         // add_action( 'ins_cart_content', array( $this, 'ins_cart_content' ), 11);
         add_action( 'ins_cart_content', array( $this, 'ins_cart_content_modern' ), 10);
+
+        add_action( 'init', array( $this, 'ins_options_init' ));
    
+    }
+    public function ins_options_init(){
+        // ins-toggle-panel-tab
+        // $ins_panel_border_option = insopt('ins-toggle-panel-tab')['ins_panel_border_option'];
+       
+        // if($ins_panel_border_option == true){ 
+        //     $ins_panel_border_top = !empty(insopt( 'ins-toggle-panel-tab' )['ins-panel-border-top']) ? insopt( 'ins-toggle-panel-tab' )['ins-panel-border-top'] : '0';
+        //     $ins_panel_border_right = !empty(insopt( 'ins-toggle-panel-tab' )['ins-panel-border-right']) ? insopt( 'ins-toggle-panel-tab' )['ins-panel-border-right'] : '0';
+        //     $ins_panel_border_bottom = !empty(insopt( 'ins-toggle-panel-tab' )['ins-panel-border-bottom']) ? insopt( 'ins-toggle-panel-tab' )['ins-panel-border-bottom'] : '0';
+        //     $ins_panel_border_left = !empty(insopt( 'ins-toggle-panel-tab' )['ins-panel-border-left']) ? insopt( 'ins-toggle-panel-tab' )['ins-panel-border-left'] : '0';
+        //     $ins_panel_border_color = !empty(insopt( 'ins-toggle-panel-tab' )['ins_panel_border_color']) ? insopt( 'ins-toggle-panel-tab' )['ins_panel_border_color'] : 'transparent';
+             
+        //     $output = '
+            
+        //         .ins-checkout-layout {
+        //             border-left: '.$ins_panel_border_left.'px solid !important; 
+        //             border-right: '.$ins_panel_border_right.'px solid !important;
+        //             border-top: '.$ins_panel_border_top.'px solid !important; 
+        //             border-bottom: '.$ins_panel_border_bottom.'px solid !important;
+        //             border-color: '.$ins_panel_border_color.' !important;
+        //         }
+        //     '; 
+        // }
+        //  exit();
     }
 
     public function ins_layout_set_data() {

@@ -62,15 +62,14 @@ class Assets {
           } 
         ';  
         // ins-toggle-panel-tab
-        $ins_panel_border_option = !empty(insopt( 'ins-toggle-panel-tab' )['ins_panel_border_option']) ? insopt( 'ins-toggle-panel-tab' )['ins_panel_border_option'] : '000';
-        echo $ins_panel_border_option;
-        $output .=  $ins_panel_border_option;
-        if($ins_panel_border_option == '1'){
-            $ins_panel_border_top = !empty(insopt( 'ins_panel_border' )['ins-toggle-panel-tab']['ins-panel-border-top']) ? insopt( 'ins-toggle-panel-tab' )['ins-panel-border-top'] : '0';
-            $ins_panel_border_right = !empty(insopt( 'ins_panel_border' )['ins-toggle-panel-tab']['ins-panel-border-right']) ? insopt( 'ins-toggle-panel-tab' )['ins-panel-border-right'] : '0';
-            $ins_panel_border_bottom = !empty(insopt( 'ins_panel_border' )['ins-toggle-panel-tab']['ins-panel-border-bottom']) ? insopt( 'ins-toggle-panel-tab' )['ins-panel-border-bottom'] : '0';
-            $ins_panel_border_left = !empty(insopt( 'ins_panel_border' )['ins-toggle-panel-tab']['ins-panel-border-left']) ? insopt( 'ins-toggle-panel-tab' )['ins-panel-border-left'] : '0';
-            $ins_panel_border_color = !empty(insopt( 'ins_panel_border' )['ins-toggle-panel-tab']['ins_panel_border_color']) ? insopt( 'ins-toggle-panel-tab' )['ins_panel_border_color'] : 'transparent';
+        $ins_panel_border_option = insopt('ins-toggle-panel-tab')['ins_panel_border_option'];
+       
+        if($ins_panel_border_option == true){ 
+            $ins_panel_border_top = !empty(insopt( 'ins-toggle-panel-tab' )['ins-panel-border-top']) ? insopt( 'ins-toggle-panel-tab' )['ins-panel-border-top'] : '0';
+            $ins_panel_border_right = !empty(insopt( 'ins-toggle-panel-tab' )['ins-panel-border-right']) ? insopt( 'ins-toggle-panel-tab' )['ins-panel-border-right'] : '0';
+            $ins_panel_border_bottom = !empty(insopt( 'ins-toggle-panel-tab' )['ins-panel-border-bottom']) ? insopt( 'ins-toggle-panel-tab' )['ins-panel-border-bottom'] : '0';
+            $ins_panel_border_left = !empty(insopt( 'ins-toggle-panel-tab' )['ins-panel-border-left']) ? insopt( 'ins-toggle-panel-tab' )['ins-panel-border-left'] : '0';
+            $ins_panel_border_color = !empty(insopt( 'ins-toggle-panel-tab' )['ins_panel_border_color']) ? insopt( 'ins-toggle-panel-tab' )['ins_panel_border_color'] : 'transparent';
              
             $output .= '
             
@@ -81,7 +80,7 @@ class Assets {
                     border-bottom: '.$ins_panel_border_bottom.'px solid !important;
                     border-color: '.$ins_panel_border_color.' !important;
                 }
-            ';
+            '; 
         }
         wp_add_inline_style( 'ins-style', $output );
     }
