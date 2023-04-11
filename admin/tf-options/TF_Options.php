@@ -128,8 +128,8 @@ if ( ! class_exists( 'TF_Options' ) ) {
 		 */
 		public function tf_options_admin_enqueue_scripts($screen) {
 			// var_dump($screen);
-			global $post_type; 
-			$tf_options_screens   = array( 'toplevel_page_'. TF_OPTION_ID, 'tourfic-settings_page_tf_license_info', 'instantio_page_ins_get_help', 'instantio_page_ins_whats_new', 'instantio_page_tf-setup-wizard', 'tf-setup-wizard' );
+				global $post_type; 
+				$tf_options_screens   = array( 'toplevel_page_'. TF_OPTION_ID, 'tourfic-settings_page_tf_license_info', 'instantio_page_ins_get_help', 'instantio_page_ins_whats_new', 'admin_page_tf-setup-wizard');
 
 			if ( in_array( $screen, $tf_options_screens ) || $post_type  ) {
 				wp_enqueue_style( 'wp-color-picker' );
@@ -149,6 +149,7 @@ if ( ! class_exists( 'TF_Options' ) ) {
 				wp_enqueue_script( 'tf-flatpickr', '//cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.js', array( 'jquery' ), $this->tf_options_version(), true );
 				wp_enqueue_script( 'tf-select2', '//cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js', array( 'jquery' ), $this->tf_options_version(), true );
 				wp_enqueue_script( 'wp-color-picker-alpha', '//raw.githubusercontent.com/kallookoo/wp-color-picker-alpha/master/src/wp-color-picker-alpha.js', array( 'jquery', 'wp-color-picker' ), $this->tf_options_version(), true );
+				wp_enqueue_script( 'setup-wizard', $this->tf_options_file_url('assets/js/setup-wizard.js'), array( 'jquery'), $this->tf_options_version(), true );
 				wp_enqueue_script( 'notyf-js', $this->tf_options_file_url('assets/libs/notyf/notyf.min.js'), array( 'jquery'), $this->tf_options_version(), true ); 
 				
 				
