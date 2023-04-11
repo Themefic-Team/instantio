@@ -42,9 +42,10 @@ if ( ! class_exists( 'TF_imageselect' ) ) {
           $checked = ( in_array( $key, $value ) ) ? ' checked' : '';
 
           echo '<div class="tf-image-seletor-items'. esc_attr( $inline ) . esc_attr( $active ) .'">';
-            echo '<figure>';
-              echo '<img src="'. esc_url( $option ) .'" alt="img-'. esc_attr( $num++ ) .'" />';
+            echo '<figure class="tf-image-seletor-card">';
+              echo '<img src="'. esc_url( $option['url'] ) .'" alt="img-'. esc_attr( $num++ ) .'" />';
               echo '<input type="'. esc_attr( $type ) .'" name="'. esc_attr( $this->field_name( $extra ) ) .'" value="'. esc_attr( $key ) .'"'. $this->field_attributes() . esc_attr( $checked ) .'/>';
+              echo '<span class="tf-image-seletor-card-info">' . esc_html( $option['title'] ) .'</span>';
             echo '</figure>';
           echo '</div>';
 

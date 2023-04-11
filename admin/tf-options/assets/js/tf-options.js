@@ -1660,7 +1660,7 @@ var frame, gframe;
 
         $(document).on("click", ".tf-field-pro", function (e) {
             e.preventDefault();
-            window.open("https://wpinstant.io/");
+            window.open("https://themefic.com/instantio/");
         });
     });
 })(jQuery);
