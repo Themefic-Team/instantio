@@ -258,8 +258,11 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 							</a>
 						</div>
 					</div>
+					<div class="updatedtopro">
+						
+					</div>
 
-					<div class="tf-settings-faq">
+					<!-- <div class="tf-settings-faq">
 						<h2>Common FAQs</h2>
 
 						<div class="tf-accordion-wrapper">
@@ -360,7 +363,7 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 								</div>
 							</div>
 						</div>
-					</div>
+					</div> -->
 				</div>
 				
 			</div>
