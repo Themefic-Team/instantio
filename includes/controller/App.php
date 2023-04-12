@@ -52,7 +52,67 @@ class App {
         // Ins Cart Toggle
         // add_action( 'ins_cart_content', array( $this, 'ins_cart_content' ), 11);
         add_action( 'ins_cart_content', array( $this, 'ins_cart_content_modern' ), 10);
+
+        // add_action( 'init', array( $this, 'ins_options_init' ));
    
+    }
+    public function ins_options_init(){
+        
+        // ins-toggle-panel-tab
+        $ins_toggle_panel_tab = insopt('ins-toggle-panel-tab');
+        echo '<pre>';
+        print_r($ins_toggle_panel_tab);
+        echo '</pre>'; 
+
+        // Cart Customize Color
+        $cart_header_bg = isset($ins_toggle_panel_tab['cart-header-bg']) && !empty($ins_toggle_panel_tab['cart-header-bg']) ? $ins_toggle_panel_tab['cart-header-bg'] : '#FCF9F7';
+        $cart_header_text = isset($ins_toggle_panel_tab['cart-header-text']) && !empty($ins_toggle_panel_tab['cart-header-text']) ? $ins_toggle_panel_tab['cart-header-text'] : '#140701';
+
+        $cart_item_bg = isset($ins_toggle_panel_tab['cart-item-bg']) && !empty($ins_toggle_panel_tab['cart-item-bg']) ? $ins_toggle_panel_tab['cart-item-bg'] : '#FCF9F7';
+        $cart_item_text_color = isset($ins_toggle_panel_tab['cart-item-text-color']) && !empty($ins_toggle_panel_tab['cart-item-text-color']) ? $ins_toggle_panel_tab['cart-item-text-color'] : '#665F5C';
+        $cart_input_bg = isset($ins_toggle_panel_tab['cart-input-bg']) && !empty($ins_toggle_panel_tab['cart-input-bg']) ? $ins_toggle_panel_tab['cart-input-bg'] : '#FCF9F7';
+        $cart_input_text_color = isset($ins_toggle_panel_tab['cart-input-text-color']) && !empty($ins_toggle_panel_tab['cart-input-text-color']) ? $ins_toggle_panel_tab['cart-input-text-color'] : '#DB5209';
+        $cart_pricing_bg = isset($ins_toggle_panel_tab['cart-pricing-bg']) && !empty($ins_toggle_panel_tab['cart-pricing-bg']) ? $ins_toggle_panel_tab['cart-pricing-bg'] : '#FCF9F7';
+        $cart_pricing_text = isset($ins_toggle_panel_tab['cart-pricing-text']) && !empty($ins_toggle_panel_tab['cart-pricing-text']) ? $ins_toggle_panel_tab['cart-pricing-text'] : '#665F5C'; 
+
+        $cart_button_background_colors_regular = isset($ins_toggle_panel_tab['cart-button-background-colors']['regular']) && !empty($ins_toggle_panel_tab['cart-button-background-colors']['regular']) ? $ins_toggle_panel_tab['cart-button-background-colors']['regular'] : '#DB5209';
+        $cart_button_background_colors_hover = isset($ins_toggle_panel_tab['cart-button-background-colors']['hover']) && !empty($ins_toggle_panel_tab['cart-button-background-colors']['hover']) ? $ins_toggle_panel_tab['cart-button-background-colors']['hover'] : '#DB5209';
+
+        $cart_button_text_colors_regular = isset($ins_toggle_panel_tab['cart-button-text-colors']['regular']) && !empty($ins_toggle_panel_tab['cart-button-text-colors']['regular']) ? $ins_toggle_panel_tab['cart-button-text-colors']['regular'] : '#DB5209';
+        $cart_button_text_colors_hover = isset($ins_toggle_panel_tab['cart-button-text-colors']['hover']) && !empty($ins_toggle_panel_tab['cart-button-text-colors']['hover']) ? $ins_toggle_panel_tab['cart-button-text-colors']['hover'] : '#DB5209';
+
+        $output = ' 
+            .ins-checkout-header {
+                background-color: '.$cart_header_bg.' !important;
+            }
+            
+            .ins-checkout-header .ins-checkout-header-title {
+                color: '.$cart_header_text .' !important;
+            }
+            .ins-cart-inner.ins-cart-step .ins-cart-content-wrap {
+                background-color: '.$cart_item_bg.' !important;
+                color: '.$cart_input_text_color.' !important;
+            }
+            .ins-cart-inner.ins-cart-step .ins-cart-qty-wrap .quantity input[type="number"] {
+                background-color: '.$cart_input_bg.' !important;
+                color: '.$cart_item_text_color.' !important;
+            }
+            .ins-cart-inner.ins-cart-step .ins-cart-footer-content {
+                background-color: '.$cart_pricing_bg.' !important;
+                color: '.$cart_pricing_text.' !important;
+            }
+            .ins-cart-inner.ins-cart-step .ins-cart-btns a, .ins-cart-btns a.active {
+                background-color: '.$cart_button_background_colors_regular.' !important;
+                color: '.$cart_button_text_colors_regular.' !important; 
+            }
+            .ins-cart-inner.ins-cart-step .ins-cart-btns a:hover {
+                background-color: '.$cart_button_background_colors_hover.' !important;
+                color: '.$cart_button_text_colors_hover.' !important; 
+            }
+        '; 
+       
+            echo $output; 
+         exit();
     }
 
     public function ins_layout_set_data() {
@@ -126,7 +186,8 @@ class App {
     public function ins_cart_toggle() {
         ob_start();
         $ins_toggler =  insopt( 'ins-toggler' );
-        $cart_icon = !empty(insopt( 'cart-icon' )) ? insopt( 'cart-icon' ) : 'shopping-bag';
+        $cart_icon = !empty(insopt( 'ins-toggle-tab' )['cart-icon']) ? insopt( 'ins-toggle-tab' )['cart-icon'] : 'shopping-bag';
+        
 
         if( $this->layout == 2){
             $togglebtnClass = 'sidecart';
@@ -138,7 +199,7 @@ class App {
             ?>
             <a class="ins-toggle-btn <?php echo esc_attr( $ins_toggler ) ?>" href="<?php echo esc_url(wc_get_checkout_url());  ?>"> 
                 <?php echo instantio_svg_icon($cart_icon); ?>
-
+                <?php echo insopt( 'ins-toggle-tab' )['ins-cart-emty-hide']; ?>
                 <span class="ins-items-count"><span id="ins_cart_total" class="ins_cart_total"><?php echo WC()->cart->get_cart_contents_count(); ?></span></span> 
            </a> 
             <?php
@@ -217,7 +278,7 @@ class App {
         do_action('ins_template_steps') 
         ?> 
         <div class="ins-content">
-            <div class="ins-cart-inner step-1 active">
+            <div class="ins-cart-inner step-1 ins-cart-step active">
                 <?php require_once apply_filters( 'ins_cart_template', INS_INC_PATH . '/templates/cart-modern.php' ); ?> 
                
             </div>  
@@ -421,10 +482,11 @@ class App {
     			return;
     		}
 		} 
-        $toggle_position_horizontal = insopt( 'toggle-position-horizontal' );
-        $toggle_position_vertical = insopt( 'toggle-position-vertical' );
+        $toggle_position_horizontal = insopt( 'ins-toggle-tab' )['toggle-position-horizontal'];
+        $toggle_position_vertical = insopt( 'ins-toggle-tab' )['toggle-position-vertical'];
         $this->layout_class .= !empty($toggle_position_horizontal) ? 'ins-hori-'.$toggle_position_horizontal.' ' :  'ins-hori-right ';
         $this->layout_class .= !empty($toggle_position_vertical) ? 'ins-var-'.$toggle_position_vertical.' ' :  'ins-var-bottom '; 
+        $this->layout_class .= !empty(insopt( 'ins-layout-mode' )) ? 'ins-layout-' .  insopt( 'ins-layout-mode' ).' ' : ''; 
   
         $ins_layout_class = apply_filters( 'ins_layout_class', $this->layout_class );
         ob_start();

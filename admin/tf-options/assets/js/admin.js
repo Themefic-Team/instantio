@@ -121,7 +121,7 @@
          */
         $(document).on('click', '.tf-pro', function (e) {
             e.preventDefault();
-            window.open('https://wpinstant.io/');
+            window.open('https://themefic.com/instantio/');
         });
 
         $(window).on('load', function () {
@@ -130,7 +130,7 @@
 
         $(document).on('click', '.tf-field-pro', function (e) {
             e.preventDefault();
-            window.open('https://wpinstant.io/');
+            window.open('https://themefic.com/instantio/');
         });
 
         //documentation link open in new tab

@@ -1,6 +1,7 @@
 (function ($) {
+
 	"use strict";
-	$(document).ready(function () {
+	$(document).ready(function () {  
 		$(document).on("click", ".ins-checkout-close", function (e) {
 			e.preventDefault();
 			$(".ins-checkout-layout-3.slide").removeClass("active");
@@ -380,23 +381,24 @@
 		}
 	);
 
+ 
 	function ins_owl_carousel() {
-		$('.ins-product-sell-carousel').owlCarousel('destroy');
-		$('.ins-product-sell-carousel').owlCarousel({
-			// loop:true,
-			margin:10, 
-			responsive:{
-				0:{
-					items:2
-				},
-				600:{
-					items:2
-				},
-				1000:{
-					items:2
-				}
-			}
-		});
+		// $('.ins-product-sell-carousel').owlCarousel('destroy');
+		// $('.ins-product-sell-carousel').owlCarousel({
+		// 	// loop:true,
+		// 	margin:10, 
+		// 	responsive:{
+		// 		0:{
+		// 			items:2
+		// 		},
+		// 		600:{
+		// 			items:2
+		// 		},
+		// 		1000:{
+		// 			items:2
+		// 		}
+		// 	}
+		// });
 	}
 
 })(jQuery);

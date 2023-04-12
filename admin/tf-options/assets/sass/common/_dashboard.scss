@@ -1,6 +1,11 @@
+#wpbody .notice {
+  display: none !important;
+}
+
 .tf-setting-dashboard {
   .tf-setting-top-bar {
-    background-color: #fff;
+    box-shadow: 0px 4px 30px rgba(53, 35, 0, 0.1);
+    background-color: #fcf9f7;
     padding: 15px 40px;
     margin-left: -20px;
     margin-bottom: 30px;
@@ -18,9 +23,9 @@
         line-height: 11px;
         color: #000;
         font-weight: 700;
-        border: 1px solid #003c79;
+        border: 1px solid #db5209;
         border-radius: 4px;
-        background-color: #003c790a;
+        background-color: #db52090a;
         display: inline-block;
         padding: 2px 6px;
         margin-left: 10px;
@@ -39,7 +44,7 @@
         right: -10px;
         z-index: 1;
         background-color: #fff;
-        padding: 30px;
+        padding: 30px 0;
         border-radius: 8px;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         min-width: 200px;
@@ -68,8 +73,10 @@
             align-items: center;
             transition: all 0.2s ease;
             text-decoration: none;
-            padding: 10px 0px;
-
+            padding: 10px 30px;
+            &:hover {
+              background-color: #fff5f0;
+            }
             span {
               margin-left: 10px;
             }
@@ -257,10 +264,15 @@
 
 // get Help page
 .tf-settings-help-center {
+  max-width: 800px;
+  margin: auto;
   .tf-help-center-banner {
-    background-color: #fff;
+    background-color: #db5209;
+    box-shadow: 0px 10px 30px rgba(233, 87, 10, 0.2);
+    border-radius: 8px;
+    height: 265px;
     border-radius: 10px;
-    margin: 40px 40px 40px 20px;
+    margin-bottom: 40px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -284,14 +296,41 @@
       @media #{$max480} {
         margin-bottom: 20px;
       }
+      a {
+        color: #db5209;
+        display: inline-block;
+        font-weight: 600;
+        padding: 10px 25px;
+        background-color: #fcf9f7;
+        border: 1px solid #fcf9f7;
+        text-decoration: none;
+        border-radius: 4px;
+        font-size: 16px;
+        -webkit-transition: all 0.3s ease-in-out;
+        -moz-transition: all 0.3s ease-in-out;
+        -o-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+        &:hover {
+          background-color: #c44a08;
+          border-color: #c44a08;
+          color: #fef2eb;
+        }
+      }
       h2 {
-        color: #000;
-        font-size: 34px;
+        color: #fcf9f7;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 150%;
         margin: 0;
       }
       p {
-        font-size: 1rem;
-        color: #71787c;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 150%;
+        color: #fcf9f7;
+        margin-bottom: 20px;
       }
     }
     .tf-help-center-image {
@@ -308,17 +347,20 @@
     }
   }
   .tf-support-document {
-    margin: 40px 40px 40px 20px;
+    margin-bottom: 40px;
     display: flex;
+    column-gap: 20px;
     justify-content: space-between;
+    flex-direction: row;
     @media #{$max1199} {
       display: flow-root;
     }
+
     .tf-single-support {
-      background-color: #fff;
-      border-radius: 10px;
-      width: 24%;
-      min-height: 270px;
+      background: linear-gradient(141.81deg, #fb4682 0%, #fbae95 100%);
+      border-radius: 8px;
+      flex: 1;
+      padding: 22px;
       @media #{$max1199} {
         width: 48%;
         margin: 15px 1%;
@@ -329,36 +371,44 @@
         margin: 15px 0%;
         float: left;
       }
+
       a {
         display: block;
-        padding: 40px;
         text-decoration: none;
         img {
-          margin-bottom: 35px;
+          width: 52px;
+          margin-bottom: 20px;
         }
         h3 {
+          font-style: normal;
+          font-weight: 700;
           font-size: 20px;
+          line-height: 150%;
           margin: 0;
-          color: #000;
-          display: block;
-          line-height: 24px;
+          color: #ffffff;
+        }
+        p {
+          font-style: normal;
+          font-style: normal;
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 150%;
+          color: #ffffff;
         }
         span {
           display: inline-block;
           margin-bottom: 0;
           display: inline-block;
-          border: 2px solid #003c79;
-          border-radius: 6px;
-          padding: 9px 16px;
-          font-size: 15px;
-          font-weight: 600;
-          color: #003c79;
-          margin-top: 20px;
-          line-height: 1;
+          font-style: normal;
+          font-weight: 500;
+          font-size: 16px;
+          line-height: 150%;
+          letter-spacing: 0.005em;
+          text-decoration-line: underline;
+          color: #ffffff;
           transition: 0.3s all ease;
           &:hover {
-            background-color: #003c79;
-            color: #fff;
+            color: #db5209;
           }
         }
       }
@@ -565,8 +615,8 @@
           }
 
           &.active {
-            background-color: #003c791c;
-            color: #003c79;
+            background-color: #db52091c;
+            color: #db5209;
             position: relative;
             overflow: hidden;
             border-radius: 0px 5px 0px 0px;
@@ -575,14 +625,14 @@
             }
 
             .tf-sec-icon {
-              color: #003c79;
+              color: #db5209;
             }
 
             &::before {
               position: absolute;
               content: "\f105";
               font-size: 14px;
-              color: #003c79;
+              color: #db5209;
               font-family: "FontAwesome" !important;
               right: 10px;
             }
@@ -594,7 +644,7 @@
               left: -4px;
               bottom: 0;
               top: 0;
-              background: #003c79;
+              background: #db5209;
               height: 28px;
               margin: auto;
               border-radius: 25px;
@@ -757,7 +807,7 @@
         padding: 0 20px;
         margin-left: 15px;
         height: 45px;
-        background-color: #003c79;
+        background-color: #db5209;
         color: #fff;
         border: none;
         box-shadow: none !important;

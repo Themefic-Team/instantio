@@ -126,8 +126,7 @@ ins-cart-fly-icon svg{
  padding-bottom: 16px;
 }
 .ins-checkout-layout-3 {
-  background-color: #fff;
-  width: 600px;
+  background-color: #fff; 
   padding: 35px;
   height: 100vh;
   z-index: 9999;
@@ -174,6 +173,10 @@ ins-cart-fly-icon svg{
 
 .ins-cart-item-wrap::-webkit-scrollbar {
   width: 5px;
+}
+
+.ins-cart-inner.step-1 {
+	padding: 16px !important;
 }
 
 /* layouts  */
@@ -303,6 +306,7 @@ ins-cart-fly-icon svg{
 .ins-checkout-layout.popup .woocommerce-cart-form {
   display: flex;
   gap: 16px;
+  padding: 16px;
 }
 .ins-checkout-layout.popup .woocommerce-cart-form .ins-checkout-body.ins-content {
 	width: 65%;
@@ -566,7 +570,10 @@ ins-cart-fly-icon svg{
 .ins-cart-btns {
   display: flex;
   gap: 10px;
-  padding: 16px;
+  /* padding: 16px; */
+}
+.ins-checkout-popup .ins-cart-btns { 
+  padding: 0px;
 }
 
 .ins-cart-btns a.active, .ins-cart-btns button.active  {
@@ -656,6 +663,7 @@ ins-cart-fly-icon svg{
   -o-border-radius: 5px;
   border: 2px solid !important;
   border-color: var(--ins_toggle_border) !important;
+  bottom: 30px;
 }
 
 .ins-toggle-btn.hide {
@@ -725,14 +733,31 @@ ins-cart-fly-icon svg{
 .ins-toggle-btn {
   cursor: pointer;
 }
-.ins-checkout-layout.ins-var-bottom .ins-toggle-btn.tog-1 {
+.ins-checkout-layout.ins-var-cart-middle  .ins-toggle-btn.tog-1 {
   left: -80px;
   bottom: 40px; 
 }
-
+.ins-fixed-toogle.ins-var-cart-middle  .ins-toggle-btn.tog-1 {
+  left: auto;
+  bottom: 40px; 
+}
+.ins-fixed-toogle.ins-hori-left  .ins-toggle-btn.tog-1, .ins-fixed-toogle.ins-hori-left .ins-toggle-btn.tog-2  {
+  left: 0px;
+  bottom: 40px;
+  width: 90px;
+  height: 90px;
+  border-radius: 0px 5px 5px 0px !important; 
+}
+.ins-fixed-toogle.ins-var-cart-top .ins-toggle-btn.tog-1 {
+  top: 5% !important;
+}
 .ins-checkout-layout.ins-hori-left .ins-toggle-btn.tog-1 {
   left: auto;
   right: -90px;
+}
+.ins-checkout-layout.ins-hori-right .ins-toggle-btn.tog-1 {
+  left: -90px;
+  right: auto;
 }
 
 .ins-checkout-layout.ins-hori-left .ins-toggle-btn.tog-2 {
@@ -741,28 +766,43 @@ ins-cart-fly-icon svg{
   border-radius: 0px 5px 5px 0px;
 }
 
-.ins-checkout-popup.slide.ins-var-middle .ins-toggle-btn.tog-1 {
+.ins-checkout-popup.slide.ins-var-cart-middle .ins-toggle-btn.tog-1,
+ .ins-fixed-toogle.ins-var-cart-middle  .ins-toggle-btn.tog-1 {
   top: 50% !important;
   margin-top: -30px !important;
 }
-
-.ins-checkout-popup.slide.ins-var-top .ins-toggle-btn.tog-1 {
+.ins-fixed-toogle.ins-var-cart-middle  .ins-toggle-btn.tog-2 {
+  top: 50% !important;
+  margin-top: -30px !important;
+}
+.ins-fixed-toogle.ins-var-cart-middle  .ins-toggle-btn.tog-2 {
+  top: 50% !important;
+  margin-top: -30px !important;
+}
+.ins-fixed-toogle.ins-var-cart-top  .ins-toggle-btn.tog-2 {
+  top: 10% !important;
+  margin-top: -30px !important;
+}
+.ins-checkout-popup.slide.ins-var-cart-top .ins-toggle-btn.tog-1, .ins-checkout-popup.slide.ins-var-cart-top .ins-toggle-btn.tog-2 {
   top: 5% !important;
 }
 
-.ins-checkout-popup.slide.ins-var-top .ins-toggle-btn.tog-2 {
+.ins-checkout-popup.slide.ins-var-cart-top .ins-toggle-btn.tog-2 {
   top: 5% !important;
   margin-top: 0 !important;
 }
 
-.ins-checkout-popup.slide.ins-var-bottom .ins-toggle-btn.tog-2 {
+.ins-checkout-popup.slide.ins-var-cart-middle  .ins-toggle-btn.tog-2 {
   top: 95% !important;
 }
-.ins-checkout-popup.slide.ins-var-bottom .ins-toggle-btn.tog-2 {
+.ins-checkout-popup.slide.ins-var-cart-middle  .ins-toggle-btn.tog-2 {
 	top: auto !important;
 	left: -90px;
 	bottom: 40px;
 } 
+.ins-checkout-layout .woocommerce-message { 
+	margin: 20px;
+}
 
 /* Toggle Button */
 /* Toggle Css */
@@ -823,10 +863,7 @@ ins-cart-fly-icon svg{
 .ins-checkout-popup {
   visibility: hidden;
 }
-
-.ins-checkout-modern .ins-checkout-layout {
-  width: 690px !important;
-}
+ 
 .ins-checkout-modern.popup .ins-checkout-layout.popup {
   width: 80% !important;
   height: auto !important;
@@ -870,6 +907,7 @@ ins-cart-fly-icon svg{
   border: 1px solid #FCF4F2;
   box-shadow: 0px 10px 20px rgba(0, 77, 209, 0.05);
   border-radius: 8px;
+  margin-bottom: 16px;
 }
 
 .ins-checkout-modern .ins-checkout-body {
@@ -1394,6 +1432,240 @@ ins-cart-fly-icon svg{
 /* Cart Style overwrite */
 
 
+
+/* Dark Mode CSS */
+
+.ins-layout-dark .ins-checkout-layout {
+  background-color: #171514;
+}
+.ins-layout-dark .ins-checkout-header {
+  background-color: #262422 !important;
+}
+.ins-layout-dark .ins-checkout-header-icon svg fill {
+  color: #fff !important;
+} 
+.ins-layout-dark .ins-checkout-header-icon svg path, 
+.ins-layout-dark .ins-checkout-header-title, 
+.ins-layout-dark .ins-checkout-close svg path {
+  fill: #fff !important;
+  color: #fff !important;
+}
+.ins-layout-dark .ins-checkout-steps {
+  background-color: #262422;
+}
+.ins-layout-dark .ins-single-step.active .ins-step-icon svg path, 
+.ins-layout-dark .ins-single-step.done .ins-step-icon svg path, 
+.ins-layout-dark .ins-single-step.active .ins-step-title,
+.ins-layout-dark .ins-single-step.done .ins-step-title {
+  fill: #fff !important;
+  color: #fff;
+}
+.ins-layout-dark .ins-cart-content-wrap, 
+.ins-layout-dark .ins-single-product-sell, 
+.ins-layout-dark .ins-cart-footer-content {
+  background-color: #262422 !important;
+  box-shadow: 0px 15px 20px rgba(3, 3, 3, 0.15) !important;
+  border-color: #33312e !important;
+}
+.ins-layout-dark .ins-single-cart-item {
+  background-color: #161413 !important;
+  border: none;
+}
+.ins-layout-dark .ins-cart-item-heading span, 
+.ins-layout-dark .ins-cross-sell-title, 
+.ins-layout-dark .ins-order-summery-head span,
+.ins-layout-dark .woocommerce-billing-fields h3,
+.ins-layout-dark .ins-order-summery-head h3,
+.ins-layout-dark .ins-payment h3,
+.ins-layout-dark .ins-delivery-wrap h3,
+.ins-layout-dark .ins-single-order-total span,
+.ins-layout-dark .ins-cart-btns a {
+  color: #F2ECE9 !important;
+}
+.ins-layout-dark .ins-single-item-remove svg path, 
+.ins-layout-dark .ins-cart-minus svg path, 
+.ins-layout-dark .ins-cart-plus svg path, 
+.ins-layout-dark .ins-back-to-edit svg path {
+  fill: #F2ECE9 !important;
+}
+.ins-layout-dark .ins-cart-item-title a {
+  color: #fff !important;
+}  
+.ins-layout-dark .ins-cart-inner.shipping .woocommerce-billing-fields > div p input, 
+.ins-layout-dark .ins-cart-inner.shipping .woocommerce-billing-fields > div p select, 
+.ins-layout-dark .ins-cart-inner.shipping .woocommerce-shipping-fields > div p input, 
+.ins-layout-dark .ins-cart-inner.shipping #order_comments, 
+.ins-layout-dark .ins-cart-inner.shipping .woocommerce-shipping-fields > div p select {
+  background-color: #171514 !important;
+  color: #fff !important;
+  border: none;
+}
+.ins-layout-dark .ins-cart-item-quantity .qty { 
+  background-color: #262422 !important;
+  color: #fff !important;
+} 
+.ins-layout-dark .ins-cart-coupon .coupon input {
+  background-color: #262422;
+  color: #999390;
+}
+.ins-layout-dark .ins-order-summery-content span,
+.ins-layout-dark .woocommerce-privacy-policy-text p { 
+  color: #999390 !important;
+}
+.ins-layout-dark .ins-empty-cart-button button {
+  background-color: transparent !important;
+}
+.ins-layout-dark .ins-empty-cart:hover {
+  border-color: var(--ins_checkout_theme);
+} 
+.ins-layout-dark .ins-sell-content h3, 
+.ins-layout-dark .ins-sell-content-meta .woocommerce-Price-amount.amount, 
+.ins-layout-dark .ins-cart-collaterals h2, 
+.ins-layout-dark .ins-cart-collaterals th, 
+.ins-layout-dark .ins-cart-collaterals td, 
+.ins-layout-dark .ins-cart-item-title a,
+.ins-layout-dark .ins-delivery-wrap p,
+.ins-layout-dark .ins-delivery-wrap.shipping ul li > label,
+.ins-layout-dark .ins-payment-method li > label {
+  color: #CCC7C4 !important;
+}
+.ins-layout-dark .ins-layout-dark .ins-btns-step-next {
+  background-color: var(--ins_checkout_theme);
+  color: #F2ECE9 !important;
+}
+.ins-layout-dark .ins-btns-step-next:hover {
+  border-color: var(--ins_checkout_theme);
+}
+/* Dark Mode CSS */
+
+
+/* Gradient Mode CSS */
+
+.ins-layout-gradient .ins-checkout-layout {
+  background: linear-gradient(135deg, #4750D4 0%, #C23395 100%);
+}
+.ins-layout-gradient .ins-checkout-header {
+  background: linear-gradient(135deg, #B959CB 0%, #6A5FCC 100%); 
+  box-shadow: 0px 10px 20px rgba(75, 26, 0, 0.05);
+} 
+.ins-layout-gradient .ins-checkout-header-icon svg path, 
+.ins-layout-gradient .ins-checkout-header-title, 
+.ins-layout-gradient .ins-checkout-close svg path {
+  fill: #FCF9F7 !important;
+  color: #FCF9F7 !important;
+}
+.ins-layout-gradient .ins-checkout-steps {
+  background-color: #AB78C7;
+}
+.ins-layout-gradient .ins-single-step.active, 
+.ins-layout-gradient .ins-single-step.done { 
+  background-color: #FCF9F7;
+}
+.ins-layout-gradient .ins-single-step .ins-step-icon svg path, 
+.ins-layout-gradient .ins-single-step .ins-step-icon svg path, 
+.ins-layout-gradient .ins-single-step .ins-step-title,
+.ins-layout-gradient .ins-single-step .ins-step-title {
+  fill: #FCF9F7 !important;
+  color: #FCF9F7; 
+}
+.ins-layout-gradient .ins-single-step.active .ins-step-icon svg path, 
+.ins-layout-gradient .ins-single-step.done .ins-step-icon svg path, 
+.ins-layout-gradient .ins-single-step.active .ins-step-title,
+.ins-layout-gradient .ins-single-step.done .ins-step-title {
+  fill: #665F5C !important;
+  color: #665F5C; 
+}
+.ins-layout-gradient .ins-cart-content-wrap, 
+.ins-layout-gradient .ins-single-product-sell, 
+.ins-layout-gradient .ins-cart-footer-content  {
+  background-color: #FCF9F75E !important;
+  /* mix-blend-mode: soft-light !important; */
+  border: none !important;
+}
+.ins-layout-gradient .ins-single-cart-item {
+  background-color: #FCF9F7 !important;
+  border: none;
+}
+
+.ins-layout-gradient .ins-cart-coupon .coupon button {
+  background-color: #665F5C;
+  border-color: #665F5C;
+}
+.ins-layout-gradient .ins-cart-coupon .coupon input {
+  border-color: #665F5C;
+}
+.ins-layout-gradient .ins-empty-cart {
+  border-color: #665F5C !important;
+  color: #665F5C !important;
+  background-color: transparent !important;
+}
+.ins-layout-gradient .ins-empty-cart:hover {
+  background-color: #fff !important;
+  border-color: transparent !important;
+}
+.ins-layout-gradient .ins-cart-item-heading span, 
+.ins-layout-gradient .ins-cross-sell-title, 
+.ins-layout-gradient .ins-order-summery-head span,
+.ins-layout-gradient .woocommerce-billing-fields h3,
+.ins-layout-gradient .ins-order-summery-head h3,
+.ins-layout-gradient .ins-payment h3,
+.ins-layout-gradient .ins-delivery-wrap h3,
+.ins-layout-gradient .ins-single-order-total span,
+.ins-layout-gradient .ins-cart-btns a {
+  color: #FCF9F7 !important;
+} 
+.ins-layout-gradient .ins-cart-empty span, .ins-layout-gradient .ins-cart-empty a {
+  color: #FCF9F7 !important;
+}
+ 
+.ins-layout-gradient .ins-order-summery-content span,
+.ins-layout-gradient .woocommerce-privacy-policy-text p,
+.ins-layout-gradient .woocommerce-privacy-policy-text a { 
+  color: #FCF9F7 !important;
+}
+ 
+.ins-layout-gradient .ins-sell-content h3, 
+.ins-layout-gradient .ins-sell-content-meta .woocommerce-Price-amount.amount, 
+.ins-layout-gradient .ins-cart-collaterals h2, 
+.ins-layout-gradient .ins-cart-collaterals th, 
+.ins-layout-gradient .ins-cart-collaterals td,  
+.ins-layout-gradient .ins-delivery-wrap p,
+.ins-layout-gradient .ins-delivery-wrap.shipping ul li > label,
+.ins-layout-gradient .ins-payment-method li > label,
+.ins-layout-gradient #ship-to-different-address span,
+.ins-layout-gradient .ins-checkout-modern .ins-checkout-body,
+.ins-layout-gradient .ins-order-summery-head span a {
+  color: #FCF9F7 !important;
+}
+.ins-layout-gradient .ins-back-to-edit svg path{
+  fill: #FCF9F7 !important;
+}
+ 
+/* Gradient Mode CSS */
+
+/* Glass Morphism Mode CSS */
+
+.ins-layout-glass-morphism .ins-checkout-layout,
+.ins-layout-glass-morphism .ins-cart-content-wrap, 
+.ins-layout-glass-morphism .ins-cart-footer-content,
+.ins-layout-glass-morphism .ins-checkout-header {
+  background: rgba(253, 253, 253, 0.40) !important;
+  backdrop-filter: blur(30px);
+  border: none !important;
+}
+.ins-layout-glass-morphism .ins-checkout-overlay.active { 
+	opacity: 0 !important; 
+}
+.ins-layout-glass-morphism.popup .ins-checkout-overlay.active { 
+	background: rgba(253, 253, 253, 0.1) !important;
+  backdrop-filter: blur(20px);
+  border: none !important;
+  opacity: 1 !important; 
+}
+/* Glass Morphism Mode CSS */
+
+
+
 /* Breakpoints */
 @media (max-width: 1240px) {
   .ins-checkout-modern.popup .ins-checkout-layout.popup {
@@ -1541,7 +1813,7 @@ ins-cart-fly-icon svg{
     left: -420px;
   }
 
-  .ins-checkout-layout.ins-var-bottom .ins-toggle-btn.tog-1 {
+  .ins-checkout-layout.ins-var-cart-middle  .ins-toggle-btn.tog-1 {
     left: -53px;
   }
 

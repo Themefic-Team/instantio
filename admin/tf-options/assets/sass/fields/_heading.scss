@@ -1,7 +1,7 @@
 .tf-field-heading {
   padding: 16px 24px;
   margin: 0 -24px;
-  background-color: $slate5;
+  background-color: #fef2eb;
 
   .tf-field-heading-inner {
     @include flexbox();
@@ -16,7 +16,7 @@
       @include justify-content(center);
       background-color: $blue60;
       color: #fff;
-      border-radius: 4px
+      border-radius: 4px;
     }
 
     .tf-field-heading-content {
@@ -35,6 +35,5 @@
         }
       }
     }
-
   }
 }
