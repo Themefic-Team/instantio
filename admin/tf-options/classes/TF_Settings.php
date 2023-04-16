@@ -229,8 +229,6 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 						
 					</div>
 
-
-
 					<div class="tf-support-document">
 						<div class="tf-single-support">
 							<a href="https://themefic.com/docs/instantio/" target="_blank">
@@ -259,7 +257,7 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 						</div>
 					</div>
 					<div class="updatedtopro">
-						
+						 
 					</div>
 
 					<!-- <div class="tf-settings-faq">
@@ -383,7 +381,7 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 							<li class="active">
 								<span>
 									<i class="fas fa-key"></i>
-									<?php _e("License Info","instantio"); ?>
+									<?php // _e("License Info","instantio"); ?>
 								</span>
 							</li>
 						</ul>
