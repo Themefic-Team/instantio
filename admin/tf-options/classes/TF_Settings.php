@@ -116,11 +116,11 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 			//What's New submenu
 			add_submenu_page(
 				$this->option_id,
-				__('Get Help', 'instantio'),
-				__('Get Help', 'instantio'),
+				__('Dashboard', 'instantio'),
+				__('Dashboard', 'instantio'),
 				'manage_options',
-				'ins_whats_new',
-				array( $this,'tf_get_help_callback'),
+				'ins_dashboard',
+				array( $this,'ins_get_dashboard_callback'),
 			);
 
       
@@ -134,18 +134,6 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 				$this->option_id . '#tab=general',
 				array( $this, 'tf_options_page' ),
 			);
-
-			//Get Help submenu
-			add_submenu_page(
-				$this->option_id,
-				__('What’s new', 'instantio'),
-				__('What’s new', 'instantio'),
-				'manage_options',
-				'ins_get_help',
-				array( $this,'tf_get_help_callback'),
-			);
-
-		
 
 			if ( function_exists('is_tf_pro') ) {
 				//License Info submenu
@@ -214,156 +202,208 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 		 * Get Help Page
 		 * @author M Hemel Hasan
 		 */
-		public function tf_get_help_callback(){
+		public function ins_get_dashboard_callback(){
 		 ?>	
 			<div class="tf-setting-dashboard">
 				<?php echo $this->tf_top_header(); ?>
+
+				<ul class="dashboad-tab">
+					<li class="dashboad-tab-singel active">
+						<span>General</span>
+					</li>
+					<li class="dashboad-tab-singel">
+						<span>Tutorial</span>
+					</li>
+					<li class="dashboad-tab-singel">
+						<span>Premium</span>
+					</li>
+					<li class="dashboad-tab-singel">
+						<span>What's New</span>
+					</li>
+				</ul>
+
 				
-				<div class="tf-settings-help-center">
-					<div class="tf-help-center-banner">
-						<div class="tf-help-center-content">
-							<h2>Setup Wizard</h2>
-							<p>Click the button below to run the setup wizard of Instantio. Your existing settings will not change.</p>
-							<a href="<?php echo esc_url( admin_url('admin.php?page=tf-setup-wizard'))?>" class="tf-admin-btn tf-btn-secondary">Setup Wizard</a>
+				<div class="dashboad-content-wrap">
+
+					<div class="dashboad-content active">
+						<div class="tf-settings-help-center">
+							<div class="tf-help-center-banner">
+								<div class="tf-help-center-content">
+									<h2>Setup Wizard</h2>
+									<p>Click the button below to run the setup wizard of Instantio. Your existing settings will not change.</p>
+									<a href="<?php echo esc_url( admin_url('admin.php?page=tf-setup-wizard'))?>" class="tf-admin-btn tf-btn-secondary">Setup Wizard</a>
+								</div>
+								
+							</div>
+
+							<div class="tf-support-document">
+								<div class="tf-single-support">
+									<a href="https://themefic.com/docs/instantio/" target="_blank">
+										<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/wizard/tf-documents.png' ?>" alt="Document">
+										<h3>Documentation</h3>
+										<p>How the plugin works, what it can do, and how to use it.</p>
+										<span>Read More</span>
+									</a>
+								</div>
+								<div class="tf-single-support">
+									<a href="https://portal.themefic.com/support/" target="_blank">
+										<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/wizard/tf-mail.png' ?>" alt="Document">
+										<h3>Email Support</h3>
+										<p>As part of our overall support strategy to provide the best experience.</p>
+										<span>Contact Us</span>
+									</a>
+								</div>
+								
+								<div class="tf-single-support">
+									<a href="https://www.youtube.com/playlist?list=PLY0rtvOwg0ykIvNBa8XI3SR7WEbdqqKoO" target="_blank">
+										<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/wizard/tf-tutorial.png'?>" alt="Document">
+										<h3>Video Tutorials</h3>
+										<p>As part of our overall support strategy to provide the best experience.</p>
+										<span>Watch Video</span>
+									</a>
+								</div>
+							</div>
+
+							<div class="updatedtopro">
+								<h4>Upgrade to PRO</h4>
+								<p>
+									To provide amazing experience to your guests and sell more with less effort. Bonus: You can upgrade to our plans today and save 50% off.
+								</p>
+								<a href="https://themefic.com/instantio/" class="btn-desh-primary">Upgrade now</a>
+							</div>
+
+							<div class="request-features">
+								<img src="<?php echo INS_ADMIN_URL?>/tf-options/img/feature-selection.png" alt="image">
+								<h4>Have any thoughts or feature request?</h4>
+								<p>
+									We believe your feature request will make our website more user-friendly. Our dedicated team will review it and take it into consideration for future updates.
+								</p>
+								<a href="https://portal.themefic.com/support/" class="btn-desh-primary-tran">Submit request</a>
+							</div>
+
+							<!-- <div class="tf-settings-faq">
+								<h2>Common FAQs</h2>
+
+								<div class="tf-accordion-wrapper">
+									<div class="tf-accrodian-item">
+										<div class="tf-single-faq">
+											<div class="tf-faq-title">
+												<i class="fas fa-angle-down"></i>
+												<h4>What is Tourfic? </h4>
+											</div>
+											<div class="tf-faq-desc">
+												<p>
+												Tourfic is the ultimate WordPress travel plugin for hotel booking, tour operator and travel agency websites.									</p>
+											</div>
+										</div>
+									</div>
+									<div class="tf-accrodian-item">
+										<div class="tf-single-faq">
+											<div class="tf-faq-title">
+												<i class="fas fa-angle-down"></i>
+												<h4>How to install Tourfic? </h4>
+											</div>
+											<div class="tf-faq-desc">
+												<p>
+												Please check our documentations									</p>
+											</div>
+										</div>
+									</div>
+									<div class="tf-accrodian-item">
+										<div class="tf-single-faq">
+											<div class="tf-faq-title">
+												<i class="fas fa-angle-down"></i>
+												<h4>Is Free version fully free or there is a gap? </h4>
+											</div>
+											<div class="tf-faq-desc">
+												<p>
+												Yes, Tourfic is fully free which is available on WordPress.org. This free version will always be free. It also has a pro version with additional features which you can purchase from our official website.									</p>
+											</div>
+										</div>
+									</div>
+									<div class="tf-accrodian-item">
+										<div class="tf-single-faq">
+											<div class="tf-faq-title">
+												<i class="fas fa-angle-down"></i>
+												<h4>Can I create a hotel booking website with Tourfic? </h4>
+											</div>
+											<div class="tf-faq-desc">
+												<p>
+												Yes, You create your own professional hotel booking website easily with tourfic.									</p>
+											</div>
+										</div>
+									</div>
+									<div class="tf-accrodian-item">
+										<div class="tf-single-faq">
+											<div class="tf-faq-title">
+												<i class="fas fa-angle-down"></i>
+												<h4>Can I create a travel or tour booking website with Tourfic? </h4>
+											</div>
+											<div class="tf-faq-desc">
+												<p>
+												Yes, You create your own professional travel or tour booking website easily with tourfic.									</p>
+											</div>
+										</div>
+									</div>
+									<div class="tf-accrodian-item">
+										<div class="tf-single-faq">
+											<div class="tf-faq-title">
+												<i class="fas fa-angle-down"></i>
+												<h4>Can Tourfic be used as WooCommerce Accommodation Bookings? </h4>
+											</div>
+											<div class="tf-faq-desc">
+												<p>
+												Yes, You create your own professional accommodation booking website easily with tourfic.									</p>
+											</div>
+										</div>
+									</div>
+									<div class="tf-accrodian-item">
+										<div class="tf-single-faq">
+											<div class="tf-faq-title">
+												<i class="fas fa-angle-down"></i>
+												<h4>Can I create a website similar to Booking.com with Tourfic? </h4>
+											</div>
+											<div class="tf-faq-desc">
+												<p>
+												Yes, You can create your own professional tour operator and travel agency website within 5 minutes, just like Booking.com, Agoda, Hotels.com, Airbnb etc.									</p>
+											</div>
+										</div>
+									</div>
+									<div class="tf-accrodian-item">
+										<div class="tf-single-faq">
+											<div class="tf-faq-title">
+												<i class="fas fa-angle-down"></i>
+												<h4>Is free version supported? </h4>
+											</div>
+											<div class="tf-faq-desc">
+												<p>
+												Yes, We provide full support on the WordPress.org forums. You can also post questions or bug reports through our Facebook group! or our website. However, please note that, for free version’s support/replies, there can be delays upto 24-48 hours.									</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div> -->
 						</div>
-						
 					</div>
 
-					<div class="tf-support-document">
-						<div class="tf-single-support">
-							<a href="https://themefic.com/docs/instantio/" target="_blank">
-								<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/wizard/tf-documents.png' ?>" alt="Document">
-								<h3>Documentation</h3>
-								<p>How the plugin works, what it can do, and how to use it.</p>
-								<span>Read More</span>
-							</a>
-						</div>
-						<div class="tf-single-support">
-							<a href="https://portal.themefic.com/support/" target="_blank">
-								<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/wizard/tf-mail.png' ?>" alt="Document">
-								<h3>Email Support</h3>
-								<p>As part of our overall support strategy to provide the best experience.</p>
-								<span>Contact Us</span>
-							</a>
-						</div>
-						
-						<div class="tf-single-support">
-							<a href="https://www.youtube.com/playlist?list=PLY0rtvOwg0ykIvNBa8XI3SR7WEbdqqKoO" target="_blank">
-								<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/wizard/tf-tutorial.png'?>" alt="Document">
-								<h3>Video Tutorials</h3>
-								<p>As part of our overall support strategy to provide the best experience.</p>
-								<span>Watch Video</span>
-							</a>
+					<div class="dashboad-content tutorial">
+						<div class="tutorial-heading">
+							<h4>Basic tutorials</h4>
+							<a href="#" class="btn view-all-btn">View all</a>
+							
 						</div>
 					</div>
-					<div class="updatedtopro">
-						 
+
+					<div class="dashboad-content">
+						<h2>Premium</h2>
 					</div>
 
-					<!-- <div class="tf-settings-faq">
-						<h2>Common FAQs</h2>
+					<div class="dashboad-content">
+						<h2>What's New</h2>
+					</div>
 
-						<div class="tf-accordion-wrapper">
-							<div class="tf-accrodian-item">
-								<div class="tf-single-faq">
-									<div class="tf-faq-title">
-										<i class="fas fa-angle-down"></i>
-										<h4>What is Tourfic? </h4>
-									</div>
-									<div class="tf-faq-desc">
-										<p>
-										Tourfic is the ultimate WordPress travel plugin for hotel booking, tour operator and travel agency websites.									</p>
-									</div>
-								</div>
-							</div>
-							<div class="tf-accrodian-item">
-								<div class="tf-single-faq">
-									<div class="tf-faq-title">
-										<i class="fas fa-angle-down"></i>
-										<h4>How to install Tourfic? </h4>
-									</div>
-									<div class="tf-faq-desc">
-										<p>
-										Please check our documentations									</p>
-									</div>
-								</div>
-							</div>
-							<div class="tf-accrodian-item">
-								<div class="tf-single-faq">
-									<div class="tf-faq-title">
-										<i class="fas fa-angle-down"></i>
-										<h4>Is Free version fully free or there is a gap? </h4>
-									</div>
-									<div class="tf-faq-desc">
-										<p>
-										Yes, Tourfic is fully free which is available on WordPress.org. This free version will always be free. It also has a pro version with additional features which you can purchase from our official website.									</p>
-									</div>
-								</div>
-							</div>
-							<div class="tf-accrodian-item">
-								<div class="tf-single-faq">
-									<div class="tf-faq-title">
-										<i class="fas fa-angle-down"></i>
-										<h4>Can I create a hotel booking website with Tourfic? </h4>
-									</div>
-									<div class="tf-faq-desc">
-										<p>
-										Yes, You create your own professional hotel booking website easily with tourfic.									</p>
-									</div>
-								</div>
-							</div>
-							<div class="tf-accrodian-item">
-								<div class="tf-single-faq">
-									<div class="tf-faq-title">
-										<i class="fas fa-angle-down"></i>
-										<h4>Can I create a travel or tour booking website with Tourfic? </h4>
-									</div>
-									<div class="tf-faq-desc">
-										<p>
-										Yes, You create your own professional travel or tour booking website easily with tourfic.									</p>
-									</div>
-								</div>
-							</div>
-							<div class="tf-accrodian-item">
-								<div class="tf-single-faq">
-									<div class="tf-faq-title">
-										<i class="fas fa-angle-down"></i>
-										<h4>Can Tourfic be used as WooCommerce Accommodation Bookings? </h4>
-									</div>
-									<div class="tf-faq-desc">
-										<p>
-										Yes, You create your own professional accommodation booking website easily with tourfic.									</p>
-									</div>
-								</div>
-							</div>
-							<div class="tf-accrodian-item">
-								<div class="tf-single-faq">
-									<div class="tf-faq-title">
-										<i class="fas fa-angle-down"></i>
-										<h4>Can I create a website similar to Booking.com with Tourfic? </h4>
-									</div>
-									<div class="tf-faq-desc">
-										<p>
-										Yes, You can create your own professional tour operator and travel agency website within 5 minutes, just like Booking.com, Agoda, Hotels.com, Airbnb etc.									</p>
-									</div>
-								</div>
-							</div>
-							<div class="tf-accrodian-item">
-								<div class="tf-single-faq">
-									<div class="tf-faq-title">
-										<i class="fas fa-angle-down"></i>
-										<h4>Is free version supported? </h4>
-									</div>
-									<div class="tf-faq-desc">
-										<p>
-										Yes, We provide full support on the WordPress.org forums. You can also post questions or bug reports through our Facebook group! or our website. However, please note that, for free version’s support/replies, there can be delays upto 24-48 hours.									</p>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div> -->
 				</div>
-				
+
 			</div>
 		 <?php
 		}

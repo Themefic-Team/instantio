@@ -129,43 +129,44 @@ if ( ! class_exists( 'TF_Options' ) ) {
 		public function tf_options_admin_enqueue_scripts($screen) {
 			// var_dump($screen);
 				global $post_type; 
-				$tf_options_screens   = array( 'toplevel_page_'. TF_OPTION_ID, 'tourfic-settings_page_tf_license_info', 'instantio_page_ins_get_help', 'instantio_page_ins_whats_new', 'admin_page_tf-setup-wizard');
+				$tf_options_screens   = array( 'toplevel_page_'. TF_OPTION_ID, 'tourfic-settings_page_tf_license_info', 'instantio_page_ins_get_help', 'instantio_page_ins_dashboard', 'admin_page_tf-setup-wizard');
 
 			if ( in_array( $screen, $tf_options_screens ) || $post_type  ) {
-				wp_enqueue_style( 'wp-color-picker' );
-				wp_enqueue_style( 'tf-fontawesome-4', '//cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css', array(), $this->tf_options_version() );
-				wp_enqueue_style( 'tf-fontawesome-5', '//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css', array(), $this->tf_options_version() );
-				wp_enqueue_style( 'tf-fontawesome-6', '//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css', array(), $this->tf_options_version() );
-				wp_enqueue_style( 'tf-remixicon', '//cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css', array(), $this->tf_options_version() );
-				wp_enqueue_style( 'tf-select2', '//cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css', array(), $this->tf_options_version() );
-				wp_enqueue_style( 'tf-flatpickr', '//cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.css', array(), $this->tf_options_version() );
-				wp_enqueue_style( 'tf-options', $this->tf_options_file_url('assets/css/tf-options.css'), array(), $this->tf_options_version() ); 
-				wp_enqueue_style( 'notyf-css', $this->tf_options_file_url('assets/libs/notyf/notyf.min.css'), array(), $this->tf_options_version() );
+				wp_enqueue_style('wp-color-picker');
+				wp_enqueue_style('tf-fontawesome-4', '//cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css', array(), $this->tf_options_version() );
+				wp_enqueue_style('tf-fontawesome-5', '//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css', array(), $this->tf_options_version() );
+				wp_enqueue_style('tf-fontawesome-6', '//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css', array(), $this->tf_options_version() );
+				wp_enqueue_style('tf-remixicon', '//cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css', array(), $this->tf_options_version() );
+				wp_enqueue_style('tf-select2', '//cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css', array(), $this->tf_options_version() );
+				wp_enqueue_style('tf-flatpickr', '//cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.css', array(), $this->tf_options_version() );
+				wp_enqueue_style('tf-options', $this->tf_options_file_url('assets/css/tf-options.css'), array(), $this->tf_options_version() ); 
+				wp_enqueue_style('notyf-css', $this->tf_options_file_url('assets/libs/notyf/notyf.min.css'), array(), $this->tf_options_version() );
 			}
 
 			//Js
 			if ( in_array( $screen, $tf_options_screens ) || $post_type  ) {
 				
-				wp_enqueue_script( 'tf-flatpickr', '//cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.js', array( 'jquery' ), $this->tf_options_version(), true );
-				wp_enqueue_script( 'tf-select2', '//cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js', array( 'jquery' ), $this->tf_options_version(), true );
-				wp_enqueue_script( 'wp-color-picker-alpha', '//raw.githubusercontent.com/kallookoo/wp-color-picker-alpha/master/src/wp-color-picker-alpha.js', array( 'jquery', 'wp-color-picker' ), $this->tf_options_version(), true );
-				wp_enqueue_script( 'setup-wizard', $this->tf_options_file_url('assets/js/setup-wizard.js'), array( 'jquery'), $this->tf_options_version(), true );
-				wp_enqueue_script( 'notyf-js', $this->tf_options_file_url('assets/libs/notyf/notyf.min.js'), array( 'jquery'), $this->tf_options_version(), true ); 
-				
-				
-				wp_enqueue_script( 'jquery-ui-autocomplete' );
+				wp_enqueue_script('tf-flatpickr', '//cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.js', array( 'jquery' ), $this->tf_options_version(), true );
+				wp_enqueue_script('tf-select2', '//cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js', array( 'jquery' ), $this->tf_options_version(), true );
+				wp_enqueue_script('wp-color-picker-alpha', '//raw.githubusercontent.com/kallookoo/wp-color-picker-alpha/master/src/wp-color-picker-alpha.js', array( 'jquery', 'wp-color-picker' ), $this->tf_options_version(), true );
+				wp_enqueue_script('setup-wizard', $this->tf_options_file_url('assets/js/setup-wizard.js'), array( 'jquery'), $this->tf_options_version(), true );
+				wp_enqueue_script('notyf-js', $this->tf_options_file_url('assets/libs/notyf/notyf.min.js'), array( 'jquery'), $this->tf_options_version(), true );
+				//dashboard
+				wp_enqueue_script('dashboard-js', $this->tf_options_file_url('assets/js/dashboard.js'), array( 'jquery'), $this->tf_options_version(), true ); 
 
-				if ( ! wp_script_is( 'jquery-ui-sortable' ) ) {
-					wp_enqueue_script( 'jquery-ui-sortable' );
+				wp_enqueue_script('jquery-ui-autocomplete');
+
+				if ( ! wp_script_is('jquery-ui-sortable' ) ) {
+					wp_enqueue_script('jquery-ui-sortable' );
 				}
 				wp_enqueue_media();
 				wp_enqueue_editor();
 			}
 			
 
-			wp_enqueue_script( 'tf-options-js', $this->tf_options_file_url('assets/js/tf-options.js'), array( 'jquery'), $this->tf_options_version(), true ); 
+			wp_enqueue_script('tf-options-js', $this->tf_options_file_url('assets/js/tf-options.js'), array( 'jquery'), $this->tf_options_version(), true ); 
 
-			wp_localize_script( 'tf-options-js', 'tf_options', array(
+			wp_localize_script('tf-options-js', 'tf_options', array(
 				'ajax_url'          => admin_url( 'admin-ajax.php' ),
 				'nonce'             => wp_create_nonce( 'tf_options_nonce' ),
 				'option_id' 		=> TF_OPTION_ID,
@@ -177,10 +178,10 @@ if ( ! class_exists( 'TF_Options' ) ) {
 		 * @author 
 		 */
 		public function tf_options_wp_enqueue_scripts() {
-			wp_enqueue_style( 'tf-fontawesome-4', '//cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css', array(), $this->tf_options_version() );
-			wp_enqueue_style( 'tf-fontawesome-5', '//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css', array(), $this->tf_options_version() );
-			wp_enqueue_style( 'tf-fontawesome-6', '//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css', array(), $this->tf_options_version() );
-			wp_enqueue_style( 'tf-remixicon', '//cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css', array(), $this->tf_options_version() );
+			wp_enqueue_style('tf-fontawesome-4', '//cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css', array(), $this->tf_options_version() );
+			wp_enqueue_style('tf-fontawesome-5', '//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css', array(), $this->tf_options_version() );
+			wp_enqueue_style('tf-fontawesome-6', '//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css', array(), $this->tf_options_version() );
+			wp_enqueue_style('tf-remixicon', '//cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css', array(), $this->tf_options_version() );
 		}
 
 		/*
@@ -235,12 +236,12 @@ if ( ! class_exists( 'TF_Options' ) ) {
 					$depend_visible  = ( ! empty( $dependency[4] ) ) ? $dependency[4] : '';
 				}
 
-				$depend .= ' data-controller="' . esc_attr( $data_controller ) . '"';
-				$depend .= ' data-condition="' . esc_attr( $data_condition ) . '"';
-				$depend .= ' data-value="' . esc_attr( $data_value ) . '"';
+				$depend .= 'data-controller="' . esc_attr( $data_controller ) . '"';
+				$depend .= 'data-condition="' . esc_attr( $data_condition ) . '"';
+				$depend .= 'data-value="' . esc_attr( $data_value ) . '"';
 				$depend .= ( ! empty( $data_global ) ) ? ' data-depend-global="true"' : '';
 
-				$visible  = ' tf-dependency-control';
+				$visible  = 'tf-dependency-control';
 				$visible .= ( ! empty( $depend_visible ) ) ? ' tf-depend-visible' : ' tf-depend-hidden';
 			}
 
@@ -294,7 +295,6 @@ if ( ! class_exists( 'TF_Options' ) ) {
 			if ( is_plugin_active( 'wooinstant/wooinstant.php' ) && defined( 'TF_PRO' ) ) {
 				return true;
 			}
-
 			return false;
 		}
 
