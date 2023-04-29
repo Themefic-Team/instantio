@@ -17,7 +17,6 @@
         is_rtl: $('body').hasClass('rtl'),
     };
 
-
     $(document).ready(function () {
         // Create an instance of Notyf
         const notyf = new Notyf({

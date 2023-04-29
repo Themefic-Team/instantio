@@ -205,7 +205,7 @@
   background-color: #fcf9f7;
   padding: 15px 40px;
   margin-left: -20px;
-  margin-bottom: 30px;
+  margin-bottom: 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -283,6 +283,45 @@
 .tf-setting-dashboard .tf-setting-top-bar .other-document:hover .dropdown {
   visibility: visible;
   opacity: 1;
+}
+.tf-setting-dashboard .dashboad-tab {
+  max-width: 800px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 45px;
+}
+.tf-setting-dashboard .dashboad-tab li {
+  position: relative;
+}
+.tf-setting-dashboard .dashboad-tab li.active span {
+  color: #db5209;
+  font-weight: 700;
+}
+.tf-setting-dashboard .dashboad-tab li span {
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 150%;
+  letter-spacing: 0.01em;
+  color: #002043;
+  cursor: pointer;
+}
+.tf-setting-dashboard .dashboad-tab li.active::before {
+  content: "";
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #db5209;
+  left: 50%;
+  margin-left: -5px;
+  bottom: -14px;
+}
+.tf-setting-dashboard .dashboad-content-wrap .dashboad-content {
+  display: none;
+}
+.tf-setting-dashboard .dashboad-content-wrap .dashboad-content.active {
+  display: block;
 }
 .tf-setting-dashboard .tf-setting-banner {
   background-color: transparent;
@@ -581,6 +620,12 @@
   flex: 1;
   padding: 22px;
 }
+.tf-settings-help-center .tf-support-document .tf-single-support:nth-child(2) {
+  background: linear-gradient(141.81deg, #4338CA 0%, #A21CAF 100%);
+}
+.tf-settings-help-center .tf-support-document .tf-single-support:nth-child(3) {
+  background: linear-gradient(141.81deg, #F4C82F 0%, #FD5187 100%);
+}
 @media only screen and (max-width: 1199.98px) {
   .tf-settings-help-center .tf-support-document .tf-single-support {
     width: 48%;
@@ -705,6 +750,86 @@
 .tf-settings-help-center .tf-settings-faq .tf-accordion-wrapper .tf-single-faq .tf-faq-desc p {
   font-size: 1rem;
   color: #44464b;
+}
+.tf-settings-help-center .updatedtopro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px;
+  background-color: #fff;
+  margin-bottom: 50px;
+}
+.tf-settings-help-center .updatedtopro h4 {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 30px;
+  color: #db5209;
+  margin: 0;
+  padding-bottom: 8px;
+}
+.tf-settings-help-center .updatedtopro p {
+  margin-top: 0;
+  font-weight: 400;
+  max-width: 559px;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  color: #828c99;
+  margin-bottom: 30px;
+}
+.tf-settings-help-center .updatedtopro .btn-desh-primary {
+  text-decoration: none;
+  color: #fff;
+  padding: 16px 32px;
+  background: linear-gradient(95.29deg, #002043 0%, #6637a7 25.57%, #41b7ef 100%), #2271b1;
+  border-radius: 4px;
+}
+.tf-settings-help-center .request-features {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px;
+  background-color: #fff;
+}
+.tf-settings-help-center .request-features img {
+  width: 52px;
+  height: 52px;
+}
+.tf-settings-help-center .request-features h4 {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 30px;
+  color: #db5209;
+  margin: 8px 0;
+}
+.tf-settings-help-center .request-features p {
+  max-width: 651px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  color: #828c99;
+  margin-top: 0;
+  margin-bottom: 30px;
+}
+.tf-settings-help-center .request-features .btn-desh-primary-tran {
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  padding: 16px 32px;
+  border: 1px solid #db5209;
+  border-radius: 4px;
+  leading-trim: both;
+  text-edge: cap;
+  letter-spacing: 0.005em;
+  color: #db5209;
+}
+.tf-settings-help-center .request-features .btn-desh-primary-tran:hover {
+  background-color: #db5209;
+  color: #fff;
 }
 
 .tf-setting-license {
