@@ -95,44 +95,7 @@
 			},
 		});
 	});
-
-	// Ajax Single Page Add To Cart
-	$(document).on("click", ".single_add_to_cart_button", function (e) {
-		e.preventDefault();
-		var thisbutton = $(this),
-			cart_form = thisbutton.closest("form.cart"),
-			id = thisbutton.val(),
-			product_id = cart_form.find("input[name=product_id]").val() || id,
-			product_qty = cart_form.find("input[name=quantity]").val() || 1,
-			variation_id = cart_form.find("input[name=variation_id]").val() || 0;
-		$.ajax({
-			url: ins_params.ajax_url,
-			type: "POST",
-			data: {
-				action: "ins_ajax_cart_single",
-				product_id: product_id,
-				quantity: product_qty,
-				variation_id: variation_id
-			},
-			beforeSend: function (response) {
-				thisbutton.removeClass("added").addClass("loading");
-			},
-			complete: function (response) {
-				thisbutton.addClass("added").removeClass("loading");
-			},
-			success: function (response) {
-				$(".ins-checkout-layout").html("");
-				$(".ins-checkout-layout").append(response);
-
-				ins_owl_carousel();
-
-				$(".ins-checkout-layout-3").addClass("active");
-				$(".ins-checkout-overlay").addClass("active");
-				$(".ins-checkout-popup").toggleClass("active");
-				$(".ins-checkout-popup").toggleClass("fadeIn");
-			},
-		});
-	});
+ 
 
 	// Add To Cart Flying Animation
 	$(document).on("click", ".add_to_cart_button", function () {
@@ -180,15 +143,21 @@
 	});
 
 	$(document).on("click", ".single_add_to_cart_button", function () {
-
+		if(cart_fly_anim == false ){ 
+			return
+		} 
 		var productThumb = $(this).closest(".product").find(".woocommerce-product-gallery__wrapper").find("img");
 		var productThumb_src = productThumb.attr("src");
 		var productThumbwidth = productThumb.width();
 		var startPos = productThumb.offset();
 		var endPos = $(".ins-toggle-btn").offset();
-
+		if( cart_fly_icon != '' && cart_fly_icon != false){
+			productThumb = '<span class="ins-cart-fly-icon">'+cart_fly_icon+'</span>';
+		}else{
+			productThumb = '<img src="' + productThumb_src + '">';
+		}
 		$("body").append(
-			'<div id="ins-cart-fly"><img src="' + productThumb_src + '"></div>'
+			'<div id="ins-cart-fly">'+productThumb+'</div>'
 		);
 
 		$("#ins-cart-fly").css({

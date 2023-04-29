@@ -135,7 +135,7 @@ TF_Settings::option( 'wiopt', array(
 							'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/Cart.svg',
 						),
 
-						'cartandcheckout' 	=> array(
+						'cart_and_checkout' 	=> array(
 							'title'			=> 'Cart & Checkout',
 							'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/CartCheckout.svg',
 						)
@@ -943,50 +943,40 @@ TF_Settings::option( 'wiopt', array(
 								),
 				
 								array(
-									'id'            => 'ins-bill-bg-padding',
-									'type'   		=> 'fieldset',
-									'label'  		=> __('Panel Billing Padding', 'instantio'),
-									'is_pro'		=> true,
-									'subtitle' 		=> __('Toggle panel billing section padding', 'instantio'),
-									// 'dependency' 	=> array('ins-bill-bg-padding_option','==','true'),
-									'fields' 		=> array(
-										array(
-											'id' 			=> 'ins-bill-bg-padding-top',
-											'class' 		=> 'tf-field-inline',
-											'type' 			=> 'number',
-											'label' 		=> 'Border Top',
-											'subtitle' 		=> 'Border Top ',
-											'placeholder' 	=> '1px',
-											'default' 		=> '1px',
-										),
-										array(
-											'id' 			=> 'ins-bill-bg-padding-right',
-											'class' 		=> 'tf-field-inline',
-											'type' 			=> 'number',
-											'label' 		=> 'Border Right',
-											'subtitle' 		=> 'Border Right ',
-											'placeholder' 	=> '1px',
-											'default' 		=> '1px',
-										),
-										array(
-											'id' 			=> 'ins-bill-bg-padding-bottom',
-											'class' 		=> 'tf-field-inline',
-											'type' 			=> 'number',
-											'label' 		=> 'Border Bottom',
-											'subtitle' 		=> 'Border Bottom ',
-											'placeholder' 	=> '1px',
-											'default' 		=> '1px',
-										),
-										array(
-											'id' 			=> 'ins-bill-bg-padding-left',
-											'class' 		=> 'tf-field-inline',
-											'type' 			=> 'number',
-											'label' 		=> 'Border Left',
-											'subtitle' 		=> 'Border Left ',
-											'placeholder' 	=> '1px',
-											'default' 		=> '1px',
-										),
-									),
+									'id' 			=> 'ins-bill-bg-padding-top',
+									'class' 		=> 'tf-field-inline',
+									'type' 			=> 'number',
+									'label' 		=> 'Border Top',
+									'subtitle' 		=> 'Border Top ',
+									'placeholder' 	=> '1px',
+									'default' 		=> '1px',
+								),
+								array(
+									'id' 			=> 'ins-bill-bg-padding-right',
+									'class' 		=> 'tf-field-inline',
+									'type' 			=> 'number',
+									'label' 		=> 'Border Right',
+									'subtitle' 		=> 'Border Right ',
+									'placeholder' 	=> '1px',
+									'default' 		=> '1px',
+								),
+								array(
+									'id' 			=> 'ins-bill-bg-padding-bottom',
+									'class' 		=> 'tf-field-inline',
+									'type' 			=> 'number',
+									'label' 		=> 'Border Bottom',
+									'subtitle' 		=> 'Border Bottom ',
+									'placeholder' 	=> '1px',
+									'default' 		=> '1px',
+								),
+								array(
+									'id' 			=> 'ins-bill-bg-padding-left',
+									'class' 		=> 'tf-field-inline',
+									'type' 			=> 'number',
+									'label' 		=> 'Border Left',
+									'subtitle' 		=> 'Border Left ',
+									'placeholder' 	=> '1px',
+									'default' 		=> '1px',
 								),
 
 								array(

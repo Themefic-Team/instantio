@@ -66,7 +66,7 @@ class Assets {
         $ins_toggle_panel_tab = insopt('ins-toggle-panel-tab');
 
         // ins-toggle-panel-tab
-        $ins_panel_border_option = insopt('ins-toggle-panel-tab')['ins_panel_border_option'];
+        $ins_panel_border_option = isset(insopt('ins-toggle-panel-tab')['ins_panel_border_option']) && !empty(insopt('ins-toggle-panel-tab')['ins_panel_border_option']) ? insopt('ins-toggle-panel-tab')['ins_panel_border_option'] : false;
        
         if($ins_panel_border_option == true){ 
             $ins_panel_border_top = !empty(insopt( 'ins-toggle-panel-tab' )['ins-panel-border-top']) ? insopt( 'ins-toggle-panel-tab' )['ins-panel-border-top'] : '0';
@@ -213,7 +213,7 @@ class Assets {
         }else{
             $cart_fly_icon = false;
         }
-        $output .=  isset($ins_empty_cart) ? 'var hide_toggler = '.$ins_empty_cart.';' : 'var hide_toggler = false;';
+        $output .=  isset($ins_empty_cart) && !empty($ins_empty_cart) ? 'var hide_toggler = '.$ins_empty_cart.';' : 'var hide_toggler = false;';
         $output .=  isset($auto_open_toggle) && $auto_open_toggle == true ? 'var auto_open_toggle = true;' : 'var auto_open_toggle = false;';
         $output .=  isset($cart_fly_anim) && $cart_fly_anim == true ? 'var cart_fly_anim = true;' : 'var cart_fly_anim = false;';
         $output .=  isset($cart_fly_icon) && $cart_fly_icon != false ? 'var cart_fly_icon = `'.$cart_fly_icon.'`' : 'var cart_fly_icon = false;';  

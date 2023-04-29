@@ -89,11 +89,9 @@ class INSTANTIO {
      * Including Options
      */ 
     public function tf_plugin_loaded_action() {  
-        if(class_exists('WOOINS')) return;
+        // if(class_exists('WOOINS')) return;
 
-        if ( file_exists( WP_PLUGIN_DIR .'/wooinstant/admin/config.php' )  && defined( 'INSTANTIO_PRO_CONFIG' ) && defined( 'INSTANTIO_PRO' ) ) {
-			require_once INS_PATH . 'admin/tf-options/TF_Options.php';
-		} elseif ( file_exists( INS_PATH . 'admin/tf-options/TF_Options.php' ) ) {
+        if ( file_exists( INS_PATH . 'admin/tf-options/TF_Options.php' ) ) {
 			require_once INS_PATH . 'admin/tf-options/TF_Options.php';
 		}
 

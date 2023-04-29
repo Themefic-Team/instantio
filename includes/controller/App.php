@@ -53,15 +53,18 @@ class App {
         // add_action( 'ins_cart_content', array( $this, 'ins_cart_content' ), 11);
         add_action( 'ins_cart_content', array( $this, 'ins_cart_content_modern' ), 10);
 
-        // add_action( 'init', array( $this, 'ins_options_init' ));
+        
    
     }
+
     public function ins_options_init(){
         
         // ins-toggle-panel-tab
-        $ins_toggle_panel_tab = insopt('ins-toggle-panel-tab');
+        $ins_toggle_panel_tab = insopt('wi-disable-ajax-add-cart');
+        $ins_empty_cart = !empty(insopt( 'ins-toggle-tab' )['ins-cart-emty-hide']) ? insopt( 'ins-toggle-tab' )['ins-cart-emty-hide'] : false;
+        
         echo '<pre>';
-        print_r($ins_toggle_panel_tab);
+        var_dump($ins_toggle_panel_tab);
         echo '</pre>'; 
 
         // Cart Customize Color
@@ -199,7 +202,7 @@ class App {
             ?>
             <a class="ins-toggle-btn <?php echo esc_attr( $ins_toggler ) ?>" href="<?php echo esc_url(wc_get_checkout_url());  ?>"> 
                 <?php echo instantio_svg_icon($cart_icon); ?>
-                <?php echo insopt( 'ins-toggle-tab' )['ins-cart-emty-hide']; ?>
+                <?php // echo insopt( 'ins-toggle-tab' )['ins-cart-emty-hide']; ?>
                 <span class="ins-items-count"><span id="ins_cart_total" class="ins_cart_total"><?php echo WC()->cart->get_cart_contents_count(); ?></span></span> 
            </a> 
             <?php
@@ -482,8 +485,8 @@ class App {
     			return;
     		}
 		} 
-        $toggle_position_horizontal = insopt( 'ins-toggle-tab' )['toggle-position-horizontal'];
-        $toggle_position_vertical = insopt( 'ins-toggle-tab' )['toggle-position-vertical'];
+        $toggle_position_horizontal = isset(insopt( 'ins-toggle-tab' )['toggle-position-horizontal']) ? insopt( 'ins-toggle-tab' )['toggle-position-horizontal'] : 'right';
+        $toggle_position_vertical = isset(insopt( 'ins-toggle-tab' )['toggle-position-vertical']) ? insopt( 'ins-toggle-tab' )['toggle-position-vertical'] : 'bottom';
         $this->layout_class .= !empty($toggle_position_horizontal) ? 'ins-hori-'.$toggle_position_horizontal.' ' :  'ins-hori-right ';
         $this->layout_class .= !empty($toggle_position_vertical) ? 'ins-var-'.$toggle_position_vertical.' ' :  'ins-var-bottom '; 
         $this->layout_class .= !empty(insopt( 'ins-layout-mode' )) ? 'ins-layout-' .  insopt( 'ins-layout-mode' ).' ' : ''; 
