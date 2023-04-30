@@ -190,7 +190,7 @@ class App {
         ob_start();
         $ins_toggler =  insopt( 'ins-toggler' );
         $cart_icon = !empty(insopt( 'ins-toggle-tab' )['cart-icon']) ? insopt( 'ins-toggle-tab' )['cart-icon'] : 'shopping-bag';
-        
+        $toggle_icon = apply_filters( 'ins_get_svg_icon_pro', instantio_svg_icon($cart_icon) ); 
 
         if( $this->layout == 2){
             $togglebtnClass = 'sidecart';
@@ -201,7 +201,7 @@ class App {
             $ins_toggler = 'tog-1';
             ?>
             <a class="ins-toggle-btn <?php echo esc_attr( $ins_toggler ) ?>" href="<?php echo esc_url(wc_get_checkout_url());  ?>"> 
-                <?php echo instantio_svg_icon($cart_icon); ?>
+                <?php echo $toggle_icon ?>
                 <?php // echo insopt( 'ins-toggle-tab' )['ins-cart-emty-hide']; ?>
                 <span class="ins-items-count"><span id="ins_cart_total" class="ins_cart_total"><?php echo WC()->cart->get_cart_contents_count(); ?></span></span> 
            </a> 
@@ -209,7 +209,7 @@ class App {
         }else {
             ?> 
             <div class="ins-click-to-show ins-toggle-btn <?php echo esc_attr( $togglebtnClass ) ?> <?php echo esc_attr( $ins_toggler ) ?>">
-                <?php echo instantio_svg_icon($cart_icon); ?> 
+                <?php echo $toggle_icon ?>
                 <span class="ins-items-count"><span id="ins_cart_total" class="ins_cart_total"><?php echo WC()->cart->get_cart_contents_count(); ?></span></span>
             </div> 
             <?php

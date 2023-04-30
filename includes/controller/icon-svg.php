@@ -72,6 +72,7 @@ if ( ! function_exists('instantio_get_svg_icon') ) {
  */
 if ( ! function_exists('instantio_svg_icon') ) {
 	function instantio_svg_icon( $icon = null ){
+		
 		return instantio_get_svg_icon( $icon );
 	}
 }
