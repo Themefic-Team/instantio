@@ -225,21 +225,24 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 				
 				<div class="dashboad-content-wrap">
 
-					<div class="dashboad-content active">
+					<div class="dashboad-content help-center active">
 						<div class="tf-settings-help-center">
-							<div class="tf-help-center-banner">
+							<div class="tf-help-center-banner" style="background-image: url('<?php echo INS_ADMIN_URL?>/tf-options/img/wizard/setup-wizard_bg.png')">
 								<div class="tf-help-center-content">
 									<h2>Setup Wizard</h2>
 									<p>Click the button below to run the setup wizard of Instantio. Your existing settings will not change.</p>
 									<a href="<?php echo esc_url( admin_url('admin.php?page=tf-setup-wizard'))?>" class="tf-admin-btn tf-btn-secondary">Setup Wizard</a>
 								</div>
+								<!-- <div class="tf-help-center-content-img">
+									<img src="<?php // echo INS_ADMIN_URL?>/tf-options/img/wizard/setup_wizard_icon.svg" alt="image"/>
+								</div> -->
 								
 							</div>
 
 							<div class="tf-support-document">
 								<div class="tf-single-support">
 									<a href="https://themefic.com/docs/instantio/" target="_blank">
-										<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/wizard/tf-documents.png' ?>" alt="Document">
+										<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/wizard/tf-documents.svg' ?>" alt="Document">
 										<h3>Documentation</h3>
 										<p>How the plugin works, what it can do, and how to use it.</p>
 										<span>Read More</span>
@@ -247,7 +250,7 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 								</div>
 								<div class="tf-single-support">
 									<a href="https://portal.themefic.com/support/" target="_blank">
-										<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/wizard/tf-mail.png' ?>" alt="Document">
+										<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/wizard/tf-mail.svg' ?>" alt="Document">
 										<h3>Email Support</h3>
 										<p>As part of our overall support strategy to provide the best experience.</p>
 										<span>Contact Us</span>
@@ -256,7 +259,7 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 								
 								<div class="tf-single-support">
 									<a href="https://www.youtube.com/playlist?list=PLY0rtvOwg0ykIvNBa8XI3SR7WEbdqqKoO" target="_blank">
-										<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/wizard/tf-tutorial.png'?>" alt="Document">
+										<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/wizard/tf-tutorial.svg'?>" alt="Document">
 										<h3>Video Tutorials</h3>
 										<p>As part of our overall support strategy to provide the best experience.</p>
 										<span>Watch Video</span>
@@ -269,7 +272,7 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 								<p>
 									To provide amazing experience to your guests and sell more with less effort. Bonus: You can upgrade to our plans today and save 50% off.
 								</p>
-								<a href="https://themefic.com/instantio/" class="btn-desh-primary">Upgrade now</a>
+								<a target="_blank" href="https://themefic.com/instantio/" class="btn-desh-primary">Upgrade now</a>
 							</div>
 
 							<div class="request-features">
@@ -278,7 +281,7 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 								<p>
 									We believe your feature request will make our website more user-friendly. Our dedicated team will review it and take it into consideration for future updates.
 								</p>
-								<a href="https://portal.themefic.com/support/" class="btn-desh-primary-tran">Submit request</a>
+								<a target="_blank" href="https://portal.themefic.com/support/" class="btn-desh-primary-tran">Submit request</a>
 							</div>
 
 							<!-- <div class="tf-settings-faq">
