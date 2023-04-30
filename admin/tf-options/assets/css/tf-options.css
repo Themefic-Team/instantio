@@ -328,6 +328,7 @@
   background-color: #002043;
   background-repeat: no-repeat;
   background-position: center;
+  background-size: cover;
   box-shadow: 0px 10px 30px rgba(233, 87, 10, 0.2);
   border-radius: 8px;
   height: 278px;
@@ -442,8 +443,8 @@
 }
 @media only screen and (max-width: 1199.98px) {
   .tf-setting-dashboard .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-support-document .tf-single-support {
-    width: 48%;
-    margin: 15px 1%;
+    width: 100%;
+    margin: 15px 0%;
     float: left;
   }
 }
