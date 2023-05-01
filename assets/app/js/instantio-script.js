@@ -48,6 +48,54 @@
 		hide_toggle_btn();
 
 
+	/*
+     * Ajax Quick View
+     */
+	// alert(noquickview);
+	if (noquickview == false) {
+		// Add Quick View Panel DIV to body
+		$(document.body).append('<div class="ins-quick-view"></div>');
+		// Close Quick View Panel
+		$(document).on("click", ".ins-quick-view .close", function (e) {
+			$(this).parent().fadeOut(300);
+		});
+		// Variable Product Quick View Ajax on Click
+		$(document).on("click", ".product_type_variable", function (e) {
+			e.preventDefault();
+			var $this = $(this),
+			cartPos = $this.offset(),
+			product_id = $this.data("product_id");
+			$(".ins-quick-view").css({
+			top: parseInt(cartPos.top) + parseInt(45) + "px",
+			left: cartPos.left + "px",
+			});
+			$.ajax({
+				type: "post",
+				url:  ins_params.ajax_url,
+				data: {
+					action: "ins_variable_product_quick_view",
+					security: ins_params.ins_ajax_nonce,
+					product_id: product_id,
+				},
+				beforeSend: function (data) {
+					$this.addClass("loading");
+					$(".ins-quick-view").block();
+				},
+				success: function (data) {
+					$this.removeClass("loading");
+					$(".ins-quick-view")
+					.fadeIn(300)
+					.html(data)
+					.prepend('<span class="close"></span>');
+				},
+				error: function (data) {
+					console.log(data);
+				},
+			});
+		});
+		}
+	 
+
 	});
 
 	// Hide Toggle Button
@@ -96,7 +144,48 @@
 		});
 	});
  
+	// Ajax Single Page Add To Cart
+	$(document).on("click", ".single_add_to_cart_button", function (e) {
+		if(disable_ajax_add_cart == true){
+			return;
+		}
+		e.preventDefault();
+		var thisbutton = $(this),
+			cart_form = thisbutton.closest("form.cart"),
+			id = thisbutton.val(),
+			product_id = cart_form.find("input[name=product_id]").val() || id,
+			product_qty = cart_form.find("input[name=quantity]").val() || 1,
+			variation_id = cart_form.find("input[name=variation_id]").val() || 0;
+		$.ajax({
+			url: ins_params.ajax_url,
+			type: "POST",
+			data: {
+				action: "ins_ajax_cart_single",
+				product_id: product_id,
+				quantity: product_qty,
+				variation_id: variation_id
+			},
+			beforeSend: function (response) {
+				thisbutton.removeClass("added").addClass("loading");
+			},
+			complete: function (response) {
+				thisbutton.addClass("added").removeClass("loading");
+			},
+			success: function (response) {
+				$(".ins-checkout-layout").html("");
+				$(".ins-checkout-layout").append(response);
 
+				// ins_owl_carousel();
+				if(auto_open_toggle == true){
+					$(".ins-checkout-layout-3").addClass("active");
+					$(".ins-checkout-overlay").addClass("active");
+					$(".ins-checkout-popup").toggleClass("active");
+					$(".ins-checkout-popup").toggleClass("fadeIn");
+				}
+			},
+		});
+	});
+	
 	// Add To Cart Flying Animation
 	$(document).on("click", ".add_to_cart_button", function () {
 		if(cart_fly_anim == false ){ 
@@ -349,8 +438,8 @@
 			});
 		}
 	);
-
- 
+	
+	
 	function ins_owl_carousel() {
 		// $('.ins-product-sell-carousel').owlCarousel('destroy');
 		// $('.ins-product-sell-carousel').owlCarousel({

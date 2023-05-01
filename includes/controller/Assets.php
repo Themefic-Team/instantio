@@ -14,6 +14,7 @@ class Assets {
         wp_enqueue_script( 'ins-script', INS_ASSETS_URL.'/app/js/instantio-script.js', array('jquery'), INSTANTIO_VERSION, true ); 
         wp_localize_script( 'ins-script', 'ins_params',
             array( 
+                'ins_ajax_nonce' => wp_create_nonce( 'ins_ajax_nonce' ),
                 'ajax_url' => admin_url( 'admin-ajax.php' ),
             )
         ); 
@@ -204,8 +205,12 @@ class Assets {
 
         $output = ''; 
         $auto_open_toggle = insopt( 'auto-tog-panel' ); 
+        $disable_ajax_add_cart = insopt( 'wi-disable-ajax-add-cart' ); 
         $cart_fly_anim = isset(insopt( 'cart-fly' )['cart-fly-anim']) ? insopt( 'cart-fly' )['cart-fly-anim'] : false; 
-        $cart_fly_icon = isset(insopt( 'cart-fly' )['cart-fly-icon']) ? insopt( 'cart-fly' )['cart-fly-icon'] : false;  
+        $cart_fly_icon = isset(insopt( 'cart-fly' )['cart-fly-icon']) ? insopt( 'cart-fly' )['cart-fly-icon'] : false; 
+         
+        $noquickview = insopt('woins-quickview-disable');  
+
         $ins_empty_cart = !empty(insopt( 'ins-toggle-tab' )['ins-cart-emty-hide']) ? insopt( 'ins-toggle-tab' )['ins-cart-emty-hide'] : false;
         if($cart_fly_icon == true){
             $cart_icon = !empty(insopt( 'cart-icon' )) ? insopt( 'cart-icon' ) : 'shopping-bag';
@@ -216,7 +221,11 @@ class Assets {
         $output .=  isset($ins_empty_cart) && !empty($ins_empty_cart) ? 'var hide_toggler = '.$ins_empty_cart.';' : 'var hide_toggler = false;';
         $output .=  isset($auto_open_toggle) && $auto_open_toggle == true ? 'var auto_open_toggle = true;' : 'var auto_open_toggle = false;';
         $output .=  isset($cart_fly_anim) && $cart_fly_anim == true ? 'var cart_fly_anim = true;' : 'var cart_fly_anim = false;';
-        $output .=  isset($cart_fly_icon) && $cart_fly_icon != false ? 'var cart_fly_icon = `'.$cart_fly_icon.'`' : 'var cart_fly_icon = false;';  
+        $output .=  isset($cart_fly_icon) && $cart_fly_icon != false ? 'var cart_fly_icon = `'.$cart_fly_icon.'`;' : 'var cart_fly_icon = false;';  
+        $output .=  isset($disable_ajax_add_cart) && $disable_ajax_add_cart != false ? 'var disable_ajax_add_cart = '.$disable_ajax_add_cart.';' : 'var disable_ajax_add_cart = false;';  
+
+        $output .=  isset($noquickview) && $noquickview != false ? 'var noquickview = '.$noquickview.';' : 'var  noquickview = false;';  
+
         
          
 		wp_add_inline_script( 'ins-script', $output );

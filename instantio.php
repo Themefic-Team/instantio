@@ -77,6 +77,13 @@ class INSTANTIO {
 			require_once INS_INC_PATH . '/controller/class-setup-wizard.php'; 
         }else{  
 			new INS\Controller\App();
+
+
+			// ins Variation product Quick Views
+			add_action('wp_ajax_ins_variable_product_quick_view', array( $this, 'ins_ajax_quickview_variable_products' ));
+			add_action('wp_ajax_nopriv_ins_variable_product_quick_view', array( $this, 'ins_ajax_quickview_variable_products' ));
+	
+	
         }
 		
 	} 
@@ -96,6 +103,42 @@ class INSTANTIO {
 		}
 
     } 
+	    /**
+     *	Ajax variable products quick view
+    */ 
+    
+    public function ins_ajax_quickview_variable_products(){
+        global $post, $product, $woocommerce;
+     
+        // return 1;
+        check_ajax_referer( 'ins_ajax_nonce', 'security' );
+        
+        add_action( 'wcqv_product_data', 'woocommerce_template_single_add_to_cart');
+     
+        $product_id = $_POST['product_id'];
+       
+        $wiqv_loop = new WP_Query(
+            array(
+                'post_type' => 'product',
+                'p' => $product_id,
+            )
+        );  
+        ob_start();
+        if( $wiqv_loop->have_posts() ) :
+            while ( $wiqv_loop->have_posts() ) : $wiqv_loop->the_post(); ?>
+                <?php wc_get_template( 'single-product/add-to-cart/variation.php' ); ?>
+                <script>
+                    jQuery.getScript("<?php echo $woocommerce->plugin_url(); ?>/assets/js/frontend/add-to-cart-variation.min.js");
+                </script> <?php
+                do_action( 'wcqv_product_data' );
+            endwhile;
+        endif;
+
+        echo ob_get_clean();
+
+        wp_die();
+    }
+
  
 }
 new INSTANTIO();
