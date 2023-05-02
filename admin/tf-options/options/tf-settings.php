@@ -220,10 +220,10 @@ TF_Settings::option( 'wiopt', array(
 			'icon'  				=> 'fas fa-cart-flatbed',
 			'fields' 				=> array(
 				array(
-					'id'        	=> 'woins-quickview-enable',
+					'id'        	=> 'woins-quickview-disable',
 					'class'     	=> 'ins-csf-disable badge_pro',
 					'type'      	=> 'switch',
-					'label'     	=> __( 'Enable Quick View', 'instantio' ),
+					'label'     	=> __( 'Disable Quick View', 'instantio' ),
 					'subtitle'  	=> __('You can disable it if you already have quick view function in your theme (Applicable for Variable products)', 'instantio'),
 					'is_pro'    	=> true,
 					'label_on'  	=> __('Yes', 'instantio'),
@@ -235,7 +235,7 @@ TF_Settings::option( 'wiopt', array(
 					'id'        	=> 'wi-disable-ajax-add-cart',
 					'class'     	=> 'ins-csf-disable badge_pro',
 					'type'      	=> 'switch',
-					'label'     	=> __( 'Enable Ajax Add to Cart', 'instantio' ),
+					'label'     	=> __( 'Disable Ajax Add to Cart', 'instantio' ),
 					'subtitle'  	=> __('You can disable it if you already have ajax "add to cart" function in your theme (To avoid conflict)', 'instantio'),
 					'is_pro'    	=> true,
 					'label_on'  	=> __('Yes', 'instantio'),

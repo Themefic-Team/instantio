@@ -39,6 +39,7 @@ class App {
         add_action( 'wp_ajax_nopriv_ins_ajax_remove_coupon', array( $this, 'ins_ajax_remove_coupon' ));
         add_action( 'wp_ajax_ins_ajax_remove_coupon', array( $this, 'ins_ajax_remove_coupon' ));
 
+        
         // Ins Cart Toggle
         add_action( 'ins_cart_toggle', array( $this, 'ins_cart_toggle' ), 11); 
 
@@ -53,6 +54,7 @@ class App {
         // add_action( 'ins_cart_content', array( $this, 'ins_cart_content' ), 11);
         add_action( 'ins_cart_content', array( $this, 'ins_cart_content_modern' ), 10);
 
+        
         
    
     }
@@ -464,6 +466,7 @@ class App {
         wp_die();
        
     }
+
 
 
     public function ins_layout_three(){
