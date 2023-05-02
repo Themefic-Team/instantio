@@ -128,11 +128,11 @@
 
   .dashboad-content-wrap {
     .dashboad-content {
+      max-width: 800px;
+      margin: auto;
       display: none;
       // get Help page
       .tf-settings-help-center {
-        max-width: 800px;
-        margin: auto;
         .tf-help-center-banner {
           background-color: #002043;
           background-repeat: no-repeat;
@@ -453,6 +453,46 @@
     }
     .dashboad-content.active {
       display: block;
+    }
+
+    .dashboad-content.tutorial {
+      .tutorial_wrapper {
+        .tutorial-heading {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 24px;
+          h4 {
+            font-style: normal;
+            margin: 0;
+            font-weight: 700;
+            font-size: 24px;
+            line-height: 30px;
+            letter-spacing: 0.01em;
+            color: #002043;
+          }
+          a {
+            background: #2271b1;
+            border-radius: 4px;
+            padding: 8px 32px;
+            color: #fff;
+            text-decoration: none;
+          }
+        }
+        .tutorial-body {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          padding: 0px;
+          gap: 19px;
+          .figure {
+            width: 333px;
+            height: 245px;
+            background: #f7f9fc;
+            border-radius: 8px;
+          }
+        }
+      }
     }
   }
 }

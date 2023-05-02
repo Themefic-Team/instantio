@@ -390,10 +390,21 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 					</div>
 
 					<div class="dashboad-content tutorial">
-						<div class="tutorial-heading">
-							<h4>Basic tutorials</h4>
-							<a href="#" class="btn view-all-btn">View all</a>
-							
+						<div class="tutorial_wrapper">
+							<div class="tutorial-heading">
+								<h4>Basic tutorials</h4>
+								<a href="#" class="btn view-all-btn">View all</a>
+							</div>
+							<div class="tutorial-body">
+								<figure class="figure">
+									<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/tutorial.jpg' ?>" class="figure-img" alt="turorial">
+  									<figcaption class="figure-caption">A caption for the above image.</figcaption>
+								</figure>
+								<figure class="figure">
+									<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/tutorial.jpg' ?>" class="figure-img" alt="turorial">
+  									<figcaption class="figure-caption">A caption for the above image.</figcaption>
+								</figure>
+							</div>
 						</div>
 					</div>
 

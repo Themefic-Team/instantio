@@ -464,11 +464,11 @@ TF_Settings::option( 'wiopt', array(
 									'options'  		=> array(
 										'left'   			=> array(
 											'title'			=> 'Toggle Left',
-											'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/toggle-middle.png',
+											'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/toggle-right.png',
 										),
 										'right'  			=> array(
 											'title'			=> 'Toggle Right',
-											'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/toggle-right.png',
+											'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/toggle-middle.png',
 										)
 									), 
 									'default'  		=> 'right',
@@ -930,54 +930,7 @@ TF_Settings::option( 'wiopt', array(
 									'content' 		=> __('Billing Section', 'instantio'),
 								),
 
-								array(
-									'id'       		=> 'ins-bill-bg-padding_option',
-									'type'     		=> 'switch', 
-									'label'    		=> __('Enable Panel Billing Padding', 'instantio'),
-									'subtitle' 		=> __('Set Panel Billing Padding','instantio'),
-									'label_on'  	=> __('Enable', 'instantio'),
-									'label_off' 	=> __('Disable', 'instantio'),
-									'width'   		=> 100,
-									'default'  		=> false,
-									'is_pro'		=> true,
-								),
-				
-								array(
-									'id' 			=> 'ins-bill-bg-padding-top',
-									'class' 		=> 'tf-field-inline',
-									'type' 			=> 'number',
-									'label' 		=> 'Border Top',
-									'subtitle' 		=> 'Border Top ',
-									'placeholder' 	=> '1px',
-									'default' 		=> '1px',
-								),
-								array(
-									'id' 			=> 'ins-bill-bg-padding-right',
-									'class' 		=> 'tf-field-inline',
-									'type' 			=> 'number',
-									'label' 		=> 'Border Right',
-									'subtitle' 		=> 'Border Right ',
-									'placeholder' 	=> '1px',
-									'default' 		=> '1px',
-								),
-								array(
-									'id' 			=> 'ins-bill-bg-padding-bottom',
-									'class' 		=> 'tf-field-inline',
-									'type' 			=> 'number',
-									'label' 		=> 'Border Bottom',
-									'subtitle' 		=> 'Border Bottom ',
-									'placeholder' 	=> '1px',
-									'default' 		=> '1px',
-								),
-								array(
-									'id' 			=> 'ins-bill-bg-padding-left',
-									'class' 		=> 'tf-field-inline',
-									'type' 			=> 'number',
-									'label' 		=> 'Border Left',
-									'subtitle' 		=> 'Border Left ',
-									'placeholder' 	=> '1px',
-									'default' 		=> '1px',
-								),
+								
 
 								array(
 									'id'       		=> 'ins-bill-bg',
@@ -1007,15 +960,6 @@ TF_Settings::option( 'wiopt', array(
 									'is_pro'		=> true,
 								),
 				
-								array(
-									'id'       		=> 'ins-bill-label',
-									'type'     		=> 'color',
-									'class'			=> 'tf-field-color-single',
-									'label'    		=> __( 'Panel Billing Label Color', 'instantio' ),
-									'subtitle' 		=> __( 'Toggle panel billing section label text color', 'instantio' ),
-									'is_pro'		=> true,
-								),
-								
 								array(
 									'id'       		=> 'ins-bill-input-bg',
 									'type'     		=> 'color',
@@ -1196,89 +1140,7 @@ TF_Settings::option( 'wiopt', array(
 							),
 						),
 
-						array(
-							'id'  		=> 'toggle_panel_reviews',
-							'title'		=> esc_html__( 'Reviews', 'instantio' ),
-							'fields' 	=> array(
-								array(
-									'id'    		=> 'review-section',
-									'type'    		=> 'heading',
-									'content' 		=> __('Review Section', 'instantio'),
-								),
-				
-								array(
-									'id'       		=> 'ins-review-heading',
-									'type'     		=> 'color',
-									'class'			=> 'tf-field-color-single',
-									'label'    		=> __( 'Order Review Heading', 'instantio' ),
-									'subtitle' 		=> __( 'Toggle panel review section heading color', 'instantio' ),
-									'is_pro'		=> true,
-								),
-								
-								array(
-									'id'       		=> 'ins-review-bg',
-									'type'     		=> 'color',
-									'class'			=> 'tf-field-color-single',
-									'label'    		=> __( 'Review Section Background', 'instantio' ),
-									'subtitle' 		=> __( 'Toggle panel review section background color', 'instantio' ),
-									'is_pro'		=> true,
-								),
-								
-								array(
-									'id'       		=> 'ins-review-tbl-head-bg',
-									'type'     		=> 'color',
-									'class'			=> 'tf-field-color-single',
-									'label'    		=> __( 'Review Table Head Background', 'instantio' ),
-									'subtitle' 		=> __( 'Toggle panel review section table head background color', 'instantio' ),
-									'is_pro'		=> true,
-								),
-				
-								array(
-									'id'       		=> 'ins-review-tbl-head-txt',
-									'type'     		=> 'color',
-									'class'			=> 'tf-field-color-single',
-									'label'    		=> __( 'Review Table Head Text Color', 'instantio' ),
-									'subtitle' 		=> __( 'Toggle panel review section table head text color', 'instantio' ),
-									'is_pro'		=> true,
-								),
-								
-								array(
-									'id'       		=> 'ins-review-tbl-item-bg',
-									'type'     		=> 'color',
-									'class'			=> 'tf-field-color-single',
-									'label'    		=> __( 'Review Table Item Background', 'instantio' ),
-									'subtitle' 		=> __( 'Toggle panel review section table item background color', 'instantio' ),
-									'is_pro'		=> true,
-								),
-								
-								array(
-									'id'       		=> 'ins-review-tbl-item-txt',
-									'type'     		=> 'color',
-									'class'			=> 'tf-field-color-single',
-									'label'    		=> __( 'Review Table Item Text Color', 'instantio' ),
-									'subtitle' 		=> __( 'Toggle panel review section table item text color', 'instantio' ),
-									'is_pro'		=> true,
-								),
-								
-								array(
-									'id'       		=> 'ins-review-pricing-bg',
-									'type'     		=> 'color',
-									'class'			=> 'tf-field-color-single',
-									'label'    		=> __( 'Review Pricing Background', 'instantio' ),
-									'subtitle' 		=> __( 'Toggle panel review section pricing background color', 'instantio' ),
-									'is_pro'		=> true,
-								),
-				
-								array(
-									'id'       		=> 'ins-review-pricing-txt',
-									'type'     		=> 'color',
-									'class'			=> 'tf-field-color-single',
-									'label'    		=> __( 'Review Pricing Text Color', 'instantio' ),
-									'subtitle' 		=> __( 'Toggle panel review section pricing text color', 'instantio' ),
-									'is_pro'		=> true,
-								),
-							),
-						)
+						
 					),
 				),
 
