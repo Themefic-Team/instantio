@@ -9,9 +9,10 @@ class Assets {
         add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) ); 
     } 
     public function enqueue_scripts() { 
-        wp_enqueue_style( 'ins-style', INS_ASSETS_URL.'/app/css/instantio-style.css', array(), INSTANTIO_VERSION ); 
+
+        wp_enqueue_style( 'ins-style', apply_filters( 'ins_style_min_status_checked', INS_ASSETS_URL.'/app/css/instantio-style.css' ), array(), INSTANTIO_VERSION ); 
         // wp_enqueue_style( 'ins-style-modern', INS_ASSETS_URL.'/app/css/instantio-modern-style.css', array(), INSTANTIO_VERSION ); 
-        wp_enqueue_script( 'ins-script', INS_ASSETS_URL.'/app/js/instantio-script.js', array('jquery'), INSTANTIO_VERSION, true ); 
+        wp_enqueue_script( 'ins-script', apply_filters( 'ins_script_min_status_checked', INS_ASSETS_URL.'/app/js/instantio-script.js' ), array('jquery'), INSTANTIO_VERSION, true ); 
         wp_localize_script( 'ins-script', 'ins_params',
             array( 
                 'ins_ajax_nonce' => wp_create_nonce( 'ins_ajax_nonce' ),

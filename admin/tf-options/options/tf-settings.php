@@ -1382,18 +1382,6 @@ TF_Settings::option( 'wiopt', array(
 			'fields' 				=> array(
 				
 				array(
-					'id'       		=> 'fancy-cdn',
-					'type'     		=> 'switch',
-					'is_pro'    	=> true,
-					'label'    		=> __('FancyBox CDN', 'instantio'),
-					'subtitle' 		=> __('Enable/disable cloudflare CDN for FancyBox CSS & JS', 'instantio'),
-					'label_on'    	=> __('Enabled', 'instantio' ),
-					'label_off'   	=> __('Disabled', 'instantio' ),
-					'width' 		=> 100,
-					'default'   	=> false,
-				),
-		
-				array(
 					'id'       		=> 'css-min',
 					'type'     		=> 'switch',
 					'is_pro'    	=> true,

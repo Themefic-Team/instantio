@@ -62,7 +62,7 @@ class App {
     public function ins_options_init(){
         
         // ins-toggle-panel-tab
-        $ins_toggle_panel_tab = insopt('wi-disable-ajax-add-cart');
+        $ins_toggle_panel_tab = insopt('css_min');
         $ins_empty_cart = !empty(insopt( 'ins-toggle-tab' )['ins-cart-emty-hide']) ? insopt( 'ins-toggle-tab' )['ins-cart-emty-hide'] : false;
         
         echo '<pre>';
@@ -490,6 +490,7 @@ class App {
 		} 
         $toggle_position_horizontal = isset(insopt( 'ins-toggle-tab' )['toggle-position-horizontal']) ? insopt( 'ins-toggle-tab' )['toggle-position-horizontal'] : 'right';
         $toggle_position_vertical = isset(insopt( 'ins-toggle-tab' )['toggle-position-vertical']) ? insopt( 'ins-toggle-tab' )['toggle-position-vertical'] : 'bottom';
+        $toggle_panel_position = isset(insopt( 'ins-toggle-panel-tab' )['toggle-panel-position']) ? insopt( 'ins-toggle-panel-tab' )['toggle-panel-position'] : 'panel-right';
         $this->layout_class .= !empty($toggle_position_horizontal) ? 'ins-hori-'.$toggle_position_horizontal.' ' :  'ins-hori-right ';
         $this->layout_class .= !empty($toggle_position_vertical) ? 'ins-var-'.$toggle_position_vertical.' ' :  'ins-var-bottom '; 
         $this->layout_class .= !empty(insopt( 'ins-layout-mode' )) ? 'ins-layout-' .  insopt( 'ins-layout-mode' ).' ' : ''; 
