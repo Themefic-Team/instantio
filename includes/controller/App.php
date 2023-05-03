@@ -215,7 +215,7 @@ class App {
                 <span class="ins-items-count"><span id="ins_cart_total" class="ins_cart_total"><?php echo WC()->cart->get_cart_contents_count(); ?></span></span>
             </div> 
             <?php
-        }
+        } 
         
          echo ob_get_clean();
     }
@@ -490,13 +490,21 @@ class App {
 		} 
         $toggle_position_horizontal = isset(insopt( 'ins-toggle-tab' )['toggle-position-horizontal']) ? insopt( 'ins-toggle-tab' )['toggle-position-horizontal'] : 'right';
         $toggle_position_vertical = isset(insopt( 'ins-toggle-tab' )['toggle-position-vertical']) ? insopt( 'ins-toggle-tab' )['toggle-position-vertical'] : 'bottom';
-        $toggle_panel_position = isset(insopt( 'ins-toggle-panel-tab' )['toggle-panel-position']) ? insopt( 'ins-toggle-panel-tab' )['toggle-panel-position'] : 'panel-right';
+        $toggle_panel_position = isset(insopt( 'ins-toggle-panel-tab' )['toggle-panel-position']) ? 'panel-'.insopt( 'ins-toggle-panel-tab' )['toggle-panel-position'] : 'panel-right';
         $this->layout_class .= !empty($toggle_position_horizontal) ? 'ins-hori-'.$toggle_position_horizontal.' ' :  'ins-hori-right ';
+        $this->layout_class .= !empty($toggle_panel_position) ? $toggle_panel_position.' ' :  'panel-right ';
         $this->layout_class .= !empty($toggle_position_vertical) ? 'ins-var-'.$toggle_position_vertical.' ' :  'ins-var-bottom '; 
         $this->layout_class .= !empty(insopt( 'ins-layout-mode' )) ? 'ins-layout-' .  insopt( 'ins-layout-mode' ).' ' : ''; 
   
-        $ins_layout_class = apply_filters( 'ins_layout_class', $this->layout_class );
-        ob_start();
+        $ins_layout_class = apply_filters( 'ins_layout_class', $this->layout_class ); 
+        
+        // Dedicated mobile Version hook for
+
+        do_action( 'dedicated_mobile_version' );
+
+
+
+        ob_start(); 
         if( $this->layout == 1 ||  $this->layout == 3):
         ?>
             <div class="ins-fixed-toogle <?php echo esc_attr( $this->layout_class ) ?>"> <?php echo do_action('ins_cart_toggle'); ?></div>
@@ -505,7 +513,7 @@ class App {
 
         if($this->layout == 2 ||  $this->layout == 3):
             
-        ?>
+        ?> 
         <div class="ins-checkout-popup ins-checkout-modern <?php echo esc_attr( $ins_layout_class ) ?>"> 
             <div class="ins-checkout-overlay"></div>
             <div class="ins-checkout-layout ins-checkout-layout-3 <?php echo esc_attr( $ins_layout_class ) ?>">
