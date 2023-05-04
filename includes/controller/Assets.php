@@ -105,6 +105,20 @@ class Assets {
                     width: '.$panel_width_1200.'% !important;
                     z-index: '.$wi_zindex.' !important;
                 } 
+                .ins-checkout-modern .ins-checkout-layout.slide.ins-hori-left {
+                    left: -'.$panel_width_1200.'%  !important;
+                }
+                
+                .ins_animate_one.ins-checkout-layout.slide.ins-hori-left.active, .ins_animate_one.ins-checkout-layout.slide.active {
+                    width: '.$panel_width_1200.'% !important;
+                    height: 100%;
+                } 
+                .ins_animate_one.ins-checkout-layout.slide.ins-hori-left.active {
+                    height: 100%;
+                    width: '.$panel_width_1200.'% !important;
+                    left: 0 !important;
+                    right: auto;
+                  }
                 .ins-checkout-layout:hover {
                     background-color: '.$wi_inner_bg_colors_hover.' !important; 
                 }

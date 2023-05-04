@@ -495,6 +495,7 @@ class App {
         $this->layout_class .= !empty($toggle_panel_position) ? $toggle_panel_position.' ' :  'panel-right ';
         $this->layout_class .= !empty($toggle_position_vertical) ? 'ins-var-'.$toggle_position_vertical.' ' :  'ins-var-bottom '; 
         $this->layout_class .= !empty(insopt( 'ins-layout-mode' )) ? 'ins-layout-' .  insopt( 'ins-layout-mode' ).' ' : ''; 
+        $this->layout_class .= !empty(insopt( 'ins-layout-animation' )) ? insopt( 'ins-layout-animation' ).' '  : ''; 
   
         $ins_layout_class = apply_filters( 'ins_layout_class', $this->layout_class ); 
         
