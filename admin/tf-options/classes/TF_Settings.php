@@ -397,13 +397,36 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 							</div>
 							<div class="tutorial-body">
 								<figure class="figure">
-									<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/tutorial.jpg' ?>" class="figure-img" alt="turorial">
+									<div class="main-caption">
+										<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/tutorial.jpg' ?>" class="figure-img" alt="turorial" />
+										<div class="play-button-overlap">
+											<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/play.png' ?>" alt="turorial" />
+										</div>
+									</div>
   									<figcaption class="figure-caption">A caption for the above image.</figcaption>
 								</figure>
+
 								<figure class="figure">
-									<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/tutorial.jpg' ?>" class="figure-img" alt="turorial">
+									<div class="main-caption">
+										<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/tutorial.jpg' ?>" class="figure-img" alt="turorial" />
+										<div class="play-button-overlap">
+											<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/play.png' ?>" alt="turorial" />
+										</div>
+									</div>
   									<figcaption class="figure-caption">A caption for the above image.</figcaption>
 								</figure>
+
+								<figure class="figure">
+									<div class="main-caption">
+										<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/tutorial.jpg' ?>" class="figure-img" alt="turorial" />
+										<div class="play-button-overlap">
+											<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/play.png' ?>" alt="turorial" />
+										</div>
+									</div>
+  									<figcaption class="figure-caption">A caption for the above image.</figcaption>
+								</figure>
+								
+								
 							</div>
 						</div>
 					</div>
