@@ -224,7 +224,7 @@ ins-cart-fly-icon svg{
 }
 
 .ins-checkout-layout.slide.ins-hori-left {
-  left: -600px;
+  /* left: -600px; */
   right: auto;
   transform: translate(0, 0) !important;
   -webkit-transform: translate(0, 0) !important;
@@ -234,13 +234,13 @@ ins-cart-fly-icon svg{
 }
 
 .ins-checkout-layout.slide.ins-hori-left.active {
-  left: -600px;
+  /* left: -600px; */
   right: auto;
-  transform: translate(100%, 0) !important;
-  -webkit-transform: translate(100%, 0) !important;
+  /* transform: translate(100%, 0) !important; */
+  /* -webkit-transform: translate(100%, 0) !important;
   -moz-transform: translate(100%, 0) !important;
   -ms-transform: translate(100%, 0) !important;
-  -o-transform: translate(100%, 0) !important;
+  -o-transform: translate(100%, 0) !important; */
 }
 
 .loader-container-fixed {
@@ -870,13 +870,7 @@ ins-cart-fly-icon svg{
   /* overflow: auto; */
 }
 
-.ins-checkout-modern .ins-checkout-layout.slide.ins-hori-left.active {
-  left: -690px;
-}
 
-.ins-checkout-modern .ins-checkout-layout.slide.ins-hori-left {
-  left: -690px;
-}
 
 /* Ins Cart Content  */
 
@@ -1664,6 +1658,115 @@ ins-cart-fly-icon svg{
 }
 /* Glass Morphism Mode CSS */
 
+/* Animation */
+
+  /* Animation One */
+  .ins_animate_one.ins-checkout-layout.slide {
+    transition: 0.6s ease-in !important;
+    top: auto;
+    bottom: 0;
+    height: 0;
+    width: 0 !important;
+  }
+
+  .ins_animate_one.ins-checkout-layout.slide.ins-var-cart-top { 
+    top: 0;
+    bottom: auto; 
+  }
+  .ins_animate_one.ins-checkout-layout.slide.ins-var-cart-middle {
+    height: 100% !important;
+  }
+  .ins_animate_one.ins-checkout-layout.slide.active {
+    transition: 0.4s ease-out !important;
+    -webkit-transition: 0.4s ease-out !important;
+    -moz-transition: 0.4s ease-out !important;
+    -ms-transition: 0.4s ease-out !important;
+    -o-transition: 0.4s ease-out !important;
+  }
+  .ins_animate_one.ins-checkout-layout.slide.ins-var-cart-top .ins-click-to-show {
+    top: 30px !important;
+  }
+  .ins_animate_one.ins-checkout-popup.popup .ins-checkout-layout {
+    transform: scale(0.1);
+    transition: 0.4s ease-in !important;
+    -webkit-transition: 0.4s ease-in !important;
+    -moz-transition: 0.4s ease-in !important;
+    -ms-transition: 0.4s ease-in !important;
+    -o-transition: 0.4s ease-in !important;
+  }
+  .ins_animate_one.ins-checkout-popup.popup.active .ins-checkout-layout {
+    transform: scale(1);
+    transition: 0.4s ease-out !important;
+    -webkit-transition: 0.4s ease-out !important;
+    -moz-transition: 0.4s ease-out !important;
+    -ms-transition: 0.4s ease-out !important;
+    -o-transition: 0.4s ease-out !important;
+  }
+  /* .ins_animate_one.ins-checkout-layout.slide .ins-checkout-header, 
+  .ins_animate_one.ins-checkout-layout.slide .ins-content, 
+  .ins_animate_one.ins-checkout-layout.slide .ins-checkout-steps {
+    height: 0; 
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.6s ease-out !important;
+  }
+  */
+  .ins_animate_one.ins-checkout-layout.ins-checkout-layout-3.popup {
+    overflow: hidden !important;
+  }
+  .ins_animate_one.ins-checkout-layout.slide.active .ins-checkout-header, 
+  .ins_animate_one.ins-checkout-layout.slide.active .ins-content,  
+  .ins_animate_one.ins-checkout-layout.slide.active .ins-checkout-steps,
+  .ins-checkout-popup.active .ins_animate_one.ins-checkout-layout .ins-checkout-header, 
+  .ins-checkout-popup.active .ins_animate_one.ins-checkout-layout .ins-content, 
+  .ins-checkout-popup.active .ins_animate_one.ins-checkout-layout .ins-checkout-steps {
+      -webkit-animation-name: AnimateOneFadeInUp;
+      animation-name: AnimateOneFadeInUp;
+      -webkit-animation-duration: 1s;
+      animation-duration: 1s;
+      animation-delay: 0.5s;
+      -webkit-animation-fill-mode: both;
+      animation-fill-mode: both;
+  }  
+  .ins_animate_one.ins-checkout-layout.slide.active .ins-cart-inner,  
+  .ins-checkout-popup.active .ins_animate_one.ins-checkout-layout .ins-cart-inner {
+      -webkit-animation-name: AnimateOneFadeInUp;
+      animation-name: AnimateOneFadeInUp;
+      -webkit-animation-duration: 1s;
+      animation-duration: 1s;
+      animation-delay: 0.1s;
+      -webkit-animation-fill-mode: both;
+      animation-fill-mode: both;
+  } 
+  
+    @-webkit-keyframes AnimateOneFadeInUp {
+    0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+    }
+    100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+    }
+    }
+    @keyframes AnimateOneFadeInUp {
+    0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+    }
+    100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+    }
+    } 
+  /* Animation One */
+
+
+/* Animation */
 
 /*quick view variable product*/
 .ins-quick-view {

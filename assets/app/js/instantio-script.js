@@ -43,7 +43,7 @@
 			$(".ins-single-step").removeClass("active");
 			$("." + step).addClass("active");
 		});
-
+ 
 		// Hide toggle button if empty cart
 		hide_toggle_btn();
 

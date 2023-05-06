@@ -144,6 +144,19 @@ TF_Settings::option( 'wiopt', array(
 					// 'dependency' 	=> array('ins-layout',  '!=', '1', '', 'visible' ),
 				),
 
+				array(
+					'id'        	=> 'ins-layout-animation',
+					'type'      	=> 'select',
+					'class' 		=> 'ins-layout-options-imageset200',
+					'label'     	=> __('Choose layout Animation', 'instantio'),  
+					'options'   	=> array(
+						'default' 				=>  'default', 
+						'animate_one' 	=>  'Animate One'
+					),
+					'default'   	=> 'default',
+					// 'dependency' 	=> array('ins-layout',  '!=', '1', '', 'visible' ),
+				),
+
 			),
 		),
 
