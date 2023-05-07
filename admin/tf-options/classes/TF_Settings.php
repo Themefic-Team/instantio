@@ -199,93 +199,252 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 		}
 
 		/**
-		 * Get Help Page
+		 * Dashoard tab pages 
 		 * @author M Hemel Hasan
 		 */
 		public function ins_get_dashboard_callback(){
 		 ?>	
 			<div class="tf-setting-dashboard">
 				<?php echo $this->tf_top_header(); ?>
+				<div class="ins-dashboad-wrapper">
+					<ul class="dashboad-tab">
+						<li class="dashboad-tab-singel active">
+							<span>General</span>
+						</li>
+						<li class="dashboad-tab-singel">
+							<span>Tutorial</span>
+						</li>
+						<li class="dashboad-tab-singel">
+							<span>Premium</span>
+						</li>
+						<li class="dashboad-tab-singel">
+							<span>FAQs</span>
+						</li>
+						<li class="dashboad-tab-singel">
+							<span>What's New</span>
+						</li>
+					</ul>
 
-				<ul class="dashboad-tab">
-					<li class="dashboad-tab-singel active">
-						<span>General</span>
-					</li>
-					<li class="dashboad-tab-singel">
-						<span>Tutorial</span>
-					</li>
-					<li class="dashboad-tab-singel">
-						<span>Premium</span>
-					</li>
-					<li class="dashboad-tab-singel">
-						<span>What's New</span>
-					</li>
-				</ul>
+					<div class="dashboad-content-wrap">
 
-				
-				<div class="dashboad-content-wrap">
-
-					<div class="dashboad-content help-center active">
-						<div class="tf-settings-help-center">
-							<div class="tf-help-center-banner" style="background-image: url('<?php echo INS_ADMIN_URL?>/tf-options/img/wizard/setup-wizard_bg.png')">
-								<div class="tf-help-center-content">
-									<h2>Setup Wizard</h2>
-									<p>Click the button below to run the setup wizard of Instantio. Your existing settings will not change.</p>
-									<a href="<?php echo esc_url( admin_url('admin.php?page=tf-setup-wizard'))?>" class="tf-admin-btn tf-btn-secondary">Setup Wizard</a>
+						<div class="dashboad-content help-center active">
+							<div class="tf-settings-help-center">
+								<div class="tf-help-center-banner" style="background-image: url('<?php echo INS_ADMIN_URL?>/tf-options/img/wizard/setup-wizard_bg.png')">
+									<div class="tf-help-center-content">
+										<h2>Setup Wizard</h2>
+										<p>Click the button below to run the setup wizard of Instantio. Your existing settings will not change.</p>
+										<a href="<?php echo esc_url( admin_url('admin.php?page=tf-setup-wizard'))?>" class="tf-admin-btn tf-btn-secondary">Setup Wizard</a>
+									</div>
+									<!-- <div class="tf-help-center-content-img">
+										<img src="<?php // echo INS_ADMIN_URL?>/tf-options/img/wizard/setup_wizard_icon.svg" alt="image"/>
+									</div> -->
+									
 								</div>
-								<!-- <div class="tf-help-center-content-img">
-									<img src="<?php // echo INS_ADMIN_URL?>/tf-options/img/wizard/setup_wizard_icon.svg" alt="image"/>
-								</div> -->
-								
-							</div>
 
-							<div class="tf-support-document">
-								<div class="tf-single-support">
-									<a href="https://themefic.com/docs/instantio/" target="_blank">
-										<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/wizard/tf-documents.svg' ?>" alt="Document">
-										<h3>Documentation</h3>
-										<p>How the plugin works, what it can do, and how to use it.</p>
-										<span>Read More</span>
-									</a>
+								<div class="tf-support-document">
+									<div class="tf-single-support">
+										<a href="https://themefic.com/docs/instantio/" target="_blank">
+											<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/wizard/tf-documents.svg' ?>" alt="Document">
+											<h3>Documentation</h3>
+											<p>How the plugin works, what it can do, and how to use it.</p>
+											<span>Read More</span>
+										</a>
+									</div>
+									<div class="tf-single-support">
+										<a href="https://portal.themefic.com/support/" target="_blank">
+											<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/wizard/tf-mail.svg' ?>" alt="Document">
+											<h3>Email Support</h3>
+											<p>As part of our overall support strategy to provide the best experience.</p>
+											<span>Contact Us</span>
+										</a>
+									</div>
+									
+									<div class="tf-single-support">
+										<a href="https://www.youtube.com/playlist?list=PLY0rtvOwg0ykIvNBa8XI3SR7WEbdqqKoO" target="_blank">
+											<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/wizard/tf-tutorial.svg'?>" alt="Document">
+											<h3>Video Tutorials</h3>
+											<p>As part of our overall support strategy to provide the best experience.</p>
+											<span>Watch Video</span>
+										</a>
+									</div>
 								</div>
-								<div class="tf-single-support">
-									<a href="https://portal.themefic.com/support/" target="_blank">
-										<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/wizard/tf-mail.svg' ?>" alt="Document">
-										<h3>Email Support</h3>
-										<p>As part of our overall support strategy to provide the best experience.</p>
-										<span>Contact Us</span>
-									</a>
+
+								<div class="updatedtopro">
+									<h4>Upgrade to PRO</h4>
+									<p>
+										To provide amazing experience to your guests and sell more with less effort. Bonus: You can upgrade to our plans today and save 50% off.
+									</p>
+									<a target="_blank" href="https://themefic.com/instantio/" class="btn-desh-primary">Upgrade now</a>
 								</div>
-								
-								<div class="tf-single-support">
-									<a href="https://www.youtube.com/playlist?list=PLY0rtvOwg0ykIvNBa8XI3SR7WEbdqqKoO" target="_blank">
-										<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/wizard/tf-tutorial.svg'?>" alt="Document">
-										<h3>Video Tutorials</h3>
-										<p>As part of our overall support strategy to provide the best experience.</p>
-										<span>Watch Video</span>
-									</a>
+
+								<div class="request-features">
+									<img src="<?php echo INS_ADMIN_URL?>/tf-options/img/feature-selection.png" alt="image">
+									<h4>Have any thoughts or feature request?</h4>
+									<p>
+										We believe your feature request will make our website more user-friendly. Our dedicated team will review it and take it into consideration for future updates.
+									</p>
+									<a target="_blank" href="https://portal.themefic.com/support/" class="btn-desh-primary-tran">Submit request</a>
 								</div>
 							</div>
+						</div>
 
-							<div class="updatedtopro">
-								<h4>Upgrade to PRO</h4>
-								<p>
-									To provide amazing experience to your guests and sell more with less effort. Bonus: You can upgrade to our plans today and save 50% off.
-								</p>
-								<a target="_blank" href="https://themefic.com/instantio/" class="btn-desh-primary">Upgrade now</a>
+						<div class="dashboad-content tutorial">
+							<div class="tutorial_wrapper">
+								<div class="tutorial-heading">
+									<h4>Basic tutorials</h4>
+									<a href="#" class="btn view-all-btn">View all</a>
+								</div>
+								<div class="tutorial-body">
+									<figure class="figure">
+										<div class="main-caption">
+											<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/tutorial.jpg' ?>" class="figure-img" alt="turorial" />
+											<div class="play-button-overlap">
+												<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/play.png' ?>" alt="turorial" />
+											</div>
+										</div>
+										<figcaption class="figure-caption">A caption for the above image.</figcaption>
+									</figure>
+
+									<figure class="figure">
+										<div class="main-caption">
+											<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/tutorial.jpg' ?>" class="figure-img" alt="turorial" />
+											<div class="play-button-overlap">
+												<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/play.png' ?>" alt="turorial" />
+											</div>
+										</div>
+										<figcaption class="figure-caption">A caption for the above image.</figcaption>
+									</figure>
+
+									<figure class="figure">
+										<div class="main-caption">
+											<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/tutorial.jpg' ?>" class="figure-img" alt="turorial" />
+											<div class="play-button-overlap">
+												<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/play.png' ?>" alt="turorial" />
+											</div>
+										</div>
+										<figcaption class="figure-caption">A caption for the above image.</figcaption>
+									</figure>
+
+									<figure class="figure">
+										<div class="main-caption">
+											<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/tutorial.jpg' ?>" class="figure-img" alt="turorial" />
+											<div class="play-button-overlap">
+												<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/play.png' ?>" alt="turorial" />
+											</div>
+										</div>
+										<figcaption class="figure-caption">A caption for the above image.</figcaption>
+									</figure>
+								</div>
 							</div>
+						</div>
 
-							<div class="request-features">
-								<img src="<?php echo INS_ADMIN_URL?>/tf-options/img/feature-selection.png" alt="image">
-								<h4>Have any thoughts or feature request?</h4>
-								<p>
-									We believe your feature request will make our website more user-friendly. Our dedicated team will review it and take it into consideration for future updates.
-								</p>
-								<a target="_blank" href="https://portal.themefic.com/support/" class="btn-desh-primary-tran">Submit request</a>
+						<div class="dashboad-content premium">
+							<div class="premium_wrapper">
+								<div class="premium-heading">
+									<h4>Premium Features</h4>
+									<a href="https://themefic.com/instantio/" class="btn view-all-btn">View all</a>
+								</div>
+								<div class="premium-body">
+									<figure class="figure">
+										<div class="main-caption">
+											<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/premium1.jpg' ?>" class="figure-img" alt="turorial" />
+										</div>
+										<figcaption class="figure-caption">
+											<h4>Side Cart + Side Checkout (Multi Step)</h4>
+											<p>
+												Customer will checkout from Same Window (Side drawer). The checkout process will be Multi-step (Cart -> Checkout, No Reload).
+											</p>
+											<a  href="https://wpinstant.io/side-checkout/" class="btn-premium-fea">See Preview</a>
+										</figcaption>
+									</figure>
+
+									<figure class="figure">
+										<div class="main-caption">
+											<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/premium1.jpg' ?>" class="figure-img" alt="turorial" />
+										</div>
+										<figcaption class="figure-caption">
+											<h4>Side Cart + Side Checkout (Single Step)</h4>
+											<p>
+												The checkout process will be Single-step. Cart & Checkout will be shown on the Same Window, No Page Reload.
+											</p>
+											<a href="https://wpinstant.io/side-checkout-single/" class="btn-premium-fea">See Preview</a>
+										</figcaption>
+									</figure>
+
+									<figure class="figure">
+										<div class="main-caption">
+											<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/premium1.jpg' ?>" class="figure-img" alt="turorial" />
+										</div>
+										<figcaption class="figure-caption">
+											<h4>Popup Cart + Popup Checkout (Multi Step)</h4>
+											<p>
+												Customer will checkout from Same Window (Popup). The checkout process will be Multi-step (Cart -> Checkout)
+											</p>
+											<a href="https://wpinstant.io/popup-checkout/" class="btn-premium-fea">See Preview</a>
+										</figcaption>
+									</figure>
+
+									<figure class="figure">
+										<div class="main-caption">
+											<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/premium1.jpg' ?>" class="figure-img" alt="turorial" />
+										</div>
+										<figcaption class="figure-caption">
+											<h4>Popup Cart + Popup Checkout (Single Step)</h4>
+											<p>
+												The checkout process will be Single-step Popup (Cart & Checkout on Same Window, No Page Reload).
+											</p>
+											<a href="https://wpinstant.io/popup-checkout-single/" class="btn-premium-fea">See Preview</a>
+										</figcaption>
+									</figure>
+
+									<figure class="figure">
+										<div class="main-caption">
+											<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/premium1.jpg' ?>" class="figure-img" alt="turorial" />
+										</div>
+										<figcaption class="figure-caption">
+											<h4>Dedicated Mobile Layout</h4>
+											<p>
+												A dedicated mobile layout for smaller devices to make your checkout process much smoother for customers.
+											</p>
+											<a href="https://wpinstant.io/mobile/" class="btn-premium-fea">See Preview</a>
+										</figcaption>
+									</figure>
+
+									<figure class="figure">
+										<div class="main-caption">
+											<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/premium1.jpg' ?>" class="figure-img" alt="turorial" />
+										</div>
+										<figcaption class="figure-caption">
+											<h4>Upsell (Pro)</h4>
+											<p>
+												Instantio offer Ajax-based Upsell feature with which you can sell related or complementary products to a customer.
+											</p>
+											<a href="https://wpinstant.io/upsells/" class="btn-premium-fea">See Preview</a>
+										</figcaption>
+									</figure>
+
+									<figure class="figure">
+										<div class="main-caption">
+											<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/premium1.jpg' ?>" class="figure-img" alt="turorial" />
+										</div>
+										<figcaption class="figure-caption">
+											<h4>Cross-sell (Pro)</h4>
+											<p>
+												With Instantio, you can also do Ajax based cross-sell by selling related or complementary products to a customer.
+											</p>
+											<a href="https://wpinstant.io/cross-sells/" class="btn-premium-fea">See Preview</a>
+										</figcaption>
+									</figure>
+									
+								</div>
 							</div>
+						</div>
 
-							<!-- <div class="tf-settings-faq">
-								<h2>Common FAQs</h2>
+						<div class="dashboad-content faqs">
+							<div class="faqs_wrapper">
+								<div class="faqs-heading">
+									<h4>Frequently asked questions</h4>
+								</div>
 
 								<div class="tf-accordion-wrapper">
 									<div class="tf-accrodian-item">
@@ -385,39 +544,46 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 										</div>
 									</div>
 								</div>
-							</div> -->
-						</div>
-					</div>
-
-					<div class="dashboad-content tutorial">
-						<div class="tutorial_wrapper">
-							<div class="tutorial-heading">
-								<h4>Basic tutorials</h4>
-								<a href="#" class="btn view-all-btn">View all</a>
-							</div>
-							<div class="tutorial-body">
-								<figure class="figure">
-									<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/tutorial.jpg' ?>" class="figure-img" alt="turorial">
-  									<figcaption class="figure-caption">A caption for the above image.</figcaption>
-								</figure>
-								<figure class="figure">
-									<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/tutorial.jpg' ?>" class="figure-img" alt="turorial">
-  									<figcaption class="figure-caption">A caption for the above image.</figcaption>
-								</figure>
+								
 							</div>
 						</div>
-					</div>
 
-					<div class="dashboad-content">
-						<h2>Premium</h2>
-					</div>
+						<div class="dashboad-content whatnew">
+							<div class="whatnew_wrapper">
+								<div class="whatnew-heading">
+									<h4>All updates</h4>
+								</div>
+								<div class="whatnew_updates">
+									<div class="whatnew_updates_card">
+										<div class="cardleft_date_version">
+											<div class="ins_cardleft_date"> 27 July 2022</div>
+											<div class="ins_cardleft_version">Version 2.1.3</div>
+										</div>
 
-					<div class="dashboad-content">
-						<h2>What's New</h2>
-					</div>
+										<div class="cardright_changelog">
 
+											<ul class="ins_changelog_improve">
+												<span>Improvement</span>
+												<li>User documentation, also known as.</li>
+												<li>User documentation, also known as.</li>
+												<li>User documentation, also known as end-user documentation.</li>
+											</ul>
+
+											<ul class="ins_changelog_improve">
+												<span>Improvement</span>
+												<li>User documentation, also known as.</li>
+												<li>User documentation, also known as.</li>
+												<li>User documentation, also known as end-user documentation.</li>
+											</ul>
+
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
 				</div>
-
 			</div>
 		 <?php
 		}
