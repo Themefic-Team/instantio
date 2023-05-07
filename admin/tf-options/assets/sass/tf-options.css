@@ -284,21 +284,25 @@
   visibility: visible;
   opacity: 1;
 }
-.tf-setting-dashboard .dashboad-tab {
+.tf-setting-dashboard .ins-dashboad-wrapper {
+  max-width: 100%;
+  margin: 30px 20px 30px 0px;
+}
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-tab {
   max-width: 800px;
   margin: auto;
   display: flex;
   justify-content: space-between;
   margin-bottom: 45px;
 }
-.tf-setting-dashboard .dashboad-tab li {
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-tab li {
   position: relative;
 }
-.tf-setting-dashboard .dashboad-tab li.active span {
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-tab li.active span {
   color: #db5209;
   font-weight: 700;
 }
-.tf-setting-dashboard .dashboad-tab li span {
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-tab li span {
   font-weight: 400;
   font-size: 17px;
   line-height: 150%;
@@ -306,7 +310,12 @@
   color: #002043;
   cursor: pointer;
 }
-.tf-setting-dashboard .dashboad-tab li.active::before {
+@media only screen and (max-width: 991.98px) {
+  .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-tab li span {
+    font-size: 15px;
+  }
+}
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-tab li.active::before {
   content: "";
   position: absolute;
   width: 7px;
@@ -317,12 +326,13 @@
   margin-left: -5px;
   bottom: -14px;
 }
-.tf-setting-dashboard .dashboad-content-wrap .dashboad-content {
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content {
+  overflow: hidden;
   max-width: 800px;
   margin: auto;
   display: none;
 }
-.tf-setting-dashboard .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-help-center-banner {
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-help-center-banner {
   background-color: #002043;
   background-repeat: no-repeat;
   background-position: center;
@@ -337,36 +347,36 @@
   padding: 0px 20px 0px 40px;
 }
 @media only screen and (max-width: 1280px) {
-  .tf-setting-dashboard .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-help-center-banner {
+  .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-help-center-banner {
     padding-top: 20px;
     padding-bottom: 20px;
   }
 }
 @media only screen and (max-width: 1199.98px) {
-  .tf-setting-dashboard .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-help-center-banner {
+  .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-help-center-banner {
     padding-top: 20px;
   }
 }
 @media only screen and (max-width: 575.98px) {
-  .tf-setting-dashboard .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-help-center-banner {
+  .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-help-center-banner {
     display: flow-root;
     padding: 25px;
   }
 }
-.tf-setting-dashboard .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-help-center-banner .tf-help-center-content {
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-help-center-banner .tf-help-center-content {
   width: 45%;
 }
 @media only screen and (max-width: 575.98px) {
-  .tf-setting-dashboard .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-help-center-banner .tf-help-center-content {
+  .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-help-center-banner .tf-help-center-content {
     width: 100%;
   }
 }
 @media only screen and (max-width: 480px) {
-  .tf-setting-dashboard .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-help-center-banner .tf-help-center-content {
+  .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-help-center-banner .tf-help-center-content {
     margin-bottom: 20px;
   }
 }
-.tf-setting-dashboard .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-help-center-banner .tf-help-center-content a {
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-help-center-banner .tf-help-center-content a {
   color: #f2f4f5;
   display: inline-block;
   padding: 10px 25px;
@@ -379,12 +389,12 @@
   font-weight: 600;
   transition: all 0.3s ease-in-out;
 }
-.tf-setting-dashboard .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-help-center-banner .tf-help-center-content a:hover {
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-help-center-banner .tf-help-center-content a:hover {
   background-color: #c44a08;
   border-color: transparent;
   color: #c44a08;
 }
-.tf-setting-dashboard .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-help-center-banner .tf-help-center-content h2 {
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-help-center-banner .tf-help-center-content h2 {
   font-family: "Mulish";
   color: #fcf9f7;
   font-style: normal;
@@ -393,7 +403,7 @@
   line-height: 140%;
   margin: 0;
 }
-.tf-setting-dashboard .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-help-center-banner .tf-help-center-content p {
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-help-center-banner .tf-help-center-content p {
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -401,20 +411,20 @@
   color: #f2f4f5;
   margin-bottom: 20px;
 }
-.tf-setting-dashboard .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-help-center-banner .tf-help-center-content-img {
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-help-center-banner .tf-help-center-content-img {
   width: 35%;
   display: flex;
 }
 @media only screen and (max-width: 575.98px) {
-  .tf-setting-dashboard .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-help-center-banner .tf-help-center-content-img {
+  .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-help-center-banner .tf-help-center-content-img {
     width: 100%;
   }
 }
-.tf-setting-dashboard .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-help-center-banner .tf-help-center-content-img img {
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-help-center-banner .tf-help-center-content-img img {
   max-width: 100%;
   position: relative;
 }
-.tf-setting-dashboard .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-support-document {
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-support-document {
   margin-bottom: 40px;
   display: flex;
   -moz-column-gap: 20px;
@@ -423,45 +433,36 @@
   flex-direction: row;
 }
 @media only screen and (max-width: 1199.98px) {
-  .tf-setting-dashboard .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-support-document {
+  .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-support-document {
     display: flow-root;
   }
 }
-.tf-setting-dashboard .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-support-document .tf-single-support {
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-support-document .tf-single-support {
   background: linear-gradient(141.81deg, #fb4682 0%, #fbae95 100%);
   border-radius: 8px;
   flex: 1;
   padding: 22px;
 }
-.tf-setting-dashboard .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-support-document .tf-single-support:nth-child(2) {
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-support-document .tf-single-support:nth-child(2) {
   background: linear-gradient(141.81deg, #4338ca 0%, #a21caf 100%);
 }
-.tf-setting-dashboard .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-support-document .tf-single-support:nth-child(3) {
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-support-document .tf-single-support:nth-child(3) {
   background: linear-gradient(141.81deg, #f4c82f 0%, #fd5187 100%);
 }
 @media only screen and (max-width: 1199.98px) {
-  .tf-setting-dashboard .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-support-document .tf-single-support {
-    width: 100%;
+  .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-support-document .tf-single-support {
     margin: 15px 0%;
-    float: left;
   }
 }
-@media only screen and (max-width: 767.98px) {
-  .tf-setting-dashboard .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-support-document .tf-single-support {
-    width: 100%;
-    margin: 15px 0%;
-    float: left;
-  }
-}
-.tf-setting-dashboard .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-support-document .tf-single-support a {
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-support-document .tf-single-support a {
   display: block;
   text-decoration: none;
 }
-.tf-setting-dashboard .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-support-document .tf-single-support a img {
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-support-document .tf-single-support a img {
   width: 52px;
   margin-bottom: 20px;
 }
-.tf-setting-dashboard .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-support-document .tf-single-support a h3 {
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-support-document .tf-single-support a h3 {
   font-style: normal;
   font-weight: 700;
   font-size: 20px;
@@ -469,7 +470,7 @@
   margin: 0;
   color: #ffffff;
 }
-.tf-setting-dashboard .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-support-document .tf-single-support a p {
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-support-document .tf-single-support a p {
   font-style: normal;
   font-style: normal;
   font-weight: 400;
@@ -477,7 +478,7 @@
   line-height: 150%;
   color: #ffffff;
 }
-.tf-setting-dashboard .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-support-document .tf-single-support a span {
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-support-document .tf-single-support a span {
   display: inline-block;
   margin-bottom: 0;
   display: inline-block;
@@ -490,81 +491,23 @@
   color: #ffffff;
   transition: 0.3s all ease;
 }
-.tf-setting-dashboard .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-support-document .tf-single-support a span:hover {
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-support-document .tf-single-support a span:hover {
   color: #db5209;
 }
-.tf-setting-dashboard .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-settings-faq {
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-settings-faq {
   margin: 40px 40px 40px 20px;
   background-color: #fff;
   border-radius: 10px;
   padding: 40px;
 }
-.tf-setting-dashboard .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-settings-faq h2 {
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-settings-faq h2 {
   margin: 0 0 30px;
   font-size: 24px;
   font-weight: 600;
   line-height: 28px;
   color: #000;
 }
-.tf-setting-dashboard .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-settings-faq .tf-accordion-wrapper {
-  grid-template-columns: repeat(2, 1fr);
-  display: grid;
-  gap: 20px;
-}
-@media only screen and (max-width: 767.98px) {
-  .tf-setting-dashboard .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-settings-faq .tf-accordion-wrapper {
-    display: block;
-  }
-}
-.tf-setting-dashboard .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-settings-faq .tf-accordion-wrapper .tf-single-faq {
-  border: 1px solid #e4e6eb;
-  border-radius: 8px;
-}
-@media only screen and (max-width: 767.98px) {
-  .tf-setting-dashboard .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-settings-faq .tf-accordion-wrapper .tf-single-faq {
-    margin: 15px 0px;
-  }
-}
-.tf-setting-dashboard .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-settings-faq .tf-accordion-wrapper .tf-single-faq .tf-faq-title {
-  display: flex;
-  align-items: center;
-  padding: 25px 30px;
-  cursor: pointer;
-}
-@media only screen and (max-width: 480px) {
-  .tf-setting-dashboard .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-settings-faq .tf-accordion-wrapper .tf-single-faq .tf-faq-title {
-    padding: 15px 15px;
-  }
-}
-.tf-setting-dashboard .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-settings-faq .tf-accordion-wrapper .tf-single-faq .tf-faq-title i {
-  font-size: 18px;
-  margin-right: 10px;
-  color: #000;
-}
-.tf-setting-dashboard .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-settings-faq .tf-accordion-wrapper .tf-single-faq .tf-faq-title h4 {
-  margin: 0;
-  font-size: 20px;
-  font-weight: 600;
-  color: #1d2327;
-  line-height: 24px;
-}
-@media only screen and (max-width: 480px) {
-  .tf-setting-dashboard .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-settings-faq .tf-accordion-wrapper .tf-single-faq .tf-faq-title h4 {
-    font-size: 17px;
-  }
-}
-.tf-setting-dashboard .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-settings-faq .tf-accordion-wrapper .tf-single-faq .tf-faq-title.active i {
-  transform: rotate(180deg);
-}
-.tf-setting-dashboard .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-settings-faq .tf-accordion-wrapper .tf-single-faq .tf-faq-desc {
-  display: none;
-  padding: 0px 30px 25px 30px;
-}
-.tf-setting-dashboard .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-settings-faq .tf-accordion-wrapper .tf-single-faq .tf-faq-desc p {
-  font-size: 1rem;
-  color: #44464b;
-}
-.tf-setting-dashboard .dashboad-content-wrap .dashboad-content .tf-settings-help-center .updatedtopro {
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content .tf-settings-help-center .updatedtopro {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -572,7 +515,7 @@
   background-color: #fff;
   margin-bottom: 50px;
 }
-.tf-setting-dashboard .dashboad-content-wrap .dashboad-content .tf-settings-help-center .updatedtopro h4 {
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content .tf-settings-help-center .updatedtopro h4 {
   font-style: normal;
   font-weight: 600;
   font-size: 20px;
@@ -581,7 +524,7 @@
   margin: 0;
   padding-bottom: 8px;
 }
-.tf-setting-dashboard .dashboad-content-wrap .dashboad-content .tf-settings-help-center .updatedtopro p {
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content .tf-settings-help-center .updatedtopro p {
   margin-top: 0;
   font-weight: 400;
   max-width: 559px;
@@ -591,33 +534,34 @@
   color: #828c99;
   margin-bottom: 30px;
 }
-.tf-setting-dashboard .dashboad-content-wrap .dashboad-content .tf-settings-help-center .updatedtopro .btn-desh-primary {
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content .tf-settings-help-center .updatedtopro .btn-desh-primary {
   text-decoration: none;
   color: #fff;
   padding: 16px 32px;
   background: linear-gradient(95.29deg, #002043 0%, #6637a7 25.57%, #41b7ef 100%), #2271b1;
   border-radius: 4px;
 }
-.tf-setting-dashboard .dashboad-content-wrap .dashboad-content .tf-settings-help-center .request-features {
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content .tf-settings-help-center .request-features {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 24px;
   background-color: #fff;
 }
-.tf-setting-dashboard .dashboad-content-wrap .dashboad-content .tf-settings-help-center .request-features img {
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content .tf-settings-help-center .request-features img {
   width: 52px;
   height: 52px;
 }
-.tf-setting-dashboard .dashboad-content-wrap .dashboad-content .tf-settings-help-center .request-features h4 {
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content .tf-settings-help-center .request-features h4 {
   font-style: normal;
   font-weight: 600;
   font-size: 20px;
   line-height: 30px;
   color: #db5209;
   margin: 8px 0;
+  text-align: center;
 }
-.tf-setting-dashboard .dashboad-content-wrap .dashboad-content .tf-settings-help-center .request-features p {
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content .tf-settings-help-center .request-features p {
   max-width: 651px;
   font-weight: 400;
   font-size: 16px;
@@ -627,7 +571,7 @@
   margin-top: 0;
   margin-bottom: 30px;
 }
-.tf-setting-dashboard .dashboad-content-wrap .dashboad-content .tf-settings-help-center .request-features .btn-desh-primary-tran {
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content .tf-settings-help-center .request-features .btn-desh-primary-tran {
   text-decoration: none;
   font-weight: 700;
   font-size: 16px;
@@ -638,66 +582,89 @@
   letter-spacing: 0.005em;
   color: #db5209;
 }
-.tf-setting-dashboard .dashboad-content-wrap .dashboad-content .tf-settings-help-center .request-features .btn-desh-primary-tran:hover {
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content .tf-settings-help-center .request-features .btn-desh-primary-tran:hover {
   background-color: #db5209;
   color: #fff;
 }
-.tf-setting-dashboard .dashboad-content-wrap .dashboad-content.active {
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.active {
   display: block;
 }
-.tf-setting-dashboard .dashboad-content-wrap .dashboad-content.tutorial .tutorial_wrapper .tutorial-heading {
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.tutorial .tutorial_wrapper .tutorial-heading {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 24px;
 }
-.tf-setting-dashboard .dashboad-content-wrap .dashboad-content.tutorial .tutorial_wrapper .tutorial-heading h4 {
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.tutorial .tutorial_wrapper .tutorial-heading h4 {
   font-style: normal;
   margin: 0;
   font-weight: 700;
-  font-size: 24px;
+  font-size: 20px;
   line-height: 30px;
   letter-spacing: 0.01em;
   color: #002043;
 }
-.tf-setting-dashboard .dashboad-content-wrap .dashboad-content.tutorial .tutorial_wrapper .tutorial-heading a {
+@media only screen and (max-width: 991.98px) {
+  .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.tutorial .tutorial_wrapper .tutorial-heading h4 {
+    font-size: 17px;
+  }
+}
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.tutorial .tutorial_wrapper .tutorial-heading a {
   background: #2271b1;
   border-radius: 4px;
   padding: 8px 32px;
   color: #fff;
+  font-size: 16px;
+  line-height: 20px;
   text-decoration: none;
 }
-.tf-setting-dashboard .dashboad-content-wrap .dashboad-content.tutorial .tutorial_wrapper .tutorial-body {
+@media only screen and (max-width: 991.98px) {
+  .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.tutorial .tutorial_wrapper .tutorial-heading a {
+    font-size: 15px;
+  }
+}
+@media only screen and (max-width: 767.98px) {
+  .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.tutorial .tutorial_wrapper .tutorial-heading a {
+    padding: 4px 18px;
+    font-size: 14px;
+  }
+}
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.tutorial .tutorial_wrapper .tutorial-body {
   display: grid;
   grid-auto-columns: 1fr;
-  grid-template-rows: auto auto;
   grid-row-gap: 16px;
   grid-column-gap: 16px;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: auto;
+  -ms-grid-rows: auto auto;
 }
-.tf-setting-dashboard .dashboad-content-wrap .dashboad-content.tutorial .tutorial_wrapper .tutorial-body .figure {
+@media only screen and (max-width: 575.98px) {
+  .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.tutorial .tutorial_wrapper .tutorial-body {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.tutorial .tutorial_wrapper .tutorial-body .figure {
   margin: 0;
   background: #f7f9fc;
   border-radius: 8px;
+}
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.tutorial .tutorial_wrapper .tutorial-body .figure:hover > .main-caption .play-button-overlap {
+  background-color: rgba(196, 74, 8, 0.3803921569);
+}
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.tutorial .tutorial_wrapper .tutorial-body .figure .main-caption {
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
   overflow: hidden;
-}
-.tf-setting-dashboard .dashboad-content-wrap .dashboad-content.tutorial .tutorial_wrapper .tutorial-body .figure:hover > .main-caption .play-button-overlap {
-  background-color: rgba(196, 74, 8, 0.3803921569);
-}
-.tf-setting-dashboard .dashboad-content-wrap .dashboad-content.tutorial .tutorial_wrapper .tutorial-body .figure .main-caption {
   position: relative;
 }
-.tf-setting-dashboard .dashboad-content-wrap .dashboad-content.tutorial .tutorial_wrapper .tutorial-body .figure .main-caption .play-button-overlap {
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.tutorial .tutorial_wrapper .tutorial-body .figure .main-caption .play-button-overlap {
   position: absolute;
   width: 100%;
   height: 100%;
   top: 0;
   left: 0;
 }
-.tf-setting-dashboard .dashboad-content-wrap .dashboad-content.tutorial .tutorial_wrapper .tutorial-body .figure .main-caption .play-button-overlap img {
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.tutorial .tutorial_wrapper .tutorial-body .figure .main-caption .play-button-overlap img {
   width: 56px;
   height: 56px;
   position: absolute;
@@ -706,10 +673,10 @@
   margin-left: -28px;
   margin-bottom: -28px;
 }
-.tf-setting-dashboard .dashboad-content-wrap .dashboad-content.tutorial .tutorial_wrapper .tutorial-body .figure .main-caption img {
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.tutorial .tutorial_wrapper .tutorial-body .figure .main-caption img {
   width: 100%;
 }
-.tf-setting-dashboard .dashboad-content-wrap .dashboad-content.tutorial .tutorial_wrapper .tutorial-body .figure .figure-caption {
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.tutorial .tutorial_wrapper .tutorial-body .figure .figure-caption {
   padding: 16px;
   font-style: normal;
   font-weight: 700;
@@ -717,8 +684,182 @@
   line-height: 150%;
   color: #828c99;
   background: #f7f9fc;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
+}
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.premium .premium_wrapper .premium-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.premium .premium_wrapper .premium-heading h4 {
+  font-style: normal;
+  margin: 0;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 30px;
+  letter-spacing: 0.01em;
+  color: #002043;
+}
+@media only screen and (max-width: 991.98px) {
+  .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.premium .premium_wrapper .premium-heading h4 {
+    font-size: 17px;
+  }
+}
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.premium .premium_wrapper .premium-heading a {
+  background: #2271b1;
+  border-radius: 4px;
+  padding: 8px 32px;
+  color: #fff;
+  font-size: 16px;
+  line-height: 20px;
+  text-decoration: none;
+}
+@media only screen and (max-width: 991.98px) {
+  .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.premium .premium_wrapper .premium-heading a {
+    font-size: 15px;
+  }
+}
+@media only screen and (max-width: 767.98px) {
+  .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.premium .premium_wrapper .premium-heading a {
+    padding: 4px 18px;
+    font-size: 14px;
+  }
+}
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.premium .premium_wrapper .premium-body {
+  display: grid;
+  grid-auto-columns: 1fr;
+  grid-row-gap: 16px;
+  grid-column-gap: 16px;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  -ms-grid-rows: auto auto;
+}
+@media only screen and (max-width: 767.98px) {
+  .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.premium .premium_wrapper .premium-body {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.premium .premium_wrapper .premium-body {
+    grid-template-columns: 1fr;
+  }
+}
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.premium .premium_wrapper .premium-body .figure {
+  margin: 0;
+  background: #f7f9fc;
+  border-radius: 8px;
+}
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.premium .premium_wrapper .premium-body .figure .main-caption {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.premium .premium_wrapper .premium-body .figure .main-caption img {
+  width: 100%;
+}
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.premium .premium_wrapper .premium-body .figure .figure-caption {
+  padding: 16px;
+  background: #f7f9fc;
+}
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.premium .premium_wrapper .premium-body .figure .figure-caption h4 {
+  margin: 0;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 150%;
+  letter-spacing: 0.01em;
+  color: #002043;
+}
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.premium .premium_wrapper .premium-body .figure .figure-caption p {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 150%;
+  color: #828c99;
+  margin-top: 8px;
+  margin-bottom: 18px;
+}
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.premium .premium_wrapper .premium-body .figure .figure-caption .btn-premium-fea {
+  display: block;
+  text-align: center;
+  padding: 8px 32px;
+  color: #2271b1;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0.01em;
+  border: 1px solid #2271b1;
+  border-radius: 4px;
+}
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.faqs .faqs_wrapper .faqs-heading {
+  margin-bottom: 24px;
+}
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.faqs .faqs_wrapper .faqs-heading h4 {
+  font-style: normal;
+  margin: 0;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 30px;
+  letter-spacing: 0.01em;
+  color: #002043;
+}
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.faqs .faqs_wrapper .tf-accordion-wrapper .tf-accrodian-item {
+  background-color: #f7f9fc;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.faqs .faqs_wrapper .tf-accordion-wrapper .tf-accrodian-item .tf-single-faq .tf-faq-title {
+  position: relative;
+  cursor: pointer;
+}
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.faqs .faqs_wrapper .tf-accordion-wrapper .tf-accrodian-item .tf-single-faq .tf-faq-title i {
+  position: absolute;
+  right: 2px;
+  font-size: 18px;
+  margin-right: 10px;
+  color: #000;
+}
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.faqs .faqs_wrapper .tf-accordion-wrapper .tf-accrodian-item .tf-single-faq .tf-faq-title h4 {
+  margin: 0;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 150%;
+  color: #002043;
+}
+@media only screen and (max-width: 480px) {
+  .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.faqs .faqs_wrapper .tf-accordion-wrapper .tf-accrodian-item .tf-single-faq .tf-faq-title h4 {
+    font-size: 14px;
+  }
+}
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.faqs .faqs_wrapper .tf-accordion-wrapper .tf-accrodian-item .tf-single-faq .tf-faq-title.active i {
+  transform: rotate(180deg);
+}
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.faqs .faqs_wrapper .tf-accordion-wrapper .tf-accrodian-item .tf-single-faq .tf-faq-desc {
+  display: none;
+}
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.faqs .faqs_wrapper .tf-accordion-wrapper .tf-accrodian-item .tf-single-faq .tf-faq-desc p {
+  padding-left: 18px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0.01em;
+  color: #828c99;
+}
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.whatnew .whatnew_wrapper .whatnew-heading {
+  margin-bottom: 24px;
+}
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.whatnew .whatnew_wrapper .whatnew-heading h4 {
+  font-style: normal;
+  margin: 0;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 30px;
+  letter-spacing: 0.01em;
+  color: #002043;
 }
 
 .tf-setting-license {
