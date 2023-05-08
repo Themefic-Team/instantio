@@ -109,6 +109,8 @@ class Assets {
                     left: -'.$panel_width_1200.'%  !important;
                 }
                 
+                .ins_animate_one.ins-checkout-layout.slide,
+                .ins_animate_one.ins-checkout-layout.slide.ins-hori-left,
                 .ins_animate_two.ins-checkout-layout.slide,
                 .ins_animate_two.ins-checkout-layout.slide.ins-hori-left{
                     width: '.$panel_width_1200.'% !important; 
