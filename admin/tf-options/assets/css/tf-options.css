@@ -861,6 +861,116 @@
   letter-spacing: 0.01em;
   color: #002043;
 }
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.whatnew .whatnew_wrapper .whatnew_updates .whatnew_updates_card {
+  display: flex;
+  justify-content: space-between;
+  padding: 24px 40px;
+  background-color: #f7f9fc;
+  margin-bottom: 32px;
+}
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.whatnew .whatnew_wrapper .whatnew_updates .whatnew_updates_card .cardleft_date_version {
+  position: relative;
+  display: flex;
+  gap: 60px;
+}
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.whatnew .whatnew_wrapper .whatnew_updates .whatnew_updates_card .cardleft_date_version:after {
+  content: "";
+  position: absolute;
+  right: 50%;
+  margin-right: -1px;
+  width: 2px;
+  height: 20px;
+  background-color: #d9d9d9;
+}
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.whatnew .whatnew_wrapper .whatnew_updates .whatnew_updates_card .cardleft_date_version .ins_cardleft_date {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0.01em;
+  color: #002043;
+}
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.whatnew .whatnew_wrapper .whatnew_updates .whatnew_updates_card .cardleft_date_version .ins_cardleft_version {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0.01em;
+  color: #002043;
+}
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.whatnew .whatnew_wrapper .whatnew_updates .whatnew_updates_card .cardright_changelog ul {
+  max-width: 340px;
+  margin: 0;
+  margin-bottom: 24px;
+}
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.whatnew .whatnew_wrapper .whatnew_updates .whatnew_updates_card .cardright_changelog ul span {
+  display: inline-block;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 10px;
+  line-height: 13px;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  padding: 8px 12px;
+  color: #3b82f6;
+  background-color: #dbeafe;
+  margin: 0;
+  margin-bottom: 16px;
+}
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.whatnew .whatnew_wrapper .whatnew_updates .whatnew_updates_card .cardright_changelog ul li {
+  color: #828c99;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0.01em;
+  position: relative;
+  padding-left: 29px;
+}
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.whatnew .whatnew_wrapper .whatnew_updates .whatnew_updates_card .cardright_changelog ul li::before {
+  position: absolute;
+  content: url("../img/circle1.svg");
+  width: 13px;
+  height: 13px;
+  left: 0;
+  top: 2px;
+}
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.whatnew .whatnew_wrapper .whatnew_updates .whatnew_updates_card .cardright_changelog ul.ins_changelog_Improvement li::before {
+  position: absolute;
+  content: url("../img/circle1.svg");
+  width: 13px;
+  height: 13px;
+  left: 0;
+  top: 2px;
+}
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.whatnew .whatnew_wrapper .whatnew_updates .whatnew_updates_card .cardright_changelog ul.ins_changelog_New span {
+  color: #22c55e;
+  background-color: #dcfce7;
+}
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.whatnew .whatnew_wrapper .whatnew_updates .whatnew_updates_card .cardright_changelog ul.ins_changelog_New li::before {
+  content: url("../img/circlenew.svg");
+}
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.whatnew .whatnew_wrapper .whatnew_updates .whatnew_updates_card .cardright_changelog ul.ins_changelog_Fix span {
+  color: #ef4444;
+  background-color: #fee2e2;
+}
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.whatnew .whatnew_wrapper .whatnew_updates .whatnew_updates_card .cardright_changelog ul.ins_changelog_Fix li::before {
+  content: url("../img/circlefix.svg");
+}
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.whatnew .whatnew_wrapper .whatnew_updates .whatnew_updates_card .cardright_changelog ul.ins_changelog_Optimization span {
+  color: #eab308;
+  background-color: #fef9c3;
+}
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.whatnew .whatnew_wrapper .whatnew_updates .whatnew_updates_card .cardright_changelog ul.ins_changelog_Optimization li::before {
+  content: url("../img/circleopti.svg");
+}
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.whatnew .whatnew_wrapper .whatnew_updates .whatnew_updates_card .cardright_changelog ul.ins_changelog_Compatibility span {
+  color: #a855f7;
+  background-color: #f3e8ff;
+}
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.whatnew .whatnew_wrapper .whatnew_updates .whatnew_updates_card .cardright_changelog ul.ins_changelog_Compatibility li::before {
+  content: url("../img/circlecompa.svg");
+}
 
 .tf-setting-license {
   margin: 40px 40px 40px 20px;
