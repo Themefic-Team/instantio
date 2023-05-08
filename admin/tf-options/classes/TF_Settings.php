@@ -199,10 +199,11 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 		}
 
 		/**
-		 * Dashoard tab pages 
+		 * Dashboard tab pages 
 		 * @author M Hemel Hasan
 		 */
 		public function ins_get_dashboard_callback(){
+			include_once 'Ins_ChangeLog.php';
 		 ?>	
 			<div class="tf-setting-dashboard">
 				<?php echo $this->tf_top_header(); ?>
@@ -554,30 +555,43 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 									<h4>All updates</h4>
 								</div>
 								<div class="whatnew_updates">
-									<div class="whatnew_updates_card">
-										<div class="cardleft_date_version">
-											<div class="ins_cardleft_date"> 27 July 2022</div>
-											<div class="ins_cardleft_version">Version 2.1.3</div>
-										</div>
+									<?php 
+										if(!empty($change)) { 
+											foreach($change as $key => $value) { ?>
 
-										<div class="cardright_changelog">
+												<div class="whatnew_updates_card">
+													<div class="cardleft_date_version">
+														<div class="ins_cardleft_date"><?php echo $value['date']; ?></div>
+														<div class="ins_cardleft_version"><?php echo $value['version']; ?></div>
+													</div>
 
-											<ul class="ins_changelog_improve">
-												<span>Improvement</span>
-												<li>User documentation, also known as.</li>
-												<li>User documentation, also known as.</li>
-												<li>User documentation, also known as end-user documentation.</li>
-											</ul>
+													<div class="cardright_changelog">
+														<?php 
+															$changelogs = $value['changelog'];
+															if(!empty($changelogs)) {
+																foreach($changelogs as $key => $values){ ?>
+																		<ul class="ins_changelog_<?php echo $key?>">
+																			<span><?php echo $key ?></span>
+																			<?php foreach($values as $value) {  ?>
+																				<li><?php echo $value ?></li>
+																			<?php }?>
+																		</ul>
+																	<?php 
+																} 
+															} ?>
+													</div>
+												</div>
 
-											<ul class="ins_changelog_improve">
-												<span>Improvement</span>
-												<li>User documentation, also known as.</li>
-												<li>User documentation, also known as.</li>
-												<li>User documentation, also known as end-user documentation.</li>
-											</ul>
+											<?php } 
+										} else { ?>
 
-										</div>
-									</div>
+											<div class="whatnew_updates_card">
+												<div class="chnagelog_not_found">
+													No change logs found. Please try again later. Maybe the changelog is being updated, it will come shortly.
+												</div>
+											</div>
+
+									<?php }?>
 								</div>
 							</div>
 						</div>
