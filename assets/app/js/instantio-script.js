@@ -134,8 +134,8 @@
 				$(".ins-checkout-layout").html("");
 				
 				ins_owl_carousel();
+				
 				$(".ins-checkout-layout").append(response); 
-
 
 				if(auto_open_toggle == true){
 					$(".ins-checkout-layout-3").addClass("active");
@@ -172,6 +172,7 @@
 				thisbutton.removeClass("added").addClass("loading");
 			},
 			complete: function (response) {
+				ins_cart_icon_animation();
 				thisbutton.addClass("added").removeClass("loading");
 			},
 			success: function (response) {
@@ -179,6 +180,7 @@
 				$(".ins-checkout-layout").append(response);
 
 				ins_owl_carousel();
+				
 				if(auto_open_toggle == true){
 					$(".ins-checkout-layout-3").addClass("active");
 					$(".ins-checkout-overlay").addClass("active");
@@ -192,6 +194,8 @@
 	// Add To Cart Flying Animation
 	$(document).on("click", ".add_to_cart_button", function () {
 		if(cart_fly_anim == false ){ 
+			
+			ins_cart_icon_animation();
 			return
 		} 
 		var productThumb = $(this).closest(".product").find("img").attr("src");
@@ -228,14 +232,17 @@
 				"z-index": "0",
 			});
 			$(this).detach();
+			 
+			ins_cart_icon_animation();
 		}
-		);
-
+		); 
+		
 
 	});
 
 	$(document).on("click", ".single_add_to_cart_button", function () {
 		if(cart_fly_anim == false ){ 
+			 
 			return
 		} 
 		var productThumb = $(this).closest(".product").find(".woocommerce-product-gallery__wrapper").find("img");
@@ -271,9 +278,12 @@
 				opacity: "0",
 				"z-index": "0",
 			});
-			$(this).detach();
+			$(this).detach(); 
+			
+			ins_cart_icon_animation();
 		}
 		);
+		 
 	});
 
 
@@ -460,6 +470,14 @@
 				}
 			}
 		});
+	}
+	function ins_cart_icon_animation() {
+		 
+		$('.ins-toggle-btn').addClass('ins-icon-animation-one');
+		setTimeout(function () { 
+			$('.ins-toggle-btn').removeClass('ins-icon-animation-one');
+		}, 1000); 
+		 
 	}
 
 })(jQuery);

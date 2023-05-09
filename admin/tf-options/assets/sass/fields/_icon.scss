@@ -29,7 +29,7 @@
       width: 20px;
       height: 20px;
       background: #FFFFFF;
-      box-shadow: 0px 8px 16px rgba(90, 91, 106, 0.08);
+      // box-shadow: 0px 8px 16px rgba(90, 91, 106, 0.08);
       border-radius: 8px;
       color: $red60;
       font-size: 14px;
@@ -190,7 +190,7 @@
               }
 
               &:hover {
-                box-shadow: -2px 2px 24px rgba(107, 125, 148, 0.2);
+                // box-shadow: -2px 2px 24px rgba(107, 125, 148, 0.2);
                 .tf-icon-inner {
                   span.check-icon {
                     opacity: 1;
@@ -198,7 +198,7 @@
                 }
               }
               &.active {
-                box-shadow: -2px 2px 24px rgba(107, 125, 148, 0.2);
+                // box-shadow: -2px 2px 24px rgba(107, 125, 148, 0.2);
                 .tf-icon-inner {
                   span.check-icon {
                     border-color: $blue60;

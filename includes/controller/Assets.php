@@ -29,8 +29,8 @@ class Assets {
     public function enqueue_custom_css_scripts(){
         $ins_toggle_bg = !empty(insopt( 'ins-toggle-tab' )['wi-header-bg-colors']['regular']) ? insopt( 'ins-toggle-tab' )['wi-header-bg-colors']['regular'] : '#e9570a'; 
         $ins_toggle_bg_hover = !empty(insopt( 'ins-toggle-tab' )['wi-header-bg-colors']['hover']) ? insopt( 'ins-toggle-tab' )['wi-header-bg-colors']['hover'] : '#fffdfd';
-        $ins_toggle_border = !empty(insopt( 'ins-toggle-tab' )['wi-header-border-colors']['regular']) ? insopt( 'ins-toggle-tab' )['wi-header-border-colors']['regular'] : '#e9570a'; 
-        $ins_toggle_border_hover = !empty(insopt( 'ins-toggle-tab' )['wi-header-border-colors']['hover']) ? insopt( 'ins-toggle-tab' )['wi-header-border-colors']['hover'] : '#e9570a';
+        $ins_toggle_border = !empty(insopt( 'ins-toggle-tab' )['wi-header-border-colors']['regular']) ? insopt( 'ins-toggle-tab' )['wi-header-border-colors']['regular'] : '#FEF2EB'; 
+        $ins_toggle_border_hover = !empty(insopt( 'ins-toggle-tab' )['wi-header-border-colors']['hover']) ? insopt( 'ins-toggle-tab' )['wi-header-border-colors']['hover'] : '#FEF2EB';
         $ins_toggle_icon = !empty(insopt( 'ins-toggle-tab' )['ins-tog-icon-colors']['regular']) ? insopt( 'ins-toggle-tab' )['ins-tog-icon-colors']['regular'] : '#fff';
         $ins_toggle_icon_hover = !empty(insopt( 'ins-toggle-tab' )['ins-tog-icon-colors']['hover']) ? insopt( 'ins-toggle-tab' )['ins-tog-icon-colors']['hover'] : '#e9570a';
         $ins_toggle_icon_size = !empty(insopt( 'ins-toggle-tab' )['wi-header-icon-size']) ? insopt( 'ins-toggle-tab' )['wi-header-icon-size'].'px' : '24px';

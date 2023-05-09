@@ -206,7 +206,7 @@ TF_Settings::option( 'wiopt', array(
 						  'type'     		=> 'switch',
 						  'label'    		=> __('Cart Fly Animation Icon', 'instantio'),
 						  'label_on'    	=> __('Icon', 'instantio'),
-						  'label_off'   	=> __('Thum', 'instantio'),
+						  'label_off'   	=> __('Thumb', 'instantio'),
 						  'width' 			=> 100,
 						  'default'   		=> true,
 						  'dependency' 		=> array('cart-fly-anim', '==', 1),
@@ -418,6 +418,32 @@ TF_Settings::option( 'wiopt', array(
 								),
 				
 								array(
+									'id'       		=> 'cart-icon-style',
+									'class'    		=> 'imageset-inline',
+									'type'     		=> 'imageselect',
+									'label'    		=> __('Toggle Icon', 'instantio'), 
+									'subtitle' 		=> __('Select cart icon which will appear in cart toggler', 'instantio'),
+									'options'  		=> array(
+										'cart-style-1' 			=> array(
+											'title'			=> '',
+											'url' 			=> plugin_dir_url( __FILE__ ).'../img/cart-style-1.svg',
+										),
+										'cart-style-2' 			=> array(
+											'title'			=> '',
+											'url' 			=> plugin_dir_url( __FILE__ ).'../img/cart-2.svg',
+										),
+										'cart-style-3' 			=> array(
+											'title'			=> '',
+											'url' 			=> plugin_dir_url( __FILE__ ).'../img/cart-3.svg',
+										),
+										'cart-style-4' 			=> array(
+											'title'			=> '',
+											'url' 			=> plugin_dir_url( __FILE__ ).'../img/cart-4.svg',
+										)
+									),
+									'default' 		=> 'cart-1'
+								),
+								array(
 									'id'       		=> 'cart-icon',
 									'class'    		=> 'imageset-inline',
 									'type'     		=> 'imageselect',
@@ -427,19 +453,7 @@ TF_Settings::option( 'wiopt', array(
 										'cart-1' 			=> array(
 											'title'			=> '',
 											'url' 			=> plugin_dir_url( __FILE__ ).'../img/cart-1.svg',
-										),
-										'cart-2' 			=> array(
-											'title'			=> '',
-											'url' 			=> plugin_dir_url( __FILE__ ).'../img/cart-2.svg',
-										),
-										'cart-3' 			=> array(
-											'title'			=> '',
-											'url' 			=> plugin_dir_url( __FILE__ ).'../img/cart-3.svg',
-										),
-										'cart-4' 			=> array(
-											'title'			=> '',
-											'url' 			=> plugin_dir_url( __FILE__ ).'../img/cart-4.svg',
-										)
+										), 
 									),
 									'default' 		=> 'cart-1'
 								),
@@ -529,7 +543,7 @@ TF_Settings::option( 'wiopt', array(
 								array(
 									'id'    		=> 'wi-header-text-size',
 									'type'  		=> 'number',
-									'label'  		=> __('Toggler Item Number Size', 'instantio'),
+									'label'  		=> __('Cart Counter Number Size', 'instantio'),
 									'subtitle' 		=> __('Set font size & line height of cart toggler text', 'instantio'),
 									'description'   => __('Default: 14px', 'instantio'),
 								),

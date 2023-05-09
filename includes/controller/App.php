@@ -199,19 +199,25 @@ class App {
         } elseif($this->layout == 3){
             $togglebtnClass = 'popupcart';
         } 
+        $icon_style = !empty(insopt( 'ins-toggle-tab' )['cart-icon-style']) ? insopt( 'ins-toggle-tab' )['cart-icon-style'] : 'cart-style-1';
+
         if($this->layout == 1 || $this->layout == ''){
             $ins_toggler = 'tog-1';
             ?>
-            <a class="ins-toggle-btn <?php echo esc_attr( $ins_toggler ) ?>" href="<?php echo esc_url(wc_get_checkout_url());  ?>"> 
-                <?php echo $toggle_icon ?>
+            <a class="ins-toggle-btn <?php echo esc_attr( $ins_toggler ) ?> <?php echo esc_attr( $icon_style ) ?> " href="<?php echo esc_url(wc_get_checkout_url());  ?>"> 
+                <span class="ins-cart-icon"> 
+                    <?php echo $toggle_icon ?>
+                </span>
                 <?php // echo insopt( 'ins-toggle-tab' )['ins-cart-emty-hide']; ?>
                 <span class="ins-items-count"><span id="ins_cart_total" class="ins_cart_total"><?php echo WC()->cart->get_cart_contents_count(); ?></span></span> 
            </a> 
             <?php
         }else {
             ?> 
-            <div class="ins-click-to-show ins-toggle-btn <?php echo esc_attr( $togglebtnClass ) ?> <?php echo esc_attr( $ins_toggler ) ?>">
-                <?php echo $toggle_icon ?>
+            <div class="ins-click-to-show ins-toggle-btn <?php echo esc_attr( $togglebtnClass ) ?>  <?php echo esc_attr( $icon_style ) ?>  <?php echo esc_attr( $ins_toggler ) ?>">
+                <span class="ins-cart-icon"> 
+                    <?php echo $toggle_icon ?>
+                </span>
                 <span class="ins-items-count"><span id="ins_cart_total" class="ins_cart_total"><?php echo WC()->cart->get_cart_contents_count(); ?></span></span>
             </div> 
             <?php
