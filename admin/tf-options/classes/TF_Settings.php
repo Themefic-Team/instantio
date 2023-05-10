@@ -672,7 +672,7 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 
 		/**
 		 * Options Page
-		 * @author Foysal
+		 * @author M Hemel Hasan
 		 */
 		public function tf_options_page() {
 

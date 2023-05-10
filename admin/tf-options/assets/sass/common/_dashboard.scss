@@ -450,7 +450,7 @@
             grid-auto-columns: 1fr;
             grid-row-gap: 16px;
             grid-column-gap: 16px;
-            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-columns: 1fr 1fr;
             grid-template-rows: auto;
             -ms-grid-rows: auto auto;
             @media #{$max575} {
@@ -543,7 +543,7 @@
             grid-auto-columns: 1fr;
             grid-row-gap: 16px;
             grid-column-gap: 16px;
-            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-columns: 1fr 1fr;
             grid-template-rows: auto;
             -ms-grid-rows: auto auto;
             @media #{$max767} {
