@@ -841,7 +841,6 @@
   display: none;
 }
 .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.faqs .faqs_wrapper .tf-accordion-wrapper .tf-accrodian-item .tf-single-faq .tf-faq-desc p {
-  padding-left: 18px;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -870,17 +869,6 @@
 }
 .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.whatnew .whatnew_wrapper .whatnew_updates .whatnew_updates_card .cardleft_date_version {
   position: relative;
-  display: flex;
-  gap: 60px;
-}
-.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.whatnew .whatnew_wrapper .whatnew_updates .whatnew_updates_card .cardleft_date_version:after {
-  content: "";
-  position: absolute;
-  right: 50%;
-  margin-right: -1px;
-  width: 2px;
-  height: 20px;
-  background-color: #d9d9d9;
 }
 .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.whatnew .whatnew_wrapper .whatnew_updates .whatnew_updates_card .cardleft_date_version .ins_cardleft_date {
   font-style: normal;
@@ -889,6 +877,7 @@
   line-height: 20px;
   letter-spacing: 0.01em;
   color: #002043;
+  margin-bottom: 20px;
 }
 .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.whatnew .whatnew_wrapper .whatnew_updates .whatnew_updates_card .cardleft_date_version .ins_cardleft_version {
   font-style: normal;
@@ -2934,7 +2923,6 @@ Steps
   width: 20px;
   height: 20px;
   background: #FFFFFF;
-  box-shadow: 0px 8px 16px rgba(90, 91, 106, 0.08);
   border-radius: 8px;
   color: #f44336;
   font-size: 14px;
@@ -3057,14 +3045,8 @@ Steps
   opacity: 0;
   transition: all 0.3s ease;
 }
-#tf-icon-modal .tf-modal-content .tf-icon-wrapper .tf-icon-tab-content .tf-icon-tab-pane ul.tf-icon-list li:hover {
-  box-shadow: -2px 2px 24px rgba(107, 125, 148, 0.2);
-}
 #tf-icon-modal .tf-modal-content .tf-icon-wrapper .tf-icon-tab-content .tf-icon-tab-pane ul.tf-icon-list li:hover .tf-icon-inner span.check-icon {
   opacity: 1;
-}
-#tf-icon-modal .tf-modal-content .tf-icon-wrapper .tf-icon-tab-content .tf-icon-tab-pane ul.tf-icon-list li.active {
-  box-shadow: -2px 2px 24px rgba(107, 125, 148, 0.2);
 }
 #tf-icon-modal .tf-modal-content .tf-icon-wrapper .tf-icon-tab-content .tf-icon-tab-pane ul.tf-icon-list li.active .tf-icon-inner span.check-icon {
   border-color: #2979ff;
