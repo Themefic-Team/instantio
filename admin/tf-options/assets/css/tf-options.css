@@ -750,6 +750,9 @@
   border-radius: 8px;
 }
 .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.premium .premium_wrapper .premium-body .figure .main-caption {
+  padding-top: 16px;
+  padding-left: 16px;
+  max-width: 120px;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
   overflow: hidden;
@@ -759,8 +762,14 @@
   width: 100%;
 }
 .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.premium .premium_wrapper .premium-body .figure .figure-caption {
+  height: 220px;
   padding: 16px;
   background: #f7f9fc;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: space-between;
 }
 .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.premium .premium_wrapper .premium-body .figure .figure-caption h4 {
   margin: 0;
@@ -891,6 +900,7 @@
   max-width: 340px;
   margin: 0;
   margin-bottom: 24px;
+  position: relative;
 }
 .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.whatnew .whatnew_wrapper .whatnew_updates .whatnew_updates_card .cardright_changelog ul span {
   display: inline-block;
@@ -905,6 +915,13 @@
   background-color: #dbeafe;
   margin: 0;
   margin-bottom: 16px;
+  position: absolute;
+  left: -120px;
+}
+@media only screen and (max-width: 680px) {
+  .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.whatnew .whatnew_wrapper .whatnew_updates .whatnew_updates_card .cardright_changelog ul span {
+    position: initial;
+  }
 }
 .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.whatnew .whatnew_wrapper .whatnew_updates .whatnew_updates_card .cardright_changelog ul li {
   color: #828c99;
