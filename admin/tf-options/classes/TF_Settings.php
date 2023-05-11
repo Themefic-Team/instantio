@@ -38,6 +38,8 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 			}
 		}
 
+		
+
 		public static function option( $key, $params = array() ) {
 			return new self( $key, $params );
 		}
@@ -216,7 +218,7 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 							<span>Tutorial</span>
 						</li>
 						<li class="dashboad-tab-singel">
-							<span>Premium</span>
+							<span>Pro</span>
 						</li>
 						<li class="dashboad-tab-singel">
 							<span>FAQs</span>
@@ -269,14 +271,23 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 										</a>
 									</div>
 								</div>
+								
+								<?php 
+									$is_Pro_class = new TF_Options;
+									$is_Pro_active = $is_Pro_class->is_tf_pro_active(); 
 
-								<div class="updatedtopro">
-									<h4>Upgrade to PRO</h4>
-									<p>
-										To provide amazing experience to your guests and sell more with less effort. Bonus: You can upgrade to our plans today and save 50% off.
-									</p>
-									<a target="_blank" href="https://themefic.com/instantio/" class="btn-desh-primary">Upgrade now</a>
-								</div>
+									if($is_Pro_active === false){ ?>
+
+										<div class="updatedtopro">	
+											<h4>Upgrade to PRO</h4>
+											<p>
+												To provide amazing experience to your guests and sell more with less effort. Bonus: You can upgrade to our plans today and save 50% off.
+											</p>
+											<a target="_blank" href="https://themefic.com/instantio/" class="btn-desh-primary">Upgrade now</a>
+										</div>
+
+								<?php } ?>
+								
 
 								<div class="request-features">
 									<img src="<?php echo INS_ADMIN_URL?>/tf-options/img/feature-selection.png" alt="image">
@@ -342,98 +353,98 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 						<div class="dashboad-content premium">
 							<div class="premium_wrapper">
 								<div class="premium-heading">
-									<h4>Premium Features</h4>
-									<a href="https://themefic.com/instantio/" class="btn view-all-btn">View all</a>
+									<h4>Pro Features</h4>
+									<a target="_blank" href="https://themefic.com/instantio/" class="btn view-all-btn">View all</a>
 								</div>
 								<div class="premium-body">
 									<figure class="figure">
 										<div class="main-caption">
-											<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/premium1.jpg' ?>" class="figure-img" alt="turorial" />
+											<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/pro/Side-CartCheckout-Pro-Multi-Step.jpg' ?>" class="figure-img" alt="turorial" />
 										</div>
 										<figcaption class="figure-caption">
 											<h4>Side Cart + Side Checkout (Multi Step)</h4>
 											<p>
 												Customer will checkout from Same Window (Side drawer). The checkout process will be Multi-step (Cart -> Checkout, No Reload).
 											</p>
-											<a  href="https://wpinstant.io/side-checkout/" class="btn-premium-fea">See Preview</a>
+											<a target="_blank" href="https://wpinstant.io/side-checkout/" class="btn-premium-fea">See Preview</a>
 										</figcaption>
 									</figure>
 
 									<figure class="figure">
 										<div class="main-caption">
-											<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/premium1.jpg' ?>" class="figure-img" alt="turorial" />
+											<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/pro/Side-CartCheckout-Pro-Single-Step.jpg' ?>" class="figure-img" alt="turorial" />
 										</div>
 										<figcaption class="figure-caption">
 											<h4>Side Cart + Side Checkout (Single Step)</h4>
 											<p>
 												The checkout process will be Single-step. Cart & Checkout will be shown on the Same Window, No Page Reload.
 											</p>
-											<a href="https://wpinstant.io/side-checkout-single/" class="btn-premium-fea">See Preview</a>
+											<a target="_blank" href="https://wpinstant.io/side-checkout-single/" class="btn-premium-fea">See Preview</a>
 										</figcaption>
 									</figure>
 
 									<figure class="figure">
 										<div class="main-caption">
-											<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/premium1.jpg' ?>" class="figure-img" alt="turorial" />
+											<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/pro/Popup-CartCheckout-Pro-Multi-Step.jpg' ?>" class="figure-img" alt="turorial" />
 										</div>
 										<figcaption class="figure-caption">
 											<h4>Popup Cart + Popup Checkout (Multi Step)</h4>
 											<p>
 												Customer will checkout from Same Window (Popup). The checkout process will be Multi-step (Cart -> Checkout)
 											</p>
-											<a href="https://wpinstant.io/popup-checkout/" class="btn-premium-fea">See Preview</a>
+											<a target="_blank" href="https://wpinstant.io/popup-checkout/" class="btn-premium-fea">See Preview</a>
 										</figcaption>
 									</figure>
 
 									<figure class="figure">
 										<div class="main-caption">
-											<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/premium1.jpg' ?>" class="figure-img" alt="turorial" />
+											<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/pro/Popup-CartCheckout-Pro-Single-Step.jpg' ?>" class="figure-img" alt="turorial" />
 										</div>
 										<figcaption class="figure-caption">
 											<h4>Popup Cart + Popup Checkout (Single Step)</h4>
 											<p>
 												The checkout process will be Single-step Popup (Cart & Checkout on Same Window, No Page Reload).
 											</p>
-											<a href="https://wpinstant.io/popup-checkout-single/" class="btn-premium-fea">See Preview</a>
+											<a target="_blank" href="https://wpinstant.io/popup-checkout-single/" class="btn-premium-fea">See Preview</a>
 										</figcaption>
 									</figure>
 
 									<figure class="figure">
 										<div class="main-caption">
-											<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/premium1.jpg' ?>" class="figure-img" alt="turorial" />
-										</div>
-										<figcaption class="figure-caption">
-											<h4>Dedicated Mobile Layout</h4>
-											<p>
-												A dedicated mobile layout for smaller devices to make your checkout process much smoother for customers.
-											</p>
-											<a href="https://wpinstant.io/mobile/" class="btn-premium-fea">See Preview</a>
-										</figcaption>
-									</figure>
-
-									<figure class="figure">
-										<div class="main-caption">
-											<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/premium1.jpg' ?>" class="figure-img" alt="turorial" />
+											<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/pro/Up-Sell.jpg' ?>" class="figure-img" alt="turorial" />
 										</div>
 										<figcaption class="figure-caption">
 											<h4>Upsell (Pro)</h4>
 											<p>
 												Instantio offer Ajax-based Upsell feature with which you can sell related or complementary products to a customer.
 											</p>
-											<a href="https://wpinstant.io/upsells/" class="btn-premium-fea">See Preview</a>
+											<a target="_blank" href="https://wpinstant.io/upsells/" class="btn-premium-fea">See Preview</a>
 										</figcaption>
 									</figure>
 
 									<figure class="figure">
 										<div class="main-caption">
-											<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/premium1.jpg' ?>" class="figure-img" alt="turorial" />
+											<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/pro/Cross-Sell.jpg' ?>" class="figure-img" alt="turorial" />
 										</div>
 										<figcaption class="figure-caption">
 											<h4>Cross-sell (Pro)</h4>
 											<p>
 												With Instantio, you can also do Ajax based cross-sell by selling related or complementary products to a customer.
 											</p>
-											<a href="https://wpinstant.io/cross-sells/" class="btn-premium-fea">See Preview</a>
+											<a target="_blank" href="https://wpinstant.io/cross-sells/" class="btn-premium-fea">See Preview</a>
+										</figcaption>
+									</figure>
+
+									<figure class="figure">
+										<div class="main-caption">
+											<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/pro/Dedicated-Mobile-Layout.png' ?>" class="figure-img" alt="turorial" />
+										</div>
+										<figcaption class="figure-caption">
+											<h4>Dedicated Mobile Layout</h4>
+											<p>
+												A dedicated mobile layout for smaller devices to make your checkout process much smoother for customers.
+											</p>
+											<a target="_blank" href="https://wpinstant.io/mobile/" class="btn-premium-fea">See Preview</a>
 										</figcaption>
 									</figure>
 									
@@ -570,9 +581,8 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 															$changelogs = $value['changelog'];
 															if(!empty($changelogs)) {
 																foreach($changelogs as $key => $values){ ?>
-																		<span><?php echo $key ?></span>
 																		<ul class="ins_changelog_<?php echo $key?>">
-																			
+																			<span><?php echo $key ?></span>
 																			<?php foreach($values as $value) {  ?>
 																				<li><?php echo $value ?></li>
 																			<?php } ?>

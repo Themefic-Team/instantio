@@ -750,6 +750,9 @@
   border-radius: 8px;
 }
 .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.premium .premium_wrapper .premium-body .figure .main-caption {
+  padding-top: 16px;
+  padding-left: 16px;
+  max-width: 120px;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
   overflow: hidden;
@@ -759,8 +762,14 @@
   width: 100%;
 }
 .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.premium .premium_wrapper .premium-body .figure .figure-caption {
+  height: 220px;
   padding: 16px;
   background: #f7f9fc;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: space-between;
 }
 .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.premium .premium_wrapper .premium-body .figure .figure-caption h4 {
   margin: 0;
@@ -891,6 +900,7 @@
   max-width: 340px;
   margin: 0;
   margin-bottom: 24px;
+  position: relative;
 }
 .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.whatnew .whatnew_wrapper .whatnew_updates .whatnew_updates_card .cardright_changelog ul span {
   display: inline-block;
@@ -905,6 +915,13 @@
   background-color: #dbeafe;
   margin: 0;
   margin-bottom: 16px;
+  position: absolute;
+  left: -120px;
+}
+@media only screen and (max-width: 680px) {
+  .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.whatnew .whatnew_wrapper .whatnew_updates .whatnew_updates_card .cardright_changelog ul span {
+    position: initial;
+  }
 }
 .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.whatnew .whatnew_wrapper .whatnew_updates .whatnew_updates_card .cardright_changelog ul li {
   color: #828c99;
@@ -1492,7 +1509,7 @@
 }
 
 body.admin_page_tf-setup-wizard {
-  background-color: #fcf9f7;
+  background-color: rgba(219, 82, 9, 0.1098039216);
 }
 
 .admin_page_tf-setup-wizard #wpcontent {
@@ -1535,6 +1552,15 @@ body.admin_page_tf-setup-wizard {
     gap: 15px;
   }
 }
+.tf-setup-header .tf-setup-header-left a {
+  padding: 7px 12px;
+  display: flex;
+  color: #fff;
+  background-color: #db5209;
+  border-radius: 2px;
+  border-color: transparent;
+  text-decoration: none;
+}
 .tf-setup-header .get-help-link a {
   color: #000;
   font-weight: 700;
@@ -1567,6 +1593,9 @@ Welcome Step
 .tf-setup-content-layout .welcome-img {
   margin-bottom: 50px;
   min-height: 295px;
+  display: flex;
+  align-items: start;
+  justify-content: center;
 }
 @media only screen and (max-width: 575.98px) {
   .tf-setup-content-layout .welcome-img {
@@ -1574,7 +1603,7 @@ Welcome Step
   }
 }
 .tf-setup-content-layout .welcome-img img {
-  max-width: 100%;
+  max-width: 45%;
 }
 .tf-setup-content-layout .tf-setup-welcome-title {
   font-weight: 700;
@@ -1599,7 +1628,12 @@ Welcome Step
   align-items: center;
 }
 .tf-setup-content-layout .tf-setup-welcome-footer .tf-admin-btn {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  padding: 3px 10px;
+  color: #fff;
+  background-color: #db5209;
+  border-radius: 2px;
+  border-color: transparent;
 }
 .tf-setup-content-layout .tf-setup-welcome-footer .tf-link-btn {
   color: #11142e;
@@ -1793,8 +1827,12 @@ Steps
     flex: 0 0 130px;
   }
 }
-.tf-setup-step-container .tf-select-service input[type=checkbox] {
-  display: none;
+.tf-setup-step-container .tf-select-service input[type=radio] {
+  border: none;
+  box-shadow: none;
+}
+.tf-setup-step-container .tf-select-service input[type=radio]:checked::before {
+  background-color: transparent;
 }
 .tf-setup-step-container .tf-select-service label {
   background-color: #fff;
@@ -1861,6 +1899,20 @@ Steps
   .tf-setup-step-container .tf-setup-action-btn-wrapper .tf-setup-action-btn-next {
     display: flex;
   }
+}
+.tf-setup-step-container .tf-setup-action-btn-wrapper .tf-setup-action-btn-next {
+  display: flex;
+}
+.tf-setup-step-container .tf-setup-action-btn-wrapper .tf-setup-action-btn-next button {
+  padding: 7px 12px;
+  display: flex;
+  color: #fff;
+  background-color: #db5209;
+  border-radius: 2px;
+  border-color: transparent;
+}
+.tf-setup-step-container .tf-setup-action-btn-wrapper .tf-setup-action-btn-next button:last-child {
+  margin-left: 20px;
 }
 .tf-setup-step-container .tf-setup-form-item {
   text-align: end;

@@ -557,6 +557,9 @@
               background: #f7f9fc;
               border-radius: 8px;
               .main-caption {
+                padding-top: 16px;
+                padding-left: 16px;
+                max-width: 120px;
                 border-top-left-radius: 8px;
                 border-top-right-radius: 8px;
                 overflow: hidden;
@@ -566,8 +569,14 @@
                 }
               }
               .figure-caption {
+                height: 220px;
                 padding: 16px;
                 background: #f7f9fc;
+                display: flex;
+                flex-wrap: wrap;
+                flex-direction: column;
+                justify-content: space-between;
+                align-content: space-between;
                 h4 {
                   margin: 0;
                   font-weight: 700;
@@ -719,6 +728,7 @@
                   max-width: 340px;
                   margin: 0;
                   margin-bottom: 24px;
+                  position: relative;
                   span {
                     display: inline-block;
                     font-style: normal;
@@ -732,6 +742,11 @@
                     background-color: #dbeafe;
                     margin: 0;
                     margin-bottom: 16px;
+                    position: absolute;
+                    left: -120px;
+                    @media #{$max680} {
+                      position: initial;
+                    }
                   }
                   li {
                     color: #828c99;
