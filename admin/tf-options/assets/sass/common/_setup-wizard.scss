@@ -1,6 +1,6 @@
 //hide wp menu and admin bar
 body.admin_page_tf-setup-wizard {
-  background-color: #fcf9f7;
+  background-color: #db52091c;
 }
 
 .admin_page_tf-setup-wizard #wpcontent {
@@ -42,6 +42,16 @@ body.admin_page_tf-setup-wizard {
     gap: 15px;
   }
 
+  .tf-setup-header-left a {
+    padding: 7px 12px;
+    display: flex;
+    color: #fff;
+    background-color: #db5209;
+    border-radius: 2px;
+    border-color: transparent;
+    text-decoration: none;
+  }
+
   .get-help-link a {
     color: #000;
     font-weight: 700;
@@ -75,13 +85,16 @@ Welcome Step
   .welcome-img {
     margin-bottom: 50px;
     min-height: 295px;
+    display: flex;
+    align-items: start;
+    justify-content: center;
 
     @media #{$max575} {
       min-height: auto;
     }
 
     img {
-      max-width: 100%;
+      max-width: 45%;
     }
   }
 
@@ -109,7 +122,12 @@ Welcome Step
     @include align-items(center);
 
     .tf-admin-btn {
-      margin-bottom: 10px;
+      margin-bottom: 20px;
+      padding: 3px 10px;
+      color: #fff;
+      background-color: #db5209;
+      border-radius: 2px;
+      border-color: transparent;
     }
 
     .tf-link-btn {
@@ -313,8 +331,13 @@ Steps
       }
     }
 
-    input[type="checkbox"] {
-      display: none;
+    input[type="radio"] {
+      border: none;
+      box-shadow: none;
+    }
+
+    input[type="radio"]:checked::before {
+      background-color: transparent;
     }
 
     label {
@@ -390,6 +413,21 @@ Steps
     @media #{$max375} {
       .tf-setup-action-btn-next {
         @include flexbox();
+      }
+    }
+
+    .tf-setup-action-btn-next {
+      display: flex;
+      button {
+        padding: 7px 12px;
+        display: flex;
+        color: #fff;
+        background-color: #db5209;
+        border-radius: 2px;
+        border-color: transparent;
+        &:last-child {
+          margin-left: 20px;
+        }
       }
     }
   }

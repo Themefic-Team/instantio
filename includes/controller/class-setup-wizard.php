@@ -98,13 +98,27 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
 		private function tf_setup_welcome_step() {
 			?>
             <div class="tf-setup-content-layout tf-welcome-step <?php echo self::$current_step == 'welcome' ? 'active' : ''; ?>">
-                <div class="welcome-img"><img src="<?php echo TF_ASSETS_ADMIN_URL . 'images/welcome.png' ?>" alt="<?php esc_attr_e( 'Welcome to Tourfic!', 'tourfic' ) ?>"></div>
-                <h1 class="tf-setup-welcome-title"><?php _e( 'Welcome to instantio!', 'instantio' ) ?></h1>
-                <div class="tf-setup-welcome-description"><?php _e( 'Thanks for choosing instantio for your business. We are excited to have you on board. This quick setup wizard is simple and straightforward and shouldn’t take longer than five minutes. It will help you configure the basic settings of instantio to get started. Please note that this setup guide is entirely optional.', 'instantio' ) ?></div>
+
+                <div class="welcome-img">
+                    <img src="<?php echo INS_ADMIN_URL . '/tf-options/img/instanio-logo.png' ?>" alt="<?php esc_attr_e( 'Welcome to Instantio!', 'instantio' ) ?>">
+                </div>
+                
+                <h1 class="tf-setup-welcome-title">
+                    <?php _e( 'Welcome to instantio!', 'instantio' ) ?>
+                </h1>
+
+                <div class="tf-setup-welcome-description">
+                    <?php _e( 'Thanks for choosing instantio for your business. We are excited to have you on board. This quick setup wizard is simple and straightforward and shouldn’t take longer than five minutes. It will help you configure the basic settings of instantio to get started. Please note that this setup guide is entirely optional.', 'instantio' ) ?>
+                </div>
+
                 <div class="tf-setup-welcome-footer">
-                    <button type="button" class="tf-admin-btn tf-btn-secondary tf-setup-start-btn"><span><?php _e( 'Get Started', 'instantio' ) ?></span></button>
+                    <button type="button" class="tf-admin-btn tf-btn-secondary tf-setup-start-btn">
+                        <span><?php _e( 'Get Started', 'instantio' ) ?></span>
+                    </button>
+
                     <a href="<?php echo esc_url( admin_url( 'admin.php?page=wiopt#tab=general' ) ); ?>" class="tf-link-btn"><?php _e( 'Skip to Dashboard', 'instantio' ) ?></a>
                 </div>
+
             </div>
 			<?php
 		}
@@ -117,21 +131,29 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
             <div class="tf-setup-step-container tf-setup-step-1 <?php echo self::$current_step == 'step_1' ? 'active' : ''; ?>" data-step="1">
                 <section class="tf-setup-step-layout">
 					<?php $this->tf_setup_wizard_steps_header() ?>
-                    <h1 class="tf-setup-step-title"><?php _e( 'Select your service type', 'instantio' ) ?></h1>
-                    <p class="tf-setup-step-desc"><?php _e( '(You can choose any one or both)', 'instantio' ) ?></p>
+                    <h1 class="tf-setup-step-title"><?php _e( 'Choose cart options', 'instantio' ) ?></h1>
+                    <p class="tf-setup-step-desc"><?php _e( '(You can choose any one)', 'instantio' ) ?></p>
                     <ul class="tf-select-service">
                         <li>
-                            <input type="checkbox" id="tf-hotel" name="tf-services[]" value="hotel" checked/>
+                            <input type="radio" name="ins-layout-options" value="1" checked/>
                             <label for="tf-hotel">
-                                <img src="<?php echo TF_ASSETS_ADMIN_URL . 'images/hotel.png' ?>" alt="<?php esc_attr_e( 'Hotel', 'instantio' ) ?>">
-                                <span><?php _e( 'Hotel', 'instantio' ) ?></span>
+                                <img src="<?php echo INS_ADMIN_URL . '/tf-options/img/hotel.png' ?>" alt="<?php esc_attr_e( 'Direct-Checkout', 'instantio' ) ?>">
+                                <span><?php _e( 'Direct Checkout', 'instantio' ) ?></span>
                             </label>
                         </li>
                         <li>
-                            <input type="checkbox" id="tf-tour" name="tf-services[]" value="tour" checked/>
+                            <input type="radio" name="ins-layout-options" value="2" checked/>
                             <label for="tf-tour">
-                                <img src="<?php echo TF_ASSETS_ADMIN_URL . 'images/tour.png' ?>" alt="<?php esc_attr_e( 'Tour', 'instantio' ) ?>">
-                                <span><?php _e( 'Tour', 'instantio' ) ?></span>
+                                <img src="<?php echo INS_ADMIN_URL . '/tf-options/img/tour.png' ?>" alt="<?php esc_attr_e( 'Side-Cart', 'instantio' ) ?>">
+                                <span><?php _e( 'Side Cart', 'instantio' ) ?></span>
+                            </label>
+                        </li>
+
+                        <li>
+                            <input type="radio" name="ins-layout-options" value="3" checked/>
+                            <label for="tf-tour">
+                                <img src="<?php echo INS_ADMIN_URL . '/tf-options/img/tour.png' ?>" alt="<?php esc_attr_e( 'Popup-Cart', 'instantio' ) ?>">
+                                <span><?php _e( 'Popup Cart', 'instantio' ) ?></span>
                             </label>
                         </li>
                     </ul>
