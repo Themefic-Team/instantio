@@ -108,6 +108,9 @@ class Assets {
                 .ins-checkout-modern .ins-checkout-layout.slide.ins-hori-left {
                     left: -'.$panel_width_1200.'%  !important;
                 }
+                .ins-checkout-modern .ins-checkout-layout.slide.ins-hori-left.active {
+                    left: 0  !important;
+                }
                 
                 .ins_animate_one.ins-checkout-layout.slide,
                 .ins_animate_one.ins-checkout-layout.slide.ins-hori-left,
@@ -236,8 +239,8 @@ class Assets {
 
         $ins_empty_cart = !empty(insopt( 'ins-toggle-tab' )['ins-cart-emty-hide']) ? insopt( 'ins-toggle-tab' )['ins-cart-emty-hide'] : false;
         if($cart_fly_icon == true){
-            $cart_icon = !empty(insopt( 'cart-icon' )) ? insopt( 'cart-icon' ) : 'shopping-bag';
-            $cart_fly_icon = instantio_svg_icon($cart_icon);
+            $cart_icon = !empty(insopt( 'ins-toggle-tab' )['cart-icon']) ? insopt( 'ins-toggle-tab' )['cart-icon'] : 'shopping-bag';
+            $cart_fly_icon = instantio_svg_icon($cart_icon);;
         }else{
             $cart_fly_icon = false;
         }

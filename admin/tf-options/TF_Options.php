@@ -237,13 +237,13 @@ if ( ! class_exists( 'TF_Options' ) ) {
 					$depend_visible  = ( ! empty( $dependency[4] ) ) ? $dependency[4] : '';
 				}
 
-				$depend .= 'data-controller="' . esc_attr( $data_controller ) . '"';
-				$depend .= 'data-condition="' . esc_attr( $data_condition ) . '"';
-				$depend .= 'data-value="' . esc_attr( $data_value ) . '"';
+				$depend .= ' data-controller="' . esc_attr( $data_controller ) . '' . $parent . '"';
+				$depend .= ' data-condition="' . esc_attr( $data_condition ) . '"';
+				$depend .= ' data-value="' . esc_attr( $data_value ) . '"';
 				$depend .= ( ! empty( $data_global ) ) ? ' data-depend-global="true"' : '';
 
 				$visible  = 'tf-dependency-control';
-				$visible .= ( ! empty( $depend_visible ) ) ? ' tf-depend-visible' : ' tf-depend-hidden';
+				$visible = ( ! empty( $depend_visible ) ) ? ' tf-depend-visible' : ' tf-depend-hidden';
 			}
 
 			//field width

@@ -193,11 +193,14 @@
 	
 	// Add To Cart Flying Animation
 	$(document).on("click", ".add_to_cart_button", function () {
-		if(cart_fly_anim == false ){ 
+		if(cart_fly_anim == false  ){ 
 			
 			ins_cart_icon_animation();
 			return
 		} 
+		if( $(this).hasClass("product_type_variable") ){
+			return;
+		}
 		var productThumb = $(this).closest(".product").find("img").attr("src");
 		var startPos = $(this).closest(".product").find("img").offset();
 		var productThumbwidth = $(this).closest(".product").find("img").width();
