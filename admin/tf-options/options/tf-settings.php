@@ -1200,14 +1200,14 @@ TF_Settings::option( 'wiopt', array(
 
 				array(
 					'id'       		=> 'wi-custom-css',
-					'type'     		=> 'code_editor',
+					'type'     		=> 'codeeditor',
 					'label'    		=> __('Custom CSS', 'instantio' ),
 					'subtitle' 		=> __( 'If you want to make extra CSS then you can do it from here', 'instantio' ),
 					'settings' 		=> array(
 					  	'theme'  			=> 'monokai',
 						'mode'   			=> 'css',
 					),
-					'is_pro'		=> true,
+					// 'is_pro'		=> true,
 				),
 			),
 		),

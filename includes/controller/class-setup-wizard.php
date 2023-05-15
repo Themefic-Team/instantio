@@ -131,27 +131,27 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
             <div class="tf-setup-step-container tf-setup-step-1 <?php echo self::$current_step == 'step_1' ? 'active' : ''; ?>" data-step="1">
                 <section class="tf-setup-step-layout">
 					<?php $this->tf_setup_wizard_steps_header() ?>
-                    <h1 class="tf-setup-step-title"><?php _e( 'Choose cart options', 'instantio' ) ?></h1>
+                    <h1 class="tf-setup-step-title"><?php _e( 'Choose Layout options', 'instantio' ) ?></h1>
                     
                     <ul class="tf-select-service">
                         <li>
                             <input type="radio" name="ins-layout-options" value="1" checked/>
-                            <label for="tf-hotel">
+                            <label for="ins-layout-options">
                                 <img src="<?php echo INS_ADMIN_URL . '/tf-options/img/layout/Directcheckout.jpg' ?>" alt="<?php esc_attr_e( 'Direct-Checkout', 'instantio' ) ?>">
                                 <span><?php _e( 'Direct Checkout', 'instantio' ) ?></span>
                             </label>
                         </li>
                         <li>
-                            <input type="radio" name="ins-layout-options" value="2" checked/>
-                            <label for="tf-tour">
+                            <input type="radio" name="ins-layout-options" value="2"/>
+                            <label for="ins-layout-options">
                                 <img src="<?php echo INS_ADMIN_URL . '/tf-options/img/layout/Cart.svg' ?>" alt="<?php esc_attr_e( 'Side-Cart', 'instantio' ) ?>">
                                 <span><?php _e( 'Side Cart', 'instantio' ) ?></span>
                             </label>
                         </li>
 
                         <li>
-                            <input type="radio" name="ins-layout-options" value="3" checked/>
-                            <label for="tf-tour">
+                            <input type="radio" name="ins-layout-options" value="3"/>
+                            <label for="ins-layout-options">
                                 <img src="<?php echo INS_ADMIN_URL . '/tf-options/img/layout/Popup.jpg' ?>" alt="<?php esc_attr_e( 'Popup-Cart', 'instantio' ) ?>">
                                 <span><?php _e( 'Popup Cart', 'instantio' ) ?></span>
                             </label>
@@ -159,21 +159,44 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
                     </ul>
 
                     <div class="tf-setup-form-item">
-                        <div class="tf-setup-form-item-label">
-                            <label class="">
-                                <?php _e( 'Select The Mode', 'instantio' ) ?>
-                            </label>
-                        </div>
+                        
+                        <label class="">
+                            <?php _e( 'Select The Mode', 'instantio' ) ?>
+                        </label>
 
-                        <div class="tf-setup-form-item-input">
-                            <select name="ins-layout-mode" id="tf-search-result-page">
-                                <option value=""><?php _e( 'Select a page', 'instantio' ) ?></option>
-                                <option value="light"><?php _e( 'Light', 'instantio' ) ?></option>
-                                <option value="dark"><?php _e( 'Dark', 'instantio' ) ?></option>
-                                <option value="glass-morphism"><?php _e( 'Glass Morphism', 'instantio' ) ?></option>
-                                <option value="gradient"><?php _e( 'Gradient', 'instantio' ) ?></option>
-                            </select>
-                        </div>
+                        <ul class="tf-select-mode">
+                            <li>
+                                <input type="radio" name="ins-layout-mode" value="light" checked/>
+                                <label for="ins-layout-mode">
+                                    <img src="<?php echo INS_ADMIN_URL . '/tf-options/img/layout/Light.svg' ?>" alt="<?php esc_attr_e( 'light', 'instantio' ) ?>">
+                                    <span><?php _e( 'Light', 'instantio' ) ?></span>
+                                </label>
+                            </li>
+                            <li>
+                                <input type="radio" name="ins-layout-mode" value="dark"/>
+                                <label for="ins-layout-mode">
+                                    <img src="<?php echo INS_ADMIN_URL . '/tf-options/img/layout/Dark.svg' ?>" alt="<?php esc_attr_e( 'dark', 'instantio' ) ?>">
+                                    <span><?php _e( 'Dark', 'instantio' ) ?></span>
+                                </label>
+                            </li>
+
+                            <li>
+                                <input type="radio" name="ins-layout-mode" value="glass-morphism"/>
+                                <label for="ins-layout-mode">
+                                    <img src="<?php echo INS_ADMIN_URL . '/tf-options/img/layout/GlassMorphism.svg' ?>" alt="<?php esc_attr_e( 'GlassMorphism', 'instantio' ) ?>">
+                                    <span><?php _e( 'Glass Morphism', 'instantio' ) ?></span>
+                                </label>
+                            </li>
+
+                            <li>
+                                <input type="radio" name="ins-layout-mode" value="gradient"/>
+                                <label for="ins-layout-mode">
+                                    <img src="<?php echo INS_ADMIN_URL . '/tf-options/img/layout/Gradient.svg' ?>" alt="<?php esc_attr_e( 'gradient', 'instantio' ) ?>">
+                                    <span><?php _e( 'Gradient', 'instantio' ) ?></span>
+                                </label>
+                            </li>
+                        </ul>
+                        
                     </div>
 
                     <?php
@@ -182,19 +205,40 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
 
                         if($is_Pro_active === true) { ?>
 
-                            <div class="tf-setup-form-item">
-                                <div class="tf-setup-form-item-label">
-                                    <label class=""><?php _e( 'Select The ProgressBar', 'instantio' ) ?></label>
-                                </div>
-                                <div class="tf-setup-form-item-input">
-                                    <select name="ins-layout-progressbar" id="tf-search-result-page">
-                                        <option value=""><?php _e( 'Select a page', 'instantio' ) ?></option>
-                                        <option value="1"><?php _e( 'Version 1', 'instantio' ) ?></option>
-                                        <option value="2"><?php _e( 'Version 2', 'instantio' ) ?></option>
-                                        <option value="3"><?php _e( 'Version 3', 'instantio' ) ?></option>
-                                        <option value="4"><?php _e( 'Version 4', 'instantio' ) ?></option>
-                                    </select>
-                                </div>
+                            <div class="tf-setup-form-item">  
+                                <label class=""><?php _e( 'Select The ProgressBar', 'instantio' ) ?></label>
+                                <ul class="tf-select-progressbar">
+                                    <li>
+                                        <input type="radio" name="ins-layout-progressbar" value="1" checked/>
+                                        <label for="ins-layout-progressbar">
+                                            <img src="<?php echo INS_ADMIN_URL . '/tf-options/img/layout/version1.svg' ?>" alt="<?php esc_attr_e( 'Version-1', 'instantio' ) ?>">
+                                            <span><?php _e( 'Version 1', 'instantio' ) ?></span>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="ins-layout-progressbar" value="2"/>
+                                        <label for="ins-layout-progressbar">
+                                            <img src="<?php echo INS_ADMIN_URL . '/tf-options/img/layout/version2.svg' ?>" alt="<?php esc_attr_e( 'Version-2', 'instantio' ) ?>">
+                                            <span><?php _e( 'Version 2', 'instantio' ) ?></span>
+                                        </label>
+                                    </li>
+
+                                    <li>
+                                        <input type="radio" name="ins-layout-progressbar" value="3"/>
+                                        <label for="ins-layout-progressbar">
+                                            <img src="<?php echo INS_ADMIN_URL . '/tf-options/img/layout/version3.svg' ?>" alt="<?php esc_attr_e( 'Version-3', 'instantio' ) ?>">
+                                            <span><?php _e( 'Version 3', 'instantio' ) ?></span>
+                                        </label>
+                                    </li>
+
+                                    <li>
+                                        <input type="radio" name="ins-layout-progressbar" value="3"/>
+                                        <label for="ins-layout-progressbar">
+                                            <img src="<?php echo INS_ADMIN_URL . '/tf-options/img/layout/version4.svg' ?>" alt="<?php esc_attr_e( 'Version-4', 'instantio' ) ?>">
+                                            <span><?php _e( 'Version 4', 'instantio' ) ?></span>
+                                        </label>
+                                    </li>
+                                </ul>
                             </div>
                     <?php } ?>                    
 
@@ -301,7 +345,7 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
                         </div>
                         <div class="tf-setup-form-item-input"> 
                             <select name="toggle-position-horizontal" id="toggle-position-horizontal">
-                                <option value=""><?php _e( 'Select a page', 'instantio' ) ?></option>
+                                <option value=""><?php _e( 'Select a position', 'instantio' ) ?></option>
                                 <option value="left"><?php _e( 'Left', 'instantio' ) ?></option>
                                 <option value="right"><?php _e( 'Right', 'instantio' ) ?></option>
                             </select>
@@ -345,7 +389,7 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
                             </div>
                             <div class="tf-setup-form-item-input"> 
                                 <select name="toggle-position-horizontal" id="toggle-position-horizontal">
-                                    <option value=""><?php _e( 'Select a page', 'instantio' ) ?></option>
+                                    <option value=""><?php _e( 'Select a position', 'instantio' ) ?></option>
                                     <option value="left"><?php _e( 'Left', 'instantio' ) ?></option>
                                     <option value="right"><?php _e( 'Right', 'instantio' ) ?></option>
                                 </select>
