@@ -142,6 +142,9 @@
 					fill: var(--ins_checkout_theme);
 				}
 			}
+			i{
+				color: var(--ins_checkout_theme) !important;
+			}
 		}
 	}
 	&.cart-style-4 {

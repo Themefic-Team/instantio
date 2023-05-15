@@ -391,7 +391,8 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
         private function tf_setup_finish_step() {
             ?>
             <div class="tf-setup-content-layout tf-finish-step <?php echo self::$current_step == 'finish' ? 'active' : ''; ?>">
-                <div class="welcome-img"><img src="<?php echo TF_ASSETS_ADMIN_URL . 'images/hooray.png' ?>" alt="<?php esc_attr_e( 'Thank you', 'tourfic' ) ?>"></div>
+                <div class="welcome-img">
+                    <img src="<?php //echo TF_ASSETS_ADMIN_URL . 'images/hooray.png' ?>" alt="<?php //esc_attr_e( 'Thank you', 'tourfic' ) ?>"></div>
                 <h1 class="tf-setup-welcome-title"><?php _e( 'Hooray! You’re all set.', 'tourfic' ) ?></h1>
                 <div class="tf-setup-welcome-description"><?php _e( 'Let\'s get started and make the most out of Tourfic. With this plugin, you can manage your hotel or travel bookings with ease, and provide your customers with a seamless booking experience. So, let\'s dive in and start streamlining your hotel or travel business operations today!', 'tourfic' ) ?></div>
                 <div class="tf-setup-welcome-footer tf-setup-finish-footer">
