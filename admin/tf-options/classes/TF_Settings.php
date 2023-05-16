@@ -618,9 +618,7 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 			?>
 			<div class="tf-setting-dashboard">
 
-				
-				
-				<!-- <div class="tf-setting-license">
+				<div class="tf-setting-license">
 					<div class="tf-setting-license-tabs">
 						<ul>
 							<li class="active">
@@ -641,7 +639,7 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 								$licenseKey = ! empty( tfliopt( 'license-key' ) ) ? tfliopt( 'license-key' ) : '';
 								$liceEmail  = ! empty( tfliopt( 'license-email' ) ) ? tfliopt( 'license-email' ) : '';
 								
-								if ( TourficProBase::CheckWPPlugin( $licenseKey, $liceEmail, $licenseMessage, $responseObj, TF_PRO_PATH . 'tourfic-pro.php' ) ) {
+								if ( InstantioProBase::CheckWPPlugin( $licenseKey, $liceEmail, $licenseMessage, $responseObj, TF_PRO_PATH . 'tourfic-pro.php' ) ) {
 									tf_license_info();
 								} else {
 								?>
@@ -676,7 +674,8 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 							</div>
 						</div>
 					</div>
-				</div> -->
+				</div>
+
 			</div>
 			<?php
 		}
@@ -776,9 +775,6 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 									</div>
                             </div>
                         </div>
-
-                        
-
 						<?php wp_nonce_field( 'tf_option_nonce_action', 'tf_option_nonce' ); ?>
                     </form>
                 </div>

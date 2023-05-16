@@ -17,7 +17,6 @@
         is_rtl: $('body').hasClass('rtl'),
     };
 
-<<<<<<< HEAD
     // Field: code_editor
     $(document).ready(function () {
 
@@ -74,10 +73,6 @@
     });
 
     $(document).ready(function () {
-=======
-    $(document).ready(function () { 
-     
->>>>>>> 6b868e6e909dafe6a32310bd6c97f06740a8268b
         // Create an instance of Notyf
         const notyf = new Notyf({
             ripple: true,
@@ -94,7 +89,7 @@
          * @author: Foysal
          */
         $(window).on("hashchange load", function () {
-            
+
             let hash = window.location.hash;
             let query = window.location.search;
             let slug = hash.replace("#tab=", "");
@@ -175,9 +170,9 @@
         $('.tf-tablinks').each(function () {
             let $this = $(this);
             let tabId = $this.attr("data-tab");
-            if(tabId == 'layout_option'){
+            if (tabId == 'layout_option') {
                 $this.trigger('click');
-            } 
+            }
         });
         /*
          * Submenu toggle
