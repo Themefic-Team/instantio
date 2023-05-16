@@ -89,7 +89,7 @@
          * @author: Foysal
          */
         $(window).on("hashchange load", function () {
-            
+
             let hash = window.location.hash;
             let query = window.location.search;
             let slug = hash.replace("#tab=", "");
@@ -170,9 +170,9 @@
         $('.tf-tablinks').each(function () {
             let $this = $(this);
             let tabId = $this.attr("data-tab");
-            if(tabId == 'layout_option'){
+            if (tabId == 'layout_option') {
                 $this.trigger('click');
-            } 
+            }
         });
         /*
          * Submenu toggle
