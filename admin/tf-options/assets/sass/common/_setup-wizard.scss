@@ -68,7 +68,7 @@ Welcome Step
 */
 .tf-setup-content-layout {
   padding: 40px 50px 25px;
-  box-shadow: 0 0 200px rgb(0 0 0 / 8%);
+  box-shadow: 0 0 200px rgba(0, 0, 0, 0.08);
   border-radius: 20px;
   background-color: #fff;
   text-align: center;
@@ -273,7 +273,7 @@ Steps
 
   .tf-setup-step-layout {
     padding: 40px 50px 25px;
-    box-shadow: 0 0 200px rgb(0 0 0 / 8%);
+    box-shadow: 0 0 200px rgba(0, 0, 0, .08);
     border-radius: 20px;
     background-color: #fff;
     text-align: center;

@@ -22,13 +22,13 @@ TF_Settings::option( 'wiopt', array(
 			'title'  				=> esc_html__( 'General', 'tourfic' ),
 			'icon'   				=> 'fa fa-cog',
 			'fields' 				=> array(
-				array(
-					'id'    		=> 'cart_section',
-					'type'    		=> 'heading',
-					'content' 		=> __('Welcome to the instantio Settion', 'instantio'),
-				),
+				// array(
+				// 	'id'    		=> 'cart_section',
+				// 	'type'    		=> 'heading',
+				// 	'content' 		=> __('Welcome to the instantio Settion', 'instantio'),
+				// ),
 			),
-		),
+		), 
 
 		'layout_option'       		=> array(
 			'title'  				=> esc_html__( 'Layout', 'instantio' ),
@@ -94,35 +94,6 @@ TF_Settings::option( 'wiopt', array(
 				),
 
 				array(
-					'id'        	=> 'ins-layout-progressbar',
-					'type'      	=> 'imageselect',
-					'label'     	=> 'Choose progress bar',
-					'class'     	=> 'ins-layout-options-imageset300',
-					'is_pro'    	=> true,
-					'multiple' 		=> true,
-					'inline'   		=> true,
-					'options'   	=> array(
-						'progress1' 		=> array(
-							'title'			=> 'Version 1',
-							'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/version1.svg',
-						),
-						'progress2' 		=> array(
-							'title'			=> 'Version 2',
-							'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/version2.svg',
-						),
-						'progress3' 		=> array(
-							'title'			=> 'Version 3',
-							'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/version3.svg',
-						),
-						'progress4' 		=> array(
-							'title'			=> 'Version 4',
-							'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/version4.svg',
-						),
-					),
-					// 'default'   	=> 'progress2',
-				),
-
-				array(
 					'id'        	=> 'ins-layout',
 					'type'      	=> 'imageselect',
 					'class' 		=> 'ins-layout-options-imageset200',
@@ -157,18 +128,48 @@ TF_Settings::option( 'wiopt', array(
 					// 'dependency' 	=> array('ins-layout',  '!=', '1', '', 'visible' ),
 				),
 
+				
+				array(
+					'id'        	=> 'ins-layout-progressbar',
+					'type'      	=> 'imageselect',
+					'label'     	=> 'Choose progress bar',
+					'class'     	=> 'ins-layout-options-imageset300',
+					'is_pro'    	=> true,
+					'multiple' 		=> true,
+					'inline'   		=> true,
+					'options'   	=> array(
+						'progress1' 		=> array(
+							'title'			=> 'Version 1',
+							'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/version1.svg',
+						),
+						'progress2' 		=> array(
+							'title'			=> 'Version 2',
+							'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/version2.svg',
+						),
+						'progress3' 		=> array(
+							'title'			=> 'Version 3',
+							'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/version3.svg',
+						),
+						'progress4' 		=> array(
+							'title'			=> 'Version 4',
+							'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/version4.svg',
+						),
+					),
+					// 'default'   	=> 'progress2',
+				),
+
 			),
 		),
 
 		'general_toggle'       		=> array(
-			'title'  				=> esc_html__( 'Toggle', 'instantio' ),
+			'title'  				=> esc_html__( 'Icon', 'instantio' ),
 			'parent' 				=> 'general',
 			'icon'  				=> 'fas fa-toggle-on',
 			'fields' 				=> array(
 				array(
 					'id'        	=> 'ins-toggler',
 					'type'      	=> 'imageselect',
-					'label'     	=> __('Choose toggler design', 'instantio'),
+					'label'     	=> __('Choose Icon design ', 'instantio'),
 					'class' 		=> 'ins-layout-options-imageset',
 					'multiple' 		=> true,
 					'inline'   		=> true,
@@ -185,7 +186,15 @@ TF_Settings::option( 'wiopt', array(
 					'default'   	=> 'tog-1',
 					// 'dependency' 	=> array('ins-layout',  '!=', '1', '', 'visible' ),
 				),
-
+				array(
+					'id'       		=> 'auto-tog-panel',
+					'type'     		=> 'switch',
+					'label'    		=> __('Auto Open Toggle Panel', 'instantio'), 
+					'label_on'    	=> __('Enabled', 'instantio'),
+					'label_off'   	=> __('Disabled', 'instantio'),
+					'width' 		=> 100,
+					'default'   	=> false,
+				),
 				array(
 					'id'     		=> 'cart-fly',
 					'type'   		=> 'fieldset',
@@ -201,28 +210,22 @@ TF_Settings::option( 'wiopt', array(
 						  'width' 			=> 100,
 						  'default'   		=> false,
 						),
+						 
 						array(
-						  'id'       		=> 'cart-fly-icon',
-						  'type'     		=> 'switch',
-						  'label'    		=> __('Cart Fly Animation Icon', 'instantio'),
-						  'label_on'    	=> __('Icon', 'instantio'),
-						  'label_off'   	=> __('Thumb', 'instantio'),
-						  'width' 			=> 100,
-						  'default'   		=> true,
-						  'dependency' 		=> array('cart-fly-anim', '==', 1),
-						),
+							'id' 			=> 'cart-fly-icon',
+							'type' 			=> 'select',
+							'label' 		=> __('Cart Fly Animation Icon', 'instantio'), 
+							'class' => 'tf-field-class',
+							'options' => array(
+								'0' => 'Cart Icon',
+								'1' => 'Product Thumbnail',
+							 ),
+							 'dependency' 		=> array('cart-fly-anim', '==', 1),
+						)
 					),
 				),
 
-				array(
-					'id'       		=> 'auto-tog-panel',
-					'type'     		=> 'switch',
-					'label'    		=> __('Auto Open Toggle Panel', 'instantio'), 
-					'label_on'    	=> __('Enabled', 'instantio'),
-					'label_off'   	=> __('Disabled', 'instantio'),
-					'width' 		=> 100,
-					'default'   	=> false,
-				),
+				
 
 			),
 		),
@@ -231,31 +234,7 @@ TF_Settings::option( 'wiopt', array(
 			'title'  				=> esc_html__( 'Cart', 'instantio' ),
 			'parent' 				=> 'general',
 			'icon'  				=> 'fas fa-cart-flatbed',
-			'fields' 				=> array(
-				array(
-					'id'        	=> 'woins-quickview-disable',
-					'class'     	=> 'ins-csf-disable badge_pro',
-					'type'      	=> 'switch',
-					'label'     	=> __( 'Disable Quick View', 'instantio' ),
-					'subtitle'  	=> __('You can disable it if you already have quick view function in your theme (Applicable for Variable products)', 'instantio'),
-					'is_pro'    	=> true,
-					'label_on'  	=> __('Yes', 'instantio'),
-					'label_off' 	=> __('No', 'instantio'),
-					'default'   	=> false,
-				),
-			  
-				array(
-					'id'        	=> 'wi-disable-ajax-add-cart',
-					'class'     	=> 'ins-csf-disable badge_pro',
-					'type'      	=> 'switch',
-					'label'     	=> __( 'Disable Ajax Add to Cart', 'instantio' ),
-					'subtitle'  	=> __('You can disable it if you already have ajax "add to cart" function in your theme (To avoid conflict)', 'instantio'),
-					'is_pro'    	=> true,
-					'label_on'  	=> __('Yes', 'instantio'),
-					'label_off' 	=> __('No', 'instantio'),
-					'default'   	=> false,
-				),
-				
+			'fields' 				=> array( 
 				array(
 					'id'     		=> 'cart-btn',
 					'type'   		=> 'fieldset',
@@ -327,7 +306,29 @@ TF_Settings::option( 'wiopt', array(
 						),
 					),
 				),
-
+				array(
+					'id'        	=> 'woins-quickview-disable',
+					'class'     	=> 'ins-csf-disable badge_pro',
+					'type'      	=> 'switch',
+					'label'     	=> __( 'Disable Quick View', 'instantio' ),
+					'subtitle'  	=> __('You can disable it if you already have quick view function in your theme (Applicable for Variable products)', 'instantio'),
+					'is_pro'    	=> true,
+					'label_on'  	=> __('Yes', 'instantio'),
+					'label_off' 	=> __('No', 'instantio'),
+					'default'   	=> false,
+				),
+			  
+				array(
+					'id'        	=> 'wi-disable-ajax-add-cart',
+					'class'     	=> 'ins-csf-disable badge_pro',
+					'type'      	=> 'switch',
+					'label'     	=> __( 'Disable Ajax Add to Cart', 'instantio' ),
+					'subtitle'  	=> __('You can disable it if you already have ajax "add to cart" function in your theme (To avoid conflict)', 'instantio'),
+					'is_pro'    	=> true,
+					'label_on'  	=> __('Yes', 'instantio'),
+					'label_off' 	=> __('No', 'instantio'),
+					'default'   	=> false,
+				),
 				array(
 					'id'       		=> 'ins-upsell',
 					'class' 		=> 'ins-csf-disable ins-csf-pro',
@@ -387,7 +388,7 @@ TF_Settings::option( 'wiopt', array(
 		),
 
 		'toggle_page'        		=> array(
-			'title'  				=> esc_html__( 'Toggle', 'instantio' ),
+			'title'  				=> esc_html__( 'Cart Icon', 'instantio' ),
 			'parent' 				=> 'design_option',
 			'icon'   				=> 'fa fa-cogs',
 			'fields' 				=> array(
@@ -404,7 +405,7 @@ TF_Settings::option( 'wiopt', array(
 								array(
 									'id'        	=> 'label_off_heading',
 									'type'      	=> 'heading',
-									'label'     	=> __( 'Global Settings for Instantio Toggle Cart icon', 'instantio' ),
+									'label'     	=> __( 'Global Settings for Instantio Cart icon', 'instantio' ),
 									'sub_title' 	=> __( 'These options can be overridden from defualt Settings.', 'instantio' ),
 								),
 				
@@ -421,8 +422,8 @@ TF_Settings::option( 'wiopt', array(
 									'id'       		=> 'cart-icon-style',
 									'class'    		=> 'imageset-inline',
 									'type'     		=> 'imageselect',
-									'label'    		=> __('Toggle Icon', 'instantio'), 
-									'subtitle' 		=> __('Select cart icon which will appear in cart toggler', 'instantio'),
+									'label'    		=> __('Cart Icon Style', 'instantio'), 
+									'subtitle' 		=> __('Select cart icon Style which will appear in cart Icon', 'instantio'),
 									'options'  		=> array(
 										'cart-style-1' 			=> array(
 											'title'			=> '',
@@ -443,33 +444,37 @@ TF_Settings::option( 'wiopt', array(
 									),
 									'default' 		=> 'cart-1'
 								),
+								// array(
+								// 	'id'       		=> 'wi-icon-choice',
+								// 	'class'    		=> 'ins-csf-disable',
+								// 	'type'     		=> 'select', 
+								// 	'label'    		=> __('Custom Icon Choice as Cart Icon', 'instantio'),
+								// 	'subtitle' 		=> __('Set custom Icon Choice as icon for the cart instead of the defaults one.','instantio'),
+								// 	'label_on'  	=> __('Yes', 'instantio'),
+								// 	'label_off' 	=> __('No', 'instantio'),
+								// 	'default'  		=> false,
+								// 	'is_pro'		=> true,
+								// ),
 								array(
-									'id'       		=> 'cart-icon',
-									'class'    		=> 'imageset-inline',
-									'type'     		=> 'imageselect',
-									'label'    		=> __('Toggle Icon', 'instantio'), 
-									'subtitle' 		=> __('Select cart icon which will appear in cart toggler', 'instantio'),
-									'options'  		=> array(
-										'cart-1' 			=> array(
-											'title'			=> '',
-											'url' 			=> plugin_dir_url( __FILE__ ).'../img/cart-1.svg',
-										), 
-									),
-									'default' 		=> 'cart-1'
+									'id' => 'wi-icon-choice',
+									'type' => 'select',
+									'label'    		=> __('Select Cart Icon Option', 'instantio'),
+									'subtitle' 		=> __('Set custom Icon Choice as icon for the cart instead of the defaults Icon.','instantio'), 
+									'class' => 'tf-field-class',
+									'options' => array(
+										'icon' => 'Select Icon',
+										'image' => 'Select Image',
+									 ),
+									'default' => 'icon',
+									'inline' => true,
 								),
-				
 								array(
-									'id'       		=> 'wi-icon-choice',
-									'class'    		=> 'ins-csf-disable',
-									'type'     		=> 'switch', 
-									'label'    		=> __('Custom Image as Toggler Icon', 'instantio'),
-									'subtitle' 		=> __('Set custom image as icon for the toggler instead of the defaults one.','instantio'),
-									'label_on'  	=> __('Yes', 'instantio'),
-									'label_off' 	=> __('No', 'instantio'),
-									'default'  		=> false,
-									'is_pro'		=> true,
+									'id'         => 'cart-icon',
+									'type'       => 'icon',
+									'label'      => __( 'Cart Icon', 'tourfic' ), 
+									'subtitle' 		=> __('Select cart icon which will appear in cart Icon', 'instantio'),
+									'dependency' => array( 'wi-icon-choice', '==', 'icon' ),
 								),
-
 								array(
 									'id' 			=> 'wi-icon-choice-uploder',
 									'type' 			=> 'image',
@@ -477,64 +482,43 @@ TF_Settings::option( 'wiopt', array(
 									'label' 		=> 'Custom Toggler Icon',
 									'subtitle' 		=> __('Upload your cart icon. Recommended size of an icon is 26x26px','instantio'),
 									'description' 	=> __('If Custom Image as Toggler Icon it\'s then it will work', 'instantio'),
+									'dependency' => array( 'wi-icon-choice', '==', 'image' ),
 								),
+								// array(
+								// 	'id'       		=> 'cart-icon',
+								// 	'class'    		=> 'imageset-inline',
+								// 	'type'     		=> 'imageselect',
+								// 	'label'    		=> __('Toggle Icon', 'instantio'), 
+								// 	'subtitle' 		=> __('Select cart icon which will appear in cart toggler', 'instantio'),
+								// 	'options'  		=> array(
+								// 		'cart-1' 			=> array(
+								// 			'title'			=> '',
+								// 			'url' 			=> plugin_dir_url( __FILE__ ).'../img/cart-1.svg',
+								// 		), 
+								// 	),
+								// 	'default' 		=> 'cart-1'
+								// ),
 				
 								array(
-									'id'       		=> 'toggle-position-horizontal',
-									'type'     		=> 'imageselect',
-									'class' 		=> 'ins-layout-options-imageset200',
-									'label'    		=> __('Toggler Horizontal Position', 'instantio'),
-									'subtitle' 		=> __('Changes position of the Cart Toggler horizontally', 'instantio'),
-									'multiple' 		=> true,
-									'inline'   		=> true,
-									'inline'   		=> true,
-									'options'  		=> array(
-										'left'   			=> array(
-											'title'			=> 'Toggle Left',
-											'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/toggle-right.png',
-										),
-										'right'  			=> array(
-											'title'			=> 'Toggle Right',
-											'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/toggle-middle.png',
-										)
-									), 
-									'default'  		=> 'right',
-								),
-
-								array(
-									'id'        	=> 'toggle-position-vertical',
-									'type'      	=> 'imageselect',
-									'class' 		=> 'ins-layout-options-imageset200',
-									'label'     	=> __('Toggler Vertical Position', 'instantio'), 
-									'subtitle' 		=> __('Changes position of the Cart Toggler vertically', 'instantio'),
-									'multiple' 		=> true,
-									'inline'   		=> true,
-									'options'   	=> array(
-										'cart-top' 			=> array(
-											'title'			=> 'Toggle Top',
-											'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/toggle-top.png',
-										),
-										'cart-middle' 		=> array(
-											'title'			=> 'Toggle Middle',
-											'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/toggle-middle.png',
-										),
-										'cart-bottom' 		=> array(
-											'title'			=> 'Toggle Button',
-											'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/toggle-button.png',
-										)
-									),
-									'default'   	=> 'cart',
-									
-									// 'dependency' => [    
-									// 	array( 'ins-layout',  '!=', '1' ),   
-									// 	array( 'ins-toggler', '!=', 'tog-2' ),    
-									// ],
-								),
-
+									'id' => 'toggle-position',
+									'type' => 'select',
+									'label'     	=> __('Icon Position', 'instantio'), 
+									'subtitle' 		=> __('Changes position of the Cart Icon', 'instantio'),  
+									'class' => 'tf-field-class',
+									'options' => array( 
+										'right-top' => 'Right Top',
+										'right-middle' => 'Right Center',
+										'right-bottom' => 'Right Bottom', 
+										'left-top' => 'Left Top',
+										'left-middle' => 'Left Center',
+										'left-bottom' => 'Left Bottom', 
+									 ),
+									'default' => 'right-bottom',
+								), 
 								array(
 									'id'     		=> 'wi-header-icon-size',
 									'type'   		=> 'number',
-									'label'  		=> __('Toggler Icon Size', 'instantio'),
+									'label'  		=> __('Cart Icon Size', 'instantio'),
 									'subtitle' 		=> __('Set width of the toggler icon', 'instantio'),
 									'placeholder'   => __('Default: 26', 'instantio'),
 									'description'   => __('Default: 26 px', 'instantio'),
@@ -543,8 +527,8 @@ TF_Settings::option( 'wiopt', array(
 								array(
 									'id'    		=> 'wi-header-text-size',
 									'type'  		=> 'number',
-									'label'  		=> __('Cart Counter Number Size', 'instantio'),
-									'subtitle' 		=> __('Set font size & line height of cart toggler text', 'instantio'),
+									'label'  		=> __('Cart Total Item Size', 'instantio'),
+									'subtitle' 		=> __('Set font size & line height of cart total item number', 'instantio'),
 									'description'   => __('Default: 14px', 'instantio'),
 								),
 							),
@@ -557,7 +541,7 @@ TF_Settings::option( 'wiopt', array(
 								array(
 									'id'        	=> 'wi-header-bg-colors',
 									'type'      	=> 'color',
-									'label'     	=> __( 'Toggler Background Colors', 'instantio' ),
+									'label'     	=> __( 'Cart Icon Background Colors', 'instantio' ),
 									'subtitle'  	=> __( 'Set regular & hover color', 'instantio' ),
 									'default'   	=> '#ffffff',
 									'multiple'  	=> true,
@@ -571,7 +555,7 @@ TF_Settings::option( 'wiopt', array(
 								array(
 									'id'        	=> 'wi-header-border-colors',
 									'type'      	=> 'color',
-									'label'    		=> __( 'Toggler Border Colors', 'instantio' ),
+									'label'    		=> __( 'Cart Icon Border Colors', 'instantio' ),
 									'subtitle' 		=> __( 'Set regular & hover color', 'instantio' ),
 									'default'  	 	=> '#ffffff',
 									'multiple'  	=> true,
@@ -585,7 +569,7 @@ TF_Settings::option( 'wiopt', array(
 								array(
 									'id'        	=> 'ins-tog-icon-colors',
 									'type'      	=> 'color',
-									'label'    		=> __( 'Toggler Icon Color', 'instantio' ),
+									'label'    		=> __( 'Cart Icon Color', 'instantio' ),
 									'subtitle' 		=> __( 'Set regular & hover color of text & icon', 'instantio' ),
 									'default'   	=> '#ffffff',
 									'multiple'  	=> true,
@@ -599,7 +583,7 @@ TF_Settings::option( 'wiopt', array(
 								array(
 									'id'        	=> 'ins-tog-item-bg',
 									'type'      	=> 'color',
-									'label'    		=> __( 'Toggler Item Number Background', 'instantio' ),
+									'label'    		=> __( 'Cart Icon Total Item Number Background', 'instantio' ),
 									'subtitle' 		=> __( 'Set regular & hover background color', 'instantio' ),
 									'multiple'  	=> true,
 									'inline'    	=> true,
@@ -612,7 +596,7 @@ TF_Settings::option( 'wiopt', array(
 								array(
 									'id'        	=> 'wi-header-text-colors',
 									'type'      	=> 'color',
-									'label'    		=> __( 'Toggler Item Number Color', 'instantio' ),
+									'label'    		=> __( 'Cart Icon Total Item Number Color', 'instantio' ),
 									'subtitle' 		=> __( 'Set regular & hover color of text & icon', 'instantio' ),
 									'multiple'  	=> true,
 									'inline'    	=> true,
@@ -629,7 +613,7 @@ TF_Settings::option( 'wiopt', array(
 		),
 
 		'toggle_panel'        		=> array(
-			'title'  				=> esc_html__( 'Toggle Panel', 'instantio' ),
+			'title'  				=> esc_html__( 'Cart Panel', 'instantio' ),
 			'parent' 				=> 'design_option',
 			'icon'   				=> 'fa fa-toggle-off',
 			'fields' 				=> array(
@@ -644,35 +628,41 @@ TF_Settings::option( 'wiopt', array(
 								array(
 									'id'    		=> 'toggle_panel_heading',
 									'type' 			=> 'heading',
-									'label' 		=> __( 'Toggle Panel Design', 'instantio' ),
+									'label' 		=> __( 'Cart Panel Design', 'instantio' ),
 								),
 
+								// array(
+								// 	'id'       		=> 'toggle-panel-position',
+								// 	'type'     		=> 'imageselect',
+								// 	'multiple' 		=> true,
+								// 	'inline'   		=> true,
+								// 	'class' 		=> 'ins-layout-options-imageset200',
+								// 	'label'    		=> __('Toggle Panel Position', 'instantio'),
+								// 	'subtitle' 		=> __('Changes position of the Cart Toggle Panel (Cart Panel)', 'instantio'),
+								// 	'options'  		=> array(
+								// 		'left'   			=> array(
+								// 			'title'			=> 'Cart Panel Left',
+								// 			'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/sidecartleft.png',
+								// 		),
+								// 		'right'  			=> array(
+								// 			'title'			=> 'Cart Panel Right',
+								// 			'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/Cart.svg',
+								// 		),
+								// 	), 
+								// 	'default'  		=> 'right',
+								// 	'inline'   		=> true,
+								// ),
 								array(
-									'id'       		=> 'toggle-panel-position',
-									'type'     		=> 'imageselect',
-									'multiple' 		=> true,
-									'inline'   		=> true,
-									'class' 		=> 'ins-layout-options-imageset200',
-									'label'    		=> __('Toggle Panel Position', 'instantio'),
-									'subtitle' 		=> __('Changes position of the Cart Toggle Panel (Cart Panel)', 'instantio'),
-									'options'  		=> array(
-										'left'   			=> array(
-											'title'			=> 'Cart Panel Left',
-											'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/sidecartleft.png',
-										),
-										'right'  			=> array(
-											'title'			=> 'Cart Panel Right',
-											'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/Cart.svg',
-										),
-									), 
-									'default'  		=> 'right',
-									'inline'   		=> true,
+									'id'        	=> 'ins_panel_Theme_color',
+									'type'      	=> 'color',
+									'class'      	=> 'tf-field-color-single',
+									'label'    		=> __( 'Cart Panel Theme Color', 'instantio' ),
+									'subtitle' 		=> __( 'Toggle Panel Border Color', 'instantio' ),
 								),
-								
 								array(
 									'id'       		=> 'ins_panel_border_option',
 									'type'     		=> 'switch', 
-									'label'    		=> __('Enable Toggle Panel Border', 'instantio'),
+									'label'    		=> __('Enable Cart Panel Border', 'instantio'),
 									'subtitle' 		=> __('Set Toggle Panel Border','instantio'),
 									'label_on'  	=> __('Enable', 'instantio'),
 									'label_off' 	=> __('Disable', 'instantio'),
@@ -745,8 +735,8 @@ TF_Settings::option( 'wiopt', array(
 									'id'        	=> 'panel-width-1200',
 									'type'      	=> 'number',
 									'field_width'	=> '50',
-									'label'     	=> __('Toggle Panel Width (1200px-auto)', 'instantio'),
-									'subtitle'  	=> __('Set the percent of width of toggle panel for display dimension greater than 1199px.', 'instantio'),
+									'label'     	=> __('Cart Panel Width (1200px-auto)', 'instantio'),
+									'subtitle'  	=> __('Set the percent of width of cart panel for display dimension greater than 1199px.', 'instantio'),
 									'description'  	=> __('Range 0%-100%. Default 45', 'instantio'),
 									"default"   	=> 45,
 									'attributes'	=> array(
@@ -759,8 +749,8 @@ TF_Settings::option( 'wiopt', array(
 									'id'        	=> 'panel-width-1024',
 									'type'     	 	=> 'number',
 									'field_width'	=> '50',
-									'label'     	=> __('Toggle Panel Width (1024px-1199px)', 'instantio'),
-									'subtitle'  	=> __('Set the percent of width of toggle panel for display dimension greater than 1023px.', 'instantio'),
+									'label'     	=> __('Cart Panel Width (1024px-1199px)', 'instantio'),
+									'subtitle'  	=> __('Set the percent of width of cart panel for display dimension greater than 1023px.', 'instantio'),
 									'description'  	=> __('Range 0%-100%. Default 48', 'instantio'),
 									"default"   	=> 48,
 									'attributes'	=> array(
@@ -773,8 +763,8 @@ TF_Settings::option( 'wiopt', array(
 									'id'        	=> 'panel-width-767',
 									'type'      	=> 'number',
 									'field_width'	=> '50',
-									'label'     	=> __('Toggle Panel Width (501px-1023)', 'instantio'),
-									'subtitle'  	=> __('Set the percent of width of toggle panel for display dimension greater than 500px.', 'instantio'),
+									'label'     	=> __('Cart Panel Width (501px-1023)', 'instantio'),
+									'subtitle'  	=> __('Set the percent of width of cart panel for display dimension greater than 500px.', 'instantio'),
 									'description'  	=> __('Range 0%-100%. Default 60 <br/> <br/> Width is 100% for devices which dimension up to 500px.', 'instantio'),
 									"default"   	=> 60,
 									'attributes'	=> array(
@@ -786,14 +776,14 @@ TF_Settings::option( 'wiopt', array(
 								array(
 									'id'    		=> 'toggle_panel_heading',
 									'type' 			=> 'heading',
-									'label' 		=> __( 'Toggle Panel Colors', 'instantio' ),
+									'label' 		=> __( 'Cart Panel Colors', 'instantio' ),
 								), 
 								array(
 									'id'        	=> 'wi-container-bg',
 									'type'      	=> 'color',
 									'class'      	=> 'tf-field-color-single',
 									'label'    		=> __( 'Panel Background', 'instantio' ),
-									'subtitle' 		=> __( 'Toggle Panel Background Color', 'instantio' ),
+									'subtitle' 		=> __( 'Cart Panel Background Color', 'instantio' ),
 								),
 
 								array(
@@ -870,6 +860,13 @@ TF_Settings::option( 'wiopt', array(
 									'subtitle' 		=> __( 'Toggle panel cart header text color', 'instantio' ),
 								),
 				
+								array(
+									'id'       		=> 'cart-item-bg-wrap',
+									'type'    		=> 'color',
+									'class'      	=> 'tf-field-color-single',
+									'label'    		=> __( 'Cart Items Wrapper Background', 'instantio' ),
+									'subtitle' 		=> __( 'Toggle panel cart items Wrapper background color', 'instantio' ),
+								),
 								array(
 									'id'       		=> 'cart-item-bg',
 									'type'    		=> 'color',
@@ -1134,38 +1131,38 @@ TF_Settings::option( 'wiopt', array(
 							),
 						),
 
-						array(
-							'id'  		=> 'toggle_panel_confirmation',
-							'title'		=> esc_html__( 'Checkout Confirmation', 'instantio' ),
-							'fields' 	=> array(
-								array(
-									'id'       		=> 'confirmation_thankyou',
-									'type'     		=> 'color',
-									'class'			=> 'tf-field-color-single',
-									'label'    		=> __( 'Confirmation Page ThankYou', 'instantio' ),
-									'subtitle' 		=> __( 'Confirmation Page Thank You message Color', 'instantio' ),
-									'is_pro'		=> true,
-								),
+						// array(
+						// 	'id'  		=> 'toggle_panel_confirmation',
+						// 	'title'		=> esc_html__( 'Checkout Confirmation', 'instantio' ),
+						// 	'fields' 	=> array(
+						// 		array(
+						// 			'id'       		=> 'confirmation_thankyou',
+						// 			'type'     		=> 'color',
+						// 			'class'			=> 'tf-field-color-single',
+						// 			'label'    		=> __( 'Confirmation Page ThankYou', 'instantio' ),
+						// 			'subtitle' 		=> __( 'Confirmation Page Thank You message Color', 'instantio' ),
+						// 			'is_pro'		=> true,
+						// 		),
 
-								array(
-									'id'       		=> 'confirmation_contact',
-									'type'     		=> 'color',
-									'class'			=> 'tf-field-color-single',
-									'label'    		=> __( 'Confirmation Page Contact', 'instantio' ),
-									'subtitle' 		=> __( 'Confirmation Page Contact Info Color', 'instantio' ),
-									'is_pro'		=> true,
-								),
+						// 		array(
+						// 			'id'       		=> 'confirmation_contact',
+						// 			'type'     		=> 'color',
+						// 			'class'			=> 'tf-field-color-single',
+						// 			'label'    		=> __( 'Confirmation Page Contact', 'instantio' ),
+						// 			'subtitle' 		=> __( 'Confirmation Page Contact Info Color', 'instantio' ),
+						// 			'is_pro'		=> true,
+						// 		),
 
-								array(
-									'id'       		=> 'confirmation_shipping',
-									'type'     		=> 'color',
-									'class'			=> 'tf-field-color-single',
-									'label'    		=> __( 'Confirmation Page Shipping', 'instantio' ),
-									'subtitle' 		=> __( 'Confirmation Page Shipping Info Color', 'instantio' ),
-									'is_pro'		=> true,
-								),
-							),
-						),
+						// 		array(
+						// 			'id'       		=> 'confirmation_shipping',
+						// 			'type'     		=> 'color',
+						// 			'class'			=> 'tf-field-color-single',
+						// 			'label'    		=> __( 'Confirmation Page Shipping', 'instantio' ),
+						// 			'subtitle' 		=> __( 'Confirmation Page Shipping Info Color', 'instantio' ),
+						// 			'is_pro'		=> true,
+						// 		),
+						// 	),
+						// ),
 
 						
 					),
@@ -1186,7 +1183,7 @@ TF_Settings::option( 'wiopt', array(
 					'class'			=> 'tf-field-color-single',
 					'label'    		=> __( 'Quick View Background', 'instantio' ),
 					'subtitle' 		=> __( 'Instantio Quick View Panel Background Color', 'instantio' ),
-					'is_pro'		=> true,
+					// 'is_pro'		=> true,
 				),
 
 				array(
@@ -1195,7 +1192,7 @@ TF_Settings::option( 'wiopt', array(
 					'class'			=> 'tf-field-color-single',
 					'label'    		=> __( 'Quick View Color', 'instantio' ),
 					'subtitle' 		=> __( 'Instantio Quick View Panel Text & Cross Color', 'instantio' ), 
-					'is_pro'		=> true, 		
+					// 'is_pro'		=> true, 		
 				),
 
 				array(
@@ -1270,17 +1267,17 @@ TF_Settings::option( 'wiopt', array(
 			'icon'  				=> 'fas fa-bolt',
 			'fields' 				=> array(
 				
-				array(
-					'id'       		=> 'css-min',
-					'type'     		=> 'switch',
-					'is_pro'    	=> true,
-					'label'    		=> __('Minify CSS', 'instantio'),
-					'subtitle' 		=> __('Enable/disable Instantio CSS minification', 'instantio'),
-					'label_on'    	=> __('Enabled', 'instantio' ),
-					'label_off'   	=> __('Disabled', 'instantio' ),
-					'width' 		=> 100,
-					'default'   	=> false,           
-				),
+				// array(
+				// 	'id'       		=> 'css-min',
+				// 	'type'     		=> 'switch',
+				// 	'is_pro'    	=> true,
+				// 	'label'    		=> __('Minify CSS', 'instantio'),
+				// 	'subtitle' 		=> __('Enable/disable Instantio CSS minification', 'instantio'),
+				// 	'label_on'    	=> __('Enabled', 'instantio' ),
+				// 	'label_off'   	=> __('Disabled', 'instantio' ),
+				// 	'width' 		=> 100,
+				// 	'default'   	=> false,           
+				// ),
 		
 				array(
 					'id'       		=> 'js-min',
