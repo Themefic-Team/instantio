@@ -1204,7 +1204,7 @@ TF_Settings::option( 'wiopt', array(
 					'label'    		=> __('Custom CSS', 'instantio' ),
 					'subtitle' 		=> __( 'If you want to make extra CSS then you can do it from here', 'instantio' ),
 					'settings' 		=> array(
-					  	'theme'  			=> 'monokai',
+					  	'theme'  			=> 'rubyblue',
 						'mode'   			=> 'css',
 					),
 					// 'is_pro'		=> true,
