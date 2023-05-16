@@ -20,8 +20,7 @@ if(WC()->cart->is_empty()):
 
 		
 elseif(WC()->cart->is_empty() == false):
-	do_action( 'ins_cart_content' );
-	echo insopt('wi-custom-css');
+	do_action( 'ins_cart_content' ); 
 endif;  
 //  echo ob_get_clean();
 ?>

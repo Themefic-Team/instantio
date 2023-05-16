@@ -246,6 +246,10 @@ class Assets {
              }
          '; 
 
+         // custom css from admin option
+        $custom_css = !empty(insopt('wi-custom-css')) ? insopt('wi-custom-css') : '';
+        $output .= $custom_css; 
+
         wp_add_inline_style( 'ins-style', $output );
     }
 

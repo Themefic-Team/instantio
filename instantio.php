@@ -43,6 +43,7 @@ class INSTANTIO {
 		define( 'INS_INC_PATH', INS_PATH.'includes' );
 		define( 'INS_LAYOUTS_PATH', INS_INC_PATH.'includes' );
 		define( 'INS_ADMIN_PATH', INS_PATH.'admin' );
+		define( 'INS_BASE_LOCATION', plugin_basename( __FILE__ ) );
 		
 	}
 

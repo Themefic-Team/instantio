@@ -124,8 +124,7 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 				'ins_dashboard',
 				array( $this,'ins_get_dashboard_callback'),
 			);
-
-      
+		  
 
 			//Setting submenu
 			add_submenu_page(
@@ -136,7 +135,20 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 				$this->option_id . '#tab=general',
 				array( $this, 'tf_options_page' ),
 			);
+			
+			//What's New submenu Update to pro
+			if ( !is_plugin_active( 'wooinstant/wooinstant.php' ) ) {
 
+				add_submenu_page(
+					$this->option_id,
+					__('Upgrade to Pro', 'instantio'),
+					'<span style="color:#ffba00;">' .__("Upgrade to Pro", "instantio"). '</span>',
+					'manage_options',
+					'https://themefic.com/instantio/go/upgrade',
+					
+				);
+			}
+			
 			if ( function_exists('is_tf_pro') ) {
 				//License Info submenu
 				add_submenu_page(

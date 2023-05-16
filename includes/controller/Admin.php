@@ -34,11 +34,15 @@ class Admin{
 
             return;
         }
-        
-        if ( !is_plugin_active( 'wooinstant/wooinstant.php' ) ) {
 
-            add_action('admin_menu', array($this,  'add_pro_link_menu'), 9999);
-        }
+        // Define Plugin Action Links.
+        add_filter( 'plugin_action_links_' . INS_BASE_LOCATION, array($this, 'instantio_plugin_action_links') );
+        
+        // Activation & Dactivation Hook
+        register_activation_hook( INS_PATH . 'instantio.php',  array($this, 'ins_activate'));
+        register_deactivation_hook( INS_PATH . 'instantio.php', array($this, 'ins_deactivate'));
+        
+        
     }
 
     /**
@@ -165,13 +169,41 @@ class Admin{
 
 
     /**
-     * Add Pro link in menu.
+     * Add plugin action links.
+     *
      */
-    public function add_pro_link_menu() {
-        $prolink = 'https://themefic.com/instantio/go/upgrade';
-        $menuname = '<span style="color:#ffba00;">' .__("Upgrade to Pro", "instantio"). '</span>';
-        add_submenu_page( 'ins_dashboard', __('Upgrade to Pro', 'instantio'), $menuname, 'manage_options', $prolink);
+    public function instantio_plugin_action_links( $links ) {
+
+        $settings_link = array(
+            '<a href="admin.php?page=instantio_options">' . esc_html__( 'Settings', 'instantio' ) . '</a>',
+        );
+
+        if ( !is_plugin_active( 'wooinstant/wooinstant.php' ) ) {
+            $gopro_link = array(
+                '<a href="https://themefic.com/instantio/go/upgrade" target="_blank" style="color:#cc0000;font-weight: bold;text-shadow: 0px 1px 1px hsl(0deg 0% 0% / 28%);">' . esc_html__( 'GO PRO', 'instantio' ) . '</a>',
+            );
+        } else {
+            $gopro_link = array('');
+        }
+        return array_merge( $settings_link, $links, $gopro_link );
     }
+
+    // Activation  Hooks
+    public function ins_activate() {
+        $installed = get_option( 'instantio_active_time' );
+    
+        if ( ! $installed ) {
+            update_option( 'instantio_active_time', time() );
+        }
+        
+    }
+    // Deactivation  Hooks
+    public function ins_deactivate() {
+        $installed = get_option( 'instantio_active_time' );
+        if($installed){
+            delete_option('instantio_active_time' );
+        }
+    } 
 
  
 }

@@ -60,6 +60,8 @@ class App {
     }
 
     public function ins_options_init(){
+        echo get_site_url() . $_SERVER['REQUEST_URI'];
+        exit;
         
         // ins-toggle-panel-tab
         $toggle_position = isset(insopt( 'ins-toggle-tab' )['toggle-position']) || insopt( 'ins-toggle-tab' )['toggle-position'] != '0' ? insopt( 'ins-toggle-tab' )['toggle-position'] : 'right-bottom';
