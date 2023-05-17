@@ -557,6 +557,9 @@
               background: #f7f9fc;
               border-radius: 8px;
               .main-caption {
+                padding-top: 16px;
+                padding-left: 16px;
+                max-width: 120px;
                 border-top-left-radius: 8px;
                 border-top-right-radius: 8px;
                 overflow: hidden;
@@ -566,8 +569,14 @@
                 }
               }
               .figure-caption {
+                height: 220px;
                 padding: 16px;
                 background: #f7f9fc;
+                display: flex;
+                flex-wrap: wrap;
+                flex-direction: column;
+                justify-content: space-between;
+                align-content: space-between;
                 h4 {
                   margin: 0;
                   font-weight: 700;
@@ -738,7 +747,10 @@
                     @media #{$max680} {
                       position: initial;
                     }
+<<<<<<< HEAD
                     
+=======
+>>>>>>> 6000deb688321f5c0f49f1466b9bc03faf0cbc8a
                   }
                   li {
                     color: #828c99;

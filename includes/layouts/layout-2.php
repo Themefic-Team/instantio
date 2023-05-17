@@ -17,8 +17,10 @@ if(WC()->cart->is_empty()):
 			esc_html__('Your cart is empty.','instantio'), 
 			' Please go to <a href="'.esc_url( home_url( '/shop' ) ).'">'.esc_html__('Shop Now','instantio').'</a>' 
 		); 
+
+		
 elseif(WC()->cart->is_empty() == false):
-	do_action( 'ins_cart_content' );
+	do_action( 'ins_cart_content' ); 
 endif;  
 //  echo ob_get_clean();
 ?>

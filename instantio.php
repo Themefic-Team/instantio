@@ -43,6 +43,7 @@ class INSTANTIO {
 		define( 'INS_INC_PATH', INS_PATH.'includes' );
 		define( 'INS_LAYOUTS_PATH', INS_INC_PATH.'includes' );
 		define( 'INS_ADMIN_PATH', INS_PATH.'admin' );
+		define( 'INS_BASE_LOCATION', plugin_basename( __FILE__ ) );
 		
 	}
 
@@ -75,6 +76,8 @@ class INSTANTIO {
         if ( is_admin() && !wp_doing_ajax() ) {   
             new INS\Controller\Admin();
 			require_once INS_INC_PATH . '/controller/class-setup-wizard.php'; 
+			// Appsero
+			$this->ins_appsero_init_tracker_instantio();
         }else{  
 			new INS\Controller\App();
 
@@ -138,6 +141,30 @@ class INSTANTIO {
 
         wp_die();
     }
+
+	/**
+	 * Appsero
+	 *
+	 * Including Options
+	 */
+	public function ins_appsero_init_tracker_instantio() {
+
+        if ( ! class_exists( 'Appsero\Client' ) ) {
+            require_once (INS_INC_PATH . '/app/src/Client.php');
+        }
+
+            
+        $client = new Appsero\Client( '29e55a76-0819-490f-b692-8368956cbf12', 'instantio', __FILE__ );
+        
+        // Change notice text
+        $notice = sprintf( $client->__trans( 'Want to help make <strong>%1$s</strong> even more awesome? Allow %1$s to collect non-sensitive diagnostic data and usage information. I agree to get Important Product Updates & Discount related information on my email from  %1$s (I can unsubscribe anytime).' ), $client->name );
+        
+        $client->insights()->notice($notice);
+    
+        // Active insights
+        $client->insights()->init();
+    
+    } 
 
  
 }

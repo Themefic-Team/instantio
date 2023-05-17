@@ -1,6 +1,6 @@
 //hide wp menu and admin bar
 body.admin_page_tf-setup-wizard {
-  background-color: #fcf9f7;
+  background-color: #db52091c;
 }
 
 .admin_page_tf-setup-wizard #wpcontent {
@@ -24,6 +24,10 @@ body.admin_page_tf-setup-wizard {
   display: none;
 }
 
+.pro {
+  opacity: 0.8;
+}
+
 .tf-setup-wizard-wrapper {
   max-width: 900px;
   margin: auto;
@@ -42,6 +46,16 @@ body.admin_page_tf-setup-wizard {
     gap: 15px;
   }
 
+  .tf-setup-header-left a {
+    padding: 7px 12px;
+    display: flex;
+    color: #fff;
+    background-color: #db5209;
+    border-radius: 2px;
+    border-color: transparent;
+    text-decoration: none;
+  }
+
   .get-help-link a {
     color: #000;
     font-weight: 700;
@@ -54,7 +68,7 @@ Welcome Step
 */
 .tf-setup-content-layout {
   padding: 40px 50px 25px;
-  box-shadow: 0 0 200px rgb(0 0 0 / 8%);
+  box-shadow: 0 0 200px rgba(0, 0, 0, 0.08);
   border-radius: 20px;
   background-color: #fff;
   text-align: center;
@@ -75,13 +89,16 @@ Welcome Step
   .welcome-img {
     margin-bottom: 50px;
     min-height: 295px;
+    display: flex;
+    align-items: start;
+    justify-content: center;
 
     @media #{$max575} {
       min-height: auto;
     }
 
     img {
-      max-width: 100%;
+      max-width: 45%;
     }
   }
 
@@ -109,7 +126,13 @@ Welcome Step
     @include align-items(center);
 
     .tf-admin-btn {
-      margin-bottom: 10px;
+      margin-bottom: 20px;
+      padding: 3px 10px;
+      color: #fff;
+      background-color: #db5209;
+      border-radius: 2px;
+      border-color: transparent;
+      cursor: pointer;
     }
 
     .tf-link-btn {
@@ -140,7 +163,7 @@ Steps
 */
 .tf-setup-steps {
   max-width: 600px;
-  margin: 0 auto 40px;
+  margin: 0 auto 15px;
   box-sizing: border-box;
   padding: 0;
   color: rgba(0, 0, 0, 0.85);
@@ -220,7 +243,6 @@ Steps
       margin-top: -4px;
       text-align: center;
       display: block;
-      vertical-align: top;
       width: 116px;
       font-weight: 700;
       font-size: 12px;
@@ -251,7 +273,7 @@ Steps
 
   .tf-setup-step-layout {
     padding: 40px 50px 25px;
-    box-shadow: 0 0 200px rgb(0 0 0 / 8%);
+    box-shadow: 0 0 200px rgba(0, 0, 0, .08);
     border-radius: 20px;
     background-color: #fff;
     text-align: center;
@@ -274,7 +296,7 @@ Steps
   .tf-setup-step-title {
     font-weight: 700;
     text-transform: capitalize;
-    font-size: 32px;
+    font-size: 22px;
     line-height: 47px;
     color: #003c79;
     margin: 0 0 15px;
@@ -306,19 +328,30 @@ Steps
     gap: 20px;
 
     li {
-      @include flex(0 0 200px);
+      position: relative;
+      @include flex(0 0 140px);
 
       @media #{$max480} {
-        @include flex(0 0 130px);
+        @include flex(0 0 100px);
       }
     }
 
-    input[type="checkbox"] {
-      display: none;
+    input[type="radio"] {
+      border: none;
+      box-shadow: none;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    input[type="radio"]:checked::before {
+      background-color: transparent;
     }
 
     label {
-      //border: 2px solid #fff;
+      border: 2px solid transparent;
       background-color: #fff;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
       padding: 10px;
@@ -326,44 +359,16 @@ Steps
       position: relative;
       cursor: pointer;
       border-radius: 6px;
-
+      pointer-events: none;
       @media #{$max480} {
         padding: 5px;
       }
 
       span {
         font-weight: 600;
-        font-size: 16px;
+        font-size: 14px;
         display: inline-block;
         margin-top: 5px;
-      }
-    }
-
-    label:before {
-      background-color: white;
-      color: white;
-      content: "";
-      display: block;
-      border-radius: 50%;
-      position: absolute;
-      top: -5px;
-      left: -5px;
-      width: 25px;
-      height: 25px;
-      text-align: center;
-      line-height: 26px;
-      transition-duration: 0.4s;
-      transform: scale(0);
-      font-family: "dashicons";
-      font-size: 20px;
-
-      @media #{$max480} {
-        width: 20px;
-        height: 20px;
-        top: -3px;
-        left: -3px;
-        font-size: 18px;
-        line-height: 20px;
       }
     }
 
@@ -372,13 +377,7 @@ Steps
     }
 
     :checked + label {
-      //border-color: #003c79;
-
-      &:before {
-        content: "\f15e";
-        background-color: #003c79;
-        transform: scale(1);
-      }
+      border: 2px solid #db5209;
     }
   }
 
@@ -392,6 +391,30 @@ Steps
         @include flexbox();
       }
     }
+
+    .tf-setup-prev-btn {
+      padding: 7px 12px;
+      display: flex;
+      color: #fff;
+      background-color: #db5209;
+      border-radius: 2px;
+      border-color: transparent;
+    }
+
+    .tf-setup-action-btn-next {
+      display: flex;
+      button {
+        padding: 7px 12px;
+        display: flex;
+        color: #fff;
+        background-color: #db5209;
+        border-radius: 2px;
+        border-color: transparent;
+        &:last-child {
+          margin-left: 20px;
+        }
+      }
+    }
   }
 
   .tf-setup-form-item {
@@ -403,10 +426,22 @@ Steps
     @include flexbox();
     flex-flow: row wrap;
     min-width: 0;
+    justify-content: center;
+
+    li {
+      max-width: 145px;
+    }
 
     @media #{$max575} {
       @include flex-direction(column);
       text-align: center;
+    }
+
+    label {
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 17px;
+      color: rgba(0, 0, 0, 0.85);
     }
 
     .tf-setup-form-item-label {
@@ -431,6 +466,12 @@ Steps
         max-width: 100%;
         height: 32px;
         color: rgba(0, 0, 0, 0.85);
+
+        span {
+          margin-left: 3px;
+          padding: 4px;
+          color: #ff0101;
+        }
       }
     }
 
@@ -503,6 +544,122 @@ Steps
           }
         }
       }
+    }
+  }
+
+  .tf-select-progressbar {
+    display: grid;
+    grid-auto-columns: 1fr;
+    grid-row-gap: 16px;
+    justify-items: center;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    -ms-grid-rows: auto auto;
+    @media #{$max575} {
+      grid-template-columns: 1fr;
+    }
+
+    li {
+      position: relative;
+      text-align: center;
+      input[type="radio"] {
+        border: none;
+        box-shadow: none;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+      input[type="radio"]:checked::before {
+        background-color: transparent;
+      }
+      label {
+        border: 2px solid transparent;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+        padding: 10px;
+        display: block;
+        position: relative;
+        cursor: pointer;
+        border-radius: 6px;
+        pointer-events: none;
+        @media #{$max480} {
+          padding: 5px;
+        }
+
+        img {
+          width: 100%;
+        }
+
+        span {
+          font-weight: 600;
+          font-size: 14px;
+          display: inline-block;
+          margin-top: 5px;
+        }
+      }
+    }
+    :checked + label {
+      border: 2px solid #db5209;
+    }
+  }
+
+  .tf-select-mode {
+    display: grid;
+    grid-auto-columns: 1fr;
+    grid-row-gap: 16px;
+    justify-items: center;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    -ms-grid-rows: auto auto;
+    @media #{$max575} {
+      grid-template-columns: 1fr;
+    }
+
+    li {
+      position: relative;
+      text-align: center;
+      input[type="radio"] {
+        border: none;
+        box-shadow: none;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+      input[type="radio"]:checked::before {
+        background-color: transparent;
+      }
+      label {
+        border: 2px solid transparent;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+        padding: 10px;
+        display: block;
+        position: relative;
+        cursor: pointer;
+        border-radius: 6px;
+        pointer-events: none;
+        @media #{$max480} {
+          padding: 5px;
+        }
+
+        img {
+          width: 100%;
+        }
+
+        span {
+          font-weight: 600;
+          font-size: 14px;
+          display: inline-block;
+          margin-top: 5px;
+        }
+      }
+    }
+    :checked + label {
+      border: 2px solid #db5209;
     }
   }
 

@@ -27,12 +27,14 @@ class Assets {
     }
 
     public function enqueue_custom_css_scripts(){
-        $ins_toggle_bg = !empty(insopt( 'ins-toggle-tab' )['wi-header-bg-colors']['regular']) ? insopt( 'ins-toggle-tab' )['wi-header-bg-colors']['regular'] : '#e9570a'; 
+        $ins_checkout_theme = !empty(insopt( 'ins-toggle-panel-tab' )['ins_panel_Theme_color']) ? insopt( 'ins-toggle-panel-tab' )['ins_panel_Theme_color'] : '#e9570a'; 
+       
+        $ins_toggle_bg = !empty(insopt( 'ins-toggle-tab' )['wi-header-bg-colors']['regular']) ? insopt( 'ins-toggle-tab' )['wi-header-bg-colors']['regular'] : $ins_checkout_theme; 
         $ins_toggle_bg_hover = !empty(insopt( 'ins-toggle-tab' )['wi-header-bg-colors']['hover']) ? insopt( 'ins-toggle-tab' )['wi-header-bg-colors']['hover'] : '#fffdfd';
         $ins_toggle_border = !empty(insopt( 'ins-toggle-tab' )['wi-header-border-colors']['regular']) ? insopt( 'ins-toggle-tab' )['wi-header-border-colors']['regular'] : '#FEF2EB'; 
         $ins_toggle_border_hover = !empty(insopt( 'ins-toggle-tab' )['wi-header-border-colors']['hover']) ? insopt( 'ins-toggle-tab' )['wi-header-border-colors']['hover'] : '#FEF2EB';
         $ins_toggle_icon = !empty(insopt( 'ins-toggle-tab' )['ins-tog-icon-colors']['regular']) ? insopt( 'ins-toggle-tab' )['ins-tog-icon-colors']['regular'] : '#fff';
-        $ins_toggle_icon_hover = !empty(insopt( 'ins-toggle-tab' )['ins-tog-icon-colors']['hover']) ? insopt( 'ins-toggle-tab' )['ins-tog-icon-colors']['hover'] : '#e9570a';
+        $ins_toggle_icon_hover = !empty(insopt( 'ins-toggle-tab' )['ins-tog-icon-colors']['hover']) ? insopt( 'ins-toggle-tab' )['ins-tog-icon-colors']['hover'] : $ins_checkout_theme;
         $ins_toggle_icon_size = !empty(insopt( 'ins-toggle-tab' )['wi-header-icon-size']) ? insopt( 'ins-toggle-tab' )['wi-header-icon-size'].'px' : '24px';
         $ins_toggle_item_bg = !empty(insopt( 'ins-toggle-tab' )['ins-tog-item-bg']['regular']) ? insopt( 'ins-toggle-tab' )['ins-tog-item-bg']['regular'] : '#ffd200';
         $ins_toggle_item_bg_hover = !empty(insopt( 'ins-toggle-tab' )['ins-tog-item-bg']['hover']) ? insopt( 'ins-toggle-tab' )['ins-tog-item-bg']['hover'] : '#ffd200';
@@ -48,7 +50,7 @@ class Assets {
         $output = '';
         $output .= '
         :root {
-            --ins_checkout_theme: #e9570a;
+            --ins_checkout_theme: '.$ins_checkout_theme.';
             --ins_toggle_bg: '.$ins_toggle_bg.';
             --ins_toggle_hover_bg: '.$ins_toggle_bg_hover.';
             --ins_toggle_border: '.$ins_toggle_border.';
@@ -108,6 +110,9 @@ class Assets {
                 .ins-checkout-modern .ins-checkout-layout.slide.ins-hori-left {
                     left: -'.$panel_width_1200.'%  !important;
                 }
+                .ins-checkout-modern .ins-checkout-layout.slide.ins-hori-left.active {
+                    left: 0  !important;
+                }
                 
                 .ins_animate_one.ins-checkout-layout.slide,
                 .ins_animate_one.ins-checkout-layout.slide.ins-hori-left,
@@ -144,10 +149,10 @@ class Assets {
             '; 
 
         // Panel Button Color
-        $ins_panel_button_bg_regular = isset($ins_toggle_panel_tab['ins-panel-button-bg']['regular']) && !empty($ins_toggle_panel_tab['ins-panel-button-bg']['regular']) ? $ins_toggle_panel_tab['ins-panel-button-bg']['regular'] : '#DB5209';
-        $ins_panel_button_bg_hover = isset($ins_toggle_panel_tab['ins-panel-button-bg']['hover']) && !empty($ins_toggle_panel_tab['ins-panel-button-bg']['hover']) ? $ins_toggle_panel_tab['ins-panel-button-bg']['hover'] : '#DB5209';
-        $ins_panel_button_border_regular = isset($ins_toggle_panel_tab['ins-panel-button-border']['regular']) && !empty($ins_toggle_panel_tab['ins-panel-button-border']['regular']) ? $ins_toggle_panel_tab['ins-panel-button-border']['regular'] : '#DB5209';
-        $ins_panel_button_border_hover = isset($ins_toggle_panel_tab['ins-panel-button-border']['hover']) && !empty($ins_toggle_panel_tab['ins-panel-button-border']['hover']) ? $ins_toggle_panel_tab['ins-panel-button-border']['hover'] : '#DB5209';
+        $ins_panel_button_bg_regular = isset($ins_toggle_panel_tab['ins-panel-button-bg']['regular']) && !empty($ins_toggle_panel_tab['ins-panel-button-bg']['regular']) ? $ins_toggle_panel_tab['ins-panel-button-bg']['regular'] : $ins_checkout_theme;
+        $ins_panel_button_bg_hover = isset($ins_toggle_panel_tab['ins-panel-button-bg']['hover']) && !empty($ins_toggle_panel_tab['ins-panel-button-bg']['hover']) ? $ins_toggle_panel_tab['ins-panel-button-bg']['hover'] : $ins_checkout_theme;
+        $ins_panel_button_border_regular = isset($ins_toggle_panel_tab['ins-panel-button-border']['regular']) && !empty($ins_toggle_panel_tab['ins-panel-button-border']['regular']) ? $ins_toggle_panel_tab['ins-panel-button-border']['regular'] : $ins_checkout_theme;
+        $ins_panel_button_border_hover = isset($ins_toggle_panel_tab['ins-panel-button-border']['hover']) && !empty($ins_toggle_panel_tab['ins-panel-button-border']['hover']) ? $ins_toggle_panel_tab['ins-panel-button-border']['hover'] : $ins_checkout_theme;
         $ins_panel_button_text_regular = isset($ins_toggle_panel_tab['ins-panel-button-text']['regular']) && !empty($ins_toggle_panel_tab['ins-panel-button-text']['regular']) ? $ins_toggle_panel_tab['ins-panel-button-text']['regular'] : '#FCF9F7';
         $ins_panel_button_text_hover = isset($ins_toggle_panel_tab['ins-panel-button-text']['hover']) && !empty($ins_toggle_panel_tab['ins-panel-button-text']['hover']) ? $ins_toggle_panel_tab['ins-panel-button-text']['hover'] : '#FCF9F7';
 
@@ -168,6 +173,7 @@ class Assets {
          $cart_header_bg = isset($ins_toggle_panel_tab['cart-header-bg']) && !empty($ins_toggle_panel_tab['cart-header-bg']) ? $ins_toggle_panel_tab['cart-header-bg'] : '#FCF9F7';
          $cart_header_text = isset($ins_toggle_panel_tab['cart-header-text']) && !empty($ins_toggle_panel_tab['cart-header-text']) ? $ins_toggle_panel_tab['cart-header-text'] : '';
  
+         $cart_item_bg_wrap = isset($ins_toggle_panel_tab['cart-item-bg-wrap']) && !empty($ins_toggle_panel_tab['cart-item-bg-wrap']) ? $ins_toggle_panel_tab['cart-item-bg-wrap'] : '';
          $cart_item_bg = isset($ins_toggle_panel_tab['cart-item-bg']) && !empty($ins_toggle_panel_tab['cart-item-bg']) ? $ins_toggle_panel_tab['cart-item-bg'] : '';
          $cart_item_text_color = isset($ins_toggle_panel_tab['cart-item-text-color']) && !empty($ins_toggle_panel_tab['cart-item-text-color']) ? $ins_toggle_panel_tab['cart-item-text-color'] : '';
          $cart_input_bg = isset($ins_toggle_panel_tab['cart-input-bg']) && !empty($ins_toggle_panel_tab['cart-input-bg']) ? $ins_toggle_panel_tab['cart-input-bg'] : '#FCF9F7';
@@ -175,11 +181,11 @@ class Assets {
          $cart_pricing_bg = isset($ins_toggle_panel_tab['cart-pricing-bg']) && !empty($ins_toggle_panel_tab['cart-pricing-bg']) ? $ins_toggle_panel_tab['cart-pricing-bg'] : '';
          $cart_pricing_text = isset($ins_toggle_panel_tab['cart-pricing-text']) && !empty($ins_toggle_panel_tab['cart-pricing-text']) ? $ins_toggle_panel_tab['cart-pricing-text'] : ''; 
  
-         $cart_button_background_colors_regular = isset($ins_toggle_panel_tab['cart-button-background-colors']['regular']) && !empty($ins_toggle_panel_tab['cart-button-background-colors']['regular']) ? $ins_toggle_panel_tab['cart-button-background-colors']['regular'] : '#DB5209';
-         $cart_button_background_colors_hover = isset($ins_toggle_panel_tab['cart-button-background-colors']['hover']) && !empty($ins_toggle_panel_tab['cart-button-background-colors']['hover']) ? $ins_toggle_panel_tab['cart-button-background-colors']['hover'] : '#DB5209';
+         $cart_button_background_colors_regular = isset($ins_toggle_panel_tab['cart-button-background-colors']['regular']) && !empty($ins_toggle_panel_tab['cart-button-background-colors']['regular']) ? $ins_toggle_panel_tab['cart-button-background-colors']['regular'] : $ins_checkout_theme;
+         $cart_button_background_colors_hover = isset($ins_toggle_panel_tab['cart-button-background-colors']['hover']) && !empty($ins_toggle_panel_tab['cart-button-background-colors']['hover']) ? $ins_toggle_panel_tab['cart-button-background-colors']['hover'] : $ins_checkout_theme;
  
-         $cart_button_text_colors_regular = isset($ins_toggle_panel_tab['cart-button-text-colors']['regular']) && !empty($ins_toggle_panel_tab['cart-button-text-colors']['regular']) ? $ins_toggle_panel_tab['cart-button-text-colors']['regular'] : '#DB5209';
-         $cart_button_text_colors_hover = isset($ins_toggle_panel_tab['cart-button-text-colors']['hover']) && !empty($ins_toggle_panel_tab['cart-button-text-colors']['hover']) ? $ins_toggle_panel_tab['cart-button-text-colors']['hover'] : '#DB5209';
+         $cart_button_text_colors_regular = isset($ins_toggle_panel_tab['cart-button-text-colors']['regular']) && !empty($ins_toggle_panel_tab['cart-button-text-colors']['regular']) ? $ins_toggle_panel_tab['cart-button-text-colors']['regular'] : '#fff';
+         $cart_button_text_colors_hover = isset($ins_toggle_panel_tab['cart-button-text-colors']['hover']) && !empty($ins_toggle_panel_tab['cart-button-text-colors']['hover']) ? $ins_toggle_panel_tab['cart-button-text-colors']['hover'] : '#fff';
  
          $output .= ' 
              .ins-checkout-header {
@@ -193,9 +199,12 @@ class Assets {
                 fill: '.$cart_header_text .' !important;
              }
              .ins-cart-inner.ins-cart-step .ins-cart-content-wrap {
-                 background-color: '.$cart_item_bg.' !important;
+                 background-color: '.$cart_item_bg_wrap.' !important;
                  color: '.$cart_item_text_color.' !important;
              }
+             .ins-checkout-modern .ins-single-cart-item { 
+                background-color: '.$cart_item_bg.' !important;
+            }
              .ins-cart-inner.ins-cart-step .ins-cart-item-heading span  { 
                  color: '.$cart_item_text_color.' !important;
              }
@@ -221,6 +230,26 @@ class Assets {
              }
          '; 
 
+         
+         // Quick View Variation
+         $wi_quickview_bg = insopt('wi-quickview-bg');
+         $ins_quickview_color = insopt('ins-quickview-color'); 
+ 
+         
+         $wi_quickview_bg = isset($wi_quickview_bg) && !empty($wi_quickview_bg) ? $wi_quickview_bg : '#fff';
+         $ins_quickview_color = isset($ins_quickview_color) && !empty($ins_quickview_color) ? $ins_quickview_color : '#000'; 
+  
+         $output .= ' 
+             .ins-quick-view {
+                 background-color: '.$wi_quickview_bg.' !important;
+                 color: '.$ins_quickview_color.' !important;
+             }
+         '; 
+
+         // custom css from admin option
+        $custom_css = !empty(insopt('wi-custom-css')) ? insopt('wi-custom-css') : '';
+        $output .= $custom_css; 
+
         wp_add_inline_style( 'ins-style', $output );
     }
 
@@ -236,8 +265,13 @@ class Assets {
 
         $ins_empty_cart = !empty(insopt( 'ins-toggle-tab' )['ins-cart-emty-hide']) ? insopt( 'ins-toggle-tab' )['ins-cart-emty-hide'] : false;
         if($cart_fly_icon == true){
-            $cart_icon = !empty(insopt( 'cart-icon' )) ? insopt( 'cart-icon' ) : 'shopping-bag';
-            $cart_fly_icon = instantio_svg_icon($cart_icon);
+            $cart_icon = !empty(insopt( 'ins-toggle-tab' )['cart-icon']) ? insopt( 'ins-toggle-tab' )['cart-icon'] : 'shopping-bag';
+            if($cart_icon == 'shopping-bag'){
+
+                $cart_fly_icon = instantio_svg_icon($cart_icon);
+            }else{
+                $cart_fly_icon = '<i class="'.$cart_icon.'"></i>';
+            }
         }else{
             $cart_fly_icon = false;
         }

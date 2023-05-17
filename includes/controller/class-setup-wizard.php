@@ -98,13 +98,27 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
 		private function tf_setup_welcome_step() {
 			?>
             <div class="tf-setup-content-layout tf-welcome-step <?php echo self::$current_step == 'welcome' ? 'active' : ''; ?>">
-                <div class="welcome-img"><img src="<?php echo TF_ASSETS_ADMIN_URL . 'images/welcome.png' ?>" alt="<?php esc_attr_e( 'Welcome to Tourfic!', 'tourfic' ) ?>"></div>
-                <h1 class="tf-setup-welcome-title"><?php _e( 'Welcome to instantio!', 'instantio' ) ?></h1>
-                <div class="tf-setup-welcome-description"><?php _e( 'Thanks for choosing instantio for your business. We are excited to have you on board. This quick setup wizard is simple and straightforward and shouldn’t take longer than five minutes. It will help you configure the basic settings of instantio to get started. Please note that this setup guide is entirely optional.', 'instantio' ) ?></div>
+
+                <div class="welcome-img">
+                    <img src="<?php echo INS_ADMIN_URL . '/tf-options/img/instanio-logo.png' ?>" alt="<?php esc_attr_e( 'Welcome to Instantio!', 'instantio' ) ?>">
+                </div>
+                
+                <h1 class="tf-setup-welcome-title">
+                    <?php _e( 'Welcome to instantio!', 'instantio' ) ?>
+                </h1>
+
+                <div class="tf-setup-welcome-description">
+                    <?php _e( 'Thanks for choosing instantio for your business. We are excited to have you on board. This quick setup wizard is simple and straightforward and shouldn’t take longer than five minutes. It will help you configure the basic settings of instantio to get started. Please note that this setup guide is entirely optional.', 'instantio' ) ?>
+                </div>
+
                 <div class="tf-setup-welcome-footer">
-                    <button type="button" class="tf-admin-btn tf-btn-secondary tf-setup-start-btn"><span><?php _e( 'Get Started', 'instantio' ) ?></span></button>
+                    <button type="button" class="tf-admin-btn tf-btn-secondary tf-setup-start-btn">
+                        <span><?php _e( 'Get Started', 'instantio' ) ?></span>
+                    </button>
+
                     <a href="<?php echo esc_url( admin_url( 'admin.php?page=wiopt#tab=general' ) ); ?>" class="tf-link-btn"><?php _e( 'Skip to Dashboard', 'instantio' ) ?></a>
                 </div>
+
             </div>
 			<?php
 		}
@@ -117,25 +131,119 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
             <div class="tf-setup-step-container tf-setup-step-1 <?php echo self::$current_step == 'step_1' ? 'active' : ''; ?>" data-step="1">
                 <section class="tf-setup-step-layout">
 					<?php $this->tf_setup_wizard_steps_header() ?>
-                    <h1 class="tf-setup-step-title"><?php _e( 'Select your service type', 'instantio' ) ?></h1>
-                    <p class="tf-setup-step-desc"><?php _e( '(You can choose any one or both)', 'instantio' ) ?></p>
+                    <h1 class="tf-setup-step-title"><?php _e( 'Choose Layout options', 'instantio' ) ?></h1>
+                    
                     <ul class="tf-select-service">
                         <li>
-                            <input type="checkbox" id="tf-hotel" name="tf-services[]" value="hotel" checked/>
-                            <label for="tf-hotel">
-                                <img src="<?php echo TF_ASSETS_ADMIN_URL . 'images/hotel.png' ?>" alt="<?php esc_attr_e( 'Hotel', 'instantio' ) ?>">
-                                <span><?php _e( 'Hotel', 'instantio' ) ?></span>
+                            <input type="radio" name="ins-layout-options" value="1" checked/>
+                            <label for="ins-layout-options">
+                                <img src="<?php echo INS_ADMIN_URL . '/tf-options/img/layout/Directcheckout.jpg' ?>" alt="<?php esc_attr_e( 'Direct-Checkout', 'instantio' ) ?>">
+                                <span><?php _e( 'Direct Checkout', 'instantio' ) ?></span>
                             </label>
                         </li>
                         <li>
-                            <input type="checkbox" id="tf-tour" name="tf-services[]" value="tour" checked/>
-                            <label for="tf-tour">
-                                <img src="<?php echo TF_ASSETS_ADMIN_URL . 'images/tour.png' ?>" alt="<?php esc_attr_e( 'Tour', 'instantio' ) ?>">
-                                <span><?php _e( 'Tour', 'instantio' ) ?></span>
+                            <input type="radio" name="ins-layout-options" value="2"/>
+                            <label for="ins-layout-options">
+                                <img src="<?php echo INS_ADMIN_URL . '/tf-options/img/layout/Cart.svg' ?>" alt="<?php esc_attr_e( 'Side-Cart', 'instantio' ) ?>">
+                                <span><?php _e( 'Side Cart', 'instantio' ) ?></span>
+                            </label>
+                        </li>
+
+                        <li>
+                            <input type="radio" name="ins-layout-options" value="3"/>
+                            <label for="ins-layout-options">
+                                <img src="<?php echo INS_ADMIN_URL . '/tf-options/img/layout/Popup.jpg' ?>" alt="<?php esc_attr_e( 'Popup-Cart', 'instantio' ) ?>">
+                                <span><?php _e( 'Popup Cart', 'instantio' ) ?></span>
                             </label>
                         </li>
                     </ul>
+
+                    <div class="tf-setup-form-item">
+                        
+                        <label class="">
+                            <?php _e( 'Select The Mode', 'instantio' ) ?>
+                        </label>
+
+                        <ul class="tf-select-mode">
+                            <li>
+                                <input type="radio" name="ins-layout-mode" value="light" checked/>
+                                <label for="ins-layout-mode">
+                                    <img src="<?php echo INS_ADMIN_URL . '/tf-options/img/layout/Light.svg' ?>" alt="<?php esc_attr_e( 'light', 'instantio' ) ?>">
+                                    <span><?php _e( 'Light', 'instantio' ) ?></span>
+                                </label>
+                            </li>
+                            <li>
+                                <input type="radio" name="ins-layout-mode" value="dark"/>
+                                <label for="ins-layout-mode">
+                                    <img src="<?php echo INS_ADMIN_URL . '/tf-options/img/layout/Dark.svg' ?>" alt="<?php esc_attr_e( 'dark', 'instantio' ) ?>">
+                                    <span><?php _e( 'Dark', 'instantio' ) ?></span>
+                                </label>
+                            </li>
+
+                            <li>
+                                <input type="radio" name="ins-layout-mode" value="glass-morphism"/>
+                                <label for="ins-layout-mode">
+                                    <img src="<?php echo INS_ADMIN_URL . '/tf-options/img/layout/GlassMorphism.svg' ?>" alt="<?php esc_attr_e( 'GlassMorphism', 'instantio' ) ?>">
+                                    <span><?php _e( 'Glass Morphism', 'instantio' ) ?></span>
+                                </label>
+                            </li>
+
+                            <li>
+                                <input type="radio" name="ins-layout-mode" value="gradient"/>
+                                <label for="ins-layout-mode">
+                                    <img src="<?php echo INS_ADMIN_URL . '/tf-options/img/layout/Gradient.svg' ?>" alt="<?php esc_attr_e( 'gradient', 'instantio' ) ?>">
+                                    <span><?php _e( 'Gradient', 'instantio' ) ?></span>
+                                </label>
+                            </li>
+                        </ul>
+                        
+                    </div>
+
+                    <?php
+                        $is_Pro_class = new TF_Options;
+                        $is_Pro_active = $is_Pro_class->is_tf_pro_active(); 
+
+                        if($is_Pro_active === true) { ?>
+
+                            <div class="tf-setup-form-item">  
+                                <label class=""><?php _e( 'Select The ProgressBar', 'instantio' ) ?></label>
+                                <ul class="tf-select-progressbar">
+                                    <li>
+                                        <input type="radio" name="ins-layout-progressbar" value="1" checked/>
+                                        <label for="ins-layout-progressbar">
+                                            <img src="<?php echo INS_ADMIN_URL . '/tf-options/img/layout/version1.svg' ?>" alt="<?php esc_attr_e( 'Version-1', 'instantio' ) ?>">
+                                            <span><?php _e( 'Version 1', 'instantio' ) ?></span>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="ins-layout-progressbar" value="2"/>
+                                        <label for="ins-layout-progressbar">
+                                            <img src="<?php echo INS_ADMIN_URL . '/tf-options/img/layout/version2.svg' ?>" alt="<?php esc_attr_e( 'Version-2', 'instantio' ) ?>">
+                                            <span><?php _e( 'Version 2', 'instantio' ) ?></span>
+                                        </label>
+                                    </li>
+
+                                    <li>
+                                        <input type="radio" name="ins-layout-progressbar" value="3"/>
+                                        <label for="ins-layout-progressbar">
+                                            <img src="<?php echo INS_ADMIN_URL . '/tf-options/img/layout/version3.svg' ?>" alt="<?php esc_attr_e( 'Version-3', 'instantio' ) ?>">
+                                            <span><?php _e( 'Version 3', 'instantio' ) ?></span>
+                                        </label>
+                                    </li>
+
+                                    <li>
+                                        <input type="radio" name="ins-layout-progressbar" value="3"/>
+                                        <label for="ins-layout-progressbar">
+                                            <img src="<?php echo INS_ADMIN_URL . '/tf-options/img/layout/version4.svg' ?>" alt="<?php esc_attr_e( 'Version-4', 'instantio' ) ?>">
+                                            <span><?php _e( 'Version 4', 'instantio' ) ?></span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </div>
+                    <?php } ?>                    
+
                 </section>
+                    
                 <div class="tf-setup-action-btn-wrapper">
                     <div></div>
                     <div class="tf-setup-action-btn-next">
@@ -155,65 +263,100 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
             <div class="tf-setup-step-container tf-setup-step-2 <?php echo self::$current_step == 'step_2' ? 'active' : ''; ?>" data-step="2">
                 <section class="tf-setup-step-layout">
 					<?php $this->tf_setup_wizard_steps_header( 2 ) ?>
-                    <h1 class="tf-setup-step-title"><?php _e( 'General Settings', 'instantio' ) ?></h1>
+                    <h1 class="tf-setup-step-title">
+                        <?php _e( 'General Settings', 'instantio' ) ?>
+                    </h1>
+                                        
                     <div class="tf-setup-form-item">
-                        <div class="tf-setup-form-item-label"><label class=""><?php _e( 'Select Search Result Page', 'instantio' ) ?></label></div>
+
+                        <div class="tf-setup-form-item-label">
+                            <label class=""><?php _e( 'Select Cart Options', 'instantio' ) ?></label>
+                        </div>
+
                         <div class="tf-setup-form-item-input">
-                            <select name="tf-search-result-page" id="tf-search-result-page">
-                                <option value=""><?php _e( 'Select a page', 'instantio' ) ?></option>
-								<?php
-								$pages              = get_pages();
-								$search_result_page = get_option( 'tf_search_page_id' );
-								foreach ( $pages as $page ) {
-									echo '<option value="' . $page->ID . '" ' . selected( $search_result_page, $page->ID, false ) . '>' . $page->post_title . '</option>';
-								}
-								?>
+                            <select name="ins-layout" id="tf-wishlist-page">
+                                <option value=""><?php _e( 'Select a Cart', 'instantio' ) ?></option>
+								<option value="cart"><?php _e( 'Only Cart', 'instantio' ) ?></option>
+                                <?php $is_Pro_class = new TF_Options;
+                                $is_Pro_active = $is_Pro_class->is_tf_pro_active(); 
+
+                                if($is_Pro_active === true) { ?>
+                                    <option value="cartandcheckout"><?php _e( 'Cart & Checkout', 'instantio' ) ?></option>
+                                <?php }?>
                             </select>
                         </div>
                     </div>
 
-                    <!--Search result posts per page-->
+                    <!-- Auto Open Toggle Option -->
                     <div class="tf-setup-form-item">
-                        <div class="tf-setup-form-item-label"><label class=""><?php _e( 'Posts Per Page on Search Result', 'instantio' ) ?></label></div>
-                        <div class="tf-setup-form-item-input">
-                            <input type="number" name="tf-search-result-posts-per-page" id="tf-search-result-posts-per-page" value="10">
+                        <div class="tf-setup-form-item-label">
+                            <label class="" for="auto-tog-panel"><?php _e( 'Auto Open Toggle Panel', 'instantio' ) ?></label>
                         </div>
-                    </div>
-
-                    <!--wishlist page-->
-                    <div class="tf-setup-form-item">
-                        <div class="tf-setup-form-item-label"><label class=""><?php _e( 'Select Wishlist Page', 'instantio' ) ?></label></div>
                         <div class="tf-setup-form-item-input">
-                            <select name="tf-wishlist-page" id="tf-wishlist-page">
-                                <option value=""><?php _e( 'Select a page', 'instantio' ) ?></option>
-								<?php
-								$pages         = get_pages();
-								$wishlist_page = get_option( 'tf_wishlist_page_id' );
-								foreach ( $pages as $page ) {
-									echo '<option value="' . $page->ID . '" ' . selected( $wishlist_page, $page->ID, false ) . '>' . $page->post_title . '</option>';
-								}
-								?>
-                            </select>
-                        </div>
-                    </div>
-
-                    <!--Auto Publish Review-->
-                    <div class="tf-setup-form-item">
-                        <div class="tf-setup-form-item-label"><label class="" for="tf-auto-publish-review"><?php _e( 'Auto Publish Review', 'tourfic' ) ?></label></div>
-                        <div class="tf-setup-form-item-input">
-                            <label for="tf-auto-publish-review" class="tf-switch-label">
-                                <input type="checkbox" id="tf-auto-publish-review" name="tf-auto-publish-review" value="1" class="tf-switch" checked/>
+                            <label for="auto-tog-panel" class="tf-switch-label">
+                                <input type="checkbox" id="auto-tog-panel" name="auto-tog-panel" value="1" class="tf-switch" checked/>
                                 <span class="tf-switch-slider"></span>
                             </label>
                         </div>
                     </div>
 
+                    <?php $is_Pro_class = new TF_Options;
+                        $is_Pro_active = $is_Pro_class->is_tf_pro_active(); 
+
+                        if($is_Pro_active === true) { ?>
+                            <!--Quickview Section-->
+                            <div class="tf-setup-form-item">
+                                <div class="tf-setup-form-item-label"><label class="" for="tf-hotel-review-section"><?php _e( 'Disable Quick View', 'instantio' ) ?></label></div>
+                                <div class="tf-setup-form-item-input">
+                                    <label for="woins-quickview-disable" class="tf-switch-label">
+                                        <input type="checkbox" id="woins-quickview-disable" name="woins-quickview-disable" value="1" class="tf-switch" checked/>
+                                        <span class="tf-switch-slider"></span>
+                                    </label>
+                                </div>
+                            </div>
+                    <?php } ?>
+                            
+                    <?php $is_Pro_class = new TF_Options;
+                        $is_Pro_active = $is_Pro_class->is_tf_pro_active(); 
+
+                        if($is_Pro_active === true) { ?>
+                            <!--Disable Ajax Option-->
+                            <div class="tf-setup-form-item">
+                                <div class="tf-setup-form-item-label">
+                                    <label class="" for="tf-hotel-share-option">
+                                        <?php _e( 'Disable Ajax Add to Cart', 'instantio' ) ?>
+                                    </label>
+                                </div>
+                                <div class="tf-setup-form-item-input">
+                                    <label for="wi-disable-ajax-add-cart" class="tf-switch-label">
+                                        <input type="checkbox" id="wi-disable-ajax-add-cart" name="wi-disable-ajax-add-cart" value="1" class="tf-switch" checked/>
+                                        <span class="tf-switch-slider"></span>
+                                    </label>
+                                </div>
+                            </div>
+                    <?php } ?>
+
+                    <!-- Cart Button Horizontal Position Option-->
+                    <div class="tf-setup-form-item">
+                        <div class="tf-setup-form-item-label">
+                            <label class="" for="tf-hotel-share-option">
+                                <?php _e( 'Cart Button Horizontal Position', 'instantio' ) ?>
+                            </label>
+                        </div>
+                        <div class="tf-setup-form-item-input"> 
+                            <select name="toggle-position-horizontal" id="toggle-position-horizontal">
+                                <option value=""><?php _e( 'Select a position', 'instantio' ) ?></option>
+                                <option value="left"><?php _e( 'Left', 'instantio' ) ?></option>
+                                <option value="right"><?php _e( 'Right', 'instantio' ) ?></option>
+                            </select>
+                        </div>
+                    </div>
                 </section>
                 <div class="tf-setup-action-btn-wrapper">
-                    <button type="button" class="tf-setup-prev-btn tf-admin-btn tf-btn-secondary"><?php _e( 'Previous', 'tourfic' ) ?></button>
+                    <button type="button" class="tf-setup-prev-btn tf-admin-btn tf-btn-secondary"><?php _e( 'Previous', 'instantio' ) ?></button>
                     <div class="tf-setup-action-btn-next">
-                        <button type="button" class="tf-setup-skip-btn tf-link-btn"><?php _e( 'Skip this step', 'tourfic' ) ?></button>
-                        <button type="button" class="tf-setup-next-btn tf-admin-btn tf-btn-secondary"><?php _e( 'Next', 'tourfic' ) ?></button>
+                        <button type="button" class="tf-setup-skip-btn tf-link-btn"><?php _e( 'Skip this step', 'instantio' ) ?></button>
+                        <button type="button" class="tf-setup-next-btn tf-admin-btn tf-btn-secondary"><?php _e( 'Next', 'instantio' ) ?></button>
                     </div>
                 </div>
             </div>
@@ -229,81 +372,38 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
                 <section class="tf-setup-step-layout">
 					<?php $this->tf_setup_wizard_steps_header( 3 ) ?>
                     <div class="tf-hotel-setup-wizard">
-                        <h3 class="tf-setup-step-subtitle"><?php _e( 'Hotel settings', 'tourfic' ) ?></h3>
-                        <p class="tf-setup-step-desc"><?php _e( 'These settings can be overridden from <strong>Tourfic Settings > Hotel Settings</strong>', 'tourfic' ) ?></p>
+                        <h3 class="tf-setup-step-subtitle">
+                            <?php _e( 'Feature Settings', 'instantio' ) ?>
+                        </h3>
 
-                        <!--Review Section-->
+                        <p class="tf-setup-step-desc">
+                            <?php _e( 'These settings can be overridden from <strong>Instantio Settings</strong>', 'instantio' ) ?>
+                        </p>
+                        
+                        <!-- Cart Button Horizontal Position Option-->
                         <div class="tf-setup-form-item">
-                            <div class="tf-setup-form-item-label"><label class="" for="tf-hotel-review-section"><?php _e( 'Review Section', 'tourfic' ) ?></label></div>
-                            <div class="tf-setup-form-item-input">
-                                <label for="tf-hotel-review-section" class="tf-switch-label">
-                                    <input type="checkbox" id="tf-hotel-review-section" name="tf-hotel-review-section" value="1" class="tf-switch" checked/>
-                                    <span class="tf-switch-slider"></span>
+                            <div class="tf-setup-form-item-label">
+                                <label class="" for="tf-hotel-share-option">
+                                    <?php _e( 'Cart Button Horizontal Position', 'instantio' ) ?>
                                 </label>
                             </div>
-                        </div>
-
-                        <!--Share Option-->
-                        <div class="tf-setup-form-item">
-                            <div class="tf-setup-form-item-label"><label class="" for="tf-hotel-share-option"><?php _e( 'Share Option', 'tourfic' ) ?></label></div>
-                            <div class="tf-setup-form-item-input">
-                                <label for="tf-hotel-share-option" class="tf-switch-label">
-                                    <input type="checkbox" id="tf-hotel-share-option" name="tf-hotel-share-option" value="1" class="tf-switch" checked/>
-                                    <span class="tf-switch-slider"></span>
-                                </label>
+                            <div class="tf-setup-form-item-input"> 
+                                <select name="toggle-position-horizontal" id="toggle-position-horizontal">
+                                    <option value=""><?php _e( 'Select a position', 'instantio' ) ?></option>
+                                    <option value="left"><?php _e( 'Left', 'instantio' ) ?></option>
+                                    <option value="right"><?php _e( 'Right', 'instantio' ) ?></option>
+                                </select>
                             </div>
                         </div>
-
-                        <!--Hotel Permalink-->
-                        <div class="tf-setup-form-item">
-                            <div class="tf-setup-form-item-label"><label class=""><?php _e( 'Hotel Permalink', 'tourfic' ) ?></label></div>
-                            <div class="tf-setup-form-item-input">
-                                <input type="text" name="tf-hotel-permalink" id="tf-hotel-permalink" value="hotels">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tf-tour-setup-wizard">
-                        <h3 class="tf-setup-step-subtitle"><?php _e( 'Tour settings', 'tourfic' ) ?></h3>
-                        <p class="tf-setup-step-desc"><?php _e( 'These settings can be overridden from <strong>Tourfic Settings > Tour Settings</strong>', 'tourfic' ) ?></p>
-
-                        <!--Review Section-->
-                        <div class="tf-setup-form-item">
-                            <div class="tf-setup-form-item-label"><label class="" for="tf-tour-review-section"><?php _e( 'Review Section', 'tourfic' ) ?></label></div>
-                            <div class="tf-setup-form-item-input">
-                                <label for="tf-tour-review-section" class="tf-switch-label">
-                                    <input type="checkbox" id="tf-tour-review-section" name="tf-tour-review-section" value="1" class="tf-switch" checked/>
-                                    <span class="tf-switch-slider"></span>
-                                </label>
-                            </div>
-                        </div>
-
-                        <!--Related Section-->
-                        <div class="tf-setup-form-item">
-                            <div class="tf-setup-form-item-label"><label class="" for="tf-tour-related-section"><?php _e( 'Related Section', 'tourfic' ) ?></label></div>
-                            <div class="tf-setup-form-item-input">
-                                <label for="tf-tour-related-section" class="tf-switch-label">
-                                    <input type="checkbox" id="tf-tour-related-section" name="tf-tour-related-section" value="1" class="tf-switch" checked/>
-                                    <span class="tf-switch-slider"></span>
-                                </label>
-                            </div>
-                        </div>
-
-                        <!--Tour Permalink-->
-                        <div class="tf-setup-form-item">
-                            <div class="tf-setup-form-item-label"><label class=""><?php _e( 'Tour Permalink', 'tourfic' ) ?></label></div>
-                            <div class="tf-setup-form-item-input">
-                                <input type="text" name="tf-tour-permalink" id="tf-tour-permalink" value="tours">
-                            </div>
-                        </div>
+     
                     </div>
 
                 </section>
                 <div class="tf-setup-action-btn-wrapper">
-                    <button type="button" class="tf-setup-prev-btn tf-admin-btn tf-btn-secondary"><?php _e( 'Previous', 'tourfic' ) ?></button>
+                    <button type="button" class="tf-setup-prev-btn tf-admin-btn tf-btn-secondary"><?php _e( 'Previous', 'instantio' ) ?></button>
                     <div class="tf-setup-action-btn-next">
-                        <button type="submit" class="tf-setup-skip-btn tf-link-btn tf-setup-submit-btn"><?php _e( 'Skip this step', 'tourfic' ) ?></button>
-                        <button type="submit" class="tf-setup-submit-btn tf-admin-btn tf-btn-secondary"><?php _e( 'Finish', 'tourfic' ) ?></button>
+                        <button type="submit" class="tf-setup-skip-btn tf-link-btn tf-setup-submit-btn"><?php _e( 'Skip this step', 'instantio' ) ?></button>
+                        <button type="submit" class="tf-setup-submit-btn tf-admin-btn tf-btn-secondary"><?php _e( 'Finish', 'instantio' ) ?></button>
                     </div>
                 </div>
             </div>
@@ -316,13 +416,20 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
         private function tf_setup_finish_step() {
             ?>
             <div class="tf-setup-content-layout tf-finish-step <?php echo self::$current_step == 'finish' ? 'active' : ''; ?>">
-                <div class="welcome-img"><img src="<?php echo TF_ASSETS_ADMIN_URL . 'images/hooray.png' ?>" alt="<?php esc_attr_e( 'Thank you', 'tourfic' ) ?>"></div>
-                <h1 class="tf-setup-welcome-title"><?php _e( 'Hooray! You’re all set.', 'tourfic' ) ?></h1>
-                <div class="tf-setup-welcome-description"><?php _e( 'Let\'s get started and make the most out of Tourfic. With this plugin, you can manage your hotel or travel bookings with ease, and provide your customers with a seamless booking experience. So, let\'s dive in and start streamlining your hotel or travel business operations today!', 'tourfic' ) ?></div>
+                <div class="welcome-img"><img src="<?php echo INS_ADMIN_URL . 'img/hooray.png' ?>" alt="<?php esc_attr_e( 'Thank you', 'instantio' ) ?>"></div>
+
+                <h1 class="tf-setup-welcome-title">
+                    <?php _e( 'Hooray! You’re all set.', 'instantio' ) ?>
+                </h1>
+
+                <div class="tf-setup-welcome-description">
+                    <?php _e( 'Let\'s get started and make the most out of instantio. With this plugin, you can manage your store, and provide your customers with a seamless booking experience. So, let\'s dive in and start streamlining your hotel or travel business operations today!', 'instantio' ) ?>
+                </div>
+
                 <div class="tf-setup-welcome-footer tf-setup-finish-footer">
-                    <a href="<?php echo admin_url( 'post-new.php?post_type=tf_hotel' ) ?>" class="tf-admin-btn tf-btn-secondary"><?php _e( 'Create new Hotel', 'tourfic' ) ?></a>
-                    <a href="<?php echo admin_url( 'post-new.php?post_type=tf_tours' ) ?>" class="tf-admin-btn"><?php _e( 'Create new Tour', 'tourfic' ) ?></a>
-                    <a href="<?php echo admin_url( 'admin.php?page=tf_settings' ) ?>" class="tf-admin-btn tf-btn-secondary"><?php _e( 'Tourfic Setting', 'tourfic' ) ?></a>
+                    <a href="<?php echo admin_url( 'post-new.php?post_type=tf_hotel' ) ?>" class="tf-admin-btn tf-btn-secondary"><?php _e( 'Create new Hotel', 'instantio' ) ?></a>
+                    <a href="<?php echo admin_url( 'post-new.php?post_type=tf_tours' ) ?>" class="tf-admin-btn"><?php _e( 'Create new Tour', 'instantio' ) ?></a>
+                    <a href="<?php echo admin_url( 'admin.php?page=tf_settings' ) ?>" class="tf-admin-btn tf-btn-secondary"><?php _e( 'Instantio Setting', 'instantio' ) ?></a>
                 </div>
             </div>
         <?php

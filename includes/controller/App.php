@@ -54,20 +54,31 @@ class App {
         // add_action( 'ins_cart_content', array( $this, 'ins_cart_content' ), 11);
         add_action( 'ins_cart_content', array( $this, 'ins_cart_content_modern' ), 10);
 
-        
+        //  add_action( 'init', array( $this, 'ins_options_init' ));
         
    
     }
 
     public function ins_options_init(){
+        echo get_site_url() . $_SERVER['REQUEST_URI'];
+        exit;
         
         // ins-toggle-panel-tab
-        $ins_toggle_panel_tab = insopt('css_min');
-        $ins_empty_cart = !empty(insopt( 'ins-toggle-tab' )['ins-cart-emty-hide']) ? insopt( 'ins-toggle-tab' )['ins-cart-emty-hide'] : false;
-        
+        $toggle_position = isset(insopt( 'ins-toggle-tab' )['toggle-position']) || insopt( 'ins-toggle-tab' )['toggle-position'] != '0' ? insopt( 'ins-toggle-tab' )['toggle-position'] : 'right-bottom';
+
+        if(!empty($toggle_position)){
+            $toggle_position = explode('-', $toggle_position);
+            $toggle_position_horizontal = $toggle_position[0];
+            $toggle_position_vertical = $toggle_position[1];
+        }else{
+            $toggle_position_horizontal = 'right';
+            $toggle_position_vertical = 'bottom';
+        } 
+        $ins_checkout_theme = !empty(insopt( 'ins-toggle-panel-tab' )['ins_panel_Theme_color']) ? insopt( 'ins-toggle-panel-tab' )['ins_panel_Theme_color'] : '#e9570a'; 
         echo '<pre>';
-        var_dump($ins_toggle_panel_tab);
+        var_dump($ins_checkout_theme);
         echo '</pre>'; 
+        exit;
 
         // Cart Customize Color
         $cart_header_bg = isset($ins_toggle_panel_tab['cart-header-bg']) && !empty($ins_toggle_panel_tab['cart-header-bg']) ? $ins_toggle_panel_tab['cart-header-bg'] : '#FCF9F7';
@@ -192,7 +203,12 @@ class App {
         ob_start();
         $ins_toggler =  insopt( 'ins-toggler' );
         $cart_icon = !empty(insopt( 'ins-toggle-tab' )['cart-icon']) ? insopt( 'ins-toggle-tab' )['cart-icon'] : 'shopping-bag';
-        $toggle_icon = apply_filters( 'ins_get_svg_icon_pro', instantio_svg_icon($cart_icon) ); 
+        if($cart_icon == 'shopping-bag'){
+
+            $toggle_icon = apply_filters( 'ins_get_svg_icon_pro', instantio_svg_icon($cart_icon) ); 
+        }else{
+            $toggle_icon = '<i class="'.$cart_icon.'"></i>';
+        }
 
         if( $this->layout == 2){
             $togglebtnClass = 'sidecart';
@@ -494,12 +510,20 @@ class App {
     			return;
     		}
 		} 
-        $toggle_position_horizontal = isset(insopt( 'ins-toggle-tab' )['toggle-position-horizontal']) ? insopt( 'ins-toggle-tab' )['toggle-position-horizontal'] : 'right';
-        $toggle_position_vertical = isset(insopt( 'ins-toggle-tab' )['toggle-position-vertical']) ? insopt( 'ins-toggle-tab' )['toggle-position-vertical'] : 'bottom';
+        $toggle_position = isset(insopt( 'ins-toggle-tab' )['toggle-position']) || insopt( 'ins-toggle-tab' )['toggle-position'] != '0' ? insopt( 'ins-toggle-tab' )['toggle-position'] : 'right-bottom';
+
+        if(!empty($toggle_position)){
+            $toggle_position = explode('-', $toggle_position);
+            $toggle_position_horizontal = $toggle_position[0];
+            $toggle_position_vertical = $toggle_position[1];
+        }else{
+            $toggle_position_horizontal = 'right';
+            $toggle_position_vertical = 'bottom';
+        } 
         $toggle_panel_position = isset(insopt( 'ins-toggle-panel-tab' )['toggle-panel-position']) ? 'panel-'.insopt( 'ins-toggle-panel-tab' )['toggle-panel-position'] : 'panel-right';
         $this->layout_class .= !empty($toggle_position_horizontal) ? 'ins-hori-'.$toggle_position_horizontal.' ' :  'ins-hori-right ';
         $this->layout_class .= !empty($toggle_panel_position) ? $toggle_panel_position.' ' :  'panel-right ';
-        $this->layout_class .= !empty($toggle_position_vertical) ? 'ins-var-'.$toggle_position_vertical.' ' :  'ins-var-bottom '; 
+        $this->layout_class .= !empty($toggle_position_vertical) ? 'ins-var-cart-'.$toggle_position_vertical.' ' :  'ins-var-cart-bottom '; 
         $this->layout_class .= !empty(insopt( 'ins-layout-mode' )) ? 'ins-layout-' .  insopt( 'ins-layout-mode' ).' ' : ''; 
         $this->layout_class .= !empty(insopt( 'ins-layout-animation' )) ? insopt( 'ins-layout-animation' ).' '  : ''; 
   
