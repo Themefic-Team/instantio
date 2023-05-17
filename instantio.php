@@ -9,10 +9,10 @@
  * Author URI: https://themefic.com
  * Tags: woocommerce, direct checkout, floating cart, side cart, ajax cart, cart popup, ajax add to cart, one page checkout, single page checkout, fly cart, mini cart, quick buy, instant checkout, quick checkout, same page checkout, sidebar cart, sticky cart, woocommerce ajax, one click checkout, woocommerce one page checkout, direct checkout woocommerce, woocommerce one click checkout, woocommerce quick checkout, woocommerce express checkout, woocommerce simple checkout, skip cart page woocommerce, woocommerce cart popup, edit woocommerce checkout page, woocommerce direct checkout
 
- * Version: 2.5.23
- * Tested up to: 6.2
+ * Version: 2.5.24
+ * Tested up to: 6.2.1
  * Requires PHP: 7.2
- * WC tested up to: 7.5.1
+ * WC tested up to: 7.7.0
 **/
 
 // don't load directly
@@ -95,7 +95,7 @@ if ( !is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
 
 // Define INSTANTIO_VERSION.
 if ( ! defined( 'INSTANTIO_VERSION' ) ) {
-	define( 'INSTANTIO_VERSION', '2.5.23' );
+	define( 'INSTANTIO_VERSION', '2.5.24' );
 
 }
 
