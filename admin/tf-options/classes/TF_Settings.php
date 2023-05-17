@@ -570,9 +570,9 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 															$changelogs = $value['changelog'];
 															if(!empty($changelogs)) {
 																foreach($changelogs as $key => $values){ ?>
-																		<span><?php echo $key ?></span>
+																		
 																		<ul class="ins_changelog_<?php echo $key?>">
-																			
+																			<span><?php echo $key ?></span>
 																			<?php foreach($values as $value) {  ?>
 																				<li><?php echo $value ?></li>
 																			<?php } ?>
