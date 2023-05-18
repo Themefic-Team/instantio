@@ -61,6 +61,7 @@ class Admin{
             update_option( 'ins_installation_date', '1' );
         }
     }
+
     // Themefic Plugin Review Admin Notice
     public function ins_review_notice(){ 
         $get_current_screen = get_current_screen();  
@@ -197,6 +198,7 @@ class Admin{
         }
         
     }
+    
     // Deactivation  Hooks
     public function ins_deactivate() {
         $installed = get_option( 'instantio_active_time' );
