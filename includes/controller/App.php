@@ -43,8 +43,7 @@ class App {
         // Ins Cart Toggle
         add_action( 'ins_cart_toggle', array( $this, 'ins_cart_toggle' ), 11); 
 
-        // Ins Cart Toggle
-        // add_action( 'ins_cart_header', array( $this, 'ins_cart_header' ), 11); 
+        // Ins Cart Toggle 
         add_action( 'ins_cart_header', array( $this, 'ins_cart_modern_header' ), 10); 
 
         // Ins Cart Buttons
@@ -60,77 +59,10 @@ class App {
     }
 
     public function ins_options_init(){
-        echo get_site_url() . $_SERVER['REQUEST_URI'];
-        exit;
-        
-        // ins-toggle-panel-tab
-        $toggle_position = isset(insopt( 'ins-toggle-tab' )['toggle-position']) || insopt( 'ins-toggle-tab' )['toggle-position'] != '0' ? insopt( 'ins-toggle-tab' )['toggle-position'] : 'right-bottom';
-
-        if(!empty($toggle_position)){
-            $toggle_position = explode('-', $toggle_position);
-            $toggle_position_horizontal = $toggle_position[0];
-            $toggle_position_vertical = $toggle_position[1];
-        }else{
-            $toggle_position_horizontal = 'right';
-            $toggle_position_vertical = 'bottom';
-        } 
-        $ins_checkout_theme = !empty(insopt( 'ins-toggle-panel-tab' )['ins_panel_Theme_color']) ? insopt( 'ins-toggle-panel-tab' )['ins_panel_Theme_color'] : '#e9570a'; 
-        echo '<pre>';
-        var_dump($ins_checkout_theme);
-        echo '</pre>'; 
-        exit;
-
-        // Cart Customize Color
-        $cart_header_bg = isset($ins_toggle_panel_tab['cart-header-bg']) && !empty($ins_toggle_panel_tab['cart-header-bg']) ? $ins_toggle_panel_tab['cart-header-bg'] : '#FCF9F7';
-        $cart_header_text = isset($ins_toggle_panel_tab['cart-header-text']) && !empty($ins_toggle_panel_tab['cart-header-text']) ? $ins_toggle_panel_tab['cart-header-text'] : '#140701';
-
-        $cart_item_bg = isset($ins_toggle_panel_tab['cart-item-bg']) && !empty($ins_toggle_panel_tab['cart-item-bg']) ? $ins_toggle_panel_tab['cart-item-bg'] : '#FCF9F7';
-        $cart_item_text_color = isset($ins_toggle_panel_tab['cart-item-text-color']) && !empty($ins_toggle_panel_tab['cart-item-text-color']) ? $ins_toggle_panel_tab['cart-item-text-color'] : '#665F5C';
-        $cart_input_bg = isset($ins_toggle_panel_tab['cart-input-bg']) && !empty($ins_toggle_panel_tab['cart-input-bg']) ? $ins_toggle_panel_tab['cart-input-bg'] : '#FCF9F7';
-        $cart_input_text_color = isset($ins_toggle_panel_tab['cart-input-text-color']) && !empty($ins_toggle_panel_tab['cart-input-text-color']) ? $ins_toggle_panel_tab['cart-input-text-color'] : '#DB5209';
-        $cart_pricing_bg = isset($ins_toggle_panel_tab['cart-pricing-bg']) && !empty($ins_toggle_panel_tab['cart-pricing-bg']) ? $ins_toggle_panel_tab['cart-pricing-bg'] : '#FCF9F7';
-        $cart_pricing_text = isset($ins_toggle_panel_tab['cart-pricing-text']) && !empty($ins_toggle_panel_tab['cart-pricing-text']) ? $ins_toggle_panel_tab['cart-pricing-text'] : '#665F5C'; 
-
-        $cart_button_background_colors_regular = isset($ins_toggle_panel_tab['cart-button-background-colors']['regular']) && !empty($ins_toggle_panel_tab['cart-button-background-colors']['regular']) ? $ins_toggle_panel_tab['cart-button-background-colors']['regular'] : '#DB5209';
-        $cart_button_background_colors_hover = isset($ins_toggle_panel_tab['cart-button-background-colors']['hover']) && !empty($ins_toggle_panel_tab['cart-button-background-colors']['hover']) ? $ins_toggle_panel_tab['cart-button-background-colors']['hover'] : '#DB5209';
-
-        $cart_button_text_colors_regular = isset($ins_toggle_panel_tab['cart-button-text-colors']['regular']) && !empty($ins_toggle_panel_tab['cart-button-text-colors']['regular']) ? $ins_toggle_panel_tab['cart-button-text-colors']['regular'] : '#DB5209';
-        $cart_button_text_colors_hover = isset($ins_toggle_panel_tab['cart-button-text-colors']['hover']) && !empty($ins_toggle_panel_tab['cart-button-text-colors']['hover']) ? $ins_toggle_panel_tab['cart-button-text-colors']['hover'] : '#DB5209';
-
-        $output = ' 
-            .ins-checkout-header {
-                background-color: '.$cart_header_bg.' !important;
-            }
-            
-            .ins-checkout-header .ins-checkout-header-title {
-                color: '.$cart_header_text .' !important;
-            }
-            .ins-cart-inner.ins-cart-step .ins-cart-content-wrap {
-                background-color: '.$cart_item_bg.' !important;
-                color: '.$cart_input_text_color.' !important;
-            }
-            .ins-cart-inner.ins-cart-step .ins-cart-qty-wrap .quantity input[type="number"] {
-                background-color: '.$cart_input_bg.' !important;
-                color: '.$cart_item_text_color.' !important;
-            }
-            .ins-cart-inner.ins-cart-step .ins-cart-footer-content {
-                background-color: '.$cart_pricing_bg.' !important;
-                color: '.$cart_pricing_text.' !important;
-            }
-            .ins-cart-inner.ins-cart-step .ins-cart-btns a, .ins-cart-btns a.active {
-                background-color: '.$cart_button_background_colors_regular.' !important;
-                color: '.$cart_button_text_colors_regular.' !important; 
-            }
-            .ins-cart-inner.ins-cart-step .ins-cart-btns a:hover {
-                background-color: '.$cart_button_background_colors_hover.' !important;
-                color: '.$cart_button_text_colors_hover.' !important; 
-            }
-        '; 
        
-            echo $output; 
-         exit();
     }
 
+    // Instantio Layout Set Data
     public function ins_layout_set_data() {
         $ins_layout = !empty(insopt( 'ins-layout-options' )) ? insopt( 'ins-layout-options' ) : '1';
 
@@ -151,19 +83,10 @@ class App {
             $this->layouts_slug =  "/layouts/layout-3.php";
         }
     }
-
-    public function ins_cart_header(){
-        ob_start();
-        ?>
-        <span class="ins-checkout-close"><svg width="18px" height="18px" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path fill="#000000" d="M764.288 214.592 512 466.88 259.712 214.592a31.936 31.936 0 0 0-45.12 45.12L466.752 512 214.528 764.224a31.936 31.936 0 1 0 45.12 45.184L512 557.184l252.288 252.288a31.936 31.936 0 0 0 45.12-45.12L557.12 512.064l252.288-252.352a31.936 31.936 0 1 0-45.12-45.184z"/></svg></span> 
-
-        <h4 class="ins-label"><?php echo instantio_svg_icon('shopping-bag'); ?> <?php echo esc_html( 'Your Cart', 'instantio' ) ?> </h4>
-
-        <?php
-    }
-
+ 
+    // Ins Cart Header
     public function ins_cart_modern_header() {
-        ob_start();
+        ob_start(); 
         ?>
            <div class="ins-checkout-header">
                 <span class="ins-checkout-header-icon">
@@ -178,7 +101,7 @@ class App {
                         </defs>
                     </svg>  
                 </span>
-                <span class="ins-checkout-header-title">Your cart</span>
+                <span class="ins-checkout-header-title"><?php _e('Your cart ', 'instantio') ?></span>
                 <span class="ins-checkout-close">
                     <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g clip-path="url(#clip0_139_578)">
@@ -423,17 +346,11 @@ class App {
         WC()->cart->maybe_set_cart_cookies();  
          
     
-       
-        // if ( WC()->cart->is_empty() ) {
-        //     echo '<div class="woocommerce-message" role="alert">Cart is empty.</div>';
-        //     return;
-        // }
-    
         ob_start();
-        // require_once INS_INC_PATH .  $this->layouts_slug;
+        
         require_once apply_filters( 'ins_layout_slug', INS_INC_PATH . $this->layouts_slug ); 
         $cart_data = ob_get_clean(); 
-        // Fragments and mini cart are returned
+        
         $data = array(
             'cart_data' => $cart_data,
             'cart_hash' => apply_filters( 'woocommerce_add_to_cart_hash', WC()->cart->get_cart_for_session() ? md5( json_encode( WC()->cart->get_cart_for_session() ) ) : '', WC()->cart->get_cart_for_session() )
@@ -452,10 +369,10 @@ class App {
         WC()->cart->maybe_set_cart_cookies();
         
         ob_start();
-        // require_once INS_INC_PATH .  $this->layouts_slug;
+
         require_once apply_filters( 'ins_layout_slug', INS_INC_PATH . $this->layouts_slug ); 
         $cart_data = ob_get_clean(); 
-        // Fragments and mini cart are returned
+
         $data = array(
             'cart_data' => $cart_data,
             'cart_hash' => apply_filters( 'woocommerce_add_to_cart_hash', WC()->cart->get_cart_for_session() ? md5( json_encode( WC()->cart->get_cart_for_session() ) ) : '', WC()->cart->get_cart_for_session() )
@@ -475,10 +392,10 @@ class App {
         WC()->cart->maybe_set_cart_cookies();
         
         ob_start();
-        // require_once INS_INC_PATH .  $this->layouts_slug;
+        
         require_once apply_filters( 'ins_layout_slug', INS_INC_PATH . $this->layouts_slug ); 
         $cart_data = ob_get_clean(); 
-        // Fragments and mini cart are returned
+        
         $data = array(
             'cart_data' => $cart_data,
             'cart_hash' => apply_filters( 'woocommerce_add_to_cart_hash', WC()->cart->get_cart_for_session() ? md5( json_encode( WC()->cart->get_cart_for_session() ) ) : '', WC()->cart->get_cart_for_session() )

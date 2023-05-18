@@ -106,7 +106,8 @@ if ( ! class_exists( 'TF_Options' ) ) {
 		 * @author Foysal
 		 */
 		public function load_options() { 
-			if ( $this->is_tf_pro_active() ) {
+			$license_status = apply_filters( 'ins_checked_license_status','false' );
+			if ( $this->is_tf_pro_active() &&  $license_status != false  ) {
 				$options = glob( INS_PRO_ADMIN_PATH . '/tf-options/options/*.php' );
 			} else {
 				$options = glob( $this->tf_options_file_path( 'options/*.php' ) );
