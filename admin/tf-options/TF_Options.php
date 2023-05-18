@@ -130,7 +130,7 @@ if ( ! class_exists( 'TF_Options' ) ) {
 		public function tf_options_admin_enqueue_scripts($screen) {
 			// var_dump($screen);
 				global $post_type; 
-				$tf_options_screens   = array( 'toplevel_page_wiopt', 'instantio_page_ins_dashboard', 'tourfic-settings_page_tf_license_info', 'instantio_page_ins_get_help', 'instantio_page_ins_whats_new', 'admin_page_tf-setup-wizard');
+				$tf_options_screens   = array( 'toplevel_page_wiopt', 'instantio_page_ins_dashboard', 'instantio_page_tf_license_info', 'instantio_page_ins_get_help', 'instantio_page_ins_whats_new', 'admin_page_tf-setup-wizard', 'instantio_page_ins-license-activation');
 
 			if ( in_array( $screen, $tf_options_screens ) || $post_type  ) {
 				wp_enqueue_style('wp-color-picker');

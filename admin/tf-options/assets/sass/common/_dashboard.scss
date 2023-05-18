@@ -176,12 +176,7 @@
                 color: #f2f4f5;
                 display: inline-block;
                 padding: 10px 25px;
-                background: linear-gradient(
-                  95.29deg,
-                  #002043 0%,
-                  #6637a7 25.57%,
-                  #41b7ef 100%
-                );
+                background: linear-gradient(95.29deg, #002043 0%, #6637a7 25.57%, #41b7ef 100%);
                 border: transparent;
                 text-decoration: none;
                 border-radius: 4px;
@@ -246,18 +241,10 @@
               padding: 22px;
 
               &:nth-child(2) {
-                background: linear-gradient(
-                  141.81deg,
-                  #4338ca 0%,
-                  #a21caf 100%
-                );
+                background: linear-gradient(141.81deg, #4338ca 0%, #a21caf 100%);
               }
               &:nth-child(3) {
-                background: linear-gradient(
-                  141.81deg,
-                  #f4c82f 0%,
-                  #fd5187 100%
-                );
+                background: linear-gradient(141.81deg, #f4c82f 0%, #fd5187 100%);
               }
 
               @media #{$max1199} {
@@ -348,13 +335,7 @@
               text-decoration: none;
               color: #fff;
               padding: 16px 32px;
-              background: linear-gradient(
-                  95.29deg,
-                  #002043 0%,
-                  #6637a7 25.57%,
-                  #41b7ef 100%
-                ),
-                #2271b1;
+              background: linear-gradient(95.29deg, #002043 0%, #6637a7 25.57%, #41b7ef 100%), #2271b1;
               border-radius: 4px;
             }
           }
@@ -782,7 +763,7 @@
 
                 ul.ins_changelog_New {
                   span {
-                    color: #22c55e;
+                    color: #22c55e !important;
                     background-color: #dcfce7;
                   }
                   li {
@@ -836,61 +817,87 @@
   }
 }
 
-.tf-setting-license {
+// Instantio License Page Design
+body.instantio_page_ins-license-activation {
+  background: #ffffff;
+}
+
+.ins_license_wrap{
   margin: 40px 40px 40px 20px;
-  .tf-setting-license-tabs {
-    ul {
-      margin: 0;
-      margin-left: 40px;
-      li.active {
-        display: inline-block;
-        border: none;
-        margin: 0;
-        line-height: 18px;
-        text-decoration: none;
-        font-weight: 600;
-        position: relative;
-        background-color: #fff;
-        border-radius: 5px 5px 0px 0px;
-        &:before {
-          position: absolute;
-          content: "";
-          width: 16px;
-          height: 16px;
-          background-color: #fff;
-          bottom: -8px;
-          left: -5px;
-          transform: rotate(45deg);
-        }
-        &:after {
-          position: absolute;
-          content: "";
-          width: 16px;
-          height: 16px;
-          background-color: #fff;
-          bottom: -8px;
-          right: -5px;
-          transform: rotate(45deg);
-        }
-        span {
-          display: inline-block;
-          padding: 14px 22px;
-          color: #000;
-          font-size: 18px;
-          text-decoration: none;
-          i {
-            margin-right: 5px;
+
+  .el-license-title {
+    margin: 0;
+    margin-left: 40px;
+    position: relative;
+    display: inline-block;
+    background-color: #fef2eb;
+    padding: 18px;
+    &:before {
+      position: absolute;
+      content: "";
+      width: 16px;
+      height: 16px;
+      background-color: #fef2eb;
+      bottom: -8px;
+      left: -5px;
+      transform: rotate(45deg);
+    }
+    &:after {
+      position: absolute;
+      content: "";
+      width: 16px;
+      height: 16px;
+      background-color: #fef2eb;
+      bottom: -8px;
+      right: -5px;
+      transform: rotate(45deg);
+    }
+    
+  }
+
+  .el-license-container {
+    padding: 18px;
+    background-color: #fef2eb;
+    p{
+      margin: 10px 0;
+
+    }
+    .el-license-field{
+      label{
+        display: block;
+        margin-bottom: 10px;
+      }
+      input{
+        display: block;
+        width: 100%;
+        margin-bottom: 20px;
+      }
+    }
+    .el-license-active-btn {
+      p {
+        input {
+          background-color: #db5209;
+          border-color: #db5209;
+          padding: 3px 33px;
+          font-size: 15px;
+          transition: 0.3s ease-out all;
+          &:hover {
+            background-color: #c44a08;
+            border-color: #c44a08;
+          }
+          &:focus {
+            box-shadow: 0 0 0 1px #fff, 0 0 0 3px #c44a08;
           }
         }
       }
     }
   }
-  .tf-setting-license-field {
-    background-color: #fff;
-    border-radius: 8px;
-    padding: 0px 20px;
-  }
+
 }
+
+
+
+
 
 .tf-setting-wrapper {
   max-width: 100%;

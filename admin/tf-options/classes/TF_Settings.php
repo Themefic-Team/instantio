@@ -142,24 +142,24 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 				add_submenu_page(
 					$this->option_id,
 					__('Upgrade to Pro', 'instantio'),
-					'<span style="color:#ffba00;">' .__("Upgrade to Pro", "instantio"). '</span>',
+					'<span style="color:#db5209; font-weight: 900;">' .__("Upgrade to Pro", "instantio"). '</span>',
 					'manage_options',
 					'https://themefic.com/instantio/go/upgrade',
 					
 				);
 			}
 			
-			if ( function_exists('is_tf_pro') ) {
-				//License Info submenu
-				add_submenu_page(
-					$this->option_id,
-					__('License Info', 'instantio'),
-					__('License Info', 'instantio'),
-					'manage_options',
-					'tf_license_info',
-					array( $this,'tf_license_info_callback'),
-				);
-			}
+			// if ( function_exists('is_tf_pro') ) {
+			// 	//License Info submenu
+			// 	add_submenu_page(
+			// 		$this->option_id,
+			// 		__('License Info', 'instantio'),
+			// 		__('License Info', 'instantio'),
+			// 		'manage_options',
+			// 		'tf_license_info',
+			// 		array( $this,'tf_license_info_callback'),
+			// 	);
+			// }
 
 			// remove first submenu
 			remove_submenu_page( $this->option_id, $this->option_id );
@@ -651,7 +651,7 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 								$licenseKey = ! empty( tfliopt( 'license-key' ) ) ? tfliopt( 'license-key' ) : '';
 								$liceEmail  = ! empty( tfliopt( 'license-email' ) ) ? tfliopt( 'license-email' ) : '';
 								
-								if ( InstantioProBase::CheckWPPlugin( $licenseKey, $liceEmail, $licenseMessage, $responseObj, TF_PRO_PATH . 'tourfic-pro.php' ) ) {
+								if ( InstantioProBase::CheckWPPlugin( $licenseKey, $liceEmail, $licenseMessage, $responseObj, INS_PRO_PATH . 'wooinstant.php' ) ) {
 									tf_license_info();
 								} else {
 								?>
@@ -678,7 +678,9 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 								<div class="tf-field tf-field-callback" style="width: 100%;">
 									<div class="tf-fieldset">
 										<div class="tf-license-activate">
-											<p class="submit"><input type="submit" name="submit" id="submit" class="button button-primary" value="Activate" /></p>
+											<p class="submit">
+												<input type="submit" name="submit" id="submit" class="button button-primary" value="Activate" />
+											</p>
 										</div>
 									</div>
 								</div>

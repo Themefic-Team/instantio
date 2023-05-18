@@ -47,45 +47,6 @@
         });
 
         /**
-         * Delete room order ids
-         * @author fida
-         */
-        $(document).on('click', '.remove-order-ids', function (e) {
-
-            e.preventDefault();
-
-            var $this = $(this);
-            var post_id = $("#post_ID").val();
-            var meta_field = $this.closest('.tf-repeater-content-wrap').find('.tf-order_id input').attr('name');
-            var data = {
-                action: 'tf_remove_room_order_ids',
-                meta_field: meta_field,
-                post_id: post_id,
-            };
-
-            $.ajax({
-                type: 'post',
-                url: ajaxurl,
-                data: data,
-                beforeSend: function (data) {
-                    notyf.success(tf_admin_params.deleting_room_order_ids);
-                },
-                success: function (data) {
-                    notyf.success(data.data);
-                    location.reload();
-                },
-                error: function (data) {
-                    notyf.error(data.data);
-                },
-            });
-
-        });
-
-
-
-
-
-        /**
          * Ajax install
          * 
          * @since 1.0
