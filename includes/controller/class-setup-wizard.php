@@ -70,10 +70,10 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
                 <div class="tf-setup-container">
                     <div class="tf-setup-header">
                         <div class="tf-setup-header-left">
-                            <a href="<?php echo esc_url( admin_url( 'admin.php?page=wiopt#tab=general' ) ); ?>" class="tf-admin-btn tf-btn-secondary back-to-dashboard"><span><?php _e( 'Back to Dashboard', 'tourfic' ) ?></span></a>
+                            <a href="<?php echo esc_url( admin_url( 'admin.php?page=wiopt#tab=general' ) ); ?>" class="tf-admin-btn tf-btn-secondary back-to-dashboard"><span><?php _e( 'Back to dashboard', 'instantio' ) ?></span></a>
                         </div>
                         <div class="tf-setup-header-right">
-                            <span class="get-help-link"><?php _e('Having troubles?', 'instantio') ?> <a class="" target="_blank" href="https://portal.themefic.com/support/"><?php _e('Get help', 'torufic') ?></a></span>
+                            <span class="get-help-link"><?php _e('Having troubles?', 'instantio') ?> <a class="" target="_blank" href="https://portal.themefic.com/support/"><?php _e('Get help', 'instantio') ?></a></span>
                         </div>
                     </div>
                     <form method="post" id="tf-setup-wizard-form" data-skip-steps="">
@@ -100,7 +100,7 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
             <div class="tf-setup-content-layout tf-welcome-step <?php echo self::$current_step == 'welcome' ? 'active' : ''; ?>">
 
                 <div class="welcome-img">
-                    <img src="<?php echo INS_ADMIN_URL . '/tf-options/img/instanio-logo.png' ?>" alt="<?php esc_attr_e( 'Welcome to Instantio!', 'instantio' ) ?>">
+                    <img src="<?php echo INS_ADMIN_URL . '/tf-options/img/instantio.png' ?>" alt="<?php esc_attr_e( 'Welcome to Instantio!', 'instantio' ) ?>">
                 </div>
                 
                 <h1 class="tf-setup-welcome-title">
@@ -108,15 +108,15 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
                 </h1>
 
                 <div class="tf-setup-welcome-description">
-                    <?php _e( 'Thanks for choosing instantio for your business. We are excited to have you on board. This quick setup wizard is simple and straightforward and shouldn’t take longer than five minutes. It will help you configure the basic settings of instantio to get started. Please note that this setup guide is entirely optional.', 'instantio' ) ?>
+                    <?php _e( 'Our quick setup wizard makes getting started a breeze. It\'s simple, takes just five minutes, and helps configure basic settings. Remember, this guide is optional. Let\'s begin!', 'instantio' ) ?>
                 </div>
 
                 <div class="tf-setup-welcome-footer">
+                    <a href="<?php echo esc_url( admin_url( 'admin.php?page=wiopt#tab=general' ) ); ?>" class="tf-link-btn"><?php _e( 'Skip to Dashboard', 'instantio' ) ?></a>
+
                     <button type="button" class="tf-admin-btn tf-btn-secondary tf-setup-start-btn">
                         <span><?php _e( 'Get Started', 'instantio' ) ?></span>
-                    </button>
-
-                    <a href="<?php echo esc_url( admin_url( 'admin.php?page=wiopt#tab=general' ) ); ?>" class="tf-link-btn"><?php _e( 'Skip to Dashboard', 'instantio' ) ?></a>
+                    </button> 
                 </div>
 
             </div>

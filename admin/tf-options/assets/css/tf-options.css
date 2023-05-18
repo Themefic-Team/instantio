@@ -1672,7 +1672,8 @@ Custom Modal
 }
 
 body.admin_page_tf-setup-wizard {
-  background-color: rgba(219, 82, 9, 0.1098039216);
+  font-family: "Roboto";
+  background-color: #fcf9f7;
 }
 
 .admin_page_tf-setup-wizard #wpcontent {
@@ -1703,12 +1704,14 @@ body.admin_page_tf-setup-wizard {
 .tf-setup-wizard-wrapper {
   max-width: 900px;
   margin: auto;
-  width: calc(100% - 40px);
-  padding-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 }
 
 .tf-setup-header {
-  padding: 0 0 30px;
+  padding: 0 32px 28px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1719,18 +1722,33 @@ body.admin_page_tf-setup-wizard {
     gap: 15px;
   }
 }
-.tf-setup-header .tf-setup-header-left a {
-  padding: 7px 12px;
-  display: flex;
-  color: #fff;
-  background-color: #db5209;
-  border-radius: 2px;
-  border-color: transparent;
-  text-decoration: none;
+.tf-setup-header .tf-setup-header-left .back-to-dashboard {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  background-color: transparent;
 }
-.tf-setup-header .get-help-link a {
-  color: #000;
-  font-weight: 700;
+.tf-setup-header .tf-setup-header-left a {
+  padding: 0;
+  display: flex;
+  color: #db5209;
+  border-color: transparent;
+  text-decoration: underline;
+}
+.tf-setup-header .tf-setup-header-right .get-help-link {
+  color: #140701;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+}
+.tf-setup-header .tf-setup-header-right .get-help-link a {
+  color: #db5209;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
   text-decoration: underline;
 }
 
@@ -1738,12 +1756,12 @@ body.admin_page_tf-setup-wizard {
 Welcome Step
 */
 .tf-setup-content-layout {
-  padding: 40px 50px 25px;
-  box-shadow: 0 0 200px rgba(0, 0, 0, 0.08);
-  border-radius: 20px;
-  background-color: #fff;
+  padding: 56px 0;
+  background: linear-gradient(180deg, #fef2eb 0%, rgba(254, 242, 235, 0) 100%);
+  border: 4px solid #fef2eb;
+  border-radius: 32px;
   text-align: center;
-  min-height: 700px;
+  width: 817px;
   display: none;
   flex-direction: column;
   justify-content: center;
@@ -1758,11 +1776,12 @@ Welcome Step
   display: flex;
 }
 .tf-setup-content-layout .welcome-img {
-  margin-bottom: 50px;
-  min-height: 295px;
+  width: 243px;
+  height: 242px;
   display: flex;
   align-items: start;
   justify-content: center;
+  margin-bottom: 40px;
 }
 @media only screen and (max-width: 575.98px) {
   .tf-setup-content-layout .welcome-img {
@@ -1770,14 +1789,16 @@ Welcome Step
   }
 }
 .tf-setup-content-layout .welcome-img img {
-  max-width: 45%;
+  width: 100%;
+  height: 100%;
 }
 .tf-setup-content-layout .tf-setup-welcome-title {
+  font-style: normal;
   font-weight: 700;
   font-size: 40px;
-  line-height: 47px;
-  color: #11142e;
-  margin: 0 0 10px;
+  line-height: 130%;
+  color: #140701;
+  margin: 0 0 14px;
 }
 @media only screen and (max-width: 575.98px) {
   .tf-setup-content-layout .tf-setup-welcome-title {
@@ -1786,26 +1807,36 @@ Welcome Step
   }
 }
 .tf-setup-content-layout .tf-setup-welcome-description {
-  max-width: 450px;
-  margin: 14px auto 30px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  max-width: 640px;
+  color: #665f5c;
+  margin: 0 0 30px;
 }
 .tf-setup-content-layout .tf-setup-welcome-footer {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+  justify-content: center;
 }
 .tf-setup-content-layout .tf-setup-welcome-footer .tf-admin-btn {
-  margin-bottom: 20px;
-  padding: 3px 10px;
+  padding: 16px 32px;
   color: #fff;
   background-color: #db5209;
+  border-radius: 8px;
   border-radius: 2px;
   border-color: transparent;
   cursor: pointer;
 }
 .tf-setup-content-layout .tf-setup-welcome-footer .tf-link-btn {
-  color: #11142e;
+  color: #db5209;
+  text-align: center;
+  font-style: normal;
   font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
   text-decoration: underline;
 }
 .tf-setup-content-layout .tf-setup-welcome-footer.tf-setup-finish-footer {
