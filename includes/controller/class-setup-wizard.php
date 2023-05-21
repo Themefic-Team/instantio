@@ -126,37 +126,41 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
 		/**
 		 * Setup step one
 		 */
-		private function tf_setup_step_one() {
-			?>
+		private function tf_setup_step_one() { ?>
             <div class="tf-setup-step-container tf-setup-step-1 <?php echo self::$current_step == 'step_1' ? 'active' : ''; ?>" data-step="1">
                 <section class="tf-setup-step-layout">
-					<?php $this->tf_setup_wizard_steps_header() ?>
-                    <h1 class="tf-setup-step-title"><?php _e( 'Choose Layout options', 'instantio' ) ?></h1>
+                    <?php $this->tf_setup_wizard_steps_header() ?>
                     
-                    <ul class="tf-select-service">
-                        <li>
-                            <input type="radio" name="ins-layout-options" value="1" checked/>
-                            <label for="ins-layout-options">
-                                <img src="<?php echo INS_ADMIN_URL . '/tf-options/img/layout/Directcheckout.jpg' ?>" alt="<?php esc_attr_e( 'Direct-Checkout', 'instantio' ) ?>">
-                                <span><?php _e( 'Direct Checkout', 'instantio' ) ?></span>
-                            </label>
-                        </li>
-                        <li>
-                            <input type="radio" name="ins-layout-options" value="2"/>
-                            <label for="ins-layout-options">
-                                <img src="<?php echo INS_ADMIN_URL . '/tf-options/img/layout/Cart.svg' ?>" alt="<?php esc_attr_e( 'Side-Cart', 'instantio' ) ?>">
-                                <span><?php _e( 'Side Cart', 'instantio' ) ?></span>
-                            </label>
-                        </li>
+                    <div class="tf-setup-form-item">
+                        <label class="">
+                            <?php _e( 'Choose Layout options', 'instantio' ) ?>
+                        </label>
 
-                        <li>
-                            <input type="radio" name="ins-layout-options" value="3"/>
-                            <label for="ins-layout-options">
-                                <img src="<?php echo INS_ADMIN_URL . '/tf-options/img/layout/Popup.jpg' ?>" alt="<?php esc_attr_e( 'Popup-Cart', 'instantio' ) ?>">
-                                <span><?php _e( 'Popup Cart', 'instantio' ) ?></span>
-                            </label>
-                        </li>
-                    </ul>
+                        <ul class="tf-select-service">
+                            <li>
+                                <input type="radio" name="ins-layout-options" value="1" checked/>
+                                <label for="ins-layout-options">
+                                    <img src="<?php echo INS_ADMIN_URL . '/tf-options/img/layout/Directcheckout.jpg' ?>" alt="<?php esc_attr_e( 'Direct-Checkout', 'instantio' ) ?>">
+                                    <span><?php _e( 'Direct Checkout', 'instantio' ) ?></span>
+                                </label>
+                            </li>
+                            <li>
+                                <input type="radio" name="ins-layout-options" value="2"/>
+                                <label for="ins-layout-options">
+                                    <img src="<?php echo INS_ADMIN_URL . '/tf-options/img/layout/Cart.svg' ?>" alt="<?php esc_attr_e( 'Side-Cart', 'instantio' ) ?>">
+                                    <span><?php _e( 'Side Cart', 'instantio' ) ?></span>
+                                </label>
+                            </li>
+
+                            <li>
+                                <input type="radio" name="ins-layout-options" value="3"/>
+                                <label for="ins-layout-options">
+                                    <img src="<?php echo INS_ADMIN_URL . '/tf-options/img/layout/Popup.jpg' ?>" alt="<?php esc_attr_e( 'Popup-Cart', 'instantio' ) ?>">
+                                    <span><?php _e( 'Popup Cart', 'instantio' ) ?></span>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
 
                     <div class="tf-setup-form-item">
                         
@@ -252,8 +256,7 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
                     </div>
                 </div>
             </div>
-			<?php
-		}
+		<?php }
 
 		/**
 		 * Setup step two

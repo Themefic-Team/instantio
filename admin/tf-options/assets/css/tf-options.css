@@ -1675,6 +1675,9 @@ body.admin_page_tf-setup-wizard {
   font-family: "Roboto";
   background-color: #fcf9f7;
 }
+body.admin_page_tf-setup-wizard input:focus {
+  box-shadow: none !important;
+}
 
 .admin_page_tf-setup-wizard #wpcontent {
   margin-left: 0 !important;
@@ -1709,9 +1712,12 @@ body.admin_page_tf-setup-wizard {
   justify-content: center;
   height: 100vh;
 }
+.tf-setup-wizard-wrapper .tf-setup-container {
+  width: 100%;
+}
 
 .tf-setup-header {
-  padding: 0 32px 28px;
+  margin-bottom: 70px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1761,7 +1767,7 @@ Welcome Step
   border: 4px solid #fef2eb;
   border-radius: 32px;
   text-align: center;
-  width: 817px;
+  width: 100%;
   display: none;
   flex-direction: column;
   justify-content: center;
@@ -1963,27 +1969,6 @@ Steps
 .tf-setup-step-container.active {
   display: block;
 }
-.tf-setup-step-container .tf-setup-step-layout {
-  padding: 40px 50px 25px;
-  box-shadow: 0 0 200px rgba(0, 0, 0, 0.08);
-  border-radius: 20px;
-  background-color: #fff;
-  text-align: center;
-  min-height: 640px;
-  display: flex;
-  flex-direction: column;
-}
-@media only screen and (max-width: 991.98px) {
-  .tf-setup-step-container .tf-setup-step-layout {
-    min-height: auto;
-    padding: 40px 30px 40px;
-  }
-}
-@media only screen and (max-width: 575.98px) {
-  .tf-setup-step-container .tf-setup-step-layout {
-    padding: 40px 15px 40px;
-  }
-}
 .tf-setup-step-container .tf-setup-step-title {
   font-weight: 700;
   text-transform: capitalize;
@@ -2014,8 +1999,7 @@ Steps
 }
 .tf-setup-step-container .tf-select-service {
   display: flex;
-  justify-content: center;
-  gap: 20px;
+  gap: 30px;
 }
 .tf-setup-step-container .tf-select-service li {
   position: relative;
@@ -2099,15 +2083,16 @@ Steps
   margin-left: 20px;
 }
 .tf-setup-step-container .tf-setup-form-item {
-  text-align: end;
-  background: #f8f9fb;
-  padding: 14px 30px 14px 25px;
-  border-radius: 10px;
-  margin: 0 0 13px 0;
+  background: #FFF5F0;
+  padding: 25px 35px;
+  border-radius: 16px;
+  border: 2px solid #FEF2EB;
+  margin: 0 0 16px 0;
   display: flex;
+  width: 100%;
   flex-flow: row wrap;
-  min-width: 0;
-  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
 }
 .tf-setup-step-container .tf-setup-form-item li {
   max-width: 145px;
@@ -2276,6 +2261,8 @@ Steps
   display: grid;
   grid-auto-columns: 1fr;
   grid-row-gap: 16px;
+  -moz-column-gap: 20px;
+       column-gap: 20px;
   justify-items: center;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: auto;

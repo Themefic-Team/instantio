@@ -2,6 +2,9 @@
 body.admin_page_tf-setup-wizard {
   font-family: "Roboto";
   background-color: #fcf9f7;
+  input:focus {
+    box-shadow: none !important; 
+  }
 }
 
 .admin_page_tf-setup-wizard #wpcontent {
@@ -36,10 +39,14 @@ body.admin_page_tf-setup-wizard {
   align-items: center;
   justify-content: center;
   height: 100vh;
+
+  .tf-setup-container{
+    width: 100%;
+  }
 }
 
 .tf-setup-header {
-  padding: 0 32px 28px;
+  margin-bottom: 70px;
   @include flexbox();
   @include justify-content(space-between);
   @include align-items(center);
@@ -94,7 +101,7 @@ Welcome Step
   border: 4px solid #fef2eb;
   border-radius: 32px;
   text-align: center;
-  width: 817px;
+  width: 100%;
   display: none;
   @include flex-direction(column);
   @include justify-content(center);
@@ -306,24 +313,14 @@ Steps
   }
 
   .tf-setup-step-layout {
-    padding: 40px 50px 25px;
-    box-shadow: 0 0 200px rgba(0, 0, 0, 0.08);
-    border-radius: 20px;
-    background-color: #fff;
-    text-align: center;
-    min-height: 640px;
-    @include flexbox();
-    @include flex-direction(column);
-    //@include justify-content(center);
-    //@include align-items(center);
+    
 
     @media #{$max991} {
-      min-height: auto;
-      padding: 40px 30px 40px;
+     
     }
 
     @media #{$max575} {
-      padding: 40px 15px 40px;
+     
     }
   }
 
@@ -358,8 +355,7 @@ Steps
 
   .tf-select-service {
     @include flexbox();
-    @include justify-content(center);
-    gap: 20px;
+    gap: 30px;
 
     li {
       position: relative;
@@ -452,15 +448,16 @@ Steps
   }
 
   .tf-setup-form-item {
-    text-align: end;
-    background: #f8f9fb;
-    padding: 14px 30px 14px 25px;
-    border-radius: 10px;
-    margin: 0 0 13px 0;
+    background: #FFF5F0;
+    padding: 25px 35px;
+    border-radius: 16px;
+    border: 2px solid #FEF2EB;
+    margin: 0 0 16px 0;
     @include flexbox();
+    width: 100%;
     flex-flow: row wrap;
-    min-width: 0;
-    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
 
     li {
       max-width: 145px;
@@ -643,6 +640,7 @@ Steps
     display: grid;
     grid-auto-columns: 1fr;
     grid-row-gap: 16px;
+    column-gap: 20px;
     justify-items: center;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: auto;
