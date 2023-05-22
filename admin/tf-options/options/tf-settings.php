@@ -676,6 +676,7 @@ TF_Settings::option( 'wiopt', array(
 									'class'      	=> 'tf-field-color-single',
 									'label'    		=> __( 'Border Color', 'instantio' ),
 									'subtitle' 		=> __( 'Toggle Panel Border Color', 'instantio' ),
+									'dependency' => array( 'ins_panel_border_option', '==', 'true' ),
 								),
 								array(
 									'id' 			=> 'ins-panel-border-top',
@@ -686,6 +687,7 @@ TF_Settings::option( 'wiopt', array(
 									'subtitle' 		=> 'Border Top ',
 									'placeholder' 	=> '1px',
 									'default' 		=> '1px',
+									'dependency' => array( 'ins_panel_border_option', '==', 'true' ),
 								),
 								array(
 									'id' 			=> 'ins-panel-border-right',
@@ -696,6 +698,7 @@ TF_Settings::option( 'wiopt', array(
 									'subtitle' 		=> 'Border Right ',
 									'placeholder' 	=> '1px',
 									'default' 		=> '1px',
+									'dependency' => array( 'ins_panel_border_option', '==', 'true' ),
 								),
 								array(
 									'id' 			=> 'ins-panel-border-bottom',
@@ -706,6 +709,7 @@ TF_Settings::option( 'wiopt', array(
 									'subtitle' 		=> 'Border Bottom ',
 									'placeholder' 	=> '1px',
 									'default' 		=> '1px',
+									'dependency' => array( 'ins_panel_border_option', '==', 'true' ),
 								),
 								array(
 									'id' 			=> 'ins-panel-border-left',
@@ -716,6 +720,7 @@ TF_Settings::option( 'wiopt', array(
 									'subtitle' 		=> 'Border Left ',
 									'placeholder' 	=> '1px',
 									'default' 		=> '1px',
+									'dependency' => array( 'ins_panel_border_option', '==', 'true' ),
 								),
 
 								array(

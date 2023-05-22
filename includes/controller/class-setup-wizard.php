@@ -131,7 +131,7 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
                 <section class="tf-setup-step-layout">
                     <?php $this->tf_setup_wizard_steps_header() ?>
                     
-                    <div class="tf-setup-form-item">
+                    <div class="tf-setup-form-item bg">
                         <label class="">
                             <?php _e( 'Choose Layout options', 'instantio' ) ?>
                         </label>
@@ -162,7 +162,7 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
                         </ul>
                     </div>
 
-                    <div class="tf-setup-form-item">
+                    <div class="tf-setup-form-item bg">
                         
                         <label class="">
                             <?php _e( 'Select The Mode', 'instantio' ) ?>
@@ -176,6 +176,7 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
                                     <span><?php _e( 'Light', 'instantio' ) ?></span>
                                 </label>
                             </li>
+
                             <li>
                                 <input type="radio" name="ins-layout-mode" value="dark"/>
                                 <label for="ins-layout-mode">
@@ -200,7 +201,6 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
                                 </label>
                             </li>
                         </ul>
-                        
                     </div>
 
                     <?php
@@ -209,7 +209,7 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
 
                         if($is_Pro_active === true) { ?>
 
-                            <div class="tf-setup-form-item">  
+                            <div class="tf-setup-form-item bg">  
                                 <label class=""><?php _e( 'Select The ProgressBar', 'instantio' ) ?></label>
                                 <ul class="tf-select-progressbar">
                                     <li>
@@ -266,11 +266,9 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
             <div class="tf-setup-step-container tf-setup-step-2 <?php echo self::$current_step == 'step_2' ? 'active' : ''; ?>" data-step="2">
                 <section class="tf-setup-step-layout">
 					<?php $this->tf_setup_wizard_steps_header( 2 ) ?>
-                    <h1 class="tf-setup-step-title">
-                        <?php _e( 'General Settings', 'instantio' ) ?>
-                    </h1>
+                    
                                         
-                    <div class="tf-setup-form-item">
+                    <div class="tf-setup-form-item middle">
 
                         <div class="tf-setup-form-item-label">
                             <label class=""><?php _e( 'Select Cart Options', 'instantio' ) ?></label>
@@ -288,10 +286,31 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
                                 <?php }?>
                             </select>
                         </div>
+
+                    </div>
+
+                    <!-- Cart Button Horizontal Position Option-->
+                    <div class="tf-setup-form-item middle">
+                        <div class="tf-setup-form-item-label">
+                            <label class="" for="toggle-position">
+                                <?php _e( 'Icon Position', 'instantio' ) ?>
+                            </label>
+                        </div>
+                        <div class="tf-setup-form-item-input"> 
+                            <select name="toggle-position" id="toggle-position">
+                                <option value=""><?php _e( 'Select a position', 'instantio' ) ?></option>
+                                <option value="right-top"><?php _e( 'Right Top', 'instantio' ) ?></option>
+                                <option value="right-middle"><?php _e( 'Right Middle', 'instantio' ) ?></option>
+                                <option value="right-bottom"><?php _e( 'Right Bottom', 'instantio' ) ?></option>
+                                <option value="left-top"><?php _e( 'Left Top', 'instantio' ) ?></option>
+                                <option value="left-middle"><?php _e( 'Left Middle', 'instantio' ) ?></option>
+                                <option value="left-bottom"><?php _e( 'Left Bottom', 'instantio' ) ?></option>
+                            </select>
+                        </div>
                     </div>
 
                     <!-- Auto Open Toggle Option -->
-                    <div class="tf-setup-form-item">
+                    <div class="tf-setup-form-item middle">
                         <div class="tf-setup-form-item-label">
                             <label class="" for="auto-tog-panel"><?php _e( 'Auto Open Toggle Panel', 'instantio' ) ?></label>
                         </div>
@@ -303,30 +322,24 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
                         </div>
                     </div>
 
-                    <?php $is_Pro_class = new TF_Options;
-                        $is_Pro_active = $is_Pro_class->is_tf_pro_active(); 
-
-                        if($is_Pro_active === true) { ?>
-                            <!--Quickview Section-->
-                            <div class="tf-setup-form-item">
-                                <div class="tf-setup-form-item-label"><label class="" for="tf-hotel-review-section"><?php _e( 'Disable Quick View', 'instantio' ) ?></label></div>
-                                <div class="tf-setup-form-item-input">
-                                    <label for="woins-quickview-disable" class="tf-switch-label">
-                                        <input type="checkbox" id="woins-quickview-disable" name="woins-quickview-disable" value="1" class="tf-switch" checked/>
-                                        <span class="tf-switch-slider"></span>
-                                    </label>
-                                </div>
-                            </div>
-                    <?php } ?>
+                    <div class="tf-setup-form-item middle">
+                        <div class="tf-setup-form-item-label"><label class="" for="woins-quickview-disable"><?php _e( 'Disable Quick View', 'instantio' ) ?></label></div>
+                        <div class="tf-setup-form-item-input">
+                            <label for="woins-quickview-disable" class="tf-switch-label">
+                                <input type="checkbox" id="woins-quickview-disable" name="woins-quickview-disable" value="1" class="tf-switch" checked/>
+                                <span class="tf-switch-slider"></span>
+                            </label>
+                        </div>
+                    </div>
                             
                     <?php $is_Pro_class = new TF_Options;
                         $is_Pro_active = $is_Pro_class->is_tf_pro_active(); 
 
                         if($is_Pro_active === true) { ?>
                             <!--Disable Ajax Option-->
-                            <div class="tf-setup-form-item">
+                            <div class="tf-setup-form-item middle">
                                 <div class="tf-setup-form-item-label">
-                                    <label class="" for="tf-hotel-share-option">
+                                    <label class="" for="wi-disable-ajax-add-cart">
                                         <?php _e( 'Disable Ajax Add to Cart', 'instantio' ) ?>
                                     </label>
                                 </div>
@@ -339,21 +352,7 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
                             </div>
                     <?php } ?>
 
-                    <!-- Cart Button Horizontal Position Option-->
-                    <div class="tf-setup-form-item">
-                        <div class="tf-setup-form-item-label">
-                            <label class="" for="tf-hotel-share-option">
-                                <?php _e( 'Cart Button Horizontal Position', 'instantio' ) ?>
-                            </label>
-                        </div>
-                        <div class="tf-setup-form-item-input"> 
-                            <select name="toggle-position-horizontal" id="toggle-position-horizontal">
-                                <option value=""><?php _e( 'Select a position', 'instantio' ) ?></option>
-                                <option value="left"><?php _e( 'Left', 'instantio' ) ?></option>
-                                <option value="right"><?php _e( 'Right', 'instantio' ) ?></option>
-                            </select>
-                        </div>
-                    </div>
+                    
                 </section>
                 <div class="tf-setup-action-btn-wrapper">
                     <button type="button" class="tf-setup-prev-btn tf-admin-btn tf-btn-secondary"><?php _e( 'Previous', 'instantio' ) ?></button>
@@ -375,29 +374,114 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
                 <section class="tf-setup-step-layout">
 					<?php $this->tf_setup_wizard_steps_header( 3 ) ?>
                     <div class="tf-hotel-setup-wizard">
-                        <h3 class="tf-setup-step-subtitle">
-                            <?php _e( 'Feature Settings', 'instantio' ) ?>
-                        </h3>
 
-                        <p class="tf-setup-step-desc">
-                            <?php _e( 'These settings can be overridden from <strong>Instantio Settings</strong>', 'instantio' ) ?>
-                        </p>
-                        
-                        <!-- Cart Button Horizontal Position Option-->
-                        <div class="tf-setup-form-item">
+                        <!-- Choose Cart Icon Style Option-->
+                        <div class="tf-setup-form-item middle">
+                            
+                            <label class="">
+                                <?php _e( 'Cart Icon Style', 'instantio' ) ?>
+                            </label>
+
+                            <ul class="tf-select-mode">
+                                <li>
+                                    <input type="radio" name="cart-icon-style" value="cart-style-1" checked/>
+                                    <label for="cart-icon-style">
+                                        <img src="<?php echo INS_ADMIN_URL . '/tf-options/img/cart-style-1.svg' ?>" alt="<?php esc_attr_e( 'Cart 1', 'instantio' ) ?>">
+                                        <span><?php _e( 'Cart 1', 'instantio' ) ?></span>
+                                    </label>
+                                </li>
+                                
+                                <li>
+                                    <input type="radio" name="cart-icon-style" value="cart-style-2"/>
+                                    <label for="cart-icon-style">
+                                        <img src="<?php echo INS_ADMIN_URL . '/tf-options/img/cart-2.svg' ?>" alt="<?php esc_attr_e( 'Cart 2', 'instantio' ) ?>">
+                                        <span><?php _e( 'Cart 2', 'instantio' ) ?></span>
+                                    </label>
+                                </li>
+
+                                <li>
+                                    <input type="radio" name="cart-icon-style" value="cart-style-3"/>
+                                    <label for="cart-icon-style">
+                                        <img src="<?php echo INS_ADMIN_URL . '/tf-options/img/cart-3.svg' ?>" alt="<?php esc_attr_e( 'Cart 3', 'instantio' ) ?>">
+                                        <span><?php _e( 'Cart 3', 'instantio' ) ?></span>
+                                    </label>
+                                </li>
+
+                                <li>
+                                    <input type="radio" name="cart-icon-style" value="cart-style-4"/>
+                                    <label for="cart-icon-style">
+                                        <img src="<?php echo INS_ADMIN_URL . '/tf-options/img/cart-4.svg' ?>" alt="<?php esc_attr_e( 'Cart 4', 'instantio' ) ?>">
+                                        <span><?php _e( 'Cart 4', 'instantio' ) ?></span>
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Choose layout Animation Option-->
+                        <div class="tf-setup-form-item middle">
                             <div class="tf-setup-form-item-label">
-                                <label class="" for="tf-hotel-share-option">
-                                    <?php _e( 'Cart Button Horizontal Position', 'instantio' ) ?>
+                                <label class="" for="ins-layout-animation">
+                                    <?php _e( 'Choose layout Animation', 'instantio' ) ?>
                                 </label>
                             </div>
                             <div class="tf-setup-form-item-input"> 
-                                <select name="toggle-position-horizontal" id="toggle-position-horizontal">
+                                <select name="ins-layout-animation" id="ins-layout-animation">
                                     <option value=""><?php _e( 'Select a position', 'instantio' ) ?></option>
-                                    <option value="left"><?php _e( 'Left', 'instantio' ) ?></option>
-                                    <option value="right"><?php _e( 'Right', 'instantio' ) ?></option>
+                                    <option value="ins_animate_default"><?php _e( 'Default Animation', 'instantio' ) ?></option>
+                                    <option value="ins_animate_one"><?php _e( 'Animate One', 'instantio' ) ?></option>
+                                    <option value="ins_animate_two"><?php _e( 'Animate Two', 'instantio' ) ?></option>
                                 </select>
                             </div>
                         </div>
+
+                        <!-- Choose Cart Fly Animation Option-->
+                        <div class="tf-setup-form-item middle">
+                            <div class="tf-setup-form-item-label">
+                                <label class="" for="cart-fly-anim">
+                                    <?php _e( 'Cart Fly Animation', 'instantio' ) ?>
+                                </label>
+                            </div>
+
+                            <div class="tf-setup-form-item-input">
+                                <label for="cart-fly-anim" class="tf-switch-label">
+                                    <input type="checkbox" id="cart-fly-anim" name="cart-fly-anim" value="1" class="tf-switch" checked/>
+                                    <span class="tf-switch-slider"></span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Choose Hide Cart Button Option-->
+                        <div class="tf-setup-form-item middle">
+                            <div class="tf-setup-form-item-label">
+                                <label class="" for="ins-cart-emty-hide">
+                                    <?php _e( 'Hide Cart Button when No Cart Item', 'instantio' ) ?>
+                                </label>
+                            </div>
+
+                            <div class="tf-setup-form-item-input">
+                                <label for="ins-cart-emty-hide" class="tf-switch-label">
+                                    <input type="checkbox" id="ins-cart-emty-hide" name="ins-cart-emty-hide" value="1" class="tf-switch" checked/>
+                                    <span class="tf-switch-slider"></span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Choose Optimization Option-->
+                        <div class="tf-setup-form-item middle">
+                            <div class="tf-setup-form-item-label">
+                                <label class="" for="js-min">
+                                    <?php _e( 'Optimization', 'instantio' ) ?>
+                                </label>
+                            </div>
+
+                            <div class="tf-setup-form-item-input">
+                                <label for="js-min" class="tf-switch-label">
+                                    <input type="checkbox" id="js-min" name="js-min" value="1" class="tf-switch" checked/>
+                                    <span class="tf-switch-slider"></span>
+                                </label>
+                            </div>
+                        </div>
+
      
                     </div>
 
@@ -419,7 +503,7 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
         private function tf_setup_finish_step() {
             ?>
             <div class="tf-setup-content-layout tf-finish-step <?php echo self::$current_step == 'finish' ? 'active' : ''; ?>">
-                <div class="welcome-img"><img src="<?php echo INS_ADMIN_URL . 'img/hooray.png' ?>" alt="<?php esc_attr_e( 'Thank you', 'instantio' ) ?>"></div>
+                <!-- <div class="welcome-img"><img src="<?php // echo INS_ADMIN_URL . 'img/hooray.png' ?>" alt="<?php // esc_attr_e( 'Thank you', 'instantio' ) ?>"></div> -->
 
                 <h1 class="tf-setup-welcome-title">
                     <?php _e( 'Hooray! You’re all set.', 'instantio' ) ?>
@@ -427,12 +511,16 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
 
                 <div class="tf-setup-welcome-description">
                     <?php _e( 'Let\'s get started and make the most out of instantio. With this plugin, you can manage your store, and provide your customers with a seamless booking experience. So, let\'s dive in and start streamlining your hotel or travel business operations today!', 'instantio' ) ?>
+
+                    <p class="tf-setup-step-desc">
+                        <?php _e( 'These settings can be overridden from <strong>Instantio Settings</strong>', 'instantio' ) ?>
+                    </p>
                 </div>
 
                 <div class="tf-setup-welcome-footer tf-setup-finish-footer">
-                    <a href="<?php echo admin_url( 'post-new.php?post_type=tf_hotel' ) ?>" class="tf-admin-btn tf-btn-secondary"><?php _e( 'Create new Hotel', 'instantio' ) ?></a>
-                    <a href="<?php echo admin_url( 'post-new.php?post_type=tf_tours' ) ?>" class="tf-admin-btn"><?php _e( 'Create new Tour', 'instantio' ) ?></a>
-                    <a href="<?php echo admin_url( 'admin.php?page=tf_settings' ) ?>" class="tf-admin-btn tf-btn-secondary"><?php _e( 'Instantio Setting', 'instantio' ) ?></a>
+                    <a href="<?php echo admin_url( 'admin.php?page=wiopt#tab=layout_option' ) ?>" class="tf-admin-btn tf-btn-secondary"><?php _e( 'Instantio Setting', 'instantio' ) ?></a>
+                    
+                    <a href="<?php echo admin_url( '/' ) ?>" class="tf-admin-btn tf-btn-secondary"><?php _e( 'Back to Dashboard', 'instantio' ) ?></a>
                 </div>
             </div>
         <?php
@@ -450,9 +538,15 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
 		}
 
 		private function tf_setup_wizard_steps_header( $active_step = 1 ) {
-			$inactive_icon = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="11" stroke="#D8D9DF" stroke-width="2"></circle></svg>';
-			$active_icon   = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="12" fill="#5D5DFF"></circle><circle cx="12" cy="12" r="4" fill="white"></circle></svg>';
-			$finish_icon   = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="12" fill="#5D5DFF"></circle><path fill-rule="evenodd" clip-rule="evenodd" d="M17.7077 8.29352C18.0979 8.68439 18.0974 9.31755 17.7065 9.70773L11.703 15.7007C11.3123 16.0906 10.6796 16.0903 10.2894 15.7L7.29289 12.7036C6.90237 12.3131 6.90237 11.6799 7.29289 11.2894C7.68342 10.8988 8.31658 10.8988 8.70711 11.2894L10.9971 13.5794L16.2935 8.29227C16.6844 7.90209 17.3176 7.90265 17.7077 8.29352Z" fill="white"></path></svg>';
+			$inactive_icon = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="11" stroke="#DB5209" stroke-width="2"></circle></svg>';
+			$active_icon   = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="12" fill="#DB5209"></circle><circle cx="12" cy="12" r="4" fill="white"></circle></svg>';
+			$finish_icon   = '<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="13.8359" cy="13.8359" r="13.8359" fill="#DB5209"/>
+                <g clip-path="url(#clip0_511_10759)">
+                    <path d="M10.9524 13.8356L13.8349 16.7181L19.5998 10.9531" stroke="#FCF9F7" stroke-width="1.29711" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M8.07245 13.8356L10.9549 16.7181M13.8374 13.8356L16.7199 10.9531" stroke="#FCF9F7" stroke-width="1.29711" stroke-linecap="round" stroke-linejoin="round"/>
+                </g>
+            </svg>';
 			?>
             <div class="tf-setup-steps">
                 <div class="tf-steps-item <?php echo $active_step == 1 ? 'active' : ''; ?>">
@@ -463,7 +557,7 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
                                 <?php echo $active_step == 1 ? $active_icon : $finish_icon; ?>
                             </span>
                         </div>
-                        <div class="tf-steps-item-title"><?php _e( 'Step 1', 'tourfic' ); ?></div>
+                        <div class="tf-steps-item-title"><?php _e( 'Step 1', 'instantio' ); ?></div>
                     </div>
                 </div>
 

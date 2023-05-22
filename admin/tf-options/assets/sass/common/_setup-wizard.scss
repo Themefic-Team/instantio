@@ -3,7 +3,18 @@ body.admin_page_tf-setup-wizard {
   font-family: "Roboto";
   background-color: #fcf9f7;
   input:focus {
-    box-shadow: none !important; 
+    box-shadow: none !important;
+  }
+  input[type="radio"] {
+    background: transparent;
+  }
+  option:hover {
+    background-color: #db5209;
+  }
+  select:focus {
+    border-color: transparent;
+    color: transparent;
+    box-shadow: 0 0 0 1px transparent;
   }
 }
 
@@ -40,7 +51,7 @@ body.admin_page_tf-setup-wizard {
   justify-content: center;
   height: 100vh;
 
-  .tf-setup-container{
+  .tf-setup-container {
     width: 100%;
   }
 }
@@ -203,8 +214,7 @@ Welcome Step
 Steps
 */
 .tf-setup-steps {
-  max-width: 600px;
-  margin: 0 auto 15px;
+  margin: 0 auto 50px;
   box-sizing: border-box;
   padding: 0;
   color: rgba(0, 0, 0, 0.85);
@@ -242,7 +252,7 @@ Steps
         display: inline-block;
         width: 100%;
         height: 2px;
-        background: #f0f0f0;
+        background: #fef2eb;
         border-radius: 1px;
         transition: background 0.3s;
         content: "";
@@ -313,14 +323,10 @@ Steps
   }
 
   .tf-setup-step-layout {
-    
-
     @media #{$max991} {
-     
     }
 
     @media #{$max575} {
-     
     }
   }
 
@@ -329,7 +335,7 @@ Steps
     text-transform: capitalize;
     font-size: 22px;
     line-height: 47px;
-    color: #003c79;
+    color: #db5209;
     margin: 0 0 15px;
 
     @media #{$max575} {
@@ -339,7 +345,7 @@ Steps
 
   .tf-setup-step-subtitle {
     text-transform: capitalize;
-    color: #003c79;
+    color: #db5209;
     margin: 20px 0 15px;
     text-align: left;
 
@@ -367,6 +373,7 @@ Steps
     }
 
     input[type="radio"] {
+      background: transparent;
       border: none;
       box-shadow: none;
       width: 100%;
@@ -383,8 +390,7 @@ Steps
     label {
       border: 2px solid transparent;
       background-color: #fff;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
-      padding: 10px;
+      box-shadow: 0px 6px 40px rgba(75, 26, 0, 0.15);
       display: block;
       position: relative;
       cursor: pointer;
@@ -395,15 +401,21 @@ Steps
       }
 
       span {
-        font-weight: 600;
-        font-size: 14px;
-        display: inline-block;
-        margin-top: 5px;
+        display: block;
+        color: #665f5c;
+        font-family: "Rubik";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 12px;
+        padding: 3px 0px 5px 5px;
       }
     }
 
     label img {
       width: 100%;
+      border-top-left-radius: 6px;
+      border-top-right-radius: 6px;
     }
 
     :checked + label {
@@ -446,16 +458,46 @@ Steps
       }
     }
   }
+  .tf-setup-form-item.bg {
+    background-color: #fef2eb;
+    padding: 12px 30px;
+    border-radius: 16px;
+  }
+
+  .tf-setup-form-item.middle {
+    max-width: 450px;
+    margin: auto;
+    margin-bottom: 20px;
+    .tf-setup-form-item-label {
+      label {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 24px;
+        color: #4e4e4e;
+      }
+    }
+
+    .tf-setup-form-item-input {
+      width: 100%;
+      select {
+        height: 40px;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 24px;
+        padding: 5px 8px 5px 12px;
+        background-color: #fff5f0;
+        border: 1px solid #db5209;
+        border-radius: 8px;
+        transition: all 0.3s;
+        outline: none;
+      }
+    }
+  }
 
   .tf-setup-form-item {
-    background: #FFF5F0;
-    padding: 25px 35px;
-    border-radius: 16px;
-    border: 2px solid #FEF2EB;
-    margin: 0 0 16px 0;
+    margin: 0 0 30px 0;
     @include flexbox();
-    width: 100%;
-    flex-flow: row wrap;
     flex-direction: column;
     align-items: flex-start;
 
@@ -469,19 +511,15 @@ Steps
     }
 
     label {
-      font-weight: 600;
-      font-size: 14px;
-      line-height: 17px;
-      color: rgba(0, 0, 0, 0.85);
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 24px;
+      color: #4e4e4e;
     }
 
     .tf-setup-form-item-label {
-      display: inline-block;
-      flex-grow: 0;
-      overflow: hidden;
-      white-space: nowrap;
-      text-align: right;
-      vertical-align: middle;
+      width: 100%;
 
       @media #{$max575} {
         text-align: center;
@@ -507,13 +545,13 @@ Steps
     }
 
     .tf-setup-form-item-input {
-      flex: 1 1 0;
-      min-width: 0;
+      width: 100%;
 
       input[type="text"],
       input[type="email"],
       input[type="number"],
       select {
+        width: 100%;
         border: 1px solid #e4e6eb;
         border-radius: 5px;
         height: 36px;
@@ -524,17 +562,15 @@ Steps
         background-color: #fff;
         transition: all 0.3s;
         outline: none;
-        min-width: 200px;
-        max-width: 200px;
       }
     }
 
     .tf-switch-label {
       position: relative;
       display: inline-block;
-      width: 60px;
-      height: 26px;
-      border-radius: 20px;
+      width: 64px;
+      height: 36px;
+      border-radius: 24px;
 
       input {
         display: none;
@@ -547,19 +583,20 @@ Steps
         left: 0;
         right: 0;
         bottom: 0;
-        background-color: $red60;
+        background-color: transparent;
+        border: 1px solid #140701;
         border-radius: 20px;
         @include transition(all, 0.4s);
 
         &::before {
           position: absolute;
           content: "";
-          height: 18px;
-          width: 18px;
-          border-radius: 12px;
+          width: 30px;
+          height: 26px;
+          border-radius: 24px;
           top: 4px;
           left: 4px;
-          background-color: white;
+          background-color: #140701;
           box-shadow: 0px 0px 8px rgba(27, 25, 25, 0.3);
           @include transition(all, 0.4s);
         }
@@ -567,11 +604,13 @@ Steps
 
       input:checked {
         & + .tf-switch-slider {
-          background-color: #060;
+          background-color: #db5209;
+          border-color: transparent;
 
           &:before {
             left: 100%;
-            margin-left: -22px;
+            margin-left: -35px;
+            background-color: #fcf9f7;
           }
         }
       }
@@ -582,12 +621,14 @@ Steps
     display: grid;
     grid-auto-columns: 1fr;
     grid-row-gap: 16px;
+    -moz-column-gap: 20px;
+    column-gap: 20px;
     justify-items: center;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: auto;
     -ms-grid-rows: auto auto;
     @media #{$max575} {
-      grid-template-columns: 1fr;
+      grid-template-columns: 1fr 1fr;
     }
 
     li {
@@ -646,7 +687,7 @@ Steps
     grid-template-rows: auto;
     -ms-grid-rows: auto auto;
     @media #{$max575} {
-      grid-template-columns: 1fr;
+      grid-template-columns: 1fr 1fr;
     }
 
     li {
