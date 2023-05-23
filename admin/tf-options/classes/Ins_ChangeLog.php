@@ -11,54 +11,66 @@
 
 $change = [
     'v1' => [
-        'date'      => '27 July 2022',
-        'version'   => 'Version 2.1.3',
+        'date'      => '28 May 2023',
+        'version'   => 'Version 3.0.0',
         'changelog' => [
-            'Improvement'   =>   [
-                'User documentation, also known as.',
-                'User documentation, also known as.',
-                'User documentation, also known as end-user documentation.'
+            'New'   =>   [
+                'Fully New Version',
+                'Animation Features added',
+                'New Cart and Checkout Layout',
+                'New Button desgin',
+                'New Option Panel',
+                'New Quick Setup Wizard',
             ],
-            'New'       =>   [
-                'User documentation, also known as.',
-                'User documentation, also known as.',
-                'User documentation, also known as end-user documentation.'
+            'Improvement'   =>   [
+                'Cart and Checkout process',
+                'Payment system',
+                'Flawless process',
+            ],
+            'Optimization'   =>   [
+                'Optimization whole Process',
+                'Optimization with maximum theme',
+                'Optimization checkout process',
             ]
         ]
     ],
 
     'v2' => [
-        'date'      => '07 July 2022',
-        'version'   => 'Version 2.1.2',
+        'date'      => '17 May 2023',
+        'version'   => 'Version 2.5.24',
         'changelog' => [
-            'Fix'   =>   [
-                'User documentation, also known as.',
-                'User documentation, also known as.',
-                'User documentation, also known as end-user documentation.'
+            'Compatibility'   =>   [
+                'Compatibility check with WordPress 6.2.1.',
+                'Compatibility check with WooCommerce 7.7.0'
             ]
         ]
     ],
 
     'v3' => [
-        'date'      => '24 june 2022',
-        'version'   => 'Version 2.1.1',
+        'date'      => '06 April 2023',
+        'version'   => 'Version 2.5.23',
         'changelog' => [
             'Optimization'   =>   [
-                'User documentation, also known as.',
-                'User documentation, also known as.',
-                'User documentation, also known as end-user documentation.'
+                'Updated: Demo URL',
+                'Updated: Readme.txt',
+                'Optimized Code'
             ]
         ]
     ],
 
     'v4' => [
-        'date'      => '15 May 2022',
-        'version'   => 'Version 2.1.0',
+        'date'      => '31 March 2023',
+        'version'   => 'Version 2.5.22',
         'changelog' => [
             'Compatibility'   =>   [
-                'User documentation, also known as.',
-                'User documentation, also known as.',
-                'User documentation, also known as end-user documentation.'
+                'Compatibility check with WordPress 6.2',
+                
+            ],
+            'Optimization'       =>   [
+                'Removed Unused Code'
+            ],
+            'Fix'       =>   [
+                'Fixed CSS',
             ]
         ]
     ]
