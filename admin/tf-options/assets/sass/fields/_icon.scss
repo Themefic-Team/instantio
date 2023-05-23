@@ -1,5 +1,4 @@
 .tf-field-icon {
-
   .tf-icon-preview {
     width: 120px;
     height: 120px;
@@ -28,7 +27,7 @@
       right: 0;
       width: 20px;
       height: 20px;
-      background: #FFFFFF;
+      background: #ffffff;
       // box-shadow: 0px 8px 16px rgba(90, 91, 106, 0.08);
       border-radius: 8px;
       color: $red60;
@@ -38,7 +37,7 @@
       cursor: pointer;
     }
 
-    &.tf-hide{
+    &.tf-hide {
       display: none;
     }
   }
@@ -46,7 +45,6 @@
 
 #tf-icon-modal {
   .tf-modal-content {
-
     .tf-modal-header {
       margin-bottom: 20px;
     }
@@ -66,8 +64,8 @@
         font-size: 14px;
 
         &:focus {
-          background: #FFFFFF;
-          box-shadow: 0 0 0 2px $blue60;
+          background: #ffffff;
+          box-shadow: 0 0 0 2px #db5209;
           border-radius: 4px;
         }
 
@@ -123,7 +121,7 @@
           }
 
           &.active {
-            background: $blue60;
+            background: #db5209;
             color: #fff;
           }
         }
@@ -181,7 +179,7 @@
                   opacity: 0;
                   transition: all 0.3s ease;
 
-                  i{
+                  i {
                     color: #fff;
                     opacity: 0;
                     transition: all 0.3s ease;
@@ -201,10 +199,10 @@
                 // box-shadow: -2px 2px 24px rgba(107, 125, 148, 0.2);
                 .tf-icon-inner {
                   span.check-icon {
-                    border-color: $blue60;
-                    background-color: $blue60;
+                    border-color: #db5209;
+                    background-color: #db5209;
                     opacity: 1;
-                    i{
+                    i {
                       opacity: 1;
                     }
                   }
@@ -217,29 +215,29 @@
             }
             &::-webkit-scrollbar-track {
               background: $slate10;
-              border-radius:10px;
+              border-radius: 10px;
             }
             &::-webkit-scrollbar-thumb {
               background: $blue40;
-              border-radius:10px;
+              border-radius: 10px;
             }
             &::-webkit-scrollbar-thumb:hover {
-              background: $blue60;
+              background: #db5209;
             }
           }
         }
       }
     }
 
-    .tf-modal-footer{
+    .tf-modal-footer {
       padding: 24px;
       margin: 0 -30px -30px;
-      background: #FFFFFF;
+      background: #ffffff;
       border-top: 1px solid $slate10;
       box-shadow: 0px -4px 16px rgba(137, 151, 169, 0.2);
       text-align: right;
 
-      .tf-admin-btn{
+      .tf-admin-btn {
         padding: 10px 24px;
       }
     }

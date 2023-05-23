@@ -1,6 +1,5 @@
-.tf-field-select{
-
-  select.tf-select{
+.tf-field-select {
+  select.tf-select {
     width: 100%;
     padding: 12px 8px 12px 12px;
     border: 1px solid $slate20;
@@ -10,8 +9,8 @@
     color: $slate80;
     font-size: 14px;
     line-height: 14px;
-    font-family: 'Lato';
-    &:focus{
+    font-family: "Lato";
+    &:focus {
       outline: none;
     }
   }
