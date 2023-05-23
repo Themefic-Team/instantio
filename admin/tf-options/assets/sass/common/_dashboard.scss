@@ -545,11 +545,9 @@
             grid-template-columns: 1fr 1fr;
             grid-template-rows: auto;
             -ms-grid-rows: auto auto;
-            @media #{$max767} {
-              grid-template-columns: 1fr 1fr;
-            }
-            @media #{$max480} {
+            @media #{$max578} {
               grid-template-columns: 1fr;
+              text-align: center;
             }
             .figure {
               margin: 0;
@@ -566,13 +564,15 @@
                 img {
                   width: 100%;
                 }
+                @media #{$max578} {
+                  margin: auto;
+                }
               }
               .figure-caption {
                 height: 220px;
                 padding: 16px;
                 background: #f7f9fc;
                 display: flex;
-                flex-wrap: wrap;
                 flex-direction: column;
                 justify-content: space-between;
                 align-content: space-between;

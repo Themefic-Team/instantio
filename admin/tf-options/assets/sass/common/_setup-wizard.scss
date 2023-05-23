@@ -50,7 +50,12 @@ body.admin_page_tf-setup-wizard {
   align-items: center;
   justify-content: center;
   height: 100vh;
-
+  @media #{$max991} {
+    padding: 0 30px;
+  }
+  @media #{$max575} {
+    height: 100%;
+  }
   .tf-setup-container {
     width: 100%;
   }
@@ -124,7 +129,6 @@ Welcome Step
   @include align-items(center);
 
   @media #{$max575} {
-    padding: 40px 20px 25px;
   }
 
   &.active {
@@ -202,7 +206,7 @@ Welcome Step
       @include flex-direction(row);
       @include justify-content(center);
 
-      @media #{$max767} {
+      @media #{$max375} {
         @include flex-direction(column);
         gap: 10px;
       }
@@ -219,6 +223,15 @@ Welcome Step
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    @media #{$max767} {
+      padding: 0 20px;
+      .tf-setup-welcome-footer {
+        .tf-admin-btn {
+          font-size: 14px;
+          padding: 11px;
+        }
+      }
+    }
   }
 }
 
@@ -372,8 +385,17 @@ Steps
   }
 
   .tf-select-service {
-    @include flexbox();
-    gap: 30px;
+    display: grid;
+    grid-auto-columns: 1fr;
+    grid-row-gap: 16px;
+    -moz-column-gap: 20px;
+    column-gap: 20px;
+    justify-items: center;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    @media #{$max575} {
+      grid-template-columns: 1fr 1fr;
+    }
 
     li {
       position: relative;
@@ -481,6 +503,9 @@ Steps
     max-width: 450px;
     margin: auto;
     margin-bottom: 20px;
+    @media #{$max575} {
+      align-items: center;
+    }
     .tf-setup-form-item-label {
       label {
         font-style: normal;
