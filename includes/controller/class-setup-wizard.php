@@ -589,8 +589,6 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
 
 		function tf_setup_wizard_submit_ajax() {
 
-            // echo "hello";
-            // die;
 			// Add nonce for security and authentication.
 			$nonce_name   = isset( $_POST['tf_setup_wizard_nonce'] ) ? $_POST['tf_setup_wizard_nonce'] : '';
 			$nonce_action = 'tf_setup_wizard_action';
@@ -605,62 +603,29 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
 				return;
 			}
 
-			$tf_settings            = get_option( 'tf_settings' );
-			$tf_services            = array( 'hotel', 'tour' );
-			$services               = isset( $_POST['tf-services'] ) ? $_POST['tf-services'] : [];
-			$search_page            = isset( $_POST['tf-search-result-page'] ) ? $_POST['tf-search-result-page'] : '';
-			$search_result_per_page = isset( $_POST['tf-search-result-posts-per-page'] ) ? $_POST['tf-search-result-posts-per-page'] : '';
-			$wishlist_page          = isset( $_POST['tf-wishlist-page'] ) ? $_POST['tf-wishlist-page'] : '';
-			$auto_publish           = isset( $_POST['tf-auto-publish-review'] ) ? $_POST['tf-auto-publish-review'] : '';
-			$hotel_review           = isset( $_POST['tf-hotel-review-section'] ) ? $_POST['tf-hotel-review-section'] : '';
-			$hotel_share            = isset( $_POST['tf-hotel-share-option'] ) ? $_POST['tf-hotel-share-option'] : '';
-			$hotel_permalink        = isset( $_POST['tf-hotel-permalink'] ) ? $_POST['tf-hotel-permalink'] : '';
-			$tour_review            = isset( $_POST['tf-tour-review-section'] ) ? $_POST['tf-tour-review-section'] : '';
-			$tour_related           = isset( $_POST['tf-tour-related-section'] ) ? $_POST['tf-tour-related-section'] : '';
-			$tour_permalink         = isset( $_POST['tf-tour-permalink'] ) ? $_POST['tf-tour-permalink'] : '';
+          
+      
+			$options     = get_option( 'wiopt' );
+            $options['ins-layout-options'] = isset($_POST['ins-layout-options']) ? $_POST['ins-layout-options'] : 1;
+            $options['ins-layout-mode'] = isset($_POST['ins-layout-mode']) ? $_POST['ins-layout-mode'] : 'light';
+            $options['ins-layout'] = isset($_POST['ins-layout']) ? $_POST['ins-layout-mode'] : 'cart';
+            $options['auto-tog-panel'] = isset($_POST['auto-tog-panel']) ? $_POST['auto-tog-panel'] : '1';
+            $options['ins-toggle-tab']['toggle-position'] = isset($_POST['toggle-position']) ? $_POST['toggle-position'] : 'right-bottom';
+            $options['woins-quickview-disable'] = isset($_POST['woins-quickview-disable']) ? $_POST['woins-quickview-disable'] : false;
+            $options['wi-disable-ajax-add-cart'] = isset($_POST['wi-disable-ajax-add-cart']) ? $_POST['wi-disable-ajax-add-cart'] : false;
+            $options['ins-toggle-tab']['cart-icon-style'] = isset($_POST['cart-icon-style']) ? $_POST['cart-icon-style'] : 'cart-style-1';
+            $options['ins-layout-animation'] = isset($_POST['ins-layout-animation']) ? $_POST['ins-layout-animation'] : 'ins_animate_default';
+            $options['cart-fly']['cart-fly-anim'] = isset($_POST['cart-fly-anim']) ? $_POST['cart-fly-anim'] : false;
+            $options['ins-toggle-tab']['ins-cart-emty-hide'] = isset($_POST['ins-cart-emty-hide']) ? $_POST['ins-cart-emty-hide'] : false;
+            $options['js-min'] = isset($_POST['js-min']) ? $_POST['js-min'] : false;
+            // echo "<pre>";
+            // print_r($options);
+            // echo "</pre>"; 
+            // die; 
 
-			//skip steps
-			$skip_steps = isset( $_POST['tf-skip-steps'] ) ? $_POST['tf-skip-steps'] : [];
-			$skip_steps = explode( ',', $skip_steps );
+			
 
-			if ( ! in_array( 1, $skip_steps ) ) {
-				$services = array_diff( $tf_services, $services );
-				$services = array_map( 'sanitize_text_field', $services );
-
-				$tf_settings['disable-services'] = [];
-				if ( ! empty( $services ) ) {
-					foreach ( $services as $service ) {
-						$tf_settings['disable-services'][ $service ] = $service;
-					}
-				}
-			}
-
-			if ( ! in_array( 2, $skip_steps ) ) {
-				$tf_settings['search-result-page'] = ! empty( $search_page ) ? $search_page : '';
-				$tf_settings['posts_per_page']     = ! empty( $search_result_per_page ) ? $search_result_per_page : '';
-				$tf_settings['wl-page']            = ! empty( $wishlist_page ) ? $wishlist_page : '';
-				$tf_settings['r-auto-publish']     = ! empty( $auto_publish ) ? $auto_publish : '';
-			}
-
-			if ( ! in_array( 3, $skip_steps ) && ! in_array( 'hotel', $services ) ) {
-				$tf_settings['h-review'] = ! empty( $hotel_review ) ? 0 : 1;
-				$tf_settings['h-share']  = ! empty( $hotel_share ) ? 0 : 1;
-
-				if ( ! empty( $hotel_permalink ) ) {
-					update_option( 'hotel_slug', $hotel_permalink );
-				}
-			}
-
-			if ( ! in_array( 3, $skip_steps ) && ! in_array( 'tour', $services ) ) {
-				$tf_settings['t-review']  = ! empty( $tour_review ) ? 0 : 1;
-				$tf_settings['t-related'] = ! empty( $tour_related ) ? 0 : 1;
-
-				if ( ! empty( $tour_permalink ) ) {
-					update_option( 'tour_slug', $tour_permalink );
-				}
-			}
-
-			update_option( 'tf_settings', $tf_settings );
+			update_option( 'wiopt', $options );
 			$response              = [
 				'success'      => true,
 				'redirect_url' => esc_url( admin_url( 'admin.php?page=tf_settings' ) )

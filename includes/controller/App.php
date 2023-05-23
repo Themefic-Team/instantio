@@ -59,7 +59,11 @@ class App {
     }
 
     public function ins_options_init(){
-       
+        $options            = get_option( 'wiopt' ); 
+        echo "<pre>";
+        print_r($options);
+        echo "</pre>"; 
+        die;
     }
 
     // Instantio Layout Set Data
