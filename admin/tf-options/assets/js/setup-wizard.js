@@ -21,26 +21,26 @@
 
             //min one service required
             if (step === 1 && $(this).hasClass('tf-setup-next-btn')) {
-                let services = $('input[name="tf-services[]"]:checked').length;
+                // let services = $('input[name="tf-services[]"]:checked').length;
 
-                if (!services) {
-                    alert(tf_admin_params.i18n.no_services_selected);
-                    return false;
-                }
+                // if (!services) {
+                //     alert(tf_admin_params.i18n.no_services_selected);
+                //     return false;
+                // }
 
-                //if hotel service not checked, hide hotel settings
-                if (!$('input[name="tf-services[]"][value="hotel"]').is(':checked')) {
-                    $('.tf-hotel-setup-wizard').hide();
-                } else {
-                    $('.tf-hotel-setup-wizard').show();
-                }
+                // //if hotel service not checked, hide hotel settings
+                // if (!$('input[name="tf-services[]"][value="hotel"]').is(':checked')) {
+                //     $('.tf-hotel-setup-wizard').hide();
+                // } else {
+                //     $('.tf-hotel-setup-wizard').show();
+                // }
 
-                //if tour service not checked, hide tour settings
-                if (!$('input[name="tf-services[]"][value="tour"]').is(':checked')) {
-                    $('.tf-tour-setup-wizard').hide();
-                } else {
-                    $('.tf-tour-setup-wizard').show();
-                }
+                // //if tour service not checked, hide tour settings
+                // if (!$('input[name="tf-services[]"][value="tour"]').is(':checked')) {
+                //     $('.tf-tour-setup-wizard').hide();
+                // } else {
+                //     $('.tf-tour-setup-wizard').show();
+                // }
             }
 
             //skip steps add to input[name="tf-skip-steps"]
