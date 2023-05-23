@@ -538,7 +538,7 @@
   text-decoration: none;
   color: #fff;
   padding: 16px 32px;
-  background: linear-gradient(95.29deg, #002043 0%, #6637a7 25.57%, #41b7ef 100%), #2271b1;
+  background: linear-gradient(95.29deg, #002043 0%, #6637a7 25.57%, #41b7ef 100%), #db5209;
   border-radius: 4px;
 }
 .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content .tf-settings-help-center .request-features {
@@ -610,7 +610,7 @@
   }
 }
 .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.tutorial .tutorial_wrapper .tutorial-heading a {
-  background: #2271b1;
+  background: #db5209;
   border-radius: 4px;
   padding: 8px 32px;
   color: #fff;
@@ -706,7 +706,7 @@
   }
 }
 .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.premium .premium_wrapper .premium-heading a {
-  background: #2271b1;
+  background: #db5209;
   border-radius: 4px;
   padding: 8px 32px;
   color: #fff;
@@ -792,13 +792,13 @@
   display: block;
   text-align: center;
   padding: 8px 32px;
-  color: #2271b1;
+  color: #db5209;
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
   line-height: 20px;
   letter-spacing: 0.01em;
-  border: 1px solid #2271b1;
+  border: 1px solid #db5209;
   border-radius: 4px;
 }
 .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.faqs .faqs_wrapper .faqs-heading {
@@ -1390,7 +1390,7 @@ body.instantio_page_ins-license-activation {
           appearance: none;
 }
 .tf-shortcode-generator-section .tf-shortcode-generators .tf-sg-form-wrapper .tf-shortcode-generator-form .tf-setting-field:hover {
-  color: #2271b1;
+  color: #db5209;
 }
 .tf-shortcode-generator-section .tf-shortcode-generators .tf-sg-form-wrapper .tf-shortcode-generator-form .tf-setting-field:active {
   border-color: #8c8f94;
@@ -1672,7 +1672,6 @@ Custom Modal
 }
 
 body.admin_page_tf-setup-wizard {
-  font-family: "Roboto";
   background-color: #fcf9f7;
 }
 body.admin_page_tf-setup-wizard input:focus {
@@ -1752,6 +1751,11 @@ body.admin_page_tf-setup-wizard select:focus {
   color: #db5209;
   border-color: transparent;
   text-decoration: underline;
+}
+.tf-setup-header .tf-setup-header-left a:hover {
+  color: #c44a08;
+  border-color: transparent;
+  background-color: transparent;
 }
 .tf-setup-header .tf-setup-header-right .get-help-link {
   color: #140701;
@@ -2065,6 +2069,7 @@ Steps
 }
 .tf-setup-step-container .tf-select-service :checked + label {
   border: 2px solid #db5209;
+  box-shadow: 0px 5px 15px rgba(233, 87, 10, 0.2);
 }
 .tf-setup-step-container .tf-setup-action-btn-wrapper {
   display: flex;
@@ -2297,6 +2302,7 @@ Steps
 }
 .tf-setup-step-container .tf-select-progressbar :checked + label {
   border: 2px solid #db5209;
+  box-shadow: 0px 5px 15px rgba(233, 87, 10, 0.2);
 }
 .tf-setup-step-container .tf-select-mode {
   display: grid;
@@ -2357,6 +2363,7 @@ Steps
 }
 .tf-setup-step-container .tf-select-mode :checked + label {
   border: 2px solid #db5209;
+  box-shadow: 0px 5px 15px rgba(233, 87, 10, 0.2);
 }
 .tf-setup-step-container .tf-setup-step-description {
   margin-bottom: 30px;

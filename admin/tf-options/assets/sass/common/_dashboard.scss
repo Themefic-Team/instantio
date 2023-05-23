@@ -176,7 +176,12 @@
                 color: #f2f4f5;
                 display: inline-block;
                 padding: 10px 25px;
-                background: linear-gradient(95.29deg, #002043 0%, #6637a7 25.57%, #41b7ef 100%);
+                background: linear-gradient(
+                  95.29deg,
+                  #002043 0%,
+                  #6637a7 25.57%,
+                  #41b7ef 100%
+                );
                 border: transparent;
                 text-decoration: none;
                 border-radius: 4px;
@@ -241,10 +246,18 @@
               padding: 22px;
 
               &:nth-child(2) {
-                background: linear-gradient(141.81deg, #4338ca 0%, #a21caf 100%);
+                background: linear-gradient(
+                  141.81deg,
+                  #4338ca 0%,
+                  #a21caf 100%
+                );
               }
               &:nth-child(3) {
-                background: linear-gradient(141.81deg, #f4c82f 0%, #fd5187 100%);
+                background: linear-gradient(
+                  141.81deg,
+                  #f4c82f 0%,
+                  #fd5187 100%
+                );
               }
 
               @media #{$max1199} {
@@ -335,7 +348,13 @@
               text-decoration: none;
               color: #fff;
               padding: 16px 32px;
-              background: linear-gradient(95.29deg, #002043 0%, #6637a7 25.57%, #41b7ef 100%), #2271b1;
+              background: linear-gradient(
+                  95.29deg,
+                  #002043 0%,
+                  #6637a7 25.57%,
+                  #41b7ef 100%
+                ),
+                #db5209;
               border-radius: 4px;
             }
           }
@@ -410,7 +429,7 @@
               }
             }
             a {
-              background: #2271b1;
+              background: #db5209;
               border-radius: 4px;
               padding: 8px 32px;
               color: #fff;
@@ -503,7 +522,7 @@
               }
             }
             a {
-              background: #2271b1;
+              background: #db5209;
               border-radius: 4px;
               padding: 8px 32px;
               color: #fff;
@@ -579,13 +598,13 @@
                   display: block;
                   text-align: center;
                   padding: 8px 32px;
-                  color: #2271b1;
+                  color: #db5209;
                   font-style: normal;
                   font-weight: 500;
                   font-size: 16px;
                   line-height: 20px;
                   letter-spacing: 0.01em;
-                  border: 1px solid #2271b1;
+                  border: 1px solid #db5209;
                   border-radius: 4px;
                 }
               }
@@ -822,7 +841,7 @@ body.instantio_page_ins-license-activation {
   background: #ffffff;
 }
 
-.ins_license_wrap{
+.ins_license_wrap {
   margin: 40px 40px 40px 20px;
 
   .el-license-title {
@@ -852,22 +871,20 @@ body.instantio_page_ins-license-activation {
       right: -5px;
       transform: rotate(45deg);
     }
-    
   }
 
   .el-license-container {
     padding: 18px;
     background-color: #fef2eb;
-    p{
+    p {
       margin: 10px 0;
-
     }
-    .el-license-field{
-      label{
+    .el-license-field {
+      label {
         display: block;
         margin-bottom: 10px;
       }
-      input{
+      input {
         display: block;
         width: 100%;
         margin-bottom: 20px;
@@ -892,12 +909,7 @@ body.instantio_page_ins-license-activation {
       }
     }
   }
-
 }
-
-
-
-
 
 .tf-setting-wrapper {
   max-width: 100%;
@@ -1248,7 +1260,7 @@ body.instantio_page_ins-license-activation {
           line-height: 16px;
           appearance: none;
           &:hover {
-            color: #2271b1;
+            color: #db5209;
           }
           &:active {
             border-color: #8c8f94;

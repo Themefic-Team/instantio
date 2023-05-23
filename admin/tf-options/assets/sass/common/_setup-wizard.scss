@@ -1,6 +1,6 @@
 //hide wp menu and admin bar
 body.admin_page_tf-setup-wizard {
-  font-family: "Roboto";
+  // font-family: "Roboto";
   background-color: #fcf9f7;
   input:focus {
     box-shadow: none !important;
@@ -81,6 +81,11 @@ body.admin_page_tf-setup-wizard {
       color: #db5209;
       border-color: transparent;
       text-decoration: underline;
+      &:hover {
+        color: #c44a08;
+        border-color: transparent;
+        background-color: transparent;
+      }
     }
   }
 
@@ -420,6 +425,7 @@ Steps
 
     :checked + label {
       border: 2px solid #db5209;
+      box-shadow: 0px 5px 15px rgba(233, 87, 10, 0.2);
     }
   }
 
@@ -674,6 +680,7 @@ Steps
     }
     :checked + label {
       border: 2px solid #db5209;
+      box-shadow: 0px 5px 15px rgba(233, 87, 10, 0.2);
     }
   }
 
@@ -733,6 +740,7 @@ Steps
     }
     :checked + label {
       border: 2px solid #db5209;
+      box-shadow: 0px 5px 15px rgba(233, 87, 10, 0.2);
     }
   }
 
