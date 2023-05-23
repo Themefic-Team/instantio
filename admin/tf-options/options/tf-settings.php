@@ -57,7 +57,7 @@ TF_Settings::option( 'wiopt', array(
 							'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/Popup.jpg',
 						) 
 					),
-					'default'   	=> 'sidecart',
+					'default'   	=> '2',
 					// 'dependency' 	=> array('ins-layout',  '!=', '1', '', 'visible' ),
 				),
 

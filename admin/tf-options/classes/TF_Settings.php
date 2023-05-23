@@ -224,19 +224,19 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 				<div class="ins-dashboad-wrapper">
 					<ul class="dashboad-tab">
 						<li class="dashboad-tab-singel active">
-							<span>General</span>
+							<span><?php _e("General","instantio"); ?></span>
 						</li>
 						<li class="dashboad-tab-singel">
-							<span>Tutorial</span>
+							<span><?php _e("Tutorial","instantio"); ?></span>
 						</li>
 						<li class="dashboad-tab-singel">
-							<span>Pro</span>
+							<span><?php _e("Pro","instantio"); ?></span>
 						</li>
 						<li class="dashboad-tab-singel">
-							<span>FAQs</span>
+							<span><?php _e("FAQs","instantio"); ?></span>
 						</li>
 						<li class="dashboad-tab-singel">
-							<span>What's New</span>
+							<span><?php _e("What's New","instantio"); ?></span>
 						</li>
 					</ul>
 
@@ -246,9 +246,9 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 							<div class="tf-settings-help-center">
 								<div class="tf-help-center-banner" style="background-image: url('<?php echo INS_ADMIN_URL?>/tf-options/img/wizard/setup-wizard_bg.png')">
 									<div class="tf-help-center-content">
-										<h2>Setup Wizard</h2>
-										<p>Click the button below to run the setup wizard of Instantio. Your existing settings will not change.</p>
-										<a href="<?php echo esc_url( admin_url('admin.php?page=tf-setup-wizard'))?>" class="tf-admin-btn tf-btn-secondary">Setup Wizard</a>
+										<h2><?php _e("Setup Wizard","instantio"); ?></h2>
+										<p><?php _e("Click the button below to run the setup wizard of Instantio. Your existing settings will not change.","instantio"); ?></p>
+										<a href="<?php echo esc_url( admin_url('admin.php?page=tf-setup-wizard'))?>" class="tf-admin-btn tf-btn-secondary"><?php _e("Setup Wizard","instantio"); ?></a>
 									</div>
 									<!-- <div class="tf-help-center-content-img">
 										<img src="<?php // echo INS_ADMIN_URL?>/tf-options/img/wizard/setup_wizard_icon.svg" alt="image"/>
@@ -260,26 +260,26 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 									<div class="tf-single-support">
 										<a href="https://themefic.com/docs/instantio/" target="_blank">
 											<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/wizard/tf-documents.svg' ?>" alt="Document">
-											<h3>Documentation</h3>
-											<p>How the plugin works, what it can do, and how to use it.</p>
-											<span>Read More</span>
+											<h3><?php _e("Documentation","instantio"); ?></h3>
+											<p><?php _e("How the plugin works, what it can do, and how to use it.","instantio"); ?></p>
+											<span><?php _e("Read More","instantio"); ?></span>
 										</a>
 									</div>
 									<div class="tf-single-support">
 										<a href="https://portal.themefic.com/support/" target="_blank">
 											<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/wizard/tf-mail.svg' ?>" alt="Document">
-											<h3>Email Support</h3>
-											<p>As part of our overall support strategy to provide the best experience.</p>
-											<span>Contact Us</span>
+											<h3><?php _e("Email Support","instantio"); ?></h3>
+											<p><?php _e("As part of our overall support strategy to provide the best experience.","instantio"); ?></p>
+											<span><?php _e("Contact Us","instantio"); ?></span>
 										</a>
 									</div>
 									
 									<div class="tf-single-support">
 										<a href="https://www.youtube.com/playlist?list=PLY0rtvOwg0ykIvNBa8XI3SR7WEbdqqKoO" target="_blank">
 											<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/wizard/tf-tutorial.svg'?>" alt="Document">
-											<h3>Video Tutorials</h3>
-											<p>As part of our overall support strategy to provide the best experience.</p>
-											<span>Watch Video</span>
+											<h3><?php _e("Video Tutorials","instantio"); ?></h3>
+											<p><?php _e("As part of our overall support strategy to provide the best experience.","instantio"); ?></p>
+											<span><?php _e("Watch Video","instantio"); ?></span>
 										</a>
 									</div>
 								</div>
@@ -291,11 +291,17 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 									if($is_Pro_active === false){ ?>
 
 										<div class="updatedtopro">	
-											<h4>Upgrade to PRO</h4>
+											<h4>
+												<?php _e("Upgrade to PRO","instantio"); ?>
+											</h4>
+
 											<p>
-												To provide amazing experience to your guests and sell more with less effort. Bonus: You can upgrade to our plans today and save 50% off.
+												<?php _e("To provide amazing experience to your guests and sell more with less effort. Bonus: You can upgrade to our plans today and save 50% off.","instantio"); ?>
 											</p>
-											<a target="_blank" href="https://themefic.com/instantio/" class="btn-desh-primary">Upgrade now</a>
+
+											<a target="_blank" href="https://themefic.com/instantio/" class="btn-desh-primary">
+												<?php _e("Upgrade now","instantio"); ?>
+											</a>
 										</div>
 
 								<?php } ?>
@@ -303,11 +309,15 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 
 								<div class="request-features">
 									<img src="<?php echo INS_ADMIN_URL?>/tf-options/img/feature-selection.png" alt="image">
-									<h4>Have any thoughts or feature request?</h4>
+									<h4>
+										<?php _e("Have any thoughts or feature request?","instantio"); ?>
+									</h4>
 									<p>
-										We believe your feature request will make our website more user-friendly. Our dedicated team will review it and take it into consideration for future updates.
+										<?php _e("We believe your feature request will make our website more user-friendly. Our dedicated team will review it and take it into consideration for future updates.","instantio"); ?>
 									</p>
-									<a target="_blank" href="https://portal.themefic.com/support/" class="btn-desh-primary-tran">Submit request</a>
+									<a target="_blank" href="https://portal.themefic.com/support/" class="btn-desh-primary-tran">
+										<?php _e("Submit request","instantio"); ?>
+									</a>
 								</div>
 							</div>
 						</div>
@@ -315,8 +325,13 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 						<div class="dashboad-content tutorial">
 							<div class="tutorial_wrapper">
 								<div class="tutorial-heading">
-									<h4>Basic tutorials</h4>
-									<a href="#" class="btn view-all-btn">View all</a>
+									<h4>
+										<?php _e("Basic Tutorials","instantio"); ?>
+									</h4>
+
+									<a href="https://www.youtube.com/playlist?list=PLY0rtvOwg0ykIvNBa8XI3SR7WEbdqqKoO" class="btn view-all-btn">
+										<?php _e("View all","instantio"); ?>
+									</a>
 								</div>
 								<div class="tutorial-body">
 									<figure class="figure">
@@ -326,7 +341,9 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 												<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/play.png' ?>" alt="turorial" />
 											</div>
 										</div>
-										<figcaption class="figure-caption">A caption for the above image.</figcaption>
+										<figcaption class="figure-caption">
+											<?php _e("A caption for the above image.","instantio"); ?>
+										</figcaption>
 									</figure>
 
 									<figure class="figure">
@@ -336,7 +353,9 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 												<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/play.png' ?>" alt="turorial" />
 											</div>
 										</div>
-										<figcaption class="figure-caption">A caption for the above image.</figcaption>
+										<figcaption class="figure-caption">
+											<?php _e("A caption for the above image.","instantio"); ?>
+										</figcaption>
 									</figure>
 
 									<figure class="figure">
@@ -346,7 +365,9 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 												<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/play.png' ?>" alt="turorial" />
 											</div>
 										</div>
-										<figcaption class="figure-caption">A caption for the above image.</figcaption>
+										<figcaption class="figure-caption">
+											<?php _e("A caption for the above image.","instantio"); ?>
+										</figcaption>
 									</figure>
 
 									<figure class="figure">
@@ -356,7 +377,9 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 												<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/play.png' ?>" alt="turorial" />
 											</div>
 										</div>
-										<figcaption class="figure-caption">A caption for the above image.</figcaption>
+										<figcaption class="figure-caption">
+											<?php _e("A caption for the above image.","instantio"); ?>
+										</figcaption>
 									</figure>
 								</div>
 							</div>
@@ -365,8 +388,13 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 						<div class="dashboad-content premium">
 							<div class="premium_wrapper">
 								<div class="premium-heading">
-									<h4>Pro Features</h4>
-									<a target="_blank" href="https://themefic.com/instantio/" class="btn view-all-btn">View all</a>
+									<h4>
+										<?php _e("Pro Features","instantio"); ?>
+									</h4>
+
+									<a target="_blank" href="https://themefic.com/instantio/" class="btn view-all-btn">
+										<?php _e("View all","instantio"); ?>
+									</a>
 								</div>
 								<div class="premium-body">
 									<figure class="figure">
@@ -374,11 +402,15 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 											<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/pro/Side-CartCheckout-Pro-Multi-Step.jpg' ?>" class="figure-img" alt="turorial" />
 										</div>
 										<figcaption class="figure-caption">
-											<h4>Side Cart + Side Checkout (Multi Step)</h4>
+											<h4>
+												<?php _e("Side Cart + Side Checkout (Multi Step)","instantio"); ?>
+											</h4>
 											<p>
-												Customer will checkout from Same Window (Side drawer). The checkout process will be Multi-step (Cart -> Checkout, No Reload).
+												<?php _e("Customer will checkout from Same Window (Side drawer). The checkout process will be Multi-step (Cart -> Checkout, No Reload).","instantio"); ?>
 											</p>
-											<a target="_blank" href="https://wpinstant.io/side-checkout/" class="btn-premium-fea">See Preview</a>
+											<a target="_blank" href="https://wpinstant.io/side-checkout/" class="btn-premium-fea">
+												<?php _e("See Preview","instantio"); ?>
+											</a>
 										</figcaption>
 									</figure>
 
@@ -387,11 +419,15 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 											<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/pro/Side-CartCheckout-Pro-Single-Step.jpg' ?>" class="figure-img" alt="turorial" />
 										</div>
 										<figcaption class="figure-caption">
-											<h4>Side Cart + Side Checkout (Single Step)</h4>
+											<h4>
+												<?php _e("Side Cart + Side Checkout (Single Step)","instantio"); ?>
+											</h4>
 											<p>
-												The checkout process will be Single-step. Cart & Checkout will be shown on the Same Window, No Page Reload.
+												<?php _e("The checkout process will be Single-step. Cart & Checkout will be shown on the Same Window, No Page Reload.","instantio"); ?>
 											</p>
-											<a target="_blank" href="https://wpinstant.io/side-checkout-single/" class="btn-premium-fea">See Preview</a>
+											<a target="_blank" href="https://wpinstant.io/side-checkout-single/" class="btn-premium-fea">
+												<?php _e("See Preview","instantio"); ?>
+											</a>
 										</figcaption>
 									</figure>
 
@@ -400,11 +436,17 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 											<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/pro/Popup-CartCheckout-Pro-Multi-Step.jpg' ?>" class="figure-img" alt="turorial" />
 										</div>
 										<figcaption class="figure-caption">
-											<h4>Popup Cart + Popup Checkout (Multi Step)</h4>
+											<h4>
+												<?php _e("Popup Cart + Popup Checkout (Multi Step)","instantio"); ?>
+											</h4>
+
 											<p>
-												Customer will checkout from Same Window (Popup). The checkout process will be Multi-step (Cart -> Checkout)
+												<?php _e("Customer will checkout from Same Window (Popup). The checkout process will be Multi-step (Cart -> Checkout)","instantio"); ?>
 											</p>
-											<a target="_blank" href="https://wpinstant.io/popup-checkout/" class="btn-premium-fea">See Preview</a>
+
+											<a target="_blank" href="https://wpinstant.io/popup-checkout/" class="btn-premium-fea">
+												<?php _e("See Preview","instantio"); ?>
+											</a>
 										</figcaption>
 									</figure>
 
@@ -413,11 +455,15 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 											<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/pro/Popup-CartCheckout-Pro-Single-Step.jpg' ?>" class="figure-img" alt="turorial" />
 										</div>
 										<figcaption class="figure-caption">
-											<h4>Popup Cart + Popup Checkout (Single Step)</h4>
+											<h4>
+												<?php _e("Popup Cart + Popup Checkout (Single Step)","instantio"); ?>
+											</h4>
 											<p>
-												The checkout process will be Single-step Popup (Cart & Checkout on Same Window, No Page Reload).
+												<?php _e("The checkout process will be Single-step Popup (Cart & Checkout on Same Window, No Page Reload).","instantio"); ?>
 											</p>
-											<a target="_blank" href="https://wpinstant.io/popup-checkout-single/" class="btn-premium-fea">See Preview</a>
+											<a target="_blank" href="https://wpinstant.io/popup-checkout-single/" class="btn-premium-fea">
+												<?php _e("See Preview","instantio"); ?>
+											</a>
 										</figcaption>
 									</figure>
 
@@ -426,11 +472,15 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 											<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/pro/Up-Sell.jpg' ?>" class="figure-img" alt="turorial" />
 										</div>
 										<figcaption class="figure-caption">
-											<h4>Upsell (Pro)</h4>
+											<h4>
+												<?php _e("Upsell (Pro)","instantio"); ?>
+											</h4>
 											<p>
-												Instantio offer Ajax-based Upsell feature with which you can sell related or complementary products to a customer.
+												<?php _e("Instantio offer Ajax-based Upsell feature with which you can sell related or complementary products to a customer.","instantio"); ?>
 											</p>
-											<a target="_blank" href="https://wpinstant.io/upsells/" class="btn-premium-fea">See Preview</a>
+											<a target="_blank" href="https://wpinstant.io/upsells/" class="btn-premium-fea">
+												<?php _e("See Preview","instantio"); ?>
+											</a>
 										</figcaption>
 									</figure>
 
@@ -439,11 +489,15 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 											<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/pro/Cross-Sell.jpg' ?>" class="figure-img" alt="turorial" />
 										</div>
 										<figcaption class="figure-caption">
-											<h4>Cross-sell (Pro)</h4>
+											<h4>
+												<?php _e("Cross-sell (Pro)","instantio"); ?>
+											</h4>
 											<p>
-												With Instantio, you can also do Ajax based cross-sell by selling related or complementary products to a customer.
+												<?php _e("With Instantio, you can also do Ajax based cross-sell by selling related or complementary products to a customer.","instantio"); ?>
 											</p>
-											<a target="_blank" href="https://wpinstant.io/cross-sells/" class="btn-premium-fea">See Preview</a>
+											<a target="_blank" href="https://wpinstant.io/cross-sells/" class="btn-premium-fea">
+												<?php _e("See Preview","instantio"); ?>
+											</a>
 										</figcaption>
 									</figure>
 
@@ -452,11 +506,15 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 											<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/pro/Dedicated-Mobile-Layout.png' ?>" class="figure-img" alt="turorial" />
 										</div>
 										<figcaption class="figure-caption">
-											<h4>Dedicated Mobile Layout</h4>
+											<h4>
+												<?php _e("Dedicated Mobile Layout","instantio"); ?>
+											</h4>
 											<p>
-												A dedicated mobile layout for smaller devices to make your checkout process much smoother for customers.
+												<?php _e("A dedicated mobile layout for smaller devices to make your checkout process much smoother for customers.","instantio"); ?>
 											</p>
-											<a target="_blank" href="https://wpinstant.io/mobile/" class="btn-premium-fea">See Preview</a>
+											<a target="_blank" href="https://wpinstant.io/mobile/" class="btn-premium-fea">
+												<?php _e("See Preview","instantio"); ?>
+											</a>
 										</figcaption>
 									</figure>
 									
@@ -467,7 +525,9 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 						<div class="dashboad-content faqs">
 							<div class="faqs_wrapper">
 								<div class="faqs-heading">
-									<h4>Frequently asked questions</h4>
+									<h4>
+										<?php _e("Frequently asked questions","instantio"); ?>
+									</h4>
 								</div>
 
 								<div class="tf-accordion-wrapper">
@@ -475,11 +535,14 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 										<div class="tf-single-faq">
 											<div class="tf-faq-title">
 												<i class="fas fa-angle-down"></i>
-												<h4>What is Tourfic? </h4>
+												<h4>
+													<?php _e("What is WooCommerce One Page Checkout?","instantio"); ?>
+												</h4>
 											</div>
 											<div class="tf-faq-desc">
 												<p>
-												Tourfic is the ultimate WordPress travel plugin for hotel booking, tour operator and travel agency websites.									</p>
+													<?php _e("WooCommerce One Page Checkout means converting the default multistep checkout for WooCommerce process into a single page Checkout. WordPress Plugins like Instantio offers such a solution.","instantio"); ?>
+												</p>
 											</div>
 										</div>
 									</div>
@@ -487,11 +550,14 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 										<div class="tf-single-faq">
 											<div class="tf-faq-title">
 												<i class="fas fa-angle-down"></i>
-												<h4>How to install Tourfic? </h4>
+												<h4>
+													<?php _e("What is Direct Checkout for WooCommerce?","instantio"); ?>
+												</h4>
 											</div>
 											<div class="tf-faq-desc">
 												<p>
-												Please check our documentations									</p>
+													<?php _e("WooCommerce Direct Checkout is a solution to reduce the steps of the default Woocommerce checkout process. Customers can skip the cart page and directly checkout woocommerce (go directly to the checkout page). This helps improving cart abandonment of a website. Our Plugin Instantio offers such a solution.","instantio"); ?>
+												</p>
 											</div>
 										</div>
 									</div>
@@ -499,11 +565,14 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 										<div class="tf-single-faq">
 											<div class="tf-faq-title">
 												<i class="fas fa-angle-down"></i>
-												<h4>Is Free version fully free or there is a gap? </h4>
+												<h4>
+													<?php _e("How to install Instantio?","instantio"); ?>
+												</h4>
 											</div>
 											<div class="tf-faq-desc">
 												<p>
-												Yes, Tourfic is fully free which is available on WordPress.org. This free version will always be free. It also has a pro version with additional features which you can purchase from our official website.									</p>
+													<?php _e("See the installation link. <a traget='_blank' href='https://wordpress.org/plugins/instantio/#installation'>Install Link</a> ","instantio"); ?>
+												</p>
 											</div>
 										</div>
 									</div>
@@ -511,11 +580,14 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 										<div class="tf-single-faq">
 											<div class="tf-faq-title">
 												<i class="fas fa-angle-down"></i>
-												<h4>Can I create a hotel booking website with Tourfic? </h4>
+												<h4>
+													<?php _e("Is the Free version fully free or there is a gap?","instantio"); ?>
+												</h4>
 											</div>
 											<div class="tf-faq-desc">
 												<p>
-												Yes, You create your own professional hotel booking website easily with tourfic.									</p>
+													<?php _e("Yes, Instantio is fully free which is available on WordPress.org. This free version will always be free. It also has a pro version with additional features which you can purchase from our official website.","instantio"); ?>
+												</p>
 											</div>
 										</div>
 									</div>
@@ -523,11 +595,14 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 										<div class="tf-single-faq">
 											<div class="tf-faq-title">
 												<i class="fas fa-angle-down"></i>
-												<h4>Can I create a travel or tour booking website with Tourfic? </h4>
+												<h4>
+													<?php _e("Is the free version supported?","instantio"); ?>
+												</h4>
 											</div>
 											<div class="tf-faq-desc">
 												<p>
-												Yes, You create your own professional travel or tour booking website easily with tourfic.									</p>
+													<?php _e("Yes, we fully support both the free and pro version. Please feel free to post questions or bug reports through our website, but for timely support, we recommend purchasing Pro version.","instantio"); ?>
+												</p>
 											</div>
 										</div>
 									</div>
@@ -535,11 +610,14 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 										<div class="tf-single-faq">
 											<div class="tf-faq-title">
 												<i class="fas fa-angle-down"></i>
-												<h4>Can Tourfic be used as WooCommerce Accommodation Bookings? </h4>
+												<h4>
+													<?php _e("Will I be able to edit WooCommerce checkout page with Instantio?","instantio"); ?>
+												</h4>
 											</div>
 											<div class="tf-faq-desc">
 												<p>
-												Yes, You create your own professional accommodation booking website easily with tourfic.									</p>
+													<?php _e("Yes, Instantio allows you to edit WooCommerce checkout page to some extent. You can remove the cart page and make your customer directly go to the checkout page.","instantio"); ?>
+												</p>
 											</div>
 										</div>
 									</div>
@@ -547,11 +625,14 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 										<div class="tf-single-faq">
 											<div class="tf-faq-title">
 												<i class="fas fa-angle-down"></i>
-												<h4>Can I create a website similar to Booking.com with Tourfic? </h4>
+												<h4>
+													<?php _e("Does Instantio allows WooCommerce one-click checkout?","instantio"); ?>
+												</h4>
 											</div>
 											<div class="tf-faq-desc">
 												<p>
-												Yes, You can create your own professional tour operator and travel agency website within 5 minutes, just like Booking.com, Agoda, Hotels.com, Airbnb etc.									</p>
+													<?php _e("Yes, Instantio converts WooCommerce multistep checkout process into WooCommerce one click checkout.","instantio"); ?>
+												</p>
 											</div>
 										</div>
 									</div>
@@ -559,11 +640,44 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 										<div class="tf-single-faq">
 											<div class="tf-faq-title">
 												<i class="fas fa-angle-down"></i>
-												<h4>Is free version supported? </h4>
+												<h4>
+													<?php _e("Will I be able to skip cart page on WooCommerce?","instantio"); ?>
+												</h4>
 											</div>
 											<div class="tf-faq-desc">
 												<p>
-												Yes, We provide full support on the WordPress.org forums. You can also post questions or bug reports through our Facebook group! or our website. However, please note that, for free version’s support/replies, there can be delays upto 24-48 hours.									</p>
+													<?php _e("Yes, Instantio allows you to skip cart page WooCommerce and make your customer directly go to the checkout page.","instantio"); ?>
+												</p>
+											</div>
+										</div>
+									</div>
+									<div class="tf-accrodian-item">
+										<div class="tf-single-faq">
+											<div class="tf-faq-title">
+												<i class="fas fa-angle-down"></i>
+												<h4>
+													<?php _e("Does Instantio allows WooCommerce Quick checkout?","instantio"); ?>
+												</h4>
+											</div>
+											<div class="tf-faq-desc">
+												<p>
+													<?php _e("Yes, Instantio converts the default multistep WooCommerce checkout process into WooCommerce Quick checkout.","instantio"); ?>
+												</p>
+											</div>
+										</div>
+									</div>
+									<div class="tf-accrodian-item">
+										<div class="tf-single-faq">
+											<div class="tf-faq-title">
+												<i class="fas fa-angle-down"></i>
+												<h4>
+													<?php _e("Does Instantio allows WooCommerce Express checkout?","instantio"); ?>
+												</h4>
+											</div>
+											<div class="tf-faq-desc">
+												<p>
+													<?php _e("Yes, Instantio converts the default multistep WooCommerce checkout process into WooCommerce Express checkout.","instantio"); ?>
+												</p>
 											</div>
 										</div>
 									</div>
@@ -575,7 +689,9 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 						<div class="dashboad-content whatnew">
 							<div class="whatnew_wrapper">
 								<div class="whatnew-heading">
-									<h4>All updates</h4>
+									<h4>
+										<?php _e("All updates","instantio"); ?>
+									</h4>
 								</div>
 								<div class="whatnew_updates">
 									<?php 
@@ -610,7 +726,7 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 
 											<div class="whatnew_updates_card">
 												<div class="chnagelog_not_found">
-													No change logs found. Please try again later. Maybe the changelog is being updated, it will come shortly.
+													<?php _e("No change logs found. Please try again later. Maybe the changelog is being updated, it will come shortly.","instantio"); ?>
 												</div>
 											</div>
 
