@@ -213,6 +213,13 @@ Welcome Step
       }
     }
   }
+
+  .ins_quick_setup_finish {
+    @include flexbox();
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 /*

@@ -1,5 +1,4 @@
 .tf-field-time {
-
   .tf-fieldset {
     position: relative;
   }
@@ -16,8 +15,8 @@
     border: 1px solid #c4cbd4;
 
     &:focus {
-      background: #FFFFFF;
-      box-shadow: 0 0 0 2px $blue60;
+      background: #ffffff;
+      box-shadow: 0 0 0 2px #db5209;
       border-radius: 4px;
     }
 
@@ -48,7 +47,7 @@
     }
   }
 
-  i{
+  i {
     position: absolute;
     top: 50%;
     right: 8px;

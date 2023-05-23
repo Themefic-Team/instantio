@@ -116,7 +116,7 @@
   align-items: center;
   padding: 12px 20px;
   margin-left: 24px;
-  border-left: 1px solid #c4cbd4;
+  border-left: 1px solid #db5209;
   position: relative;
 }
 .tf-admin-meta-box .tf-admin-tab ul.tf-submenu li a.tf-tablinks span.tf-tablinks-inner::after {
@@ -126,7 +126,7 @@
   width: 14px;
   border-width: 0 0 1px 1px;
   border-style: solid;
-  border-color: #c4cbd4;
+  border-color: #db5209;
   left: -1px;
   top: 0;
   border-bottom-left-radius: 8px;
@@ -395,7 +395,6 @@
   color: #c44a08;
 }
 .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-help-center-banner .tf-help-center-content h2 {
-  font-family: "Mulish";
   color: #fcf9f7;
   font-style: normal;
   font-weight: 700;
@@ -1651,7 +1650,7 @@ Custom Modal
   width: 80%;
   max-width: 1080px;
   pointer-events: auto;
-  background-color: #f5f8ff;
+  background-color: #fef2eb;
   outline: 0;
   margin: 0 auto;
   border-radius: 10px;
@@ -1873,6 +1872,12 @@ Welcome Step
 .tf-setup-content-layout .tf-setup-welcome-footer.tf-setup-finish-footer .tf-admin-btn {
   margin-bottom: 0;
   margin-right: 10px;
+}
+.tf-setup-content-layout .ins_quick_setup_finish {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 /*
@@ -2402,16 +2407,16 @@ Steps
 .tf-field-text input {
   width: 100%;
   padding: 12px 8px 12px 12px;
-  border: 1px solid #c4cbd4;
-  background-color: #f5f8ff;
+  border: 1px solid #db5209;
+  background-color: #fff5f0;
   border-radius: 4px;
   height: 48px;
   color: #363e4a;
   font-size: 14px;
 }
 .tf-field-text input:focus {
-  background: #FFFFFF;
-  box-shadow: 0 0 0 2px #2979ff;
+  background: #ffffff;
+  box-shadow: 0 0 0 2px #db5209;
   border-radius: 4px;
 }
 .tf-field-text input::-moz-placeholder {
@@ -2426,24 +2431,24 @@ Steps
   width: 100% !important;
   height: 180px;
   padding: 12px 8px 12px 12px;
-  border: 1px solid #c4cbd4;
-  background-color: #f5f8ff;
+  border: 1px solid #db5209;
+  background-color: #fff5f0;
   border-radius: 4px;
   color: #363e4a;
   font-size: 14px;
   width: 100%;
 }
 .tf-field-textarea textarea:focus {
-  background: #FFFFFF;
-  box-shadow: 0 0 0 2px #2979ff;
+  background: #ffffff;
+  box-shadow: 0 0 0 2px #db5209;
   border-radius: 4px;
 }
 
 .tf-field-select select.tf-select {
   width: 100%;
   padding: 12px 8px 12px 12px;
-  border: 1px solid #c4cbd4;
-  background-color: #f5f8ff;
+  border: 1px solid #db5209;
+  background-color: #fff5f0;
   border-radius: 4px;
   height: 48px;
   color: #363e4a;
@@ -2461,8 +2466,8 @@ Steps
 .tf-field-select2 .select2-container .select2-selection {
   width: 100%;
   padding: 10px 8px 0 12px;
-  border: 1px solid #c4cbd4;
-  background-color: #f5f8ff;
+  border: 1px solid #db5209;
+  background-color: #fff5f0;
   border-radius: 4px;
   min-height: 48px;
   color: #363e4a;
@@ -2553,7 +2558,7 @@ Steps
   content: "";
   height: 14px;
   width: 14px;
-  background-color: #2979ff;
+  background-color: #db5209;
   border-radius: 100%;
   position: absolute;
   top: 4px;
@@ -2567,7 +2572,7 @@ Steps
   transform: scale(1);
 }
 .tf-field-radio .tf-fieldset input[type=radio]:checked + label:before {
-  border-color: #2979ff;
+  border-color: #db5209;
 }
 
 .tf-field-checkbox .tf-fieldset ul li {
@@ -2668,7 +2673,7 @@ Steps
 .tf-field-image .tf-fieldset .tf-fieldset-media input {
   width: 90%;
   padding: 12px 8px 12px 12px;
-  background-color: #f5f8ff;
+  background-color: #fff5f0;
   border: 1px solid #db5209;
   border-radius: 4px;
   height: 48px;
@@ -2702,7 +2707,7 @@ Steps
   color: #363e4a;
   font-size: 14px;
   background: #fff;
-  border: 1px solid #c4cbd4;
+  border: 1px solid #db5209;
   white-space: nowrap;
   overflow: hidden;
 }
@@ -2853,7 +2858,7 @@ Steps
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #2979ff;
+  background-color: #db5209;
   color: #fff;
   border-radius: 4px;
 }
@@ -2986,14 +2991,15 @@ Steps
   display: flex;
   gap: 30px;
 }
-.tf-field-date .tf-fieldset .tf-date-range .tf-date-from, .tf-field-date .tf-fieldset .tf-date-range .tf-date-to {
+.tf-field-date .tf-fieldset .tf-date-range .tf-date-from,
+.tf-field-date .tf-fieldset .tf-date-range .tf-date-to {
   width: 100%;
 }
 .tf-field-date input {
   width: 100%;
   padding: 12px 8px 12px 12px;
   border: none;
-  background-color: #f5f8ff;
+  background-color: #fff5f0;
   border-radius: 4px;
   height: 48px;
   color: #363e4a;
@@ -3001,8 +3007,8 @@ Steps
   border: 1px solid #c4cbd4;
 }
 .tf-field-date input:focus {
-  background: #FFFFFF;
-  box-shadow: 0 0 0 2px #2979ff;
+  background: #ffffff;
+  box-shadow: 0 0 0 2px #db5209;
   border-radius: 4px;
 }
 .tf-field-date input::-moz-placeholder {
@@ -3028,7 +3034,7 @@ Steps
   width: 100%;
   padding: 12px 8px 12px 12px;
   border: none;
-  background-color: #f5f8ff;
+  background-color: #fff5f0;
   border-radius: 4px;
   height: 48px;
   color: #363e4a;
@@ -3036,8 +3042,8 @@ Steps
   border: 1px solid #c4cbd4;
 }
 .tf-field-time input:focus {
-  background: #FFFFFF;
-  box-shadow: 0 0 0 2px #2979ff;
+  background: #ffffff;
+  box-shadow: 0 0 0 2px #db5209;
   border-radius: 4px;
 }
 .tf-field-time input::-moz-placeholder {
@@ -3066,7 +3072,7 @@ Steps
   display: flex;
   width: 100%;
   padding: 8px 0;
-  background: #D8E6FF;
+  background: #d8e6ff;
   position: relative;
   border-radius: 5px 5px 0px 0px;
   align-items: center;
@@ -3089,7 +3095,7 @@ Steps
 .tf-repeater .tf-repeater-header .tf-repeater-icon-move:hover {
   background-color: #c4daff;
   transition: 0.4s;
-  color: #2979ff;
+  color: #db5209;
 }
 .tf-repeater .tf-repeater-header .tf-repeater-icon-clone {
   color: #76a9ff;
@@ -3097,7 +3103,7 @@ Steps
 .tf-repeater .tf-repeater-header .tf-repeater-icon-clone:hover {
   background-color: #c4daff;
   transition: 0.4s;
-  color: #2979ff;
+  color: #db5209;
 }
 .tf-repeater .tf-repeater-header .tf-repeater-icon-delete {
   color: #f8877f;
@@ -3122,7 +3128,7 @@ Steps
   top: 8px;
 }
 .tf-repeater .tf-repeater-content-wrap {
-  border: 1px solid #F0F2F4;
+  border: 1px solid #f0f2f4;
   background-color: #fff;
   padding: 10px 24px;
   box-shadow: 0px 5px 10px 1px #f5f5f5;
@@ -3210,8 +3216,8 @@ Steps
 .tf-field-map .tf--map-search input {
   width: 100%;
   padding: 12px 8px 12px 12px;
-  border: 1px solid #c4cbd4;
-  background-color: #f5f8ff;
+  border: 1px solid #db5209;
+  background-color: #fff5f0;
   border-radius: 4px;
   height: 48px;
   color: #363e4a;
@@ -3244,8 +3250,8 @@ Steps
 .tf-field-map .tf--map-inputs .tf--map-input input {
   width: 100%;
   padding: 12px 8px 12px 12px;
-  border: 1px solid #c4cbd4;
-  background-color: #f5f8ff;
+  border: 1px solid #db5209;
+  background-color: #fff5f0;
   border-radius: 4px;
   height: 48px;
   color: #363e4a;
@@ -3295,6 +3301,10 @@ Steps
     display: block;
   }
 }
+.tf-field-color .tf-fieldset ul.tf-inline li .wp-picker-container .wp-color-result.button {
+  color: #db5209;
+  border-color: #db5209;
+}
 .tf-field-color .tf-fieldset ul.tf-inline li:last-child {
   margin-bottom: 0px;
 }
@@ -3325,7 +3335,7 @@ Steps
   right: 0;
   width: 20px;
   height: 20px;
-  background: #FFFFFF;
+  background: #ffffff;
   border-radius: 8px;
   color: #f44336;
   font-size: 14px;
@@ -3355,8 +3365,8 @@ Steps
   font-size: 14px;
 }
 #tf-icon-modal .tf-modal-content .tf-icon-search input.tf-icon-search-input:focus {
-  background: #FFFFFF;
-  box-shadow: 0 0 0 2px #2979ff;
+  background: #ffffff;
+  box-shadow: 0 0 0 2px #db5209;
   border-radius: 4px;
 }
 #tf-icon-modal .tf-modal-content .tf-icon-search input.tf-icon-search-input::-moz-placeholder {
@@ -3389,7 +3399,7 @@ Steps
   margin-right: 8px;
 }
 #tf-icon-modal .tf-modal-content .tf-icon-wrapper ul.tf-icon-tab-list li.active {
-  background: #2979ff;
+  background: #db5209;
   color: #fff;
 }
 #tf-icon-modal .tf-modal-content .tf-icon-wrapper .tf-icon-tab-content {
@@ -3452,8 +3462,8 @@ Steps
   opacity: 1;
 }
 #tf-icon-modal .tf-modal-content .tf-icon-wrapper .tf-icon-tab-content .tf-icon-tab-pane ul.tf-icon-list li.active .tf-icon-inner span.check-icon {
-  border-color: #2979ff;
-  background-color: #2979ff;
+  border-color: #db5209;
+  background-color: #db5209;
   opacity: 1;
 }
 #tf-icon-modal .tf-modal-content .tf-icon-wrapper .tf-icon-tab-content .tf-icon-tab-pane ul.tf-icon-list li.active .tf-icon-inner span.check-icon i {
@@ -3471,12 +3481,12 @@ Steps
   border-radius: 10px;
 }
 #tf-icon-modal .tf-modal-content .tf-icon-wrapper .tf-icon-tab-content .tf-icon-tab-pane ul.tf-icon-list::-webkit-scrollbar-thumb:hover {
-  background: #2979ff;
+  background: #db5209;
 }
 #tf-icon-modal .tf-modal-content .tf-modal-footer {
   padding: 24px;
   margin: 0 -30px -30px;
-  background: #FFFFFF;
+  background: #ffffff;
   border-top: 1px solid #e1e5ea;
   box-shadow: 0px -4px 16px rgba(137, 151, 169, 0.2);
   text-align: right;
@@ -3488,7 +3498,7 @@ Steps
 .tf-field-number input {
   width: 100%;
   padding: 12px 8px 12px 12px;
-  border: 1px solid #c4cbd4;
+  border: 1px solid #db5209;
   background-color: #fcfcff;
   border-radius: 4px;
   height: 48px;

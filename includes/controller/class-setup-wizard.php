@@ -503,25 +503,29 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
         private function tf_setup_finish_step() {
             ?>
             <div class="tf-setup-content-layout tf-finish-step <?php echo self::$current_step == 'finish' ? 'active' : ''; ?>">
-                <!-- <div class="welcome-img"><img src="<?php // echo INS_ADMIN_URL . 'img/hooray.png' ?>" alt="<?php // esc_attr_e( 'Thank you', 'instantio' ) ?>"></div> -->
 
-                <h1 class="tf-setup-welcome-title">
-                    <?php _e( 'Hooray! You’re all set.', 'instantio' ) ?>
-                </h1>
+                <div class="ins_quick_setup_finish">
+                    <!-- <div class="welcome-img"><img src="<?php // echo INS_ADMIN_URL . 'img/hooray.png' ?>" alt="<?php // esc_attr_e( 'Thank you', 'instantio' ) ?>"></div> -->
 
-                <div class="tf-setup-welcome-description">
-                    <?php _e( 'Let\'s get started and make the most out of instantio. With this plugin, you can manage your store, and provide your customers with a seamless booking experience. So, let\'s dive in and start streamlining your hotel or travel business operations today!', 'instantio' ) ?>
+                    <h1 class="tf-setup-welcome-title">
+                        <?php _e( 'Hooray! You’re all set.', 'instantio' ) ?>
+                    </h1>
 
-                    <p class="tf-setup-step-desc">
-                        <?php _e( 'These settings can be overridden from <strong>Instantio Settings</strong>', 'instantio' ) ?>
-                    </p>
+                    <div class="tf-setup-welcome-description">
+                        <?php _e( 'Let\'s get started and make the most out of instantio. With this plugin, you can manage your store, and provide your customers with a seamless Checkout experience. So, let\'s dive in and start streamlining your business operations today!', 'instantio' ) ?>
+
+                        <p class="tf-setup-step-desc">
+                            <?php _e( 'These settings can be overridden from <strong>Instantio Settings</strong>', 'instantio' ) ?>
+                        </p>
+                    </div>
+
+                    <div class="tf-setup-welcome-footer tf-setup-finish-footer">
+                        <a href="<?php echo admin_url( 'admin.php?page=wiopt#tab=layout_option' ) ?>" class="tf-admin-btn tf-btn-secondary"><?php _e( 'Instantio Setting', 'instantio' ) ?></a>
+                        
+                        <a href="<?php echo admin_url( '/' ) ?>" class="tf-admin-btn tf-btn-secondary"><?php _e( 'Back to Dashboard', 'instantio' ) ?></a>
+                    </div>
                 </div>
 
-                <div class="tf-setup-welcome-footer tf-setup-finish-footer">
-                    <a href="<?php echo admin_url( 'admin.php?page=wiopt#tab=layout_option' ) ?>" class="tf-admin-btn tf-btn-secondary"><?php _e( 'Instantio Setting', 'instantio' ) ?></a>
-                    
-                    <a href="<?php echo admin_url( '/' ) ?>" class="tf-admin-btn tf-btn-secondary"><?php _e( 'Back to Dashboard', 'instantio' ) ?></a>
-                </div>
             </div>
         <?php
         }

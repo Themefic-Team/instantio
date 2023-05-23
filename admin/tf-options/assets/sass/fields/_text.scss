@@ -1,5 +1,4 @@
 .tf-field-text {
-
   input {
     width: 100%;
     padding: 12px 8px 12px 12px;
@@ -11,8 +10,8 @@
     font-size: 14px;
 
     &:focus {
-      background: #FFFFFF;
-      box-shadow: 0 0 0 2px $blue60;
+      background: #ffffff;
+      box-shadow: 0 0 0 2px #db5209;
       border-radius: 4px;
     }
 

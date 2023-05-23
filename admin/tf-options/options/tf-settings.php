@@ -521,7 +521,7 @@ TF_Settings::option( 'wiopt', array(
 									'label'  		=> __('Cart Icon Size', 'instantio'),
 									'subtitle' 		=> __('Set width of the toggler icon', 'instantio'),
 									'placeholder'   => __('Default: 26', 'instantio'),
-									'description'   => __('Default: 26 px', 'instantio'),
+									'description'   => __('Default: 26px', 'instantio'),
 								),
 
 								array(
@@ -1239,6 +1239,7 @@ TF_Settings::option( 'wiopt', array(
 					'id'    		=> 'cart-section_mobile',
 					'type'    		=> 'heading',
 					'content' 		=> __('Cart Section', 'instantio'),
+					'dependency' 	=> array('mobile', '==', 'true'),
 				),
 
 				array(

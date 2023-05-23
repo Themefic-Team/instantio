@@ -9,7 +9,7 @@
     display: flex;
     width: 100%;
     padding: 8px 0;
-    background: #D8E6FF;
+    background: #d8e6ff;
     position: relative;
     border-radius: 5px 5px 0px 0px;
     align-items: center;
@@ -25,7 +25,6 @@
       line-height: 24px;
       height: 24px;
       width: 24px;
-
     }
 
     .tf-repeater-icon-move {
@@ -34,7 +33,7 @@
       &:hover {
         background-color: $blue20;
         transition: 0.4s;
-        color: $blue60;
+        color: #db5209;
       }
     }
 
@@ -44,7 +43,7 @@
       &:hover {
         background-color: $blue20;
         transition: 0.4s;
-        color: $blue60;
+        color: #db5209;
       }
     }
 
@@ -66,7 +65,6 @@
       font-weight: 600;
       font-size: 16px;
       line-height: 24px;
-
     }
 
     .tf-repeater-icon-absulate {
@@ -74,11 +72,10 @@
       right: 8px;
       top: 8px;
     }
-
   }
 
   .tf-repeater-content-wrap {
-    border: 1px solid #F0F2F4;
+    border: 1px solid #f0f2f4;
     background-color: #fff;
     padding: 10px 24px;
     box-shadow: 0px 5px 10px 1px #f5f5f5;
