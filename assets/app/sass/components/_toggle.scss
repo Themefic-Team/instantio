@@ -192,6 +192,13 @@
 			}
 		}
 	}
+	&.ins-var-cart-bottom {
+		.ins-toggle-btn {
+			&.tog-1 {
+				bottom: 30px;
+			}
+		}
+	}
 	&.ins-hori-left {
 		.ins-toggle-btn {
 			&.tog-1 {

@@ -98,17 +98,23 @@ class Assets {
         // Panel Style
         $wi_zindex = isset($ins_toggle_panel_tab['wi-zindex']) ? $ins_toggle_panel_tab['wi-zindex'] : '9999';
         $panel_width_1200 = isset($ins_toggle_panel_tab['panel-width-1200']) ? $ins_toggle_panel_tab['panel-width-1200'] : '45';
-        $panel_width_1024 = isset($ins_toggle_panel_tab['panel-width-1024']) ? $ins_toggle_panel_tab['panel-width-1024'] : '50';
-        $panel_width_767 = isset($ins_toggle_panel_tab['panel-width-767']) ? $ins_toggle_panel_tab['panel-width-767'] : '60';
+        $panel_width_1024 = isset($ins_toggle_panel_tab['panel-width-1024']) ? $ins_toggle_panel_tab['panel-width-1024'] : '65';
+        $panel_width_767 = isset($ins_toggle_panel_tab['panel-width-767']) ? $ins_toggle_panel_tab['panel-width-767'] : '85';
         $wi_inner_bg_colors_regular = isset($ins_toggle_panel_tab['wi-inner-bg-colors']['regular']) ? $ins_toggle_panel_tab['wi-inner-bg-colors']['regular'] : '';
         $wi_inner_bg_colors_hover = isset($ins_toggle_panel_tab['wi-inner-bg-colors']['hover']) ? $ins_toggle_panel_tab['wi-inner-bg-colors']['hover'] : '';
         $ins_panel_text_color = isset($ins_toggle_panel_tab['ins-panel-text-color']) ? $ins_toggle_panel_tab['ins-panel-text-color'] : '#665F5C';
-
+        
+        $output .= '
+        :root {
+            --ins_panel_width_1200: '.$panel_width_1200.'%;
+            --ins_panel_width_1024: '.$panel_width_1024.'%;
+            --ins_panel_width_767: '.$panel_width_767.'%; 
+          } 
+        ';  
         $output .= '
                 .ins-checkout-layout {
                     background-color: '.$wi_inner_bg_colors_regular.' !important;
-                    color: '.$ins_panel_text_color.' !important;
-                    width: '.$panel_width_1200.'% !important;
+                    color: '.$ins_panel_text_color.' !important; 
                     z-index: '.$wi_zindex.' !important;
                 } 
                 .ins-checkout-modern .ins-checkout-layout.slide.ins-hori-left {
@@ -140,16 +146,7 @@ class Assets {
                     background-color: '.$wi_inner_bg_colors_hover.' !important; 
                 }
 
-                @media (min-widht: 1199px) and (max-width: 1240px) {
-                    .ins-checkout-layout { 
-                        width: '.$panel_width_1024.'% !important; 
-                    }
-                }
-                @media (min-widht: 501px) and (max-width: 1023px) {
-                    .ins-checkout-layout { 
-                        width: '.$panel_width_767.'% !important; 
-                    }
-                }
+                
             '; 
 
         // Panel Button Color

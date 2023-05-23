@@ -18,8 +18,8 @@
         z-index: 9999;
         position: relative;
         padding: 40px;
-        box-shadow: 1px -9px 16px -13px;
-
+        box-shadow: 1px -9px 16px -13px; 
+        width:  var(--ins_panel_width_1200);
         &.slide {
             position: fixed;
             right: 0;
