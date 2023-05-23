@@ -618,12 +618,7 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
             $options['cart-fly']['cart-fly-anim'] = isset($_POST['cart-fly-anim']) ? $_POST['cart-fly-anim'] : false;
             $options['ins-toggle-tab']['ins-cart-emty-hide'] = isset($_POST['ins-cart-emty-hide']) ? $_POST['ins-cart-emty-hide'] : false;
             $options['js-min'] = isset($_POST['js-min']) ? $_POST['js-min'] : false;
-            // echo "<pre>";
-            // print_r($options);
-            // echo "</pre>"; 
-            // die; 
-
-			
+           
 
 			update_option( 'wiopt', $options );
 			$response              = [
