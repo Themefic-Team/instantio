@@ -403,12 +403,16 @@
       h2 {
         font-size: 20px;
         font-weight: 700;
-      }
-  
-      td, th {
+        padding-left: 0;
+      } 
+      td, th, table {
         padding: 8px 0;
         background-color: transparent !important;
         font-weight: 400 !important;
+        border: none !important;
+      }
+      th{
+        text-align: left;
       }
   
       .order-total {
@@ -465,6 +469,7 @@
       -moz-border-radius: 8px !important;
       -ms-border-radius: 8px !important;
       -o-border-radius: 8px !important;
+      background-color: var(--ins_checkout_theme);
     }
   
     a.active, button.active {

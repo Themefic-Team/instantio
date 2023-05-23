@@ -97,8 +97,8 @@ class Assets {
 
         // Panel Style
         $wi_zindex = isset($ins_toggle_panel_tab['wi-zindex']) ? $ins_toggle_panel_tab['wi-zindex'] : '9999';
-        $panel_width_1200 = isset($ins_toggle_panel_tab['panel-width-1200']) ? $ins_toggle_panel_tab['panel-width-1200'] : '45';
-        $panel_width_1024 = isset($ins_toggle_panel_tab['panel-width-1024']) ? $ins_toggle_panel_tab['panel-width-1024'] : '65';
+        $panel_width_1200 = isset($ins_toggle_panel_tab['panel-width-1200']) ? $ins_toggle_panel_tab['panel-width-1200'] : '55';
+        $panel_width_1024 = isset($ins_toggle_panel_tab['panel-width-1024']) ? $ins_toggle_panel_tab['panel-width-1024'] : '70';
         $panel_width_767 = isset($ins_toggle_panel_tab['panel-width-767']) ? $ins_toggle_panel_tab['panel-width-767'] : '85';
         $wi_inner_bg_colors_regular = isset($ins_toggle_panel_tab['wi-inner-bg-colors']['regular']) ? $ins_toggle_panel_tab['wi-inner-bg-colors']['regular'] : '';
         $wi_inner_bg_colors_hover = isset($ins_toggle_panel_tab['wi-inner-bg-colors']['hover']) ? $ins_toggle_panel_tab['wi-inner-bg-colors']['hover'] : '';
