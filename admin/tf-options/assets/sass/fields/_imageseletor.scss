@@ -1,5 +1,10 @@
+.tf-field.tf-field-imageselect {
+  margin: 0;
+}
+
 .tf-image-seletor-items {
   margin-right: 10px;
+  margin-bottom: 10px;
   figure {
     img {
       border-radius: 8px;
@@ -29,7 +34,7 @@
   &.tf-active figure {
     border-color: transparent;
     border-radius: 8px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, .2);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
     border: 2px solid #e9570a;
     box-shadow: 0 0 20px #ddd;
   }
