@@ -589,6 +589,8 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
 
 		function tf_setup_wizard_submit_ajax() {
 
+            // echo "hello";
+            // die;
 			// Add nonce for security and authentication.
 			$nonce_name   = isset( $_POST['tf_setup_wizard_nonce'] ) ? $_POST['tf_setup_wizard_nonce'] : '';
 			$nonce_action = 'tf_setup_wizard_action';

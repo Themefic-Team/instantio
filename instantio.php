@@ -54,6 +54,10 @@ class INSTANTIO {
 		require_once __DIR__ . '/vendor/autoload.php'; 
 		include_once( ABSPATH . 'wp-admin/includes/plugin.php' );  
 		require_once( 'functions.php' );
+		
+		// Ins Quick Setup wizard
+		require_once INS_INC_PATH . '/controller/class-setup-wizard.php'; 
+
 	}
 
 
@@ -75,7 +79,7 @@ class INSTANTIO {
 
         if ( is_admin() && !wp_doing_ajax() ) {   
             new INS\Controller\Admin();
-			require_once INS_INC_PATH . '/controller/class-setup-wizard.php'; 
+		
 			// Appsero
 			$this->ins_appsero_init_tracker_instantio();
         }else{  

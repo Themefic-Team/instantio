@@ -22,13 +22,13 @@
 
 
         // if (typeof CodeMirror !== 'function') { return; }
-        console.log("working");
+        // console.log("working");
         var $this = $('.tf-field-textarea'),
             $textarea = $this.find('textarea'),
             $inited = $this.find('.CodeMirror'),
             data_editor = $textarea.data('editor');
 
-        console.log($this);
+        // console.log($this);
 
         if ($inited.length) {
             $inited.remove();
