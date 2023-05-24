@@ -333,11 +333,11 @@
   display: none;
 }
 .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-help-center-banner {
-  background-color: #002043;
+  background-color: #FFF5F0;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  box-shadow: 0px 10px 30px rgba(233, 87, 10, 0.2);
+  box-shadow: 0px -4px 20px rgba(75, 26, 0, 0.05);
   border-radius: 8px;
   height: 278px;
   margin-bottom: 40px;
@@ -380,7 +380,7 @@
   color: #f2f4f5;
   display: inline-block;
   padding: 10px 25px;
-  background: linear-gradient(95.29deg, #002043 0%, #6637a7 25.57%, #41b7ef 100%);
+  background: linear-gradient(269.21deg, #EA6C00 0.68%, #FD8A00 99.35%);
   border: transparent;
   text-decoration: none;
   border-radius: 4px;
@@ -392,10 +392,10 @@
 .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-help-center-banner .tf-help-center-content a:hover {
   background-color: #c44a08;
   border-color: transparent;
-  color: #c44a08;
+  color: #665F5C;
 }
 .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-help-center-banner .tf-help-center-content h2 {
-  color: #fcf9f7;
+  color: #665F5C;
   font-style: normal;
   font-weight: 700;
   font-size: 32px;
@@ -407,7 +407,7 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 140%;
-  color: #f2f4f5;
+  color: #B3A6A1;
   margin-bottom: 20px;
 }
 .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-help-center-banner .tf-help-center-content-img {
@@ -537,7 +537,7 @@
   text-decoration: none;
   color: #fff;
   padding: 16px 32px;
-  background: linear-gradient(95.29deg, #002043 0%, #6637a7 25.57%, #41b7ef 100%), #db5209;
+  background: linear-gradient(269.21deg, #EA6C00 0.68%, #FD8A00 99.35%);
   border-radius: 4px;
 }
 .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content .tf-settings-help-center .request-features {
