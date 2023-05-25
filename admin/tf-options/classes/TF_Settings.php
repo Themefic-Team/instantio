@@ -329,7 +329,7 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 										<?php _e("Basic Tutorials","instantio"); ?>
 									</h4>
 
-									<a href="https://www.youtube.com/playlist?list=PLY0rtvOwg0ykIvNBa8XI3SR7WEbdqqKoO" class="btn view-all-btn">
+									<a target="_blank" href="https://www.youtube.com/playlist?list=PLY0rtvOwg0ykIvNBa8XI3SR7WEbdqqKoO" class="btn view-all-btn">
 										<?php _e("View all","instantio"); ?>
 									</a>
 								</div>
@@ -338,7 +338,7 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 										<div class="main-caption">
 											<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/tutorial-2.png' ?>" class="figure-img" alt="turorial" />
 											<div class="play-button-overlap">
-												<a  target="_blank" href="https://www.youtube.com/watch?v=1biwrwu-Io8&list=PLY0rtvOwg0ykIvNBa8XI3SR7WEbdqqKoO&index=2">
+												<a target="_blank" href="https://www.youtube.com/watch?v=1biwrwu-Io8&list=PLY0rtvOwg0ykIvNBa8XI3SR7WEbdqqKoO&index=2">
 												<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/play.png' ?>" alt="turorial" /></a>
 											</div>
 										</div>
