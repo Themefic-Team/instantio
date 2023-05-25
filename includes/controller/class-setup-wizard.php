@@ -133,7 +133,7 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
                     
                     <div class="tf-setup-form-item bg">
                         <label class="">
-                            <?php _e( 'Choose Layout options', 'instantio' ) ?>
+                            <?php _e( 'Choose cart options', 'instantio' ) ?>
                         </label>
 
                         <ul class="tf-select-service">
@@ -271,7 +271,7 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
                     <div class="tf-setup-form-item middle">
 
                         <div class="tf-setup-form-item-label">
-                            <label class=""><?php _e( 'Select Cart Options', 'instantio' ) ?></label>
+                            <label class=""><?php _e( 'Select layout Options', 'instantio' ) ?></label>
                         </div>
 
                         <div class="tf-setup-form-item-input">
@@ -520,7 +520,7 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
                     </div>
 
                     <div class="tf-setup-welcome-footer tf-setup-finish-footer">
-                        <a href="<?php echo admin_url( 'admin.php?page=wiopt#tab=layout_option' ) ?>" class="tf-admin-btn tf-btn-secondary"><?php _e( 'Instantio Setting', 'instantio' ) ?></a>
+                        <a href="<?php echo admin_url( 'admin.php?page=wiopt#tab=layout_option' ) ?>" class="tf-admin-btn tf-btn-secondary"><?php _e( 'Instantio Settings', 'instantio' ) ?></a>
                         
                         <a href="<?php echo admin_url( '/' ) ?>" class="tf-admin-btn tf-btn-secondary"><?php _e( 'Back to Dashboard', 'instantio' ) ?></a>
                     </div>
