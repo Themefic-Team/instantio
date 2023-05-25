@@ -195,6 +195,16 @@ TF_Settings::option( 'wiopt', array(
 					'width' 		=> 100,
 					'default'   	=> false,
 				),
+				
+				array(
+					'id'        	=> 'ins-cart-emty-hide',
+					'type'      	=> 'switch',
+					'label'     	=> __( 'Hide Toggle when No Cart Item', 'instantio' ),
+					'label_on'  	=> __( 'Yes', 'instantio' ),
+					'label_off' 	=> __( 'No', 'instantio' ),
+					'default'   	=> false
+				),
+
 				array(
 					'id'     		=> 'cart-fly',
 					'type'   		=> 'fieldset',
@@ -407,15 +417,6 @@ TF_Settings::option( 'wiopt', array(
 									'type'      	=> 'heading',
 									'label'     	=> __( 'Global Settings for Instantio Cart icon', 'instantio' ),
 									'sub_title' 	=> __( 'These options can be overridden from defualt Settings.', 'instantio' ),
-								),
-				
-								array(
-									'id'        	=> 'ins-cart-emty-hide',
-									'type'      	=> 'switch',
-									'label'     	=> __( 'Hide Toggle when No Cart Item', 'instantio' ),
-									'label_on'  	=> __( 'Yes', 'instantio' ),
-									'label_off' 	=> __( 'No', 'instantio' ),
-									'default'   	=> false
 								),
 				
 								array(
