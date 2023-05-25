@@ -172,12 +172,13 @@ do_action( 'woocommerce_before_cart' ); ?>
             </div>
         </div> 
        
+    <?php echo apply_filters( 'ins_show_items_upsells', ''); ?>
     </div>
     
     <?php do_action( 'woocommerce_cart_contents' ); ?>
 
     
-    <?php echo apply_filters( 'ins_show_items_upsells', ''); ?>
+  
     <!-- Cart Footer Content -->
     <div class="ins-cart-footer-wrap">
         <div class="ins-cart-footer-content">
