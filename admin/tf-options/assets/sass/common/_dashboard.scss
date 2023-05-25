@@ -685,12 +685,21 @@
             .whatnew_updates_card {
               display: flex;
               justify-content: space-between;
-              padding: 24px 40px;
+              padding: 24px 5px 24px 40px;
               background-color: #f7f9fc;
               margin-bottom: 32px;
 
+              @media #{$max550} {
+                display: block;
+              }
+
               .cardleft_date_version {
                 position: relative;
+
+                @media #{$max550} {
+                  display: flex;
+                  margin-bottom: 30px;
+                }
 
                 .ins_cardleft_date {
                   font-style: normal;
@@ -700,6 +709,9 @@
                   letter-spacing: 0.01em;
                   color: #002043;
                   margin-bottom: 20px;
+                  @media #{$max550} {
+                    margin-right: 30px;
+                  }
                 }
                 .ins_cardleft_version {
                   font-style: normal;
@@ -713,7 +725,7 @@
 
               .cardright_changelog {
                 ul {
-                  max-width: 340px;
+                  width: 340px;
                   margin: 0;
                   margin-bottom: 24px;
                   position: relative;

@@ -871,12 +871,23 @@
 .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.whatnew .whatnew_wrapper .whatnew_updates .whatnew_updates_card {
   display: flex;
   justify-content: space-between;
-  padding: 24px 40px;
+  padding: 24px 5px 24px 40px;
   background-color: #f7f9fc;
   margin-bottom: 32px;
 }
+@media only screen and (max-width: 550.98px) {
+  .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.whatnew .whatnew_wrapper .whatnew_updates .whatnew_updates_card {
+    display: block;
+  }
+}
 .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.whatnew .whatnew_wrapper .whatnew_updates .whatnew_updates_card .cardleft_date_version {
   position: relative;
+}
+@media only screen and (max-width: 550.98px) {
+  .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.whatnew .whatnew_wrapper .whatnew_updates .whatnew_updates_card .cardleft_date_version {
+    display: flex;
+    margin-bottom: 30px;
+  }
 }
 .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.whatnew .whatnew_wrapper .whatnew_updates .whatnew_updates_card .cardleft_date_version .ins_cardleft_date {
   font-style: normal;
@@ -887,6 +898,11 @@
   color: #002043;
   margin-bottom: 20px;
 }
+@media only screen and (max-width: 550.98px) {
+  .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.whatnew .whatnew_wrapper .whatnew_updates .whatnew_updates_card .cardleft_date_version .ins_cardleft_date {
+    margin-right: 30px;
+  }
+}
 .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.whatnew .whatnew_wrapper .whatnew_updates .whatnew_updates_card .cardleft_date_version .ins_cardleft_version {
   font-style: normal;
   font-weight: 700;
@@ -896,7 +912,7 @@
   color: #002043;
 }
 .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.whatnew .whatnew_wrapper .whatnew_updates .whatnew_updates_card .cardright_changelog ul {
-  max-width: 340px;
+  width: 340px;
   margin: 0;
   margin-bottom: 24px;
   position: relative;
@@ -2085,9 +2101,8 @@ Steps
 .tf-setup-step-container .tf-select-service label span {
   display: block;
   color: #665f5c;
-  font-family: "Rubik";
   font-style: normal;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 12px;
   line-height: 12px;
   padding: 3px 0px 5px 5px;
@@ -2375,26 +2390,22 @@ Steps
   border: 2px solid transparent;
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
-  padding: 10px;
   display: block;
   position: relative;
   cursor: pointer;
   border-radius: 6px;
   pointer-events: none;
 }
-@media only screen and (max-width: 480px) {
-  .tf-setup-step-container .tf-select-mode li label {
-    padding: 5px;
-  }
-}
 .tf-setup-step-container .tf-select-mode li label img {
   width: 100%;
 }
 .tf-setup-step-container .tf-select-mode li label span {
-  font-weight: 600;
-  font-size: 14px;
-  display: inline-block;
-  margin-top: 5px;
+  display: block;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 12px;
+  padding: 3px 0px 5px 5px;
+  text-align: left;
 }
 .tf-setup-step-container .tf-select-mode :checked + label {
   border: 2px solid #db5209;
