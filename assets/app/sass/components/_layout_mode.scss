@@ -197,7 +197,7 @@
         color: #665F5C;
       }
     }
-  
+    
     .ins-cart-content-wrap, .ins-single-product-sell, .ins-cart-footer-content {
       background-color: #FCF9F75E !important;
   
@@ -219,6 +219,10 @@
       input {
         border-color: #665F5C;
       }
+    }
+    .ins-cart-item-quantity .quantity input[type="number"] {
+      background: #FFF5F0 !important;
+      border: 0.2px solid #DB5209 !important;
     }
   
     .ins-empty-cart {
@@ -282,7 +286,7 @@
   /* Glass Morphism Mode CSS */
   
   .ins-layout-glass-morphism {
-    .ins-checkout-layout, .ins-cart-content-wrap, .ins-cart-footer-content, .ins-steps-style-4 .ins-single-step span, .ins-checkout-header {
+    .ins-checkout-layout, .ins-cart-content-wrap, .ins-cart-footer-content, .ins-steps-style-4 .ins-single-step span, .ins-checkout-header, .ins-cart-content-wrap .ins-single-cart-item {
       background: rgba(253, 253, 253, 0.4) !important;
       backdrop-filter: blur(5px);
       border: none !important;
@@ -293,10 +297,14 @@
     }
   
     &.popup .ins-checkout-overlay.active {
-      background: rgba(253, 253, 253, 0.1) !important;
+      background: rgba(253, 253, 253, 0.4) !important;
       backdrop-filter: blur(20px);
       border: none !important;
       opacity: 1 !important;
+    }
+
+    .quantity input[type="number"] { 
+      box-shadow: inset 0px 4px 4px rgba(211, 73, 0, 0.1) !important;
     }
   }
   

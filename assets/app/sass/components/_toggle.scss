@@ -70,6 +70,13 @@
 			}
 		}
 	}
+	&.ins-hori-right {
+		.ins-toggle-btn { 
+			&.tog-2 { 
+				right: 0 !important;
+			}
+		}
+	}
 }
 .ins-cart-icon {
 	line-height: 0;
@@ -93,6 +100,12 @@
 	-ms-transition: 0.4s;
 	-o-transition: 0.4s;
 	cursor: pointer;
+	svg, img { 
+		height: var(--ins_toggle_icon_size);
+	}
+	i { 
+		font-size: var(--ins_toggle_icon_size);
+	}
 	&:hover {
 		background-color: var(--ins_toggle_hover_bg);
 		color: var(--ins_toggle_icon_hover);
@@ -138,6 +151,8 @@
 			background-color: #fff;
 			padding-top: 6px;
 			svg {
+				height: var(--ins_toggle_icon_size);
+				margin-bottom: 3px;
 				path {
 					fill: var(--ins_checkout_theme);
 				}
@@ -208,7 +223,7 @@
 			&.tog-2 {
 				left: auto;
 				right: -80px !important;
-				border-radius: 0px 5px 5px 0px;
+				// border-radius: 0px 5px 5px 0px;
 			}
 		}
 	}
@@ -227,9 +242,9 @@
 .ins-fixed-toogle.ins-hori-left  .ins-toggle-btn.tog-1, .ins-fixed-toogle.ins-hori-left .ins-toggle-btn.tog-2 {
 	left: 0px;
 	bottom: 40px;
-	width: 90px;
-	height: 90px;
-	border-radius: 0px 5px 5px 0px !important;
+	// width: 90px;
+	// height: 90px;
+	// border-radius: 0px 5px 5px 0px !important;
 }
 .ins-checkout-popup.slide.ins-var-cart-middle .ins-toggle-btn.tog-1,
  .ins-fixed-toogle.ins-var-cart-middle  .ins-toggle-btn.tog-1 {

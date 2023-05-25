@@ -108,7 +108,7 @@
 		if (hide_toggler == true) {
 			var cart_item_count = $('.ins-checkout-layout').find('.ins-single-cart-item').length;
 			if (cart_item_count == 0) {
-				$(".ins-toggle-btn").hide();
+				$(".ins-toggle-btn").css({"visibility": "hidden", "opacity": "0"});
 				$(".ins-checkout-layout-3").removeClass("active");
 				$(".ins-checkout-overlay").removeClass("active");
 				$(".ins-checkout-popup").removeClass("active");
@@ -208,7 +208,7 @@
 		var startPos = $(this).closest(".product").find("img").offset();
 		var productThumbwidth = $(this).closest(".product").find("img").width();
 		var endPos = $(".ins-toggle-btn").offset();
-		if( cart_fly_icon != '' && cart_fly_icon != false){
+		if( cart_fly_icon != '' && cart_fly_icon != true){
 			productThumb = '<span class="ins-cart-fly-icon">'+cart_fly_icon+'</span>';
 		}else{
 			productThumb = '<img src="' + productThumb + '">';
@@ -256,7 +256,7 @@
 		var productThumbwidth = productThumb.width();
 		var startPos = productThumb.offset();
 		var endPos = $(".ins-toggle-btn").offset();
-		if( cart_fly_icon != '' && cart_fly_icon != false){
+		if( cart_fly_icon != '' && cart_fly_icon != true){
 			productThumb = '<span class="ins-cart-fly-icon">'+cart_fly_icon+'</span>';
 		}else{
 			productThumb = '<img src="' + productThumb_src + '">';

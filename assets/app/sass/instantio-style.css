@@ -782,11 +782,15 @@
   flex-direction: row;
 }
 .ins-cart-coupon .coupon button {
-  background: var(--ins_checkout_theme);
+  background: var(--ins_checkout_theme) !important;
   border-radius: 0px 8px 8px 0px;
   color: #fff;
-  border: 1px solid var(--ins_checkout_theme);
+  border: 1px solid var(--ins_checkout_theme) !important;
   padding: 10px;
+ &:hover {
+    background-color: var(--ins_checkout_theme) !important;
+    color: #fff;
+  }
 }
 .ins-cart-coupon .coupon button:focus {
   outline: none;
