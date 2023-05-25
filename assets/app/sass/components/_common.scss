@@ -60,6 +60,8 @@
     .ins-cart-fly-icon {
         height: 100%;
         width: 100%;
+        max-width: 100px;
+        max-height: 100px;
         background-color: #fff !important;
         display: block;
         padding: 20px !important;
@@ -68,10 +70,14 @@
         -moz-border-radius: 10px;
         -ms-border-radius: 10px;
         -o-border-radius: 10px;
+        text-align: center;
 
         svg {
             height: 100%;
             width: 100%;
+        }
+        i {
+            font-size: 40px;
         }
     }
 

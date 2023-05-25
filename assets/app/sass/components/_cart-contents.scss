@@ -353,7 +353,12 @@
   
         &:focus {
           outline: none;
-        }
+        } 
+        &:hover {
+            background-color: var(--ins_checkout_theme) !important;
+            color: #fff;
+            border: 1px solid var(--ins_checkout_theme) !important;
+          }
       }
   
       input:focus {
@@ -379,6 +384,7 @@
     font-weight: 700;
     transition: 0.4s;
     cursor: pointer;
+    line-height: unset !important;
   }
   
   .ins-footer-cart-button {

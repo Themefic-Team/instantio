@@ -265,7 +265,7 @@ class Assets {
         $noquickview = insopt('woins-quickview-disable');  
 
         $ins_empty_cart = !empty(insopt( 'ins-toggle-tab' )['ins-cart-emty-hide']) ? insopt( 'ins-toggle-tab' )['ins-cart-emty-hide'] : false;
-        if($cart_fly_icon == true){
+        if($cart_fly_icon == false){
             $cart_icon = !empty(insopt( 'ins-toggle-tab' )['cart-icon']) ? insopt( 'ins-toggle-tab' )['cart-icon'] : 'shopping-bag';
             if($cart_icon == 'shopping-bag'){
 
@@ -273,9 +273,7 @@ class Assets {
             }else{
                 $cart_fly_icon = '<i class="'.$cart_icon.'"></i>';
             }
-        }else{
-            $cart_fly_icon = false;
-        }
+        } 
         $output .=  isset($ins_empty_cart) && !empty($ins_empty_cart) ? 'var hide_toggler = '.$ins_empty_cart.';' : 'var hide_toggler = false;';
         $output .=  isset($auto_open_toggle) && $auto_open_toggle == true ? 'var auto_open_toggle = true;' : 'var auto_open_toggle = false;';
         $output .=  isset($cart_fly_anim) && $cart_fly_anim == true ? 'var cart_fly_anim = true;' : 'var cart_fly_anim = false;';

@@ -60,8 +60,9 @@ class App {
 
     public function ins_options_init(){
         $options            = get_option( 'wiopt' ); 
+        $cart_icon = !empty(insopt( 'ins-toggle-tab' )['cart-icon']) ? insopt( 'ins-toggle-tab' )['cart-icon'] : 'shopping-bag';
         echo "<pre>";
-        print_r($options);
+        print_r($cart_icon);
         echo "</pre>"; 
         die;
     }
