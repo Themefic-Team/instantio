@@ -244,7 +244,7 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 
 						<div class="dashboad-content help-center active">
 							<div class="tf-settings-help-center">
-								<div class="tf-help-center-banner" style="background-image: url('<?php echo INS_ADMIN_URL?>/tf-options/img/wizard/setup-wizard_bg.png')">
+								<div class="tf-help-center-banner" style="background-image: url('<?php echo INS_ADMIN_URL?>/tf-options/img/wizard/setup_wizard_bg.png')">
 									<div class="tf-help-center-content">
 										<h2><?php _e("Setup Wizard","instantio"); ?></h2>
 										<p><?php _e("Click the button below to run the setup wizard of Instantio. Your existing settings will not change.","instantio"); ?></p>
@@ -336,49 +336,41 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 								<div class="tutorial-body">
 									<figure class="figure">
 										<div class="main-caption">
-											<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/tutorial.jpg' ?>" class="figure-img" alt="turorial" />
+											<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/tutorial-2.png' ?>" class="figure-img" alt="turorial" />
 											<div class="play-button-overlap">
-												<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/play.png' ?>" alt="turorial" />
+												<a  target="_blank" href="https://www.youtube.com/watch?v=1biwrwu-Io8&list=PLY0rtvOwg0ykIvNBa8XI3SR7WEbdqqKoO&index=2">
+												<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/play.png' ?>" alt="turorial" /></a>
 											</div>
 										</div>
 										<figcaption class="figure-caption">
-											<?php _e("A caption for the above image.","instantio"); ?>
+											<?php _e("How to setup a Fast WooCommerce Checkout","instantio"); ?>
 										</figcaption>
 									</figure>
 
 									<figure class="figure">
 										<div class="main-caption">
-											<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/tutorial.jpg' ?>" class="figure-img" alt="turorial" />
+											<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/tutorial-1.png' ?>" class="figure-img" alt="turorial" />
 											<div class="play-button-overlap">
-												<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/play.png' ?>" alt="turorial" />
+												<a target="_blank" href="https://www.youtube.com/watch?v=2RYjb-dZSlE&list=PLY0rtvOwg0ykIvNBa8XI3SR7WEbdqqKoO&index=1">
+												<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/play.png' ?>" alt="turorial" /></a>
 											</div>
 										</div>
 										<figcaption class="figure-caption">
-											<?php _e("A caption for the above image.","instantio"); ?>
+											<?php _e("How to Install / Update Instantio","instantio"); ?>
 										</figcaption>
 									</figure>
 
 									<figure class="figure">
 										<div class="main-caption">
-											<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/tutorial.jpg' ?>" class="figure-img" alt="turorial" />
+											<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/tutorial.png' ?>" class="figure-img" alt="turorial" />
 											<div class="play-button-overlap">
-												<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/play.png' ?>" alt="turorial" />
+												<a target="_blank" href="https://www.youtube.com/watch?v=tW9iRCYASSs&list=PLY0rtvOwg0ykIvNBa8XI3SR7WEbdqqKoO&index=3">
+													<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/play.png' ?>" alt="turorial" />
+												</a>
 											</div>
 										</div>
 										<figcaption class="figure-caption">
-											<?php _e("A caption for the above image.","instantio"); ?>
-										</figcaption>
-									</figure>
-
-									<figure class="figure">
-										<div class="main-caption">
-											<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/tutorial.jpg' ?>" class="figure-img" alt="turorial" />
-											<div class="play-button-overlap">
-												<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/play.png' ?>" alt="turorial" />
-											</div>
-										</div>
-										<figcaption class="figure-caption">
-											<?php _e("A caption for the above image.","instantio"); ?>
+											<?php _e("Instant Checkout for WooCommerce","instantio"); ?>
 										</figcaption>
 									</figure>
 								</div>
