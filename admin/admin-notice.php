@@ -100,25 +100,18 @@ if(!function_exists('ins_review_notice_callback')){
 if(!function_exists('new_updated_announcement')){
     function new_updated_announcement() { 
         $current_user = wp_get_current_user();
+        $imgurl = INS_ADMIN_URL;
         ?>
 
         <div class="notice themefic_review_notice new_updated_anno">  
             <?php echo sprintf( 
                     __( '
                         <p>
-                            Hey %1$s 👋, </br> We are delighted to announce that new updates for %2$s are forthcoming! Our team has been striving to create innovative exciting new versions and improvements to enhance your experience. 
+                            Hey %1$s 👋 
                         </p>
-                        <p>
-                            Users can look forward to improved performance with faster load times, an optimized user interface, an enhanced Ajax Cart and Checkout, added security features, and extended functionality to maximize %2$s potential.
-                        </p>
-                        <p>
-                            We prioritize providing our users with an optimal experience when using %2$s. To this end, we are continuously seeking to enhance our plugin to provide you with the best experience possible. Additionally, you may choose to use our existing version if you prefer. In the new version, you will have the option to use the existing version instead. We are not discontinuing our existing version for now.
-                        </p>
-                        <p>
-                            We appreciate you choosing %2$s and are excited to bring you these new updates soon.
-                        </p>
+                        <a class="new_updated_anno_banner_url" target="_blank" href="https://themefic.com/introducing-instantio-3-0/"><img class="new_updated_anno_banner" src="%2$s/img/version-update-banner.png" /></a>
                     ', 'instantio' ),
-                    $current_user->user_login,
+                    $current_user->user_login, $imgurl,
                     'Instantio'
                 ); ?>
 
@@ -130,9 +123,9 @@ if(!function_exists('new_updated_announcement')){
 
     <?php }
 
-    if(isset($ins_review_notice_status) && $ins_review_notice_status <= 0 && $ins_installation_date == 1 && !isset($_COOKIE['ins_review_notice_status']) && !isset($_COOKIE['ins_installation_date'])){ 
-        add_action( 'admin_notices', 'new_updated_announcement' );
-    }
+    
+    add_action( 'admin_notices', 'new_updated_announcement' );
+    
 
  
 }
