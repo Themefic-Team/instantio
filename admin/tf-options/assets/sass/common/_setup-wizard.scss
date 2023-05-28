@@ -187,7 +187,6 @@ Welcome Step
       color: #fff;
       background-color: #db5209;
       border-radius: 8px;
-      border-radius: 2px;
       border-color: transparent;
       cursor: pointer;
     }
@@ -214,6 +213,11 @@ Welcome Step
       .tf-admin-btn {
         margin-bottom: 0;
         margin-right: 10px;
+      }
+      .bg-not {
+        color: #db5209;
+        border: 1px solid #db5209;
+        background-color: transparent;
       }
     }
   }
@@ -469,26 +473,30 @@ Steps
     }
 
     .tf-setup-prev-btn {
-      padding: 7px 12px;
+      padding: 16px 32px;
       display: flex;
-      color: #fff;
-      background-color: #db5209;
-      border-radius: 2px;
-      border-color: transparent;
+      color: #db5209;
+      border: 1px solid #db5209;
+      background-color: transparent;
+      border-radius: 8px;
     }
 
     .tf-setup-action-btn-next {
       display: flex;
       button {
-        padding: 7px 12px;
+        padding: 16px 32px;
         display: flex;
         color: #fff;
         background-color: #db5209;
-        border-radius: 2px;
+        border-radius: 8px;
         border-color: transparent;
         &:last-child {
           margin-left: 20px;
         }
+      }
+      .tf-setup-skip-btn {
+        background-color: transparent;
+        color: #db5209;
       }
     }
   }

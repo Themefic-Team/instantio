@@ -196,6 +196,16 @@ TF_Settings::option( 'wiopt', array(
 					'width' 		=> 100,
 					'default'   	=> false,
 				),
+				
+				array(
+					'id'        	=> 'ins-cart-emty-hide',
+					'type'      	=> 'switch',
+					'label'     	=> __( 'Hide Toggle when No Cart Item', 'instantio' ),
+					'label_on'  	=> __( 'Yes', 'instantio' ),
+					'label_off' 	=> __( 'No', 'instantio' ),
+					'default'   	=> false
+				),
+
 				array(
 					'id'     		=> 'cart-fly',
 					'type'   		=> 'fieldset',
@@ -412,15 +422,6 @@ TF_Settings::option( 'wiopt', array(
 								),
 				
 								array(
-									'id'        	=> 'ins-cart-emty-hide',
-									'type'      	=> 'switch',
-									'label'     	=> __( 'Hide Toggle when No Cart Item', 'instantio' ),
-									'label_on'  	=> __( 'Yes', 'instantio' ),
-									'label_off' 	=> __( 'No', 'instantio' ),
-									'default'   	=> false
-								),
-				
-								array(
 									'id'       		=> 'cart-icon-style',
 									'class'    		=> 'imageset-inline',
 									'type'     		=> 'imageselect',
@@ -584,10 +585,23 @@ TF_Settings::option( 'wiopt', array(
 								),
 
 								array(
+									'id'        	=> 'wi-header-text-colors',
+									'type'      	=> 'color',
+									'label'    		=> __( 'Cart Total Item Color', 'instantio' ),
+									'subtitle' 		=> __( 'Set regular & hover color for cart items total number', 'instantio' ),
+									'multiple'  	=> true,
+									'inline'    	=> true,
+									'colors'   		=> array(
+										'regular' 			=> __('Regular', 'instantio'),
+										'hover' 			=> __('Hover', 'instantio'),
+									)
+								),
+
+								array(
 									'id'        	=> 'ins-tog-item-bg',
 									'type'      	=> 'color',
-									'label'    		=> __( 'Cart Icon Total Item Number Background', 'instantio' ),
-									'subtitle' 		=> __( 'Set regular & hover background color', 'instantio' ),
+									'label'    		=> __( 'Cart Total Item Background', 'instantio' ),
+									'subtitle' 		=> __( 'Set regular & hover color for cart items total number background', 'instantio' ),
 									'multiple'  	=> true,
 									'inline'    	=> true,
 									'colors'   		=> array(
@@ -596,18 +610,6 @@ TF_Settings::option( 'wiopt', array(
 									)
 								),
 				
-								array(
-									'id'        	=> 'wi-header-text-colors',
-									'type'      	=> 'color',
-									'label'    		=> __( 'Cart Icon Total Item Number Color', 'instantio' ),
-									'subtitle' 		=> __( 'Set regular & hover color of text & icon', 'instantio' ),
-									'multiple'  	=> true,
-									'inline'    	=> true,
-									'colors'   		=> array(
-										'regular' 			=> __('Regular', 'instantio'),
-										'hover' 			=> __('Hover', 'instantio'),
-									)
-								),
 							),
 						),
 					),
