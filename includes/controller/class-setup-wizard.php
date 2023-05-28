@@ -322,20 +322,21 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
                         </div>
                     </div>
 
-                    <div class="tf-setup-form-item middle">
-                        <div class="tf-setup-form-item-label"><label class="" for="woins-quickview-disable"><?php _e( 'Disable Quick View', 'instantio' ) ?></label></div>
-                        <div class="tf-setup-form-item-input">
-                            <label for="woins-quickview-disable" class="tf-switch-label">
-                                <input type="checkbox" id="woins-quickview-disable" name="woins-quickview-disable" value="1" class="tf-switch" checked/>
-                                <span class="tf-switch-slider"></span>
-                            </label>
-                        </div>
-                    </div>
-                            
                     <?php $is_Pro_class = new TF_Options;
                         $is_Pro_active = $is_Pro_class->is_tf_pro_active(); 
 
                         if($is_Pro_active === true) { ?>
+
+                            <div class="tf-setup-form-item middle">
+                                <div class="tf-setup-form-item-label"><label class="" for="woins-quickview-disable"><?php _e( 'Disable Quick View', 'instantio' ) ?></label></div>
+                                <div class="tf-setup-form-item-input">
+                                    <label for="woins-quickview-disable" class="tf-switch-label">
+                                        <input type="checkbox" id="woins-quickview-disable" name="woins-quickview-disable" value="1" class="tf-switch" checked/>
+                                        <span class="tf-switch-slider"></span>
+                                    </label>
+                                </div>
+                            </div>
+                            
                             <!--Disable Ajax Option-->
                             <div class="tf-setup-form-item middle">
                                 <div class="tf-setup-form-item-label">
@@ -350,9 +351,9 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
                                     </label>
                                 </div>
                             </div>
-                    <?php } ?>
 
-                    
+                    <?php } ?>
+ 
                 </section>
                 <div class="tf-setup-action-btn-wrapper">
                     <button type="button" class="tf-setup-prev-btn tf-admin-btn tf-btn-secondary"><?php _e( 'Previous', 'instantio' ) ?></button>
@@ -520,7 +521,7 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
                     </div>
 
                     <div class="tf-setup-welcome-footer tf-setup-finish-footer">
-                        <a href="<?php echo admin_url( 'admin.php?page=wiopt#tab=layout_option' ) ?>" class="tf-admin-btn tf-btn-secondary"><?php _e( 'Instantio Settings', 'instantio' ) ?></a>
+                        <a href="<?php echo admin_url( 'admin.php?page=wiopt#tab=layout_option' ) ?>" class="tf-admin-btn tf-btn-secondary bg-not"><?php _e( 'Instantio Settings', 'instantio' ) ?></a>
                         
                         <a href="<?php echo admin_url( '/' ) ?>" class="tf-admin-btn tf-btn-secondary"><?php _e( 'Back to Dashboard', 'instantio' ) ?></a>
                     </div>

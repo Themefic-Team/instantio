@@ -196,6 +196,10 @@
   }
 }
 
+body.instantio_page_ins-license-activation {
+  background: #ffffff;
+}
+
 #wpbody .notice {
   display: none !important;
 }
@@ -296,35 +300,30 @@
   margin-bottom: 45px;
 }
 .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-tab li {
-  position: relative;
+  padding: 8px 40px;
+}
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-tab li.active {
+  border-radius: 8px;
+  background: #fff5f0;
+  border-bottom: 2px solid #db5209;
+  box-shadow: 0px 5px 15px rgba(233, 87, 10, 0.2);
 }
 .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-tab li.active span {
   color: #db5209;
   font-weight: 700;
 }
 .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-tab li span {
-  font-weight: 400;
+  font-weight: 700;
   font-size: 17px;
   line-height: 150%;
   letter-spacing: 0.01em;
-  color: #002043;
+  color: #665f5c;
   cursor: pointer;
 }
 @media only screen and (max-width: 991.98px) {
   .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-tab li span {
     font-size: 15px;
   }
-}
-.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-tab li.active::before {
-  content: "";
-  position: absolute;
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background-color: #db5209;
-  left: 50%;
-  margin-left: -5px;
-  bottom: -14px;
 }
 .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content {
   overflow: hidden;
@@ -333,7 +332,7 @@
   display: none;
 }
 .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-help-center-banner {
-  background-color: #FFF5F0;
+  background-color: #fff5f0;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -380,7 +379,7 @@
   color: #f2f4f5;
   display: inline-block;
   padding: 10px 25px;
-  background: linear-gradient(269.21deg, #EA6C00 0.68%, #FD8A00 99.35%);
+  background: linear-gradient(269.21deg, #ea6c00 0.68%, #fd8a00 99.35%);
   border: transparent;
   text-decoration: none;
   border-radius: 4px;
@@ -392,10 +391,10 @@
 .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-help-center-banner .tf-help-center-content a:hover {
   background-color: #c44a08;
   border-color: transparent;
-  color: #665F5C;
+  color: #665f5c;
 }
 .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-help-center-banner .tf-help-center-content h2 {
-  color: #665F5C;
+  color: #665f5c;
   font-style: normal;
   font-weight: 700;
   font-size: 32px;
@@ -407,7 +406,7 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 140%;
-  color: #B3A6A1;
+  color: #b3a6a1;
   margin-bottom: 20px;
 }
 .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-help-center-banner .tf-help-center-content-img {
@@ -511,7 +510,7 @@
   flex-direction: column;
   align-items: center;
   padding: 24px;
-  background: #FFF5F0;
+  background: #fff5f0;
   box-shadow: 0px 10px 30px rgba(0, 7, 66, 0.05);
   border-radius: 8px;
   margin-bottom: 50px;
@@ -521,7 +520,7 @@
   font-weight: 600;
   font-size: 20px;
   line-height: 30px;
-  color: #665F5C;
+  color: #665f5c;
   margin: 0;
   padding-bottom: 8px;
 }
@@ -539,7 +538,7 @@
   text-decoration: none;
   color: #fff;
   padding: 16px 32px;
-  background: linear-gradient(269.21deg, #EA6C00 0.68%, #FD8A00 99.35%);
+  background: linear-gradient(269.21deg, #ea6c00 0.68%, #fd8a00 99.35%);
   border-radius: 4px;
 }
 .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content .tf-settings-help-center .request-features {
@@ -547,7 +546,7 @@
   flex-direction: column;
   align-items: center;
   padding: 24px;
-  background-color: #FFF5F0;
+  background-color: #fff5f0;
   box-shadow: 0px 10px 30px rgba(0, 7, 66, 0.05);
   border-radius: 8px;
 }
@@ -560,7 +559,7 @@
   font-weight: 600;
   font-size: 20px;
   line-height: 30px;
-  color: #665F5C;
+  color: #665f5c;
   margin: 8px 0;
   text-align: center;
 }
@@ -997,10 +996,6 @@
   content: url("../img/circlecompa.svg");
 }
 
-body.instantio_page_ins-license-activation {
-  background: #ffffff;
-}
-
 .ins_license_wrap {
   margin: 40px 40px 40px 20px;
 }
@@ -1064,7 +1059,7 @@ body.instantio_page_ins-license-activation {
 }
 .ins_license_wrap .el-license-container .el-license-info li {
   margin-bottom: 10px;
-  color: #665F5C;
+  color: #665f5c;
   font-size: 16px;
 }
 .ins_license_wrap .el-license-container .el-license-info li span:first-child {
@@ -1072,7 +1067,7 @@ body.instantio_page_ins-license-activation {
   display: inline-block;
 }
 .ins_license_wrap .el-license-container .el-license-info li .el-license-info-title {
-  color: #665F5C;
+  color: #665f5c;
   font-weight: 600;
   margin-right: 1px;
   font-size: 17px;
@@ -1900,7 +1895,6 @@ Welcome Step
   color: #fff;
   background-color: #db5209;
   border-radius: 8px;
-  border-radius: 2px;
   border-color: transparent;
   cursor: pointer;
 }
@@ -1926,6 +1920,11 @@ Welcome Step
 .tf-setup-content-layout .tf-setup-welcome-footer.tf-setup-finish-footer .tf-admin-btn {
   margin-bottom: 0;
   margin-right: 10px;
+}
+.tf-setup-content-layout .tf-setup-welcome-footer.tf-setup-finish-footer .bg-not {
+  color: #db5209;
+  border: 1px solid #db5209;
+  background-color: transparent;
 }
 .tf-setup-content-layout .ins_quick_setup_finish {
   display: flex;
@@ -2160,26 +2159,30 @@ Steps
   }
 }
 .tf-setup-step-container .tf-setup-action-btn-wrapper .tf-setup-prev-btn {
-  padding: 7px 12px;
+  padding: 16px 32px;
   display: flex;
-  color: #fff;
-  background-color: #db5209;
-  border-radius: 2px;
-  border-color: transparent;
+  color: #db5209;
+  border: 1px solid #db5209;
+  background-color: transparent;
+  border-radius: 8px;
 }
 .tf-setup-step-container .tf-setup-action-btn-wrapper .tf-setup-action-btn-next {
   display: flex;
 }
 .tf-setup-step-container .tf-setup-action-btn-wrapper .tf-setup-action-btn-next button {
-  padding: 7px 12px;
+  padding: 16px 32px;
   display: flex;
   color: #fff;
   background-color: #db5209;
-  border-radius: 2px;
+  border-radius: 8px;
   border-color: transparent;
 }
 .tf-setup-step-container .tf-setup-action-btn-wrapper .tf-setup-action-btn-next button:last-child {
   margin-left: 20px;
+}
+.tf-setup-step-container .tf-setup-action-btn-wrapper .tf-setup-action-btn-next .tf-setup-skip-btn {
+  background-color: transparent;
+  color: #db5209;
 }
 .tf-setup-step-container .tf-setup-form-item.bg {
   background-color: #fef2eb;
