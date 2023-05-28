@@ -125,6 +125,21 @@
   position: relative;
 }
 
+.new_updated_anno .new_updated_anno_banner_url {
+  display: block;
+}
+.new_updated_anno .new_updated_anno_banner_url:focus,
+.new_updated_anno .new_updated_anno_banner_url:hover {
+  color: transparent;
+  border-color: transparent;
+  box-shadow: none;
+  outline: 1px solid transparent;
+}
+
+.new_updated_anno .new_updated_anno_banner {
+  width: 100%;
+}
+
 .new_updated_anno_close {
   position: absolute;
   top: 5px;
