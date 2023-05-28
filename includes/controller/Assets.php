@@ -97,18 +97,17 @@ class Assets {
 
         // Panel Style
         $wi_zindex = isset($ins_toggle_panel_tab['wi-zindex']) ? $ins_toggle_panel_tab['wi-zindex'] : '9999';
-        $panel_width_1200 = isset($ins_toggle_panel_tab['panel-width-1200']) ? $ins_toggle_panel_tab['panel-width-1200'] : '55';
-        $panel_width_1024 = isset($ins_toggle_panel_tab['panel-width-1024']) ? $ins_toggle_panel_tab['panel-width-1024'] : '70';
-        $panel_width_767 = isset($ins_toggle_panel_tab['panel-width-767']) ? $ins_toggle_panel_tab['panel-width-767'] : '85';
-        $wi_inner_bg_colors_regular = isset($ins_toggle_panel_tab['wi-inner-bg-colors']['regular']) ? $ins_toggle_panel_tab['wi-inner-bg-colors']['regular'] : '';
-        $wi_inner_bg_colors_hover = isset($ins_toggle_panel_tab['wi-inner-bg-colors']['hover']) ? $ins_toggle_panel_tab['wi-inner-bg-colors']['hover'] : '';
+        $panel_width_1200 = isset($ins_toggle_panel_tab['panel-width-1200']) ? $ins_toggle_panel_tab['panel-width-1200'] : '690';
+        $panel_width_1024 = isset($ins_toggle_panel_tab['panel-width-1024']) ? $ins_toggle_panel_tab['panel-width-1024'] : '500';
+        $panel_width_767 = isset($ins_toggle_panel_tab['panel-width-767']) ? $ins_toggle_panel_tab['panel-width-767'] : '400';
+        $wi_inner_bg_colors_regular = isset($ins_toggle_panel_tab['wi-container-bg']) ? $ins_toggle_panel_tab['wi-container-bg'] : '';
         $ins_panel_text_color = isset($ins_toggle_panel_tab['ins-panel-text-color']) ? $ins_toggle_panel_tab['ins-panel-text-color'] : '#665F5C';
         
         $output .= '
         :root {
-            --ins_panel_width_1200: '.$panel_width_1200.'%;
-            --ins_panel_width_1024: '.$panel_width_1024.'%;
-            --ins_panel_width_767: '.$panel_width_767.'%; 
+            --ins_panel_width_1200: '.$panel_width_1200.'px;
+            --ins_panel_width_1024: '.$panel_width_1024.'px;
+            --ins_panel_width_767: '.$panel_width_767.'px; 
           } 
         ';  
         $output .= '
@@ -116,7 +115,10 @@ class Assets {
                     background-color: '.$wi_inner_bg_colors_regular.' !important;
                     color: '.$ins_panel_text_color.' !important; 
                     z-index: '.$wi_zindex.' !important;
-                } 
+                }
+                .ins-checkout-header-title{
+                    color: '.$ins_panel_text_color.' !important;
+                }
                 .ins-checkout-modern .ins-checkout-layout.slide.ins-hori-left {
                     left: -'.$panel_width_1200.'%  !important;
                 }
@@ -142,10 +144,6 @@ class Assets {
                     left: 0 !important;
                     right: auto;
                   }  
-                .ins-checkout-layout:hover {
-                    background-color: '.$wi_inner_bg_colors_hover.' !important; 
-                }
-
                 
             '; 
 
@@ -158,12 +156,12 @@ class Assets {
         $ins_panel_button_text_hover = isset($ins_toggle_panel_tab['ins-panel-button-text']['hover']) && !empty($ins_toggle_panel_tab['ins-panel-button-text']['hover']) ? $ins_toggle_panel_tab['ins-panel-button-text']['hover'] : '#FCF9F7';
 
         $output .= '
-                .ins-cart-btns a, .ins-cart-btns a.active {
+                .ins-cart-btns a, .ins-cart-btns button {
                     background-color: '.$ins_panel_button_bg_regular.' !important;
                     color: '.$ins_panel_button_text_regular.' !important;
                     border-color: '.$ins_panel_button_border_regular.' !important;
                 }
-                .ins-cart-btns a:hover {
+                .ins-cart-btns a:hover, .ins-cart-btns button:hover {
                     background-color: '.$ins_panel_button_bg_hover.' !important;
                     color: '.$ins_panel_button_text_hover.' !important;
                     border-color: '.$ins_panel_button_border_hover.' !important;
@@ -182,11 +180,11 @@ class Assets {
          $cart_pricing_bg = isset($ins_toggle_panel_tab['cart-pricing-bg']) && !empty($ins_toggle_panel_tab['cart-pricing-bg']) ? $ins_toggle_panel_tab['cart-pricing-bg'] : '';
          $cart_pricing_text = isset($ins_toggle_panel_tab['cart-pricing-text']) && !empty($ins_toggle_panel_tab['cart-pricing-text']) ? $ins_toggle_panel_tab['cart-pricing-text'] : ''; 
  
-         $cart_button_background_colors_regular = isset($ins_toggle_panel_tab['cart-button-background-colors']['regular']) && !empty($ins_toggle_panel_tab['cart-button-background-colors']['regular']) ? $ins_toggle_panel_tab['cart-button-background-colors']['regular'] : $ins_checkout_theme;
-         $cart_button_background_colors_hover = isset($ins_toggle_panel_tab['cart-button-background-colors']['hover']) && !empty($ins_toggle_panel_tab['cart-button-background-colors']['hover']) ? $ins_toggle_panel_tab['cart-button-background-colors']['hover'] : $ins_checkout_theme;
+         $cart_button_background_colors_regular = isset($ins_toggle_panel_tab['cart-button-background-colors']['regular']) && !empty($ins_toggle_panel_tab['cart-button-background-colors']['regular']) ? $ins_toggle_panel_tab['cart-button-background-colors']['regular'] : $ins_panel_button_bg_regular;
+         $cart_button_background_colors_hover = isset($ins_toggle_panel_tab['cart-button-background-colors']['hover']) && !empty($ins_toggle_panel_tab['cart-button-background-colors']['hover']) ? $ins_toggle_panel_tab['cart-button-background-colors']['hover'] : $ins_panel_button_bg_hover;
  
-         $cart_button_text_colors_regular = isset($ins_toggle_panel_tab['cart-button-text-colors']['regular']) && !empty($ins_toggle_panel_tab['cart-button-text-colors']['regular']) ? $ins_toggle_panel_tab['cart-button-text-colors']['regular'] : '#fff';
-         $cart_button_text_colors_hover = isset($ins_toggle_panel_tab['cart-button-text-colors']['hover']) && !empty($ins_toggle_panel_tab['cart-button-text-colors']['hover']) ? $ins_toggle_panel_tab['cart-button-text-colors']['hover'] : '#fff';
+         $cart_button_text_colors_regular = isset($ins_toggle_panel_tab['cart-button-text-colors']['regular']) && !empty($ins_toggle_panel_tab['cart-button-text-colors']['regular']) ? $ins_toggle_panel_tab['cart-button-text-colors']['regular'] : $ins_panel_button_text_regular;
+         $cart_button_text_colors_hover = isset($ins_toggle_panel_tab['cart-button-text-colors']['hover']) && !empty($ins_toggle_panel_tab['cart-button-text-colors']['hover']) ? $ins_toggle_panel_tab['cart-button-text-colors']['hover'] : $ins_panel_button_text_hover;
  
          $output .= ' 
              .ins-checkout-header {

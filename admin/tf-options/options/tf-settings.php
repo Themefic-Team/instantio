@@ -221,7 +221,8 @@ TF_Settings::option( 'wiopt', array(
 								'0' => 'Cart Icon',
 								'1' => 'Product Thumbnail',
 							 ),
-							 'dependency' 		=> array('cart-fly-anim', '==', 1),
+							'default'   		=> 1,
+							'dependency' 		=> array('cart-fly-anim', '==', 1),
 						)
 					),
 				),
@@ -443,7 +444,8 @@ TF_Settings::option( 'wiopt', array(
 											'url' 			=> plugin_dir_url( __FILE__ ).'../img/cart-4.svg',
 										)
 									),
-									'default' 		=> 'cart-1'
+
+									'default' 		=> 'cart-style-1'
 								),
 								// array(
 								// 	'id'       		=> 'wi-icon-choice',
@@ -743,12 +745,12 @@ TF_Settings::option( 'wiopt', array(
 									'field_width'	=> '50',
 									'label'     	=> __('Cart Panel Width (1200px-auto)', 'instantio'),
 									'subtitle'  	=> __('Set the percent of width of cart panel for display dimension greater than 1199px.', 'instantio'),
-									'description'  	=> __('Range 0%-100%. Default 45', 'instantio'),
-									"default"   	=> 45,
-									'attributes'	=> array(
-										"min"       		=> 1,
-										"max"       		=> 100,
-									),
+									'description'  	=> __('Default 690px', 'instantio'),
+									"default"   	=> 690,
+									// 'attributes'	=> array(
+									// 	"min"       		=> 1,
+									// 	"max"       		=> 100,
+									// ),
 								),
 				
 								array(
@@ -757,12 +759,12 @@ TF_Settings::option( 'wiopt', array(
 									'field_width'	=> '50',
 									'label'     	=> __('Cart Panel Width (1024px-1199px)', 'instantio'),
 									'subtitle'  	=> __('Set the percent of width of cart panel for display dimension greater than 1023px.', 'instantio'),
-									'description'  	=> __('Range 0%-100%. Default 48', 'instantio'),
-									"default"   	=> 48,
-									'attributes'	=> array(
-										"min"       		=> 1,
-										"max"       		=> 100,
-									),
+									'description'  	=> __(' Default 620px', 'instantio'),
+									"default"   	=> 620,
+									// 'attributes'	=> array(
+									// 	"min"       		=> 1,
+									// 	"max"       		=> 100,
+									// ),
 								),
 				
 								array(
@@ -771,12 +773,12 @@ TF_Settings::option( 'wiopt', array(
 									'field_width'	=> '50',
 									'label'     	=> __('Cart Panel Width (501px-1023)', 'instantio'),
 									'subtitle'  	=> __('Set the percent of width of cart panel for display dimension greater than 500px.', 'instantio'),
-									'description'  	=> __('Range 0%-100%. Default 60 <br/> <br/> Width is 100% for devices which dimension up to 500px.', 'instantio'),
-									"default"   	=> 60,
-									'attributes'	=> array(
-										"min"       		=> 1,
-										"max"       		=> 100,
-									),
+									'description'  	=> __('Default 400 <br/> <br/> Width is 100% for devices which dimension up to 500px.', 'instantio'),
+									"default"   	=> 420,
+									// 'attributes'	=> array(
+									// 	"min"       		=> 1,
+									// 	"max"       		=> 100,
+									// ),
 								),
 
 								array(

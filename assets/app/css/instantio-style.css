@@ -747,8 +747,8 @@
   -o-border-radius: 8px !important;
   background-color: var(--ins_checkout_theme); }
 .ins-cart-btns a.active, .ins-cart-btns button.active {
-  background-color: #e9570a !important;
-  color: #fff !important; }
+  background-color: #e9570a;
+  color: #fff; }
 
 /* Ins Cart Footer */
 /* Popup */
@@ -1058,8 +1058,8 @@
   padding: 0px; }
 
 .ins-cart-btns a.active, .ins-cart-btns button.active {
-  background-color: #e9570a !important;
-  color: #fff !important; }
+  background-color: #e9570a;
+  color: #fff; }
 .ins-cart-btns a:hover, .ins-cart-btns button:hover {
   background-color: #e9570a;
   color: #fff; }
@@ -1257,26 +1257,30 @@
 /* Gradient Mode CSS */
 .ins-layout-gradient .ins-checkout-layout {
   background: linear-gradient(135deg, #4750D4 0%, #C23395 100%); }
+.ins-layout-gradient .ins-steps-style-4 .ins-single-step span {
+  background-color: transparent !important; }
+.ins-layout-gradient .ins-steps-style-4 .ins-single-step::before {
+  display: none; }
 .ins-layout-gradient .ins-checkout-header {
   background: linear-gradient(135deg, #B959CB 0%, #6A5FCC 100%);
   box-shadow: 0px 10px 20px rgba(75, 26, 0, 0.05); }
-.ins-layout-gradient .ins-checkout-header-icon svg path, .ins-layout-gradient .ins-checkout-header-title, .ins-layout-gradient .ins-checkout-close svg path {
-  fill: #FCF9F7 !important;
-  color: #FCF9F7 !important; }
-.ins-layout-gradient .ins-checkout-steps {
-  background-color: #AB78C7; }
+.ins-layout-gradient .ins-steps-style-3.active .ins-step-icon svg path, .ins-layout-gradient .ins-steps-style-3.done .ins-step-icon svg path, .ins-layout-gradient .ins-steps-style-3.active .ins-step-title, .ins-layout-gradient .ins-steps-style-3.done .ins-step-title {
+  fill: #fff !important;
+  color: #fff !important; }
+.ins-layout-gradient .ins-steps-style-3 .ins-step-icon svg path, .ins-layout-gradient .ins-steps-style-3 .ins-step-title {
+  fill: var(--ins_checkout_theme) !important;
+  color: var(--ins_checkout_theme) !important; }
+.ins-layout-gradient .ins-steps-style-3 .ins-checkout-steps-wrap > div {
+  z-index: 1 !important; }
 .ins-layout-gradient .ins-steps-style-4 {
   background-color: transparent !important; }
 .ins-layout-gradient .ins-single-step.active, .ins-layout-gradient .ins-single-step.done {
   background-color: transparent !important; }
 .ins-layout-gradient .ins-single-step.ins-steps-style-4.active, .ins-layout-gradient .ins-single-step.ins-steps-style-4.done {
   background-color: #FCF9F7; }
-.ins-layout-gradient .ins-single-step .ins-step-icon svg path, .ins-layout-gradient .ins-single-step .ins-step-title {
+.ins-layout-gradient .ins-single-step.ins-steps-style-4 .ins-step-icon svg path, .ins-layout-gradient .ins-single-step.ins-steps-style-4 .ins-step-title {
   fill: #FCF9F7 !important;
   color: #FCF9F7; }
-.ins-layout-gradient .ins-single-step.active .ins-step-icon svg path, .ins-layout-gradient .ins-single-step.done .ins-step-icon svg path, .ins-layout-gradient .ins-single-step.active .ins-step-title, .ins-layout-gradient .ins-single-step.done .ins-step-title {
-  fill: #665F5C !important;
-  color: #665F5C; }
 .ins-layout-gradient .ins-cart-content-wrap, .ins-layout-gradient .ins-single-product-sell, .ins-layout-gradient .ins-cart-footer-content {
   background-color: #FCF9F75E !important;
   /* mix-blend-mode: soft-light !important; */
@@ -1320,10 +1324,17 @@
 
 /* Gradient Mode CSS */
 /* Glass Morphism Mode CSS */
-.ins-layout-glass-morphism .ins-checkout-layout, .ins-layout-glass-morphism .ins-cart-content-wrap, .ins-layout-glass-morphism .ins-cart-footer-content, .ins-layout-glass-morphism .ins-steps-style-4 .ins-single-step span, .ins-layout-glass-morphism .ins-checkout-header, .ins-layout-glass-morphism .ins-cart-content-wrap .ins-single-cart-item {
+.ins-layout-glass-morphism .ins-checkout-layout, .ins-layout-glass-morphism .ins-cart-content-wrap,
+.ins-layout-glass-morphism .ins-checkout-header, .ins-layout-glass-morphism .ins-cart-content-wrap .ins-single-cart-item {
   background: rgba(253, 253, 253, 0.4) !important;
   backdrop-filter: blur(5px);
   border: none !important; }
+.ins-layout-glass-morphism .ins-checkout-steps.ins-steps-style-4 {
+  background-color: #fff !important; }
+.ins-layout-glass-morphism .ins-steps-style-4 .ins-single-step span {
+  background-color: #fff !important; }
+.ins-layout-glass-morphism .ins-steps-style-4 .ins-checkout-steps-wrap > div {
+  z-index: 1 !important; }
 .ins-layout-glass-morphism .ins-checkout-overlay.active {
   opacity: 0 !important; }
 .ins-layout-glass-morphism.popup .ins-checkout-overlay.active {
