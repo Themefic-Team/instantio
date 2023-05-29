@@ -35,6 +35,24 @@ class Admin{
             return;
         }
 
+        /**
+         * Check if Instantio Pro version is 3.0.0 or above, if it isn't, disable the plugin.
+         *
+         * @since 1.0
+         */
+        if ( is_plugin_active( 'wooinstant/wooinstant.php' ) ) {
+            $curvarsion = (double)INSTANTIO_PRO_VERSION;
+            $allowver =(double)'3.0.0';
+
+            if($curvarsion >= $allowver){
+                return;
+            } else {
+                deactivate_plugins('wooinstant/wooinstant.php');
+                add_action( 'admin_notices', array($this, 'version_warning') );
+            }
+            return;
+        }
+
         // Define Plugin Action Links.
         add_filter( 'plugin_action_links_' . INS_BASE_LOCATION, array($this, 'instantio_plugin_action_links') );
         
@@ -112,9 +130,19 @@ class Admin{
             </script>
         <?php  
         }
-     }
+    }
 
-     // Themefic Plugin Review Admin Notice
+    // Version Warning Admin Notice
+    public function version_warning() { ?>
+        <div class="notice notice-error">
+            <?php echo sprintf( 
+                __( '<p> We have noticed a discrepancy between the version of your Pro plugin and the free plugin. We kindly request that you update your Pro plugin to ensure compatibility and optimal performance. Thank you for your attention to this matter.</p>', 'instantio' ),
+                ); 
+            ?> 
+        </div>
+    <?php }
+
+    // Themefic Plugin Review Admin Notice
     public function ins_review_notice_callback(){
         $status = $_POST['status'];
         if( $status == 'already'){ 

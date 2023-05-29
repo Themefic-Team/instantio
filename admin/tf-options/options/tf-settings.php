@@ -64,9 +64,9 @@ TF_Settings::option( 'wiopt', array(
 				
 				array(
 					'id'        	=> 'ins-layout-mode',
-					'class'     	=> 'ins-layout-options-imageset200',
 					'type'      	=> 'imageselect',
-					'label'     	=> 'Choose mode',
+					'class'     	=> 'ins-layout-options-imageset200',
+					'label'     	=> __('Choose mode', 'instantio'),
 					'multiple' 		=> true,
 					'inline'   		=> true,
 					'options'   	=> array(
@@ -74,7 +74,6 @@ TF_Settings::option( 'wiopt', array(
 							'title'			=> 'Light',
 							'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/Light.svg',
 						),
-						
 						
 						'dark' 				=> array(
 							'title'			=> 'Dark',
@@ -90,7 +89,7 @@ TF_Settings::option( 'wiopt', array(
 							'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/Gradient.svg',
 						)
 					),
-					'default'   	=> 'light',
+					'default'   	=> 'light'
 				),
 
 				array(
@@ -111,8 +110,7 @@ TF_Settings::option( 'wiopt', array(
 							'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/CartCheckout.svg',
 						)
 					),
-					'default'   	=> 'cart',
-					// 'dependency' 	=> array('ins-layout',  '!=', '1', '', 'visible' ),
+					'default'   	=> 'cart'
 				),
 
 				array(
