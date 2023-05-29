@@ -134,10 +134,11 @@ class Admin{
 
     // Version Warning Admin Notice
     public function version_warning() { ?>
-        <div class="notice notice-error themefic_review_notice">
+        <div class="notice notice-error">
             <?php echo sprintf( 
-                        __( '<p> We have noticed a discrepancy between the version of your Pro plugin and the free plugin. We kindly request that you update your Pro plugin to ensure compatibility and optimal performance. Thank you for your attention to this matter.</p>', 'instantio' ),
-                    ); ?> 
+                __( '<p> We have noticed a discrepancy between the version of your Pro plugin and the free plugin. We kindly request that you update your Pro plugin to ensure compatibility and optimal performance. Thank you for your attention to this matter.</p>', 'instantio' ),
+                ); 
+            ?> 
         </div>
     <?php }
 
