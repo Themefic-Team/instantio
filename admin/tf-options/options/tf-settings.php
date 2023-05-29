@@ -72,21 +72,21 @@ TF_Settings::option( 'wiopt', array(
 					'options'   	=> array(
 						'light' 			=> array(
 							'title'			=> 'Light',
-							'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/Light.svg',
+							'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/Light.png',
 						),
 						
 						'dark' 				=> array(
 							'title'			=> 'Dark',
-							'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/Dark.svg',
+							'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/Dark.png',
 						),
 
 						'glass-morphism' 	=> array(
 							'title'			=> 'Glass morphism',
-							'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/GlassMorphism.svg',
+							'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/GlassMorphism.png',
 						),
 						'gradient' 			=> array(
 							'title'			=> 'Gradient',
-							'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/Gradient.svg',
+							'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/Gradient.png',
 						)
 					),
 					'default'   	=> 'light'
@@ -102,7 +102,7 @@ TF_Settings::option( 'wiopt', array(
 					'options'   	=> array(
 						'cart' 				=> array(
 							'title'			=> 'Cart',
-							'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/Cart.svg',
+							'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/sidecart.jpg',
 						),
 
 						'cart_and_checkout' 	=> array(
@@ -139,19 +139,19 @@ TF_Settings::option( 'wiopt', array(
 					'options'   	=> array(
 						'progress1' 		=> array(
 							'title'			=> 'Version 1',
-							'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/version1.svg',
+							'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/version1.png',
 						),
 						'progress2' 		=> array(
 							'title'			=> 'Version 2',
-							'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/version2.svg',
+							'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/version2.png',
 						),
 						'progress3' 		=> array(
 							'title'			=> 'Version 3',
-							'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/version3.svg',
+							'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/version3.png',
 						),
 						'progress4' 		=> array(
 							'title'			=> 'Version 4',
-							'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/version4.svg',
+							'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/version4.png',
 						),
 					),
 					// 'default'   	=> 'progress2',
@@ -649,7 +649,7 @@ TF_Settings::option( 'wiopt', array(
 								// 		),
 								// 		'right'  			=> array(
 								// 			'title'			=> 'Cart Panel Right',
-								// 			'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/Cart.svg',
+								// 			'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/sidecart.jpg',
 								// 		),
 								// 	), 
 								// 	'default'  		=> 'right',

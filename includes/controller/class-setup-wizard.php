@@ -147,7 +147,7 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
                             <li>
                                 <input type="radio" name="ins-layout-options" value="2"/>
                                 <label for="ins-layout-options">
-                                    <img src="<?php echo INS_ADMIN_URL . '/tf-options/img/layout/Cart.svg' ?>" alt="<?php esc_attr_e( 'Side-Cart', 'instantio' ) ?>">
+                                    <img src="<?php echo INS_ADMIN_URL . '/tf-options/img/layout/sidecart.jpg' ?>" alt="<?php esc_attr_e( 'Side-Cart', 'instantio' ) ?>">
                                     <span><?php _e( 'Side Cart', 'instantio' ) ?></span>
                                 </label>
                             </li>
@@ -172,7 +172,7 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
                             <li>
                                 <input type="radio" name="ins-layout-mode" value="light" checked/>
                                 <label for="ins-layout-mode">
-                                    <img src="<?php echo INS_ADMIN_URL . '/tf-options/img/layout/Light.svg' ?>" alt="<?php esc_attr_e( 'light', 'instantio' ) ?>">
+                                    <img src="<?php echo INS_ADMIN_URL . '/tf-options/img/layout/Light.png' ?>" alt="<?php esc_attr_e( 'light', 'instantio' ) ?>">
                                     <span><?php _e( 'Light', 'instantio' ) ?></span>
                                 </label>
                             </li>
@@ -180,7 +180,7 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
                             <li>
                                 <input type="radio" name="ins-layout-mode" value="dark"/>
                                 <label for="ins-layout-mode">
-                                    <img src="<?php echo INS_ADMIN_URL . '/tf-options/img/layout/Dark.svg' ?>" alt="<?php esc_attr_e( 'dark', 'instantio' ) ?>">
+                                    <img src="<?php echo INS_ADMIN_URL . '/tf-options/img/layout/Dark.png' ?>" alt="<?php esc_attr_e( 'dark', 'instantio' ) ?>">
                                     <span><?php _e( 'Dark', 'instantio' ) ?></span>
                                 </label>
                             </li>
@@ -188,7 +188,7 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
                             <li>
                                 <input type="radio" name="ins-layout-mode" value="glass-morphism"/>
                                 <label for="ins-layout-mode">
-                                    <img src="<?php echo INS_ADMIN_URL . '/tf-options/img/layout/GlassMorphism.svg' ?>" alt="<?php esc_attr_e( 'GlassMorphism', 'instantio' ) ?>">
+                                    <img src="<?php echo INS_ADMIN_URL . '/tf-options/img/layout/GlassMorphism.png' ?>" alt="<?php esc_attr_e( 'GlassMorphism', 'instantio' ) ?>">
                                     <span><?php _e( 'Glass Morphism', 'instantio' ) ?></span>
                                 </label>
                             </li>
@@ -196,7 +196,7 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
                             <li>
                                 <input type="radio" name="ins-layout-mode" value="gradient"/>
                                 <label for="ins-layout-mode">
-                                    <img src="<?php echo INS_ADMIN_URL . '/tf-options/img/layout/Gradient.svg' ?>" alt="<?php esc_attr_e( 'gradient', 'instantio' ) ?>">
+                                    <img src="<?php echo INS_ADMIN_URL . '/tf-options/img/layout/Gradient.png' ?>" alt="<?php esc_attr_e( 'gradient', 'instantio' ) ?>">
                                     <span><?php _e( 'Gradient', 'instantio' ) ?></span>
                                 </label>
                             </li>
@@ -215,14 +215,14 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
                                     <li>
                                         <input type="radio" name="ins-layout-progressbar" value="1" checked/>
                                         <label for="ins-layout-progressbar">
-                                            <img src="<?php echo INS_ADMIN_URL . '/tf-options/img/layout/version1.svg' ?>" alt="<?php esc_attr_e( 'Version-1', 'instantio' ) ?>">
+                                            <img src="<?php echo INS_ADMIN_URL . '/tf-options/img/layout/version1.png' ?>" alt="<?php esc_attr_e( 'Version-1', 'instantio' ) ?>">
                                             <span><?php _e( 'Version 1', 'instantio' ) ?></span>
                                         </label>
                                     </li>
                                     <li>
                                         <input type="radio" name="ins-layout-progressbar" value="2"/>
                                         <label for="ins-layout-progressbar">
-                                            <img src="<?php echo INS_ADMIN_URL . '/tf-options/img/layout/version2.svg' ?>" alt="<?php esc_attr_e( 'Version-2', 'instantio' ) ?>">
+                                            <img src="<?php echo INS_ADMIN_URL . '/tf-options/img/layout/version2.png' ?>" alt="<?php esc_attr_e( 'Version-2', 'instantio' ) ?>">
                                             <span><?php _e( 'Version 2', 'instantio' ) ?></span>
                                         </label>
                                     </li>
@@ -230,7 +230,7 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
                                     <li>
                                         <input type="radio" name="ins-layout-progressbar" value="3"/>
                                         <label for="ins-layout-progressbar">
-                                            <img src="<?php echo INS_ADMIN_URL . '/tf-options/img/layout/version3.svg' ?>" alt="<?php esc_attr_e( 'Version-3', 'instantio' ) ?>">
+                                            <img src="<?php echo INS_ADMIN_URL . '/tf-options/img/layout/version3.png' ?>" alt="<?php esc_attr_e( 'Version-3', 'instantio' ) ?>">
                                             <span><?php _e( 'Version 3', 'instantio' ) ?></span>
                                         </label>
                                     </li>
@@ -238,7 +238,7 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
                                     <li>
                                         <input type="radio" name="ins-layout-progressbar" value="3"/>
                                         <label for="ins-layout-progressbar">
-                                            <img src="<?php echo INS_ADMIN_URL . '/tf-options/img/layout/version4.svg' ?>" alt="<?php esc_attr_e( 'Version-4', 'instantio' ) ?>">
+                                            <img src="<?php echo INS_ADMIN_URL . '/tf-options/img/layout/version4.png' ?>" alt="<?php esc_attr_e( 'Version-4', 'instantio' ) ?>">
                                             <span><?php _e( 'Version 4', 'instantio' ) ?></span>
                                         </label>
                                     </li>
@@ -506,17 +506,17 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
             <div class="tf-setup-content-layout tf-finish-step <?php echo self::$current_step == 'finish' ? 'active' : ''; ?>">
 
                 <div class="ins_quick_setup_finish">
-                    <!-- <div class="welcome-img"><img src="<?php // echo INS_ADMIN_URL . 'img/hooray.png' ?>" alt="<?php // esc_attr_e( 'Thank you', 'instantio' ) ?>"></div> -->
+                    <div class="welcome-img"><img src="<?php  echo INS_ADMIN_URL . '/tf-options/img/wizard/quikfinal.png' ?>" alt="<?php esc_attr_e( 'Thank you', 'instantio' ) ?>"></div>
 
                     <h1 class="tf-setup-welcome-title">
-                        <?php _e( 'Hooray! You’re all set.', 'instantio' ) ?>
+                        <?php _e( 'Hooray! You’re all set', 'instantio' ) ?>
                     </h1>
 
                     <div class="tf-setup-welcome-description">
-                        <?php _e( 'Let\'s get started and make the most out of instantio. With this plugin, you can manage your store, and provide your customers with a seamless Checkout experience. So, let\'s dive in and start streamlining your business operations today!', 'instantio' ) ?>
+                        <?php _e( 'Let\'s get started with Instantio. With this plugin, you can manage your store and provide seamless checkout for your customers. Let\'s streamline your business operations today.', 'instantio' ) ?>
 
-                        <p class="tf-setup-step-desc">
-                            <?php _e( 'These settings can be overridden from <strong>Instantio Settings</strong>', 'instantio' ) ?>
+                        <p class="tf-setup-welcome-description-info">
+                            <?php _e( 'Overrides can be made from Instantio settings.', 'instantio' ) ?>
                         </p>
                     </div>
 

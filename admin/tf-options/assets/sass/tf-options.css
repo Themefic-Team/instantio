@@ -1877,12 +1877,20 @@ Welcome Step
 }
 .tf-setup-content-layout .tf-setup-welcome-description {
   font-style: normal;
+  text-align: center;
   font-weight: 400;
   font-size: 16px;
   line-height: 150%;
-  max-width: 640px;
+  max-width: 534px;
   color: #665f5c;
   margin: 0 0 30px;
+}
+.tf-setup-content-layout .tf-setup-welcome-description-info {
+  color: #140701;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  margin: 24px 0 0px;
 }
 .tf-setup-content-layout .tf-setup-welcome-footer {
   display: flex;
@@ -2365,26 +2373,22 @@ Steps
   border: 2px solid transparent;
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
-  padding: 10px;
   display: block;
   position: relative;
   cursor: pointer;
   border-radius: 6px;
   pointer-events: none;
 }
-@media only screen and (max-width: 480px) {
-  .tf-setup-step-container .tf-select-progressbar li label {
-    padding: 5px;
-  }
-}
 .tf-setup-step-container .tf-select-progressbar li label img {
   width: 100%;
 }
 .tf-setup-step-container .tf-select-progressbar li label span {
-  font-weight: 600;
-  font-size: 14px;
-  display: inline-block;
-  margin-top: 5px;
+  display: block;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 12px;
+  padding: 3px 0px 5px 5px;
+  text-align: left;
 }
 .tf-setup-step-container .tf-select-progressbar :checked + label {
   border: 2px solid #db5209;
