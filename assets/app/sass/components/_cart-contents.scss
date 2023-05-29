@@ -138,11 +138,13 @@
   text-align: center;
 }
 
-.ins-checkout-modern .ins-cart-item-heading-title, .ins-cart-item-product {
+.ins-checkout-modern .ins-cart-item-heading-title,
+.ins-cart-item-product {
   width: 46% !important;
 }
 
-.ins-checkout-modern .ins-cart-item-heading span, .ins-single-cart-item > div {
+.ins-checkout-modern .ins-cart-item-heading span,
+.ins-single-cart-item>div {
   width: 10%;
 }
 
@@ -151,7 +153,8 @@
     cursor: pointer;
   }
 
-  .plus.ins-cart-plus, .minus.ins-cart-minus {
+  .plus.ins-cart-plus,
+  .minus.ins-cart-minus {
     border: none;
     background-color: transparent;
     font-size: 16px;
@@ -178,7 +181,8 @@
     justify-content: space-between;
   }
 
-  .ins-cart-item-heading-quantity, .ins-cart-item-quantity {
+  .ins-cart-item-heading-quantity,
+  .ins-cart-item-quantity {
     width: 15% !important;
   }
 
@@ -188,7 +192,9 @@
   }
 
   .ins-cart-item-quantity {
-    button:focus, input:focus {
+
+    button:focus,
+    input:focus {
       outline: none !important;
     }
 
@@ -252,7 +258,8 @@
     -moz-appearance: textfield;
     appearance: textfield;
 
-    &::-webkit-inner-spin-button, &::-webkit-outer-spin-button {
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
       -webkit-appearance: none;
     }
   }
@@ -304,198 +311,209 @@
 /* Ins Cart Footer */
 
 .ins-cart-coupon {
-    padding: 10px 0;
-    display: flex;
-    gap: 5px;
-    justify-content: space-between;
+  padding: 10px 0;
+  display: flex;
+  gap: 5px;
+  justify-content: space-between;
+}
+
+.ins-content .woocommerce-message {
+  margin-bottom: 0;
+  margin: 16px;
+}
+
+.ins-footer-cart-button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 30px;
+
+  >div {
+    width: 100%;
   }
-  
-  .ins-content .woocommerce-message {
-    margin-bottom: 0;
-    margin: 16px;
-  }
-  
-  .ins-footer-cart-button {
+}
+
+.ins-cart-coupon button[name="update_cart"] {
+  display: none;
+}
+
+.ins-cart-footer-content {
+  padding: 16px;
+  background: #FCF4F2;
+  border: 1px solid #FCF4F2;
+  box-shadow: 0px 10px 20px rgba(0, 77, 209, 0.05);
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.ins-cart-coupon {
+  .coupon {
     display: flex;
     flex-direction: row;
-    align-items: center;
-    gap: 30px;
-  
-    > div {
-      width: 100%;
-    }
-  }
-  
-  .ins-cart-coupon button[name="update_cart"] {
-    display: none;
-  }
-  
-  .ins-cart-footer-content {
-    padding: 16px;
-    background: #FCF4F2;
-    border: 1px solid #FCF4F2;
-    box-shadow: 0px 10px 20px rgba(0, 77, 209, 0.05);
-    border-radius: 8px;
-    margin-bottom: 16px;
-  }
-  
-  .ins-cart-coupon {
-    .coupon {
-      display: flex;
-      flex-direction: row;
-  
-      button {
-        background: var(--ins_checkout_theme);
-        border-radius: 0px 8px 8px 0px;
-        color: #fff;
-        border: 1px solid var(--ins_checkout_theme);
-        padding: 10px;
-  
-        &:focus {
-          outline: none;
-        } 
-        &:hover {
-            background-color: var(--ins_checkout_theme) !important;
-            color: #fff;
-            border: 1px solid var(--ins_checkout_theme) !important;
-          }
-      }
-  
-      input:focus {
+
+    button {
+      background: var(--ins_checkout_theme);
+      border-radius: 0px 8px 8px 0px;
+      color: #fff;
+      border: 1px solid var(--ins_checkout_theme);
+      // padding: 10px;
+
+      &:focus {
         outline: none;
       }
-  
-      button, input {
-        width: 100% !important;
+
+      &:hover {
+        background-color: var(--ins_checkout_theme) !important;
+        color: #fff;
+        border: 1px solid var(--ins_checkout_theme) !important;
       }
     }
-  
-    > div {
+
+    input:focus {
+      outline: none;
+    }
+
+    button,
+    input {
       width: 100% !important;
     }
   }
-  
-  .ins-empty-cart-button button {
-    padding: 10px;
+
+  >div {
     width: 100% !important;
-    border: 1px solid var(--ins_checkout_theme);
-    border-radius: 8px;
-    text-align: center;
-    font-weight: 700;
-    transition: 0.4s;
-    cursor: pointer;
-    line-height: unset !important;
   }
-  
-  .ins-footer-cart-button {
-    .ins-cart-coupon {
-      width: 60% !important;
-    }
-  
-    .ins-empty-cart-button {
-      width: 40%;
-    }
+}
+
+.ins-empty-cart-button button {
+  padding: 10px;
+  width: 100% !important;
+  border: 1px solid var(--ins_checkout_theme);
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 700;
+  transition: 0.4s;
+  cursor: pointer;
+  line-height: unset !important;
+}
+
+.ins-footer-cart-button {
+  .ins-cart-coupon {
+    width: 60% !important;
   }
-  
-  .ins-cart-collaterals {
-    .wc-proceed-to-checkout {
-      display: none;
-    }
-  
-    .cart_totals {
-      width: 100%;
-      margin-top: 20px;
-  
-      h2 {
-        font-size: 20px;
-        font-weight: 700;
-        padding-left: 0;
-      } 
-      td, th, table {
-        padding: 8px 0;
-        background-color: transparent !important;
-        font-weight: 400 !important;
-        border: none !important;
-      }
-      th{
-        text-align: left;
-      }
-  
-      .order-total {
-        td, th {
-          font-weight: 700 !important;
-        }
-      }
-  
-      td {
-        text-align: right;
-        font-weight: 700;
-      }
-  
-      th {
-        &:after {
-          content: ':';
-          position: absolute;
-          right: 0;
-          top: 7px;
-        }
-  
-        position: relative;
-      }
-  
-      width: 100% !important;
-    }
-  
-    margin-top: 16px;
+
+  .ins-empty-cart-button {
+    width: 40%;
   }
-  
-  .ins-cart-coupon .coupon input {
-    width: auto;
-    border-radius: 8px 0px 0px 8px;
-    -webkit-border-radius: 8px 0px 0px 8px;
-    -moz-border-radius: 8px 0px 0px 8px;
-    -ms-border-radius: 8px 0px 0px 8px;
-    -o-border-radius: 8px 0px 0px 8px;
-    border: 1px solid var(--ins_checkout_theme);
+}
+
+.ins-cart-collaterals {
+  .wc-proceed-to-checkout {
+    display: none;
   }
-  
-  .ins-cart-btns {
-    // position: absolute;
-    // width: 100%;
-    // left: 0;
-    // bottom: 8%;
-    // padding: 0 16px !important;
-    a, button {
-      padding: 16px;
-      border-radius: 8px !important;
-      transition: 0.4s;
+
+  .cart_totals {
+    width: 100%;
+    margin-top: 20px;
+
+    h2 {
+      font-size: 20px;
       font-weight: 700;
-      border: 1px solid #e9570a;
-      width: 100% !important;
-      display: inline-block;
-      font-size: 14px;
-      text-align: center;
-      text-decoration: none;
-      -webkit-border-radius: 8px !important;
-      -moz-border-radius: 8px !important;
-      -ms-border-radius: 8px !important;
-      -o-border-radius: 8px !important;
-      background-color: var(--ins_checkout_theme);
-      padding: 10px;
-      line-height: 1.7;
+      padding-left: 0;
     }
-  
-    a.active, button.active {
-      background-color: #e9570a;
-      color: #fff ;
+
+    td,
+    th,
+    table {
+      padding: 8px 0;
+      background-color: transparent !important;
+      font-weight: 400 !important;
+      border: none !important;
     }
+
+    th {
+      text-align: left;
+    }
+
+    .order-total {
+
+      td,
+      th {
+        font-weight: 700 !important;
+      }
+    }
+
+    td {
+      text-align: right;
+      font-weight: 700;
+    }
+
+    th {
+      &:after {
+        content: ':';
+        position: absolute;
+        right: 0;
+        top: 7px;
+      }
+
+      position: relative;
+    }
+
+    width: 100% !important;
   }
-  
-  /* Ins Cart Footer */
-  
+
+  margin-top: 16px;
+}
+
+.ins-cart-coupon .coupon input {
+  width: auto;
+  border-radius: 8px 0px 0px 8px;
+  -webkit-border-radius: 8px 0px 0px 8px;
+  -moz-border-radius: 8px 0px 0px 8px;
+  -ms-border-radius: 8px 0px 0px 8px;
+  -o-border-radius: 8px 0px 0px 8px;
+  border: 1px solid var(--ins_checkout_theme);
+}
+
+.ins-cart-btns {
+
+  // position: absolute;
+  // width: 100%;
+  // left: 0;
+  // bottom: 8%;
+  // padding: 0 16px !important;
+  a,
+  button {
+    padding: 16px;
+    border-radius: 8px !important;
+    transition: 0.4s;
+    font-weight: 700;
+    border: 1px solid #e9570a;
+    width: 100% !important;
+    display: inline-block;
+    font-size: 14px;
+    text-align: center;
+    text-decoration: none;
+    -webkit-border-radius: 8px !important;
+    -moz-border-radius: 8px !important;
+    -ms-border-radius: 8px !important;
+    -o-border-radius: 8px !important;
+    background-color: var(--ins_checkout_theme);
+    padding: 10px;
+    line-height: 1.7;
+  }
+
+  a.active,
+  button.active {
+    background-color: #e9570a;
+    color: #fff;
+  }
+}
+
+/* Ins Cart Footer */
 
 
-  /* Popup */
+
+/* Popup */
 
 .ins-checkout-popup {
   position: fixed;
@@ -618,18 +636,21 @@
   .ins-checkout-body.ins-content {
     flex-basis: 65%;
   }
+
   .ins-cart-footer-wrap {
     flex-basis: 35%;
   }
 
-  .coupon, .ins-cart-coupon {
+  .coupon,
+  .ins-cart-coupon {
     width: 100% !important;
   }
 
   .ins-footer-cart-button {
     display: inline-block;
+    width: 100%;
 
-    > div {
+    >div {
       width: 100%;
     }
   }
@@ -725,12 +746,14 @@
   padding-right: 50px;
 }
 
-.plus, .minus {
+.plus,
+.minus {
   display: none !important;
   visibility: hidden;
 }
 
-.ins-cart-plus, .ins-cart-minus {
+.ins-cart-plus,
+.ins-cart-minus {
   cursor: pointer;
   visibility: visible !important;
   display: block !important;
@@ -789,7 +812,9 @@
     }
 
     &.remove {
-      &:before, &:after {
+
+      &:before,
+      &:after {
         display: none !important;
       }
 
@@ -867,7 +892,9 @@
 }
 
 .ins-cart-btns {
-  a, button {
+
+  a,
+  button {
     width: 100% !important;
     display: inline-block;
     font-size: 16px;
@@ -892,12 +919,15 @@
 }
 
 .ins-cart-btns {
-  a.active, button.active {
+
+  a.active,
+  button.active {
     background-color: #e9570a;
-    color: #fff ;
+    color: #fff;
   }
 
-  a:hover, button:hover {
+  a:hover,
+  button:hover {
     background-color: #e9570a;
     color: #fff;
   }
@@ -935,7 +965,10 @@
     }
   }
 
-  table, td, th, tr {
+  table,
+  td,
+  th,
+  tr {
     border: none !important;
   }
 
