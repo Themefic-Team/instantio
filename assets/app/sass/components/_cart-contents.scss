@@ -460,6 +460,11 @@
   }
   
   .ins-cart-btns {
+    // position: absolute;
+    // width: 100%;
+    // left: 0;
+    // bottom: 8%;
+    // padding: 0 16px !important;
     a, button {
       padding: 16px;
       border-radius: 8px !important;
@@ -476,6 +481,8 @@
       -ms-border-radius: 8px !important;
       -o-border-radius: 8px !important;
       background-color: var(--ins_checkout_theme);
+      padding: 10px;
+      line-height: 1.7;
     }
   
     a.active, button.active {
@@ -609,7 +616,10 @@
   padding: 16px;
 
   .ins-checkout-body.ins-content {
-    width: 65%;
+    flex-basis: 65%;
+  }
+  .ins-cart-footer-wrap {
+    flex-basis: 35%;
   }
 
   .coupon, .ins-cart-coupon {

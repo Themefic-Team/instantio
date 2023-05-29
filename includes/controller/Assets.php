@@ -120,7 +120,7 @@ class Assets {
                     color: '.$ins_panel_text_color.' !important;
                 }
                 .ins-checkout-modern .ins-checkout-layout.slide.ins-hori-left {
-                    left: -'.$panel_width_1200.'%  !important;
+                    left: -'.$panel_width_1200.'px  !important;
                 }
                 .ins-checkout-modern .ins-checkout-layout.slide.ins-hori-left.active {
                     left: 0  !important;
@@ -130,17 +130,17 @@ class Assets {
                 .ins_animate_one.ins-checkout-layout.slide.ins-hori-left,
                 .ins_animate_two.ins-checkout-layout.slide,
                 .ins_animate_two.ins-checkout-layout.slide.ins-hori-left{
-                    width: '.$panel_width_1200.'% !important; 
+                    width: '.$panel_width_1200.'px !important; 
                 }
                 .ins_animate_one.ins-checkout-layout.slide.ins-hori-left.active, .ins_animate_one.ins-checkout-layout.slide.active,
                 .ins_animate_two.ins-checkout-layout.slide.ins-hori-left.active, .ins_animate_two.ins-checkout-layout.slide.active {
-                    width: '.$panel_width_1200.'% !important;
+                    width: '.$panel_width_1200.'px !important;
                     height: 100%;
                 }  
                 .ins_animate_one.ins-checkout-layout.slide.ins-hori-left.active,
                 .ins_animate_two.ins-checkout-layout.slide.ins-hori-left.active {
                     height: 100%;
-                    width: '.$panel_width_1200.'% !important;
+                    width: '.$panel_width_1200.'px !important;
                     left: 0 !important;
                     right: auto;
                   }  

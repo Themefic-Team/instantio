@@ -88,6 +88,35 @@
     transform: scale(1.1); }
   100% {
     transform: scale(1); } }
+.ins-product-sell-carousel {
+  position: relative !important; }
+  .ins-product-sell-carousel .owl-nav {
+    position: absolute;
+    top: 0;
+    margin-top: -46px;
+    right: 0; }
+    .ins-product-sell-carousel .owl-nav .owl-prev,
+    .ins-product-sell-carousel .owl-nav .owl-next {
+      line-height: 0 !important;
+      height: 35px;
+      width: 35px;
+      background-color: var(--ins_checkout_theme) !important;
+      border-radius: 50%;
+      margin-left: 15px;
+      transition: 0.3s ease-in-out; }
+      .ins-product-sell-carousel .owl-nav .owl-prev:hover,
+      .ins-product-sell-carousel .owl-nav .owl-next:hover {
+        background-color: #4D423D !important; }
+      .ins-product-sell-carousel .owl-nav .owl-prev span,
+      .ins-product-sell-carousel .owl-nav .owl-next span {
+        line-height: 0;
+        display: inline-block;
+        font-size: 35px !important;
+        color: #fff; }
+        .ins-product-sell-carousel .owl-nav .owl-prev span:hover,
+        .ins-product-sell-carousel .owl-nav .owl-next span:hover {
+          color: #fff; }
+
 /* layouts  */
 .ins-checkout-modern.popup {
   height: 100%;
@@ -745,7 +774,9 @@
   -moz-border-radius: 8px !important;
   -ms-border-radius: 8px !important;
   -o-border-radius: 8px !important;
-  background-color: var(--ins_checkout_theme); }
+  background-color: var(--ins_checkout_theme);
+  padding: 10px;
+  line-height: 1.7; }
 .ins-cart-btns a.active, .ins-cart-btns button.active {
   background-color: #e9570a;
   color: #fff; }
@@ -849,7 +880,9 @@
   gap: 16px;
   padding: 16px; }
   .ins-checkout-layout.popup .woocommerce-cart-form .ins-checkout-body.ins-content {
-    width: 65%; }
+    flex-basis: 65%; }
+  .ins-checkout-layout.popup .woocommerce-cart-form .ins-cart-footer-wrap {
+    flex-basis: 35%; }
   .ins-checkout-layout.popup .woocommerce-cart-form .coupon, .ins-checkout-layout.popup .woocommerce-cart-form .ins-cart-coupon {
     width: 100% !important; }
   .ins-checkout-layout.popup .woocommerce-cart-form .ins-footer-cart-button {
@@ -1255,6 +1288,8 @@
 
 /* Dark Mode CSS */
 /* Gradient Mode CSS */
+.ins-layout-gradient.popup .ins-product-sell-carousel .owl-nav {
+  margin-top: -40px !important; }
 .ins-layout-gradient .ins-checkout-layout {
   background: linear-gradient(135deg, #4750D4 0%, #C23395 100%); }
 .ins-layout-gradient .ins-steps-style-4 .ins-single-step span {
@@ -1272,16 +1307,19 @@
   color: var(--ins_checkout_theme) !important; }
 .ins-layout-gradient .ins-steps-style-3 .ins-checkout-steps-wrap > div {
   z-index: 1 !important; }
+.ins-layout-gradient .ins-steps-style-2 .ins-single-step.active .ins-step-icon svg path, .ins-layout-gradient .ins-steps-style-2 .ins-single-step.done .ins-step-icon svg path, .ins-layout-gradient .ins-steps-style-2 .ins-single-step.active .ins-step-title, .ins-layout-gradient .ins-steps-style-2 .ins-single-step.done .ins-step-title {
+  fill: #fff !important;
+  color: #fff !important; }
 .ins-layout-gradient .ins-steps-style-4 {
-  background-color: transparent !important; }
-.ins-layout-gradient .ins-single-step.active, .ins-layout-gradient .ins-single-step.done {
   background-color: transparent !important; }
 .ins-layout-gradient .ins-single-step.ins-steps-style-4.active, .ins-layout-gradient .ins-single-step.ins-steps-style-4.done {
   background-color: #FCF9F7; }
 .ins-layout-gradient .ins-single-step.ins-steps-style-4 .ins-step-icon svg path, .ins-layout-gradient .ins-single-step.ins-steps-style-4 .ins-step-title {
   fill: #FCF9F7 !important;
   color: #FCF9F7; }
-.ins-layout-gradient .ins-cart-content-wrap, .ins-layout-gradient .ins-single-product-sell, .ins-layout-gradient .ins-cart-footer-content {
+.ins-layout-gradient .ins-steps-style-1 .ins-single-step.active, .ins-layout-gradient .ins-steps-style-1 .ins-single-step.done {
+  background-color: var(--ins_checkout_theme) !important; }
+.ins-layout-gradient .ins-cart-content-wrap, .ins-layout-gradient .ins-single-product-sell, .ins-layout-gradient .ins-cart-footer-content, .ins-layout-gradient .ins-cart-content-wrap {
   background-color: #FCF9F75E !important;
   /* mix-blend-mode: soft-light !important; */
   border: none !important; }

@@ -613,7 +613,7 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
 			$options     = get_option( 'wiopt' );
             $options['ins-layout-options'] = isset($_POST['ins-layout-options']) ? $_POST['ins-layout-options'] : 1;
             $options['ins-layout-mode'] = isset($_POST['ins-layout-mode']) ? $_POST['ins-layout-mode'] : 'light';
-            $options['ins-layout'] = isset($_POST['ins-layout']) ? $_POST['ins-layout'] : 'cart';
+            $options['ins-layout'] = isset($_POST['ins-layout']) && !empty($_POST['ins-layout']) ? $_POST['ins-layout'] : 'cart';
             $options['auto-tog-panel'] = isset($_POST['auto-tog-panel']) ? $_POST['auto-tog-panel'] : '1';
             $options['ins-toggle-tab']['toggle-position'] = isset($_POST['toggle-position']) ? $_POST['toggle-position'] : 'right-bottom';
             $options['woins-quickview-disable'] = isset($_POST['woins-quickview-disable']) ? $_POST['woins-quickview-disable'] : false;

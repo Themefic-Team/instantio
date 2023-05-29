@@ -154,6 +154,13 @@
   /* Gradient Mode CSS */
   
   .ins-layout-gradient {
+    &.popup{
+      .ins-product-sell-carousel {
+        .owl-nav { 
+          margin-top: -40px !important; 
+        }
+      }
+    }
     .ins-checkout-layout {
       background: linear-gradient(135deg, #4750D4 0%, #C23395 100%);
     }
@@ -181,6 +188,12 @@
         z-index: 1 !important;
       }
     }
+    .ins-steps-style-2 {
+      .ins-single-step.active .ins-step-icon svg path, .ins-single-step.done .ins-step-icon svg path, .ins-single-step.active .ins-step-title, .ins-single-step.done .ins-step-title {
+        fill: #fff !important;
+        color: #fff !important;
+      } 
+    }
   
     // .ins-checkout-steps {
     //   background-color: #AB78C7;
@@ -191,10 +204,10 @@
     }
   
     .ins-single-step {
-      &.active, &.done {
-        background-color: transparent !important;
-      }
-  
+      // &.active, &.done {
+      //   background-color: transparent !important;
+      // }
+   
       &.ins-steps-style-4 {
         &.active, &.done {
           background-color: #FCF9F7;
@@ -206,8 +219,15 @@
       }
       
     }
+    .ins-steps-style-1 {
+      .ins-single-step {
+        &.active, &.done {
+          background-color: var(--ins_checkout_theme) !important;
+        } 
+      } 
+    } 
     
-    .ins-cart-content-wrap, .ins-single-product-sell, .ins-cart-footer-content {
+    .ins-cart-content-wrap, .ins-single-product-sell, .ins-cart-footer-content, .ins-cart-content-wrap {
       background-color: #FCF9F75E !important;
   
       /* mix-blend-mode: soft-light !important; */
@@ -265,7 +285,7 @@
       }
     }
   
-    .ins-sell-content h3, .ins-sell-content-meta .woocommerce-Price-amount.amount {
+    .ins-sell-content h3, .ins-sell-content-meta .woocommerce-Price-amount.amount, .ins-order-summery-head h3 {
       color: #FCF9F7 !important;
     }
   
@@ -288,6 +308,7 @@
     .ins-back-to-edit svg path {
       fill: #FCF9F7 !important;
     }
+    
   }
   
   /* Gradient Mode CSS */
@@ -300,6 +321,7 @@
     .ins-checkout-header, .ins-cart-content-wrap .ins-single-cart-item {
       background: rgba(253, 253, 253, 0.4) !important;
       backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
       border: none !important;
     }
     .ins-checkout-steps.ins-steps-style-4 {
@@ -318,6 +340,7 @@
     &.popup .ins-checkout-overlay.active {
       background: rgba(253, 253, 253, 0.4) !important;
       backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
       border: none !important;
       opacity: 1 !important;
     }
