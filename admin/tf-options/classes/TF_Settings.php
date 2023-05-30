@@ -247,7 +247,7 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 								<div class="tf-help-center-banner" style="background-image: url('<?php echo INS_ADMIN_URL?>/tf-options/img/wizard/setup_wizard_bg.png')">
 									<div class="tf-help-center-content">
 										<h2><?php _e("Setup Wizard","instantio"); ?></h2>
-										<p><?php _e("Click the button below to run the setup wizard of Instantio. Your existing settings will not change.","instantio"); ?></p>
+										<p><?php _e("Click the button below to run the setup wizard of Instantio. Your existing settings will be change.","instantio"); ?></p>
 										<a href="<?php echo esc_url( admin_url('admin.php?page=tf-setup-wizard'))?>" class="tf-admin-btn tf-btn-secondary"><?php _e("Setup Wizard","instantio"); ?></a>
 									</div>
 									<!-- <div class="tf-help-center-content-img">
