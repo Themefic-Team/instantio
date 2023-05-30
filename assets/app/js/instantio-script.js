@@ -140,12 +140,12 @@
 
 			
 
-				// if(auto_open_toggle == true){
-				// 	$(".ins-checkout-layout-3").addClass("active");
-				// 	$(".ins-checkout-overlay").addClass("active");
-				// 	$(".ins-checkout-popup").toggleClass("active");
-				// 	$(".ins-checkout-popup").toggleClass("fadeIn");
-				// }
+				if(auto_open_toggle == true){
+					$(".ins-checkout-layout-3").addClass("active");
+					$(".ins-checkout-overlay").addClass("active");
+					$(".ins-checkout-popup").addClass("active");
+					$(".ins-checkout-popup").addClass("fadeIn");
+				}
 				ins_owl_carousel();
 				hide_toggle_btn();
 			},

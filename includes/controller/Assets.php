@@ -243,14 +243,19 @@ class Assets {
          
         $noquickview = insopt('woins-quickview-disable');  
 
-        $ins_empty_cart = !empty(insopt( 'ins-toggle-tab' )['ins-cart-emty-hide']) ? insopt( 'ins-toggle-tab' )['ins-cart-emty-hide'] : false;
+        $ins_empty_cart = !empty(insopt( 'ins-cart-emty-hide' )) ? insopt( 'ins-cart-emty-hide' ) : false;
         if($cart_fly_icon == false){
             $cart_icon = !empty(insopt( 'ins-toggle-tab' )['cart-icon']) ? insopt( 'ins-toggle-tab' )['cart-icon'] : 'shopping-bag';
+            $wi_icon_choice = !empty(insopt( 'ins-toggle-tab' )['wi-icon-choice']) ? insopt( 'ins-toggle-tab' )['wi-icon-choice'] : 'icon';
+            $wi_icon_choice_uploder = !empty(insopt( 'ins-toggle-tab' )['wi-icon-choice-uploder']) ? insopt( 'ins-toggle-tab' )['wi-icon-choice-uploder'] : '';
             if($cart_icon == 'shopping-bag'){
 
                 $cart_fly_icon = instantio_svg_icon($cart_icon);
             }else{
                 $cart_fly_icon = '<i class="'.$cart_icon.'"></i>';
+            }
+            if($wi_icon_choice == 'image' && $wi_icon_choice_uploder !=''){
+                $cart_fly_icon = '<img src="'.$wi_icon_choice_uploder.'" alt="Icon Image">';
             }
         } 
         $output .=  isset($ins_empty_cart) && !empty($ins_empty_cart) ? 'var hide_toggler = '.$ins_empty_cart.';' : 'var hide_toggler = false;';

@@ -131,11 +131,16 @@ class App {
         ob_start();
         $ins_toggler =  insopt( 'ins-toggler' );
         $cart_icon = !empty(insopt( 'ins-toggle-tab' )['cart-icon']) ? insopt( 'ins-toggle-tab' )['cart-icon'] : 'shopping-bag';
+        $wi_icon_choice = !empty(insopt( 'ins-toggle-tab' )['wi-icon-choice']) ? insopt( 'ins-toggle-tab' )['wi-icon-choice'] : 'icon';
+        $wi_icon_choice_uploder = !empty(insopt( 'ins-toggle-tab' )['wi-icon-choice-uploder']) ? insopt( 'ins-toggle-tab' )['wi-icon-choice-uploder'] : '';
         if($cart_icon == 'shopping-bag'){
 
             $toggle_icon = apply_filters( 'ins_get_svg_icon_pro', instantio_svg_icon($cart_icon) ); 
         }else{
             $toggle_icon = '<i class="'.$cart_icon.'"></i>';
+        }
+        if($wi_icon_choice == 'image' && $wi_icon_choice_uploder !=''){
+            $toggle_icon = '<img src="'.$wi_icon_choice_uploder.'" alt="Icon Image">';
         }
 
         if( $this->layout == 2){
@@ -152,6 +157,7 @@ class App {
                 <span class="ins-cart-icon"> 
                     <?php echo $toggle_icon ?>
                 </span>
+                
                 <?php // echo insopt( 'ins-toggle-tab' )['ins-cart-emty-hide']; ?>
                 <span class="ins-items-count"><span id="ins_cart_total" class="ins_cart_total"><?php echo WC()->cart->get_cart_contents_count(); ?></span></span> 
            </a> 
