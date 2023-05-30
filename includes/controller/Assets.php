@@ -124,26 +124,7 @@ class Assets {
                 }
                 .ins-checkout-modern .ins-checkout-layout.slide.ins-hori-left.active {
                     left: 0  !important;
-                }
-                
-                .ins_animate_one.ins-checkout-layout.slide,
-                .ins_animate_one.ins-checkout-layout.slide.ins-hori-left,
-                .ins_animate_two.ins-checkout-layout.slide,
-                .ins_animate_two.ins-checkout-layout.slide.ins-hori-left{
-                    width: '.$panel_width_1200.'px !important; 
-                }
-                .ins_animate_one.ins-checkout-layout.slide.ins-hori-left.active, .ins_animate_one.ins-checkout-layout.slide.active,
-                .ins_animate_two.ins-checkout-layout.slide.ins-hori-left.active, .ins_animate_two.ins-checkout-layout.slide.active {
-                    width: '.$panel_width_1200.'px !important;
-                    height: 100%;
-                }  
-                .ins_animate_one.ins-checkout-layout.slide.ins-hori-left.active,
-                .ins_animate_two.ins-checkout-layout.slide.ins-hori-left.active {
-                    height: 100%;
-                    width: '.$panel_width_1200.'px !important;
-                    left: 0 !important;
-                    right: auto;
-                  }  
+                } 
                 
             '; 
 
@@ -262,14 +243,19 @@ class Assets {
          
         $noquickview = insopt('woins-quickview-disable');  
 
-        $ins_empty_cart = !empty(insopt( 'ins-toggle-tab' )['ins-cart-emty-hide']) ? insopt( 'ins-toggle-tab' )['ins-cart-emty-hide'] : false;
+        $ins_empty_cart = !empty(insopt( 'ins-cart-emty-hide' )) ? insopt( 'ins-cart-emty-hide' ) : false;
         if($cart_fly_icon == false){
             $cart_icon = !empty(insopt( 'ins-toggle-tab' )['cart-icon']) ? insopt( 'ins-toggle-tab' )['cart-icon'] : 'shopping-bag';
+            $wi_icon_choice = !empty(insopt( 'ins-toggle-tab' )['wi-icon-choice']) ? insopt( 'ins-toggle-tab' )['wi-icon-choice'] : 'icon';
+            $wi_icon_choice_uploder = !empty(insopt( 'ins-toggle-tab' )['wi-icon-choice-uploder']) ? insopt( 'ins-toggle-tab' )['wi-icon-choice-uploder'] : '';
             if($cart_icon == 'shopping-bag'){
 
                 $cart_fly_icon = instantio_svg_icon($cart_icon);
             }else{
                 $cart_fly_icon = '<i class="'.$cart_icon.'"></i>';
+            }
+            if($wi_icon_choice == 'image' && $wi_icon_choice_uploder !=''){
+                $cart_fly_icon = '<img src="'.$wi_icon_choice_uploder.'" alt="Icon Image">';
             }
         } 
         $output .=  isset($ins_empty_cart) && !empty($ins_empty_cart) ? 'var hide_toggler = '.$ins_empty_cart.';' : 'var hide_toggler = false;';
