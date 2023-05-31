@@ -125,6 +125,12 @@ class Assets {
                 .ins-checkout-modern .ins-checkout-layout.slide.ins-hori-left.active {
                     left: 0  !important;
                 } 
+
+                @media (max-width: 1024px) {
+                    .ins-checkout-modern .ins-checkout-layout.slide.ins-hori-left {
+                        left: -'.$panel_width_767.'px  !important;
+                    } 
+                  }
                 
             '; 
 

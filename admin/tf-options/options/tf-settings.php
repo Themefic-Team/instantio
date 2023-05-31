@@ -509,10 +509,10 @@ TF_Settings::option( 'wiopt', array(
 									'class' => 'tf-field-class',
 									'options' => array( 
 										'right-top' => 'Right Top',
-										'right-middle' => 'Right Center',
+										'right-middle' => 'Right Middle',
 										'right-bottom' => 'Right Bottom', 
 										'left-top' => 'Left Top',
-										'left-middle' => 'Left Center',
+										'left-middle' => 'Left Middle',
 										'left-bottom' => 'Left Bottom', 
 									 ),
 									'default' => 'right-bottom',
