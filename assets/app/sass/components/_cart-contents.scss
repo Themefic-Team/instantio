@@ -348,7 +348,7 @@
 }
 
 .ins-cart-coupon button[name="update_cart"] {
-  display: none;
+  display: none !important;
 }
 
 .ins-cart-footer-content {

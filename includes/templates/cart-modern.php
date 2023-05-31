@@ -226,6 +226,7 @@ do_action( 'woocommerce_before_cart' ); ?>
         </div>
         <?php do_action( 'ins_cart_buttons' ) ?> 	
     </div>
+   
      
 </form>
 
