@@ -70,7 +70,7 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
                 <div class="tf-setup-container">
                     <div class="tf-setup-header">
                         <div class="tf-setup-header-left">
-                            <a href="<?php echo esc_url( admin_url( 'admin.php?page=wiopt#tab=general' ) ); ?>" class="tf-admin-btn tf-btn-secondary back-to-dashboard"><span><?php _e( 'Back to dashboard', 'instantio' ) ?></span></a>
+                            <a href="<?php echo esc_url( admin_url() ); ?>" class="tf-admin-btn tf-btn-secondary back-to-dashboard"><span><?php _e( 'Back to dashboard', 'instantio' ) ?></span></a>
                         </div>
                         <div class="tf-setup-header-right">
                             <span class="get-help-link"><?php _e('Having troubles?', 'instantio') ?> <a class="" target="_blank" href="https://portal.themefic.com/support/"><?php _e('Get help', 'instantio') ?></a></span>
@@ -108,12 +108,10 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
                 </h1>
 
                 <div class="tf-setup-welcome-description">
-                    <?php _e( 'Our quick setup wizard makes getting started a breeze. It\'s simple, takes just five minutes, and helps configure basic settings. Remember, this guide is optional. Let\'s begin!', 'instantio' ) ?>
+                    <?php _e( 'Our quick setup wizard makes getting started a breeze. It\'s simple, takes just few second, and helps configure basic settings. Remember, this guide is optional. Let\'s begin!', 'instantio' ) ?>
                 </div>
 
                 <div class="tf-setup-welcome-footer">
-                    <a href="<?php echo esc_url( admin_url( 'admin.php?page=wiopt#tab=general' ) ); ?>" class="tf-link-btn"><?php _e( 'Skip to Dashboard', 'instantio' ) ?></a>
-
                     <button type="button" class="tf-admin-btn tf-btn-secondary tf-setup-start-btn">
                         <span><?php _e( 'Get Started', 'instantio' ) ?></span>
                     </button> 
@@ -613,6 +611,7 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
 			$options     = get_option( 'wiopt' );
             $options['ins-layout-options'] = isset($_POST['ins-layout-options']) ? $_POST['ins-layout-options'] : 1;
             $options['ins-layout-mode'] = isset($_POST['ins-layout-mode']) ? $_POST['ins-layout-mode'] : 'light';
+            $options['ins-layout-progressbar']= isset($_POST['ins-layout-progressbar']) ? $_POST['ins-layout-progressbar'] : '1';
             $options['ins-layout'] = isset($_POST['ins-layout']) && !empty($_POST['ins-layout']) ? $_POST['ins-layout'] : 'cart';
             $options['auto-tog-panel'] = isset($_POST['auto-tog-panel']) ? $_POST['auto-tog-panel'] : '1';
             $options['ins-toggle-tab']['toggle-position'] = isset($_POST['toggle-position']) ? $_POST['toggle-position'] : 'right-bottom';
