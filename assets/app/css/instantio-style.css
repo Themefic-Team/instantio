@@ -43,10 +43,14 @@
     height: 100%;
     vertical-align: middle;
     text-align: center;
-    font-size: 30px; }
+    font-size: 30px;
+    font-size: 24px;
+    line-height: 32px;
+    color: #FEF2EB; }
   .ins-cart-empty a {
     text-decoration: underline;
-    font-weight: 700; }
+    font-weight: 700;
+    color: var(--ins_checkout_theme); }
 
 /* Empty cart */
 /* Cart Fly Animation */
@@ -90,6 +94,8 @@
     transform: scale(1); } }
 .ins-product-sell-carousel {
   position: relative !important; }
+  .ins-product-sell-carousel::before {
+    left: 0 !important; }
   .ins-product-sell-carousel .owl-nav {
     position: absolute;
     top: 0;
@@ -594,7 +600,7 @@
   height: 48px;
   width: 34px !important;
   display: inline-block;
-  border-radius: 8px;
+  border-radius: 8px !important;
   background-color: #FCFCFC;
   -webkit-border-radius: 11px;
   -moz-border-radius: 11px;
@@ -717,7 +723,8 @@
     outline: none; }
   .ins-cart-coupon .coupon button,
   .ins-cart-coupon .coupon input {
-    width: 100% !important; }
+    width: 100% !important;
+    margin: 0 !important; }
 .ins-cart-coupon > div {
   width: 100% !important; }
 
@@ -1074,7 +1081,8 @@
     color: #665F5C !important;
     text-decoration: none;
     font-weight: 700;
-    border: 0; }
+    border: 0;
+    background: transparent !important; }
     .ins-cart-item-remove a.remove:before, .ins-cart-item-remove a.remove:after {
       display: none !important; }
   .ins-cart-item-remove svg {
@@ -1289,6 +1297,7 @@
 .ins-layout-dark .ins-cross-sell-title,
 .ins-layout-dark .ins-order-summery-head span,
 .ins-layout-dark .woocommerce-billing-fields h3,
+.ins-layout-dark #ship-to-different-address span,
 .ins-layout-dark .ins-order-summery-head h3,
 .ins-layout-dark .ins-payment h3,
 .ins-layout-dark .ins-delivery-wrap h3,
@@ -1300,8 +1309,10 @@
 .ins-layout-dark .ins-cart-plus svg path,
 .ins-layout-dark .ins-back-to-edit svg path {
   fill: #F2ECE9 !important; }
-.ins-layout-dark .ins-cart-item-title a {
-  color: #fff !important; }
+.ins-layout-dark .ins-cart-item-title a,
+.ins-layout-dark .ins-cart-price bdi,
+.ins-layout-dark .ins-cart-item-total bdi {
+  color: #CCC7C4 !important; }
 .ins-layout-dark .ins-cart-inner.shipping .woocommerce-billing-fields > div p input,
 .ins-layout-dark .ins-cart-inner.shipping .woocommerce-billing-fields > div p select {
   background-color: #171514 !important;
@@ -1333,11 +1344,16 @@
 .ins-layout-dark .ins-cart-collaterals th,
 .ins-layout-dark .ins-cart-collaterals td {
   color: #CCC7C4 !important; }
-.ins-layout-dark .ins-cart-item-title a {
+.ins-layout-dark .ins-cart-item-title a,
+.ins-layout-dark .ins-payment-method p,
+.ins-layout-dark .ins-cart-price bdi,
+.ins-layout-dark .ins-cart-item-total bdi {
   color: #CCC7C4 !important; }
-.ins-layout-dark .ins-delivery-wrap p, .ins-layout-dark .ins-delivery-wrap.shipping ul li > label,
-.ins-layout-dark .ins-delivery-wrap span {
+.ins-layout-dark .ins-delivery-wrap {
   color: #CCC7C4 !important; }
+  .ins-layout-dark .ins-delivery-wrap p, .ins-layout-dark .ins-delivery-wrap.shipping ul li > label,
+  .ins-layout-dark .ins-delivery-wrap span {
+    color: #CCC7C4 !important; }
 .ins-layout-dark .ins-payment-method li > label {
   color: #CCC7C4 !important; }
 .ins-layout-dark .ins-layout-dark .ins-btns-step-next {
@@ -1423,6 +1439,8 @@
 .ins-layout-gradient .woocommerce-billing-fields h3,
 .ins-layout-gradient .ins-order-summery-head h3,
 .ins-layout-gradient .ins-payment h3,
+.ins-layout-gradient .ins-payment p,
+.ins-layout-gradient .ins-delivery-wrap,
 .ins-layout-gradient .ins-delivery-wrap h3,
 .ins-layout-gradient .ins-single-order-total span,
 .ins-layout-gradient .ins-cart-btns a {
@@ -1452,13 +1470,21 @@
   color: #FCF9F7 !important; }
 .ins-layout-gradient .ins-back-to-edit svg path {
   fill: #FCF9F7 !important; }
+.ins-layout-gradient .woocommerce-terms-and-conditions-checkbox-text, .ins-layout-gradient .woocommerce-terms-and-conditions-checkbox-text a {
+  color: #FCF9F7 !important; }
+.ins-layout-gradient .ins-checkout-header svg path {
+  fill: #FCF9F7 !important; }
+.ins-layout-gradient .ins-checkout-header .ins-checkout-header-title {
+  color: #FCF9F7 !important; }
 
 /* Gradient Mode CSS */
 /* Glass Morphism Mode CSS */
 .ins-layout-glass-morphism .ins-checkout-layout,
 .ins-layout-glass-morphism .ins-cart-content-wrap,
 .ins-layout-glass-morphism .ins-checkout-header,
-.ins-layout-glass-morphism .ins-cart-content-wrap .ins-single-cart-item {
+.ins-layout-glass-morphism .ins-cart-content-wrap .ins-single-cart-item,
+.ins-layout-glass-morphism .ins-cart-footer-content,
+.ins-layout-glass-morphism .ins-single-product-sell {
   background: rgba(253, 253, 253, 0.4) !important;
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);

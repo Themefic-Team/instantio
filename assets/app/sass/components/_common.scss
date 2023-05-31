@@ -37,11 +37,15 @@
         vertical-align: middle;
         text-align: center;
         font-size: 30px;
+        font-size: 24px;
+        line-height: 32px;
+        color: $p_shade;
     }
 
     a {
         text-decoration: underline;
         font-weight: 700;
+        color: var(--ins_checkout_theme);
     }
 }
 
@@ -108,6 +112,10 @@
 // Owl Carousel
 .ins-product-sell-carousel {
     position: relative !important;
+    
+    &::before{
+        left: 0 !important;
+    }
 
     .owl-nav {
         position: absolute;

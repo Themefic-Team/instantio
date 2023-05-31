@@ -63,6 +63,7 @@
   .ins-cross-sell-title,
   .ins-order-summery-head span,
   .woocommerce-billing-fields h3,
+  #ship-to-different-address span,
   .ins-order-summery-head h3,
   .ins-payment h3,
   .ins-delivery-wrap h3,
@@ -78,8 +79,11 @@
     fill: #F2ECE9 !important;
   }
 
-  .ins-cart-item-title a {
-    color: #fff !important;
+  .ins-cart-item-title a,
+  .ins-cart-price bdi, 
+  .ins-cart-item-total bdi
+   {
+    color: #CCC7C4 !important
   }
 
   .ins-cart-inner.shipping {
@@ -139,12 +143,15 @@
     }
   }
 
-  .ins-cart-item-title a {
+  .ins-cart-item-title a,
+  .ins-payment-method p,
+  .ins-cart-price bdi,
+  .ins-cart-item-total bdi {
     color: #CCC7C4 !important;
   }
 
   .ins-delivery-wrap {
-
+    color: #CCC7C4 !important;
     p,
     &.shipping ul li>label,
     span {
@@ -265,13 +272,13 @@
 
       &.active,
       &.done {
-        background-color: #FCF9F7;
+        background-color: $background;
       }
 
       .ins-step-icon svg path,
       .ins-step-title {
-        fill: #FCF9F7 !important;
-        color: #FCF9F7;
+        fill: $background !important;
+        color: $background;
       }
     }
 
@@ -298,29 +305,29 @@
   }
 
   .ins-single-cart-item {
-    background-color: #FCF9F7 !important;
+    background-color: $background !important;
     border: none;
   }
 
   .ins-cart-coupon .coupon {
     button {
-      background-color: #665F5C;
-      border-color: #665F5C;
+      background-color: $s_shade;
+      border-color: $s_shade;
     }
 
     input {
-      border-color: #665F5C;
+      border-color: $s_shade;
     }
   }
 
   .ins-cart-item-quantity .quantity input[type="number"] {
-    background: #FFF5F0 !important;
+    background: $card !important;
     border: 0.2px solid #DB5209 !important;
   }
 
   .ins-empty-cart {
-    border-color: #665F5C !important;
-    color: #665F5C !important;
+    border-color: $s_shade !important;
+    color: $s_shade !important;
     background-color: transparent !important;
 
     &:hover {
@@ -335,36 +342,38 @@
   .woocommerce-billing-fields h3,
   .ins-order-summery-head h3,
   .ins-payment h3,
+  .ins-payment p,
+  .ins-delivery-wrap,
   .ins-delivery-wrap h3,
   .ins-single-order-total span,
   .ins-cart-btns a {
-    color: #FCF9F7 !important;
+    color: $background !important;
   }
 
   .ins-cart-empty {
 
     span,
     a {
-      color: #FCF9F7 !important;
+      color: $background !important;
     }
   }
 
   .ins-order-summery-content span {
-    color: #FCF9F7 !important;
+    color: $background !important;
   }
 
   .woocommerce-privacy-policy-text {
 
     p,
     a {
-      color: #FCF9F7 !important;
+      color: $background !important;
     }
   }
 
   .ins-sell-content h3,
   .ins-sell-content-meta .woocommerce-Price-amount.amount,
   .ins-order-summery-head h3 {
-    color: #FCF9F7 !important;
+    color: $background !important;
   }
 
   .ins-cart-collaterals {
@@ -372,7 +381,7 @@
     h2,
     th,
     td {
-      color: #FCF9F7 !important;
+      color: $background !important;
     }
   }
 
@@ -380,7 +389,7 @@
 
     p,
     &.shipping ul li>label {
-      color: #FCF9F7 !important;
+      color: $background !important;
     }
   }
 
@@ -388,13 +397,24 @@
   #ship-to-different-address span,
   .ins-checkout-modern .ins-checkout-body,
   .ins-order-summery-head span a {
-    color: #FCF9F7 !important;
+    color: $background !important;
   }
 
   .ins-back-to-edit svg path {
-    fill: #FCF9F7 !important;
+    fill: $background !important;
   }
 
+  .woocommerce-terms-and-conditions-checkbox-text, .woocommerce-terms-and-conditions-checkbox-text a {
+    color: $background !important;
+  }
+  .ins-checkout-header{
+    svg path {
+      fill: $background !important; 
+    }
+    .ins-checkout-header-title{ 
+      color: $background !important;
+    }
+  }
 }
 
 /* Gradient Mode CSS */
@@ -407,7 +427,9 @@
   .ins-cart-content-wrap,
   // .ins-cart-footer-content, .ins-steps-style-4 .ins-single-step span, 
   .ins-checkout-header,
-  .ins-cart-content-wrap .ins-single-cart-item {
+  .ins-cart-content-wrap .ins-single-cart-item, 
+  .ins-cart-footer-content,
+  .ins-single-product-sell {
     background: rgba(253, 253, 253, 0.4) !important;
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
