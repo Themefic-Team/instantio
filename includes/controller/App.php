@@ -93,6 +93,7 @@ class App {
     public function ins_cart_modern_header() {
         ob_start(); 
         ?>
+        <div class="header-wrap">
            <div class="ins-checkout-header">
                 <span class="ins-checkout-header-icon">
                     <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -120,9 +121,11 @@ class App {
                         </svg>  
                 </span>  
             </div>
-        <?php 
-
-
+        <?php  
+            do_action('ins_template_steps') 
+        ?>
+        </div>
+        <?php
         echo ob_get_clean(); 
     }
 
@@ -236,7 +239,6 @@ class App {
     public function ins_cart_content_modern(){
         ob_start();
         
-        do_action('ins_template_steps') 
         ?> 
         <div class="ins-content">
             <div class="ins-cart-inner step-1 ins-cart-step active">

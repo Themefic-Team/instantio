@@ -741,6 +741,7 @@
 
   &:nth-last-child(1) {
     border-bottom: none;
+    margin-bottom: 0;
   }
 }
 
@@ -910,7 +911,7 @@
 }
 
 .ins-content {
-  // height: 85% !important;
+  height: calc(100% - 157px) !important;
   overflow: auto;
 }
 
