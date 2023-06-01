@@ -162,8 +162,8 @@ class Assets {
          $cart_item_bg_wrap = isset($ins_toggle_panel_tab['cart-item-bg-wrap']) && !empty($ins_toggle_panel_tab['cart-item-bg-wrap']) ? $ins_toggle_panel_tab['cart-item-bg-wrap'] : '';
          $cart_item_bg = isset($ins_toggle_panel_tab['cart-item-bg']) && !empty($ins_toggle_panel_tab['cart-item-bg']) ? $ins_toggle_panel_tab['cart-item-bg'] : '';
          $cart_item_text_color = isset($ins_toggle_panel_tab['cart-item-text-color']) && !empty($ins_toggle_panel_tab['cart-item-text-color']) ? $ins_toggle_panel_tab['cart-item-text-color'] : '';
-         $cart_input_bg = isset($ins_toggle_panel_tab['cart-input-bg']) && !empty($ins_toggle_panel_tab['cart-input-bg']) ? $ins_toggle_panel_tab['cart-input-bg'] : '#FCF9F7';
-         $cart_input_text_color = isset($ins_toggle_panel_tab['cart-input-text-color']) && !empty($ins_toggle_panel_tab['cart-input-text-color']) ? $ins_toggle_panel_tab['cart-input-text-color'] : '#DB5209';
+         $cart_input_bg = isset($ins_toggle_panel_tab['cart-input-bg']) && !empty($ins_toggle_panel_tab['cart-input-bg']) ? $ins_toggle_panel_tab['cart-input-bg'] : '';
+         $cart_input_text_color = isset($ins_toggle_panel_tab['cart-input-text-color']) && !empty($ins_toggle_panel_tab['cart-input-text-color']) ? $ins_toggle_panel_tab['cart-input-text-color'] : '';
          $cart_pricing_bg = isset($ins_toggle_panel_tab['cart-pricing-bg']) && !empty($ins_toggle_panel_tab['cart-pricing-bg']) ? $ins_toggle_panel_tab['cart-pricing-bg'] : '';
          $cart_pricing_text = isset($ins_toggle_panel_tab['cart-pricing-text']) && !empty($ins_toggle_panel_tab['cart-pricing-text']) ? $ins_toggle_panel_tab['cart-pricing-text'] : ''; 
  

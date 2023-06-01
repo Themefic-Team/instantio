@@ -292,7 +292,7 @@
   input[type="number"] {
     // border: none !important;
     background-color: #fff;
-    padding: 0;
+    padding: 0 !important;
   }
 
   border: 1px solid transparent;
@@ -445,6 +445,7 @@
       background-color: transparent !important;
       font-weight: 400 !important;
       border: none !important;
+      font: 16px !important;
     }
     table {
       margin-bottom: 0 !important;
@@ -521,6 +522,22 @@
     background-color: var(--ins_checkout_theme);
     padding: 10px;
     line-height: 1.7;
+    position: relative;
+
+    &::after{
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 0;
+      background: rgba(0,0,0,.05);
+      z-index: 1;
+      transition: width .5s ease-in-out;
+    }
+    &hover:after{
+      width: 100%;
+    }
   }
 
   a.active,
