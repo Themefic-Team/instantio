@@ -3,6 +3,10 @@ body.instantio_page_ins-license-activation {
   background: #ffffff;
 }
 
+body {
+  background: #fcf9f7;
+}
+
 #wpbody .notice {
   display: none !important;
 }
@@ -146,7 +150,7 @@ body.instantio_page_ins-license-activation {
             background-repeat: no-repeat;
             background-position: center;
             background-size: cover;
-            box-shadow: 0px -4px 20px rgba(75, 26, 0, 0.05);
+            box-shadow: 0px 10px 20px rgba(75, 26, 0, 0.05);
             border-radius: 8px;
             height: 278px;
             margin-bottom: 40px;
@@ -166,7 +170,7 @@ body.instantio_page_ins-license-activation {
               padding: 25px;
             }
             .tf-help-center-content {
-              width: 45%;
+              width: 40%;
               @media #{$max575} {
                 width: 100%;
               }
@@ -176,7 +180,7 @@ body.instantio_page_ins-license-activation {
               a {
                 color: #f2f4f5;
                 display: inline-block;
-                padding: 10px 25px;
+                padding: 16px 32px;
                 background: linear-gradient(
                   269.21deg,
                   #ea6c00 0.68%,
@@ -193,9 +197,13 @@ body.instantio_page_ins-license-activation {
                 -o-transition: all 0.3s ease-in-out;
                 transition: all 0.3s ease-in-out;
                 &:hover {
-                  background-color: #c44a08;
+                  background: linear-gradient(
+                    89.33deg,
+                    #ea6c00 0.56%,
+                    #fd8a00 99.41%
+                  );
                   border-color: transparent;
-                  color: #665f5c;
+                  color: #f2f4f5;
                 }
               }
               h2 {
@@ -211,7 +219,7 @@ body.instantio_page_ins-license-activation {
                 font-weight: 400;
                 font-size: 16px;
                 line-height: 140%;
-                color: #b3a6a1;
+                color: #665f5c;
                 margin-bottom: 20px;
               }
             }
@@ -322,8 +330,8 @@ body.instantio_page_ins-license-activation {
             flex-direction: column;
             align-items: center;
             padding: 24px;
-            background: #fff5f0;
-            box-shadow: 0px 10px 30px rgba(0, 7, 66, 0.05);
+            background: #fcf9f7;
+            box-shadow: 0px 10px 20px rgba(75, 26, 0, 0.05);
             border-radius: 8px;
             margin-bottom: 50px;
             h4 {
@@ -342,12 +350,16 @@ body.instantio_page_ins-license-activation {
               font-size: 16px;
               line-height: 24px;
               text-align: center;
-              color: #828c99;
+              color: #665f5c;
               margin-bottom: 30px;
             }
             .btn-desh-primary {
               text-decoration: none;
               color: #fff;
+              font-style: normal;
+              font-weight: 700;
+              font-size: 16px;
+              line-height: 20px;
               padding: 16px 32px;
               background: linear-gradient(
                 269.21deg,
@@ -355,6 +367,13 @@ body.instantio_page_ins-license-activation {
                 #fd8a00 99.35%
               );
               border-radius: 4px;
+              &:hover {
+                background: linear-gradient(
+                  89.33deg,
+                  #ea6c00 0.56%,
+                  #fd8a00 99.41%
+                );
+              }
             }
           }
           .request-features {
@@ -362,8 +381,8 @@ body.instantio_page_ins-license-activation {
             flex-direction: column;
             align-items: center;
             padding: 24px;
-            background-color: #fff5f0;
-            box-shadow: 0px 10px 30px rgba(0, 7, 66, 0.05);
+            background-color: #fcf9f7;
+            box-shadow: 0px 10px 20px rgba(75, 26, 0, 0.05);
             border-radius: 8px;
             img {
               width: 52px;
@@ -384,7 +403,7 @@ body.instantio_page_ins-license-activation {
               font-size: 16px;
               line-height: 24px;
               text-align: center;
-              color: #828c99;
+              color: #665f5c;
               margin-top: 0;
               margin-bottom: 30px;
             }
@@ -399,7 +418,11 @@ body.instantio_page_ins-license-activation {
               letter-spacing: 0.005em;
               color: #db5209;
               &:hover {
-                background-color: #db5209;
+                background: linear-gradient(
+                  89.33deg,
+                  #ea6c00 0.56%,
+                  #fd8a00 99.41%
+                );
                 color: #fff;
               }
             }
@@ -424,7 +447,7 @@ body.instantio_page_ins-license-activation {
               font-size: 20px;
               line-height: 30px;
               letter-spacing: 0.01em;
-              color: #002043;
+              color: #665f5c;
               @media #{$max991} {
                 font-size: 17px;
               }
@@ -459,7 +482,7 @@ body.instantio_page_ins-license-activation {
             }
             .figure {
               margin: 0;
-              background: #f7f9fc;
+              background: #fff5f0;
               border-radius: 8px;
               &:hover > .main-caption .play-button-overlap {
                 background-color: #c44a0861;
@@ -493,10 +516,12 @@ body.instantio_page_ins-license-activation {
                 padding: 16px;
                 font-style: normal;
                 font-weight: 700;
-                font-size: 15px;
+                font-size: 16px;
                 line-height: 150%;
-                color: #828c99;
-                background: #f7f9fc;
+                color: #665f5c;
+                background: #fff5f0;
+                border-bottom-left-radius: 8px;
+                border-bottom-right-radius: 8px;
               }
             }
           }
@@ -517,7 +542,7 @@ body.instantio_page_ins-license-activation {
               font-size: 20px;
               line-height: 30px;
               letter-spacing: 0.01em;
-              color: #002043;
+              color: #665f5c;
               @media #{$max991} {
                 font-size: 17px;
               }
@@ -553,7 +578,7 @@ body.instantio_page_ins-license-activation {
             }
             .figure {
               margin: 0;
-              background: #f7f9fc;
+              background: #fff5f0;
               border-radius: 8px;
               .main-caption {
                 padding-top: 16px;
@@ -571,9 +596,8 @@ body.instantio_page_ins-license-activation {
                 }
               }
               .figure-caption {
-                height: 220px;
+                height: 186px;
                 padding: 16px;
-                background: #f7f9fc;
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
@@ -584,14 +608,14 @@ body.instantio_page_ins-license-activation {
                   font-size: 18px;
                   line-height: 150%;
                   letter-spacing: 0.01em;
-                  color: #002043;
+                  color: #665f5c;
                 }
                 p {
                   font-style: normal;
                   font-weight: 400;
                   font-size: 15px;
                   line-height: 150%;
-                  color: #828c99;
+                  color: #665f5c;
                   margin-top: 8px;
                   margin-bottom: 18px;
                 }
@@ -607,6 +631,7 @@ body.instantio_page_ins-license-activation {
                   letter-spacing: 0.01em;
                   border: 1px solid #db5209;
                   border-radius: 4px;
+                  text-decoration: none;
                 }
               }
             }
@@ -625,16 +650,17 @@ body.instantio_page_ins-license-activation {
               font-size: 20px;
               line-height: 30px;
               letter-spacing: 0.01em;
-              color: #002043;
+              color: #665f5c;
             }
           }
 
           .tf-accordion-wrapper {
             .tf-accrodian-item {
-              background-color: #f7f9fc;
+              background-color: #fff5f0;
+              box-shadow: 0px 10px 20px rgba(75, 26, 0, 0.05);
               padding: 16px;
               border-radius: 8px;
-              margin-bottom: 16px;
+              margin-bottom: 24px;
               .tf-single-faq {
                 .tf-faq-title {
                   position: relative;
@@ -644,7 +670,7 @@ body.instantio_page_ins-license-activation {
                     right: 2px;
                     font-size: 18px;
                     margin-right: 10px;
-                    color: #000;
+                    color: #665f5c;
                   }
                   h4 {
                     margin: 0;
@@ -652,7 +678,7 @@ body.instantio_page_ins-license-activation {
                     font-weight: 700;
                     font-size: 16px;
                     line-height: 150%;
-                    color: #002043;
+                    color: #665f5c;
                     @media #{$max480} {
                       font-size: 14px;
                     }
@@ -671,7 +697,7 @@ body.instantio_page_ins-license-activation {
                     font-size: 16px;
                     line-height: 150%;
                     letter-spacing: 0.01em;
-                    color: #828c99;
+                    color: #665f5c;
                   }
                 }
               }
@@ -691,7 +717,7 @@ body.instantio_page_ins-license-activation {
               font-size: 20px;
               line-height: 30px;
               letter-spacing: 0.01em;
-              color: #002043;
+              color: #665f5c;
             }
           }
           .whatnew_updates {
@@ -699,7 +725,9 @@ body.instantio_page_ins-license-activation {
               display: flex;
               justify-content: space-between;
               padding: 24px 5px 24px 40px;
-              background-color: #f7f9fc;
+              background-color: #fff5f0;
+              box-shadow: 0px 10px 20px rgba(75, 26, 0, 0.05);
+              border-radius: 8px;
               margin-bottom: 32px;
 
               @media #{$max550} {
@@ -720,7 +748,7 @@ body.instantio_page_ins-license-activation {
                   font-size: 16px;
                   line-height: 20px;
                   letter-spacing: 0.01em;
-                  color: #002043;
+                  color: #665f5c;
                   margin-bottom: 20px;
                   @media #{$max550} {
                     margin-right: 30px;
@@ -732,7 +760,7 @@ body.instantio_page_ins-license-activation {
                   font-size: 16px;
                   line-height: 20px;
                   letter-spacing: 0.01em;
-                  color: #002043;
+                  color: #665f5c;
                 }
               }
 
@@ -754,6 +782,7 @@ body.instantio_page_ins-license-activation {
                     color: #3b82f6;
                     background-color: #dbeafe;
                     margin: 0;
+                    border-radius: 4px;
                     margin-bottom: 16px;
                     position: absolute;
                     left: -120px;
@@ -762,7 +791,7 @@ body.instantio_page_ins-license-activation {
                     }
                   }
                   li {
-                    color: #828c99;
+                    color: #665f5c;
                     font-style: normal;
                     font-weight: 400;
                     font-size: 16px;

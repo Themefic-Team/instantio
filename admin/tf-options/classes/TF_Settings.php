@@ -278,7 +278,7 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 										<a href="https://www.youtube.com/playlist?list=PLY0rtvOwg0ykIvNBa8XI3SR7WEbdqqKoO" target="_blank">
 											<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/wizard/tf-tutorial.svg'?>" alt="Document">
 											<h3><?php _e("Video Tutorials","instantio"); ?></h3>
-											<p><?php _e("As part of our overall support strategy to provide the best experience.","instantio"); ?></p>
+											<p><?php _e("We allows you to get help in real-time, which can improve satisfaction.","instantio"); ?></p>
 											<span><?php _e("Watch Video","instantio"); ?></span>
 										</a>
 									</div>
@@ -528,7 +528,7 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 											<div class="tf-faq-title">
 												<i class="fas fa-angle-down"></i>
 												<h4>
-													<?php _e("What is WooCommerce One Page Checkout?","instantio"); ?>
+													<?php _e("1. What is WooCommerce One Page Checkout?","instantio"); ?>
 												</h4>
 											</div>
 											<div class="tf-faq-desc">
@@ -543,7 +543,7 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 											<div class="tf-faq-title">
 												<i class="fas fa-angle-down"></i>
 												<h4>
-													<?php _e("What is Direct Checkout for WooCommerce?","instantio"); ?>
+													<?php _e("2. What is Direct Checkout for WooCommerce?","instantio"); ?>
 												</h4>
 											</div>
 											<div class="tf-faq-desc">
@@ -558,7 +558,7 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 											<div class="tf-faq-title">
 												<i class="fas fa-angle-down"></i>
 												<h4>
-													<?php _e("How to install Instantio?","instantio"); ?>
+													<?php _e("3. How to install Instantio?","instantio"); ?>
 												</h4>
 											</div>
 											<div class="tf-faq-desc">
@@ -573,7 +573,7 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 											<div class="tf-faq-title">
 												<i class="fas fa-angle-down"></i>
 												<h4>
-													<?php _e("Is the Free version fully free or there is a gap?","instantio"); ?>
+													<?php _e("4. Is the Free version fully free or there is a gap?","instantio"); ?>
 												</h4>
 											</div>
 											<div class="tf-faq-desc">
@@ -588,7 +588,7 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 											<div class="tf-faq-title">
 												<i class="fas fa-angle-down"></i>
 												<h4>
-													<?php _e("Is the free version supported?","instantio"); ?>
+													<?php _e("5. Is the free version supported?","instantio"); ?>
 												</h4>
 											</div>
 											<div class="tf-faq-desc">
@@ -603,7 +603,7 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 											<div class="tf-faq-title">
 												<i class="fas fa-angle-down"></i>
 												<h4>
-													<?php _e("Will I be able to edit WooCommerce checkout page with Instantio?","instantio"); ?>
+													<?php _e("5. Will I be able to edit WooCommerce checkout page with Instantio?","instantio"); ?>
 												</h4>
 											</div>
 											<div class="tf-faq-desc">
@@ -618,7 +618,7 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 											<div class="tf-faq-title">
 												<i class="fas fa-angle-down"></i>
 												<h4>
-													<?php _e("Does Instantio allows WooCommerce one-click checkout?","instantio"); ?>
+													<?php _e("6. Does Instantio allows WooCommerce one-click checkout?","instantio"); ?>
 												</h4>
 											</div>
 											<div class="tf-faq-desc">
@@ -633,7 +633,7 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 											<div class="tf-faq-title">
 												<i class="fas fa-angle-down"></i>
 												<h4>
-													<?php _e("Will I be able to skip cart page on WooCommerce?","instantio"); ?>
+													<?php _e("7. Will I be able to skip cart page on WooCommerce?","instantio"); ?>
 												</h4>
 											</div>
 											<div class="tf-faq-desc">
@@ -648,7 +648,7 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 											<div class="tf-faq-title">
 												<i class="fas fa-angle-down"></i>
 												<h4>
-													<?php _e("Does Instantio allows WooCommerce Quick checkout?","instantio"); ?>
+													<?php _e("8. Does Instantio allows WooCommerce Quick checkout?","instantio"); ?>
 												</h4>
 											</div>
 											<div class="tf-faq-desc">
@@ -663,7 +663,7 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 											<div class="tf-faq-title">
 												<i class="fas fa-angle-down"></i>
 												<h4>
-													<?php _e("Does Instantio allows WooCommerce Express checkout?","instantio"); ?>
+													<?php _e("9. Does Instantio allows WooCommerce Express checkout?","instantio"); ?>
 												</h4>
 											</div>
 											<div class="tf-faq-desc">
