@@ -152,11 +152,13 @@ class App {
             $togglebtnClass = 'popupcart';
         } 
         $icon_style = !empty(insopt( 'ins-toggle-tab' )['cart-icon-style']) ? insopt( 'ins-toggle-tab' )['cart-icon-style'] : 'cart-style-1';
-
+        $dedicated_mobile = !empty(insopt( 'dedicated_mobile' )) ? insopt( 'dedicated_mobile' ) : false;
+        $mobile_cart_panel = !empty(insopt( 'mobile-cart-panel' )) ? insopt( 'mobile-cart-panel' ) : false;
+        $dedicated_mobile_panel_class = $dedicated_mobile == true && $mobile_cart_panel == true ? ' ins-dedicated-mobile-card-panel' : '';
         if($this->layout == 1 || $this->layout == ''){
             $ins_toggler = 'tog-1';
             ?>
-            <a class="ins-toggle-btn <?php echo esc_attr( $ins_toggler ) ?> <?php echo esc_attr( $icon_style ) ?> " href="<?php echo esc_url(wc_get_checkout_url());  ?>"> 
+            <a class="ins-toggle-btn <?php echo esc_attr( $ins_toggler ) ?> <?php echo esc_attr( $dedicated_mobile_panel_class ) ?> <?php echo esc_attr( $icon_style ) ?> " href="<?php echo esc_url(wc_get_checkout_url());  ?>"> 
                 <span class="ins-cart-icon"> 
                     <?php echo $toggle_icon ?>
                 </span>
@@ -167,7 +169,7 @@ class App {
             <?php
         }else {
             ?> 
-            <div class="ins-click-to-show ins-toggle-btn <?php echo esc_attr( $togglebtnClass ) ?>  <?php echo esc_attr( $icon_style ) ?>  <?php echo esc_attr( $ins_toggler ) ?>">
+            <div class="ins-click-to-show ins-toggle-btn <?php echo esc_attr( $togglebtnClass ) ?> <?php echo esc_attr( $dedicated_mobile_panel_class ) ?> <?php echo esc_attr( $icon_style ) ?>  <?php echo esc_attr( $ins_toggler ) ?>">
                 <span class="ins-cart-icon"> 
                     <?php echo $toggle_icon ?>
                 </span>
@@ -258,6 +260,7 @@ class App {
         <span id="ins_cart_total" class="ins_cart_total"><?php echo WC()->cart->get_cart_contents_count(); ?></span>
         <?php
         $fragments['#ins_cart_total'] = ob_get_clean();
+        $fragments['#ins-mobile-cart-total-amount'] = '<span id="ins-mobile-cart-total-amount">'.WC()->cart->get_cart_total().'</span>';
         return $fragments;
     }
 
