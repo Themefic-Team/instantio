@@ -220,6 +220,13 @@
 			'<div id="ins-cart-fly">'+productThumb+'</div>'
 		);
 
+		// $(this).closest(".product").append(
+		// 	'<div id="ins-cart-fly">'+productThumb+'</div>'
+		// );
+
+		console.log(endPos.top);
+		console.log(endPos.left);
+
 		$("#ins-cart-fly").css({
 			top: startPos.top + "px",
 			left: startPos.left + "px",
