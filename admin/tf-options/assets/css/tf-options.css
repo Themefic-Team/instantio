@@ -200,6 +200,10 @@ body.instantio_page_ins-license-activation {
   background: #ffffff;
 }
 
+body {
+  background: #fcf9f7;
+}
+
 #wpbody .notice {
   display: none !important;
 }
@@ -336,7 +340,7 @@ body.instantio_page_ins-license-activation {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  box-shadow: 0px -4px 20px rgba(75, 26, 0, 0.05);
+  box-shadow: 0px 10px 20px rgba(75, 26, 0, 0.05);
   border-radius: 8px;
   height: 278px;
   margin-bottom: 40px;
@@ -363,7 +367,7 @@ body.instantio_page_ins-license-activation {
   }
 }
 .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-help-center-banner .tf-help-center-content {
-  width: 45%;
+  width: 40%;
 }
 @media only screen and (max-width: 575.98px) {
   .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-help-center-banner .tf-help-center-content {
@@ -378,7 +382,7 @@ body.instantio_page_ins-license-activation {
 .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-help-center-banner .tf-help-center-content a {
   color: #f2f4f5;
   display: inline-block;
-  padding: 10px 25px;
+  padding: 16px 32px;
   background: linear-gradient(269.21deg, #ea6c00 0.68%, #fd8a00 99.35%);
   border: transparent;
   text-decoration: none;
@@ -389,9 +393,9 @@ body.instantio_page_ins-license-activation {
   transition: all 0.3s ease-in-out;
 }
 .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-help-center-banner .tf-help-center-content a:hover {
-  background-color: #c44a08;
+  background: linear-gradient(89.33deg, #ea6c00 0.56%, #fd8a00 99.41%);
   border-color: transparent;
-  color: #665f5c;
+  color: #f2f4f5;
 }
 .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-help-center-banner .tf-help-center-content h2 {
   color: #665f5c;
@@ -406,7 +410,7 @@ body.instantio_page_ins-license-activation {
   font-weight: 400;
   font-size: 16px;
   line-height: 140%;
-  color: #b3a6a1;
+  color: #665f5c;
   margin-bottom: 20px;
 }
 .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-help-center-banner .tf-help-center-content-img {
@@ -510,8 +514,8 @@ body.instantio_page_ins-license-activation {
   flex-direction: column;
   align-items: center;
   padding: 24px;
-  background: #fff5f0;
-  box-shadow: 0px 10px 30px rgba(0, 7, 66, 0.05);
+  background: #fcf9f7;
+  box-shadow: 0px 10px 20px rgba(75, 26, 0, 0.05);
   border-radius: 8px;
   margin-bottom: 50px;
 }
@@ -531,23 +535,30 @@ body.instantio_page_ins-license-activation {
   font-size: 16px;
   line-height: 24px;
   text-align: center;
-  color: #828c99;
+  color: #665f5c;
   margin-bottom: 30px;
 }
 .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content .tf-settings-help-center .updatedtopro .btn-desh-primary {
   text-decoration: none;
   color: #fff;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
   padding: 16px 32px;
   background: linear-gradient(269.21deg, #ea6c00 0.68%, #fd8a00 99.35%);
   border-radius: 4px;
+}
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content .tf-settings-help-center .updatedtopro .btn-desh-primary:hover {
+  background: linear-gradient(89.33deg, #ea6c00 0.56%, #fd8a00 99.41%);
 }
 .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content .tf-settings-help-center .request-features {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 24px;
-  background-color: #fff5f0;
-  box-shadow: 0px 10px 30px rgba(0, 7, 66, 0.05);
+  background-color: #fcf9f7;
+  box-shadow: 0px 10px 20px rgba(75, 26, 0, 0.05);
   border-radius: 8px;
 }
 .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content .tf-settings-help-center .request-features img {
@@ -569,7 +580,7 @@ body.instantio_page_ins-license-activation {
   font-size: 16px;
   line-height: 24px;
   text-align: center;
-  color: #828c99;
+  color: #665f5c;
   margin-top: 0;
   margin-bottom: 30px;
 }
@@ -585,7 +596,7 @@ body.instantio_page_ins-license-activation {
   color: #db5209;
 }
 .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content .tf-settings-help-center .request-features .btn-desh-primary-tran:hover {
-  background-color: #db5209;
+  background: linear-gradient(89.33deg, #ea6c00 0.56%, #fd8a00 99.41%);
   color: #fff;
 }
 .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.active {
@@ -604,7 +615,7 @@ body.instantio_page_ins-license-activation {
   font-size: 20px;
   line-height: 30px;
   letter-spacing: 0.01em;
-  color: #002043;
+  color: #665f5c;
 }
 @media only screen and (max-width: 991.98px) {
   .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.tutorial .tutorial_wrapper .tutorial-heading h4 {
@@ -647,7 +658,7 @@ body.instantio_page_ins-license-activation {
 }
 .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.tutorial .tutorial_wrapper .tutorial-body .figure {
   margin: 0;
-  background: #f7f9fc;
+  background: #fff5f0;
   border-radius: 8px;
 }
 .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.tutorial .tutorial_wrapper .tutorial-body .figure:hover > .main-caption .play-button-overlap {
@@ -682,10 +693,12 @@ body.instantio_page_ins-license-activation {
   padding: 16px;
   font-style: normal;
   font-weight: 700;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 150%;
-  color: #828c99;
-  background: #f7f9fc;
+  color: #665f5c;
+  background: #fff5f0;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
 }
 .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.premium .premium_wrapper .premium-heading {
   display: flex;
@@ -700,7 +713,7 @@ body.instantio_page_ins-license-activation {
   font-size: 20px;
   line-height: 30px;
   letter-spacing: 0.01em;
-  color: #002043;
+  color: #665f5c;
 }
 @media only screen and (max-width: 991.98px) {
   .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.premium .premium_wrapper .premium-heading h4 {
@@ -744,7 +757,7 @@ body.instantio_page_ins-license-activation {
 }
 .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.premium .premium_wrapper .premium-body .figure {
   margin: 0;
-  background: #f7f9fc;
+  background: #fff5f0;
   border-radius: 8px;
 }
 .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.premium .premium_wrapper .premium-body .figure .main-caption {
@@ -765,9 +778,8 @@ body.instantio_page_ins-license-activation {
   }
 }
 .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.premium .premium_wrapper .premium-body .figure .figure-caption {
-  height: 220px;
+  height: 186px;
   padding: 16px;
-  background: #f7f9fc;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -779,14 +791,14 @@ body.instantio_page_ins-license-activation {
   font-size: 18px;
   line-height: 150%;
   letter-spacing: 0.01em;
-  color: #002043;
+  color: #665f5c;
 }
 .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.premium .premium_wrapper .premium-body .figure .figure-caption p {
   font-style: normal;
   font-weight: 400;
   font-size: 15px;
   line-height: 150%;
-  color: #828c99;
+  color: #665f5c;
   margin-top: 8px;
   margin-bottom: 18px;
 }
@@ -802,6 +814,7 @@ body.instantio_page_ins-license-activation {
   letter-spacing: 0.01em;
   border: 1px solid #db5209;
   border-radius: 4px;
+  text-decoration: none;
 }
 .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.faqs .faqs_wrapper .faqs-heading {
   margin-bottom: 24px;
@@ -813,13 +826,14 @@ body.instantio_page_ins-license-activation {
   font-size: 20px;
   line-height: 30px;
   letter-spacing: 0.01em;
-  color: #002043;
+  color: #665f5c;
 }
 .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.faqs .faqs_wrapper .tf-accordion-wrapper .tf-accrodian-item {
-  background-color: #f7f9fc;
+  background-color: #fff5f0;
+  box-shadow: 0px 10px 20px rgba(75, 26, 0, 0.05);
   padding: 16px;
   border-radius: 8px;
-  margin-bottom: 16px;
+  margin-bottom: 24px;
 }
 .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.faqs .faqs_wrapper .tf-accordion-wrapper .tf-accrodian-item .tf-single-faq .tf-faq-title {
   position: relative;
@@ -830,7 +844,7 @@ body.instantio_page_ins-license-activation {
   right: 2px;
   font-size: 18px;
   margin-right: 10px;
-  color: #000;
+  color: #665f5c;
 }
 .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.faqs .faqs_wrapper .tf-accordion-wrapper .tf-accrodian-item .tf-single-faq .tf-faq-title h4 {
   margin: 0;
@@ -838,7 +852,7 @@ body.instantio_page_ins-license-activation {
   font-weight: 700;
   font-size: 16px;
   line-height: 150%;
-  color: #002043;
+  color: #665f5c;
 }
 @media only screen and (max-width: 480px) {
   .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.faqs .faqs_wrapper .tf-accordion-wrapper .tf-accrodian-item .tf-single-faq .tf-faq-title h4 {
@@ -857,7 +871,7 @@ body.instantio_page_ins-license-activation {
   font-size: 16px;
   line-height: 150%;
   letter-spacing: 0.01em;
-  color: #828c99;
+  color: #665f5c;
 }
 .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.whatnew .whatnew_wrapper .whatnew-heading {
   margin-bottom: 24px;
@@ -869,13 +883,15 @@ body.instantio_page_ins-license-activation {
   font-size: 20px;
   line-height: 30px;
   letter-spacing: 0.01em;
-  color: #002043;
+  color: #665f5c;
 }
 .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.whatnew .whatnew_wrapper .whatnew_updates .whatnew_updates_card {
   display: flex;
   justify-content: space-between;
   padding: 24px 5px 24px 40px;
-  background-color: #f7f9fc;
+  background-color: #fff5f0;
+  box-shadow: 0px 10px 20px rgba(75, 26, 0, 0.05);
+  border-radius: 8px;
   margin-bottom: 32px;
 }
 @media only screen and (max-width: 550.98px) {
@@ -898,7 +914,7 @@ body.instantio_page_ins-license-activation {
   font-size: 16px;
   line-height: 20px;
   letter-spacing: 0.01em;
-  color: #002043;
+  color: #665f5c;
   margin-bottom: 20px;
 }
 @media only screen and (max-width: 550.98px) {
@@ -912,7 +928,7 @@ body.instantio_page_ins-license-activation {
   font-size: 16px;
   line-height: 20px;
   letter-spacing: 0.01em;
-  color: #002043;
+  color: #665f5c;
 }
 .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.whatnew .whatnew_wrapper .whatnew_updates .whatnew_updates_card .cardright_changelog ul {
   width: 340px;
@@ -932,6 +948,7 @@ body.instantio_page_ins-license-activation {
   color: #3b82f6;
   background-color: #dbeafe;
   margin: 0;
+  border-radius: 4px;
   margin-bottom: 16px;
   position: absolute;
   left: -120px;
@@ -942,7 +959,7 @@ body.instantio_page_ins-license-activation {
   }
 }
 .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.whatnew .whatnew_wrapper .whatnew_updates .whatnew_updates_card .cardright_changelog ul li {
-  color: #828c99;
+  color: #665f5c;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
