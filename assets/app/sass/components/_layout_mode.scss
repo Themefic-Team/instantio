@@ -27,7 +27,7 @@
   }
 
   .ins-checkout-steps {
-    background-color: #262422;
+    // background-color: #262422;
 
     &.ins-steps-style-3,
     &.ins-steps-style-4 {
@@ -92,18 +92,24 @@
 
       input,
       select {
-        background-color: #171514 !important;
+        background-color: transparent!important;
         color: #fff !important;
         border: none;
+        &:focus{
+          background-color: #171514 !important;
+        }
       }
     }
 
     .woocommerce-shipping-fields>div p input,
     #order_comments,
     .woocommerce-shipping-fields>div p select {
-      background-color: #171514 !important;
-      color: #fff !important;
+      background-color: transparent !important;
+      color: #626269 !important;
       border: none;
+      &:focus{
+        background-color: #171514 !important;
+      }
     }
   }
 
@@ -192,6 +198,27 @@
   .woocommerce-terms-and-conditions-checkbox-text {
     color: #CCC7C4 !important;
   }
+  .ins-checkout-steps-wrap > div { 
+    background-color: #323236;
+  }
+  .ins-checkout-steps-wrap > div.active, .ins-checkout-steps-wrap > div.done { 
+    background-color: var(--ins_checkout_theme);
+  }
+  .ins-step-icon svg path,
+    .ins-step-title {
+      fill: #626269 !important;
+      color: #626269 !important;
+    }
+  .ins-single-step{
+    &.done .ins-step-icon svg path,
+    &.active .ins-step-icon svg path,
+    &.done .ins-step-title,
+    &.active .ins-step-title {
+      fill: #FCF9F7 !important;
+      color: #FCF9F7 !important;
+    }
+  }
+
 }
 
 /* Dark Mode CSS */

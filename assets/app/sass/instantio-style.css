@@ -618,8 +618,9 @@ a, span, p {
   cursor: pointer;
   position: relative;
 }
+
 .ins-checkout-modern .ins-checkout-header-title {
-  font-size: 24px;
+  font-size: 24px !important;
   font-weight: 600;
   line-height: 20px;
   color: #4D423D;

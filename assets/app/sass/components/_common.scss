@@ -1,5 +1,5 @@
 
-.ins-content,
+.ins-content{
     h1{
         font-size: 20px !important;
         margin-bottom: 5px !important; 
@@ -42,6 +42,17 @@
         height: auto !important;
         border: none !important;
     }
+    .woocommerce-billing-fields {
+        margin-bottom: 0 !important;
+      }
+    .woocommerce-shipping-fields {
+        margin-bottom: 8px !important;
+    }
+    #order_comments_field {
+        margin-bottom: 0 !important;
+    }
+}
+    
 .ins-single-cart-wrap {
     &::-webkit-scrollbar {
         width: 3px;
