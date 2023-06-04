@@ -196,6 +196,7 @@
 		});
 	});
 	
+	
 	// Add To Cart Flying Animation
 	$(document).on("click", ".add_to_cart_button", function () {
 		if(cart_fly_anim == false  ){ 
@@ -219,13 +220,6 @@
 		$("body").append(
 			'<div id="ins-cart-fly">'+productThumb+'</div>'
 		);
-
-		// $(this).closest(".product").append(
-		// 	'<div id="ins-cart-fly">'+productThumb+'</div>'
-		// );
-
-		console.log(endPos.top);
-		console.log(endPos.left);
 
 		$("#ins-cart-fly").css({
 			top: startPos.top + "px",
