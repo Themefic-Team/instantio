@@ -16,6 +16,13 @@ body.admin_page_tf-setup-wizard {
     color: transparent;
     box-shadow: 0 0 0 1px transparent;
   }
+  a,
+  bottom {
+    &:focus {
+      box-shadow: none !important;
+      outline: none !important;
+    }
+  }
 }
 
 .admin_page_tf-setup-wizard #wpcontent {
@@ -62,7 +69,7 @@ body.admin_page_tf-setup-wizard {
 }
 
 .tf-setup-header {
-  margin-bottom: 70px;
+  margin-bottom: 16px;
   @include flexbox();
   @include justify-content(space-between);
   @include align-items(center);
@@ -252,7 +259,7 @@ Welcome Step
 Steps
 */
 .tf-setup-steps {
-  margin: 0 auto 50px;
+  margin: 24px 0;
   box-sizing: border-box;
   padding: 0;
   color: rgba(0, 0, 0, 0.85);
@@ -758,6 +765,7 @@ Steps
       }
       label {
         border: 2px solid transparent;
+        padding: 8px;
         background-color: #fff;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
         display: block;

@@ -250,7 +250,7 @@ body {
               background: linear-gradient(141.81deg, #fb4682 0%, #fbae95 100%);
               border-radius: 8px;
               flex: 1;
-              padding: 22px;
+              padding: 24px;
 
               &:nth-child(2) {
                 background: linear-gradient(
@@ -309,7 +309,7 @@ body {
                     color: #db5209;
                   }
                 }
-                &:focus{
+                &:focus {
                   outline: none !important;
                   box-shadow: none !important;
                 }
@@ -476,8 +476,8 @@ body {
           .tutorial-body {
             display: grid;
             grid-auto-columns: 1fr;
-            grid-row-gap: 16px;
-            grid-column-gap: 16px;
+            grid-row-gap: 32px;
+            grid-column-gap: 32px;
             grid-template-columns: 1fr 1fr;
             grid-template-rows: auto;
             -ms-grid-rows: auto auto;
@@ -584,9 +584,8 @@ body {
               margin: 0;
               background: #fff5f0;
               border-radius: 8px;
+              padding: 24px;
               .main-caption {
-                padding-top: 16px;
-                padding-left: 16px;
                 max-width: 120px;
                 border-top-left-radius: 8px;
                 border-top-right-radius: 8px;
@@ -601,7 +600,7 @@ body {
               }
               .figure-caption {
                 height: 186px;
-                padding: 16px;
+                padding-top: 24px;
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
@@ -636,6 +635,11 @@ body {
                   border: 1px solid #db5209;
                   border-radius: 4px;
                   text-decoration: none;
+                  &:hover {
+                    border-color: transparent;
+                    color: #fff;
+                    background-color: #db5209;
+                  }
                 }
               }
             }
@@ -1410,7 +1414,7 @@ Ajax Loader
   vertical-align: middle;
   visibility: visible;
   opacity: 1;
-  transition: opacity .2s ease, visibility .2s ease;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
   -webkit-animation: wd-rotate 450ms infinite linear;
   animation: wd-rotate 450ms infinite linear;
 }
