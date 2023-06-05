@@ -330,7 +330,6 @@ body {
   }
 }
 .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content {
-  overflow: hidden;
   max-width: 800px;
   margin: auto;
   display: none;
@@ -443,7 +442,7 @@ body {
   background: linear-gradient(141.81deg, #fb4682 0%, #fbae95 100%);
   border-radius: 8px;
   flex: 1;
-  padding: 22px;
+  padding: 24px;
 }
 .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-support-document .tf-single-support:nth-child(2) {
   background: linear-gradient(141.81deg, #4338ca 0%, #a21caf 100%);
@@ -495,6 +494,10 @@ body {
 }
 .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-support-document .tf-single-support a span:hover {
   color: #db5209;
+}
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-support-document .tf-single-support a:focus {
+  outline: none !important;
+  box-shadow: none !important;
 }
 .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-settings-faq {
   margin: 40px 40px 40px 20px;
@@ -645,8 +648,8 @@ body {
 .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.tutorial .tutorial_wrapper .tutorial-body {
   display: grid;
   grid-auto-columns: 1fr;
-  grid-row-gap: 16px;
-  grid-column-gap: 16px;
+  grid-row-gap: 32px;
+  grid-column-gap: 32px;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;
   -ms-grid-rows: auto auto;
@@ -759,10 +762,9 @@ body {
   margin: 0;
   background: #fff5f0;
   border-radius: 8px;
+  padding: 24px;
 }
 .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.premium .premium_wrapper .premium-body .figure .main-caption {
-  padding-top: 16px;
-  padding-left: 16px;
   max-width: 120px;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
@@ -779,7 +781,7 @@ body {
 }
 .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.premium .premium_wrapper .premium-body .figure .figure-caption {
   height: 186px;
-  padding: 16px;
+  padding-top: 24px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -815,6 +817,11 @@ body {
   border: 1px solid #db5209;
   border-radius: 4px;
   text-decoration: none;
+}
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.premium .premium_wrapper .premium-body .figure .figure-caption .btn-premium-fea:hover {
+  border-color: transparent;
+  color: #fff;
+  background-color: #db5209;
 }
 .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content.faqs .faqs_wrapper .faqs-heading {
   margin-bottom: 24px;
@@ -1498,6 +1505,37 @@ body {
   padding-right: 10px;
 }
 
+/*
+Ajax Loader
+*/
+.tf-btn-loading {
+  padding-right: 40px !important;
+  position: relative;
+}
+
+.tf-btn-loading:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  margin-top: -7px;
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border: 2px solid #fff;
+  border-left-color: transparent;
+  border-radius: 50%;
+  vertical-align: middle;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+  animation: wd-rotate 450ms infinite linear;
+}
+@keyframes wd-rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
 input:focus {
   box-shadow: 0 0 0 2px #db5209 !important;
 }
@@ -1748,6 +1786,11 @@ body.admin_page_tf-setup-wizard select:focus {
   color: transparent;
   box-shadow: 0 0 0 1px transparent;
 }
+body.admin_page_tf-setup-wizard a:focus,
+body.admin_page_tf-setup-wizard bottom:focus {
+  box-shadow: none !important;
+  outline: none !important;
+}
 
 .admin_page_tf-setup-wizard #wpcontent {
   margin-left: 0 !important;
@@ -1797,7 +1840,7 @@ body.admin_page_tf-setup-wizard select:focus {
 }
 
 .tf-setup-header {
-  margin-bottom: 70px;
+  margin-bottom: 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1971,7 +2014,7 @@ Welcome Step
 Steps
 */
 .tf-setup-steps {
-  margin: 0 auto 50px;
+  margin: 24px 0;
   box-sizing: border-box;
   padding: 0;
   color: rgba(0, 0, 0, 0.85);
@@ -2445,6 +2488,7 @@ Steps
 }
 .tf-setup-step-container .tf-select-mode li label {
   border: 2px solid transparent;
+  padding: 8px;
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
   display: block;
