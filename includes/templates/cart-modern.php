@@ -53,7 +53,7 @@ do_action( 'woocommerce_before_cart' ); ?>
                                     echo apply_filters( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                                         'woocommerce_cart_item_remove_link',
                                         sprintf(
-                                            '<a href="%s" class="remove" aria-label="%s" data-product_id="%s" data-product_sku="%s">
+                                            '<a href="%s" class="remove" aria-label="%s" data-product_id="%s" data-variation_id="%s" data-product_sku="%s">
                                                 <span class="ins-single-item-remove"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M4.83366 2.33329V0.666626H13.167V2.33329H17.3337V3.99996H15.667V16.5C15.667 16.721 15.5792 16.9329 15.4229 17.0892C15.2666 17.2455 15.0547 17.3333 14.8337 17.3333H3.16699C2.94598 17.3333 2.73402 17.2455 2.57774 17.0892C2.42146 16.9329 2.33366 16.721 2.33366 16.5V3.99996H0.666992V2.33329H4.83366ZM4.00033 3.99996V15.6666H14.0003V3.99996H4.00033ZM6.50033 6.49996H8.16699V13.1666H6.50033V6.49996ZM9.83366 6.49996H11.5003V13.1666H9.83366V6.49996Z" fill="#535E70"/>
                                                 </svg></span>
@@ -223,10 +223,9 @@ do_action( 'woocommerce_before_cart' ); ?>
                 ?>
             </div>
             
-        </div>
-        <?php do_action( 'ins_cart_buttons' ) ?> 	
+        </div> 
     </div>
-   
+    <?php do_action( 'ins_cart_buttons' ) ?> 	
      
 </form>
 

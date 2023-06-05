@@ -288,85 +288,88 @@
   top: 30px !important;
 }
 
-.ins_animate_one.ins-checkout-popup.popup .ins-checkout-layout,
-.ins_animate_two.ins-checkout-popup.popup .ins-checkout-layout {
-  transform: scale(0.1);
-  transition: 0.4s ease-in !important;
-  -webkit-transition: 0.4s ease-in !important;
-  -moz-transition: 0.4s ease-in !important;
-  -ms-transition: 0.4s ease-in !important;
-  -o-transition: 0.4s ease-in !important;
-}
+// .ins_animate_one.ins-checkout-popup.popup .ins-checkout-layout,
+// .ins_animate_two.ins-checkout-popup.popup .ins-checkout-layout {
+//   transform: scale(0.1);
+//   transition: 0.4s ease-in !important;
+//   -webkit-transition: 0.4s ease-in !important;
+//   -moz-transition: 0.4s ease-in !important;
+//   -ms-transition: 0.4s ease-in !important;
+//   -o-transition: 0.4s ease-in !important;
+// }
 
-.ins_animate_one.ins-checkout-popup.popup.active .ins-checkout-layout,
-.ins_animate_two.ins-checkout-popup.popup.active .ins-checkout-layout {
-  transform: scale(1);
-  transition: 0.4s ease-out !important;
-  -webkit-transition: 0.4s ease-out !important;
-  -moz-transition: 0.4s ease-out !important;
-  -ms-transition: 0.4s ease-out !important;
-  -o-transition: 0.4s ease-out !important;
-}
+// .ins_animate_one.ins-checkout-popup.popup.active .ins-checkout-layout,
+// .ins_animate_two.ins-checkout-popup.popup.active .ins-checkout-layout {
+//   transform: scale(1);
+//   transition: 0.4s ease-out !important;
+//   -webkit-transition: 0.4s ease-out !important;
+//   -moz-transition: 0.4s ease-out !important;
+//   -ms-transition: 0.4s ease-out !important;
+//   -o-transition: 0.4s ease-out !important;
+// }
 
-.ins_animate_one.ins-checkout-popup.popup.hide .ins-checkout-layout,
-.ins_animate_two.ins-checkout-popup.popup.hide .ins-checkout-layout {
-  transform: scale(0.1);
-  transition: 0.4s ease-out !important;
-  -webkit-transition: 0.4s ease-out !important;
-  -moz-transition: 0.4s ease-out !important;
-  -ms-transition: 0.4s ease-out !important;
-  -o-transition: 0.4s ease-out !important;
-}
+// .ins_animate_one.ins-checkout-popup.popup.hide .ins-checkout-layout,
+// .ins_animate_two.ins-checkout-popup.popup.hide .ins-checkout-layout {
+//   transform: scale(0.1);
+//   transition: 0.4s ease-out !important;
+//   -webkit-transition: 0.4s ease-out !important;
+//   -moz-transition: 0.4s ease-out !important;
+//   -ms-transition: 0.4s ease-out !important;
+//   -o-transition: 0.4s ease-out !important;
+// }
 
 .ins_animate_one.ins-checkout-layout.ins-checkout-layout-3.popup,
 .ins_animate_two.ins-checkout-layout.ins-checkout-layout-3.popup {
   overflow: hidden !important;
-}
-
-.ins_animate_one.ins-checkout-layout.slide.active {
-
-  .ins-checkout-header,
-  .ins-content,
-  .ins-checkout-steps {
-    -webkit-animation-name: AnimateOneFadeInUp;
-    animation-name: AnimateOneFadeInUp;
-    -webkit-animation-duration: 1s;
-    animation-duration: 1s;
-    animation-delay: 0.5s;
-    -webkit-animation-fill-mode: both;
-    animation-fill-mode: both;
+  .ins-cart-inner.shipping {
+    overflow-x: hidden;
   }
 }
 
-.ins-checkout-popup.slide.active .ins_animate_one.ins-checkout-layout {
+// .ins_animate_one.ins-checkout-layout.slide.active {
 
-  .ins-checkout-header,
-  .ins-content,
-  .ins-checkout-steps {
-    -webkit-animation-name: AnimateOneFadeInUp;
-    animation-name: AnimateOneFadeInUp;
-    -webkit-animation-duration: 1s;
-    animation-duration: 1s;
-    animation-delay: 0.5s;
-    -webkit-animation-fill-mode: both;
-    animation-fill-mode: both;
-  }
-}
+//   .ins-checkout-header,
+//   .ins-content,
+//   .ins-checkout-steps {
+//     -webkit-animation-name: AnimateOneFadeInUp;
+//     animation-name: AnimateOneFadeInUp;
+//     -webkit-animation-duration: 1s;
+//     animation-duration: 1s;
+//     animation-delay: 0.5s;
+//     -webkit-animation-fill-mode: both;
+//     animation-fill-mode: both;
+//   }
+// }
 
-.ins_animate_two.ins-checkout-layout.slide.active {
+// .ins-checkout-popup.slide.active .ins_animate_one.ins-checkout-layout {
 
-  .ins-checkout-header,
-  .ins-content,
-  .ins-checkout-steps {
-    -webkit-animation-name: AnimateOneFadeInUp;
-    animation-name: AnimateOneFadeInUp;
-    -webkit-animation-duration: 1s;
-    animation-duration: 1s;
-    animation-delay: 0.5s;
-    -webkit-animation-fill-mode: both;
-    animation-fill-mode: both;
-  }
-}
+//   .ins-checkout-header,
+//   .ins-content,
+//   .ins-checkout-steps {
+//     -webkit-animation-name: AnimateOneFadeInUp;
+//     animation-name: AnimateOneFadeInUp;
+//     -webkit-animation-duration: 1s;
+//     animation-duration: 1s;
+//     animation-delay: 0.5s;
+//     -webkit-animation-fill-mode: both;
+//     animation-fill-mode: both;
+//   }
+// }
+
+// .ins_animate_two.ins-checkout-layout.slide.active {
+
+//   .ins-checkout-header,
+//   .ins-content,
+//   .ins-checkout-steps {
+//     -webkit-animation-name: AnimateOneFadeInUp;
+//     animation-name: AnimateOneFadeInUp;
+//     -webkit-animation-duration: 1s;
+//     animation-duration: 1s;
+//     animation-delay: 0.5s;
+//     -webkit-animation-fill-mode: both;
+//     animation-fill-mode: both;
+//   }
+// }
 
 .ins-checkout-popup.active .ins_animate_two.ins-checkout-layout {
 
@@ -383,15 +386,15 @@
   }
 }
 
-.ins_animate_one.ins-checkout-layout.slide.active .ins-cart-inner {
-  -webkit-animation-name: AnimateOneFadeInUp;
-  animation-name: AnimateOneFadeInUp;
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  animation-delay: 0.1s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-}
+// .ins_animate_one.ins-checkout-layout.slide.active .ins-cart-inner {
+//   -webkit-animation-name: AnimateOneFadeInUp;
+//   animation-name: AnimateOneFadeInUp;
+//   -webkit-animation-duration: 1s;
+//   animation-duration: 1s;
+//   animation-delay: 0.1s;
+//   -webkit-animation-fill-mode: both;
+//   animation-fill-mode: both;
+// }
 
 .ins-checkout-popup.active {
 

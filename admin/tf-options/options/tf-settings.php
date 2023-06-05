@@ -120,8 +120,8 @@ TF_Settings::option( 'wiopt', array(
 					'label'     	=> __('Choose layout Animation', 'instantio'),  
 					'options'   	=> array(
 						'ins_animate_default' 				=>  'Default Animation', 
-						'ins_animate_one' 	=>  'Animate One',
-						'ins_animate_two' 	=>  'Animate Two'
+						'ins_animate_one' 	=>  'Fade In Animate',
+						// 'ins_animate_two' 	=>  'Animate Two'
 					),
 					'default'   	=> 'default',
 					// 'dependency' 	=> array('ins-layout',  '!=', '1', '', 'visible' ),
