@@ -49,6 +49,8 @@
   margin-bottom: 8px !important; }
 .ins-content #order_comments_field {
   margin-bottom: 0 !important; }
+.ins-content button:focus {
+  outline: none !important; }
 
 .ins-single-cart-wrap::-webkit-scrollbar {
   width: 3px; }
@@ -862,9 +864,10 @@
     width: 0;
     background: rgba(0, 0, 0, 0.05);
     z-index: 1;
-    transition: width .5s ease-in-out; }
-  .ins-cart-btns ahover:after,
-  .ins-cart-btns buttonhover:after {
+    transition: width .5s ease-in-out;
+    display: inline-block; }
+  .ins-cart-btns a:hover:after,
+  .ins-cart-btns button:hover:after {
     width: 100%; }
 .ins-cart-btns a.active,
 .ins-cart-btns button.active {
@@ -1800,9 +1803,9 @@
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both; }
 
-.ins-checkout-popup.active .ins_animate_one.ins-checkout-layout .ins-checkout-header,
-.ins-checkout-popup.active .ins_animate_one.ins-checkout-layout .ins-content,
-.ins-checkout-popup.active .ins_animate_one.ins-checkout-layout .ins-checkout-steps {
+.ins-checkout-popup.slide.active .ins_animate_one.ins-checkout-layout .ins-checkout-header,
+.ins-checkout-popup.slide.active .ins_animate_one.ins-checkout-layout .ins-content,
+.ins-checkout-popup.slide.active .ins_animate_one.ins-checkout-layout .ins-checkout-steps {
   -webkit-animation-name: AnimateOneFadeInUp;
   animation-name: AnimateOneFadeInUp;
   -webkit-animation-duration: 1s;

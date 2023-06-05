@@ -51,6 +51,11 @@
     #order_comments_field {
         margin-bottom: 0 !important;
     }
+    button{
+        &:focus{
+            outline: none !important;
+        }
+    }
 }
     
 .ins-single-cart-wrap {

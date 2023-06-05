@@ -523,6 +523,7 @@
     padding: 10px;
     line-height: 1.7;
     position: relative;
+     
 
     &::after{
       content: "";
@@ -534,8 +535,9 @@
       background: rgba(0,0,0,.05);
       z-index: 1;
       transition: width .5s ease-in-out;
+      display: inline-block;
     }
-    &hover:after{
+    &:hover:after{
       width: 100%;
     }
   }
