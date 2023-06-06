@@ -20,6 +20,9 @@ class Assets {
                 'ajax_url' => admin_url( 'admin-ajax.php' ),
             )
         ); 
+
+        // Enqueue variation scripts.
+		wp_enqueue_script( 'wc-add-to-cart-variation' );
         
     }
     public function admin_enqueue_scripts() { 

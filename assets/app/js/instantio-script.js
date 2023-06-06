@@ -68,15 +68,25 @@
 			$(this).parent().fadeOut(300);
 		});
 		// Variable Product Quick View Ajax on Click
-		$(document).on("click", ".product_type_variable", function (e) {
+		$(document).on("click", ".product_type_variable", function (e) { 
 			e.preventDefault();
-			var $this = $(this),
+			
+			var $this = $(this), 
 			cartPos = $this.offset(),
 			product_id = $this.data("product_id");
+			
 			$(".ins-quick-view").css({
 			top: parseInt(cartPos.top) + parseInt(45) + "px",
 			left: cartPos.left + "px",
 			});
+
+			if($this.hasClass("ins-sell-add-to-cart")){
+				cartPos = $this.closest(".ins-single-product-sell").offset();
+				$(".ins-quick-view").css({
+					top: parseInt(cartPos.bottom) + "px",
+					left: cartPos.left + "px",
+				});
+			}
 			$.ajax({
 				type: "post",
 				url:  ins_params.ajax_url,
@@ -122,6 +132,7 @@
 
 	// Ajax Add To Cart
 	$(document.body).on("added_to_cart", function () {
+		
 		var thisbutton = $(this);
 		$.ajax({
 			url: ins_params.ajax_url,
@@ -136,7 +147,9 @@
 			complete: function (response) {
 				thisbutton.addClass("added").removeClass("loading");
 			},
-			success: function (response) {
+			success: function (response) { 
+				$('.ins-quick-view').hide();
+
 				$(".ins-checkout-layout").html("");
 				 
 				$(".ins-checkout-layout").append(response); 
@@ -195,6 +208,7 @@
 					$(".ins-checkout-popup").toggleClass("active");
 					$(".ins-checkout-popup").toggleClass("fadeIn");
 				}
+				$('.ins-quick-view').hide();
 			},
 		});
 	});

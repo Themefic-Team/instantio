@@ -1029,10 +1029,16 @@
   padding: 25px;
   background: #fff;
   position: absolute;
-  z-index: 990;
+  left: 0;
+  z-index: 999999;
   overflow: hidden;
   box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, .35);
-
+  
+  .woocommerce-variation-description {
+      display: none !important;
+      visibility: hidden !important;
+      opacity: 0 !important;
+  }
   .close {
     position: absolute;
     top: 3px;
