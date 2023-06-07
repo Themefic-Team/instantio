@@ -500,7 +500,7 @@
   .ins-cart-btns { 
     position: absolute;
     bottom: 16px;
-    width: calc(100% - 32px) !important;
+    width: calc(100% - 48px) !important;
     bottom: 0;
     width: 100%;
     padding: 16px !important;
@@ -523,6 +523,11 @@
    
         width: calc(100% - 48px) !important; 
       }
+  }
+  .ins-cart-inner.shipping { 
+    .ins-cart-btns { 
+      width: calc(100% - 32px) !important; 
+    }
   }
   
 }

@@ -837,7 +837,7 @@
 .ins-checkout-layout.slide .ins-cart-btns {
   position: absolute;
   bottom: 16px;
-  width: calc(100% - 32px) !important;
+  width: calc(100% - 48px) !important;
   bottom: 0;
   width: 100%;
   padding: 16px !important;
@@ -855,6 +855,8 @@
   overflow-x: hidden; }
   .ins-checkout-layout.slide .ins-cart-inner.shipping .ins-cart-btns, .ins-checkout-layout.slide .ins-cart-inner.payment .ins-cart-btns {
     width: calc(100% - 48px) !important; }
+.ins-checkout-layout.slide .ins-cart-inner.shipping .ins-cart-btns {
+  width: calc(100% - 32px) !important; }
 
 .ins-cart-btns a,
 .ins-cart-btns button {
@@ -1494,7 +1496,8 @@
   display: none; }
 .ins-layout-gradient .ins-checkout-header, .ins-layout-gradient .ins-cart-btns {
   background: linear-gradient(135deg, #B959CB 0%, #6A5FCC 100%);
-  box-shadow: 0px 10px 20px rgba(75, 26, 0, 0.05); }
+  box-shadow: 0px 10px 20px rgba(75, 26, 0, 0.05);
+  border: none; }
 .ins-layout-gradient .ins-steps-style-3.active .ins-step-icon svg path, .ins-layout-gradient .ins-steps-style-3.done .ins-step-icon svg path, .ins-layout-gradient .ins-steps-style-3.active .ins-step-title, .ins-layout-gradient .ins-steps-style-3.done .ins-step-title {
   fill: #fff !important;
   color: #fff !important; }

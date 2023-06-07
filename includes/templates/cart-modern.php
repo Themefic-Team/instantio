@@ -16,7 +16,7 @@
  */
 
 defined( 'ABSPATH' ) || exit;
-
+$ins_layout = !empty(insopt( 'ins-layout-options' )) ? insopt( 'ins-layout-options' ) : '1';
 do_action( 'woocommerce_before_cart' ); ?>
 <form class="woocommerce-cart-form" action="<?php echo esc_url( wc_get_cart_url() ); ?>" method="post">
 	
@@ -222,11 +222,20 @@ do_action( 'woocommerce_before_cart' ); ?>
                     woocommerce_cart_totals();  
                 ?>
             </div>
-            
+          	
         </div> 
+        <?php 
+            if($ins_layout == '3'){
+                do_action( 'ins_cart_buttons' );
+            }
+        ?>
     </div>
-    <?php do_action( 'ins_cart_buttons' ) ?> 	
-     
+
+    <?php  
+        if($ins_layout == '2'){
+            do_action( 'ins_cart_buttons' );
+        } 
+    ?> 
 </form>
 
 
