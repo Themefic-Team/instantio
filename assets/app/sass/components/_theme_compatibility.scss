@@ -82,4 +82,21 @@
     }
 }
 
- 
+// Avada Theme Compatibility
+.theme-Avada{
+    .ins-checkout-layout.popup .woocommerce-cart-form {
+        display: block !important; 
+    } 
+    .ins-checkout-modern.popup .ins-checkout-layout.popup {
+        max-width: 50%; 
+    }
+  
+}
+
+@media (max-width: 1140px) {
+    .theme-Avada{
+        .ins-checkout-modern.popup .ins-checkout-layout.popup {
+            max-width: 80% !important; 
+        }
+    } 
+}
