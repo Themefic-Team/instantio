@@ -180,7 +180,7 @@
   }
 
   .ins-steps-style-4 .ins-single-step span {
-    background-color: #171514 !important;
+    background-color: #323236 !important;
   }
 
   .ins-single-cart-item {
@@ -204,6 +204,18 @@
   .ins-checkout-steps-wrap > div.active, .ins-checkout-steps-wrap > div.done { 
     background-color: var(--ins_checkout_theme);
   }
+  .ins-steps-style-4{
+    .ins-checkout-steps-wrap > div.active, .ins-checkout-steps-wrap > div.done { 
+      background-color: #323236;
+    }
+    .ins-single-step::before { 
+      z-index: 1; 
+    }
+    .ins-single-step span { 
+      z-index: 2;
+    }
+
+  }
   .ins-step-icon svg path,
     .ins-step-title {
       fill: #626269 !important;
@@ -219,6 +231,11 @@
     }
   }
 
+  .ins-cart-btns {
+    background-color: #262422 !important;
+    box-shadow: 0px 15px 20px rgba(3, 3, 3, 0.15) !important;
+    border-color: #33312e !important;
+  }
 }
 
 /* Dark Mode CSS */
@@ -246,9 +263,10 @@
     display: none;
   }
 
-  .ins-checkout-header {
+  .ins-checkout-header, .ins-cart-btns{
     background: linear-gradient(135deg, #B959CB 0%, #6A5FCC 100%);
     box-shadow: 0px 10px 20px rgba(75, 26, 0, 0.05);
+    border: none;
   }
 
   .ins-steps-style-3 {
@@ -457,6 +475,7 @@
   .ins-checkout-header,
   .ins-cart-content-wrap .ins-single-cart-item, 
   .ins-cart-footer-content,
+  .ins-cart-btns,
   .ins-single-product-sell {
     background: rgba(253, 253, 253, 0.4) !important;
     backdrop-filter: blur(5px);
