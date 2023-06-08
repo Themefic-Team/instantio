@@ -967,6 +967,13 @@
   }
 }
 
+.ins-checkout-layout.popup{
+  .ins-content {
+    height: calc(100%) !important;
+    overflow: auto;
+  }
+}
+
 .ins-content {
   height: calc(100% - 157px) !important;
   overflow: auto;
