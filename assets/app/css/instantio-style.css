@@ -36,19 +36,24 @@
   font-size: 10px !important;
   margin-bottom: 5px !important;
 }
-.ins-content a, .ins-content span, .ins-content p {
+.ins-content a,
+.ins-content span,
+.ins-content p {
   font-size: 16px !important;
 }
-.ins-content .woocommerce-content-box, .ins-content .coupon, .ins-content .cart_totals {
+.ins-content .woocommerce-content-box,
+.ins-content .coupon,
+.ins-content .cart_totals {
   margin: 0 !important;
   padding: 0 !important;
   border: none !important;
 }
 .ins-content .woocommerce-error {
-  background-color: #FFECEB !important;
+  background-color: #ffeceb !important;
 }
-.ins-content .woocommerce-error li, .ins-content .woocommerce-error:before {
-  color: #DA281C !important;
+.ins-content .woocommerce-error li,
+.ins-content .woocommerce-error:before {
+  color: #da281c !important;
 }
 .ins-content .shop_table tr {
   height: auto !important;
@@ -103,7 +108,7 @@
   font-size: 30px;
   font-size: 24px;
   line-height: 32px;
-  color: #FEF2EB;
+  color: #665F5C;
 }
 .ins-cart-empty a {
   text-decoration: underline;
@@ -190,7 +195,7 @@
 }
 .ins-product-sell-carousel .owl-nav .owl-prev:hover,
 .ins-product-sell-carousel .owl-nav .owl-next:hover {
-  background-color: #4D423D !important;
+  background-color: #4d423d !important;
 }
 .ins-product-sell-carousel .owl-nav .owl-prev span,
 .ins-product-sell-carousel .owl-nav .owl-next span {
