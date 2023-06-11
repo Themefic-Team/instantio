@@ -107,6 +107,11 @@
         color: var(--ins_checkout_theme);
     }
 }
+.ins-checkout-layout.popup{
+    .ins-cart-empty { 
+        height: 410px !important;
+    }
+}
 
 /* Empty cart */
 
