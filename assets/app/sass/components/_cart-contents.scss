@@ -957,11 +957,11 @@
     }
 }
 
-.ins-checkout-layout.popup {
-    .ins-content {
-        height: calc(100%) !important;
-    }
-}
+// .ins-checkout-layout.popup {
+// //     .ins-content {
+// //         height: calc(100%) !important;
+// //     }
+// }
 
 .ins-content {
     height: calc(100% - 157px) !important;
@@ -991,6 +991,7 @@
         padding: 8px;
         border-radius: 5px;
         transition: 0.4s;
+        cursor: pointer;
     }
 
     display: flex;

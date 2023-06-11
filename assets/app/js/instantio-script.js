@@ -123,6 +123,8 @@
 				$(".ins-checkout-layout-3").removeClass("active");
 				$(".ins-checkout-overlay").removeClass("active");
 				$(".ins-checkout-popup").removeClass("active");
+			}else{
+				$(".ins-toggle-btn").css({ visibility: "visible", opacity: "1" });
 			}
 		}
 	}

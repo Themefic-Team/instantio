@@ -56,6 +56,10 @@
             outline: none !important;
         }
     }
+    .woocommerce-cart #payment, .woocommerce-checkout #payment, #add_payment_method #payment {
+        background: transparent !important; 
+        border-radius: 5px;
+    }
 }
     
 .ins-single-cart-wrap {
@@ -98,7 +102,7 @@
         font-size: 30px;
         font-size: 24px;
         line-height: 32px;
-        color: $p_shade;
+        color: #4d423d;
     }
 
     a {

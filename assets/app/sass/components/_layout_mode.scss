@@ -236,6 +236,11 @@
     box-shadow: 0px 15px 20px rgba(3, 3, 3, 0.15) !important;
     border-color: #33312e !important;
   }
+  .ins-cart-empty{
+      span { 
+      color: $p_shade !important;
+    }
+  }
 }
 
 /* Dark Mode CSS */
@@ -266,7 +271,7 @@
   .ins-checkout-header, .ins-cart-btns{
     background: linear-gradient(135deg, #B959CB 0%, #6A5FCC 100%);
     box-shadow: 0px 10px 20px rgba(75, 26, 0, 0.05);
-    border: none;
+    border: none !important;
   }
 
   .ins-steps-style-3 {
@@ -509,6 +514,14 @@
 
   .quantity input[type="number"] {
     box-shadow: inset 0px 4px 4px rgba(211, 73, 0, 0.1) !important;
+  }
+  .ins-checkout-steps-wrap { 
+    background-color: rgba(255, 255, 255, 0.3) !important;
+  }
+  .ins-cart-empty {
+    span { 
+      color: #4d423d !important;
+    }
   }
 }
 

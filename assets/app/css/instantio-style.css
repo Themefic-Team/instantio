@@ -51,6 +51,9 @@
   margin-bottom: 0 !important; }
 .ins-content button:focus {
   outline: none !important; }
+.ins-content .woocommerce-cart #payment, .ins-content .woocommerce-checkout #payment, .ins-content #add_payment_method #payment {
+  background: transparent !important;
+  border-radius: 5px; }
 
 .ins-single-cart-wrap::-webkit-scrollbar {
   width: 3px; }
@@ -83,7 +86,7 @@
     font-size: 30px;
     font-size: 24px;
     line-height: 32px;
-    color: #FEF2EB; }
+    color: #4d423d; }
   .ins-cart-empty a {
     text-decoration: underline;
     font-weight: 700;
@@ -1194,9 +1197,6 @@
     .ins-steps button:nth-last-child(1) {
       border-right: 1px solid #ddd !important; }
 
-.ins-checkout-layout.popup .ins-content {
-  height: calc(100%) !important; }
-
 .ins-content {
   height: calc(100% - 157px) !important;
   overflow: auto; }
@@ -1224,7 +1224,8 @@
     border: 1px solid #e9570a;
     padding: 8px;
     border-radius: 5px;
-    transition: 0.4s; }
+    transition: 0.4s;
+    cursor: pointer; }
 
 .ins-checkout-popup .ins-cart-btns {
   padding: 0px; }
@@ -1493,6 +1494,8 @@
   background-color: #262422 !important;
   box-shadow: 0px 15px 20px rgba(3, 3, 3, 0.15) !important;
   border-color: #33312e !important; }
+.ins-layout-dark .ins-cart-empty span {
+  color: #FEF2EB !important; }
 
 /* Dark Mode CSS */
 /* Gradient Mode CSS */
@@ -1507,7 +1510,7 @@
 .ins-layout-gradient .ins-checkout-header, .ins-layout-gradient .ins-cart-btns {
   background: linear-gradient(135deg, #B959CB 0%, #6A5FCC 100%);
   box-shadow: 0px 10px 20px rgba(75, 26, 0, 0.05);
-  border: none; }
+  border: none !important; }
 .ins-layout-gradient .ins-steps-style-3.active .ins-step-icon svg path, .ins-layout-gradient .ins-steps-style-3.done .ins-step-icon svg path, .ins-layout-gradient .ins-steps-style-3.active .ins-step-title, .ins-layout-gradient .ins-steps-style-3.done .ins-step-title {
   fill: #fff !important;
   color: #fff !important; }
@@ -1631,6 +1634,10 @@
   opacity: 1 !important; }
 .ins-layout-glass-morphism .quantity input[type="number"] {
   box-shadow: inset 0px 4px 4px rgba(211, 73, 0, 0.1) !important; }
+.ins-layout-glass-morphism .ins-checkout-steps-wrap {
+  background-color: rgba(255, 255, 255, 0.3) !important; }
+.ins-layout-glass-morphism .ins-cart-empty span {
+  color: #4d423d !important; }
 
 /* Glass Morphism Mode CSS */
 .cart_boom {
