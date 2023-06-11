@@ -1,3 +1,27 @@
+// Fly Cart Animation 
+
+.cart_boom {
+  animation: cart_boom 0.3s ease-in-out 200ms 1 forwards;
+}
+@keyframes cart_boom {
+  0% {
+    transform: scale(1.2);
+  }
+
+  25% {
+    transform: scale(0.8);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+
 /* CSS Animation */
 
 .fadeInLeft {
