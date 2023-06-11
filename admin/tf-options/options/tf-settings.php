@@ -962,8 +962,6 @@ TF_Settings::option( 'wiopt', array(
 									'content' 		=> __('Billing Section', 'instantio'),
 								),
 
-								
-
 								array(
 									'id'       		=> 'ins-bill-bg',
 									'type'     		=> 'color',
@@ -1242,17 +1240,6 @@ TF_Settings::option( 'wiopt', array(
 					'id'    		=> 'cart-section_mobile',
 					'type'    		=> 'heading',
 					'content' 		=> __('Cart Section', 'instantio'),
-					'dependency' 	=> array('mobile', '==', 'true'),
-				),
-
-				array(
-					'id'       		=> 'mobile-cart-coupon',
-					'type'     		=> 'switch',
-					'label'    		=> __('Enable Cart Coupon', 'instantio'),
-					'subtitle' 		=> __('Enable/disable Coupon field in the cart in mobile version', 'instantio'),
-					'label_on'    	=> __('Yes', 'instantio' ),
-					'label_off'   	=> __('No', 'instantio' ),
-					'default'   	=> false,          
 					'dependency' 	=> array('mobile', '==', 'true'),
 				),
 
