@@ -13,6 +13,7 @@ class App {
         $this->ins_layout_set_data();
 
         add_action( 'wp_body_open', array($this, 'ins_layout_three'), 10 );
+        
         add_filter( 'woocommerce_add_to_cart_fragments', array($this, 'ins_cart_count_fragments'), 50, 1 );
 
         // Ajax Cart reload After Product Add to Cart
@@ -231,7 +232,7 @@ class App {
             <div class="ins-cart-inner">
                 <?php require_once apply_filters( 'ins_cart_path', INS_INC_PATH . '/templates/cart.php' ); ?>	
             </div>  
-            <?php do_action( 'ins_cart_buttons' ) ?> 
+            <?php do_action( 'ins_cart_buttons' ); ?> 
         </div> 
         <?php
         echo ob_get_clean();
