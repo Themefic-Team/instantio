@@ -526,14 +526,14 @@
 	// Cart Animation Gsap
 	function ins_cart_animation($step = "cart") {
 		if ($step == "cart") {
-			gsap.from(".ins-checkout-header", {
+			gsap.from(".ins_animate_one .ins-checkout-header", {
 				opacity: 0,
 				y: -100,
 				duration: 0.2,
 				delay: 0.2,
 				ease: "fadeIn",
 			});
-			gsap.from(".ins-checkout-steps", {
+			gsap.from(".ins_animate_one .ins-checkout-steps", {
 				opacity: 0,
 				x: -100,
 				duration: 0.2,
@@ -541,14 +541,14 @@
 				ease: "fadeIn",
 			});
 			// gsap.from(".ins-cart-btns", {opacity: 0, y: 100, duration: 0.4, delay: 0.4, ease: "slideIn" });
-			gsap.from(".step-1 .ins-cart-content-wrap, .step-1 .ins-up-sells", {
+			gsap.from(".ins_animate_one .step-1 .ins-cart-content-wrap, .step-1 .ins-up-sells", {
 				opacity: 0,
 				y: -100,
 				duration: 0.2,
 				delay: 0.4,
 				ease: "fadeIn",
 			});
-			gsap.from(".step-1 .ins-cart-footer-content, .step-1  .ins-cart-btns", {
+			gsap.from(".ins_animate_one .step-1 .ins-cart-footer-content, .step-1  .ins-cart-btns", {
 				opacity: 0,
 				x: 100,
 				duration: 0.2,

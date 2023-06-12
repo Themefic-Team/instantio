@@ -12,7 +12,7 @@ class App {
          
         $this->ins_layout_set_data();
 
-        add_action( 'wp_footer', array($this, 'ins_layout_three'), 10 );
+        add_action( 'wp_body_open', array($this, 'ins_layout_three'), 10 );
         add_filter( 'woocommerce_add_to_cart_fragments', array($this, 'ins_cart_count_fragments'), 50, 1 );
 
         // Ajax Cart reload After Product Add to Cart
