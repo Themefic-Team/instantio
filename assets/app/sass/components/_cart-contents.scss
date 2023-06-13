@@ -702,6 +702,7 @@
 
     .ins-checkout-body.ins-content {
         flex-basis: 65%;
+        height: auto !important;
     }
 
     .ins-cart-footer-wrap {
@@ -723,6 +724,12 @@
         }
     }
 }
+// .ins-checkout-layout.popup{
+//     > .ins-content { 
+//         height: auto !important;
+//     }
+
+// }
 
 /* Popup */
 

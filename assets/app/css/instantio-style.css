@@ -1006,7 +1006,8 @@
   gap: 16px;
   padding: 16px; }
   .ins-checkout-layout.popup .woocommerce-cart-form .ins-checkout-body.ins-content {
-    flex-basis: 65%; }
+    flex-basis: 65%;
+    height: auto !important; }
   .ins-checkout-layout.popup .woocommerce-cart-form .ins-cart-footer-wrap {
     flex-basis: 35%;
     overflow: hidden; }

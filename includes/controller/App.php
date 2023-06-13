@@ -188,28 +188,28 @@ class App {
         ob_start();
 
         // Cart Button
-        $on_cart_btn = isset(insopt( 'cart-btn' )['on-cart-btn']) ? insopt( 'cart-btn' )['on-cart-btn'] : true; 
+        $on_cart_btn = isset(insopt( 'cart-btn' )['on-cart-btn']) ? insopt( 'cart-btn' )['on-cart-btn'] : false; 
 		$cart_button_text = isset(insopt( 'cart-btn' )['cart_button_text']) ? insopt( 'cart-btn' )['cart_button_text'] : '';
 		$cart_button_url = isset(insopt( 'cart-btn' )['cart_button_url']) ? insopt( 'cart-btn' )['cart_button_url'] : '';
 
-        $cart_button_text = !empty($cart_button_text) ? wp_strip_all_tags( __( $cart_button_text, 'instantio' )) : __( 'View Cart', 'instantio' );
-        $cart_button_url = !empty($cart_button_url) ? $cart_button_url : wc_get_cart_url();
+        $cart_button_text = !empty($cart_button_text) && $on_cart_btn == true ? wp_strip_all_tags( __( $cart_button_text, 'instantio' )) : __( 'View Cart', 'instantio' );
+        $cart_button_url = !empty($cart_button_url) && $on_cart_btn == true ?  $cart_button_url : wc_get_cart_url();
  
         // Cart Button Link
-        $cart_button = $on_cart_btn == true ? '<a href="'.esc_url( $cart_button_url ).'" class="view-cart active">'.esc_html( $cart_button_text ).'</a>' : '';
+        $cart_button = '<a href="'.esc_url( $cart_button_url ).'" class="view-cart active">'.esc_html( $cart_button_text ).'</a>';
 
         // insopt( 'auto-tog-panel' )
         // Checkout Button
-        $on_checkout_btn = isset(insopt( 'checkout-btn' )['on-checkout-btn']) ? insopt( 'checkout-btn' )['on-checkout-btn'] : true;
+        $on_checkout_btn = isset(insopt( 'checkout-btn' )['on-checkout-btn']) ? insopt( 'checkout-btn' )['on-checkout-btn'] : false;
         
 		$checkout_button_text = isset(insopt( 'checkout-btn' )['checkout_button_text']) ? insopt( 'checkout-btn' )['checkout_button_text'] : '';
 		$checkout_button_url = isset(insopt( 'checkout-btn' )['checkout_button_url']) ? insopt( 'checkout-btn' )['checkout_button_url'] : '';
 
-        $checkout_button_text = !empty($checkout_button_text) ? wp_strip_all_tags( __( $checkout_button_text, 'instantio' )) : __( 'Checkout Now', 'instantio' ); 
-        $checkout_button_url = !empty($checkout_button_url) ? $checkout_button_url : wc_get_checkout_url();
+        $checkout_button_text = !empty($checkout_button_text) && $on_checkout_btn == true ? wp_strip_all_tags( __( $checkout_button_text, 'instantio' )) : __( 'Checkout Now', 'instantio' ); 
+        $checkout_button_url = !empty($checkout_button_url) && $on_checkout_btn == true ? $checkout_button_url : wc_get_checkout_url();
 
         //  Checkout button Link
-        $checkout_button = $on_checkout_btn == true ? '<a href="'.esc_url( $checkout_button_url ).'" class="checkout">'.esc_html( $checkout_button_text ).'</a>' : '';
+        $checkout_button = '<a href="'.esc_url( $checkout_button_url ).'" class="checkout">'.esc_html( $checkout_button_text ).'</a>';
 
         
         ?> 
