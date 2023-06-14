@@ -146,11 +146,17 @@
 				thisbutton.addClass("added").removeClass("loading");
 			},
 			success: function (response) {
-				$(".ins-quick-view").hide();
+				$(".ins-quick-view").hide(); 
+				console.log(response.data.ins_cart_count); 
+				$("#ins_cart_totals").html(response.data.ins_cart_count)
+				// $("#ins_cart_totals").append(response.data.ins_cart_count);
+				$(".ins-checkout-layout .ins-content").removeClass("hide");
+				$(".ins-checkout-layout .ins-content").addClass("show");
+				$(".ins-checkout-layout .ins-cart-empty").addClass("hide");
+				$(".ins-checkout-layout .ins-cart-inner.step-1").html("");
+				$(".ins-checkout-layout .ins-cart-inner.step-1").append(response.data.data);
 
-				$(".ins-checkout-layout").html("");
-
-				$(".ins-checkout-layout").append(response);
+				// $(".ins-checkout-layout").append(response); 
 
 				if (auto_open_toggle == true) {
 					$(".ins-checkout-layout-3").addClass("active");
@@ -193,8 +199,13 @@
 				thisbutton.addClass("added").removeClass("loading");
 			},
 			success: function (response) {
-				$(".ins-checkout-layout").html("");
-				$(".ins-checkout-layout").append(response);
+				$(".ins-quick-view").hide(); 
+				$("#ins_cart_totals").html(response.data.ins_cart_count)
+				$(".ins-checkout-layout .ins-content").removeClass("hide");
+				$(".ins-checkout-layout .ins-content").addClass("show");
+				$(".ins-checkout-layout .ins-cart-empty").addClass("hide");
+				$(".ins-checkout-layout .ins-cart-inner.step-1").html("");
+				$(".ins-checkout-layout .ins-cart-inner.step-1").append(response.data.data);
 
 				ins_owl_carousel();
 
@@ -379,8 +390,21 @@
 					ease: "fadeIn",
 				});
 				setTimeout(function () {
-					$(".ins-checkout-layout").html("");
-					$(".ins-checkout-layout").append(response.cart_data);
+					// $(".ins-checkout-layout").html("");
+					// $(".ins-checkout-layout").append(response.cart_data);
+					$("#ins_cart_totals").html(response.data.ins_cart_count)
+					if(response.data.display == "show"){ 
+						// alert("show");
+						$(".ins-checkout-layout .ins-content").removeClass("hide");
+					}
+					if(response.data.hide_empty == "show"){ 
+						$(".ins-checkout-layout .ins-cart-empty").removeClass("hide");;
+					}
+					$(".ins-checkout-layout .ins-content").addClass(response.data.display);
+					$(".ins-checkout-layout .ins-cart-empty").addClass(response.data.hide_empty);
+					$(".ins-checkout-layout .ins-cart-inner.step-1").html("");
+					$(".ins-checkout-layout .ins-cart-inner.step-1").append(response.data.data);
+
 					ins_owl_carousel();
 					// Hide toggle button if empty cart
 					hide_toggle_btn();
@@ -406,8 +430,15 @@
 				$(".loader-container").removeClass("active");
 			},
 			success: function (response) {
-				$(".ins-checkout-layout").html("");
-				$(".ins-checkout-layout").html(response.cart_data);
+				// $(".ins-checkout-layout").html("");
+				// $(".ins-checkout-layout").html(response.cart_data);
+				$("#ins_cart_totals").html(response.data.ins_cart_count)
+				$(".ins-checkout-layout .ins-content").removeClass("show");
+				$(".ins-checkout-layout .ins-content").addClass("hide");
+				$(".ins-checkout-layout .ins-cart-empty").removeClass("hide");
+				$(".ins-checkout-layout .ins-cart-empty").addClass("show");
+				$(".ins-checkout-layout .ins-cart-inner.step-1").html("");
+				$(".ins-checkout-layout .ins-cart-inner.step-1").append(response.data.data);
 				// Hide toggle button if empty cart
 				hide_toggle_btn();
 			},
@@ -455,8 +486,21 @@
 					$(".loader-container").removeClass("active");
 				},
 				success: function (response) {
-					$(".ins-checkout-layout").html("");
-					$(".ins-checkout-layout").append(response.cart_data);
+					console.log(response.data.display);
+					// $(".ins-checkout-layout").html("");
+					// $(".ins-checkout-layout").append(response.cart_data);
+					$("#ins_cart_totals").html(response.data.ins_cart_count)
+					if(response.data.display == "show"){ 
+						// alert("show");
+						$(".ins-checkout-layout .ins-content").removeClass("hide");
+					}
+					if(response.data.hide_empty == "show"){ 
+						$(".ins-checkout-layout .ins-cart-empty").removeClass("hide");;
+					}
+					$(".ins-checkout-layout .ins-content").addClass(response.data.display);
+					$(".ins-checkout-layout .ins-cart-empty").addClass(response.data.hide_empty);
+					$(".ins-checkout-layout .ins-cart-inner.step-1").html("");
+					$(".ins-checkout-layout .ins-cart-inner.step-1").append(response.data.data);
 					ins_owl_carousel();
 					// Hide toggle button if empty cart
 					hide_toggle_btn();

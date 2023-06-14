@@ -973,6 +973,10 @@
 .ins-content {
     height: calc(100% - 157px) !important;
     overflow: auto;
+    &.hide{
+        display: none !important;
+
+    }
 }
 
 .ins-step-btn.active {

@@ -14,7 +14,7 @@ class App {
 
         add_action( 'wp_body_open', array($this, 'ins_layout_three'), 10 );
         
-        add_filter( 'woocommerce_add_to_cart_fragments', array($this, 'ins_cart_count_fragments'), 50, 1 );
+        // add_filter( 'woocommerce_add_to_cart_fragments', array($this, 'ins_cart_count_fragments'), 50, 1 );
 
         // Ajax Cart reload After Product Add to Cart
         add_action( 'wp_ajax_nopriv_ins_ajax_cart_reload', array( $this, 'ins_ajax_cart_reload' ), 20 );  
@@ -52,7 +52,7 @@ class App {
 
         // Ins Cart Toggle
         // add_action( 'ins_cart_content', array( $this, 'ins_cart_content' ), 11);
-        add_action( 'ins_cart_content', array( $this, 'ins_cart_content_modern' ), 10);
+        add_action( 'ins_cart_content', array( $this, 'ins_cart_content_modern' ), 10, 2);
 
         //  add_action( 'init', array( $this, 'ins_options_init' ));
         
@@ -165,7 +165,7 @@ class App {
                 </span>
                 
                 <?php // echo insopt( 'ins-toggle-tab' )['ins-cart-emty-hide']; ?>
-                <span class="ins-items-count"><span id="ins_cart_total" class="ins_cart_total"><?php echo WC()->cart->get_cart_contents_count(); ?></span></span> 
+                <span class="ins-items-count"><span id="ins_cart_totals" class="ins_cart_total"><?php echo WC()->cart->get_cart_contents_count(); ?></span></span> 
            </a> 
             <?php
         }else {
@@ -174,7 +174,7 @@ class App {
                 <span class="ins-cart-icon"> 
                     <?php echo $toggle_icon ?>
                 </span>
-                <span class="ins-items-count"><span id="ins_cart_total" class="ins_cart_total"><?php echo WC()->cart->get_cart_contents_count(); ?></span></span>
+                <span class="ins-items-count"><span id="ins_cart_totals" class="ins_cart_total"><?php echo WC()->cart->get_cart_contents_count(); ?></span></span>
             </div> 
             <?php
         } 
@@ -239,12 +239,12 @@ class App {
     }
 
     // Ins Cart Content Modern
-    public function ins_cart_content_modern(){
+    public function ins_cart_content_modern($display){
         ob_start();
         
         ?> 
-        <div class="ins-content">
-            <div class="ins-cart-inner step-1 ins-cart-step active">
+        <div class="ins-content <?php echo esc_attr( $display ) ?>">
+            <div class="ins-cart-inner step-1 ins-cart-step active"> 
                 <?php require_once apply_filters( 'ins_cart_template', INS_INC_PATH . '/templates/cart-modern.php' ); ?> 
                
             </div>  
@@ -254,23 +254,34 @@ class App {
         echo ob_get_clean();
     }
  
-    // Cart Count Fragments
-    public function ins_cart_count_fragments(){
-        ob_start();
-        ?>
-        <span id="ins_cart_total" class="ins_cart_total"><?php echo WC()->cart->get_cart_contents_count(); ?></span>
-        <?php
-        $fragments['#ins_cart_total'] = ob_get_clean();
-        $fragments['#ins-mobile-cart-total-amount'] = '<span id="ins-mobile-cart-total-amount">'.WC()->cart->get_cart_total().'</span>';
-        return $fragments;
-    }
+ 
 
     // Ajax Cart reload After Product Add to Cart
     public function ins_ajax_cart_reload() { 
         ob_start();
-        require_once apply_filters( 'ins_layout_slug', INS_INC_PATH . $this->layouts_slug ); 
+        // require_once apply_filters( 'ins_layout_slug', INS_INC_PATH . $this->layouts_slug ); 
+        require_once INS_TEMPLATES_PATH .  '/cart-modern.php';
         // require_once INS_INC_PATH .  $this->layouts_slug;
-        echo ob_get_clean(); 
+        $data = ob_get_clean(); 
+        $hide_empty = 'hide';
+        $display = 'show'; 
+        if(WC()->cart->is_empty()):   
+            $hide_empty = 'show';
+            $display = 'hide'; 
+        endif; 
+        $ins_cart_total = WC()->cart->get_cart_contents_count();
+        $response = array(
+            // 'fragments' => apply_filters( 'ins_cart_count_fragments', array() ),
+            'cart_hash' => apply_filters( 'woocommerce_add_to_cart_hash', WC()->cart->get_cart_for_session() ? md5( json_encode( WC()->cart->get_cart_for_session() ) ) : '', WC()->cart->get_cart_for_session() ),
+            'data' => $data,
+            'hide_empty' => $hide_empty,
+            'display' => $display, 
+            'ins_cart_count' => $ins_cart_total,
+        );
+
+        wp_send_json_success( $response );
+        
+
         wp_die();
        
     }
@@ -320,19 +331,19 @@ class App {
         WC()->cart->calculate_totals();
         WC()->cart->maybe_set_cart_cookies();
       
-        ob_start();
+        // ob_start();
 
-        require_once apply_filters( 'ins_layout_slug', INS_INC_PATH . $this->layouts_slug ); 
-        
-        $cart_data = ob_get_clean(); 
-        // Fragments and mini cart are returned
-        $data = array(
-            'cart_data' => $cart_data,
-            'cart_hash' => apply_filters( 'woocommerce_add_to_cart_hash', WC()->cart->get_cart_for_session() ? md5( json_encode( WC()->cart->get_cart_for_session() ) ) : '', WC()->cart->get_cart_for_session() )
-        );
+        // require_once apply_filters( 'ins_layout_slug', INS_INC_PATH . $this->layouts_slug );
+         return $this->ins_ajax_cart_reload();
+        // $cart_data = ob_get_clean(); 
+        // // Fragments and mini cart are returned
+        // $data = array(
+        //     'cart_data' => $cart_data,
+        //     'cart_hash' => apply_filters( 'woocommerce_add_to_cart_hash', WC()->cart->get_cart_for_session() ? md5( json_encode( WC()->cart->get_cart_for_session() ) ) : '', WC()->cart->get_cart_for_session() )
+        // );
 
-        wp_send_json( $data );
-        wp_die();
+        // wp_send_json( $data );
+        // wp_die();
        
     }
 
@@ -361,15 +372,22 @@ class App {
         
         WC()->cart->calculate_totals();
         WC()->cart->maybe_set_cart_cookies();  
-         
-    
+        $hide_empty = 'hide';
+        $display = 'show'; 
+        if(WC()->cart->is_empty()):   
+            $hide_empty = 'show';
+            $display = 'hide'; 
+        endif;  
         ob_start();
         
-        require_once apply_filters( 'ins_layout_slug', INS_INC_PATH . $this->layouts_slug ); 
+        // require_once apply_filters( 'ins_layout_slug', INS_INC_PATH . $this->layouts_slug ); 
+        $this->ins_ajax_cart_reload();
         $cart_data = ob_get_clean(); 
         
         $data = array(
             'cart_data' => $cart_data,
+            'hide_empty' => $hide_empty,
+            'display' => $display, 
             'cart_hash' => apply_filters( 'woocommerce_add_to_cart_hash', WC()->cart->get_cart_for_session() ? md5( json_encode( WC()->cart->get_cart_for_session() ) ) : '', WC()->cart->get_cart_for_session() )
         );
 
@@ -387,7 +405,8 @@ class App {
         
         ob_start();
 
-        require_once apply_filters( 'ins_layout_slug', INS_INC_PATH . $this->layouts_slug ); 
+        // require_once apply_filters( 'ins_layout_slug', INS_INC_PATH . $this->layouts_slug ); 
+        $this->ins_ajax_cart_reload();
         $cart_data = ob_get_clean(); 
 
         $data = array(
