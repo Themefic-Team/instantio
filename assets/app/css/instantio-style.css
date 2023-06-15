@@ -556,7 +556,8 @@
 .ins-checkout-modern .ins-cart-item-image img {
   height: 65px;
   width: 65px;
-  border-radius: 4px; }
+  border-radius: 4px;
+  object-fit: cover; }
 .ins-checkout-modern .ins-cart-price bdi,
 .ins-checkout-modern .ins-cart-item-total bdi {
   color: #665F5C; }
@@ -929,12 +930,19 @@
   .ins-checkout-popup .ins-checkout-overlay {
     z-index: -1; }
 
+.ins-content {
+  height: calc(100% - 157px) !important;
+  overflow: auto; }
+  .ins-content.hide {
+    display: none !important; }
+
 .ins-checkout-layout-3.popup {
   margin: 0 auto;
   position: relative;
   max-height: 90%;
   width: 65% !important; }
   .ins-checkout-layout-3.popup .ins-content {
+    height: calc(100% );
     margin-bottom: 0 !important;
     overflow: auto; }
   .ins-checkout-layout-3.popup .ins-cart-item-wrap {
@@ -1199,12 +1207,6 @@
     width: 100%; }
     .ins-steps button:nth-last-child(1) {
       border-right: 1px solid #ddd !important; }
-
-.ins-content {
-  height: calc(100% - 157px) !important;
-  overflow: auto; }
-  .ins-content.hide {
-    display: none !important; }
 
 .ins-step-btn.active {
   border-bottom: 1px solid var(--ins_checkout_theme); }
@@ -1609,6 +1611,8 @@
   fill: #FCF9F7 !important; }
 .ins-layout-gradient .ins-checkout-header .ins-checkout-header-title {
   color: #FCF9F7 !important; }
+.ins-layout-gradient .ins-payment #payment .payment_methods > li:not(.woocommerce-notice), .ins-layout-gradient .ins-payment #payment .payment_methods > li .payment_box {
+  background-color: transparent !important; }
 
 /* Gradient Mode CSS */
 /* Glass Morphism Mode CSS */

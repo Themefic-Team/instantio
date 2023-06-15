@@ -146,8 +146,7 @@
 				thisbutton.addClass("added").removeClass("loading");
 			},
 			success: function (response) {
-				$(".ins-quick-view").hide(); 
-				console.log(response.data.ins_cart_count); 
+				$(".ins-quick-view").hide();  
 				$("#ins_cart_totals").html(response.data.ins_cart_count)
 				// $("#ins_cart_totals").append(response.data.ins_cart_count);
 				$(".ins-checkout-layout .ins-content").removeClass("hide");
@@ -157,6 +156,7 @@
 				$(".ins-checkout-layout .ins-cart-inner.step-1").append(response.data.data);
 
 				// $(".ins-checkout-layout").append(response); 
+			
 
 				if (auto_open_toggle == true) {
 					$(".ins-checkout-layout-3").addClass("active");
@@ -166,6 +166,7 @@
 				}
 				ins_owl_carousel();
 				hide_toggle_btn();
+				
 			},
 		});
 	});
@@ -208,14 +209,25 @@
 				$(".ins-checkout-layout .ins-cart-inner.step-1").append(response.data.data);
 
 				ins_owl_carousel();
+ 
+				
 
 				if (auto_open_toggle == true) {
 					$(".ins-checkout-layout-3").addClass("active");
 					$(".ins-checkout-overlay").addClass("active");
-					$(".ins-checkout-popup").toggleClass("active");
-					$(".ins-checkout-popup").toggleClass("fadeIn");
+					$(".ins-checkout-popup").addClass("active");
+					$(".ins-checkout-popup").addClass("fadeIn");
 				}
 				$(".ins-quick-view").hide();
+				// go back to cart page
+				$('.ins-single-step').removeClass('done');
+				$('.ins-single-step').removeClass('active');
+				$('.ins-single-step.step-1').addClass('done');
+				$('.ins-single-step.step-1').addClass('active');
+				$('.ins-content').find('.ins-cart-inner').hide();
+				$('.ins-content').find('.ins-cart-inner').removeClass('active'); 
+				$('.ins-content').find('.step-1').show();
+				$('.ins-content').find('.step-1').addClass('active');
 			},
 		});
 	});
@@ -485,8 +497,7 @@
 				complete: function (response) {
 					$(".loader-container").removeClass("active");
 				},
-				success: function (response) {
-					console.log(response.data.display);
+				success: function (response) { 
 					// $(".ins-checkout-layout").html("");
 					// $(".ins-checkout-layout").append(response.cart_data);
 					$("#ins_cart_totals").html(response.data.ins_cart_count)
@@ -568,8 +579,8 @@
 	}
 
 	// Cart Animation Gsap
-	function ins_cart_animation($step = "cart") {
-		if ($step == "cart") {
+	function ins_cart_animation($step = "cart") { 
+		if ($step == "cart" && $('.ins_animate_one').length > 0) {
 			gsap.from(".ins_animate_one .ins-checkout-header", {
 				opacity: 0,
 				y: -100,

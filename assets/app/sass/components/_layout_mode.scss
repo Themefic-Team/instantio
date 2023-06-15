@@ -466,6 +466,15 @@
       color: $background !important;
     }
   }
+  .ins-payment {
+    #payment .payment_methods > li:not(.woocommerce-notice), #payment .payment_methods > li .payment_box {
+      background-color: transparent !important;
+    }
+
+    #payment .payment_methods > .wc_payment_method > label { 
+      color: #FCF9F7 !important
+    }
+  }
 }
 
 /* Gradient Mode CSS */
