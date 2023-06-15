@@ -111,7 +111,8 @@ class INSTANTIO {
 		}
 
     } 
-	    /**
+	
+	/**
      *	Ajax variable products quick view
     */ 
     
