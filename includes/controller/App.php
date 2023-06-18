@@ -264,9 +264,9 @@ class App {
         // require_once INS_INC_PATH .  $this->layouts_slug;
         $data = ob_get_clean(); 
         $hide_empty = 'hide';
-        $display = 'show'; 
+        $display = 'ins-show'; 
         if(WC()->cart->is_empty()):   
-            $hide_empty = 'show';
+            $hide_empty = 'ins-show';
             $display = 'hide'; 
         endif; 
         $ins_cart_total = WC()->cart->get_cart_contents_count();
@@ -373,9 +373,9 @@ class App {
         WC()->cart->calculate_totals();
         WC()->cart->maybe_set_cart_cookies();  
         $hide_empty = 'hide';
-        $display = 'show'; 
+        $display = 'ins-show'; 
         if(WC()->cart->is_empty()):   
-            $hide_empty = 'show';
+            $hide_empty = 'ins-show';
             $display = 'hide'; 
         endif;  
         ob_start();

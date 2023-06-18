@@ -150,7 +150,7 @@
 				$("#ins_cart_totals").html(response.data.ins_cart_count)
 				// $("#ins_cart_totals").append(response.data.ins_cart_count);
 				$(".ins-checkout-layout .ins-content").removeClass("hide");
-				$(".ins-checkout-layout .ins-content").addClass("show");
+				$(".ins-checkout-layout .ins-content").addClass("ins-show");
 				$(".ins-checkout-layout .ins-cart-empty").addClass("hide");
 				$(".ins-checkout-layout .ins-cart-inner.step-1").html("");
 				$(".ins-checkout-layout .ins-cart-inner.step-1").append(response.data.data);
@@ -203,7 +203,7 @@
 				$(".ins-quick-view").hide(); 
 				$("#ins_cart_totals").html(response.data.ins_cart_count)
 				$(".ins-checkout-layout .ins-content").removeClass("hide");
-				$(".ins-checkout-layout .ins-content").addClass("show");
+				$(".ins-checkout-layout .ins-content").addClass("ins-show");
 				$(".ins-checkout-layout .ins-cart-empty").addClass("hide");
 				$(".ins-checkout-layout .ins-cart-inner.step-1").html("");
 				$(".ins-checkout-layout .ins-cart-inner.step-1").append(response.data.data);
@@ -405,11 +405,11 @@
 					// $(".ins-checkout-layout").html("");
 					// $(".ins-checkout-layout").append(response.cart_data);
 					$("#ins_cart_totals").html(response.data.ins_cart_count)
-					if(response.data.display == "show"){ 
+					if(response.data.display == "ins-show"){ 
 						// alert("show");
 						$(".ins-checkout-layout .ins-content").removeClass("hide");
 					}
-					if(response.data.hide_empty == "show"){ 
+					if(response.data.hide_empty == "ins-show"){ 
 						$(".ins-checkout-layout .ins-cart-empty").removeClass("hide");;
 					}
 					$(".ins-checkout-layout .ins-content").addClass(response.data.display);
@@ -445,10 +445,10 @@
 				// $(".ins-checkout-layout").html("");
 				// $(".ins-checkout-layout").html(response.cart_data);
 				$("#ins_cart_totals").html(response.data.ins_cart_count)
-				$(".ins-checkout-layout .ins-content").removeClass("show");
+				$(".ins-checkout-layout .ins-content").removeClass("ins-show");
 				$(".ins-checkout-layout .ins-content").addClass("hide");
 				$(".ins-checkout-layout .ins-cart-empty").removeClass("hide");
-				$(".ins-checkout-layout .ins-cart-empty").addClass("show");
+				$(".ins-checkout-layout .ins-cart-empty").addClass("ins-show");
 				$(".ins-checkout-layout .ins-cart-inner.step-1").html("");
 				$(".ins-checkout-layout .ins-cart-inner.step-1").append(response.data.data);
 				// Hide toggle button if empty cart
@@ -501,11 +501,11 @@
 					// $(".ins-checkout-layout").html("");
 					// $(".ins-checkout-layout").append(response.cart_data);
 					$("#ins_cart_totals").html(response.data.ins_cart_count)
-					if(response.data.display == "show"){ 
+					if(response.data.display == "ins-show"){ 
 						// alert("show");
 						$(".ins-checkout-layout .ins-content").removeClass("hide");
 					}
-					if(response.data.hide_empty == "show"){ 
+					if(response.data.hide_empty == "ins-show"){ 
 						$(".ins-checkout-layout .ins-cart-empty").removeClass("hide");;
 					}
 					$(".ins-checkout-layout .ins-content").addClass(response.data.display);

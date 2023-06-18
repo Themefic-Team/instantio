@@ -105,6 +105,7 @@
         font-size: 16px;
         color: var(--ins_checkout_theme);
         // text-align: center;
+        width: 100% !important;
     }
 
     .ins-single-cart-item {
@@ -366,8 +367,8 @@
         flex-direction: row;
 
         button {
-            background: var(--ins_checkout_theme);
-            border-radius: 0px 8px 8px 0px;
+            background: var(--ins_checkout_theme) !important;
+            border-radius: 0px 8px 8px 0px !important;
             color: #fff;
             border: 1px solid var(--ins_checkout_theme);
             // padding: 10px;
@@ -886,7 +887,7 @@
     transition: 0.4s;
     cursor: pointer;
     background-color: #fcf9f8 !important;
-    color: var(--ins_checkout_theme);
+    color: var(--ins_checkout_theme) !important;
 
     &:hover {
         background-color: var(--ins_checkout_theme) !important;
