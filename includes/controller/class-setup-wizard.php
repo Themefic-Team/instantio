@@ -139,17 +139,17 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
                         <label class="">
                             <?php _e( 'Choose cart options', 'instantio' ) ?>
                         </label>
-
+                        <?php var_dump($ins_layout_options);  ?>
                         <ul class="tf-select-service">
                             <li>
-                                <input type="radio" name="ins-layout-options" value="1" <?php echo empty($ins_layout_options) || ( '1' === $ins_layout_options) ? esc_attr( 'checked' ) : ''; ?> />
+                                <input type="radio" name="ins-layout-options" value="1" <?php echo empty($ins_layout_options) || ($ins_layout_options === '1') ? esc_attr( 'checked' ) : ''; ?> />
                                 <label for="ins-layout-options">
                                     <img src="<?php echo INS_ADMIN_URL . '/tf-options/img/layout/Directcheckout.jpg' ?>" alt="<?php esc_attr_e( 'Direct-Checkout', 'instantio' ) ?>">
                                     <span><?php _e( 'Direct Checkout', 'instantio' ) ?></span>
                                 </label>
                             </li>
                             <li>
-                                <input type="radio" name="ins-layout-options" value="2" <?php echo empty($ins_layout_options) || ( '2' === $ins_layout_options) ? esc_attr( 'checked' ) : ''; ?> />
+                                <input type="radio" name="ins-layout-options" value="2" <?php echo empty($ins_layout_options) || ($ins_layout_options === '2') ? esc_attr( 'checked' ) : ''; ?> />
                                 <label for="ins-layout-options">
                                     <img src="<?php echo INS_ADMIN_URL . '/tf-options/img/layout/sidecart.jpg' ?>" alt="<?php esc_attr_e( 'Side-Cart', 'instantio' ) ?>">
                                     <span><?php _e( 'Side Cart', 'instantio' ) ?></span>
@@ -157,7 +157,7 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
                             </li>
 
                             <li>
-                                <input type="radio" name="ins-layout-options" value="3" <?php echo empty($ins_layout_options) || ( '3' === $ins_layout_options) ? esc_attr( 'checked' ) : ''; ?> />
+                                <input type="radio" name="ins-layout-options" value="3" <?php echo empty($ins_layout_options) || ($ins_layout_options === '3') ? esc_attr( 'checked' ) : ''; ?> />
                                 <label for="ins-layout-options">
                                     <img src="<?php echo INS_ADMIN_URL . '/tf-options/img/layout/Popup.jpg' ?>" alt="<?php esc_attr_e( 'Popup-Cart', 'instantio' ) ?>">
                                     <span><?php _e( 'Popup Cart', 'instantio' ) ?></span>

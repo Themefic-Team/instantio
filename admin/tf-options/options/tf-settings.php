@@ -446,17 +446,7 @@ TF_Settings::option( 'wiopt', array(
 
 									'default' 		=> 'cart-style-1'
 								),
-								// array(
-								// 	'id'       		=> 'wi-icon-choice',
-								// 	'class'    		=> 'ins-csf-disable',
-								// 	'type'     		=> 'select', 
-								// 	'label'    		=> __('Custom Icon Choice as Cart Icon', 'instantio'),
-								// 	'subtitle' 		=> __('Set custom Icon Choice as icon for the cart instead of the defaults one.','instantio'),
-								// 	'label_on'  	=> __('Yes', 'instantio'),
-								// 	'label_off' 	=> __('No', 'instantio'),
-								// 	'default'  		=> false,
-								// 	'is_pro'		=> true,
-								// ),
+								
 								array(
 									'id' => 'wi-icon-choice',
 									'type' => 'select',
@@ -486,21 +476,7 @@ TF_Settings::option( 'wiopt', array(
 									'description' 	=> __('If Custom Image as Toggler Icon it\'s then it will work', 'instantio'),
 									'dependency' => array( 'wi-icon-choice', '==', 'image' ),
 								),
-								// array(
-								// 	'id'       		=> 'cart-icon',
-								// 	'class'    		=> 'imageset-inline',
-								// 	'type'     		=> 'imageselect',
-								// 	'label'    		=> __('Toggle Icon', 'instantio'), 
-								// 	'subtitle' 		=> __('Select cart icon which will appear in cart toggler', 'instantio'),
-								// 	'options'  		=> array(
-								// 		'cart-1' 			=> array(
-								// 			'title'			=> '',
-								// 			'url' 			=> plugin_dir_url( __FILE__ ).'../img/cart-1.svg',
-								// 		), 
-								// 	),
-								// 	'default' 		=> 'cart-1'
-								// ),
-				
+
 								array(
 									'id' => 'toggle-position',
 									'type' => 'select',

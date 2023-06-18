@@ -23,16 +23,6 @@ class Admin{
          */
         if ( !is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
             add_action( 'admin_notices', array($this, 'ins_is_woo') );
-
-            /**
-             * Ajax install & activate WooCommerce
-             *
-             * @since 1.0
-             * @link https://developer.wordpress.org/reference/functions/wp_ajax_install_plugin/
-             */
-            add_action("wp_ajax_ins_ajax_install_plugin" , "wp_ajax_install_plugin");
-
-            return;
         }
 
         /**
@@ -180,7 +170,7 @@ class Admin{
 
                 <div id="message" class="error">
                     <p><?php printf( __( 'Instantio requires %1$s WooCommerce %2$s to be activated.', 'instantio' ), '<strong><a href="https://wordpress.org/plugins/woocommerce/" target="_blank">', '</a></strong>' ); ?></p>
-                    <p><a class="install-now button tf-install" data-plugin-slug="woocommerce"><?php esc_attr_e( 'Install Now', 'instantio' ); ?></a></p>
+                    <p><a class="install-now button inspro_updated" data-plugin-slug="woocommerce"><?php esc_attr_e( 'Install Now', 'instantio' ); ?></a></p>
                 </div>
 
             <?php 
