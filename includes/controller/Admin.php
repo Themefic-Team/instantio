@@ -38,7 +38,7 @@ class Admin{
         /**
          * Check if Instantio Pro version is 3.0.0 or above, if it isn't, disable the plugin.
          *
-         * @since 1.0
+         * @since 3.0
          */
         if ( is_plugin_active( 'wooinstant/wooinstant.php' ) ) {
             $curvarsion = (double)INSTANTIO_PRO_VERSION;
@@ -49,6 +49,15 @@ class Admin{
             } else {
                 deactivate_plugins('wooinstant/wooinstant.php');
                 add_action( 'admin_notices', array($this, 'version_warning') );
+                add_action( 'admin_notices', array($this, 'ins_wooinstantio_updated') );
+               
+                /**
+                 * Ajax updated Woinstantio
+                 *
+                 * @since 3.0
+                 * @link https://developer.wordpress.org/reference/functions/wp_ajax_install_plugin/
+                 */
+                add_action("wp_ajax_ins_ajax_install_woinsplugin" , "wp_ajax_install_plugin");
             }
             return;
         }
@@ -193,6 +202,31 @@ class Admin{
 
             <?php 
             }
+        }
+    }
+
+    /**
+     * Called when Instantio Pro is inactive to display an inactive notice.
+     *
+     * @since 3.0
+     */
+    public function ins_wooinstantio_updated() {
+        if ( current_user_can( 'activate_plugins' ) ) {
+            ?>
+                <div id="message" class="error">
+                    <p><?php printf( __( 'Instantio requires instantio Pro version 3 to be activated.', 'instantio' ), '<strong><a href="https://themefic.com/instantio/" target="_blank">', '</a></strong>' ); ?></p>
+
+                    <p>
+                        <a class="install-now button inspro_updated" data-plugin-slug="instantiopro">
+                            <?php esc_attr_e( 'Updated Now', 'instantio' ); ?>
+                        </a>
+
+                        <!-- <a href="http://localhost:10017/wp-admin/update.php?action=upgrade-plugin&amp;plugin=wooinstant%2Fwooinstant.php&amp;_wpnonce=442cf75765" class="update-link" aria-label="Update Instantio Pro now">update now</a> -->
+
+                    </p>
+                </div>
+
+            <?php        
         }
     }
 
