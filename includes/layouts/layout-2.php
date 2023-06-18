@@ -12,10 +12,10 @@ defined( 'ABSPATH' ) || exit;
 
 <?php do_action( 'ins_cart_header' ) ?> 
 <?php 
-$display = 'show';
+$display = 'ins-show';
 $hide_empty = 'hide';
 if(WC()->cart->is_empty()):   
-	$hide_empty = 'show';
+	$hide_empty = 'ins-show';
 	$display = 'hide'; 
 endif;  
 echo sprintf( '<div class="ins-cart-empty %s"><span>%s <br> %s</span></div>', 

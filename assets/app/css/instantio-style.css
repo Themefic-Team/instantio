@@ -17,7 +17,8 @@
   margin-bottom: 5px !important; }
 .ins-content h2 {
   font-size: 18px !important;
-  margin-bottom: 5px !important; }
+  margin-bottom: 5px !important;
+  margin: 0; }
 .ins-content h3 {
   font-size: 16px !important;
   margin-bottom: 5px !important; }
@@ -54,6 +55,19 @@
 .ins-content .woocommerce-cart #payment, .ins-content .woocommerce-checkout #payment, .ins-content #add_payment_method #payment {
   background: transparent !important;
   border-radius: 5px; }
+.ins-content a.button {
+  color: #665F5C !important;
+  font-weight: 400 !important; }
+
+.woocommerce .ins-content a.button {
+  color: #665F5C !important;
+  font-weight: 400 !important;
+  border: none !important; }
+.woocommerce .ins-content .wc-proceed-to-checkout {
+  display: none !important; }
+.woocommerce .ins-content .upsells.products {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important; }
 
 .ins-single-cart-wrap::-webkit-scrollbar {
   width: 3px; }
@@ -570,7 +584,8 @@
 .ins-checkout-modern .ins-checkout-body {
   /* padding: 16px; */
   font-size: 16px;
-  color: var(--ins_checkout_theme); }
+  color: var(--ins_checkout_theme);
+  width: 100% !important; }
 .ins-checkout-modern .ins-single-cart-item {
   display: flex;
   flex-direction: row;
@@ -759,8 +774,8 @@
   display: flex;
   flex-direction: row; }
   .ins-cart-coupon .coupon button {
-    background: var(--ins_checkout_theme);
-    border-radius: 0px 8px 8px 0px;
+    background: var(--ins_checkout_theme) !important;
+    border-radius: 0px 8px 8px 0px !important;
     color: #fff;
     border: 1px solid var(--ins_checkout_theme); }
     .ins-cart-coupon .coupon button:focus {
@@ -1147,7 +1162,7 @@
   transition: 0.4s;
   cursor: pointer;
   background-color: #fcf9f8 !important;
-  color: var(--ins_checkout_theme); }
+  color: var(--ins_checkout_theme) !important; }
   .ins-empty-cart:hover {
     background-color: var(--ins_checkout_theme) !important;
     color: #fff; }
@@ -1613,6 +1628,8 @@
   color: #FCF9F7 !important; }
 .ins-layout-gradient .ins-payment #payment .payment_methods > li:not(.woocommerce-notice), .ins-layout-gradient .ins-payment #payment .payment_methods > li .payment_box {
   background-color: transparent !important; }
+.ins-layout-gradient .ins-payment #payment .payment_methods > .wc_payment_method > label {
+  color: #FCF9F7 !important; }
 
 /* Gradient Mode CSS */
 /* Glass Morphism Mode CSS */
