@@ -32,7 +32,7 @@
 
         //     var data = {
         //         action: 'ins_ajax_install_plugin',
-        //         _ajax_nonce: tf_admin_params.ins_ajax_nonce,
+        //         _ajax_nonce: tf_admin_params.ins_nonce,
         //         slug: plugin_slug,
         //     };
 
@@ -58,9 +58,9 @@
         /**
          * Ajax install WooCommerce
          * 
-         * @since 1.0
+         * @since 3.0
          */
-        $(document).on('click', '.inspro_updated', function (e) {
+        $(document).on('click', '.ins_wooinstall', function (e) {
             e.preventDefault();
 
             var current = $(this);
@@ -69,28 +69,26 @@
             current.addClass('updating-message').text('Installing...');
 
             var data = {
-                action: 'ins_ajax_install_woinsplugin',
+                action: 'ins_ajax_install_woocommerce',
                 _ajax_nonce: tf_admin_params.ins_nonce,
                 slug: plugin_slug,
             };
 
-            console.log(data);
-
             jQuery.post(tf_admin_params.ajax_url, data, function (response) {
-                console.log(response);
-                console.log(response.data.activateUrl);
-                // current.removeClass('updating-message');
-                // current.addClass('updated-message').text('Installed!');
-                // current.attr("href", response.data.activateUrl);
+                // console.log(response);
+                // console.log(response.data.activateUrl);
+                current.removeClass('updating-message');
+                current.addClass('updated-message').text('Installed!');
+                current.attr("href", response.data.activateUrl);
             })
-            // .fail(function () {
-            //     current.removeClass('updating-message').text('Failed!');
-            // })
-            // .always(function () {
-            //     current.removeClass('install-now updated-message').addClass('activate-now button-primary').text('Activating...');
-            //     current.unbind(e);
-            //     current[0].click();
-            // });
+                .fail(function () {
+                    current.removeClass('updating-message').text('Failed!');
+                })
+                .always(function () {
+                    current.removeClass('install-now updated-message').addClass('activate-now button-primary').text('Activating...');
+                    current.unbind(e);
+                    current[0].click();
+                });
         });
 
         /**

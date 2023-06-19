@@ -35,7 +35,7 @@
 					),
 					sprintf(
 						'<a target="_blank" href="%1$s">%2$s</a>',
-						'https://portal.themefic.com/support/',
+						'https://themefic.com/feature-request/',
 						__( 'Request a feature', 'instantio' )
 					),
 					sprintf(

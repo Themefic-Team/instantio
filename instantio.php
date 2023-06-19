@@ -49,10 +49,10 @@ class INSTANTIO {
 		/**
 		 * Ajax install & activate WooCommerce
 		 *
-		 * @since 1.0
+		 * @since 3.0
 		 * @link https://developer.wordpress.org/reference/functions/wp_ajax_install_plugin/
 		 */
-		add_action("wp_ajax_ins_ajax_install_woinsplugin" , "wp_ajax_install_plugin");
+		add_action("wp_ajax_ins_ajax_install_woocommerce" , "wp_ajax_install_plugin");
 
  
 		

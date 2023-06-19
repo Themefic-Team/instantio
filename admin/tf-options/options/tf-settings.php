@@ -478,20 +478,20 @@ TF_Settings::option( 'wiopt', array(
 								),
 
 								array(
-									'id' => 'toggle-position',
-									'type' => 'select',
+									'id' 			=> 'toggle-position',
+									'type' 			=> 'select',
 									'label'     	=> __('Icon Position', 'instantio'), 
 									'subtitle' 		=> __('Changes position of the Cart Icon', 'instantio'),  
-									'class' => 'tf-field-class',
-									'options' => array( 
-										'right-top' => 'Right Top',
-										'right-middle' => 'Right Middle',
-										'right-bottom' => 'Right Bottom', 
-										'left-top' => 'Left Top',
-										'left-middle' => 'Left Middle',
-										'left-bottom' => 'Left Bottom', 
+									'class' 		=> 'tf-field-class',
+									'options' 		=> array( 
+										'right-top' 	=> 'Right Top',
+										'right-middle' 	=> 'Right Middle',
+										'right-bottom' 	=> 'Right Bottom', 
+										'left-top' 		=> 'Left Top',
+										'left-middle' 	=> 'Left Middle',
+										'left-bottom' 	=> 'Left Bottom', 
 									 ),
-									'default' => 'right-bottom',
+									'default' 		=> 'right-bottom',
 								), 
 								array(
 									'id'     		=> 'wi-header-icon-size',
