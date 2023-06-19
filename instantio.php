@@ -45,6 +45,16 @@ class INSTANTIO {
 		define( 'INS_ADMIN_PATH', INS_PATH.'admin' );
 		define( 'INS_BASE_LOCATION', plugin_basename( __FILE__ ) );
 		define( 'INS_TEMPLATES_PATH', INS_INC_PATH.'/templates' );
+
+		/**
+		 * Ajax install & activate WooCommerce
+		 *
+		 * @since 3.0
+		 * @link https://developer.wordpress.org/reference/functions/wp_ajax_install_plugin/
+		 */
+		add_action("wp_ajax_ins_ajax_install_woocommerce" , "wp_ajax_install_plugin");
+
+ 
 		
 	}
 
@@ -83,9 +93,9 @@ class INSTANTIO {
 		
 			// Appsero
 			$this->ins_appsero_init_tracker_instantio();
+
         }else{  
 			new INS\Controller\App();
-
 
 			// ins Variation product Quick Views
 			add_action('wp_ajax_ins_variable_product_quick_view', array( $this, 'ins_ajax_quickview_variable_products' ));

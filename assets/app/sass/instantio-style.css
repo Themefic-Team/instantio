@@ -19,6 +19,7 @@
 .ins-content h2 {
   font-size: 18px !important;
   margin-bottom: 5px !important;
+  margin: 0;
 }
 .ins-content h3 {
   font-size: 16px !important;
@@ -36,24 +37,19 @@
   font-size: 10px !important;
   margin-bottom: 5px !important;
 }
-.ins-content a,
-.ins-content span,
-.ins-content p {
+.ins-content a, .ins-content span, .ins-content p {
   font-size: 16px !important;
 }
-.ins-content .woocommerce-content-box,
-.ins-content .coupon,
-.ins-content .cart_totals {
+.ins-content .woocommerce-content-box, .ins-content .coupon, .ins-content .cart_totals {
   margin: 0 !important;
   padding: 0 !important;
   border: none !important;
 }
 .ins-content .woocommerce-error {
-  background-color: #ffeceb !important;
+  background-color: #FFECEB !important;
 }
-.ins-content .woocommerce-error li,
-.ins-content .woocommerce-error:before {
-  color: #da281c !important;
+.ins-content .woocommerce-error li, .ins-content .woocommerce-error:before {
+  color: #DA281C !important;
 }
 .ins-content .shop_table tr {
   height: auto !important;
@@ -70,6 +66,27 @@
 }
 .ins-content button:focus {
   outline: none !important;
+}
+.ins-content .woocommerce-cart #payment, .ins-content .woocommerce-checkout #payment, .ins-content #add_payment_method #payment {
+  background: transparent !important;
+  border-radius: 5px;
+}
+.ins-content a.button {
+  color: #665F5C !important;
+  font-weight: 400 !important;
+}
+
+.woocommerce .ins-content a.button {
+  color: #665F5C !important;
+  font-weight: 400 !important;
+  border: none !important;
+}
+.woocommerce .ins-content .wc-proceed-to-checkout {
+  display: none !important;
+}
+.woocommerce .ins-content .upsells.products {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
 }
 
 .ins-single-cart-wrap::-webkit-scrollbar {
@@ -99,6 +116,9 @@
   width: 100%;
   height: 100%;
 }
+.ins-cart-empty.hide {
+  display: none;
+}
 .ins-cart-empty span {
   display: table-cell;
   width: 100%;
@@ -108,12 +128,16 @@
   font-size: 30px;
   font-size: 24px;
   line-height: 32px;
-  color: #665F5C;
+  color: #4d423d;
 }
 .ins-cart-empty a {
   text-decoration: underline;
   font-weight: 700;
   color: var(--ins_checkout_theme);
+}
+
+.ins-checkout-layout.popup .ins-cart-empty {
+  height: 410px !important;
 }
 
 /* Empty cart */
@@ -195,7 +219,7 @@
 }
 .ins-product-sell-carousel .owl-nav .owl-prev:hover,
 .ins-product-sell-carousel .owl-nav .owl-next:hover {
-  background-color: #4d423d !important;
+  background-color: #4D423D !important;
 }
 .ins-product-sell-carousel .owl-nav .owl-prev span,
 .ins-product-sell-carousel .owl-nav .owl-next span {
@@ -678,6 +702,8 @@
   height: 65px;
   width: 65px;
   border-radius: 4px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .ins-checkout-modern .ins-cart-price bdi,
 .ins-checkout-modern .ins-cart-item-total bdi {
@@ -694,6 +720,7 @@
   /* padding: 16px; */
   font-size: 16px;
   color: var(--ins_checkout_theme);
+  width: 100% !important;
 }
 .ins-checkout-modern .ins-single-cart-item {
   display: flex;
@@ -921,8 +948,8 @@
   flex-direction: row;
 }
 .ins-cart-coupon .coupon button {
-  background: var(--ins_checkout_theme);
-  border-radius: 0px 8px 8px 0px;
+  background: var(--ins_checkout_theme) !important;
+  border-radius: 0px 8px 8px 0px !important;
   color: #fff;
   border: 1px solid var(--ins_checkout_theme);
 }
@@ -1125,6 +1152,14 @@
   z-index: -1;
 }
 
+.ins-content {
+  height: calc(100% - 157px) !important;
+  overflow: auto;
+}
+.ins-content.hide {
+  display: none !important;
+}
+
 .ins-checkout-layout-3.popup {
   margin: 0 auto;
   position: relative;
@@ -1132,6 +1167,7 @@
   width: 65% !important;
 }
 .ins-checkout-layout-3.popup .ins-content {
+  height: 100%;
   margin-bottom: 0 !important;
   overflow: auto;
 }
@@ -1215,6 +1251,7 @@
 }
 .ins-checkout-layout.popup .woocommerce-cart-form .ins-checkout-body.ins-content {
   flex-basis: 65%;
+  height: auto !important;
 }
 .ins-checkout-layout.popup .woocommerce-cart-form .ins-cart-footer-wrap {
   flex-basis: 35%;
@@ -1369,7 +1406,7 @@
   transition: 0.4s;
   cursor: pointer;
   background-color: #fcf9f8 !important;
-  color: var(--ins_checkout_theme);
+  color: var(--ins_checkout_theme) !important;
 }
 .ins-empty-cart:hover {
   background-color: var(--ins_checkout_theme) !important;
@@ -1443,15 +1480,6 @@
   border-right: 1px solid #ddd !important;
 }
 
-.ins-checkout-layout.popup .ins-content {
-  height: 100% !important;
-}
-
-.ins-content {
-  height: calc(100% - 157px) !important;
-  overflow: auto;
-}
-
 .ins-step-btn.active {
   border-bottom: 1px solid var(--ins_checkout_theme);
 }
@@ -1479,6 +1507,7 @@
   padding: 8px;
   border-radius: 5px;
   transition: 0.4s;
+  cursor: pointer;
 }
 
 .ins-checkout-popup .ins-cart-btns {
@@ -1815,6 +1844,9 @@
   box-shadow: 0px 15px 20px rgba(3, 3, 3, 0.15) !important;
   border-color: #33312e !important;
 }
+.ins-layout-dark .ins-cart-empty span {
+  color: #FEF2EB !important;
+}
 
 /* Dark Mode CSS */
 /* Gradient Mode CSS */
@@ -1833,7 +1865,7 @@
 .ins-layout-gradient .ins-checkout-header, .ins-layout-gradient .ins-cart-btns {
   background: linear-gradient(135deg, #B959CB 0%, #6A5FCC 100%);
   box-shadow: 0px 10px 20px rgba(75, 26, 0, 0.05);
-  border: none;
+  border: none !important;
 }
 .ins-layout-gradient .ins-steps-style-3.active .ins-step-icon svg path, .ins-layout-gradient .ins-steps-style-3.done .ins-step-icon svg path, .ins-layout-gradient .ins-steps-style-3.active .ins-step-title, .ins-layout-gradient .ins-steps-style-3.done .ins-step-title {
   fill: #fff !important;
@@ -1955,6 +1987,12 @@
 .ins-layout-gradient .ins-checkout-header .ins-checkout-header-title {
   color: #FCF9F7 !important;
 }
+.ins-layout-gradient .ins-payment #payment .payment_methods > li:not(.woocommerce-notice), .ins-layout-gradient .ins-payment #payment .payment_methods > li .payment_box {
+  background-color: transparent !important;
+}
+.ins-layout-gradient .ins-payment #payment .payment_methods > .wc_payment_method > label {
+  color: #FCF9F7 !important;
+}
 
 /* Gradient Mode CSS */
 /* Glass Morphism Mode CSS */
@@ -1991,6 +2029,12 @@
 }
 .ins-layout-glass-morphism .quantity input[type=number] {
   box-shadow: inset 0px 4px 4px rgba(211, 73, 0, 0.1) !important;
+}
+.ins-layout-glass-morphism .ins-checkout-steps-wrap {
+  background-color: rgba(255, 255, 255, 0.3) !important;
+}
+.ins-layout-glass-morphism .ins-cart-empty span {
+  color: #4d423d !important;
 }
 
 /* Glass Morphism Mode CSS */

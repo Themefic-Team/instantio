@@ -199,7 +199,7 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 								<span><?php _e("Documentation","instantio"); ?></span>
 
 							</a>
-							<a href="https://portal.themefic.com/support/" target="_blank">
+							<a href="https://themefic.com/feature-request/" target="_blank">
 								<svg width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
 									<path fill-rule="evenodd" clip-rule="evenodd" d="M13.5902 7.57803H16.1896C16.6843 7.57803 17.089 7.98303 17.089 8.47803V13.194C17.089 16.407 14.8494 18.207 12.0792 18.207H5.00977C2.23956 18.207 0 16.407 0 13.194V5.22003C0 2.00703 2.23956 0.207031 5.00977 0.207031H8.82332C9.318 0.207031 9.72274 0.612031 9.72274 1.10703V3.70803C9.72274 5.84103 11.4586 7.57803 13.5902 7.57803ZM11.9613 0.396012C11.5926 0.0270125 10.954 0.279013 10.954 0.792013V3.93301C10.954 5.24701 12.0693 6.33601 13.4274 6.33601C14.2818 6.34501 15.4689 6.34501 16.4852 6.34501H16.4854C16.998 6.34501 17.2679 5.74201 16.9081 5.38201C16.4894 4.96018 15.9637 4.42927 15.3988 3.85888L15.3932 3.85325L15.3913 3.85133L15.3905 3.8505L15.3902 3.85016C14.2096 2.65803 12.86 1.29526 11.9613 0.396012ZM3.0145 12.0732C3.0145 11.7456 3.28007 11.48 3.60768 11.48H5.32132V9.76639C5.32132 9.43879 5.58689 9.17321 5.9145 9.17321C6.2421 9.17321 6.50768 9.43879 6.50768 9.76639V11.48H8.22131C8.54892 11.48 8.8145 11.7456 8.8145 12.0732C8.8145 12.4008 8.54892 12.6664 8.22131 12.6664H6.50768V14.38C6.50768 14.7076 6.2421 14.9732 5.9145 14.9732C5.58689 14.9732 5.32132 14.7076 5.32132 14.38V12.6664H3.60768C3.28007 12.6664 3.0145 12.4008 3.0145 12.0732Z" fill="#DB5209"></path>
 								</svg>
@@ -315,7 +315,7 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 									<p>
 										<?php _e("We believe your feature request will make our website more user-friendly. Our dedicated team will review it and take it into consideration for future updates.","instantio"); ?>
 									</p>
-									<a target="_blank" href="https://portal.themefic.com/support/" class="btn-desh-primary-tran">
+									<a target="_blank" href="https://themefic.com/feature-request/" class="btn-desh-primary-tran">
 										<?php _e("Submit request","instantio"); ?>
 									</a>
 								</div>

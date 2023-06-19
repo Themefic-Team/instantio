@@ -12,6 +12,7 @@ body {
 }
 
 .tf-setting-dashboard {
+  transition: 0.3s all ease;
   .tf-setting-top-bar {
     box-shadow: 0px 4px 30px rgba(53, 35, 0, 0.1);
     background-color: #fcf9f7;
@@ -57,7 +58,6 @@ body {
         border-radius: 8px;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         min-width: 200px;
-        max-width: 200px;
         opacity: 0;
         visibility: hidden;
         transition: all 0.2s ease;
@@ -197,6 +197,7 @@ body {
                 -o-transition: all 0.3s ease-in-out;
                 transition: all 0.3s ease-in-out;
                 &:hover {
+                  transition: 0.3s ease-in-out;
                   background: linear-gradient(
                     89.33deg,
                     #ea6c00 0.56%,
@@ -251,6 +252,10 @@ body {
               border-radius: 8px;
               flex: 1;
               padding: 24px;
+              transition: 0.3s all ease;
+              &:hover {
+                box-shadow: 0px 16px 40px rgba(80, 28, 0, 0.3);
+              }
 
               &:nth-child(2) {
                 background: linear-gradient(
@@ -305,9 +310,6 @@ body {
                   text-decoration-line: underline;
                   color: #ffffff;
                   transition: 0.3s all ease;
-                  &:hover {
-                    color: #db5209;
-                  }
                 }
                 &:focus {
                   outline: none !important;
@@ -421,6 +423,10 @@ body {
               border-radius: 4px;
               letter-spacing: 0.005em;
               color: #db5209;
+              -webkit-transition: all 0.3s ease-in-out;
+              -moz-transition: all 0.3s ease-in-out;
+              -o-transition: all 0.3s ease-in-out;
+              transition: all 0.3s ease-in-out;
               &:hover {
                 background: linear-gradient(
                   89.33deg,
@@ -592,7 +598,7 @@ body {
                 overflow: hidden;
                 position: relative;
                 img {
-                  width: 100%;
+                  width: auto;
                 }
                 @media #{$max578} {
                   margin: auto;

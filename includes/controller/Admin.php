@@ -19,20 +19,11 @@ class Admin{
         /**
          * Check if WooCommerce is active, and if it isn't, disable the plugin.
          *
-         * @since 1.0
+         * @since 1.0 
          */
         if ( !is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
             add_action( 'admin_notices', array($this, 'ins_is_woo') );
-
-            /**
-             * Ajax install & activate WooCommerce
-             *
-             * @since 1.0
-             * @link https://developer.wordpress.org/reference/functions/wp_ajax_install_plugin/
-             */
-            add_action("wp_ajax_ins_ajax_install_plugin" , "wp_ajax_install_plugin");
-
-            return;
+            deactivate_plugins('instantio/instantio.php');
         }
 
         /**
@@ -50,14 +41,6 @@ class Admin{
                 deactivate_plugins('wooinstant/wooinstant.php');
                 add_action( 'admin_notices', array($this, 'version_warning') );
                 add_action( 'admin_notices', array($this, 'ins_wooinstantio_updated') );
-               
-                /**
-                 * Ajax updated Woinstantio
-                 *
-                 * @since 3.0
-                 * @link https://developer.wordpress.org/reference/functions/wp_ajax_install_plugin/
-                 */
-                add_action("wp_ajax_ins_ajax_install_woinsplugin" , "wp_ajax_install_plugin");
             }
             return;
         }
@@ -147,7 +130,7 @@ class Admin{
             <?php echo sprintf( 
                 __( '<p> We have noticed a discrepancy between the version of your Pro plugin and the free plugin. We kindly request that you update your Pro plugin to ensure compatibility and optimal performance. Thank you for your attention to this matter.</p>', 'instantio' ),
                 ); 
-            ?> 
+            ?>
         </div>
     <?php }
 
@@ -180,7 +163,7 @@ class Admin{
 
                 <div id="message" class="error">
                     <p><?php printf( __( 'Instantio requires %1$s WooCommerce %2$s to be activated.', 'instantio' ), '<strong><a href="https://wordpress.org/plugins/woocommerce/" target="_blank">', '</a></strong>' ); ?></p>
-                    <p><a class="install-now button tf-install" data-plugin-slug="woocommerce"><?php esc_attr_e( 'Install Now', 'instantio' ); ?></a></p>
+                    <p><a class="install-now button ins_wooinstall" data-plugin-slug="woocommerce"><?php esc_attr_e( 'Install Now', 'instantio' ); ?></a></p>
                 </div>
 
             <?php 
@@ -217,12 +200,13 @@ class Admin{
                     <p><?php printf( __( 'Instantio requires instantio Pro version 3 to be activated.', 'instantio' ), '<strong><a href="https://themefic.com/instantio/" target="_blank">', '</a></strong>' ); ?></p>
 
                     <p>
-                        <a class="install-now button inspro_updated" data-plugin-slug="instantiopro">
+                        <a href="<?php echo get_admin_url(); ?>update.php?action=upgrade-plugin&plugin=wooinstant%2Fwooinstant.php&_wpnonce=<?php echo wp_create_nonce('updates') ?>" class="install-now button" data-plugin-slug="instantiopro">
                             <?php esc_attr_e( 'Updated Now', 'instantio' ); ?>
                         </a>
 
                         <!-- <a href="http://localhost:10017/wp-admin/update.php?action=upgrade-plugin&amp;plugin=wooinstant%2Fwooinstant.php&amp;_wpnonce=442cf75765" class="update-link" aria-label="Update Instantio Pro now">update now</a> -->
-
+                        <!-- http://insnewdev.local/wp-admin/update.php?action=upgrade-plugin&plugin=wooinstant%2Fwooinstant.php&_wpnonce=00962cb15e -->
+                        
                     </p>
                 </div>
 
