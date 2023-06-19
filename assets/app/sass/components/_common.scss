@@ -65,6 +65,12 @@
         color: #665F5C !important;
         font-weight: 400 !important;
     }
+    .wc-proceed-to-checkout{
+        display: none !important;
+    }
+    #customer_details{
+        padding: 0 !important; 
+    }
 }
 .woocommerce {
     .ins-content {

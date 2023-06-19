@@ -3,6 +3,14 @@
     &.popup {
         height: 100%;
         width: 100%;
+        
+        .ins-checkout-layout.popup {
+            display: none;
+            &.active {
+                display: block;
+            }
+        }
+       
     }
 
     &.slide {
