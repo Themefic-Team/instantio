@@ -6,6 +6,7 @@ class Admin{
 
         // Load Text Domain
         add_action( 'init', array( $this, 'ins_load_textdomain' ) );
+        add_action( 'init', array( $this, 'ins_update_option' ) );
         
         $ins_review_notice_status = get_option('ins_review_notice_status'); 
         $ins_installation_date = get_option('ins_installation_date'); 
@@ -53,6 +54,19 @@ class Admin{
         register_deactivation_hook( INS_PATH . 'instantio.php', array($this, 'ins_deactivate'));
         
         
+    }
+
+    
+    /**
+     * Update Instantio Notice
+     */
+
+    public function ins_update_option(){
+        $update_option = get_option('wiopt_update_option');
+        if('3.0.0' == INSTANTIO_VERSION && $update_option < 1){
+            update_option( 'wiopt', '' );
+            update_option( 'wiopt_update_option', '1' );
+        }
     }
 
     /**

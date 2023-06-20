@@ -53,10 +53,7 @@ class App {
         // Ins Cart Toggle
         // add_action( 'ins_cart_content', array( $this, 'ins_cart_content' ), 11);
         add_action( 'ins_cart_content', array( $this, 'ins_cart_content_modern' ), 10, 2);
-
-         
-        
-   
+ 
     }
 
     public function ins_options_init(){
@@ -452,7 +449,7 @@ class App {
     			return;
     		}
 		} 
-        $toggle_position = isset(insopt( 'ins-toggle-tab' )['toggle-position']) || insopt( 'ins-toggle-tab' )['toggle-position'] != '0' ? insopt( 'ins-toggle-tab' )['toggle-position'] : 'right-bottom';
+        $toggle_position = isset(insopt( 'ins-toggle-tab' )['toggle-position'])  ? insopt( 'ins-toggle-tab' )['toggle-position'] : 'right-bottom';
 
         if(!empty($toggle_position)){
             $toggle_position = explode('-', $toggle_position);
