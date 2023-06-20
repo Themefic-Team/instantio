@@ -37,17 +37,17 @@
         background-color: #FFECEB !important;
     }
     .woocommerce-error li, .woocommerce-error:before {
-        color: #DA281C !important;
+        color: #DA281C !important; 
     }
     .shop_table tr{
         height: auto !important;
         border: none !important;
     }
     .woocommerce-billing-fields {
-        margin-bottom: 0 !important;
+        margin-bottom: 0 !important; 
       }
     .woocommerce-shipping-fields {
-        margin-bottom: 8px !important;
+        margin-bottom: 8px !important; 
     }
     #order_comments_field {
         margin-bottom: 0 !important;
@@ -64,6 +64,12 @@
     a.button{
         color: #665F5C !important;
         font-weight: 400 !important;
+    }
+    .wc-proceed-to-checkout{
+        display: none !important;
+    }
+    #customer_details{
+        padding: 0 !important; 
     }
 }
 .woocommerce {
