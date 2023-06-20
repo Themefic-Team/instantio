@@ -123,7 +123,7 @@
 				$(".ins-checkout-layout-3").removeClass("active");
 				$(".ins-checkout-overlay").removeClass("active");
 				$(".ins-checkout-popup").removeClass("active");
-			}else{
+			} else {
 				$(".ins-toggle-btn").css({ visibility: "visible", opacity: "1" });
 			}
 		}
@@ -146,7 +146,7 @@
 				thisbutton.addClass("added").removeClass("loading");
 			},
 			success: function (response) {
-				$(".ins-quick-view").hide();  
+				$(".ins-quick-view").hide();
 				$("#ins_cart_totals").html(response.data.ins_cart_count)
 				// $("#ins_cart_totals").append(response.data.ins_cart_count);
 				$(".ins-checkout-layout .ins-content").removeClass("hide");
@@ -156,7 +156,7 @@
 				$(".ins-checkout-layout .ins-cart-inner.step-1").append(response.data.data);
 
 				// $(".ins-checkout-layout").append(response); 
-			
+
 
 				if (auto_open_toggle == true) {
 					$(".ins-checkout-layout-3").addClass("active");
@@ -166,7 +166,7 @@
 				}
 				ins_owl_carousel();
 				hide_toggle_btn();
-				
+
 			},
 		});
 	});
@@ -200,7 +200,7 @@
 				thisbutton.addClass("added").removeClass("loading");
 			},
 			success: function (response) {
-				$(".ins-quick-view").hide(); 
+				$(".ins-quick-view").hide();
 				$("#ins_cart_totals").html(response.data.ins_cart_count)
 				$(".ins-checkout-layout .ins-content").removeClass("hide");
 				$(".ins-checkout-layout .ins-content").addClass("ins-show");
@@ -209,8 +209,8 @@
 				$(".ins-checkout-layout .ins-cart-inner.step-1").append(response.data.data);
 
 				ins_owl_carousel();
- 
-				
+
+
 
 				if (auto_open_toggle == true) {
 					$(".ins-checkout-layout-3").addClass("active");
@@ -225,7 +225,7 @@
 				$('.ins-single-step.step-1').addClass('done');
 				$('.ins-single-step.step-1').addClass('active');
 				$('.ins-content').find('.ins-cart-inner').hide();
-				$('.ins-content').find('.ins-cart-inner').removeClass('active'); 
+				$('.ins-content').find('.ins-cart-inner').removeClass('active');
 				$('.ins-content').find('.step-1').show();
 				$('.ins-content').find('.step-1').addClass('active');
 			},
@@ -241,7 +241,7 @@
 		if ($(this).hasClass("product_type_variable")) {
 			return;
 		}
-		
+
 		var productThumb = $(this).closest(".product").find("img").attr("src");
 		var startPos = $(this).closest(".product").find("img").offset();
 		var productThumbwidth = $(this).closest(".product").find("img").width();
@@ -254,7 +254,7 @@
 		}
 
 		$("body").append('<div id="ins-cart-fly">' + productThumbtag + "</div>");
-		
+
 		$("#ins-cart-fly")
 			.css({
 				top: startPos.top + "px",
@@ -405,11 +405,11 @@
 					// $(".ins-checkout-layout").html("");
 					// $(".ins-checkout-layout").append(response.cart_data);
 					$("#ins_cart_totals").html(response.data.ins_cart_count)
-					if(response.data.display == "ins-show"){ 
+					if (response.data.display == "ins-show") {
 						// alert("show");
 						$(".ins-checkout-layout .ins-content").removeClass("hide");
 					}
-					if(response.data.hide_empty == "ins-show"){ 
+					if (response.data.hide_empty == "ins-show") {
 						$(".ins-checkout-layout .ins-cart-empty").removeClass("hide");;
 					}
 					$(".ins-checkout-layout .ins-content").addClass(response.data.display);
@@ -497,15 +497,15 @@
 				complete: function (response) {
 					$(".loader-container").removeClass("active");
 				},
-				success: function (response) { 
+				success: function (response) {
 					// $(".ins-checkout-layout").html("");
 					// $(".ins-checkout-layout").append(response.cart_data);
 					$("#ins_cart_totals").html(response.data.ins_cart_count)
-					if(response.data.display == "ins-show"){ 
+					if (response.data.display == "ins-show") {
 						// alert("show");
 						$(".ins-checkout-layout .ins-content").removeClass("hide");
 					}
-					if(response.data.hide_empty == "ins-show"){ 
+					if (response.data.hide_empty == "ins-show") {
 						$(".ins-checkout-layout .ins-cart-empty").removeClass("hide");;
 					}
 					$(".ins-checkout-layout .ins-content").addClass(response.data.display);
@@ -579,7 +579,7 @@
 	}
 
 	// Cart Animation Gsap
-	function ins_cart_animation($step = "cart") { 
+	function ins_cart_animation($step = "cart") {
 		if ($step == "cart" && $('.ins_animate_one').length > 0) {
 			gsap.from(".ins_animate_one .ins-checkout-header", {
 				opacity: 0,
