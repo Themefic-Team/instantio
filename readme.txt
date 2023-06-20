@@ -1,5 +1,5 @@
 === Instantio - WooCommerce Quick Checkout | Instant Checkout, Side Cart & Popup Cart ==
-Contributors: themefic, kamrul0424, hemelhasan, hasanet, kamrul0424
+Contributors: themefic, kamrul0424, hemelhasan, hasanet,mdrejon, mdashikul
 Tags: woocommerce, direct checkout, woocommerce checkout, floating cart, side cart, ajax cart, cart popup, popup cart, ajax add to cart, one page checkout, single page checkout, fly cart, mini cart, quick buy, instant checkout, quick checkout, same page checkout, sidebar cart, sticky cart, woocommerce ajax, one click checkout, woocommerce one page checkout, direct checkout woocommerce, woocommerce one click checkout, woocommerce quick checkout, woocommerce express checkout, woocommerce simple checkout, skip cart page woocommerce, woocommerce cart popup, edit woocommerce checkout page, woocommerce direct checkout, checkout manager, woocommerce checkout manager, One Page Checkout, WooCommerce One Page Checkout
 Requires at least: 4.0
 Tested up to: 6.2.2
