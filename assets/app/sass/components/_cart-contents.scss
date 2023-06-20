@@ -887,7 +887,7 @@
     transition: 0.4s;
     cursor: pointer;
     background-color: #fcf9f8 !important;
-    color: var(--ins_checkout_theme) !important;
+    color: var(--ins_checkout_theme) ;
 
     &:hover {
         background-color: var(--ins_checkout_theme) !important;

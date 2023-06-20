@@ -1,6 +1,7 @@
 (function ($) {
 	"use strict";
 	$(document).ready(function () {
+		// instantio Close Button
 		$(document).on("click", ".ins-checkout-close", function (e) {
 			e.preventDefault();
 			// gsap.reverse();
@@ -11,6 +12,7 @@
 			$(".ins-checkout-popup").removeClass("fadeIn");
 			$(".ins-click-to-show.popupcart").removeClass("hide");
 		});
+		// instantio Clikc to Show Cart Slide
 		$(document).on("click", ".ins-click-to-show.sidecart", function (e) {
 			e.preventDefault();
 			$(".ins-checkout-layout-3.slide").toggleClass("active");
@@ -18,6 +20,7 @@
 			ins_owl_carousel();
 		});
 
+		// instantio Clikc to Show Cart popup
 		$(document).on("click", ".ins-click-to-show.popupcart", function (e) {
 			e.preventDefault();
 			$(".ins-checkout-overlay").toggleClass("active");
@@ -30,6 +33,7 @@
 			$(this).toggleClass("hide");
 		});
 
+		// instantio Overlay
 		$(document).on("click", ".ins-checkout-overlay", function (e) {
 			e.preventDefault();
 			$(".ins-checkout-layout-3.slide").removeClass("active");
@@ -53,6 +57,13 @@
 
 		// Hide toggle button if empty cart
 		hide_toggle_btn();
+
+
+		// ins content-height
+		if($('.ins-checkout-steps').length == 0){
+			// alert('Please add checkout steps');
+			$('.ins-content').attr('style', 'height: auto !important;');
+		}
 
 		/*
 		 * Ajax Quick View
@@ -115,9 +126,7 @@
 	// Hide Toggle Button
 	function hide_toggle_btn() {
 		if (hide_toggler == true) {
-			var cart_item_count = $(".ins-checkout-layout").find(
-				".ins-single-cart-item"
-			).length;
+			var cart_item_count = $("#ins_cart_totals" ).html(); 
 			if (cart_item_count == 0) {
 				$(".ins-toggle-btn").css({ visibility: "hidden", opacity: "0" });
 				$(".ins-checkout-layout-3").removeClass("active");
@@ -401,9 +410,7 @@
 					delay: 0.2,
 					ease: "fadeIn",
 				});
-				setTimeout(function () {
-					// $(".ins-checkout-layout").html("");
-					// $(".ins-checkout-layout").append(response.cart_data);
+				setTimeout(function () { 
 					$("#ins_cart_totals").html(response.data.ins_cart_count)
 					if (response.data.display == "ins-show") {
 						// alert("show");
@@ -441,9 +448,7 @@
 			complete: function (response) {
 				$(".loader-container").removeClass("active");
 			},
-			success: function (response) {
-				// $(".ins-checkout-layout").html("");
-				// $(".ins-checkout-layout").html(response.cart_data);
+			success: function (response) { 
 				$("#ins_cart_totals").html(response.data.ins_cart_count)
 				$(".ins-checkout-layout .ins-content").removeClass("ins-show");
 				$(".ins-checkout-layout .ins-content").addClass("hide");
@@ -457,8 +462,7 @@
 		});
 	});
 
-	// Update Cart
-	// empty cart
+	// Update Cart 
 	$(document).on(
 		"click",
 		'.ins-checkout-layout button[name="update_cart"], .ins-checkout-layout button[name="apply_coupon"]',
@@ -497,12 +501,18 @@
 				complete: function (response) {
 					$(".loader-container").removeClass("active");
 				},
+<<<<<<< HEAD
 				success: function (response) {
 					// $(".ins-checkout-layout").html("");
 					// $(".ins-checkout-layout").append(response.cart_data);
 					$("#ins_cart_totals").html(response.data.ins_cart_count)
 					if (response.data.display == "ins-show") {
 						// alert("show");
+=======
+				success: function (response) {  
+					$("#ins_cart_totals").html(response.data.ins_cart_count)
+					if(response.data.display == "ins-show"){  
+>>>>>>> 8c9e19b2b9945a4f509004cf17170b5360239519
 						$(".ins-checkout-layout .ins-content").removeClass("hide");
 					}
 					if (response.data.hide_empty == "ins-show") {
@@ -549,6 +559,7 @@
 		}
 	);
 
+	// Up sell Carousel
 	function ins_owl_carousel() {
 		if ($(".ins-product-sell-carousel").length > 0) {
 			$(".ins-product-sell-carousel").owlCarousel("destroy");
@@ -571,6 +582,7 @@
 			});
 		}
 	}
+	// toggle button Animation
 	function ins_cart_icon_animation() {
 		$(".ins-toggle-btn").addClass("ins-icon-animation-one");
 		setTimeout(function () {

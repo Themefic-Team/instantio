@@ -138,8 +138,7 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
                     <div class="tf-setup-form-item bg">
                         <label class="">
                             <?php _e( 'Choose cart options', 'instantio' ) ?>
-                        </label>
-                        <?php var_dump($ins_layout_options);  ?>
+                        </label> 
                         <ul class="tf-select-service">
                             <li>
                                 <input type="radio" name="ins-layout-options" value="1" <?php echo !empty($ins_layout_options) && ($ins_layout_options === '1') ? esc_attr( 'checked' ) : ''; ?> />
