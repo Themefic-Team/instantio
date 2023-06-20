@@ -67,8 +67,9 @@ class INSTANTIO {
 		require_once( 'functions.php' );
 		
 		// Ins Quick Setup wizard
-		require_once INS_INC_PATH . '/controller/class-setup-wizard.php'; 
-
+		if (is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
+			require_once INS_INC_PATH . '/controller/class-setup-wizard.php'; 
+		}
 	}
 
 

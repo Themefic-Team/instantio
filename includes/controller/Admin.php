@@ -197,15 +197,15 @@ class Admin{
         if ( current_user_can( 'activate_plugins' ) ) {
             ?>
                 <div id="message" class="error">
-                    <p><?php printf( __( 'Instantio requires instantio Pro version 3 to be activated.', 'instantio' ), '<strong><a href="https://themefic.com/instantio/" target="_blank">', '</a></strong>' ); ?></p>
+                    <p><?php printf( __( 'To activate Instantio, it is necessary to have the Instantio Pro version 3 installed.', 'instantio' ), '<strong><a href="https://themefic.com/instantio/" target="_blank">', '</a></strong>' ); ?></p>
 
                     <p>
-                        <a href="<?php echo get_admin_url(); ?>update.php?action=upgrade-plugin&plugin=wooinstant%2Fwooinstant.php&_wpnonce=<?php echo wp_create_nonce('updates') ?>" class="install-now button" data-plugin-slug="instantiopro">
-                            <?php esc_attr_e( 'Updated Now', 'instantio' ); ?>
-                        </a>
+                        <span class="ins-notices" data-plugin-slug="instantiopro">
+                            <?php esc_attr_e( 'Please Updated Now', 'instantio' ); ?>
+                        </span>
 
-                        <!-- <a href="http://localhost:10017/wp-admin/update.php?action=upgrade-plugin&amp;plugin=wooinstant%2Fwooinstant.php&amp;_wpnonce=442cf75765" class="update-link" aria-label="Update Instantio Pro now">update now</a> -->
-                        <!-- http://insnewdev.local/wp-admin/update.php?action=upgrade-plugin&plugin=wooinstant%2Fwooinstant.php&_wpnonce=00962cb15e -->
+                        <!-- <a  href="<?php //echo get_admin_url(); ?>update.php?action=upgrade-plugin&amp;plugin=wooinstant%2Fwooinstant.php&_wpnonce=<?php // echo wp_create_nonce('updates') ?>" href="//echo get_admin_url();wp-admin/update.php?action=upgrade-plugin&amp;plugin=wooinstant%2Fwooinstant.php&amp;_wpnonce=442cf75765" class="update-link" aria-label="Update Instantio Pro now">update now</a> -->
+                        <!-- //echo get_admin_url();wp-admin/update.php?action=upgrade-plugin&plugin=wooinstant%2Fwooinstant.php&_wpnonce=00962cb15e -->
                         
                     </p>
                 </div>
