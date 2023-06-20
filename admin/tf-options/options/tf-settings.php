@@ -255,7 +255,7 @@ TF_Settings::option( 'wiopt', array(
 						array(
 							'id'       		=> 'on-cart-btn',
 							'type'     		=> 'switch',
-							'label'    		=> __('Show Cart Button', 'instantio'),
+							'label'    		=> __('Edit Cart Button', 'instantio'),
 							'label_on'  	=> __('Yes', 'instantio'),
 							'label_off' 	=> __('No', 'instantio'),
 							'default'   	=> false,
@@ -291,7 +291,7 @@ TF_Settings::option( 'wiopt', array(
 						array(
 							'id'        	=> 'on-checkout-btn',
 							'type'      	=> 'switch',
-							'label'     	=> __('Show Checkout Button', 'instantio'),
+							'label'     	=> __('Edit Checkout Button', 'instantio'),
 							'label_on'   	=> __('Yes', 'instantio'),
 							'label_off'  	=> __('No', 'instantio'),
 							'default'   	=> false,

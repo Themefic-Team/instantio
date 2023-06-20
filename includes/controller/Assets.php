@@ -52,12 +52,7 @@ class Assets {
         $ins_toggle_item_color = !empty(insopt( 'ins-toggle-tab' )['wi-header-text-colors']['regular']) ? insopt( 'ins-toggle-tab' )['wi-header-text-colors']['regular'] : '#000';
         $ins_toggle_item_color_hover = !empty(insopt( 'ins-toggle-tab' )['wi-header-text-colors']['hover']) ? insopt( 'ins-toggle-tab' )['wi-header-text-colors']['hover'] : '#000';
         $ins_toggle_item_size = !empty(insopt( 'ins-toggle-tab' )['wi-header-text-size']) ? insopt( 'ins-toggle-tab' )['wi-header-text-size'].'px' : '14px';
-        if( insopt( 'ins-toggler' ) == 'tog-2' ){
-            $ins_toggle_item_color = '#000';
-            $ins_toggle_item_color_hover = '#000';
-            $ins_toggle_item_bg = '#fff';
-            $ins_toggle_item_bg_hover = '#fff';
-        }
+  
         $output = '';
         $output .= '
         :root {

@@ -254,6 +254,9 @@
         margin-top: -40px !important;
       }
     }
+    .ins-cart-btns {
+      background: transparent !important; 
+    }    
   }
 
   .ins-checkout-layout {
@@ -314,11 +317,7 @@
     background-color: transparent !important;
   }
 
-  .ins-single-step {
-    // &.active, &.done {
-    //   background-color: transparent !important;
-    // }
-
+  .ins-single-step { 
     &.ins-steps-style-4 {
 
       &.active,
@@ -378,8 +377,8 @@
 
   .ins-empty-cart {
     border-color: $s_shade !important;
-    color: $s_shade !important;
-    background-color: transparent !important;
+    color: #fff !important;
+    background-color: var(--ins_checkout_theme) !important;
 
     &:hover {
       background-color: #fff !important;

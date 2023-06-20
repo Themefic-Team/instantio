@@ -73,12 +73,12 @@
   padding-top: 0 !important;
   padding-bottom: 0 !important; }
 
-.ins-single-cart-wrap::-webkit-scrollbar {
+.ins-single-cart-wrap::-webkit-scrollbar, .ins-content::-webkit-scrollbar {
   width: 3px; }
-.ins-single-cart-wrap::-webkit-scrollbar-track {
+.ins-single-cart-wrap::-webkit-scrollbar-track, .ins-content::-webkit-scrollbar-track {
   box-shadow: inset 0 0 5px #ddd;
   border-radius: 10px; }
-.ins-single-cart-wrap::-webkit-scrollbar-thumb {
+.ins-single-cart-wrap::-webkit-scrollbar-thumb, .ins-content::-webkit-scrollbar-thumb {
   border-radius: 10px;
   background: gray;
   border-radius: 10px;
@@ -683,7 +683,7 @@
   -moz-border-radius: 11px;
   -ms-border-radius: 11px;
   -o-border-radius: 11px;
-  border: 0.2px solid #db5209 !important;
+  border: 0.2px solid var(--ins_checkout_theme) !important;
   font-weight: 700; }
 
 .ins-single-cart-wrap {
@@ -780,7 +780,8 @@
   border: 1px solid #FEF2EB;
   box-shadow: 0px 10px 20px rgba(75, 26, 0, 0.05);
   border-radius: 8px;
-  margin-bottom: 32px; }
+  margin-bottom: 32px;
+  margin-top: 16px; }
 
 .ins-cart-coupon .coupon {
   display: flex;
@@ -1284,7 +1285,8 @@
   left: 0;
   z-index: 999999;
   overflow: hidden;
-  box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.35); }
+  box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.35);
+  top: 100% !important; }
   .ins-quick-view .woocommerce-variation-description {
     display: none !important;
     visibility: hidden !important;
@@ -1535,6 +1537,8 @@
 /* Gradient Mode CSS */
 .ins-layout-gradient.popup .ins-product-sell-carousel .owl-nav {
   margin-top: -40px !important; }
+.ins-layout-gradient.popup .ins-cart-btns {
+  background: transparent !important; }
 .ins-layout-gradient .ins-checkout-layout {
   background: linear-gradient(135deg, #4750D4 0%, #C23395 100%); }
 .ins-layout-gradient .ins-steps-style-4 .ins-single-step span {
@@ -1590,8 +1594,8 @@
   border: 0.2px solid #DB5209 !important; }
 .ins-layout-gradient .ins-empty-cart {
   border-color: #665F5C !important;
-  color: #665F5C !important;
-  background-color: transparent !important; }
+  color: #fff !important;
+  background-color: var(--ins_checkout_theme) !important; }
   .ins-layout-gradient .ins-empty-cart:hover {
     background-color: #fff !important;
     border-color: transparent !important; }

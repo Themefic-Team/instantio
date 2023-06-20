@@ -54,7 +54,7 @@ class App {
         // add_action( 'ins_cart_content', array( $this, 'ins_cart_content' ), 11);
         add_action( 'ins_cart_content', array( $this, 'ins_cart_content_modern' ), 10, 2);
 
-        //  add_action( 'init', array( $this, 'ins_options_init' ));
+         
         
    
     }
@@ -330,20 +330,9 @@ class App {
         } 
         WC()->cart->calculate_totals();
         WC()->cart->maybe_set_cart_cookies();
-      
-        // ob_start();
-
-        // require_once apply_filters( 'ins_layout_slug', INS_INC_PATH . $this->layouts_slug );
+       
          return $this->ins_ajax_cart_reload();
-        // $cart_data = ob_get_clean(); 
-        // // Fragments and mini cart are returned
-        // $data = array(
-        //     'cart_data' => $cart_data,
-        //     'cart_hash' => apply_filters( 'woocommerce_add_to_cart_hash', WC()->cart->get_cart_for_session() ? md5( json_encode( WC()->cart->get_cart_for_session() ) ) : '', WC()->cart->get_cart_for_session() )
-        // );
-
-        // wp_send_json( $data );
-        // wp_die();
+       
        
     }
 
@@ -484,10 +473,7 @@ class App {
         
         // Dedicated mobile Version hook for
 
-        do_action( 'dedicated_mobile_version' );
-
-
-
+        do_action( 'dedicated_mobile_version' ); 
         ob_start(); 
         if( $this->layout == 1 ||  $this->layout == 3):
         ?>
@@ -495,15 +481,14 @@ class App {
         <?php 
         endif; 
 
-        if($this->layout == 2 ||  $this->layout == 3):
-            
+        if($this->layout == 2 ||  $this->layout == 3): 
         ?> 
-        <div class="ins-checkout-popup ins-checkout-modern <?php echo esc_attr( $ins_layout_class ) ?>"> 
-            <div class="ins-checkout-overlay"></div>
-            <div class="ins-checkout-layout ins-checkout-layout-3 <?php echo esc_attr( $ins_layout_class ) ?>">
-                <?php require_once apply_filters( 'ins_layout_slug', INS_INC_PATH . $this->layouts_slug );  ?>
-            </div>
-        </div> 
+            <div class="ins-checkout-popup ins-checkout-modern <?php echo esc_attr( $ins_layout_class ) ?>"> 
+                <div class="ins-checkout-overlay"></div>
+                <div class="ins-checkout-layout ins-checkout-layout-3 <?php echo esc_attr( $ins_layout_class ) ?>">
+                    <?php require_once apply_filters( 'ins_layout_slug', INS_INC_PATH . $this->layouts_slug );  ?>
+                </div>
+            </div> 
         <?php  
         endif; 
         $output = ob_get_clean();

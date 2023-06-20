@@ -221,7 +221,7 @@
             -moz-border-radius: 11px;
             -ms-border-radius: 11px;
             -o-border-radius: 11px;
-            border: 0.2px solid #db5209 !important;
+            border: 0.2px solid var(--ins_checkout_theme) !important;
             font-weight: 700;
         }
     }
@@ -359,6 +359,7 @@
     box-shadow: 0px 10px 20px rgba(75, 26, 0, 0.05);
     border-radius: 8px;
     margin-bottom: 32px;
+    margin-top: 16px;
 }
 
 .ins-cart-coupon {
@@ -1046,8 +1047,8 @@
     left: 0;
     z-index: 999999;
     overflow: hidden;
-    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.35);
-
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.35);  
+    top: 100% !important; 
     .woocommerce-variation-description {
         display: none !important;
         visibility: hidden !important;

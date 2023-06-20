@@ -71,30 +71,39 @@
 		// alert(noquickview);
 		if (noquickview == false) {
 			// Add Quick View Panel DIV to body
-			$(document.body).append('<div class="ins-quick-view"></div>');
+			
 			// Close Quick View Panel
 			$(document).on("click", ".ins-quick-view .close", function (e) {
 				$(this).parent().fadeOut(300);
 			});
+
 			// Variable Product Quick View Ajax on Click
 			$(document).on("click", ".product_type_variable", function (e) {
 				e.preventDefault();
+				
+				
+				// Close Quick View Panel
+				$(document).on("click", ".ins-quick-view .close", function (e) {
+					$(this).parent().fadeOut(300);
+				});
 
 				var $this = $(this),
 					cartPos = $this.offset(),
 					product_id = $this.data("product_id");
-
-				$(".ins-quick-view").css({
-					top: parseInt(cartPos.top) + parseInt(45) + "px",
-					left: cartPos.left + "px",
-				});
-
+ 
 				if ($this.hasClass("ins-sell-add-to-cart")) {
+					$(document.body).append('<div class="ins-quick-view"></div>'); 
 					cartPos = $this.closest(".ins-single-product-sell").offset();
+
 					$(".ins-quick-view").css({
 						top: parseInt(cartPos.bottom) + "px",
 						left: cartPos.left + "px",
 					});
+				}else{
+					// Add Quick View Panel DIV to body
+					$('.ins-quick-view').remove();
+					$(this).closest('.product').append('<div class="ins-quick-view"></div>');
+					$(this).closest('.product').css('position', 'relative');
 				}
 				$.ajax({
 					type: "post",
@@ -304,6 +313,12 @@
 			.closest(".product")
 			.find(".woocommerce-product-gallery__wrapper")
 			.find("img");
+		if(productThumb.length == 0){
+			var productThumb = $(this)
+			.closest(".product")
+			.find("a")
+			.find("img");
+		}
 		var productThumb_src = productThumb.attr("src");
 		var productThumbwidth = productThumb.width();
 		var startPos = productThumb.offset();
@@ -552,7 +567,7 @@
 
 	// Up sell Carousel
 	function ins_owl_carousel() {
-		if ($(".ins-product-sell-carousel").length > 0) {
+		if ($(".ins-product-sell-carousel").length > 0) { 
 			$(".ins-product-sell-carousel").owlCarousel("destroy");
 			$(".ins-product-sell-carousel").owlCarousel({
 				// loop:true,

@@ -90,7 +90,7 @@
    
 
 }
-.ins-single-cart-wrap {
+.ins-single-cart-wrap, .ins-content {
     &::-webkit-scrollbar {
         width: 3px;
     }
@@ -257,3 +257,4 @@
         }
     }
 }
+
