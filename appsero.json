@@ -4,6 +4,8 @@
         "appsero.json",
         "composer.json",
         "composer.lock",
-        ".gitignore"
+        ".gitignore",
+        "instantio-style.css.map",
+        "instantio-style.css.map"
     ]
 }
