@@ -265,24 +265,21 @@ Yes, Instantio offers a simple checkout WooCommerce solution. You can also <stro
 
 == Screenshots ==
 
-1. Popup Cart
-2. Popup Cart Animation
-3. Popup Cart Preview
-4. Side Cart
-5. Side Cart Preview
-6. Floating Button
-7. Floating Button Preview
-8. Animation for Checkout
-9. Quick view on variable product
-10. Ajax cart on a single product
-11. RTL Support
-12. Pro Version
-13. Pro Version Preview
-14. Pro Version Preview
-15. Pro Version Preview
-16. Pro Version Preview
-17. Pro Version Preview
 
+1. Layout and settings panel - Organised and Optimised  Control.
+2. Quick setup - You can set up your on-page checkout quickly and effortlessly.
+3. SideCart layout - The SideCart feature in Instantio enables you to display the shopping cart from a side view.
+4. Popup cart layout - The Popup Cart feature display the cart contents in a popup window.
+5. UpSell and cross-sell - You can setup UpSell and cross-sell to boost your sales during the checkout process. ( Pro )
+6. Lite theme - It Enable lightweight and minimalistic, clean and minimalist look.
+7. Dark theme -  The Dark theme is a sleek and sophisticated color theme with black color palette.
+8. Glassmorphism theme - You can use the popular glass effect in the design.
+9. Gradient theme - It use the smooth Gradient color effect to the instantio.
+10. Dedicated mobile layout - You can set dedicated and optimised layout for mobile devices. ( Pro )
+11. Progress-bar - You can choose different progress-bar style for on page checkout. ( Pro )
+13. Icons and custom icon upload - You can add fontawesome and remixicon also you can upload any custom icon. ( Pro )
+14. Design panel - You can change any color and style into the instantio.
+15. Cart icon selection - You can set different cart Toggle style and Cart position.
 
 == Changelog ==
 
@@ -596,6 +593,6 @@ Yes, Instantio offers a simple checkout WooCommerce solution. You can also <stro
 
 == Upgrade Notice ==
 
-= 2.5.24 =
+= 3.0.0 =
 
 This is an important & critical release. Please make sure you BACKUP your website before updating.We are releasing a new version which is a complete revamp of the previous one. after updating the please setup the full settings from the backend.
