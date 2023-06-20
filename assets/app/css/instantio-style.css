@@ -1646,6 +1646,8 @@
   background-color: transparent !important; }
 .ins-layout-gradient .ins-payment #payment .payment_methods > .wc_payment_method > label {
   color: #FCF9F7 !important; }
+.ins-layout-gradient #order_review {
+  background-color: transparent !important; }
 
 /* Gradient Mode CSS */
 /* Glass Morphism Mode CSS */

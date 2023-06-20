@@ -659,7 +659,7 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
 			// Add nonce for security and authentication.
 			$nonce_name   = isset( $_POST['tf_setup_wizard_nonce'] ) ? $_POST['tf_setup_wizard_nonce'] : '';
 			$nonce_action = 'tf_setup_wizard_action';
-
+          
 			// Check if a nonce is set.
 			if ( ! isset( $nonce_name ) ) {
 				return;
@@ -673,21 +673,39 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
           
       
 			$options     = get_option( 'wiopt' );
-            $options['ins-layout-options'] = isset($_POST['ins-layout-options']) ? $_POST['ins-layout-options'] : 1;
-            $options['ins-layout-mode'] = isset($_POST['ins-layout-mode']) ? $_POST['ins-layout-mode'] : 'light';
-            $options['ins-layout-progressbar']= isset($_POST['ins-layout-progressbar']) ? $_POST['ins-layout-progressbar'] : '1';
-            $options['ins-layout'] = isset($_POST['ins-layout']) && !empty($_POST['ins-layout']) ? $_POST['ins-layout'] : 'cart';
-            $options['auto-tog-panel'] = isset($_POST['auto-tog-panel']) ? $_POST['auto-tog-panel'] : '1';
-            $options['ins-toggle-tab']['toggle-position'] = isset($_POST['toggle-position']) ? $_POST['toggle-position'] : 'right-bottom';
-            $options['woins-quickview-disable'] = isset($_POST['woins-quickview-disable']) ? $_POST['woins-quickview-disable'] : false;
-            $options['wi-disable-ajax-add-cart'] = isset($_POST['wi-disable-ajax-add-cart']) ? $_POST['wi-disable-ajax-add-cart'] : false;
-            $options['ins-toggle-tab']['cart-icon-style'] = isset($_POST['cart-icon-style']) ? $_POST['cart-icon-style'] : 'cart-style-1';
-            $options['ins-layout-animation'] = isset($_POST['ins-layout-animation']) ? $_POST['ins-layout-animation'] : 'ins_animate_default';
-            $options['cart-fly']['cart-fly-anim'] = isset($_POST['cart-fly-anim']) ? $_POST['cart-fly-anim'] : false;
-            $options['ins-toggle-tab']['ins-cart-emty-hide'] = isset($_POST['ins-cart-emty-hide']) ? $_POST['ins-cart-emty-hide'] : false;
-            $options['js-min'] = isset($_POST['js-min']) ? $_POST['js-min'] : false;
            
-
+            if($options == '' && !is_array($options)){
+                $options = [];
+                $options['ins-layout-options'] = isset($_POST['ins-layout-options']) ? $_POST['ins-layout-options'] : 1;
+            
+                $options['ins-layout-mode'] = isset($_POST['ins-layout-mode']) ? $_POST['ins-layout-mode'] : 'light';
+                $options['ins-layout-progressbar']= isset($_POST['ins-layout-progressbar']) ? $_POST['ins-layout-progressbar'] : '1';
+                $options['ins-layout'] = isset($_POST['ins-layout']) && !empty($_POST['ins-layout']) ? $_POST['ins-layout'] : 'cart';
+                $options['auto-tog-panel'] = isset($_POST['auto-tog-panel']) ? $_POST['auto-tog-panel'] : '1';
+                $options['ins-toggle-tab']['toggle-position'] = isset($_POST['toggle-position']) ? $_POST['toggle-position'] : 'right-bottom';
+                $options['woins-quickview-disable'] = isset($_POST['woins-quickview-disable']) ? $_POST['woins-quickview-disable'] : false;
+                $options['wi-disable-ajax-add-cart'] = isset($_POST['wi-disable-ajax-add-cart']) ? $_POST['wi-disable-ajax-add-cart'] : false;
+                $options['ins-toggle-tab']['cart-icon-style'] = isset($_POST['cart-icon-style']) ? $_POST['cart-icon-style'] : 'cart-style-1';
+                $options['ins-layout-animation'] = isset($_POST['ins-layout-animation']) ? $_POST['ins-layout-animation'] : 'ins_animate_default';
+                $options['cart-fly']['cart-fly-anim'] = isset($_POST['cart-fly-anim']) ? $_POST['cart-fly-anim'] : false;
+                $options['ins-toggle-tab']['ins-cart-emty-hide'] = isset($_POST['ins-cart-emty-hide']) ? $_POST['ins-cart-emty-hide'] : false; 
+                
+            } else{
+                $options['ins-layout-options'] = isset($_POST['ins-layout-options']) ? $_POST['ins-layout-options'] : 1;
+            
+                $options['ins-layout-mode'] = isset($_POST['ins-layout-mode']) ? $_POST['ins-layout-mode'] : 'light';
+                $options['ins-layout-progressbar']= isset($_POST['ins-layout-progressbar']) ? $_POST['ins-layout-progressbar'] : '1';
+                $options['ins-layout'] = isset($_POST['ins-layout']) && !empty($_POST['ins-layout']) ? $_POST['ins-layout'] : 'cart';
+                $options['auto-tog-panel'] = isset($_POST['auto-tog-panel']) ? $_POST['auto-tog-panel'] : '1';
+                $options['ins-toggle-tab']['toggle-position'] = isset($_POST['toggle-position']) ? $_POST['toggle-position'] : 'right-bottom';
+                $options['woins-quickview-disable'] = isset($_POST['woins-quickview-disable']) ? $_POST['woins-quickview-disable'] : false;
+                $options['wi-disable-ajax-add-cart'] = isset($_POST['wi-disable-ajax-add-cart']) ? $_POST['wi-disable-ajax-add-cart'] : false;
+                $options['ins-toggle-tab']['cart-icon-style'] = isset($_POST['cart-icon-style']) ? $_POST['cart-icon-style'] : 'cart-style-1';
+                $options['ins-layout-animation'] = isset($_POST['ins-layout-animation']) ? $_POST['ins-layout-animation'] : 'ins_animate_default';
+                $options['cart-fly']['cart-fly-anim'] = isset($_POST['cart-fly-anim']) ? $_POST['cart-fly-anim'] : false;
+                $options['ins-toggle-tab']['ins-cart-emty-hide'] = isset($_POST['ins-cart-emty-hide']) ? $_POST['ins-cart-emty-hide'] : false; 
+            }
+            
 			update_option( 'wiopt', $options );
 			$response              = [
 				'success'      => true,
