@@ -344,6 +344,9 @@
 			.find("a")
 			.find("img");
 		}
+		if( typeof productThumb == 'undefined' || productThumb.length == 0){
+			return false;
+		}
 		var productThumb_src = productThumb.attr("src");
 		var productThumbwidth = productThumb.width();
 		var startPos = productThumb.offset();
