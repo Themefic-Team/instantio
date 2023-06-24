@@ -32,7 +32,7 @@ class Admin{
          *
          * @since 3.0
          */
-        if ( is_plugin_active( 'wooinstant/wooinstant.php' ) ) {
+        if ( class_exists( 'WOOINS' ) ) {
             $curvarsion = (double)INSTANTIO_PRO_VERSION;
             $allowver =(double)'3.0.0';
 

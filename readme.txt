@@ -3,7 +3,7 @@ Contributors: themefic, kamrul0424, hemelhasan, hasanet,mdrejon, mdashikul
 Tags: woocommerce, direct checkout, woocommerce checkout, floating cart, side cart, ajax cart, cart popup, popup cart, ajax add to cart, one page checkout, single page checkout, fly cart, mini cart, quick buy, instant checkout, quick checkout, same page checkout, sidebar cart, sticky cart, woocommerce ajax, one click checkout, woocommerce one page checkout, direct checkout woocommerce, woocommerce one click checkout, woocommerce quick checkout, woocommerce express checkout, woocommerce simple checkout, skip cart page woocommerce, woocommerce cart popup, edit woocommerce checkout page, woocommerce direct checkout, checkout manager, woocommerce checkout manager, One Page Checkout, WooCommerce One Page Checkout
 Requires at least: 4.0
 Tested up to: 6.2.2
-Stable tag: 3.0.0
+Stable tag: 3.0.1
 WC requires at least: 5.0
 WC tested up to: 7.8.0
 Requires PHP: 7.2
@@ -31,6 +31,12 @@ Checkout Instantly within 10-15 seconds using Side Cart, Popup Cart, Slide Check
 * <a href="https://wpinstant.io/go/popup-checkout">Popup Checkout - Single Step (Pro)</a> 
 * <a href="https://wpinstant.io/go/rtl-demo">Right to Left / Arabic Checkout</a>
 
+<strong>4 Different Mode/Theme (Quick Demo): </strong>
+* <a href="https://wpinstant.io/lite-mode">Lite Mode</a>
+* <a href="https://wpinstant.io/dark-mode">Dark Mode</a>
+* <a href="https://wpinstant.io/glass-morphism">Glassmorphism Mode</a>
+* <a href="https://wpinstant.io/gradient-mode">Gradient Mode</a>
+
 = Say Goodbye to Cart Abandonment with Instantio's Instant Checkout Process =
 
 Instantio reduces your Cart Abandonment rate by minimizing the steps of Woocommerce Checkout process. With Instantio's floating cart icon, your customer will be able to skip the cart page and go directly to the checkout page. The Whole WooCommerce checkout process would take only 15-25 seconds. Yes, you heard it right! Only 15-25 Seconds! 
@@ -46,6 +52,12 @@ All your customer has to do is â€œAdd to Cartâ€, a cart drawer will app
 * Ajax based empty cart button
 * Ajax based variable product view & add to cart from any page
 * Easy to use, lightweight Option Panel
+* Desing panel to customize the design
+* Dedicated mobile layout
+* 4 Prebuilt theme/mode in instantio
+* Quick Setup
+* Smooth Animation
+* Upsell & Cross Sell feature
 * RTL Support
 
 <strong>Demo Link </strong>
@@ -165,6 +177,10 @@ Instantio Pro offers a side cart that lets users access cart items from anywhere
 
 * **All Free Features**
 
+* **Upsell:** Instantio offers a powerful Upsell feature that allows you to increase your sales and revenue by offering additional products during the checkout process in Instantio <a href="https://wpinstant.io/upsells/">Preview Demo</a>
+
+* **Cross Sell:** Instantio offers a powerful Cross Sell feature that allows you to increase your sales and revenue by offering additional products during the checkout process in Instantio <a href="https://wpinstant.io/cross-sells/">Preview Demo</a>
+
 * **Go to Cart/Checkout Option:** You can select where your customer will land after "Add to Cart".
 
 * **Option Panel:** Instantio has built-in easy-to-use options panel. You can add or remove any options from this panel.
@@ -265,24 +281,31 @@ Yes, Instantio offers a simple checkout WooCommerce solution. You can also <stro
 
 == Screenshots ==
 
-
 1. Layout and settings panel - Organised and Optimised  Control.
 2. Quick setup - You can set up your on-page checkout quickly and effortlessly.
 3. SideCart layout - The SideCart feature in Instantio enables you to display the shopping cart from a side view.
 4. Popup cart layout - The Popup Cart feature display the cart contents in a popup window.
 5. UpSell and cross-sell - You can setup UpSell and cross-sell to boost your sales during the checkout process. ( Pro )
-6. Lite theme - It Enable lightweight and minimalistic, clean and minimalist look.
-7. Dark theme -  The Dark theme is a sleek and sophisticated color theme with black color palette.
+6. Lite theme - It Enables a lightweight and minimalistic, clean, and minimalist look.
+7. Dark theme -  The Dark theme is a sleek and sophisticated color theme with the black color palette.
 8. Glassmorphism theme - You can use the popular glass effect in the design.
-9. Gradient theme - It use the smooth Gradient color effect to the instantio.
-10. Dedicated mobile layout - You can set dedicated and optimised layout for mobile devices. ( Pro )
-11. Progress-bar - You can choose different progress-bar style for on page checkout. ( Pro )
-13. Icons and custom icon upload - You can add fontawesome and remixicon also you can upload any custom icon. ( Pro )
-14. Design panel - You can change any color and style into the instantio.
-15. Cart icon selection - You can set different cart Toggle style and Cart position.
+9. Gradient theme - It uses the smooth Gradient color effect to the instantio.
+10. Dedicated mobile layout - You can set a dedicated and optimized layout for mobile devices. ( Pro )
+11. Progress bar - You can choose a different progress-bar style for on page checkout. ( Pro )
+12. Icons and custom icon upload - You can add fontawesome and remixicon also you can upload any custom icon. ( Pro )
+13. Design panel - You can change any color and style into the instantio.
+14. Cart icon selection - You can set different cart Toggle styles and Cart positions.
+15. Optimized assets - You can enable optimized settings to load optimized scripts
 
 == Changelog ==
 
+= 3.0.1 = ( June 24, 2023 )
+
+- Updated: lang file Updated
+- Fixed: Undefined issue
+- Fixed: Upsell & Cross Sell issue ( Pro )
+- Fixed: Variation product issue in Cartfly
+- Fixed: Column break Issue fixed( Pro )
 
 = 3.0.0 = ( June 20, 2023 )
 
@@ -294,7 +317,6 @@ Yes, Instantio offers a simple checkout WooCommerce solution. You can also <stro
 - New Payment system added
 - Custom Icon option added
 - Multistep checkout process added
-
 
 = 2.5.25 = ( May 28, 2023 )
 

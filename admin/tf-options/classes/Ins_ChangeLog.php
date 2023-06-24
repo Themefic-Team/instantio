@@ -11,6 +11,24 @@
 
 $change = [
     // Update Start
+    'v2' => [
+        'date'      => '24 June 2023',
+        'version'   => 'Version 3.0.1',
+        'changelog' => [
+            'Fixed'   =>   [
+                'Undefined issue',
+                'Upsell & Cross Sell issue ( Pro )',
+                'Variation product issue in Cartfly',
+                'Column break Issue fixed( Pro )',
+            ], 
+            'New'   =>   [
+                'Language File Added', 
+            ],
+        ]
+    ],
+    // Update End
+    
+    // Update Start
     'v1' => [
         'date'      => '20 June 2023',
         'version'   => 'Version 3.0.0',
@@ -28,8 +46,6 @@ $change = [
         ]
     ],
     // Update End
-
-    //
 ]
 
 
