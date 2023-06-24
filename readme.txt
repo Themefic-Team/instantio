@@ -304,7 +304,8 @@ Yes, Instantio offers a simple checkout WooCommerce solution. You can also <stro
 - Updated: lang file Updated
 - Fixed: Undefined issue
 - Fixed: Upsell & Cross Sell issue ( Pro )
-- Fixed: Variation product issue in Cartfly 
+- Fixed: Variation product issue in Cartfly
+- Fixed: Column break Issue fixed( Pro )
 
 = 3.0.0 = ( June 20, 2023 )
 
