@@ -84,10 +84,19 @@ do_action( 'woocommerce_before_cart' ); ?>
                             </div>
                             <div class="ins-cart-item-title" data-title="<?php esc_attr_e( 'Product', 'woocommerce' ); ?>">
                                 <?php
-                                    if ( ! $product_permalink ) {
-                                        echo wp_kses_post( apply_filters( 'woocommerce_cart_item_name', $_product->get_name(), $cart_item, $cart_item_key ) . '&nbsp;' );
+
+                                    $productName = $_product->get_name();
+
+                                    if (strlen($productName) > 30) {
+                                        $limitedName = substr($productName, 0, 30) . "...";
                                     } else {
-                                        echo wp_kses_post( apply_filters( 'woocommerce_cart_item_name', sprintf( '<a href="%s">%s</a>', esc_url( $product_permalink ), $_product->get_name() ), $cart_item, $cart_item_key ) );
+                                        $limitedName = $productName;
+                                    }
+
+                                    if ( ! $product_permalink ) {
+                                        echo wp_kses_post( apply_filters( 'woocommerce_cart_item_name', $limitedName , $cart_item, $cart_item_key ) . '&nbsp;' );
+                                    } else {
+                                        echo wp_kses_post( apply_filters( 'woocommerce_cart_item_name', sprintf( '<a href="%s">%s</a>', esc_url( $product_permalink ), $limitedName ), $cart_item, $cart_item_key ) );
                                     }
 
                                     do_action( 'woocommerce_after_cart_item_name', $cart_item, $cart_item_key );
