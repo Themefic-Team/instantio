@@ -12,7 +12,7 @@
  * Version: 3.0.2
  * Tested up to: 6.2.2
  * Requires PHP: 7.2
- * WC tested up to: 7.8.0
+ * WC tested up to: 7.8.2
 **/
 
 // don't load directly
