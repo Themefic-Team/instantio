@@ -11,6 +11,28 @@
 
 $change = [
     // Update Start
+    'v3' => [
+        'date'      => '09 July 2023',
+        'version'   => 'Version 3.0.2',
+        'changelog' => [
+            'Fixed'   =>   [
+                'Undefined issue',
+                'Card issues fix',
+                'Card items title issues fix',
+                'Guest checkout issues fixed( Pro )',
+                'Allow user to login during checkout fixed( Pro )',
+            ],
+            
+            'New'   =>  [
+                'New Payment Added (WooCommerce Square)',
+            ],
+
+            'Improvement'   =>   [
+                'Mobile Card items title',
+            ],
+        ]
+    ],
+
     'v2' => [
         'date'      => '24 June 2023',
         'version'   => 'Version 3.0.1',
