@@ -3,9 +3,9 @@ Contributors: themefic, kamrul0424, hemelhasan, hasanet, kamrul0424
 Tags: woocommerce, direct checkout, woocommerce checkout, floating cart, side cart, ajax cart, cart popup, popup cart, ajax add to cart, one page checkout, single page checkout, fly cart, mini cart, quick buy, instant checkout, quick checkout, same page checkout, sidebar cart, sticky cart, woocommerce ajax, one click checkout, woocommerce one page checkout, direct checkout woocommerce, woocommerce one click checkout, woocommerce quick checkout, woocommerce express checkout, woocommerce simple checkout, skip cart page woocommerce, woocommerce cart popup, edit woocommerce checkout page, woocommerce direct checkout, checkout manager, woocommerce checkout manager, One Page Checkout, WooCommerce One Page Checkout
 Requires at least: 4.0
 Tested up to: 6.2.2
-Stable tag: 3.0.1
+Stable tag: 3.0.2
 WC requires at least: 5.0
-WC tested up to: 7.8.0
+WC tested up to: 7.8.2
 Requires PHP: 7.2
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -283,21 +283,31 @@ Yes, Instantio offers a simple checkout WooCommerce solution. You can also <stro
 
 1. Layout and settings panel - Organised and Optimised  Control.
 2. Quick setup - You can set up your on-page checkout quickly and effortlessly.
-3. SideCart layout - The SideCart feature in Instantio enables you to display the shopping cart from a side view.
+3. SideCart layout - The SideCart feature in instantio enables you to display the shopping cart from a side view.
 4. Popup cart layout - The Popup Cart feature display the cart contents in a popup window.
 5. UpSell and cross-sell - You can setup UpSell and cross-sell to boost your sales during the checkout process. ( Pro )
 6. Lite theme - It Enables a lightweight and minimalistic, clean, and minimalist look.
-7. Dark theme -  The Dark theme is a sleek and sophisticated color theme with the black color palette.
+7. Dark theme -  The Dark theme is a sleek and sophisticated color theme with a black color palette.
 8. Glassmorphism theme - You can use the popular glass effect in the design.
 9. Gradient theme - It uses the smooth Gradient color effect to the instantio.
 10. Dedicated mobile layout - You can set a dedicated and optimized layout for mobile devices. ( Pro )
-11. Progress bar - You can choose a different progress-bar style for on page checkout. ( Pro )
-12. Icons and custom icon upload - You can add fontawesome and remixicon also you can upload any custom icon. ( Pro )
-13. Design panel - You can change any color and style into the instantio.
+11. Progress bar - You can choose a different progress-bar style for on-page checkout. ( Pro )
+12. Icons and custom icon upload - You can add fontawesome and remix icons, also you can upload any custom icon. ( Pro )
+13. Design panel - You can change any color and style in the instantio.
 14. Cart icon selection - You can set different cart Toggle styles and Cart positions.
 15. Optimized assets - You can enable optimized settings to load optimized scripts
 
 == Changelog ==
+
+= 3.0.2 = ( July 09, 2023 )
+
+- Added: New Payment Added (WooCommerce Square)
+- Fixed: Undefined issue
+- Fixed: Card issues
+- Fixed: Card items title issues
+- Fixed: Guest checkout issues fixed( Pro )
+- Fixed: Allow user to log-in during checkout( Pro )
+- Improved: Mobile Card items title
 
 = 3.0.1 = ( June 24, 2023 )
 
