@@ -51,7 +51,6 @@ class App {
         add_action( 'ins_cart_buttons', array( $this, 'ins_cart_buttons' ), 11);
 
         // Ins Cart Toggle
-        // add_action( 'ins_cart_content', array( $this, 'ins_cart_content' ), 11);
         add_action( 'ins_cart_content', array( $this, 'ins_cart_content_modern' ), 10, 2);
  
     }
@@ -220,20 +219,6 @@ class App {
         echo apply_filters( 'ins_cart_buttons_pro', $html ); 
     }
 
-    // Ins Cart Content old
-    public function ins_cart_content(){
-        ob_start();
-        ?> 
-
-        <div class="ins-content">
-            <div class="ins-cart-inner">
-                <?php require_once apply_filters( 'ins_cart_path', INS_INC_PATH . '/templates/cart.php' ); ?>	
-            </div>  
-            <?php do_action( 'ins_cart_buttons' ); ?> 
-        </div> 
-        <?php
-        echo ob_get_clean();
-    }
 
     // Ins Cart Content Modern
     public function ins_cart_content_modern($display){
