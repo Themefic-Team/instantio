@@ -6,10 +6,12 @@ class App {
     public $layout = 1;
     public $layouts_slug = "/layouts/layout.php";
     public $layout_class = "";
+
+    
     
 
     public function __construct() {
-         
+
         $this->ins_layout_set_data();
 
         add_action( 'wp_body_open', array($this, 'ins_layout_three'), 10 );
@@ -52,8 +54,10 @@ class App {
 
         // Ins Cart Toggle
         add_action( 'ins_cart_content', array( $this, 'ins_cart_content_modern' ), 10, 2);
- 
+        add_action( 'ins_cart_content_single', array( $this, 'ins_modern_cart_only' ), 10, 2);
+
     }
+
 
     public function ins_options_init(){
         $options            = get_option( 'wiopt' ); 
@@ -88,10 +92,13 @@ class App {
  
     // Ins Cart Header
     public function ins_cart_modern_header() {
+
+        $ins_single_layout = !empty(insopt( 'ins-layout-step' )) ? insopt( 'ins-layout-step' ) : false;
+
         ob_start(); 
         ?>
         <div class="header-wrap">
-           <div class="ins-checkout-header">
+            <div class="ins-checkout-header">
                 <span class="ins-checkout-header-icon">
                     <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g clip-path="url(#clip0_139_572)">
@@ -118,8 +125,11 @@ class App {
                         </svg>  
                 </span>  
             </div>
-        <?php  
-            do_action('ins_template_steps') 
+        <?php
+            if($ins_single_layout == false){
+                do_action('ins_template_steps');
+            }
+            // do_action('ins_template_steps');
         ?>
         </div>
         <?php
@@ -231,6 +241,19 @@ class App {
                
             </div>  
             <?php do_action('ins_template_step_content'); ?>
+        </div> 
+        <?php
+        echo ob_get_clean();
+    }
+
+    // Ins Only Modern Cart Content
+    public function ins_modern_cart_only($display){
+        ob_start();
+        ?> 
+        <div class="ins-content <?php echo esc_attr( $display ) ?>">
+            <div class="ins-cart-inner step-1 ins-cart-step active"> 
+                <?php require_once apply_filters( 'ins_cart_template', INS_INC_PATH . '/templates/cart-modern.php' ); ?> 
+            </div>  
         </div> 
         <?php
         echo ob_get_clean();
@@ -436,6 +459,9 @@ class App {
 		} 
         $toggle_position = isset(insopt( 'ins-toggle-tab' )['toggle-position'])  ? insopt( 'ins-toggle-tab' )['toggle-position'] : 'right-bottom';
 
+        // checked is single step
+        $ins_single_layout = !empty(insopt( 'ins-layout-step' )) ? insopt( 'ins-layout-step' ) : false;
+        
         if(!empty($toggle_position)){
             $toggle_position = explode('-', $toggle_position);
             $toggle_position_horizontal = $toggle_position[0];
@@ -450,8 +476,10 @@ class App {
         $this->layout_class .= !empty($toggle_position_vertical) ? 'ins-var-cart-'.$toggle_position_vertical.' ' :  'ins-var-cart-bottom '; 
         $this->layout_class .= !empty(insopt( 'ins-layout-mode' )) ? 'ins-layout-' .  insopt( 'ins-layout-mode' ).' ' : ''; 
         $this->layout_class .= !empty(insopt( 'ins-layout-animation' )) ? insopt( 'ins-layout-animation' ).' '  : ''; 
+        $this->layout_class .= $ins_single_layout == true ? 'ins-single-step '  : ''; 
   
-        $ins_layout_class = apply_filters( 'ins_layout_class', $this->layout_class ); 
+        $ins_layout_class = apply_filters( 'ins_layout_class', $this->layout_class );
+        
         
         // Dedicated mobile Version hook for
 
@@ -468,7 +496,9 @@ class App {
             <div class="ins-checkout-popup ins-checkout-modern <?php echo esc_attr( $ins_layout_class ) ?>"> 
                 <div class="ins-checkout-overlay"></div>
                 <div class="ins-checkout-layout ins-checkout-layout-3 <?php echo esc_attr( $ins_layout_class ) ?>">
-                    <?php require_once apply_filters( 'ins_layout_slug', INS_INC_PATH . $this->layouts_slug );  ?>
+                    <?php 
+                       require_once apply_filters( 'ins_layout_slug', INS_INC_PATH . $this->layouts_slug );  
+                    ?>
                 </div>
             </div> 
         <?php  

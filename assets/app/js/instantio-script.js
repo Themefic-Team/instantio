@@ -1,5 +1,51 @@
 (function ($) {
 	"use strict";
+
+	/**
+	 * Check if a node is blocked for processing.
+	 *
+	 * @param {JQuery Object} $node
+	 * @return {bool} True if the DOM Element is UI Blocked, false if not.
+	 */
+	var is_blocked = function ($node) {
+		return $node.is('.processing') || $node.parents('.processing').length;
+	};
+
+	//Pre Loader Block a node visually for processing.
+	var block = function ($node) {
+		if (!is_blocked($node)) {
+			$node.addClass('processing').block({
+				message: null,
+				overlayCSS: {
+					background: '#fff',
+					opacity: 0.6
+				}
+			});
+		}
+	};
+
+	var update_cart_totals_div = function (html_str) {
+		$('.ins-cart-collaterals .cart_totals').replaceWith(html_str);
+		$(document.body).trigger('updated_cart_totals');
+	};
+
+
+	var get_url = function (endpoint) {
+		return ins_params.wc_ajax_url.toString().replace(
+			'%%endpoint%%',
+			endpoint
+		);
+	};
+
+	/**
+	 * Unblock a node after processing is complete.
+	 *
+	 * @param {JQuery Object} $node
+	 */
+	var unblock = function ($node) {
+		$node.removeClass('processing').unblock();
+	};
+
 	$(document).ready(function () {
 		// instantio Close Button
 		$(document).on("click", ".ins-checkout-close", function (e) {
@@ -71,7 +117,7 @@
 		// alert(noquickview);
 		if (noquickview == false) {
 			// Add Quick View Panel DIV to body
-			
+
 			// Close Quick View Panel
 			$(document).on("click", ".ins-quick-view .close", function (e) {
 				$(this).parent().fadeOut(300);
@@ -80,8 +126,8 @@
 			// Variable Product Quick View Ajax on Click
 			$(document).on("click", ".product_type_variable", function (e) {
 				e.preventDefault();
-				
-				
+
+
 				// Close Quick View Panel
 				$(document).on("click", ".ins-quick-view .close", function (e) {
 					$(this).parent().fadeOut(300);
@@ -98,13 +144,13 @@
 				var $this = $(this),
 					cartPos = $this.offset(),
 					product_id = $this.data("product_id");
- 
+
 				if ($this.hasClass("ins-sell-add-to-cart")) {
-					$(document.body).append('<div class="ins-quick-view"></div>'); 
+					$(document.body).append('<div class="ins-quick-view"></div>');
 					cartPos = $this.closest(".ins-single-product-sell").offset();
- 
+
 					$(".ins-quick-view").attr("style", "top: " + parseInt(cartPos.top) + "px !important; left: " + cartPos.left + "px !important;");
-				}else{
+				} else {
 					// Add Quick View Panel DIV to body
 					$('.ins-quick-view').remove();
 					$(this).closest('.product').append('<div class="ins-quick-view"></div>');
@@ -198,12 +244,12 @@
 					$('.ins-single-step.step-1').addClass('done');
 					$('.ins-single-step.step-1').addClass('active');
 					$('.ins-content').find('.ins-cart-inner').hide();
-					$('.ins-content').find('.ins-cart-inner').removeClass('active'); 
+					$('.ins-content').find('.ins-cart-inner').removeClass('active');
 					$('.ins-content').find('.step-1').show();
-					$('.ins-content').find('.step-1').addClass('active');  
+					$('.ins-content').find('.step-1').addClass('active');
 				}, 1000);
-				
-				
+
+
 			},
 		});
 	});
@@ -231,7 +277,7 @@
 			},
 			beforeSend: function (response) {
 				thisbutton.removeClass("added").addClass("loading");
-				
+
 			},
 			complete: function (response) {
 				ins_cart_icon_animation();
@@ -267,9 +313,9 @@
 					$('.ins-single-step.step-1').addClass('done');
 					$('.ins-single-step.step-1').addClass('active');
 					$('.ins-content').find('.ins-cart-inner').hide();
-					$('.ins-content').find('.ins-cart-inner').removeClass('active'); 
+					$('.ins-content').find('.ins-cart-inner').removeClass('active');
 					$('.ins-content').find('.step-1').show();
-					$('.ins-content').find('.step-1').addClass('active');  
+					$('.ins-content').find('.step-1').addClass('active');
 				}, 1000);
 			},
 		});
@@ -338,13 +384,13 @@
 			.closest(".product")
 			.find(".woocommerce-product-gallery__wrapper")
 			.find("img");
-		if(productThumb.length == 0){
+		if (productThumb.length == 0) {
 			var productThumb = $(this)
-			.closest(".product")
-			.find("a")
-			.find("img");
+				.closest(".product")
+				.find("a")
+				.find("img");
 		}
-		if( typeof productThumb == 'undefined' || productThumb.length == 0){
+		if (typeof productThumb == 'undefined' || productThumb.length == 0) {
 			return false;
 		}
 		var productThumb_src = productThumb.attr("src");
@@ -593,9 +639,57 @@
 		}
 	);
 
+	// Payment Method Change
+	$(document).on("click", '.ins-cart-collaterals #shipping_method input', function (e) {
+
+		var shipping_methods = {};
+
+		// eslint-disable-next-line max-len
+		$('select.shipping_method, :input[name^=shipping_method][type=radio]:checked, :input[name^=shipping_method][type=hidden]').each(function () {
+			shipping_methods[$(this).data('index')] = $(this).val();
+		});
+
+		block($('div.cart_totals'));
+
+		var data = {
+			security: ins_params.update_shipping_method_nonce,
+			shipping_method: shipping_methods
+		};
+
+		// AJAX call to the WooCommerce update_shipping_method action
+		$.ajax({
+			type: 'post',
+			url: get_url('update_shipping_method'),
+			data: data,
+			dataType: 'html',
+			success: function (response) {
+				update_cart_totals_div(response);
+			},
+			complete: function (res) {
+				unblock($('div.cart_totals'));
+				// $(document.body).trigger('updated_shipping_method');
+				$('.ins-cart-collaterals .cart_totals .woocommerce-shipping-totals .woocommerce-shipping-destination').css({
+					display: 'none'
+				});
+
+				$('.ins-cart-collaterals .cart_totals .woocommerce-shipping-totals .woocommerce-shipping-calculator').css({
+					display: 'none'
+				});
+			}
+		});
+
+	});
+
+
+
+
+
+
+
+
 	// Up sell Carousel
 	function ins_owl_carousel() {
-		if ($(".ins-product-sell-carousel").length > 0) { 
+		if ($(".ins-product-sell-carousel").length > 0) {
 			$(".ins-product-sell-carousel").owlCarousel("destroy");
 			$(".ins-product-sell-carousel").owlCarousel({
 				// loop:true,

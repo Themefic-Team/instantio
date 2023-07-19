@@ -3,6 +3,7 @@ namespace INS\Controller;
 
 class Assets {
     public function __construct() { 
+        WC()->frontend_includes();
         add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_custom_js_scripts' ), 99999 ); 
         add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_custom_css_scripts' ), 99999 ); 
         add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ), 10 ); 
@@ -16,8 +17,11 @@ class Assets {
         wp_enqueue_script( 'ins-script', apply_filters( 'ins_script_min_status_checked', INS_ASSETS_URL.'/app/js/instantio-script.js' ), array('jquery'), INSTANTIO_VERSION, true ); 
         wp_localize_script( 'ins-script', 'ins_params',
             array( 
-                'ins_ajax_nonce' => wp_create_nonce( 'ins_ajax_nonce' ),
-                'ajax_url' => admin_url( 'admin-ajax.php' ),
+                'ins_ajax_nonce'                => wp_create_nonce( 'ins_ajax_nonce' ),
+                'ajax_url'                      => admin_url( 'admin-ajax.php' ),
+                'cartajax_url'                  => WC()->ajax_url(),
+                'wc_ajax_url'                   => \WC_AJAX::get_endpoint( '%%endpoint%%' ),
+				'update_shipping_method_nonce'  => wp_create_nonce( 'update-shipping-method' ),
             )
         ); 
 
