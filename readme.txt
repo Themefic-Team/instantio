@@ -1,11 +1,12 @@
+
 === Instantio - WooCommerce Quick Checkout | Instant Checkout, Side Cart & Popup Cart ==
 Contributors: themefic, kamrul0424, hemelhasan, hasanet,mdrejon, mdashikul
 Tags: woocommerce, direct checkout, woocommerce checkout, floating cart, side cart, ajax cart, cart popup, popup cart, ajax add to cart, one page checkout, single page checkout, fly cart, mini cart, quick buy, instant checkout, quick checkout, same page checkout, sidebar cart, sticky cart, woocommerce ajax, one click checkout, woocommerce one page checkout, direct checkout woocommerce, woocommerce one click checkout, woocommerce quick checkout, woocommerce express checkout, woocommerce simple checkout, skip cart page woocommerce, woocommerce cart popup, edit woocommerce checkout page, woocommerce direct checkout, checkout manager, woocommerce checkout manager, One Page Checkout, WooCommerce One Page Checkout
 Requires at least: 4.0
 Tested up to: 6.2.2
-Stable tag: 3.0.2
+Stable tag: 3.0.3
 WC requires at least: 5.0
-WC tested up to: 7.8.2
+WC tested up to: 7.9.0
 Requires PHP: 7.2
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -15,6 +16,8 @@ Checkout Instantly within 10-15 seconds using Side Cart, Popup Cart, Slide Check
 == Description ==
 
 = The easiest and fastest WooCommerce Checkout Process by Instantio =
+
+Instantio has an advanced WooCommerce Quick Checkout system that transforms the online shopping experience with its innovative one-page checkout system. With Instantio's one-page checkout, customers can quickly and easily complete their transactions, reducing cart abandonment and boosting conversions.
 
 👉 Official Demo Link: [Instantio Live Preview](https://themefic.com/instantio/lite)
 👉 Installation Guide: [How to Setup Instantio](https://www.youtube.com/watch?v=1biwrwu-Io8)
@@ -41,7 +44,7 @@ Checkout Instantly within 10-15 seconds using Side Cart, Popup Cart, Slide Check
 
 Instantio reduces your Cart Abandonment rate by minimizing the steps of Woocommerce Checkout process. With Instantio's floating cart icon, your customer will be able to skip the cart page and go directly to the checkout page. The Whole WooCommerce checkout process would take only 15-25 seconds. Yes, you heard it right! Only 15-25 Seconds! 
 
-All your customer has to do is â€œAdd to Cartâ€, a cart drawer will appear with the checkout button. Your customer can Instantly Checkout your WooCommerce based store and order from a single page! Such a process will motivate your customers to complete the shopping and return again for more.
+All your customer has to do is Add to Cart, a cart drawer will appear with the checkout button. Your customer can Instantly Checkout your WooCommerce based store and order from a single page! Such a process will motivate your customers to complete the shopping and return again for more.
 
 = Why Choose Instantio =
 * Quick & Simplified WooCommerce checkout process
@@ -58,6 +61,7 @@ All your customer has to do is â€œAdd to Cartâ€, a cart drawer will app
 * Quick Setup
 * Smooth Animation
 * Upsell & Cross Sell feature
+* 15+ Popular theme Compatibility
 * RTL Support
 
 <strong>Demo Link </strong>
@@ -299,7 +303,13 @@ Yes, Instantio offers a simple checkout WooCommerce solution. You can also <stro
 
 == Changelog ==
 
-= 3.0.2 = ( July 09, 2023 )
+= 3.0.3 - ( July 23, 2023 ) =
+
+- Fixed: Customer login collapse issues (Pro)
+- Fixed: Cart shipping price updates in real-time
+- Improved: Cart functionality improve
+
+= 3.0.2 - ( July 09, 2023 ) =
 
 - Added: New Payment Added (WooCommerce Square)
 - Fixed: Undefined issue
@@ -309,7 +319,7 @@ Yes, Instantio offers a simple checkout WooCommerce solution. You can also <stro
 - Fixed: Allow user to log-in during checkout( Pro )
 - Improved: Mobile Card items title
 
-= 3.0.1 = ( June 24, 2023 )
+= 3.0.1 - ( June 24, 2023 ) =
 
 - Updated: lang file Updated
 - Fixed: Undefined issue
@@ -317,7 +327,7 @@ Yes, Instantio offers a simple checkout WooCommerce solution. You can also <stro
 - Fixed: Variation product issue in Cartfly
 - Fixed: Column break Issue fixed( Pro )
 
-= 3.0.0 = ( June 20, 2023 )
+= 3.0.0 - ( June 20, 2023 ) =
 
 - Fully New Version
 - Animation Features added
@@ -599,14 +609,14 @@ Yes, Instantio offers a simple checkout WooCommerce solution. You can also <stro
 
 = 1.2.2 = ( March 2, 2021 )
 - Fixed: wc validation error
-- Tested: WooCommerce 5.0.0 compatibity
+- Tested: WooCommerce 5.0.0 compatibility
 
 = 1.2.1 = ( Feb 12, 2021 )
 - Capability Test
 - Fixed: wc validation error
 
 = 1.1.1 = ( Feb 08, 2021 )
-- Added: Option Panel Added
+- Added: Options Panel Added
 - Added: Option - Cart Button Text
 - Added: Option - Cart Toggler Background
 - Added: Option - Cart Toggler Text Color

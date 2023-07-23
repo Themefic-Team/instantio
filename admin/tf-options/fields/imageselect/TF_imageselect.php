@@ -26,11 +26,10 @@ if ( ! class_exists( 'TF_imageselect' ) ) {
 
       $value = ( is_array( $this->value ) ) ? $this->value : array_filter( (array) $this->value );
 
-     
 
       if ( ! empty( $args['options'] ) ) {
 
-        echo '<div class="tf-image-seletor-wrap'. esc_attr( $inlinewrap ) .'" data-multiple="'. esc_attr( $args['multiple'] ) .'">';
+        echo '<div class="tf-image-seletor-wrap'. esc_attr( $inlinewrap ) .'" data-multiple="'. esc_attr( $args['multiple'] ) . '" '. $this->field_attributes() .' >';
 
         $num = 1;
 
@@ -44,7 +43,7 @@ if ( ! class_exists( 'TF_imageselect' ) ) {
           echo '<div class="tf-image-seletor-items'. esc_attr( $inline ) . esc_attr( $active ) .'">';
             echo '<figure class="tf-image-seletor-card">';
               echo '<img src="'. esc_url( $option['url'] ) .'" alt="img-'. esc_attr( $num++ ) .'" />';
-              echo '<input type="'. esc_attr( $type ) .'" name="'. esc_attr( $this->field_name( $extra ) ) .'" value="'. esc_attr( $key ) .'"'. $this->field_attributes() . esc_attr( $checked ) .'/>';
+              echo '<input data-depend-id="' . esc_attr( $this->field['id'] ) . '' . $this->parent_field . '" type="'. esc_attr( $type ) .'" name="'. esc_attr( $this->field_name( $extra ) ) .'" value="'. esc_attr( $key ) .'"'. $this->field_attributes() . esc_attr( $checked ) .'/>';
               echo '<span class="tf-image-seletor-card-info">' . esc_html( $option['title'] ) .'</span>';
             echo '</figure>';
           echo '</div>';
