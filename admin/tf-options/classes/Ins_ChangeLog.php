@@ -15,12 +15,12 @@ $change = [
         'date'      => '23 July 2023',
         'version'   => 'Version 3.0.3',
         'changelog' => [
-            'Fixed'   =>   [
+            'Fix'   =>   [
                 'Customer login collapse issues (Pro)',
                 'Cart shipping price updates in real-time',
             ],
         
-            'Improved'   =>   [
+            'Improvement'   =>   [
                 'Cart functionality',
             ],
         ]
@@ -32,7 +32,7 @@ $change = [
         'date'      => '09 July 2023',
         'version'   => 'Version 3.0.2',
         'changelog' => [
-            'Fixed'   =>   [
+            'Fix'   =>   [
                 'Undefined issue',
                 'Card issues fix',
                 'Card items title issues fix',
@@ -56,7 +56,7 @@ $change = [
         'date'      => '24 June 2023',
         'version'   => 'Version 3.0.1',
         'changelog' => [
-            'Fixed'   =>   [
+            'Fix'   =>   [
                 'Undefined issue',
                 'Upsell & Cross Sell issue ( Pro )',
                 'Variation product issue in Cartfly',
