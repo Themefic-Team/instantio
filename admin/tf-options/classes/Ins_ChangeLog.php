@@ -11,6 +11,23 @@
 
 $change = [
     // Update Start
+    'v4' => [
+        'date'      => '23 July 2023',
+        'version'   => 'Version 3.0.3',
+        'changelog' => [
+            'Fixed'   =>   [
+                'Customer login collapse issues (Pro)',
+                'Cart shipping price updates in real-time',
+            ],
+        
+            'Improved'   =>   [
+                'Cart functionality',
+            ],
+        ]
+    ],
+    // Update End
+    
+    // Update Start
     'v3' => [
         'date'      => '09 July 2023',
         'version'   => 'Version 3.0.2',
@@ -32,7 +49,9 @@ $change = [
             ],
         ]
     ],
-
+    // Update End
+    
+    // Update  start
     'v2' => [
         'date'      => '24 June 2023',
         'version'   => 'Version 3.0.1',
@@ -50,24 +69,6 @@ $change = [
     ],
     // Update End
     
-    // Update Start
-    'v1' => [
-        'date'      => '20 June 2023',
-        'version'   => 'Version 3.0.0',
-        'changelog' => [
-            'New'   =>   [
-                'Fully New Version',
-                'Animation Features added',
-                'New Cart and Checkout Layout',
-                'New Mode Features added', 
-                'New option panel added',
-                'New Payment system added', 
-                "Custom Icon option added",
-                "Multistep checkout process added",
-            ], 
-        ]
-    ],
-    // Update End
 ]
 
 
