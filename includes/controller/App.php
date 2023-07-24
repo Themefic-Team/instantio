@@ -268,8 +268,13 @@ class App {
 
         // checked is single step
         $ins_single_layout = !empty(insopt( 'ins-layout-step' )) ? insopt( 'ins-layout-step' ) : false;
-
-        require_once INS_TEMPLATES_PATH .  '/cart-modern.php';
+        
+        if ($ins_single_layout){
+            require_once INS_TEMPLATES_PATH .  '/ins_single_step_cart.php';
+        } else {
+            require_once INS_TEMPLATES_PATH .  '/cart-modern.php';
+        }
+        
         // require_once INS_INC_PATH .  $this->layouts_slug;
         $data = ob_get_clean(); 
         $hide_empty = 'hide';
