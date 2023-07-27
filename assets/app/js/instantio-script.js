@@ -262,8 +262,7 @@
 			url: ins_params.ajax_url,
 			type: "POST",
 			data: {
-				id: "1",
-				action: "ins_update_order_review_callback",
+				action: "ins_update_order_review_callback"
 			},
 			success: function (response) {
 
