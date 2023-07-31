@@ -92,7 +92,6 @@ class INSTANTIO {
             new INS\Controller\Assets();
         }
          
-
         if ( is_admin() && !wp_doing_ajax() ) {   
             new INS\Controller\Admin();
 		
