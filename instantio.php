@@ -87,8 +87,8 @@ class INSTANTIO {
 	 */
 	public function init() {    
 		add_action( 'plugins_loaded', array( $this, 'tf_plugin_loaded_action' ) );
-		
-		if ( !is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
+
+		if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
             new INS\Controller\Assets();
         }
          
