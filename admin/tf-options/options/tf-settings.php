@@ -327,6 +327,21 @@ TF_Settings::option( 'wiopt', array(
 						),
 					),
 				),
+
+				array(
+					'id'          => 'search-result-page',
+					'type'        => 'select2',
+					'placeholder' => __( 'Select a page', 'instantio' ),
+					'label'       => __( 'Select Search Result Page', 'instantio' ),
+					'description' => __( 'The Instantio cart functionality will not be visible on this particular page.', 'instantio' ),
+					'is_pro'    	=> true,
+					'options'     => 'posts',
+					'query_args'  => array(
+						'post_type'      => 'page',
+						'posts_per_page' => - 1,
+					)
+				),
+
 				array(
 					'id'        	=> 'woins-quickview-disable',
 					'class'     	=> 'ins-csf-disable badge_pro',

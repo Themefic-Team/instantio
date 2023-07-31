@@ -3,6 +3,14 @@
 
 	//Single Layout
 	function single_step_order_review_callback() {
+		$('.ins-cart-inner.shipping input').each(function () {
+			var value = $(this).val();
+			if (value != '') {
+				$(this).closest('p.form-row').find('label').addClass('active');
+			} else {
+				$(this).closest('p.form-row').find('label').removeClass('active');
+			}
+		});
 		$.ajax({
 			url: ins_params.ajax_url,
 			type: "POST",
@@ -588,6 +596,16 @@
 		"click",
 		'.ins-checkout-layout button[name="update_cart"], .ins-checkout-layout button[name="apply_coupon"]',
 		function (e) {
+
+			$('.ins-cart-inner.shipping input').each(function () {
+				var value = $(this).val();
+				if (value != '') {
+					$(this).closest('p.form-row').find('label').addClass('active');
+				} else {
+					$(this).closest('p.form-row').find('label').removeClass('active');
+				}
+			});
+
 			e.preventDefault();
 			var $this = $(this),
 				$form = $this.closest("form"),
@@ -638,11 +656,11 @@
 					$(".ins-checkout-layout .ins-cart-inner.step-1").html("");
 					$(".ins-checkout-layout .ins-cart-inner.step-1").append(response.data.data);
 					ins_owl_carousel();
-					single_step_order_review_callback();
 					// Hide toggle button if empty cart
 					hide_toggle_btn();
 				},
 			});
+			console.log('updated!');
 			return false;
 		}
 	);
