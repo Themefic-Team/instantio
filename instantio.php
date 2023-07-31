@@ -87,7 +87,11 @@ class INSTANTIO {
 	 */
 	public function init() {    
 		add_action( 'plugins_loaded', array( $this, 'tf_plugin_loaded_action' ) );
-        new INS\Controller\Assets(); 
+		
+		if ( !is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
+            new INS\Controller\Assets();
+        }
+         
 
         if ( is_admin() && !wp_doing_ajax() ) {   
             new INS\Controller\Admin();
@@ -115,7 +119,6 @@ class INSTANTIO {
      * Including Options
      */ 
     public function tf_plugin_loaded_action() {  
-        // if(class_exists('WOOINS')) return;
 
         if ( file_exists( INS_PATH . 'admin/tf-options/TF_Options.php' ) ) {
 			require_once INS_PATH . 'admin/tf-options/TF_Options.php';
