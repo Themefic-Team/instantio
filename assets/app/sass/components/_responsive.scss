@@ -71,7 +71,22 @@
   }
 }
 
+// Screen with 768
 @media (max-width: 768px) {
+  /* 
+  * Author: M Hemel Hasan
+	* @since 3.3 
+  */
+  .ins-checkout-modern {
+    .ins-checkout-layout {
+      .ins-cart-inner {
+        &.step-1 {
+          padding-top: 0px !important;
+        }
+      }
+    }
+  }
+
   .ins-checkout-modern.ins-single-layout-step .ins-checkout-layout.popup {
     width: var(--ins_panel_width_767) !important;
   }
@@ -106,7 +121,6 @@
     form {
       margin-bottom: 0;
     }
-
     position: relative;
   }
 
@@ -120,11 +134,6 @@
     width: 29% !important;
   }
 
-  .ins-checkout-modern .ins-cart-item-heading span,
-  .ins-single-cart-item > div {
-    width: 13%;
-  }
-
   .ins-cart-item-remove {
     padding: 0px !important;
   }
@@ -134,13 +143,21 @@
   }
 
   .ins-checkout-modern {
-    .ins-cart-item-quantity {
-      width: 20% !important;
+    .ins-cart-content-wrap {
+      padding-left: 0;
+      padding-right: 0;
     }
-
-    .ins-cart-item-heading span,
     .ins-checkout-body {
       font-size: 12px;
+    }
+
+    .ins-cart-item-heading span {
+      font-size: 12px !important;
+      padding-left: 0 !important;
+    }
+
+    .ins-cart-item-quantity {
+      width: 20% !important;
     }
   }
 
@@ -199,6 +216,7 @@
     display: none;
   }
 }
+// End Screen with 768
 
 @media (max-width: 576px) {
   .ins-checkout-modern.ins-single-layout-step .ins-checkout-layout.popup {

@@ -87,6 +87,7 @@
 }
 .ins-content #customer_details {
   padding: 0 !important;
+  margin-bottom: 0 !important;
 }
 
 .woocommerce .ins-content a.button {
@@ -268,13 +269,10 @@
   opacity: 1 !important;
 }
 .ins-checkout-modern .ins-checkout-layout {
-  padding-bottom: 16px;
   background-color: #FCF9F7;
-  padding: 35px;
   height: 100vh;
   z-index: 9999;
   position: relative;
-  padding: 40px;
   box-shadow: 1px -9px 16px -13px;
   width: var(--ins_panel_width_1200);
 }
@@ -618,13 +616,10 @@
   opacity: 1 !important;
 }
 .ins-checkout-modern .ins-checkout-layout {
-  padding-bottom: 16px;
   background-color: #FCF9F7;
-  padding: 35px;
   height: 100vh;
   z-index: 9999;
   position: relative;
-  padding: 40px;
   box-shadow: 1px -9px 16px -13px;
   width: var(--ins_panel_width_1200);
 }
@@ -731,6 +726,13 @@
 }
 .ins-checkout-modern .ins-cart-item-heading span {
   text-align: center !important;
+  color: #665F5C;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: left;
+  line-height: 20px;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 .ins-checkout-modern .ins-cart-item-image img {
   height: 65px;
@@ -772,15 +774,6 @@
 }
 .ins-checkout-modern .ins-single-cart-item:hover {
   background: #FEF2EB;
-}
-.ins-checkout-modern .ins-cart-item-heading span {
-  font-size: 16px;
-  font-weight: 600;
-  color: #665F5C;
-  text-align: left;
-  line-height: 20px;
-  padding-left: 16px;
-  padding-right: 16px;
 }
 .ins-checkout-modern .ins-cart-item-product {
   display: flex;
@@ -1111,12 +1104,12 @@
 .ins-checkout-layout.slide .woocommerce-cart-form,
 .ins-checkout-layout.slide .ins-cart-inner.shipping,
 .ins-checkout-layout.slide .ins-cart-inner.payment {
-  margin-bottom: 50px;
+  margin-bottom: 80px;
   overflow-x: hidden;
 }
 .ins-checkout-layout.slide .ins-cart-inner.shipping,
 .ins-checkout-layout.slide .ins-cart-inner.payment {
-  margin-bottom: 50px;
+  margin-bottom: 80px;
   overflow-x: hidden;
 }
 .ins-checkout-layout.slide .ins-cart-inner.shipping .ins-cart-btns,
@@ -2514,6 +2507,13 @@
   }
 }
 @media (max-width: 768px) {
+  /* 
+   * Author: M Hemel Hasan
+  * @since 3.3 
+   */
+  .ins-checkout-modern .ins-checkout-layout .ins-cart-inner.step-1 {
+    padding-top: 0px !important;
+  }
   .ins-checkout-modern.ins-single-layout-step .ins-checkout-layout.popup {
     width: var(--ins_panel_width_767) !important;
   }
@@ -2553,22 +2553,25 @@
   .ins-cart-item-product {
     width: 29% !important;
   }
-  .ins-checkout-modern .ins-cart-item-heading span,
-  .ins-single-cart-item > div {
-    width: 13%;
-  }
   .ins-cart-item-remove {
     padding: 0px !important;
   }
   .ins-cart-item-quantity button svg {
     width: 15px;
   }
-  .ins-checkout-modern .ins-cart-item-quantity {
-    width: 20% !important;
+  .ins-checkout-modern .ins-cart-content-wrap {
+    padding-left: 0;
+    padding-right: 0;
   }
-  .ins-checkout-modern .ins-cart-item-heading span,
   .ins-checkout-modern .ins-checkout-body {
     font-size: 12px;
+  }
+  .ins-checkout-modern .ins-cart-item-heading span {
+    font-size: 12px !important;
+    padding-left: 0 !important;
+  }
+  .ins-checkout-modern .ins-cart-item-quantity {
+    width: 20% !important;
   }
   .ins-cart-inner form.woocommerce-cart-form .ins-cart-coupon .coupon {
     display: flex;
