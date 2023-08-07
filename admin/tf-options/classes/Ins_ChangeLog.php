@@ -13,7 +13,7 @@ $change = [
 
        // Update  start
        'v5' => [
-        'date'      => '24 June 2023',
+        'date'      => '07 August 2023',
         'version'   => 'Version 3.1.0',
         'changelog' => [
             'Fix'   =>   [
