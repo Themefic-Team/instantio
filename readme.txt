@@ -4,8 +4,8 @@ Contributors: themefic, kamrul0424, hemelhasan, hasanet, kamrul0424
 Tags: woocommerce, direct checkout, woocommerce checkout, floating cart, side cart, ajax cart, cart popup, popup cart, ajax add to cart, one page checkout, single page checkout, fly cart, mini cart, quick buy, instant checkout, quick checkout, same page checkout, sidebar cart, sticky cart, woocommerce ajax, one click checkout, woocommerce one page checkout, direct checkout woocommerce, woocommerce one click checkout, woocommerce quick checkout, woocommerce express checkout, woocommerce simple checkout, skip cart page woocommerce, woocommerce cart popup, edit woocommerce checkout page, woocommerce direct checkout, checkout manager, woocommerce checkout manager, One Page Checkout, WooCommerce One Page Checkout
 Requires at least: 4.0
 Tested up to: 6.2.2
-Stable tag: 3.0.3
-WC requires at least: 5.0
+Stable tag: 3.1.0
+WC requires at least: 7.0
 WC tested up to: 7.9.0
 Requires PHP: 7.2
 License: GPLv3
@@ -209,7 +209,7 @@ Integrating Appsero SDK DOES NOT IMMEDIATELY start gathering data, without confi
 
 <strong>Our Other Plugins</strong>
 
-* <a href="https://wordpress.org/plugins/tourfic/" target="_blank">Tourfic â€“ Travel Booking Solution for WooCommerce</a>
+* <a href="https://wordpress.org/plugins/tourfic/" target="_blank">Tourfic – Ultimate Hotel Booking & Travel Booking WordPress Plugin | WooCommerce Booking</a>
 * <a href="https://wordpress.org/plugins/before-after-for-woocommerce/">Before After Slider for WooCommerce - eBEAF</a>
 * <a href="https://wordpress.org/plugins/ultimate-addons-for-contact-form-7/">Ultimate Addons For Contact Form 7</a>
 * <a href="https://wordpress.org/plugins/beaf-before-and-after-gallery/" target="_blank">Ultimate Before After Image Slider & Gallery - BEAF</a>
@@ -289,19 +289,28 @@ Yes, Instantio offers a simple checkout WooCommerce solution. You can also <stro
 2. Quick setup - You can set up your on-page checkout quickly and effortlessly.
 3. SideCart layout - The SideCart feature in instantio enables you to display the shopping cart from a side view.
 4. Popup cart layout - The Popup Cart feature display the cart contents in a popup window.
-5. UpSell and cross-sell - You can setup UpSell and cross-sell to boost your sales during the checkout process. ( Pro )
-6. Lite theme - It Enables a lightweight and minimalistic, clean, and minimalist look.
-7. Dark theme -  The Dark theme is a sleek and sophisticated color theme with a black color palette.
-8. Glassmorphism theme - You can use the popular glass effect in the design.
-9. Gradient theme - It uses the smooth Gradient color effect to the instantio.
-10. Dedicated mobile layout - You can set a dedicated and optimized layout for mobile devices. ( Pro )
-11. Progress bar - You can choose a different progress-bar style for on-page checkout. ( Pro )
-12. Icons and custom icon upload - You can add fontawesome and remix icons, also you can upload any custom icon. ( Pro )
-13. Design panel - You can change any color and style in the instantio.
-14. Cart icon selection - You can set different cart Toggle styles and Cart positions.
-15. Optimized assets - You can enable optimized settings to load optimized scripts
+5. Single Step Checkout - Single Step Checkout in instantio enables the checkout process in One Step
+6. UpSell and cross-sell - You can setup UpSell and cross-sell to boost your sales during the checkout process. ( Pro )
+7. Lite theme - It Enables a lightweight and minimalistic, clean, and minimalist look.
+8. Dark theme -  The Dark theme is a sleek and sophisticated color theme with a black color palette.
+9. Glassmorphism theme - You can use the popular glass effect in the design.
+10. Gradient theme - It uses the smooth Gradient color effect to the instantio.
+11. Dedicated mobile layout - You can set a dedicated and optimized layout for mobile devices. ( Pro )
+12. Progress bar - You can choose a different progress-bar style for on-page checkout. ( Pro )
+13. Icons and custom icon upload - You can add fontawesome and remix icons, also you can upload any custom icon. ( Pro )
+14. Design panel - You can change any color and style in the instantio.
+15. Cart icon selection - You can set different cart Toggle styles and Cart positions.
+16. Optimized assets - You can enable optimized settings to load optimized scripts
 
 == Changelog ==
+
+= 3.1.0 - ( August 07, 2023 ) =
+
+- Added: Single-Step Checkout ( Pro )
+- Fixed: Form label issues
+- Improved: Error handling
+- Improved: Cart responsive Issue
+- Improved: Label/Descriptions in the Settings panel ( Pro )
 
 = 3.0.3 - ( July 23, 2023 ) =
 
