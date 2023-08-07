@@ -263,7 +263,7 @@
 					$(".ins-checkout-popup").addClass("active");
 					$(".ins-checkout-popup").addClass("fadeIn");
 				}
-				single_step_order_review_callback();
+
 				ins_owl_carousel();
 				hide_toggle_btn();
 				$(".loader-container").addClass("active");
@@ -280,10 +280,12 @@
 					$('.ins-content').find('.step-1').addClass('active');
 				}, 1000);
 
+				single_step_order_review_callback();
+				$('.ins-checkout-layout button[name="update_cart"]').trigger("click");
 
 			},
 		});
-		$('.ins-checkout-layout button[name="update_cart"]').trigger("click");
+
 	});
 
 	// Ajax Single Page Add To Cart
