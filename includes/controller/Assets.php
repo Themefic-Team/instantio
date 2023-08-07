@@ -29,6 +29,7 @@ class Assets {
 		wp_enqueue_script( 'wc-add-to-cart-variation' );
         
     }
+    
     public function admin_enqueue_scripts() { 
         wp_enqueue_style( 'ins-admin', INS_ASSETS_URL.'/admin/css/instantio-admin-style.css', array(), INSTANTIO_VERSION ); 
         wp_enqueue_script( 'ins-admin-script', INS_ASSETS_URL.'/admin/js/instantio-admin-script.js', array('jquery'), INSTANTIO_VERSION, true ); 

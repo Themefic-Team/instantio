@@ -176,7 +176,7 @@ do_action( 'woocommerce_before_cart' ); ?>
                     <!-- Single Cart Item End -->
                 <?php
                     }
-                    }
+                }
                 ?>
             </div>
         </div> 
@@ -196,7 +196,6 @@ do_action( 'woocommerce_before_cart' ); ?>
                     <?php if ( wc_coupons_enabled() ) { ?>
                         <div class="coupon">
                             <!-- <label for="coupon_code"><?php //esc_html_e( 'Coupon:', 'woocommerce' ); ?></label>  -->
-                            
                             <input type="text" name="coupon_code" class="input-text" id="coupon_code" value="" placeholder="<?php esc_attr_e( 'Coupon code', 'woocommerce' ); ?>" />
                             
                             <button type="submit" class="button<?php echo esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ); ?>" name="apply_coupon" value="<?php esc_attr_e( 'Apply coupon', 'woocommerce' ); ?>">
@@ -233,24 +232,13 @@ do_action( 'woocommerce_before_cart' ); ?>
                      */
                     
                     // do_action( 'woocommerce_cart_collaterals' );
-    
+
                     woocommerce_cart_totals();  
                 ?>
             </div>
-          	
         </div> 
-        <?php 
-            if($ins_layout == '3'){
-                do_action( 'ins_cart_buttons' );
-            }
-        ?>
     </div>
-
-    <?php  
-        if($ins_layout == '2'){
-            do_action( 'ins_cart_buttons' );
-        } 
-    ?> 
+ 
 </form>
 
 

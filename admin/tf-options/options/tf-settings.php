@@ -114,6 +114,17 @@ TF_Settings::option( 'wiopt', array(
 				),
 
 				array(
+					'id'        	=> 'ins-layout-step',
+					'type'      	=> 'switch', 
+					'label'     	=> __('Enabled single step', 'instantio'),
+					'label_on'    	=> __('Enabled', 'instantio'),
+					'label_off'   	=> __('Disabled', 'instantio'),
+					'width' 		=> 100,
+					'is_pro'    	=> true,
+					'default'   	=> false,
+				),
+
+				array(
 					'id'        	=> 'ins-layout-animation',
 					'type'      	=> 'select',
 					'class' 		=> 'ins-layout-options-imageset200',
@@ -316,6 +327,21 @@ TF_Settings::option( 'wiopt', array(
 						),
 					),
 				),
+
+				array(
+					'id'          => 'search-result-page',
+					'type'        => 'select2',
+					'placeholder' => __( 'Select a page', 'instantio' ),
+					'label'       => __( 'Select Search Result Page', 'instantio' ),
+					'description' => __( 'The Instantio cart functionality will not be visible on this particular page.', 'instantio' ),
+					'is_pro'    	=> true,
+					'options'     => 'posts',
+					'query_args'  => array(
+						'post_type'      => 'page',
+						'posts_per_page' => - 1,
+					)
+				),
+
 				array(
 					'id'        	=> 'woins-quickview-disable',
 					'class'     	=> 'ins-csf-disable badge_pro',
@@ -636,7 +662,7 @@ TF_Settings::option( 'wiopt', array(
 									'type'      	=> 'color',
 									'class'      	=> 'tf-field-color-single',
 									'label'    		=> __( 'Cart Panel Theme Color', 'instantio' ),
-									'subtitle' 		=> __( 'Toggle Panel Border Color', 'instantio' ),
+									'subtitle' 		=> __( 'Theme color refers to a primary used throughout instantio', 'instantio' ),
 								),
 								array(
 									'id'       		=> 'ins_panel_border_option',

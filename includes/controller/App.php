@@ -252,7 +252,7 @@ class App {
         ?> 
         <div class="ins-content <?php echo esc_attr( $display ) ?>">
             <div class="ins-cart-inner step-1 ins-cart-step active"> 
-                <?php require_once apply_filters( 'ins_cart_template', INS_INC_PATH . '/templates/cart-modern.php' ); ?> 
+                <?php require_once apply_filters( 'ins_cart_template', INS_INC_PATH . '/templates/ins_single_step_cart.php' ); ?> 
             </div>  
         </div> 
         <?php
@@ -264,8 +264,17 @@ class App {
     // Ajax Cart reload After Product Add to Cart
     public function ins_ajax_cart_reload() { 
         ob_start();
-        // require_once apply_filters( 'ins_layout_slug', INS_INC_PATH . $this->layouts_slug ); 
-        require_once INS_TEMPLATES_PATH .  '/cart-modern.php';
+        // require_once apply_filters( 'ins_layout_slug', INS_INC_PATH . $this->layouts_slug );
+
+        // checked is single step
+        $ins_single_layout = !empty(insopt( 'ins-layout-step' )) ? insopt( 'ins-layout-step' ) : false;
+        
+        if ($ins_single_layout){
+            require_once INS_TEMPLATES_PATH .  '/ins_single_step_cart.php';
+        } else {
+            require_once INS_TEMPLATES_PATH .  '/cart-modern.php';
+        }
+        
         // require_once INS_INC_PATH .  $this->layouts_slug;
         $data = ob_get_clean(); 
         $hide_empty = 'hide';
@@ -476,7 +485,7 @@ class App {
         $this->layout_class .= !empty($toggle_position_vertical) ? 'ins-var-cart-'.$toggle_position_vertical.' ' :  'ins-var-cart-bottom '; 
         $this->layout_class .= !empty(insopt( 'ins-layout-mode' )) ? 'ins-layout-' .  insopt( 'ins-layout-mode' ).' ' : ''; 
         $this->layout_class .= !empty(insopt( 'ins-layout-animation' )) ? insopt( 'ins-layout-animation' ).' '  : ''; 
-        $this->layout_class .= $ins_single_layout == true ? 'ins-single-step '  : ''; 
+        $this->layout_class .= $ins_single_layout == true ? 'ins-single-layout-step '  : ''; 
   
         $ins_layout_class = apply_filters( 'ins_layout_class', $this->layout_class );
         

@@ -9,7 +9,7 @@
  * Author URI: https://themefic.com
  * Tags: woocommerce, direct checkout, floating cart, side cart, ajax cart, cart popup, ajax add to cart, one page checkout, single page checkout, fly cart, mini cart, quick buy, instant checkout, quick checkout, same page checkout, sidebar cart, sticky cart, woocommerce ajax, one click checkout, woocommerce one page checkout, direct checkout woocommerce, woocommerce one click checkout, woocommerce quick checkout, woocommerce express checkout, woocommerce simple checkout, skip cart page woocommerce, woocommerce cart popup, edit woocommerce checkout page, woocommerce direct checkout
 
- * Version: 3.0.3
+ * Version: 3.1.0
  * Tested up to: 6.2.2
  * Requires PHP: 7.2
  * WC tested up to: 7.9.0
@@ -31,7 +31,7 @@ class INSTANTIO {
 	 */
 	private function define_constants() {
 		if ( ! defined( 'INSTANTIO_VERSION' ) ) { 
-			define( 'INSTANTIO_VERSION', '3.0.3' ); 
+			define( 'INSTANTIO_VERSION', '3.1.0' ); 
 		} 
 		define( 'INS_URL', plugin_dir_url( __FILE__ ) ); 
 		define( 'INS_INC_URL', INS_URL.'includes' );
@@ -87,8 +87,11 @@ class INSTANTIO {
 	 */
 	public function init() {    
 		add_action( 'plugins_loaded', array( $this, 'tf_plugin_loaded_action' ) );
-        new INS\Controller\Assets(); 
 
+		if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
+            new INS\Controller\Assets();
+        }
+         
         if ( is_admin() && !wp_doing_ajax() ) {   
             new INS\Controller\Admin();
 		
@@ -115,7 +118,6 @@ class INSTANTIO {
      * Including Options
      */ 
     public function tf_plugin_loaded_action() {  
-        // if(class_exists('WOOINS')) return;
 
         if ( file_exists( INS_PATH . 'admin/tf-options/TF_Options.php' ) ) {
 			require_once INS_PATH . 'admin/tf-options/TF_Options.php';

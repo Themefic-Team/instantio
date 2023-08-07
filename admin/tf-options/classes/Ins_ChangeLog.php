@@ -10,6 +10,27 @@
  */
 
 $change = [
+
+       // Update  start
+       'v5' => [
+        'date'      => '07 August 2023',
+        'version'   => 'Version 3.1.0',
+        'changelog' => [
+            'Fix'   =>   [
+                'Form label issues',
+            ], 
+            'Improvement'   =>   [
+                'Error handling', 
+                'Cart responsive Issue', 
+                'Label/Descriptions in the Settings panel (Pro)', 
+            ],
+            'New'   =>   [
+                'Single-Step Checkout (Pro)', 
+            ]
+        ]
+    ],
+    // Update End
+
     // Update Start
     'v4' => [
         'date'      => '23 July 2023',
@@ -68,6 +89,7 @@ $change = [
         ]
     ],
     // Update End
+
     
 ]
 

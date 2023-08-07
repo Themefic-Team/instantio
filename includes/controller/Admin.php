@@ -190,11 +190,11 @@ class Admin{
                 </div>
 
             <?php 
-            } elseif ( version_compare( get_option( 'woocommerce_db_version' ), '2.5', '<' ) ) {
+            } elseif ( version_compare( get_option( 'woocommerce_db_version' ), '7.0', '<' ) ) {
             ?>
 
                 <div id="message" class="error">
-                    <p><?php printf( __( '%sInstantio is inactive.%s This plugin requires WooCommerce 2.5 or newer. Please %supdate WooCommerce to version 2.5 or newer%s', 'instantio' ), '<strong>', '</strong>', '<a href="' . admin_url( 'plugins.php' ) . '">', '&nbsp;&raquo;</a>' ); ?></p>
+                    <p><?php printf( __( '%sInstantio is inactive.%s This plugin requires WooCommerce 7.0 or newer. Please %supdate WooCommerce to version 7.0 or newer%s', 'instantio' ), '<strong>', '</strong>', '<a href="' . admin_url( 'plugins.php' ) . '">', '&nbsp;&raquo;</a>' ); ?></p>
                 </div>
 
             <?php 

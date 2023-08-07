@@ -824,82 +824,81 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 			if ( ! empty( $this->option_sections ) ) :
 				?>
 				<div class="tf-setting-dashboard">
-				 
+					<div class="tf-option-wrapper tf-setting-wrapper">
+						<form method="post" action="" class="tf-option-form <?php echo esc_attr($ajax_save_class) ?>" enctype="multipart/form-data">
 
-                <div class="tf-option-wrapper tf-setting-wrapper">
-                    <form method="post" action="" class="tf-option-form <?php echo esc_attr($ajax_save_class) ?>" enctype="multipart/form-data">
-
-                        <!-- Body -->
-                        <div class="tf-option">
-                            <div class="tf-admin-tab tf-option-nav">
-								<?php
-								$section_count = 0;
-								foreach ( $this->pre_tabs as $key => $section ) :
-									$parent_tab_key = ! empty( $section['fields'] ) ? $key : array_key_first( $section['sub_section'] );
-									?>
-                                    <div class="tf-admin-tab-item<?php echo ! empty( $section['sub_section'] ) ? ' tf-has-submenu' : '' ?>">
-									
-                                        <a href="#<?php echo esc_attr( $parent_tab_key ); ?>"
-                                           class="tf-tablinks <?php echo $section_count == 0 ? 'active' : ''; ?>"
-                                           data-tab="<?php echo esc_attr( $parent_tab_key ) ?>">
-											<?php echo ! empty( $section['icon'] ) ? '<span class="tf-sec-icon"><i class="' . esc_attr( $section['icon'] ) . '"></i></span>' : ''; ?>
-											<?php echo $section['title']; ?>
-                                        </a>
+							<!-- Body -->
+							<div class="tf-option">
+								<div class="tf-admin-tab tf-option-nav">
+									<?php
+									$section_count = 0;
+									foreach ( $this->pre_tabs as $key => $section ) :
+										$parent_tab_key = ! empty( $section['fields'] ) ? $key : array_key_first( $section['sub_section'] );
+										?>
+										<div class="tf-admin-tab-item<?php echo ! empty( $section['sub_section'] ) ? ' tf-has-submenu' : '' ?>">
 										
-										<?php if ( ! empty( $section['sub_section'] ) ): ?>
-                                            <ul class="tf-submenu">
-												<?php foreach ( $section['sub_section'] as $sub_key => $sub ): ?>
-                                                    <li>
-                                                        <a href="#<?php echo esc_attr( $sub_key ); ?>"
-                                                           class="tf-tablinks <?php echo $section_count == 0 ? 'active' : ''; ?>"
-                                                           data-tab="<?php echo esc_attr( $sub_key ) ?>">
-														<span class="tf-tablinks-inner">
-                                                            <?php echo ! empty( $sub['icon'] ) ? '<span class="tf-sec-icon"><i class="' . esc_attr( $sub['icon'] ) . '"></i></span>' : ''; ?>
-                                                            <?php echo $sub['title']; ?>
-                                                        </span>
-                                                        </a>
-                                                    </li>
-												<?php endforeach; ?>
-                                            </ul>
-										<?php endif; ?>
-                                    </div>
-									<?php $section_count ++; endforeach; ?>
-                            </div>
-
-                            <div class="tf-tab-wrapper">
-								<div class="tf-mobile-setting">
-									<a href="#" class="tf-mobile-tabs"><i class="fa-solid fa-bars"></i></a>
+											<a href="#<?php echo esc_attr( $parent_tab_key ); ?>"
+											class="tf-tablinks <?php echo $section_count == 0 ? 'active' : ''; ?>"
+											data-tab="<?php echo esc_attr( $parent_tab_key ) ?>">
+												<?php echo ! empty( $section['icon'] ) ? '<span class="tf-sec-icon"><i class="' . esc_attr( $section['icon'] ) . '"></i></span>' : ''; ?>
+												<?php echo $section['title']; ?>
+											</a>
+											
+											<?php if ( ! empty( $section['sub_section'] ) ): ?>
+												<ul class="tf-submenu">
+													<?php foreach ( $section['sub_section'] as $sub_key => $sub ): ?>
+														<li>
+															<a href="#<?php echo esc_attr( $sub_key ); ?>"
+															class="tf-tablinks <?php echo $section_count == 0 ? 'active' : ''; ?>"
+															data-tab="<?php echo esc_attr( $sub_key ) ?>">
+															<span class="tf-tablinks-inner">
+																<?php echo ! empty( $sub['icon'] ) ? '<span class="tf-sec-icon"><i class="' . esc_attr( $sub['icon'] ) . '"></i></span>' : ''; ?>
+																<?php echo $sub['title']; ?>
+															</span>
+															</a>
+														</li>
+													<?php endforeach; ?>
+												</ul>
+											<?php endif; ?>
+										</div>
+										<?php $section_count ++; endforeach; ?>
 								</div>
-								<?php
-								$content_count = 0;
-								foreach ( $this->option_sections as $key => $section ) : ?>
-                                    <div id="<?php echo esc_attr( $key ) ?>" class="tf-tab-content <?php echo $content_count == 0 ? 'active' : ''; ?>">
 
-										<?php
-										if ( ! empty( $section['fields'] ) ):
-											foreach ( $section['fields'] as $field ) :
-	
-												$default = isset( $field['default'] ) ? $field['default'] : '';
-												$value   = isset( $tf_option_value[ $field['id'] ] ) ? $tf_option_value[ $field['id'] ] : $default;
-
-												$tf_option = new TF_Options();
-												$tf_option->field( $field, $value, $this->option_id );
-												
-											endforeach;
-										endif; ?>
-
-                                    </div>
-									<?php $content_count ++; endforeach; ?>
-
-									<!-- Footer -->
-									<div class="tf-option-footer">
-										<button type="submit" class="tf-admin-btn tf-btn-secondary tf-submit-btn"><?php _e( 'Save', 'instantio' ); ?></button>
+								<div class="tf-tab-wrapper">
+									<div class="tf-mobile-setting">
+										<a href="#" class="tf-mobile-tabs"><i class="fa-solid fa-bars"></i></a>
 									</div>
-                            </div>
-                        </div>
-						<?php wp_nonce_field( 'tf_option_nonce_action', 'tf_option_nonce' ); ?>
-                    </form>
-                </div>
+									<?php
+									$content_count = 0;
+									foreach ( $this->option_sections as $key => $section ) : ?>
+										<div id="<?php echo esc_attr( $key ) ?>" class="tf-tab-content <?php echo $content_count == 0 ? 'active' : ''; ?>">
+
+											<?php
+											if ( ! empty( $section['fields'] ) ):
+												foreach ( $section['fields'] as $field ) :
+		
+													$default = isset( $field['default'] ) ? $field['default'] : '';
+													$value   = isset( $tf_option_value[ $field['id'] ] ) ? $tf_option_value[ $field['id'] ] : $default;
+
+													$tf_option = new TF_Options();
+													$tf_option->field( $field, $value, $this->option_id );
+													
+												endforeach;
+											endif; ?>
+
+										</div>
+										<?php $content_count ++; endforeach; ?>
+
+										<!-- Footer -->
+										<div class="tf-option-footer">
+											<button type="submit" class="tf-admin-btn tf-btn-secondary tf-submit-btn"><?php _e( 'Save', 'instantio' ); ?></button>
+										</div>
+								</div>
+							</div>
+							<?php wp_nonce_field( 'tf_option_nonce_action', 'tf_option_nonce' ); ?>
+						</form>
+					</div>
+				</div>
 			<?php
 			endif;
 		}
