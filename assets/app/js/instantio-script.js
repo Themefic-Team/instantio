@@ -337,7 +337,7 @@
 				$(".ins-quick-view").hide();
 				// go back to cart page
 				$(".loader-container").addClass("active");
-				single_step_order_review_callback();
+
 				setTimeout(function () {
 					$(".loader-container").removeClass("active");
 					// go back to cart page
@@ -350,9 +350,12 @@
 					$('.ins-content').find('.step-1').show();
 					$('.ins-content').find('.step-1').addClass('active');
 				}, 1000);
+
+				single_step_order_review_callback();
+				$('.ins-checkout-layout button[name="update_cart"]').trigger("click");
 			},
 		});
-		$('.ins-checkout-layout button[name="update_cart"]').trigger("click");
+
 	});
 
 	// Add To Cart Flying Animation
