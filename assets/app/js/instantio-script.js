@@ -664,7 +664,6 @@
 					hide_toggle_btn();
 				},
 			});
-			console.log('updated!');
 			return false;
 		}
 	);
