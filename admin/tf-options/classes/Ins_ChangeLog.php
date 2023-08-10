@@ -11,6 +11,19 @@
 
 $change = [
 
+        // Update  start
+       'v6' => [
+           'date'      => '10 August 2023',
+           'version'   => 'Version 3.1.1',
+           'changelog' => [
+               'Compatibility'   =>   [
+                   'Compatibility check with WordPress 6.3',
+                   'Compatibility check with WooCommerce 8.0.1',
+               ]
+           ]
+       ],
+       // Update End
+       
        // Update  start
        'v5' => [
         'date'      => '07 August 2023',
@@ -67,24 +80,6 @@ $change = [
 
             'Improvement'   =>   [
                 'Mobile Card items title',
-            ],
-        ]
-    ],
-    // Update End
-    
-    // Update  start
-    'v2' => [
-        'date'      => '24 June 2023',
-        'version'   => 'Version 3.0.1',
-        'changelog' => [
-            'Fix'   =>   [
-                'Undefined issue',
-                'Upsell & Cross Sell issue ( Pro )',
-                'Variation product issue in Cartfly',
-                'Column break Issue fixed( Pro )',
-            ], 
-            'New'   =>   [
-                'Language File Added', 
             ],
         ]
     ],
