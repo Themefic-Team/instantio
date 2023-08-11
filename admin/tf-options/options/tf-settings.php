@@ -329,10 +329,10 @@ TF_Settings::option( 'wiopt', array(
 				),
 
 				array(
-					'id'          => 'search-result-page',
+					'id'          => 'ins-page-selected',
 					'type'        => 'select2',
 					'placeholder' => __( 'Select a page', 'instantio' ),
-					'label'       => __( 'Select Search Result Page', 'instantio' ),
+					'label'       => __( 'Select a Page', 'instantio' ),
 					'description' => __( 'The Instantio cart functionality will not be visible on this particular page.', 'instantio' ),
 					'is_pro'    	=> true,
 					'options'     => 'posts',
