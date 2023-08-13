@@ -333,6 +333,7 @@ TF_Settings::option( 'wiopt', array(
 					'type'        => 'select2',
 					'placeholder' => __( 'Select a page', 'instantio' ),
 					'label'       => __( 'Select a Page', 'instantio' ),
+					'default'	  => 'cart',
 					'description' => __( 'The Instantio cart functionality will not be visible on this particular page.', 'instantio' ),
 					'is_pro'    	=> true,
 					'options'     => 'posts',
