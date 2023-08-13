@@ -2,6 +2,7 @@
 // don't load directly
 defined( 'ABSPATH' ) || exit;
 
+
 if ( file_exists( TF_OPTIONS_PATH . 'options/tf-menu-icon.php' ) ) {
 	require_once TF_OPTIONS_PATH . 'options/tf-menu-icon.php';
 } else {
@@ -1214,6 +1215,45 @@ TF_Settings::option( 'wiopt', array(
 						'mode'   			=> 'css',
 					),
 					// 'is_pro'		=> true,
+				),
+			),
+		),
+
+		/**
+		 * Chcekout Editor
+		 * Main menu
+		 */
+
+		'checkout_editors'       	=> array(
+			'title'  				=> esc_html__( 'Checkout Editor', 'instantio' ),
+			'icon'  				=> 'fas fa-palette',
+			'fields' 				=> array(
+				array(
+					'id'       		=> 'checkout_editors_fields',
+					'type'     		=> 'repeater',
+					'class'    		=> 'disable-sortable',
+					'drag_only' 	=> true,
+					'label'    		=> __('Checkout Forms', 'instantio'),
+					'subtitle' 		=> __( 'You can able to change forms positions by Drag.', 'instantio' ),
+					'fields'   		=> array(
+						array(
+							'id'    	=> 'checkout_form_field_name',
+							'type'  	=> 'text',
+							'label' 	=> __( 'Field Name', 'instantio' ),
+						),
+						array(
+							'id'    	=> 'checkout_form_field_place',
+							'type'  	=> 'text',
+							'label' 	=> __( 'Field Placeholder', 'instantio' ),
+						),
+						array(
+							'id'    	=> 'checkout_form_field_status',
+							'type'  	=> 'switch',
+							'label' 	=> __( 'Field Status', 'instantio' ),
+							'subtitle' 	=> __( 'You can able to enable/disable this field.', 'instantio' ),
+						),
+					),
+					'default' 		 => !empty($my_plugin_billing_fields) ? $my_plugin_billing_fields : '',
 				),
 			),
 		),

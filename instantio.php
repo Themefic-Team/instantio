@@ -86,7 +86,7 @@ class INSTANTIO {
 	 * @since 1.0
 	 */
 	public function init() {    
-		add_action( 'plugins_loaded', array( $this, 'tf_plugin_loaded_action' ) );
+		add_action( 'init', array( $this, 'tf_plugin_loaded_action' ) );
 
 		if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
             new INS\Controller\Assets();
@@ -117,7 +117,7 @@ class INSTANTIO {
      *
      * Including Options
      */ 
-    public function tf_plugin_loaded_action() {  
+    public function tf_plugin_loaded_action() {
 
         if ( file_exists( INS_PATH . 'admin/tf-options/TF_Options.php' ) ) {
 			require_once INS_PATH . 'admin/tf-options/TF_Options.php';
