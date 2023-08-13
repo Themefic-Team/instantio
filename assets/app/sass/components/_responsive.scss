@@ -71,7 +71,52 @@
   }
 }
 
+// Screen with 768
 @media (max-width: 768px) {
+  /* 
+  * Author: M Hemel Hasan
+	* @since 3.0.3 
+  */
+  .ins-checkout-modern {
+    .ins-checkout-layout {
+      &.ins-single-layout-step {
+        .ins_single_layout_checkout_area {
+          .ins-cart-inner {
+            padding: 5px !important;
+          }
+        }
+      }
+      .ins-content {
+        .ins-cart-inner {
+          &.step-1 {
+            padding: 5px !important;
+          }
+          .ins-checkout-body {
+            &.ins-content {
+              .ins-cart-content-wrap {
+                padding-left: 0;
+                padding-right: 0;
+              }
+            }
+            .ins-cart-content-wrap {
+              .ins-cart-item-heading span {
+                font-size: 12px !important;
+                padding-left: 0 !important;
+              }
+              .ins-single-cart-wrap {
+                .ins-single-cart-item {
+                  .ins-cart-item-quantity {
+                    width: 20% !important;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
   .ins-checkout-modern.ins-single-layout-step .ins-checkout-layout.popup {
     width: var(--ins_panel_width_767) !important;
   }
@@ -106,7 +151,6 @@
     form {
       margin-bottom: 0;
     }
-
     position: relative;
   }
 
@@ -126,17 +170,6 @@
 
   .ins-cart-item-quantity button svg {
     width: 15px;
-  }
-
-  .ins-checkout-modern {
-    .ins-cart-item-quantity {
-      width: 20% !important;
-    }
-
-    .ins-cart-item-heading span,
-    .ins-checkout-body {
-      font-size: 12px;
-    }
   }
 
   .ins-cart-inner form.woocommerce-cart-form .ins-cart-coupon .coupon {
@@ -194,6 +227,7 @@
     display: none;
   }
 }
+// End Screen with 768
 
 @media (max-width: 576px) {
   .ins-checkout-modern.ins-single-layout-step .ins-checkout-layout.popup {
@@ -322,6 +356,27 @@
 }
 
 @media (max-width: 422px) {
+  /* 
+  * Author: M Hemel Hasan
+	* @since 3.1.0 
+  */
+  .ins-checkout-modern {
+    .ins-single-cart-item {
+      .ins-cart-item-quantity {
+        margin-left: 0;
+        column-gap: 1px;
+        .quantity {
+          .qty {
+            font-size: 10px;
+            width: 18px !important;
+            height: auto !important;
+            min-height: 24px;
+          }
+        }
+      }
+    }
+  }
+
   .ins-checkout-layout-3,
   .ins-checkout-modern .ins-checkout-layout-3 {
     width: 100% !important;

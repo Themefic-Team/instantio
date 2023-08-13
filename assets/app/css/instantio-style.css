@@ -72,6 +72,9 @@
 .ins-content button:focus {
   outline: none !important;
 }
+.ins-content .woocommerce-checkout #payment ul.payment_methods li input {
+  margin: 0 !important;
+}
 .ins-content .woocommerce-cart #payment,
 .ins-content .woocommerce-checkout #payment,
 .ins-content #add_payment_method #payment {
@@ -87,6 +90,7 @@
 }
 .ins-content #customer_details {
   padding: 0 !important;
+  margin-bottom: 0 !important;
 }
 
 .woocommerce .ins-content a.button {
@@ -268,13 +272,10 @@
   opacity: 1 !important;
 }
 .ins-checkout-modern .ins-checkout-layout {
-  padding-bottom: 16px;
   background-color: #FCF9F7;
-  padding: 35px;
   height: 100vh;
   z-index: 9999;
   position: relative;
-  padding: 40px;
   box-shadow: 1px -9px 16px -13px;
   width: var(--ins_panel_width_1200);
 }
@@ -618,13 +619,10 @@
   opacity: 1 !important;
 }
 .ins-checkout-modern .ins-checkout-layout {
-  padding-bottom: 16px;
   background-color: #FCF9F7;
-  padding: 35px;
   height: 100vh;
   z-index: 9999;
   position: relative;
-  padding: 40px;
   box-shadow: 1px -9px 16px -13px;
   width: var(--ins_panel_width_1200);
 }
@@ -731,6 +729,13 @@
 }
 .ins-checkout-modern .ins-cart-item-heading span {
   text-align: center !important;
+  color: #665F5C;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: left;
+  line-height: 20px;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 .ins-checkout-modern .ins-cart-item-image img {
   height: 65px;
@@ -772,15 +777,6 @@
 }
 .ins-checkout-modern .ins-single-cart-item:hover {
   background: #FEF2EB;
-}
-.ins-checkout-modern .ins-cart-item-heading span {
-  font-size: 16px;
-  font-weight: 600;
-  color: #665F5C;
-  text-align: left;
-  line-height: 20px;
-  padding-left: 16px;
-  padding-right: 16px;
 }
 .ins-checkout-modern .ins-cart-item-product {
   display: flex;
@@ -1111,12 +1107,12 @@
 .ins-checkout-layout.slide .woocommerce-cart-form,
 .ins-checkout-layout.slide .ins-cart-inner.shipping,
 .ins-checkout-layout.slide .ins-cart-inner.payment {
-  margin-bottom: 50px;
+  margin-bottom: 80px;
   overflow-x: hidden;
 }
 .ins-checkout-layout.slide .ins-cart-inner.shipping,
 .ins-checkout-layout.slide .ins-cart-inner.payment {
-  margin-bottom: 50px;
+  margin-bottom: 80px;
   overflow-x: hidden;
 }
 .ins-checkout-layout.slide .ins-cart-inner.shipping .ins-cart-btns,
@@ -2514,6 +2510,27 @@
   }
 }
 @media (max-width: 768px) {
+  /* 
+   * Author: M Hemel Hasan
+  * @since 3.0.3 
+   */
+  .ins-checkout-modern .ins-checkout-layout.ins-single-layout-step .ins_single_layout_checkout_area .ins-cart-inner {
+    padding: 5px !important;
+  }
+  .ins-checkout-modern .ins-checkout-layout .ins-content .ins-cart-inner.step-1 {
+    padding: 5px !important;
+  }
+  .ins-checkout-modern .ins-checkout-layout .ins-content .ins-cart-inner .ins-checkout-body.ins-content .ins-cart-content-wrap {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .ins-checkout-modern .ins-checkout-layout .ins-content .ins-cart-inner .ins-checkout-body .ins-cart-content-wrap .ins-cart-item-heading span {
+    font-size: 12px !important;
+    padding-left: 0 !important;
+  }
+  .ins-checkout-modern .ins-checkout-layout .ins-content .ins-cart-inner .ins-checkout-body .ins-cart-content-wrap .ins-single-cart-wrap .ins-single-cart-item .ins-cart-item-quantity {
+    width: 20% !important;
+  }
   .ins-checkout-modern.ins-single-layout-step .ins-checkout-layout.popup {
     width: var(--ins_panel_width_767) !important;
   }
@@ -2558,13 +2575,6 @@
   }
   .ins-cart-item-quantity button svg {
     width: 15px;
-  }
-  .ins-checkout-modern .ins-cart-item-quantity {
-    width: 20% !important;
-  }
-  .ins-checkout-modern .ins-cart-item-heading span,
-  .ins-checkout-modern .ins-checkout-body {
-    font-size: 12px;
   }
   .ins-cart-inner form.woocommerce-cart-form .ins-cart-coupon .coupon {
     display: flex;
@@ -2707,6 +2717,21 @@
   }
 }
 @media (max-width: 422px) {
+  /* 
+   * Author: M Hemel Hasan
+  * @since 3.1.0 
+   */
+  .ins-checkout-modern .ins-single-cart-item .ins-cart-item-quantity {
+    margin-left: 0;
+    -moz-column-gap: 1px;
+         column-gap: 1px;
+  }
+  .ins-checkout-modern .ins-single-cart-item .ins-cart-item-quantity .quantity .qty {
+    font-size: 10px;
+    width: 18px !important;
+    height: auto !important;
+    min-height: 24px;
+  }
   .ins-checkout-layout-3,
   .ins-checkout-modern .ins-checkout-layout-3 {
     width: 100% !important;

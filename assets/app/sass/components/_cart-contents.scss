@@ -80,6 +80,13 @@
     padding-right: 16px;
     span {
       text-align: center !important;
+      color: $s_shade;
+      font-size: 16px;
+      font-weight: 600;
+      text-align: left;
+      line-height: 20px;
+      padding-left: 16px;
+      padding-right: 16px;
     }
   }
 
@@ -125,16 +132,6 @@
     &:hover {
       background: $p_shade;
     }
-  }
-
-  .ins-cart-item-heading span {
-    font-size: 16px;
-    font-weight: 600;
-    color: $s_shade;
-    text-align: left;
-    line-height: 20px;
-    padding-left: 16px;
-    padding-right: 16px;
   }
 
   .ins-cart-item-product {
@@ -521,12 +518,12 @@
   .woocommerce-cart-form,
   .ins-cart-inner.shipping,
   .ins-cart-inner.payment {
-    margin-bottom: 50px;
+    margin-bottom: 80px;
     overflow-x: hidden;
   }
   .ins-cart-inner.shipping,
   .ins-cart-inner.payment {
-    margin-bottom: 50px;
+    margin-bottom: 80px;
     overflow-x: hidden;
     .ins-cart-btns {
       width: calc(100% - 48px) !important;

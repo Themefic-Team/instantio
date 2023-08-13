@@ -465,7 +465,17 @@ class App {
     		if (is_page( 'cart' ) || is_cart()) {
     			return;
     		}
-		} 
+		}
+        // checked is page seleted or not
+        $ins_page_selected = !empty(insopt( 'ins-page-selected' )) ? insopt( 'ins-page-selected' ) : 'cart';
+
+        // Return is particular page seleted
+		if ( class_exists( 'woocommerce' ) ) {
+    		if (is_page( $ins_page_selected )) {
+    			return;
+    		}
+		}
+        
         $toggle_position = isset(insopt( 'ins-toggle-tab' )['toggle-position'])  ? insopt( 'ins-toggle-tab' )['toggle-position'] : 'right-bottom';
 
         // checked is single step

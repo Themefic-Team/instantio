@@ -61,6 +61,11 @@
       outline: none !important;
     }
   }
+
+  .woocommerce-checkout #payment ul.payment_methods li input {
+    margin: 0 !important;
+  }
+
   .woocommerce-cart #payment,
   .woocommerce-checkout #payment,
   #add_payment_method #payment {
@@ -76,6 +81,7 @@
   }
   #customer_details {
     padding: 0 !important;
+    margin-bottom: 0 !important;
   }
 }
 .woocommerce {
