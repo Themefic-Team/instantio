@@ -102,6 +102,8 @@ if ( ! class_exists( 'TF_Repeater' ) ) {
 					<input type="hidden" name="tf_parent_field" value="<?php if(isset($this->parent_field)){ echo esc_attr($this->parent_field); }  ?>"> 
 					<input type="hidden" name="tf_repeater_count" value="0"> 
 					<input type="hidden" name="tf_current_field" value="<?php if(isset($this->field['id'])){ echo esc_attr($this->field['id']); }  ?>">
+
+					<input type="hidden" name="tf_origin_field" value="<?php if(isset($this->field['origin'])){ echo esc_attr($this->field['origin']); }  ?>">
 					
 						<div class="tf-repeater-header">
 							<span class="tf-repeater-icon tf-repeater-icon-collapse">
@@ -136,7 +138,7 @@ if ( ! class_exists( 'TF_Repeater' ) ) {
 								$default = isset( $re_field['default'] ) ? $re_field['default'] : '';
                                 $value     = isset( $tf_meta_box_value[ $id ] ) ? $tf_meta_box_value[ $id ] : $default;
 								$tf_option = new TF_Options();
-								$tf_option->field( $re_field, $value, '_____' . $this->settings_id, $parent ); 
+								$tf_option->field( $re_field, $value, '_____' . $this->settings_id, $parent );
 							} ?>
                         </div>
                     </div>
