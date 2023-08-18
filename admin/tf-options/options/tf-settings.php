@@ -1260,7 +1260,7 @@ TF_Settings::option( 'wiopt', array(
 						),
 						array(
 							'id'    	  => 'required',
-							'type'  	  => 'switch',
+							'type'  	  => 'switch', 
 							'label' 	  => __( 'Required Status', 'instantio' ),
 							'subtitle' 	  => __( 'You can able to enable/disable this field required.', 'instantio' ),
 						),

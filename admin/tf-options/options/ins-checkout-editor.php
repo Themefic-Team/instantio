@@ -1,7 +1,7 @@
 <?php
     /**
      * init Instantio Checkout Editor.
-     * @author Hemel Hasan
+     * @author M Hemel Hasan
      * @since 3.1.0
      */
     ob_start();
@@ -41,12 +41,15 @@
 
     /**
      * Get All Checkout Fields Data form Instantio.
-     * @author Hemel Hasan
+     * @author M Hemel Hasan
      * @since 3.1.0
      * @return Var,
-     */ 
-    $ins_all_checkout_fields = unserialize(insopt('checkout_editors_fields'));
-
+     */
+    
+    $billing_fields = WC()->checkout()->get_checkout_fields('billing');
+    $get_ins_data_for_editor_fl = unserialize(insopt('checkout_editors_fields'));
+    $ins_all_checkout_fields = !empty($get_ins_data_for_editor_fl) ? $get_ins_data_for_editor_fl : $billing_fields;
+    
     //
     function ins_override_checkout_fields($fields) {
         unset($fields['billing']['billing_address_2']);

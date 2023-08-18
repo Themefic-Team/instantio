@@ -905,7 +905,7 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 
 		/**
 		 * Save Options
-		 * @author Foysal
+		 * @author M Hemel Hasan
 		 */
 		public function save_options() {
 
