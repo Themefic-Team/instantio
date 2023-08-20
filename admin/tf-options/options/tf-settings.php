@@ -1233,7 +1233,7 @@ TF_Settings::option( 'wiopt', array(
 					'type'     		=> 'repeater',
 					// 'class'    		=> 'disable-sortable',
 					'drag_only' 	=> true,
-					'label'    		=> __('Checkout Forms', 'instantio'),
+					'label'    		=> __('Checkout Billing Forms', 'instantio'),
 					'subtitle' 		=> __( 'You can able to change forms positions by Drag.', 'instantio' ),
 					'fields'   		=> array(
 						array(
@@ -1266,6 +1266,12 @@ TF_Settings::option( 'wiopt', array(
 						),
 					),
 					'default' 		 => !empty($my_plugin_billing_fields) ? $my_plugin_billing_fields : '',
+				),
+				
+				array(
+					'id'       => 'ins_reset_blliling_fields_button',
+					'type'     => 'callback',
+					'function' => 'ins_reset_blliling_fields_button',
 				),
 			),
 		),

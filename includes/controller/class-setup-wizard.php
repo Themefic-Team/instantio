@@ -2,8 +2,8 @@
 defined( 'ABSPATH' ) || exit;
 /**
  * Setup Wizard Class
- * @since 2.9.3
- * @author Foysal
+ * @since 3.0.0
+ * @author M Hemel Hasan
  */
 if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
 	class TF_Setup_Wizard {
@@ -13,7 +13,7 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
 
 		/**
 		 * Singleton instance
-		 * @since 1.0.0
+		 * @since 3.0.0
 		 */
 		public static function instance() {
 			if ( self::$instance == null ) {

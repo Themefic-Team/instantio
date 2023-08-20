@@ -69,7 +69,9 @@ class INSTANTIO {
 		// Ins Quick Setup wizard
 		if (is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
 			require_once INS_INC_PATH . '/controller/class-setup-wizard.php'; 
+			require_once INS_INC_PATH . '/controller/checkout_editor.php';
 		}
+
 	}
 
 
@@ -78,6 +80,8 @@ class INSTANTIO {
 	 */
 	private function init_hooks() {  
 		add_action( 'plugins_loaded', array( $this, 'init' ), 0 ); 
+		add_filter('woocommerce_checkout_fields', 'ins_over_checkout_billing_fields');
+		
 	}
 
 	/**
@@ -87,6 +91,7 @@ class INSTANTIO {
 	 */
 	public function init() {    
 		add_action( 'init', array( $this, 'tf_plugin_loaded_action' ) );
+
 
 		if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
             new INS\Controller\Assets();
@@ -121,6 +126,13 @@ class INSTANTIO {
 
         if ( file_exists( INS_PATH . 'admin/tf-options/TF_Options.php' ) ) {
 			require_once INS_PATH . 'admin/tf-options/TF_Options.php';
+		}
+
+		// Ins_checkout
+		if (is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
+			if (function_exists('WC')) {
+				require_once INS_INC_PATH . '/controller/checkout_editor.php';
+			}
 		}
 
     } 
