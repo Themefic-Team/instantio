@@ -1253,25 +1253,75 @@ TF_Settings::option( 'wiopt', array(
 							'label' 	   => __( 'Field origin', 'instantio' ),
 						),
 						array(
-							'id'    	  => 'checkout_form_field_status',
-							'type'  	  => 'switch',
-							'label' 	  => __( 'Field Status', 'instantio' ),
-							'subtitle' 	  => __( 'You can able to enable/disable this field.', 'instantio' ),
-						),
-						array(
 							'id'    	  => 'required',
 							'type'  	  => 'switch', 
 							'label' 	  => __( 'Required Status', 'instantio' ),
 							'subtitle' 	  => __( 'You can able to enable/disable this field required.', 'instantio' ),
 						),
+
+						array(
+							'id'    	  => 'checkout_form_field_status',
+							'type'  	  => 'switch',
+							'label' 	  => __( 'Field Status', 'instantio' ),
+							'subtitle' 	  => __( 'You can able to enable/disable this field.', 'instantio' ),
+						),
 					),
-					'default' 		 => !empty($my_plugin_billing_fields) ? $my_plugin_billing_fields : '',
+					'default' 		=> !empty($my_plugin_billing_fields) ? $my_plugin_billing_fields : '',
+				),
+
+				array(
+					'id'       		=> 'ins_reset_blliling_fields_button',
+					'class'		 	=> 'checkout_reset_btn',
+					'type'     		=> 'callback',
+					'function' 		=> 'ins_reset_blliling_fields_button',
+				),
+
+				array(
+					'id'       		=> 'checkout_shiping_editors_fields',
+					'type'     		=> 'repeater',
+					// 'class'    		=> 'disable-sortable',
+					'drag_only' 	=> true,
+					'label'    		=> __('Checkout Shipping Forms', 'instantio'),
+					'subtitle' 		=> __( 'You can able to change forms positions by Drag.', 'instantio' ),
+					'fields'   		=> array(
+						array(
+							'id'    	   => 'checkout_shipping_form_field_name',
+							'type'  	   => 'text',
+							'label' 	   => __( 'Field Name', 'instantio' ),
+						),
+						array(
+							'id'    	   => 'checkout_shipping_form_field_place',
+							'type'  	   => 'text',
+							'label' 	   => __( 'Field Placeholder', 'instantio' ),
+						),
+						array(
+							'id'    	   => 'checkout_shipping_form_field_origin',
+							'type'    	   => 'text',
+							'class'		   => 'hidden',	
+							'label' 	   => __( 'Field origin', 'instantio' ),
+						),
+						array(
+							'id'    	  => 'required_shipping',
+							'type'  	  => 'switch', 
+							'label' 	  => __( 'Required Status', 'instantio' ),
+							'subtitle' 	  => __( 'You can able to enable/disable this field required.', 'instantio' ),
+						),
+
+						array(
+							'id'    	  => 'checkout_shipping_form_field_status',
+							'type'  	  => 'switch',
+							'label' 	  => __( 'Field Status', 'instantio' ),
+							'subtitle' 	  => __( 'You can able to enable/disable this field.', 'instantio' ),
+						),
+					),
+					'default' 		=> !empty($my_plugin_shipping_fields) ? $my_plugin_shipping_fields : '',
 				),
 				
 				array(
-					'id'       => 'ins_reset_blliling_fields_button',
-					'type'     => 'callback',
-					'function' => 'ins_reset_blliling_fields_button',
+					'id'       		=> 'ins_reset_shipping_fields_button',
+					'class'		 	=> 'checkout_reset_btn',
+					'type'     		=> 'callback',
+					'function' 		=> 'ins_reset_shipping_fields_button',
 				),
 			),
 		),

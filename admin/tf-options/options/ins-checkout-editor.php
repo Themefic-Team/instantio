@@ -33,8 +33,29 @@
 
             }
 
-            // var_dump($billing_fields);
-            // var_dump($my_plugin_billing_fields);
+            $shipping_fields = WC()->checkout()->get_checkout_fields('shipping');
+
+            // Store the shiping fields in a global variable
+            $my_plugin_shipping_fields = array();
+
+            foreach( $shipping_fields as $fieldkey => $insfields){
+
+                $label       = !empty($insfields['label']) ? $insfields['label'] : '';
+                $placeholder = !empty($insfields['placeholder']) ? $insfields['placeholder'] : '';
+                $required    = !empty($insfields['required']) ? $insfields['required'] : 'false';
+                $priority    = !empty($insfields['priority']) ? $insfields['priority'] : '';
+
+                $my_plugin_shipping_fields[] = array(
+                    'checkout_shipping_form_field_origin'   => $fieldkey,
+                    'checkout_shipping_form_field_name'     => $label,
+                    'checkout_shipping_form_field_place'    => $placeholder,
+                    'required_shipping'                     => $required,
+                    'checkout_shipping_form_field_status'   => true,
+                    'priority_shipping'                     => $priority,
+                );
+
+            }
+ 
         }
     }
 

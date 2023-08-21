@@ -156,6 +156,8 @@ if ( ! class_exists( 'TF_Options' ) ) {
 				//dashboard
 				wp_enqueue_script('dashboard-js', $this->tf_options_file_url('assets/js/dashboard.js'), array( 'jquery'), $this->tf_options_version(), true ); 
 
+				wp_enqueue_script('ins-admin-js', $this->tf_options_file_url('assets/js/admin.js'), array( 'jquery'), $this->tf_options_version(), true ); 
+
 				wp_enqueue_script('jquery-ui-autocomplete');
 
 				if ( ! wp_script_is('jquery-ui-sortable' ) ) {
@@ -172,6 +174,10 @@ if ( ! class_exists( 'TF_Options' ) ) {
 				'ajax_url'          => admin_url( 'admin-ajax.php' ),
 				'nonce'             => wp_create_nonce( 'tf_options_nonce' ),
 				'option_id' 		=> 'wiopt',
+			) );
+
+			wp_localize_script('ins-admin-js', 'ins_admin', array(
+				'ajax_url'          => admin_url( 'admin-ajax.php' )
 			) );
 		}
 

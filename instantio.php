@@ -81,6 +81,7 @@ class INSTANTIO {
 	private function init_hooks() {  
 		add_action( 'plugins_loaded', array( $this, 'init' ), 0 ); 
 		add_filter('woocommerce_checkout_fields', 'ins_over_checkout_billing_fields');
+		add_filter('woocommerce_checkout_fields', 'ins_over_checkout_shipping_fields');
 		
 	}
 

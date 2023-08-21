@@ -1,18 +1,31 @@
 <?php
+
+    // Filter Action
+    add_filter('woocommerce_billing_fields', 'ins_billing_unrequire_fields');
+
+
+
     /**
-     * Get All Checkout Fields Data form Instantio.
+     * Get Billing Checkout Fields Data form Instantio.
      * @author M Hemel Hasan
      * @since 3.1.0
      * @return Var,
      */
-
-    
     function ins_over_checkout_billing_fields($fields) {
 
-        $get_ins_data_for_editor_fl = unserialize(insopt('checkout_editors_fields'));
-        $ins_all_checkout_fields = !empty($get_ins_data_for_editor_fl) ? $get_ins_data_for_editor_fl : [];
+        $get_ins_data = insopt('checkout_editors_fields');
 
-        // unset($fields['billing']['billing_address_2']);
+        // Check if the variable is serialized
+        if (is_serialized($get_ins_data)) {
+            // If it's already serialized, unserialize it
+            $get_ins_data_for_editor_fl = unserialize($get_ins_data);
+            
+        } else {
+            // If it's not serialized, serialize it
+            $get_ins_data_for_editor_fl = $get_ins_data;
+        }
+        
+        $ins_all_checkout_fields = !empty($get_ins_data_for_editor_fl) ? $get_ins_data_for_editor_fl : [];
 
         foreach( $ins_all_checkout_fields as $fieldskey => $ins_field){
             $field_origin   = $ins_field['checkout_form_field_origin'];
@@ -21,7 +34,6 @@
 
 
             // All Fields
-            // $fields['billing']['billing_address_2'];
             // Check All Fields Origin And Set Data Accordingly 
             if($field_origin == 'billing_first_name'){
                 $fields['billing']['billing_first_name']['label']       = $ins_field['checkout_form_field_name'];
@@ -72,7 +84,7 @@
                     unset($fields['billing']['billing_address_1']);
                 }
 
-            } elseif($field_origin == 'billing_address_2'){
+            } elseif ($field_origin == 'billing_address_2'){
                 $fields['billing']['billing_address_2']['placeholder']  = $ins_field['checkout_form_field_place'];
 
                 if($field_status === false){
@@ -115,18 +127,24 @@
 
         }
 
-        // $fields['shipping']['shipping_first_name']['placeholder'] = 'First Name';
-        // $fields['shipping']['shipping_last_name']['placeholder'] = 'Last Name';
-        // $fields['shipping']['shipping_company']['placeholder'] = 'Company Name';
-         
         return $fields;
 
     }
-    add_filter('woocommerce_billing_fields', 'ins_billing_unrequire_fields');
+    
 
     function ins_billing_unrequire_fields($fields) {
 
-        $get_ins_data_for_editor_fl = unserialize(insopt('checkout_editors_fields'));
+        $get_ins_data = insopt('checkout_editors_fields');
+
+        // Check if the variable is serialized
+        if (is_serialized($get_ins_data)) {
+            // If it's already serialized, unserialize it
+            $get_ins_data_for_editor_fl = unserialize($get_ins_data);
+        } else {
+            // If it's not serialized, serialize it
+            $get_ins_data_for_editor_fl = $get_ins_data;
+        }
+
         $ins_all_checkout_fields = !empty($get_ins_data_for_editor_fl) ? $get_ins_data_for_editor_fl : [];
 
         foreach( $ins_all_checkout_fields as $fieldskey => $ins_field){
@@ -135,7 +153,6 @@
             $required = (isset($ins_field['required']) && $ins_field['required'] === '1') ? true : false;
             
             // All Fields
-            // $fields['billing']['billing_address_2'];
             // Check All Fields Origin And Set Data Accordingly 
             if($field_origin == 'billing_first_name'){
                 $fields['billing_first_name']['required']   = $required;
@@ -187,29 +204,114 @@
     
     
     
-    function ins_default_checkout_fields($fields) {
+    /**
+     * Get Shipping Checkout Fields Data form Instantio.
+     * @author M Hemel Hasan
+     * @since 3.1.0
+     * @return Var,
+     */
+    function ins_over_checkout_shipping_fields($fields) {
 
-        $fields['billing']['billing_first_name']['label'] = 'First Name'; 
-        $fields['billing']['billing_first_name']['placeholder'] = ''; 
+        $get_ins_data = insopt('checkout_shiping_editors_fields');
 
-        $fields['billing']['billing_last_name']['label'] = 'Last Name';
-        $fields['billing']['billing_last_name']['placeholder'] = '';
+        // Check if the variable is serialized
+        if (is_serialized($get_ins_data)) {
+            // If it's already serialized, unserialize it
+            $get_ins_data_for_editor_fl = unserialize($get_ins_data);
+            
+        } else {
+            // If it's not serialized, serialize it
+            $get_ins_data_for_editor_fl = $get_ins_data;
+        }
+        
+        $ins_all_checkout_fields = !empty($get_ins_data_for_editor_fl) ? $get_ins_data_for_editor_fl : [];
 
-        $fields['billing']['billing_company']['label'] = 'Business Name';
-        $fields['billing']['billing_company']['placeholder'] = '';
+        foreach( $ins_all_checkout_fields as $fieldskey => $ins_field){
+            $field_origin   = $ins_field['checkout_shipping_form_field_origin'];
 
-        $fields['billing']['billing_email']['label'] = 'Email Address';
-        $fields['billing']['billing_email']['placeholder'] = '';
+            $field_status   = (isset($ins_field['checkout_shipping_form_field_status']) && $ins_field['checkout_shipping_form_field_status'] === '1') ? true : false;
 
-        $fields['billing']['billing_phone']['label'] = 'Phone ';
-        $fields['billing']['billing_phone']['placeholder'] = 'Phone ';
+
+            // All Fields
+            // Check All Fields Origin And Set Data Accordingly 
+            if($field_origin == 'shipping_first_name'){
+                $fields['shipping']['shipping_first_name']['label']       = $ins_field['checkout_shipping_form_field_name'];
+                $fields['shipping']['shipping_first_name']['placeholder'] = $ins_field['checkout_shipping_form_field_place'];
+
+                if($field_status === false){
+                    unset($fields['shipping']['shipping_first_name']);
+                }
+
+            } elseif ($field_origin == 'shipping_last_name'){
+                $fields['shipping']['shipping_last_name']['label']        = $ins_field['checkout_shipping_form_field_name'];
+                $fields['shipping']['shipping_last_name']['placeholder']  = $ins_field['checkout_shipping_form_field_place'];
+
+                if($field_status === false){
+                    unset($fields['shipping']['shipping_last_name']);
+                }
+
+            } elseif ($field_origin == 'shipping_company'){
+                $fields['shipping']['shipping_company']['label']          = $ins_field['checkout_shipping_form_field_name'];
+                $fields['shipping']['shipping_company']['placeholder']    = $ins_field['checkout_shipping_form_field_place'];
+
+                if($field_status === false){
+                    unset($fields['shipping']['shipping_company']);
+                }
+
+            } elseif ($field_origin == 'shipping_country'){
+                $fields['shipping']['shipping_country']['label']          = $ins_field['checkout_shipping_form_field_name'];
+                $fields['shipping']['shipping_country']['placeholder']    = $ins_field['checkout_shipping_form_field_place'];
+
+                if($field_status === false){
+                    unset($fields['shipping']['shipping_country']);
+                }
+
+            } elseif ($field_origin == 'shipping_address_1'){
+                $fields['shipping']['shipping_address_1']['label']        = $ins_field['checkout_shipping_form_field_name'];
+                $fields['shipping']['shipping_address_1']['placeholder']  = $ins_field['checkout_shipping_form_field_place'];
+
+                if($field_status === false){
+                    unset($fields['shipping']['shipping_address_1']);
+                }
+
+            } elseif ($field_origin == 'shipping_address_2'){
+                $fields['shipping']['shipping_address_2']['placeholder']  = $ins_field['checkout_shipping_form_field_place'];
+
+                if($field_status === false){
+                    unset($fields['shipping']['shipping_address_2']);
+                }
+
+            } elseif ($field_origin == 'shipping_city'){
+                $fields['shipping']['shipping_city']['label']             = $ins_field['checkout_shipping_form_field_name'];
+                $fields['shipping']['shipping_city']['placeholder']       = $ins_field['checkout_shipping_form_field_place'];
+
+                if($field_status === false){
+                    unset($fields['shipping']['shipping_city']);
+                }
+
+            } elseif ($field_origin == 'shipping_state'){
+                $fields['shipping']['shipping_state']['label']            = $ins_field['checkout_shipping_form_field_name'];
+                $fields['shipping']['shipping_state']['placeholder']      = $ins_field['checkout_shipping_form_field_place'];
+
+                if($field_status === false){
+                    unset($fields['shipping']['shipping_state']);
+                }
+
+            } elseif ($field_origin == 'shipping_postcode'){
+                $fields['shipping']['shipping_postcode']['label']         = $ins_field['checkout_shipping_form_field_name'];
+                $fields['shipping']['shipping_postcode']['placeholder']   = $ins_field['checkout_shipping_form_field_place'];
+
+                if($field_status === false){
+                    unset($fields['shipping']['shipping_postcode']);
+                }
+
+            }
+
+        }
 
         return $fields;
+
     }
-
-    //add_filter('woocommerce_checkout_fields', 'ins_default_checkout_fields');
-
-    
 
 
     /**
@@ -222,14 +324,35 @@
         echo '
             <div class="csf-title">
                 <h4>' . __( "Reset Billing Fields", "instantio" ) . '</h4>
-                <div class="csf-subtitle-text">' . __( "Delete review fields that don't match with the present fields.<br><b style='color: red;'>Be aware! You will lose your old data!</b>", "tourfic" ) . '</div>
+                <div class="csf-subtitle-text">' . __( "All data entered in the edit field will be erased and reset to the default position.<br><b style='color: red;'>Be aware! You will lose your old data!</b>", "instantio" ) . '</div>
             </div>
             <div class="csf-fieldset">
-                <button type="button" data-delete-all="no" class="button button-large csf-warning-primary tf-del-old-review-fields tf-order-remove">' . __( "Delete Fields", "tourfic" ) . '</button>
+                <button type="button" data-delete-all="no" class="button button-large ins-del-billing-fields ins-order-remove">' . __( "Reset Fields", "instantio" ) . '</button>
             </div>
             <div class="clear"></div>
         ';
     }
+
+    /**
+     * Reset shipping Fields Data form Instantio.
+     * @author M Hemel Hasan
+     * @since 3.1.0
+     * @return obj,
+     */
+    function ins_reset_shipping_fields_button() {
+        echo '
+            <div class="csf-title">
+                <h4>' . __( "Reset Shipping Fields", "instantio" ) . '</h4>
+                <div class="csf-subtitle-text">' . __( "All data entered in the edit field will be erased and reset to the default position.<br><b style='color: red;'>Be aware! You will lose your old data!</b>", "instantio" ) . '</div>
+            </div>
+            <div class="csf-fieldset">
+                <button type="button" data-delete-all="no" class="button button-large ins-del-shipping-fields ins-order-remove">' . __( "Reset Fields", "instantio" ) . '</button>
+            </div>
+            <div class="clear"></div>
+        ';
+    }
+
+    
 
 
 ?>
