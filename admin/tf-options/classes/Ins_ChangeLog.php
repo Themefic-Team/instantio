@@ -12,6 +12,18 @@
 $change = [
 
         // Update  start
+       'v8' => [
+           'date'      => '25 August 2023',
+           'version'   => 'Version 3.1.3',
+           'changelog' => [
+               'Updated'   =>   [
+                   'readme.txt',
+               ]
+           ]
+       ],
+       // Update End
+
+        // Update  start
        'v7' => [
            'date'      => '24 August 2023',
            'version'   => 'Version 3.1.2',
@@ -59,23 +71,6 @@ $change = [
     ],
     // Update End
 
-    // Update Start
-    'v4' => [
-        'date'      => '23 July 2023',
-        'version'   => 'Version 3.0.3',
-        'changelog' => [
-            'Fix'   =>   [
-                'Customer login collapse issues (Pro)',
-                'Cart shipping price updates in real-time',
-            ],
-        
-            'Improvement'   =>   [
-                'Cart functionality',
-            ],
-        ]
-    ],
-    // Update End
-    
     
 ]
 
