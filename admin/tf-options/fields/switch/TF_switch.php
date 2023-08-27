@@ -12,12 +12,12 @@ if ( ! class_exists( 'TF_switch' ) ) {
 		public function render() {
 
 			$args = wp_parse_args( $this->field, array(
-				'label_on'  => esc_html__( 'On', 'tourfic' ),
-				'label_off' => esc_html__( 'Off', 'tourfic' ),
+				'label_on'  => esc_html__( 'On', 'instantio' ),
+				'label_off' => esc_html__( 'Off', 'instantio' ),
 			) );
 
-			$on  = ( ! empty( $args['label_on'] ) ) ? $args['label_on'] : esc_html__( 'On', 'tourfic' );
-			$off = ( ! empty( $args['label_off'] ) ) ? $args['label_off'] : esc_html__( 'Off', 'tourfic' );
+			$on  = ( ! empty( $args['label_on'] ) ) ? $args['label_on'] : esc_html__( 'On', 'instantio' );
+			$off = ( ! empty( $args['label_off'] ) ) ? $args['label_off'] : esc_html__( 'Off', 'instantio' );
 			$width = ( ! empty( $this->field['width'] ) ) ? ' style="width: '. esc_attr( $this->field['width'] ) .'px;"': '';
 			?>
             <label for="<?php echo esc_attr( $this->field_name() ); ?>" class="tf-switch-label" <?php echo wp_kses_post($width); ?>>

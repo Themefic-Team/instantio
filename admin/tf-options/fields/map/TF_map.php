@@ -19,9 +19,9 @@ if ( ! class_exists( 'TF_map' ) ) {
               }
             endif;
             $args              = wp_parse_args( $this->field, array(
-                'placeholder'    => esc_html__( 'Search Address...', 'tourfic' ),
-                'latitude_text'  => esc_html__( 'Latitude', 'tourfic' ),
-                'longitude_text' => esc_html__( 'Longitude', 'tourfic' ),
+                'placeholder'    => esc_html__( 'Search Address...', 'instantio' ),
+                'latitude_text'  => esc_html__( 'Latitude', 'instantio' ),
+                'longitude_text' => esc_html__( 'Longitude', 'instantio' ),
                 'address_field'  => '',
                 'height'         => '250',
               ) );

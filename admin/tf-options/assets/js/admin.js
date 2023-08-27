@@ -17,29 +17,29 @@
         });
 
         /**
-         * Delete old review fields
-         * @author kabir, fida
+         * Reset Billing Fields
+         * @author M Hemel Hasan
          */
-        $(document).on('click', '.tf-del-old-review-fields', function (e) {
+        $(document).on('click', '.ins-del-billing-fields', function (e) {
             e.preventDefault();
             var $this = $(this);
             var data = {
-                action: 'tf_delete_old_review_fields',
-                deleteAll: $(this).data('delete-all')
+                action: 'ins_del_billing_fields'
             };
 
+            $this.addClass("tf-btn-loading");
             $.ajax({
                 type: 'post',
-                url: tf_admin_params.ajax_url,
+                url: ins_admin.ajax_url,
                 data: data,
-                beforeSend: function (data) {
-                    notyf.success(tf_admin_params.deleting_old_review_fields);
-                },
                 success: function (data) {
-                    notyf.success(data.data);
+                    notyf.success('Reset Billing Fields');
+                    $this.removeClass("tf-btn-loading");
+                    location.reload();
                 },
                 error: function (data) {
-                    notyf.error(data.data);
+                    notyf.error("Something wrong");
+                    $this.removeClass("tf-btn-loading");
                 },
 
             });
@@ -47,37 +47,33 @@
         });
 
         /**
-         * Ajax install
-         * 
-         * @since 1.0
+         * Reset Shipping Fields
+         * @author M Hemel Hasan
          */
-        $(document).on('click', '.tf-install', function (e) {
+        $(document).on('click', '.ins-del-shipping-fields', function (e) {
             e.preventDefault();
-
-            var current = $(this);
-            var plugin_slug = current.attr("data-plugin-slug");
-
-            current.addClass('updating-message').text(tf_admin_params.installing);
-
+            var $this = $(this);
             var data = {
-                action: 'tf_ajax_install_plugin',
-                _ajax_nonce: tf_admin_params.tf_nonce,
-                slug: plugin_slug,
+                action: 'ins_del_shipping_fields'
             };
 
-            jQuery.post(tf_admin_params.ajax_url, data, function (response) {
-                current.removeClass('updating-message');
-                current.addClass('updated-message').text(tf_admin_params.installed);
-                current.attr("href", response.data.activateUrl);
-            })
-                .fail(function () {
-                    current.removeClass('updating-message').text(tf_admin_params.install_failed);
-                })
-                .always(function () {
-                    current.removeClass('install-now updated-message').addClass('activate-now button-primary').text(tf_admin_params.activating);
-                    current.unbind(e);
-                    current[0].click();
-                });
+            $this.addClass("tf-btn-loading");
+            $.ajax({
+                type: 'post',
+                url: ins_admin.ajax_url,
+                data: data,
+                success: function (data) {
+                    notyf.success('Reset Shipping Fields');
+                    $this.removeClass("tf-btn-loading");
+                    location.reload();
+                },
+                error: function (data) {
+                    notyf.error("Something wrong");
+                    $this.removeClass("tf-btn-loading");
+                },
+
+            });
+
         });
 
         /**
@@ -97,8 +93,7 @@
             window.open('https://themefic.com/instantio/');
         });
 
-        //documentation link open in new tab
-        $('.tf-go-docs').parent().attr('target', '_blank');
+
 
     });
 

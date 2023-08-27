@@ -247,3 +247,87 @@ Custom Modal
     }
   }
 }
+
+/* Switch Field Custom Style
+*  @Class Name checkout_form_field_status
+*/
+
+.tf-field-switch {
+  &.checkout_form_field_status {
+    text-align: center;
+    width: 49.5% !important;
+
+    label {
+      justify-content: center;
+    }
+
+    .tf-fieldset {
+      label {
+        width: 64px;
+
+        input:checked + .tf-switch-slider {
+          background-color: #db5209;
+          border-color: transparent;
+          &::before {
+            background-color: #fcf9f7;
+          }
+        }
+
+        .tf-switch-slider {
+          background-color: transparent;
+          border: 1px solid #140701;
+          &::before {
+            top: 3px;
+            border-radius: 24px;
+            background-color: #140701;
+            box-shadow: 0px 0px 8px rgba(27, 25, 25, 0.3);
+            transition: all 0.4s ease-in-out;
+          }
+          span {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+.tf-field-switch {
+  &.checkout_form_field_required {
+    text-align: center;
+    width: 49.5% !important;
+
+    label {
+      justify-content: center;
+    }
+
+    .tf-fieldset {
+      label {
+        width: 64px;
+
+        input:checked + .tf-switch-slider {
+          background-color: #db5209;
+          border-color: transparent;
+          &::before {
+            background-color: #fcf9f7;
+          }
+        }
+
+        .tf-switch-slider {
+          background-color: transparent;
+          border: 1px solid #140701;
+          &::before {
+            top: 3px;
+            border-radius: 24px;
+            background-color: #140701;
+            box-shadow: 0px 0px 8px rgba(27, 25, 25, 0.3);
+            transition: all 0.4s ease-in-out;
+          }
+          span {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
