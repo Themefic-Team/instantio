@@ -32,7 +32,7 @@ if ( ! class_exists( 'TF_icon' ) ) {
                         <i class="ri-close-line"></i>
                     </span>
                 </div>
-                <a href="#" class="tf-admin-btn tf-modal-btn"><i class="ri-add-fill"></i><?php esc_html_e( 'Add Icon', 'tourfic' ); ?></a>
+                <a href="#" class="tf-admin-btn tf-modal-btn"><i class="ri-add-fill"></i><?php esc_html_e( 'Add Icon', 'instantio' ); ?></a>
                 <input type="hidden" class="tf-icon-value" name="<?php echo esc_attr( $this->field_name() ); ?>" value="<?php echo esc_attr( $value ); ?>" <?php echo $this->field_attributes() ?>/>
             </div>
 			<?php
@@ -45,7 +45,7 @@ if ( ! class_exists( 'TF_icon' ) ) {
                     <div class="container tf-modal-content">
                         <div class="tf-modal-header">
                             <div class="tf-icon-search">
-                                <input type="text" placeholder="<?php esc_html_e( 'Search', 'tourfic' ); ?>" class="tf-icon-search-input"/>
+                                <input type="text" placeholder="<?php esc_html_e( 'Search', 'instantio' ); ?>" class="tf-icon-search-input"/>
                             </div>
                             <a data-dismiss="modal" class="tf-modal-close">&#10005;</a>
                         </div>
@@ -97,7 +97,7 @@ if ( ! class_exists( 'TF_icon' ) ) {
                             </div>
                         </div>
                         <div class="tf-modal-footer">
-                            <a class="tf-icon-insert tf-admin-btn tf-btn-secondary disabled"><?php esc_html_e( 'Insert', 'tourfic' ); ?></a>
+                            <a class="tf-icon-insert tf-admin-btn tf-btn-secondary disabled"><?php esc_html_e( 'Insert', 'instantio' ); ?></a>
                         </div>
                     </div>
                 </div>
@@ -108,22 +108,22 @@ if ( ! class_exists( 'TF_icon' ) ) {
 		public function get_icon_list() {
 			$icons = array(
 				'fontawesome_4' => array(
-					'label'      => __( 'Font Awesome 4', 'tourfic' ),
+					'label'      => __( 'Font Awesome 4', 'instantio' ),
 					'label_icon' => 'fa-regular fa-font-awesome',
 					'icons'      => $this->fontawesome_four_icons(),
 				),
 				'fontawesome_5' => array(
-					'label'      => __( 'Font Awesome 5', 'tourfic' ),
+					'label'      => __( 'Font Awesome 5', 'instantio' ),
 					'label_icon' => 'fa-regular fa-font-awesome',
 					'icons'      => $this->fontawesome_five_icons(),
 				),
 				'fontawesome_6' => array(
-					'label'      => __( 'Font Awesome 6', 'tourfic' ),
+					'label'      => __( 'Font Awesome 6', 'instantio' ),
 					'label_icon' => 'fa-regular fa-font-awesome',
 					'icons'      => $this->fontawesome_six_icons(),
 				),
 				'remixicon'     => array(
-					'label'      => __( 'Remix Icon', 'tourfic' ),
+					'label'      => __( 'Remix Icon', 'instantio' ),
 					'label_icon' => 'ri-remixicon-line',
 					'icons'      => $this->remix_icon(),
 				),

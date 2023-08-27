@@ -70,8 +70,6 @@ if ( ! class_exists( 'TF_Options' ) ) {
 			require_once $this->tf_options_file_path( 'classes/TF_Metabox.php' );
 			// Settings Class
 			require_once $this->tf_options_file_path( 'classes/TF_Settings.php' );
-			//Shortcodes Class
-			require_once $this->tf_options_file_path( 'classes/TF_Shortcodes.php' );
 			//Taxonomy Class
 			require_once $this->tf_options_file_path( 'classes/TF_Taxonomy_Metabox.php' );
 

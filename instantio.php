@@ -69,7 +69,6 @@ class INSTANTIO {
 		// Ins Quick Setup wizard
 		if (is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
 			require_once INS_INC_PATH . '/controller/class-setup-wizard.php'; 
-			require_once INS_INC_PATH . '/controller/checkout_editor.php';
 		}
 
 	}
@@ -80,9 +79,6 @@ class INSTANTIO {
 	 */
 	private function init_hooks() {  
 		add_action( 'plugins_loaded', array( $this, 'init' ), 0 ); 
-		add_filter('woocommerce_checkout_fields', 'ins_over_checkout_billing_fields');
-		add_filter('woocommerce_checkout_fields', 'ins_over_checkout_shipping_fields');
-		
 	}
 
 	/**
@@ -105,13 +101,11 @@ class INSTANTIO {
 			$this->ins_appsero_init_tracker_instantio();
 
         }else{  
-			new INS\Controller\App();
-
-			// ins Variation product Quick Views
-			add_action('wp_ajax_ins_variable_product_quick_view', array( $this, 'ins_ajax_quickview_variable_products' ));
-			add_action('wp_ajax_nopriv_ins_variable_product_quick_view', array( $this, 'ins_ajax_quickview_variable_products' ));
-	
-	
+			new INS\Controller\App(); 
+ 
+			// ins Variation product Quick Views 
+			add_action('wp_ajax_ins_variable_product_quick_view', array( $this, 'ins_ajax_quickview_variable_products' )); 
+			add_action('wp_ajax_nopriv_ins_variable_product_quick_view', array( $this, 'ins_ajax_quickview_variable_products' )); 
         }
 		
 	} 
@@ -129,11 +123,14 @@ class INSTANTIO {
 			require_once INS_PATH . 'admin/tf-options/TF_Options.php';
 		}
 
-		// Ins_checkout
+		// Ins_checkout_Editor
 		if (is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
 			if (function_exists('WC')) {
 				require_once INS_INC_PATH . '/controller/checkout_editor.php';
 			}
+
+			add_filter('woocommerce_checkout_fields', 'ins_over_checkout_billing_fields');
+			add_filter('woocommerce_checkout_fields', 'ins_over_checkout_shipping_fields');
 		}
 
     } 

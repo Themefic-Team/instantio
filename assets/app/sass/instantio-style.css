@@ -151,6 +151,22 @@
   line-height: 32px;
   color: #4d423d;
 }
+.ins-cart-empty span::before {
+  background-color: var(--ins_checkout_theme);
+  content: "";
+  display: block;
+  height: 5em;
+  margin: 0 auto 2em;
+  -webkit-mask-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzOCIgaGVpZ2h0PSIzOCIgZmlsbD0ibm9uZSI+PHBhdGggZmlsbD0iY3VycmVudENvbG9yIiBkPSJNMTkgMEM4LjUwNCAwIDAgOC41MDQgMCAxOXM4LjUwNCAxOSAxOSAxOSAxOS04LjUwNCAxOS0xOVMyOS40OTYgMCAxOSAwem02LjEyOSAxMi44NzFhMi40NDkgMi40NDkgMCAwMTIuNDUyIDIuNDUyIDIuNDQ5IDIuNDQ5IDAgMDEtMi40NTIgMi40NTEgMi40NDkgMi40NDkgMCAwMS0yLjQ1Mi0yLjQ1MSAyLjQ0OSAyLjQ0OSAwIDAxMi40NTItMi40NTJ6TTExLjY0NSAzMS4yNThjLTIuMDMgMC0zLjY3Ny0xLjYwOS0zLjY3Ny0zLjYgMC0xLjUzMyAyLjE4My00LjYyOCAzLjE4Ny01Ljk2MWEuNjEuNjEgMCAwMS45OCAwYzEuMDA0IDEuMzMzIDMuMTg4IDQuNDI4IDMuMTg4IDUuOTYgMCAxLjk5Mi0xLjY0OCAzLjYwMS0zLjY3OCAzLjYwMXptMS4yMjYtMTMuNDg0YTIuNDQ5IDIuNDQ5IDAgMDEtMi40NTItMi40NTEgMi40NDkgMi40NDkgMCAwMTIuNDUyLTIuNDUyIDIuNDQ5IDIuNDQ5IDAgMDEyLjQ1MiAyLjQ1MiAyLjQ0OSAyLjQ0OSAwIDAxLTIuNDUyIDIuNDUxem0xMy4wNCAxMS44MTRBOC45ODkgOC45ODkgMCAwMDE5IDI2LjM1NWMtMS42MjQgMC0xLjYyNC0yLjQ1MiAwLTIuNDUyYTExLjQgMTEuNCAwIDAxOC43ODggNC4xMjJjMS4wNTcgMS4yNTctLjg1OSAyLjc5Ni0xLjg3OCAxLjU2M3oiLz48L3N2Zz4=);
+  mask-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzOCIgaGVpZ2h0PSIzOCIgZmlsbD0ibm9uZSI+PHBhdGggZmlsbD0iY3VycmVudENvbG9yIiBkPSJNMTkgMEM4LjUwNCAwIDAgOC41MDQgMCAxOXM4LjUwNCAxOSAxOSAxOSAxOS04LjUwNCAxOS0xOVMyOS40OTYgMCAxOSAwem02LjEyOSAxMi44NzFhMi40NDkgMi40NDkgMCAwMTIuNDUyIDIuNDUyIDIuNDQ5IDIuNDQ5IDAgMDEtMi40NTIgMi40NTEgMi40NDkgMi40NDkgMCAwMS0yLjQ1Mi0yLjQ1MSAyLjQ0OSAyLjQ0OSAwIDAxMi40NTItMi40NTJ6TTExLjY0NSAzMS4yNThjLTIuMDMgMC0zLjY3Ny0xLjYwOS0zLjY3Ny0zLjYgMC0xLjUzMyAyLjE4My00LjYyOCAzLjE4Ny01Ljk2MWEuNjEuNjEgMCAwMS45OCAwYzEuMDA0IDEuMzMzIDMuMTg4IDQuNDI4IDMuMTg4IDUuOTYgMCAxLjk5Mi0xLjY0OCAzLjYwMS0zLjY3OCAzLjYwMXptMS4yMjYtMTMuNDg0YTIuNDQ5IDIuNDQ5IDAgMDEtMi40NTItMi40NTEgMi40NDkgMi40NDkgMCAwMTIuNDUyLTIuNDUyIDIuNDQ5IDIuNDQ5IDAgMDEyLjQ1MiAyLjQ1MiAyLjQ0OSAyLjQ0OSAwIDAxLTIuNDUyIDIuNDUxem0xMy4wNCAxMS44MTRBOC45ODkgOC45ODkgMCAwMDE5IDI2LjM1NWMtMS42MjQgMC0xLjYyNC0yLjQ1MiAwLTIuNDUyYTExLjQgMTEuNCAwIDAxOC43ODggNC4xMjJjMS4wNTcgMS4yNTctLjg1OSAyLjc5Ni0xLjg3OCAxLjU2M3oiLz48L3N2Zz4=);
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 5em;
+  mask-size: 5em;
+  width: 5em;
+}
 .ins-cart-empty a {
   text-decoration: underline;
   font-weight: 700;
@@ -2378,6 +2394,10 @@
 
 /* Animation One */
 /* Animation */
+body.rtl .ins-cart-coupon .coupon {
+  flex-direction: row-reverse !important;
+}
+
 .theme-Divi .ins-up-sells .ins-sell-add-to-cart {
   border: none !important;
   font-size: 16px !important;
@@ -2389,7 +2409,8 @@
   line-height: 1.3 !important;
 }
 
-.ins-cart-item-quantity .ct-increase, .ins-cart-item-quantity .ct-decrease {
+.ins-cart-item-quantity .ct-increase,
+.ins-cart-item-quantity .ct-decrease {
   display: none !important;
 }
 .ins-cart-item-quantity div.quantity[data-type] input[type=number] {
@@ -2403,7 +2424,8 @@
 .theme-woodmart .ins-cart-coupon .coupon button {
   padding: 0 !important;
 }
-.theme-woodmart .ins-cart-inner.shipping .woocommerce-billing-fields > div p input, .theme-woodmart .ins-cart-inner.shipping .woocommerce-billing-fields > div p select {
+.theme-woodmart .ins-cart-inner.shipping .woocommerce-billing-fields > div p input,
+.theme-woodmart .ins-cart-inner.shipping .woocommerce-billing-fields > div p select {
   height: auto !important;
 }
 .theme-woodmart .ins-cart-inner.shipping .woocommerce-billing-fields > div p textarea {
@@ -2418,7 +2440,8 @@
   min-height: auto !important;
 }
 
-.theme-betheme .ins-step-icon, .theme-betheme .ins-step-title {
+.theme-betheme .ins-step-icon,
+.theme-betheme .ins-step-title {
   display: inline-block;
   line-height: 46px !important;
 }
@@ -2431,11 +2454,13 @@
 .theme-betheme .woocommerce .quantity .qty {
   padding: 0 !important;
 }
-.theme-betheme .ins-checkout-modern .plus.ins-cart-plus, .theme-betheme .ins-checkout-modern .minus.ins-cart-minus {
+.theme-betheme .ins-checkout-modern .plus.ins-cart-plus,
+.theme-betheme .ins-checkout-modern .minus.ins-cart-minus {
   display: block !important;
   visibility: visible;
 }
-.theme-betheme .ins-cart-inner.shipping .woocommerce-billing-fields > div p, .theme-betheme .ins-cart-inner.shipping .woocommerce-shipping-fields > div p {
+.theme-betheme .ins-cart-inner.shipping .woocommerce-billing-fields > div p,
+.theme-betheme .ins-cart-inner.shipping .woocommerce-shipping-fields > div p {
   flex-basis: calc(50% - 14px) !important;
 }
 .theme-betheme .ins-cart-inner.shipping .woocommerce-billing-fields > div p textarea {

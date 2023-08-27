@@ -528,22 +528,29 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
                                 </label>
                             </div>
                         </div>
-
+                        
                         <!-- Choose Optimization Option-->
-                        <div class="tf-setup-form-item middle">
-                            <div class="tf-setup-form-item-label">
-                                <label class="" for="js-min">
-                                    <?php _e( 'Optimization', 'instantio' ) ?>
-                                </label>
+                        <?php $is_Pro_class = new TF_Options;
+                            $is_Pro_active = $is_Pro_class->is_tf_pro_active(); 
+
+                            if($is_Pro_active === true) { ?>
+                            
+                            <div class="tf-setup-form-item middle">
+                                <div class="tf-setup-form-item-label">
+                                    <label class="" for="js-min">
+                                        <?php _e( 'Optimization', 'instantio' ) ?>
+                                    </label>
+                                </div>
+
+                                <div class="tf-setup-form-item-input">
+                                    <label for="js-min" class="tf-switch-label">
+                                        <input type="checkbox" id="js-min" name="js-min" value="<?php echo !empty($js_min) ? esc_attr( '1' ) : ''; ?>" class="tf-switch" <?php echo !empty($js_min) ? esc_attr( 'checked' ) : ''; ?>/>
+                                        <span class="tf-switch-slider"></span>
+                                    </label>
+                                </div>
                             </div>
 
-                            <div class="tf-setup-form-item-input">
-                                <label for="js-min" class="tf-switch-label">
-                                    <input type="checkbox" id="js-min" name="js-min" value="<?php echo !empty($js_min) ? esc_attr( '1' ) : ''; ?>" class="tf-switch" <?php echo !empty($js_min) ? esc_attr( 'checked' ) : ''; ?>/>
-                                    <span class="tf-switch-slider"></span>
-                                </label>
-                            </div>
-                        </div>
+                        <?php } ?>
 
      
                     </div>

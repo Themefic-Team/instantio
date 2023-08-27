@@ -9,6 +9,10 @@ if ( file_exists( TF_OPTIONS_PATH . 'options/tf-menu-icon.php' ) ) {
 	$menu_icon = 'dashicons-cart';
 }
 
+if ( file_exists( TF_OPTIONS_PATH . 'options/ins-checkout-editor.php' ) ) {
+	 require_once TF_OPTIONS_PATH . 'options/ins-checkout-editor.php';
+}
+
 TF_Settings::option( 'wiopt', array(
 	'title'    			=> __( 'Instantio', 'instantio' ),
 	'icon'     			=> 'dashicons-cart',
@@ -20,7 +24,7 @@ TF_Settings::option( 'wiopt', array(
 		 * Main menu
 		 */
 		'general'            		=> array(
-			'title'  				=> esc_html__( 'General', 'tourfic' ),
+			'title'  				=> esc_html__( 'General', 'instantio' ),
 			'icon'   				=> 'fa fa-cog',
 			'fields' 				=> array(
 				// array(
@@ -72,21 +76,21 @@ TF_Settings::option( 'wiopt', array(
 					'inline'   		=> true,
 					'options'   	=> array(
 						'light' 			=> array(
-							'title'			=> 'Light',
+							'title'			=> __('Light', 'instantio'),
 							'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/Light.png',
 						),
 						
 						'dark' 				=> array(
-							'title'			=> 'Dark',
+							'title'			=> __('Dark', 'instantio'),
 							'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/Dark.png',
 						),
 
 						'glass-morphism' 	=> array(
-							'title'			=> 'Glass morphism',
+							'title'			=> __('Glass morphism', 'instantio'),
 							'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/GlassMorphism.png',
 						),
 						'gradient' 			=> array(
-							'title'			=> 'Gradient',
+							'title'			=> __('Gradient', 'instantio'),
 							'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/Gradient.png',
 						)
 					),
@@ -102,12 +106,12 @@ TF_Settings::option( 'wiopt', array(
 					'inline'   		=> true,
 					'options'   	=> array(
 						'cart' 				=> array(
-							'title'			=> 'Cart',
+							'title'			=> __('Cart', 'instantio'),
 							'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/sidecart.jpg',
 						),
 
 						'cart_and_checkout' 	=> array(
-							'title'			=> 'Cart & Checkout',
+							'title'			=> __('Cart & Checkout', 'instantio'),
 							'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/CartCheckout.svg',
 						)
 					),
@@ -150,19 +154,19 @@ TF_Settings::option( 'wiopt', array(
 					'inline'   		=> true,
 					'options'   	=> array(
 						'progress1' 		=> array(
-							'title'			=> 'Version 1',
+							'title'			=> __('Version 1', 'instantio'),  
 							'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/version1.png',
 						),
 						'progress2' 		=> array(
-							'title'			=> 'Version 2',
+							'title'			=> __('Version 2', 'instantio'), 
 							'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/version2.png',
 						),
 						'progress3' 		=> array(
-							'title'			=> 'Version 3',
+							'title'			=> __('Version 3', 'instantio'), 
 							'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/version3.png',
 						),
 						'progress4' 		=> array(
-							'title'			=> 'Version 4',
+							'title'			=> __('Version 4', 'instantio'), 
 							'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/version4.png',
 						),
 					),
@@ -330,15 +334,15 @@ TF_Settings::option( 'wiopt', array(
 				),
 
 				array(
-					'id'          => 'ins-page-selected',
-					'type'        => 'select2',
-					'placeholder' => __( 'Select a page', 'instantio' ),
-					'label'       => __( 'Select a Page', 'instantio' ),
-					'default'	  => 'cart',
-					'description' => __( 'The Instantio cart functionality will not be visible on this particular page.', 'instantio' ),
-					'is_pro'    	=> true,
-					'options'     => 'posts',
-					'query_args'  => array(
+					'id'			=> 'ins-page-selected',
+					'type'			=> 'select2',
+					'placeholder' 	=> __( 'Disable Instantio', 'instantio' ),
+					'label'       	=> __( 'Disable Instantio', 'instantio' ),
+					'default'	  	=> 'cart',
+					'description' 	=> __( 'The Instantio cart functionality will not be visible on this particular page.', 'instantio' ),
+					'is_pro'	  	=> true,
+					'options'     	=> 'posts',
+					'query_args'  	=> array(
 						'post_type'      => 'page',
 						'posts_per_page' => - 1,
 					)
@@ -476,24 +480,24 @@ TF_Settings::option( 'wiopt', array(
 								),
 								
 								array(
-									'id' => 'wi-icon-choice',
-									'type' => 'select',
+									'id' 			=> 'wi-icon-choice',
+									'type' 			=> 'select',
 									'label'    		=> __('Select Cart Icon Option', 'instantio'),
 									'subtitle' 		=> __('Set custom Icon Choice as icon for the cart instead of the defaults Icon.','instantio'), 
-									'class' => 'tf-field-class',
-									'options' => array(
-										'icon' => 'Select Icon',
-										'image' => 'Select Image',
+									'class' 		=> 'tf-field-class',
+									'options' 		=> array(
+										'icon' 			=> 'Select Icon',
+										'image' 		=> 'Select Image',
 									 ),
-									'default' => 'icon',
-									'inline' => true,
+									'default' 		=> 'icon',
+									'inline' 		=> true,
 								),
 								array(
-									'id'         => 'cart-icon',
-									'type'       => 'icon',
-									'label'      => __( 'Cart Icon', 'tourfic' ), 
+									'id'         	=> 'cart-icon',
+									'type'       	=> 'icon',
+									'label'      	=> __( 'Cart Icon', 'instantio' ), 
 									'subtitle' 		=> __('Select cart icon which will appear in cart Icon', 'instantio'),
-									'dependency' => array( 'wi-icon-choice', '==', 'icon' ),
+									'dependency' 	=> array( 'wi-icon-choice', '==', 'icon' ),
 								),
 								array(
 									'id' 			=> 'wi-icon-choice-uploder',
@@ -502,7 +506,7 @@ TF_Settings::option( 'wiopt', array(
 									'label' 		=> 'Custom Toggler Icon',
 									'subtitle' 		=> __('Upload your cart icon. Recommended size of an icon is 26x26px','instantio'),
 									'description' 	=> __('If Custom Image as Toggler Icon it\'s then it will work', 'instantio'),
-									'dependency' => array( 'wi-icon-choice', '==', 'image' ),
+									'dependency' 	=> array( 'wi-icon-choice', '==', 'image' ),
 								),
 
 								array(
@@ -1214,7 +1218,6 @@ TF_Settings::option( 'wiopt', array(
 					  	'theme'  			=> 'rubyblue',
 						'mode'   			=> 'css',
 					),
-					// 'is_pro'		=> true,
 				),
 			),
 		),
@@ -1233,8 +1236,8 @@ TF_Settings::option( 'wiopt', array(
 					'type'     		=> 'repeater',
 					// 'class'    		=> 'disable-sortable',
 					'drag_only' 	=> true,
-					'label'    		=> __('Checkout Billing Forms', 'instantio'),
-					'subtitle' 		=> __( 'You can able to change forms positions by Drag.', 'instantio' ),
+					'label'    		=> __('Checkout Billing Form', 'instantio'),
+					'subtitle' 		=> __( 'You can able to change form field positions by Drag.', 'instantio' ),
 					'fields'   		=> array(
 						array(
 							'id'    	   => 'checkout_form_field_name',
@@ -1252,37 +1255,42 @@ TF_Settings::option( 'wiopt', array(
 							'class'		   => 'hidden',	
 							'label' 	   => __( 'Field origin', 'instantio' ),
 						),
+
+						array(
+							'id'    	  => 'checkout_form_field_status',
+							'class'		  => 'checkout_form_field_status',
+							'type'  	  => 'switch',
+							'label' 	  => __( 'Field Status', 'instantio' ),
+							'subtitle' 	  => __( 'You can able to enable/disable this field.', 'instantio' ),
+						),
+
 						array(
 							'id'    	  => 'required',
+							'class'		  => 'checkout_form_field_required',
 							'type'  	  => 'switch', 
 							'label' 	  => __( 'Required Status', 'instantio' ),
 							'subtitle' 	  => __( 'You can able to enable/disable this field required.', 'instantio' ),
 						),
 
-						array(
-							'id'    	  => 'checkout_form_field_status',
-							'type'  	  => 'switch',
-							'label' 	  => __( 'Field Status', 'instantio' ),
-							'subtitle' 	  => __( 'You can able to enable/disable this field.', 'instantio' ),
-						),
+						
 					),
 					'default' 		=> !empty($my_plugin_billing_fields) ? $my_plugin_billing_fields : '',
 				),
 
-				array(
-					'id'       		=> 'ins_reset_blliling_fields_button',
-					'class'		 	=> 'checkout_reset_btn',
-					'type'     		=> 'callback',
-					'function' 		=> 'ins_reset_blliling_fields_button',
-				),
+				// array(
+				// 	'id'       		=> 'ins_reset_blliling_fields_button',
+				// 	'class'		 	=> 'checkout_reset_btn',
+				// 	'type'     		=> 'callback',
+				// 	'function' 		=> 'ins_reset_blliling_fields_button',
+				// ),
 
 				array(
 					'id'       		=> 'checkout_shiping_editors_fields',
 					'type'     		=> 'repeater',
 					// 'class'    		=> 'disable-sortable',
 					'drag_only' 	=> true,
-					'label'    		=> __('Checkout Shipping Forms', 'instantio'),
-					'subtitle' 		=> __( 'You can able to change forms positions by Drag.', 'instantio' ),
+					'label'    		=> __('Checkout Shipping Form', 'instantio'),
+					'subtitle' 		=> __( 'You can able to change form field positions by Drag.', 'instantio' ),
 					'fields'   		=> array(
 						array(
 							'id'    	   => 'checkout_shipping_form_field_name',
@@ -1317,12 +1325,12 @@ TF_Settings::option( 'wiopt', array(
 					'default' 		=> !empty($my_plugin_shipping_fields) ? $my_plugin_shipping_fields : '',
 				),
 				
-				array(
-					'id'       		=> 'ins_reset_shipping_fields_button',
-					'class'		 	=> 'checkout_reset_btn',
-					'type'     		=> 'callback',
-					'function' 		=> 'ins_reset_shipping_fields_button',
-				),
+				// array(
+				// 	'id'       		=> 'ins_reset_shipping_fields_button',
+				// 	'class'		 	=> 'checkout_reset_btn',
+				// 	'type'     		=> 'callback',
+				// 	'function' 		=> 'ins_reset_shipping_fields_button',
+				// ),
 			),
 		),
 	 
