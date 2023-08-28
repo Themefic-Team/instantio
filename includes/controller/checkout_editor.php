@@ -2,6 +2,7 @@
 
     // Filter Action
     add_filter('woocommerce_billing_fields', 'ins_billing_unrequire_fields');
+    add_filter('woocommerce_shipping_fields', 'ins_shipping_unrequire_fields');
 
 
 
@@ -307,6 +308,70 @@
 
             }
 
+        }
+
+        return $fields;
+
+    }
+
+    function ins_shipping_unrequire_fields($fields) {
+
+        $get_ins_data = insopt('checkout_shiping_editors_fields');
+
+        // Check if the variable is serialized
+        if (is_serialized($get_ins_data)) {
+            // If it's already serialized, unserialize it
+            $get_ins_data_for_editor_fl = unserialize($get_ins_data);
+        } else {
+            // If it's not serialized, serialize it
+            $get_ins_data_for_editor_fl = $get_ins_data;
+        }
+
+        $ins_all_checkout_fields = !empty($get_ins_data_for_editor_fl) ? $get_ins_data_for_editor_fl : [];
+
+        foreach( $ins_all_checkout_fields as $fieldskey => $ins_field){
+            $field_origin   = $ins_field['checkout_shipping_form_field_origin'];
+
+            $required = (isset($ins_field['required_shipping']) && $ins_field['required_shipping'] === '1') ? true : false;
+            
+            // All Fields
+            // Check All Fields Origin And Set Data Accordingly 
+            if($field_origin == 'shipping_first_name'){
+                $fields['shipping_first_name']['required']   = $required;
+
+            } elseif ($field_origin == 'shipping_last_name'){
+               
+                $fields['shipping_last_name']['required']    = $required;
+
+            } elseif ($field_origin == 'shipping_company'){
+                
+                $fields['shipping_company']['required']      = $required;
+
+            } elseif ($field_origin == 'shipping_country'){
+                
+                $fields['shipping_country']['required']        = $required;
+
+            } elseif ($field_origin == 'shipping_address_1'){
+            
+                $fields['shipping_address_1']['required']      = $required;
+
+            } elseif ($field_origin == 'shipping_address_2'){
+                
+                $fields['shipping_address_2']['required']    = $required;
+
+            } elseif ($field_origin == 'shipping_city'){
+                
+                $fields['shipping_city']['required']         = $required;
+
+            } elseif ($field_origin == 'shipping_state'){
+                
+                $fields['shipping_state']['required']        = $required;
+
+            } elseif ($field_origin == 'shipping_postcode'){
+                
+                $fields['shipping_postcode']['required']     = $required;
+
+            }
         }
 
         return $fields;
