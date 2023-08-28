@@ -41,8 +41,8 @@ class INSTANTIO {
 
 		define( 'INS_PATH', plugin_dir_path( __FILE__ ) );  
 		define( 'INS_INC_PATH', INS_PATH.'includes' );
-		define( 'INS_LAYOUTS_PATH', INS_INC_PATH.'includes' );
 		define( 'INS_ADMIN_PATH', INS_PATH.'admin' );
+		define( 'INS_CONTROLLER_PATH', INS_INC_PATH.'/controller' );
 		define( 'INS_BASE_LOCATION', plugin_basename( __FILE__ ) );
 		define( 'INS_TEMPLATES_PATH', INS_INC_PATH.'/templates' );
 
