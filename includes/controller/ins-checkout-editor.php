@@ -6,10 +6,10 @@
      */
     ob_start();
 
-    add_action( 'init', 'get_defualt_billing_checkout_from', 9 );
-    add_action( 'init', 'get_defualt_shipping_checkout_from', 9 );
+    add_action( 'init', 'ins_defualt_billing_checkout_from', 9 );
+    add_action( 'init', 'ins_defualt_shipping_checkout_from', 9 );
 
-    function get_defualt_billing_checkout_from() {
+    function ins_defualt_billing_checkout_from() {
         // Make sure WooCommerce is loaded
         if ( function_exists('WC') && is_object(WC()) ) {
 
@@ -42,7 +42,7 @@
     }
 
     
-    function get_defualt_shipping_checkout_from() {
+    function ins_defualt_shipping_checkout_from() {
         // Make sure WooCommerce is loaded
         if ( function_exists('WC') && is_object(WC()) ) {
 

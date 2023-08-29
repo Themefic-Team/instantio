@@ -13,8 +13,10 @@ if ( file_exists( INS_CONTROLLER_PATH . '/ins-checkout-editor.php' ) ) {
 	require_once  INS_CONTROLLER_PATH . '/ins-checkout-editor.php';
 }
 
-$my_plugin_billing_fields = get_defualt_billing_checkout_from();
-$my_plugin_shipping_fields = get_defualt_shipping_checkout_from();
+if(current_user_can('manage_options')) {
+	$my_plugin_billing_fields = ins_defualt_billing_checkout_from();
+	$my_plugin_shipping_fields = ins_defualt_shipping_checkout_from();
+}
 
 TF_Settings::option( 'wiopt', array(
 	'title'    			=> __( 'Instantio', 'instantio' ),
