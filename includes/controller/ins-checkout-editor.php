@@ -6,14 +6,18 @@
      */
     ob_start();
 
+    add_action( 'init', 'ins_defualt_billing_checkout_from', 9 );
+    add_action( 'init', 'ins_defualt_shipping_checkout_from', 9 );
 
-    if ( is_admin() ) {
+    function ins_defualt_billing_checkout_from() {
         // Make sure WooCommerce is loaded
         if ( function_exists('WC') && is_object(WC()) ) {
-            $billing_fields = WC()->checkout()->get_checkout_fields('billing');
 
             // Store the billing fields in a global variable
             $my_plugin_billing_fields = array();
+
+            // Billing 
+            $billing_fields = WC()->checkout()->get_checkout_fields('billing');
 
             foreach( $billing_fields as $fieldkey => $insfields){
 
@@ -33,12 +37,20 @@
 
             }
 
+            return $my_plugin_billing_fields;
+        }
+    }
 
-
-            $shipping_fields = WC()->checkout()->get_checkout_fields('shipping');
+    
+    function ins_defualt_shipping_checkout_from() {
+        // Make sure WooCommerce is loaded
+        if ( function_exists('WC') && is_object(WC()) ) {
 
             // Store the shiping fields in a global variable
             $my_plugin_shipping_fields = array();
+
+            // Shpping 
+            $shipping_fields = WC()->checkout()->get_checkout_fields('shipping');
 
             foreach( $shipping_fields as $key => $insshipfields){
 
@@ -57,9 +69,12 @@
                 );
 
             }
- 
+
+            return $my_plugin_shipping_fields;
+
         }
     }
+    
 
    
 // echo ob_get_clean();

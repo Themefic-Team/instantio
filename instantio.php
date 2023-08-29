@@ -41,8 +41,8 @@ class INSTANTIO {
 
 		define( 'INS_PATH', plugin_dir_path( __FILE__ ) );  
 		define( 'INS_INC_PATH', INS_PATH.'includes' );
-		define( 'INS_LAYOUTS_PATH', INS_INC_PATH.'includes' );
 		define( 'INS_ADMIN_PATH', INS_PATH.'admin' );
+		define( 'INS_CONTROLLER_PATH', INS_INC_PATH.'/controller' );
 		define( 'INS_BASE_LOCATION', plugin_basename( __FILE__ ) );
 		define( 'INS_TEMPLATES_PATH', INS_INC_PATH.'/templates' );
 
@@ -66,9 +66,15 @@ class INSTANTIO {
 		include_once( ABSPATH . 'wp-admin/includes/plugin.php' );  
 		require_once( 'functions.php' );
 		
-		// Ins Quick Setup wizard
+		// Ins Quick Setup wizard & Ins_checkout_Editor
 		if (is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
 			require_once INS_INC_PATH . '/controller/class-setup-wizard.php'; 
+		
+			// Ins_checkout_Editor
+			require_once INS_INC_PATH . '/controller/checkout_editor.php';
+			add_filter('woocommerce_checkout_fields', 'ins_over_checkout_billing_fields');
+			add_filter('woocommerce_checkout_fields', 'ins_over_checkout_shipping_fields');
+			
 		}
 
 	}
@@ -121,16 +127,6 @@ class INSTANTIO {
 
         if ( file_exists( INS_PATH . 'admin/tf-options/TF_Options.php' ) ) {
 			require_once INS_PATH . 'admin/tf-options/TF_Options.php';
-		}
-
-		// Ins_checkout_Editor
-		if (is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
-			if (function_exists('WC')) {
-				require_once INS_INC_PATH . '/controller/checkout_editor.php';
-			}
-
-			add_filter('woocommerce_checkout_fields', 'ins_over_checkout_billing_fields');
-			add_filter('woocommerce_checkout_fields', 'ins_over_checkout_shipping_fields');
 		}
 
     } 

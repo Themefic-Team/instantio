@@ -9,8 +9,13 @@ if ( file_exists( TF_OPTIONS_PATH . 'options/tf-menu-icon.php' ) ) {
 	$menu_icon = 'dashicons-cart';
 }
 
-if ( file_exists( TF_OPTIONS_PATH . 'options/ins-checkout-editor.php' ) ) {
-	 require_once TF_OPTIONS_PATH . 'options/ins-checkout-editor.php';
+if ( file_exists( INS_CONTROLLER_PATH . '/ins-checkout-editor.php' ) ) {
+	require_once  INS_CONTROLLER_PATH . '/ins-checkout-editor.php';
+}
+
+if(current_user_can('manage_options')) {
+	$my_plugin_billing_fields = ins_defualt_billing_checkout_from();
+	$my_plugin_shipping_fields = ins_defualt_shipping_checkout_from();
 }
 
 TF_Settings::option( 'wiopt', array(
@@ -421,7 +426,6 @@ TF_Settings::option( 'wiopt', array(
 				),
 			),
 		),
-
 
 		'design_option'       		=> array(
 			'title'  				=> esc_html__( 'Design', 'instantio' ),
