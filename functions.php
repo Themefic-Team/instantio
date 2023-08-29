@@ -72,99 +72,105 @@
         
         $ins_all_checkout_fields = !empty($get_ins_data_for_editor_fl) ? $get_ins_data_for_editor_fl : [];
 
-        // foreach( $ins_all_checkout_fields as $fieldskey => $ins_field){
-        //     $field_origin   = $ins_field['checkout_form_field_origin'];
+        foreach( $ins_all_checkout_fields as $fieldskey => $ins_field){
+            $field_origin   = $ins_field['checkout_form_field_origin'];
 
-        //     // Check All Fields Origin And Set Data Accordingly 
-        //     if($field_origin == 'billing_first_name'){
-        //         $ins_field['checkout_form_field_name']		= 'Fast name';
-		// 		$ins_field['checkout_form_field_place']		= '';
-		// 		$ins_field['required']						= 'true';
-		// 		$ins_field['checkout_form_field_status']	= true;
+            // Check All Fields Origin And Set Data Accordingly 
+            if($field_origin == 'billing_first_name'){
+                $ins_field['checkout_form_field_name']		= 'Fast name';
+				$ins_field['checkout_form_field_place']		= '';
+				$ins_field['required']						= 'true';
+				$ins_field['checkout_form_field_status']	= true;
 
-        //     } elseif ($field_origin == 'billing_last_name'){
-        //         $fields['billing']['billing_last_name']['label']        = $ins_field['checkout_form_field_name'];
-        //         $fields['billing']['billing_last_name']['placeholder']  = $ins_field['checkout_form_field_place'];
+                $ins_billing_field = $ins_field;
 
-        //         if($field_status === false){
-        //             unset($fields['billing']['billing_last_name']);
-        //         }
+            } elseif ($field_origin == 'billing_last_name'){
+                $ins_field['checkout_form_field_name']		= 'Last name';
+				$ins_field['checkout_form_field_place']		= '';
+				$ins_field['required']						= 'true';
+				$ins_field['checkout_form_field_status']	= true;
 
-        //     } elseif ($field_origin == 'billing_company'){
-        //         $fields['billing']['billing_company']['label']          = $ins_field['checkout_form_field_name'];
-        //         $fields['billing']['billing_company']['placeholder']    = $ins_field['checkout_form_field_place'];
+                $ins_billing_field += $ins_field;
 
-        //         if($field_status === false){
-        //             unset($fields['billing']['billing_company']);
-        //         }
+            } elseif ($field_origin == 'billing_company'){
+                $ins_field['checkout_form_field_name']		= 'Company name';
+				$ins_field['checkout_form_field_place']		= '';
+				$ins_field['required']						= 'false';
+				$ins_field['checkout_form_field_status']	= true;
 
-        //     } elseif ($field_origin == 'billing_email'){
-        //         $fields['billing']['billing_email']['label']            = $ins_field['checkout_form_field_name'];
-        //         $fields['billing']['billing_email']['placeholder']      = $ins_field['checkout_form_field_place'];
+                $ins_billing_field += $ins_field;
 
-        //         if($field_status === false){
-        //             unset($fields['billing']['billing_email']);
-        //         }
+            } elseif ($field_origin == 'billing_email'){
+                $ins_field['checkout_form_field_name']		= 'Email address';
+				$ins_field['checkout_form_field_place']		= '';
+				$ins_field['required']						= 'true';
+				$ins_field['checkout_form_field_status']	= true;
+
+                $ins_billing_field += $ins_field;
                 
+            } elseif ($field_origin == 'billing_country'){
+                $ins_field['checkout_form_field_name']		= 'Country / Region';
+				$ins_field['checkout_form_field_place']		= '';
+				$ins_field['required']						= 'true';
+				$ins_field['checkout_form_field_status']	= true;
 
-        //     } elseif ($field_origin == 'billing_country'){
-        //         $fields['billing']['billing_country']['label']          = $ins_field['checkout_form_field_name'];
-        //         $fields['billing']['billing_country']['placeholder']    = $ins_field['checkout_form_field_place'];
+                $ins_billing_field += $ins_field;
 
-        //         if($field_status === false){
-        //             unset($fields['billing']['billing_country']);
-        //         }
+            } elseif ($field_origin == 'billing_address_1'){
+                $ins_field['checkout_form_field_name']		= 'Street address';
+				$ins_field['checkout_form_field_place']		= '';
+				$ins_field['required']						= 'true';
+				$ins_field['checkout_form_field_status']	= true;
 
-        //     } elseif ($field_origin == 'billing_address_1'){
-        //         $fields['billing']['billing_address_1']['label']        = $ins_field['checkout_form_field_name'];
-        //         $fields['billing']['billing_address_1']['placeholder']  = $ins_field['checkout_form_field_place'];
+                $ins_billing_field += $ins_field;
 
-        //         if($field_status === false){
-        //             unset($fields['billing']['billing_address_1']);
-        //         }
+            } elseif ($field_origin == 'billing_address_2'){
+                $ins_field['checkout_form_field_name']		= 'Apartment, suite, unit, etc.';
+				$ins_field['checkout_form_field_place']		= '';
+				$ins_field['required']						= 'false';
+				$ins_field['checkout_form_field_status']	= true;
 
-        //     } elseif ($field_origin == 'billing_address_2'){
-        //         $fields['billing']['billing_address_2']['placeholder']  = $ins_field['checkout_form_field_place'];
+                $ins_billing_field += $ins_field;
 
-        //         if($field_status === false){
-        //             unset($fields['billing']['billing_address_2']);
-        //         }
+            } elseif ($field_origin == 'billing_city'){
+                $ins_field['checkout_form_field_name']		= 'Town / City';
+				$ins_field['checkout_form_field_place']		= '';
+				$ins_field['required']						= 'true';
+				$ins_field['checkout_form_field_status']	= true;
 
-        //     } elseif ($field_origin == 'billing_city'){
-        //         $fields['billing']['billing_city']['label']             = $ins_field['checkout_form_field_name'];
-        //         $fields['billing']['billing_city']['placeholder']       = $ins_field['checkout_form_field_place'];
+                $ins_billing_field += $ins_field;
 
-        //         if($field_status === false){
-        //             unset($fields['billing']['billing_city']);
-        //         }
+            } elseif ($field_origin == 'billing_state'){
+                $ins_field['checkout_form_field_name']		= 'District';
+				$ins_field['checkout_form_field_place']		= '';
+				$ins_field['required']						= 'true';
+				$ins_field['checkout_form_field_status']	= true;
 
-        //     } elseif ($field_origin == 'billing_state'){
-        //         $fields['billing']['billing_state']['label']            = $ins_field['checkout_form_field_name'];
-        //         $fields['billing']['billing_state']['placeholder']      = $ins_field['checkout_form_field_place'];
+                $ins_billing_field += $ins_field;
 
-        //         if($field_status === false){
-        //             unset($fields['billing']['billing_state']);
-        //         }
+            } elseif ($field_origin == 'billing_postcode'){
+                $ins_field['checkout_form_field_name']		= 'Postcode / ZIP';
+				$ins_field['checkout_form_field_place']		= '';
+				$ins_field['required']						= 'false';
+				$ins_field['checkout_form_field_status']	= true;
 
-        //     } elseif ($field_origin == 'billing_postcode'){
-        //         $fields['billing']['billing_postcode']['label']         = $ins_field['checkout_form_field_name'];
-        //         $fields['billing']['billing_postcode']['placeholder']   = $ins_field['checkout_form_field_place'];
+                $ins_billing_field += $ins_field;
 
-        //         if($field_status === false){
-        //             unset($fields['billing']['billing_postcode']);
-        //         }
+            } elseif ($field_origin == 'billing_phone'){
+                $ins_field['checkout_form_field_name']		= 'Phone';
+				$ins_field['checkout_form_field_place']		= '';
+				$ins_field['required']						= 'true';
+				$ins_field['checkout_form_field_status']	= true;
 
-        //     } elseif ($field_origin == 'billing_phone'){
-        //         $fields['billing']['billing_phone']['label']             = $ins_field['checkout_form_field_name'];
-        //         $fields['billing']['billing_phone']['placeholder']       = $ins_field['checkout_form_field_place'];
+                $ins_billing_field += $ins_field;
 
-        //         if($field_status === false){
-        //             unset($fields['billing']['billing_phone']);
-        //         }
+            }
 
-        //     }
+        }
 
-        // }
+        $ins_billing_fields['checkout_editors_fields'] = $ins_billing_field;
+
+        update_option( 'wiopt', $ins_billing_fields );
 
 	}
 
