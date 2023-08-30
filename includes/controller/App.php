@@ -466,12 +466,14 @@ class App {
     			return;
     		}
 		}
+        
         // checked is page seleted or not
-        $ins_page_selected = !empty(insopt( 'ins-page-selected' )) ? insopt( 'ins-page-selected' ) : 'cart';
+        $ins_page_selected = !empty(insopt( 'ins-page-selected' )) ? insopt( 'ins-page-selected' ) : array( 'cart', 'checkout' );
+        $pages = array_values($ins_page_selected);
 
         // Return is particular page seleted
 		if ( class_exists( 'woocommerce' ) ) {
-    		if (is_page( $ins_page_selected )) {
+    		if (is_page( $pages )) {
     			return;
     		}
 		}
