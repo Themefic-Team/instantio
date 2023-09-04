@@ -1253,6 +1253,7 @@ TF_Settings::option( 'wiopt', array(
 							'type'  	   => 'text',
 							'label' 	   => __( 'Field Placeholder', 'instantio' ),
 						),
+
 						array(
 							'id'    	   => 'checkout_form_field_origin',
 							'type'    	   => 'text',

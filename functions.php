@@ -58,54 +58,32 @@
 
 
 	function ins_del_billing_fields() {
+		$ins_billing_fields = get_option('wiopt');
 
-		$ins_billing_fields = get_option( 'wiopt' );
-        $ins_billing_fields['checkout_editors_fields'] = [];
-
-        update_option( 'wiopt', $ins_billing_fields );
+		if (isset($ins_billing_fields['checkout_editors_fields'])) {
+			// Remove the 'checkout_editors_fields' key from the 'wiopt' option
+			unset($ins_billing_fields['checkout_editors_fields']);
 		
-        $ins_billin_checkout_fields = WC()->checkout()->get_checkout_fields('billing');
-
-        $my_plugin_billing_fields = array();
-
-		foreach( $ins_billin_checkout_fields as $fieldkey => $insfields){
-
-			$label       = !empty($insfields['label']) ? $insfields['label'] : '';
-			$placeholder = !empty($insfields['placeholder']) ? $insfields['placeholder'] : '';
-			$required    = !empty($insfields['required']) ? $insfields['required'] : 'false';
-			$priority    = !empty($insfields['priority']) ? $insfields['priority'] : '';
-
-			$my_plugin_billing_fields[] = array(
-				'checkout_form_field_origin'  => $fieldkey,
-				'checkout_form_field_name'    => $label,
-				'checkout_form_field_place'   => $placeholder,
-				'required'                    => $required,
-				'checkout_form_field_status'  => true,
-				'priority'                    => $priority,
-			);
-			
-			if()
-
+			// Update the 'wiopt' option without the 'checkout_editors_fields' key
+			update_option('wiopt', $ins_billing_fields);
 		}
 
-		$ins_billing_fields['checkout_editors_fields'] = $my_plugin_billing_fields;
-
-        update_option( 'wiopt', $ins_billing_fields );
-
 	}
+
+
 
 	function ins_del_shipping_fields() {
-		$data_shipping = get_option( 'wiopt' );
+		$ins_shipping_fields = get_option('wiopt');
 
-		$my_plugin_shipping_fields = get_option( 'wocom_defualt_shipping');
-
-		$data_shipping['checkout_shiping_editors_fields'] = $my_plugin_shipping_fields;
-
-		update_option( 'wiopt', $data_shipping );
+		if (isset($ins_shipping_fields['checkout_shiping_editors_fields'])) {
+			// Remove the 'checkout_shiping_editors_fields' key from the 'wiopt' option
+			unset($ins_shipping_fields['checkout_shiping_editors_fields']);
+		
+			// Update the 'wiopt' option without the 'checkout_shiping_editors_fields' key
+			update_option('wiopt', $ins_shipping_fields);
+		}
 
 	}
 
 
-
- 
 ?>

@@ -35,8 +35,7 @@
                 success: function (data) {
                     notyf.success('Reset Billing Fields');
                     $this.removeClass("tf-btn-loading");
-                    // location.reload();
-                    console.log(data);
+                    window.location.reload();
                 },
                 error: function (data) {
                     notyf.error("Something wrong");
