@@ -1023,7 +1023,7 @@
                     var textareaID = $(ui.item).find(".tf_wp_editor").attr("id");
                 },
                 stop: function (event, ui) {
-                    var count = 0;
+                    var count = 1;
                     $this.find('.tf-single-repeater').each(function () {
                         // console.log(count);
                         var parent_field = $(this).find('input[name="tf_parent_field"]')
