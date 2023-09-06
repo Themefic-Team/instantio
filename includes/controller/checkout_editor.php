@@ -40,6 +40,8 @@
                 $fields['billing']['billing_first_name']['label']       = $ins_field['checkout_form_field_name'];
                 $fields['billing']['billing_first_name']['placeholder'] = $ins_field['checkout_form_field_place'];
 
+                $fields['billing']['billing_first_name']['priority']    = $fieldskey . '0';
+
                 if($field_status === false){
                     unset($fields['billing']['billing_first_name']);
                 }
@@ -47,6 +49,8 @@
             } elseif ($field_origin == 'billing_last_name'){
                 $fields['billing']['billing_last_name']['label']        = $ins_field['checkout_form_field_name'];
                 $fields['billing']['billing_last_name']['placeholder']  = $ins_field['checkout_form_field_place'];
+
+                $fields['billing']['billing_last_name']['priority']     = $fieldskey . '0';
 
                 if($field_status === false){
                     unset($fields['billing']['billing_last_name']);
@@ -56,6 +60,8 @@
                 $fields['billing']['billing_company']['label']          = $ins_field['checkout_form_field_name'];
                 $fields['billing']['billing_company']['placeholder']    = $ins_field['checkout_form_field_place'];
 
+                $fields['billing']['billing_company']['priority']       = $fieldskey . '0';
+
                 if($field_status === false){
                     unset($fields['billing']['billing_company']);
                 }
@@ -63,6 +69,8 @@
             } elseif ($field_origin == 'billing_email'){
                 $fields['billing']['billing_email']['label']            = $ins_field['checkout_form_field_name'];
                 $fields['billing']['billing_email']['placeholder']      = $ins_field['checkout_form_field_place'];
+
+                $fields['billing']['billing_email']['priority']         = $fieldskey . '0';
 
                 if($field_status === false){
                     unset($fields['billing']['billing_email']);
@@ -73,6 +81,8 @@
                 $fields['billing']['billing_country']['label']          = $ins_field['checkout_form_field_name'];
                 $fields['billing']['billing_country']['placeholder']    = $ins_field['checkout_form_field_place'];
 
+                $fields['billing']['billing_country']['priority']       = $fieldskey . '0';
+
                 if($field_status === false){
                     unset($fields['billing']['billing_country']);
                 }
@@ -81,12 +91,16 @@
                 $fields['billing']['billing_address_1']['label']        = $ins_field['checkout_form_field_name'];
                 $fields['billing']['billing_address_1']['placeholder']  = $ins_field['checkout_form_field_place'];
 
+                $fields['billing']['billing_address_1']['priority']     = $fieldskey . '0';
+
                 if($field_status === false){
                     unset($fields['billing']['billing_address_1']);
                 }
 
             } elseif ($field_origin == 'billing_address_2'){
                 $fields['billing']['billing_address_2']['placeholder']  = $ins_field['checkout_form_field_place'];
+
+                $fields['billing']['billing_address_2']['priority']     = $fieldskey . '0';
 
                 if($field_status === false){
                     unset($fields['billing']['billing_address_2']);
@@ -96,6 +110,8 @@
                 $fields['billing']['billing_city']['label']             = $ins_field['checkout_form_field_name'];
                 $fields['billing']['billing_city']['placeholder']       = $ins_field['checkout_form_field_place'];
 
+                $fields['billing']['billing_city']['priority']          = $fieldskey . '0';
+
                 if($field_status === false){
                     unset($fields['billing']['billing_city']);
                 }
@@ -103,6 +119,8 @@
             } elseif ($field_origin == 'billing_state'){
                 $fields['billing']['billing_state']['label']            = $ins_field['checkout_form_field_name'];
                 $fields['billing']['billing_state']['placeholder']      = $ins_field['checkout_form_field_place'];
+
+                $fields['billing']['billing_state']['priority']         = $fieldskey . '0';
 
                 if($field_status === false){
                     unset($fields['billing']['billing_state']);
@@ -112,6 +130,8 @@
                 $fields['billing']['billing_postcode']['label']         = $ins_field['checkout_form_field_name'];
                 $fields['billing']['billing_postcode']['placeholder']   = $ins_field['checkout_form_field_place'];
 
+                $fields['billing']['billing_postcode']['priority']      = $fieldskey . '0';
+
                 if($field_status === false){
                     unset($fields['billing']['billing_postcode']);
                 }
@@ -119,6 +139,8 @@
             } elseif ($field_origin == 'billing_phone'){
                 $fields['billing']['billing_phone']['label']             = $ins_field['checkout_form_field_name'];
                 $fields['billing']['billing_phone']['placeholder']       = $ins_field['checkout_form_field_place'];
+
+                $fields['billing']['billing_phone']['priority']          = $fieldskey . '0';
 
                 if($field_status === false){
                     unset($fields['billing']['billing_phone']);
@@ -236,71 +258,89 @@
             // All Fields
             // Check All Fields Origin And Set Data Accordingly 
             if($field_origin == 'shipping_first_name'){
-                $fields['shipping']['shipping_first_name']['label']       = $ins_field['checkout_shipping_form_field_name'];
-                $fields['shipping']['shipping_first_name']['placeholder'] = $ins_field['checkout_shipping_form_field_place'];
+                $fields['shipping']['shipping_first_name']['label']         = $ins_field['checkout_shipping_form_field_name'];
+                $fields['shipping']['shipping_first_name']['placeholder']   = $ins_field['checkout_shipping_form_field_place'];
+
+                $fields['shipping']['shipping_first_name']['priority']      = $fieldskey . '0';
 
                 if($field_status === false){
                     unset($fields['shipping']['shipping_first_name']);
                 }
 
             } elseif ($field_origin == 'shipping_last_name'){
-                $fields['shipping']['shipping_last_name']['label']        = $ins_field['checkout_shipping_form_field_name'];
-                $fields['shipping']['shipping_last_name']['placeholder']  = $ins_field['checkout_shipping_form_field_place'];
+                $fields['shipping']['shipping_last_name']['label']          = $ins_field['checkout_shipping_form_field_name'];
+                $fields['shipping']['shipping_last_name']['placeholder']    = $ins_field['checkout_shipping_form_field_place'];
+
+                $fields['shipping']['shipping_last_name']['priority']       = $fieldskey . '0';
 
                 if($field_status === false){
                     unset($fields['shipping']['shipping_last_name']);
                 }
 
             } elseif ($field_origin == 'shipping_company'){
-                $fields['shipping']['shipping_company']['label']          = $ins_field['checkout_shipping_form_field_name'];
-                $fields['shipping']['shipping_company']['placeholder']    = $ins_field['checkout_shipping_form_field_place'];
+                $fields['shipping']['shipping_company']['label']            = $ins_field['checkout_shipping_form_field_name'];
+                $fields['shipping']['shipping_company']['placeholder']      = $ins_field['checkout_shipping_form_field_place'];
+
+                $fields['shipping']['shipping_company']['priority']         = $fieldskey . '0';
 
                 if($field_status === false){
                     unset($fields['shipping']['shipping_company']);
                 }
 
             } elseif ($field_origin == 'shipping_country'){
-                $fields['shipping']['shipping_country']['label']          = $ins_field['checkout_shipping_form_field_name'];
-                $fields['shipping']['shipping_country']['placeholder']    = $ins_field['checkout_shipping_form_field_place'];
+                $fields['shipping']['shipping_country']['label']            = $ins_field['checkout_shipping_form_field_name'];
+                $fields['shipping']['shipping_country']['placeholder']      = $ins_field['checkout_shipping_form_field_place'];
+
+                $fields['shipping']['shipping_country']['priority']         = $fieldskey . '0';
 
                 if($field_status === false){
                     unset($fields['shipping']['shipping_country']);
                 }
 
             } elseif ($field_origin == 'shipping_address_1'){
-                $fields['shipping']['shipping_address_1']['label']        = $ins_field['checkout_shipping_form_field_name'];
-                $fields['shipping']['shipping_address_1']['placeholder']  = $ins_field['checkout_shipping_form_field_place'];
+                $fields['shipping']['shipping_address_1']['label']          = $ins_field['checkout_shipping_form_field_name'];
+                $fields['shipping']['shipping_address_1']['placeholder']    = $ins_field['checkout_shipping_form_field_place'];
+
+                $fields['shipping']['shipping_address_1']['priority']       = $fieldskey . '0';
 
                 if($field_status === false){
                     unset($fields['shipping']['shipping_address_1']);
                 }
 
             } elseif ($field_origin == 'shipping_address_2'){
-                $fields['shipping']['shipping_address_2']['placeholder']  = $ins_field['checkout_shipping_form_field_place'];
+                $fields['shipping']['shipping_address_2']['placeholder']    = $ins_field['checkout_shipping_form_field_place'];
+
+                $fields['shipping']['shipping_address_2']['priority']       = $fieldskey . '0';
 
                 if($field_status === false){
                     unset($fields['shipping']['shipping_address_2']);
                 }
 
             } elseif ($field_origin == 'shipping_city'){
-                $fields['shipping']['shipping_city']['label']             = $ins_field['checkout_shipping_form_field_name'];
-                $fields['shipping']['shipping_city']['placeholder']       = $ins_field['checkout_shipping_form_field_place'];
+                $fields['shipping']['shipping_city']['label']               = $ins_field['checkout_shipping_form_field_name'];
+                $fields['shipping']['shipping_city']['placeholder']         = $ins_field['checkout_shipping_form_field_place'];
+
+                $fields['shipping']['shipping_city']['priority']            = $fieldskey . '0';
 
                 if($field_status === false){
                     unset($fields['shipping']['shipping_city']);
                 }
 
             } elseif ($field_origin == 'shipping_state'){
-                $fields['shipping']['shipping_state']['label']            = $ins_field['checkout_shipping_form_field_name'];
-                $fields['shipping']['shipping_state']['placeholder']      = $ins_field['checkout_shipping_form_field_place'];
+                $fields['shipping']['shipping_state']['label']              = $ins_field['checkout_shipping_form_field_name'];
+                $fields['shipping']['shipping_state']['placeholder']        = $ins_field['checkout_shipping_form_field_place'];
+
+                $fields['shipping']['shipping_state']['priority']           = $fieldskey . '0';
 
                 if($field_status === false){
                     unset($fields['shipping']['shipping_state']);
                 }
 
             } elseif ($field_origin == 'shipping_postcode'){
-                $fields['shipping']['shipping_postcode']['label']         = $ins_field['checkout_shipping_form_field_name'];
-                $fields['shipping']['shipping_postcode']['placeholder']   = $ins_field['checkout_shipping_form_field_place'];
+                $fields['shipping']['shipping_postcode']['label']           = $ins_field['checkout_shipping_form_field_name'];
+                $fields['shipping']['shipping_postcode']['placeholder']     = $ins_field['checkout_shipping_form_field_place'];
+
+                $fields['shipping']['shipping_postcode']['priority']        = $fieldskey . '0';
 
                 if($field_status === false){
                     unset($fields['shipping']['shipping_postcode']);

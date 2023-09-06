@@ -58,134 +58,32 @@
 
 
 	function ins_del_billing_fields() {
-		$get_ins_data = insopt('checkout_editors_fields');
+		$ins_billing_fields = get_option('wiopt');
 
-        // Check if the variable is serialized
-        if (is_serialized($get_ins_data)) {
-            // If it's already serialized, unserialize it
-            $get_ins_data_for_editor_fl = unserialize($get_ins_data);
-            
-        } else {
-            // If it's not serialized, serialize it
-            $get_ins_data_for_editor_fl = $get_ins_data;
-        }
-        
-        $ins_all_checkout_fields = !empty($get_ins_data_for_editor_fl) ? $get_ins_data_for_editor_fl : [];
-
-        foreach( $ins_all_checkout_fields as $fieldskey => $ins_field){
-            $field_origin   = $ins_field['checkout_form_field_origin'];
-
-            // Check All Fields Origin And Set Data Accordingly 
-            if($field_origin == 'billing_first_name'){
-                $ins_field['checkout_form_field_name']		= 'Fast name';
-				$ins_field['checkout_form_field_place']		= '';
-				$ins_field['required']						= 'true';
-				$ins_field['checkout_form_field_status']	= true;
-
-                $ins_billing_field = $ins_field;
-
-            } elseif ($field_origin == 'billing_last_name'){
-                $ins_field['checkout_form_field_name']		= 'Last name';
-				$ins_field['checkout_form_field_place']		= '';
-				$ins_field['required']						= 'true';
-				$ins_field['checkout_form_field_status']	= true;
-
-                $ins_billing_field += $ins_field;
-
-            } elseif ($field_origin == 'billing_company'){
-                $ins_field['checkout_form_field_name']		= 'Company name';
-				$ins_field['checkout_form_field_place']		= '';
-				$ins_field['required']						= 'false';
-				$ins_field['checkout_form_field_status']	= true;
-
-                $ins_billing_field += $ins_field;
-
-            } elseif ($field_origin == 'billing_email'){
-                $ins_field['checkout_form_field_name']		= 'Email address';
-				$ins_field['checkout_form_field_place']		= '';
-				$ins_field['required']						= 'true';
-				$ins_field['checkout_form_field_status']	= true;
-
-                $ins_billing_field += $ins_field;
-                
-            } elseif ($field_origin == 'billing_country'){
-                $ins_field['checkout_form_field_name']		= 'Country / Region';
-				$ins_field['checkout_form_field_place']		= '';
-				$ins_field['required']						= 'true';
-				$ins_field['checkout_form_field_status']	= true;
-
-                $ins_billing_field += $ins_field;
-
-            } elseif ($field_origin == 'billing_address_1'){
-                $ins_field['checkout_form_field_name']		= 'Street address';
-				$ins_field['checkout_form_field_place']		= '';
-				$ins_field['required']						= 'true';
-				$ins_field['checkout_form_field_status']	= true;
-
-                $ins_billing_field += $ins_field;
-
-            } elseif ($field_origin == 'billing_address_2'){
-                $ins_field['checkout_form_field_name']		= 'Apartment, suite, unit, etc.';
-				$ins_field['checkout_form_field_place']		= '';
-				$ins_field['required']						= 'false';
-				$ins_field['checkout_form_field_status']	= true;
-
-                $ins_billing_field += $ins_field;
-
-            } elseif ($field_origin == 'billing_city'){
-                $ins_field['checkout_form_field_name']		= 'Town / City';
-				$ins_field['checkout_form_field_place']		= '';
-				$ins_field['required']						= 'true';
-				$ins_field['checkout_form_field_status']	= true;
-
-                $ins_billing_field += $ins_field;
-
-            } elseif ($field_origin == 'billing_state'){
-                $ins_field['checkout_form_field_name']		= 'District';
-				$ins_field['checkout_form_field_place']		= '';
-				$ins_field['required']						= 'true';
-				$ins_field['checkout_form_field_status']	= true;
-
-                $ins_billing_field += $ins_field;
-
-            } elseif ($field_origin == 'billing_postcode'){
-                $ins_field['checkout_form_field_name']		= 'Postcode / ZIP';
-				$ins_field['checkout_form_field_place']		= '';
-				$ins_field['required']						= 'false';
-				$ins_field['checkout_form_field_status']	= true;
-
-                $ins_billing_field += $ins_field;
-
-            } elseif ($field_origin == 'billing_phone'){
-                $ins_field['checkout_form_field_name']		= 'Phone';
-				$ins_field['checkout_form_field_place']		= '';
-				$ins_field['required']						= 'true';
-				$ins_field['checkout_form_field_status']	= true;
-
-                $ins_billing_field += $ins_field;
-
-            }
-
-        }
-
-        $ins_billing_fields['checkout_editors_fields'] = $ins_billing_field;
-
-        update_option( 'wiopt', $ins_billing_fields );
+		if (isset($ins_billing_fields['checkout_editors_fields'])) {
+			// Remove the 'checkout_editors_fields' key from the 'wiopt' option
+			unset($ins_billing_fields['checkout_editors_fields']);
+		
+			// Update the 'wiopt' option without the 'checkout_editors_fields' key
+			update_option('wiopt', $ins_billing_fields);
+		}
 
 	}
+
+
 
 	function ins_del_shipping_fields() {
-		$data_shipping = get_option( 'wiopt' );
+		$ins_shipping_fields = get_option('wiopt');
 
-		$my_plugin_shipping_fields = get_option( 'wocom_defualt_shipping');
-
-		$data_shipping['checkout_shiping_editors_fields'] = $my_plugin_shipping_fields;
-
-		update_option( 'wiopt', $data_shipping );
+		if (isset($ins_shipping_fields['checkout_shiping_editors_fields'])) {
+			// Remove the 'checkout_shiping_editors_fields' key from the 'wiopt' option
+			unset($ins_shipping_fields['checkout_shiping_editors_fields']);
+		
+			// Update the 'wiopt' option without the 'checkout_shiping_editors_fields' key
+			update_option('wiopt', $ins_shipping_fields);
+		}
 
 	}
 
 
-
- 
 ?>

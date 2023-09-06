@@ -24,7 +24,6 @@
                 $label       = !empty($insfields['label']) ? $insfields['label'] : '';
                 $placeholder = !empty($insfields['placeholder']) ? $insfields['placeholder'] : '';
                 $required    = !empty($insfields['required']) ? $insfields['required'] : 'false';
-                $priority    = !empty($insfields['priority']) ? $insfields['priority'] : '';
 
                 $my_plugin_billing_fields[] = array(
                     'checkout_form_field_origin'  => $fieldkey,
@@ -32,7 +31,6 @@
                     'checkout_form_field_place'   => $placeholder,
                     'required'                    => $required,
                     'checkout_form_field_status'  => true,
-                    'priority'                    => $priority,
                 );
 
             }
@@ -65,7 +63,6 @@
                     'checkout_shipping_form_field_place'    => $placeholder,
                     'required_shipping'                     => $required,
                     'checkout_shipping_form_field_status'   => true,
-                    'priority_shipping'                     => $priority,
                 );
 
             }
