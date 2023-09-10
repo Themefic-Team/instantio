@@ -11,10 +11,13 @@ class Admin{
         $ins_review_notice_status = get_option('ins_review_notice_status'); 
         $ins_installation_date = get_option('ins_installation_date'); 
         if(isset($ins_review_notice_status) && $ins_review_notice_status <= 0 && $ins_installation_date == 1 && !isset($_COOKIE['ins_review_notice_status']) && !isset($_COOKIE['ins_installation_date'])){ 
-            add_action( 'admin_notices', array($this, 'ins_review_notice') );  
+            // add_action( 'admin_notices', array($this, 'ins_review_notice') );  
         }
 
+        // add_action( 'admin_notices', array($this, 'ins_review_notice') ); 
+
         add_action( 'wp_ajax_ins_review_notice_callback', array($this, 'ins_review_notice_callback'));
+        add_action( 'wp_ajax_nopriv_ins_review_notice_callback', array($this, 'ins_review_notice_callback'));
         add_action('admin_init', array($this, 'ins_review_activation_status')); 
        
         /**
@@ -118,15 +121,18 @@ class Admin{
                         var status = $this.attr('data-status'); 
                         $this.closest('.themefic_review_notice').css('display', 'none')
                         data = {
-                            action : 'ins_review_notice_callback',
-                            status : status,
+                            action: 'ins_review_notice_callback',
+                            security: 'ins_review_nonce', // Define ins_review_nonce in your JavaScript
+                            status: status,
                         };
+
+                        console.log(ajaxurl);
 
                         $.ajax({
                             url: ajaxurl,
                             type: 'post',
                             data: data,
-                            success: function (data) { ;
+                            success: function (data) { 
                             },
                             error: function (data) { 
                             }
@@ -149,20 +155,26 @@ class Admin{
     <?php }
 
     // Themefic Plugin Review Admin Notice
-    public function ins_review_notice_callback(){
-        $status = $_POST['status'];
-        if( $status == 'already'){ 
-            update_option( 'ins_review_notice_status', '1' );
-        }else if($status == 'never'){ 
-            update_option( 'ins_review_notice_status', '2' );
-        }else if($status == 'later'){
-            $cookie_name = "ins_review_notice_status";
-            $cookie_value = "1";
-            setcookie($cookie_name, $cookie_value, time() + (86400 * 7), "/"); 
-            update_option( 'ins_review_notice_status', '0' ); 
-        }  
+    public function ins_review_notice_callback() {
+        // Check if this is a valid AJAX request
+        check_ajax_referer('ins_review_nonce', 'security');
+    
+        $status = sanitize_text_field($_POST['status']); // Sanitize user input
+    
+        if ($status === 'already') {
+            update_option('ins_review_notice_status', '1');
+        } elseif ($status === 'never') {
+            update_option('ins_review_notice_status', '2');
+        } elseif ($status === 'later') {
+            $cookie_name = 'ins_review_notice_status';
+            $cookie_value = '1';
+            // Set a cookie with a 7-day expiration
+            setcookie($cookie_name, $cookie_value, time() + (86400 * 7), '/');
+            update_option('ins_review_notice_status', '0');
+        }
+    
         wp_die();
-    }
+    } 
 
 
     /**

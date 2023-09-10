@@ -9,7 +9,9 @@
  * Author URI: https://themefic.com
  * Tags: woocommerce, direct checkout, floating cart, side cart, ajax cart, cart popup, ajax add to cart, one page checkout, single page checkout, fly cart, mini cart, quick buy, instant checkout, quick checkout, same page checkout, sidebar cart, sticky cart, woocommerce ajax, one click checkout, woocommerce one page checkout, direct checkout woocommerce, woocommerce one click checkout, woocommerce quick checkout, woocommerce express checkout, woocommerce simple checkout, skip cart page woocommerce, woocommerce cart popup, edit woocommerce checkout page, woocommerce direct checkout
 
+
  * Version: 3.1.2
+
  * Tested up to: 6.3
  * Requires PHP: 7.2
  * WC tested up to: 8.0.2
@@ -24,6 +26,7 @@ class INSTANTIO {
 		$this->define_constants();
 		$this->includes();
 		$this->init_hooks();
+		$this->ins_public_hooks();
 	}
 
 	/**
@@ -31,7 +34,9 @@ class INSTANTIO {
 	 */
 	private function define_constants() {
 		if ( ! defined( 'INSTANTIO_VERSION' ) ) { 
+
 			define( 'INSTANTIO_VERSION', '3.1.2' ); 
+
 		} 
 		define( 'INS_URL', plugin_dir_url( __FILE__ ) ); 
 		define( 'INS_INC_URL', INS_URL.'includes' );
@@ -72,13 +77,9 @@ class INSTANTIO {
 		
 			// Ins_checkout_Editor
 			require_once INS_INC_PATH . '/controller/checkout_editor.php';
-			add_filter('woocommerce_checkout_fields', 'ins_over_checkout_billing_fields');
-			add_filter('woocommerce_checkout_fields', 'ins_over_checkout_shipping_fields');
-			
 		}
 
 	}
-
 
 	/**
 	 * Init Instantio when WordPress Initialises.
@@ -191,6 +192,29 @@ class INSTANTIO {
     
     } 
 
- 
+	private function ins_public_hooks() {
+		add_action( 'after_setup_theme', [$this, 'ins_check_editor']);
+	}
+
+	public function ins_check_editor(){
+		$ins_billing_fields  = apply_filters('ins_billing_fields_priority', 1000);
+		$ins_shipping_fields = apply_filters('ins_shipping_fields_priority', 1000);
+
+		add_filter('woocommerce_checkout_fields', 'ins_over_checkout_billing_fields', $ins_billing_fields, 2);
+		add_filter('woocommerce_checkout_fields', 'ins_over_checkout_shipping_fields', $ins_shipping_fields, 2);
+		add_filter('woocommerce_default_address_fields', 'ins_over_checkout_billing_address');
+		// add_filter('woocommerce_default_address_fields', 'ins_over_checkout_shiping_address');
+	}
+
 }
+
+
 new INSTANTIO();
+
+add_action( 'before_woocommerce_init', 'ins_before_woocommerce_init');
+
+function ins_before_woocommerce_init() {
+	if ( class_exists( '\Automattic\WooCommerce\Utilities\FeaturesUtil' ) ) {
+		\Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'custom_order_tables', __FILE__, true );
+	}
+}
