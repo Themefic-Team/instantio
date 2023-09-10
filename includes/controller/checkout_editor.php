@@ -127,7 +127,13 @@
                 }
 
             } elseif ($field_origin == 'billing_postcode'){
-                $fields['billing']['billing_postcode']['label']         = $ins_field['checkout_form_field_name'];
+                // $fields['billing']['billing_postcode']['label']         = $ins_field['checkout_form_field_name'];
+
+                // Modify the zip code field label
+                $fields['billing']['billing_postcode']['label'] = 'New Zip Code Label';
+                // Ensure the label is also set for shipping postcode (if using it)
+                $fields['shipping']['shipping_postcode']['label'] = 'New Shipping Zip Code Label';
+
                 $fields['billing']['billing_postcode']['placeholder']   = $ins_field['checkout_form_field_place'];
 
                 $fields['billing']['billing_postcode']['priority']      = $fieldskey . '0';

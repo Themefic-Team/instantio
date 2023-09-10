@@ -72,8 +72,8 @@ class INSTANTIO {
 		
 			// Ins_checkout_Editor
 			require_once INS_INC_PATH . '/controller/checkout_editor.php';
-			add_filter('woocommerce_checkout_fields', 'ins_over_checkout_billing_fields');
-			add_filter('woocommerce_checkout_fields', 'ins_over_checkout_shipping_fields');
+			add_filter('woocommerce_checkout_fields', 'ins_over_checkout_billing_fields', 10);
+			add_filter('woocommerce_checkout_fields', 'ins_over_checkout_shipping_fields', 10);
 			
 		}
 
