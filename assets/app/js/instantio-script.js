@@ -299,6 +299,13 @@
 			product_id = cart_form.find("input[name=product_id]").val() || id,
 			product_qty = cart_form.find("input[name=quantity]").val() || 1,
 			variation_id = cart_form.find("input[name=variation_id]").val() || 0;
+
+		if (cart_form.find("input[name=variation_id]").length > 0) {
+			if (variation_id == '' || variation_id == 0) {
+				return;
+			}
+		}
+
 		$.ajax({
 			url: ins_params.ajax_url,
 			type: "POST",
