@@ -14,6 +14,8 @@ class Admin{
             add_action( 'admin_notices', array($this, 'ins_review_notice') );  
         }
 
+        // add_action( 'admin_notices', array($this, 'ins_review_notice') ); 
+
         add_action( 'wp_ajax_ins_review_notice_callback', array($this, 'ins_review_notice_callback'));
         add_action('admin_init', array($this, 'ins_review_activation_status')); 
        

@@ -33,6 +33,8 @@
 
             $field_status   = (isset($ins_field['checkout_form_field_status']) && $ins_field['checkout_form_field_status'] === '1') ? true : false;
 
+            // var_dump($field_origin, $fieldskey);
+
 
             // All Fields
             // Check All Fields Origin And Set Data Accordingly 
@@ -78,39 +80,35 @@
                 
 
             } elseif ($field_origin == 'billing_country'){
-                $fields['billing']['billing_country']['label']          = $ins_field['checkout_form_field_name'];
-                $fields['billing']['billing_country']['placeholder']    = $ins_field['checkout_form_field_place'];
-
-                $fields['billing']['billing_country']['priority']       = $fieldskey . '0';
+                // $fields['billing']['billing_country']['label']          = $ins_field['checkout_form_field_name'];
+                // $fields['billing']['billing_country']['placeholder']    = $ins_field['checkout_form_field_place'];
+                // $fields['billing']['billing_country']['priority']       = $fieldskey . '0';
 
                 if($field_status === false){
                     unset($fields['billing']['billing_country']);
                 }
 
             } elseif ($field_origin == 'billing_address_1'){
-                $fields['billing']['billing_address_1']['label']        = $ins_field['checkout_form_field_name'];
-                $fields['billing']['billing_address_1']['placeholder']  = $ins_field['checkout_form_field_place'];
-
-                $fields['billing']['billing_address_1']['priority']     = $fieldskey . '0';
+                // $fields['billing']['billing_address_1']['label']        = $ins_field['checkout_form_field_name'];
+                // $fields['billing']['billing_address_1']['placeholder']  = $ins_field['checkout_form_field_place'];
+                // $fields['billing']['billing_address_1']['priority']     = $fieldskey . '0';
 
                 if($field_status === false){
                     unset($fields['billing']['billing_address_1']);
                 }
 
             } elseif ($field_origin == 'billing_address_2'){
-                $fields['billing']['billing_address_2']['placeholder']  = $ins_field['checkout_form_field_place'];
-
-                $fields['billing']['billing_address_2']['priority']     = $fieldskey . '0';
+                // $fields['billing']['billing_address_2']['placeholder']  = $ins_field['checkout_form_field_place'];
+                // $fields['billing']['billing_address_2']['priority']     = $fieldskey . '0';
 
                 if($field_status === false){
                     unset($fields['billing']['billing_address_2']);
                 }
 
             } elseif ($field_origin == 'billing_city'){
-                $fields['billing']['billing_city']['label']             = $ins_field['checkout_form_field_name'];
-                $fields['billing']['billing_city']['placeholder']       = $ins_field['checkout_form_field_place'];
-
-                $fields['billing']['billing_city']['priority']          = $fieldskey . '0';
+                // $fields['billing']['billing_city']['label']             = $ins_field['checkout_form_field_name'];
+                // $fields['billing']['billing_city']['placeholder']       = $ins_field['checkout_form_field_place'];
+                // $fields['billing']['billing_city']['priority']          = $fieldskey . '0';
 
                 if($field_status === false){
                     unset($fields['billing']['billing_city']);
@@ -128,6 +126,7 @@
 
             } elseif ($field_origin == 'billing_postcode'){
                 // $fields['billing']['billing_postcode']['label']         = $ins_field['checkout_form_field_name'];
+<<<<<<< HEAD
 
                 // Modify the zip code field label
                 $fields['billing']['billing_postcode']['label'] = 'New Zip Code Label';
@@ -135,8 +134,11 @@
                 $fields['shipping']['shipping_postcode']['label'] = 'New Shipping Zip Code Label';
 
                 $fields['billing']['billing_postcode']['placeholder']   = $ins_field['checkout_form_field_place'];
+=======
+                // $fields['billing']['billing_postcode']['placeholder']   = $ins_field['checkout_form_field_place'];
+>>>>>>> 2e17b7544ab7764e58ec114355e1dfbd4a2fc60e
 
-                $fields['billing']['billing_postcode']['priority']      = $fieldskey . '0';
+                // $fields['billing']['billing_postcode']['priority']      = $fieldskey . '0';
 
                 if($field_status === false){
                     unset($fields['billing']['billing_postcode']);
@@ -158,6 +160,56 @@
 
         return $fields;
 
+    }
+
+    function ins_over_checkout_billing_address($address_fields){
+        $get_ins_add_data = insopt('checkout_editors_fields');
+
+        // Check if the variable is serialized
+        if (is_serialized($get_ins_add_data)) {
+            // If it's already serialized, unserialize it
+            $get_ins_data_add_editor_fl = unserialize($get_ins_add_data);
+            
+        } else {
+            // If it's not serialized, serialize it
+            $get_ins_data_add_editor_fl = $get_ins_add_data;
+        }
+        
+        $ins_address_checkout_fields = !empty($get_ins_data_add_editor_fl) ? $get_ins_data_add_editor_fl : [];
+
+        
+        foreach( $ins_address_checkout_fields as $fieldskey => $ins_field){
+            $field_origin   = $ins_field['checkout_form_field_origin'];
+
+            // Check Address Fields Origin And Set Data Accordingly 
+            if ($field_origin == 'billing_country'){
+                $address_fields['country']['label']          = $ins_field['checkout_form_field_name'];
+                $address_fields['country']['placeholder']    = $ins_field['checkout_form_field_place'];
+                $address_fields['country']['priority']       = $fieldskey . '0';
+
+            } elseif ($field_origin == 'billing_address_1'){
+                $address_fields['address_1']['label']        = $ins_field['checkout_form_field_name'];
+                $address_fields['address_1']['placeholder']  = $ins_field['checkout_form_field_place'];
+                $address_fields['address_1']['priority']     = $fieldskey . '0';
+
+            } elseif ($field_origin == 'billing_address_2'){
+                $address_fields['address_2']['placeholder']  = $ins_field['checkout_form_field_place'];
+                $address_fields['address_2']['priority']     = $fieldskey . '0';
+
+            } elseif ($field_origin == 'billing_city'){
+                $address_fields['city']['label']             = $ins_field['checkout_form_field_name'];
+                $address_fields['city']['placeholder']       = $ins_field['checkout_form_field_place'];
+                $address_fields['city']['priority']          = $fieldskey . '0';
+
+            } elseif ($field_origin == 'billing_postcode'){
+                $address_fields['postcode']['label']         = $ins_field['checkout_form_field_name'];
+                $address_fields['postcode']['placeholder']   = $ins_field['checkout_form_field_place'];
+                $address_fields['postcode']['priority']      = $fieldskey . '0';
+            }
+
+        }
+        
+        return $address_fields;
     }
     
 
@@ -358,6 +410,56 @@
 
         return $fields;
 
+    }
+
+    function ins_over_checkout_shiping_address($address_fields){
+        $get_ins_add_data = insopt('checkout_shiping_editors_fields');
+
+        // Check if the variable is serialized
+        if (is_serialized($get_ins_add_data)) {
+            // If it's already serialized, unserialize it
+            $get_ins_data_add_editor_fl = unserialize($get_ins_add_data);
+            
+        } else {
+            // If it's not serialized, serialize it
+            $get_ins_data_add_editor_fl = $get_ins_add_data;
+        }
+        
+        $ins_address_checkout_fields = !empty($get_ins_data_add_editor_fl) ? $get_ins_data_add_editor_fl : [];
+
+        
+        foreach( $ins_address_checkout_fields as $fieldskey => $ins_field){
+            $field_origin   = $ins_field['checkout_shipping_form_field_origin'];
+
+            // Check Address Fields Origin And Set Data Accordingly 
+            if ($field_origin == 'shipping_country'){
+                $address_fields['country']['label']          = $ins_field['checkout_shipping_form_field_name'];
+                $address_fields['country']['placeholder']    = $ins_field['checkout_shipping_form_field_place'];
+                $address_fields['country']['priority']       = $fieldskey . '0';
+
+            } elseif ($field_origin == 'shipping_address_1'){
+                $address_fields['address_1']['label']        = $ins_field['checkout_shipping_form_field_name'];
+                $address_fields['address_1']['placeholder']  = $ins_field['checkout_shipping_form_field_place'];
+                $address_fields['address_1']['priority']     = $fieldskey . '0';
+
+            } elseif ($field_origin == 'shipping_address_2'){
+                $address_fields['address_2']['placeholder']  = $ins_field['checkout_shipping_form_field_place'];
+                $address_fields['address_2']['priority']     = $fieldskey . '0';
+
+            } elseif ($field_origin == 'shipping_city'){
+                $address_fields['city']['label']             = $ins_field['checkout_shipping_form_field_name'];
+                $address_fields['city']['placeholder']       = $ins_field['checkout_shipping_form_field_place'];
+                $address_fields['city']['priority']          = $fieldskey . '0';
+
+            } elseif ($field_origin == 'shipping_postcode'){
+                $address_fields['postcode']['label']         = $ins_field['checkout_shipping_form_field_name'];
+                $address_fields['postcode']['placeholder']   = $ins_field['checkout_shipping_form_field_place'];
+                $address_fields['postcode']['priority']      = $fieldskey . '0';
+            }
+
+        }
+        
+        return $address_fields;
     }
 
     function ins_shipping_unrequire_fields($fields) {
