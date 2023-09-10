@@ -12,6 +12,21 @@
 $change = [
 
         // Update  start
+       'v7' => [
+           'date'      => '24 August 2023',
+           'version'   => 'Version 3.1.2',
+           'changelog' => [
+               'Updated'   =>   [
+                   'readme.txt',
+               ],
+                'Compatibility'   =>   [
+                   'Compatibility check with WooCommerce 8.0.2',
+               ]
+           ]
+       ],
+       // Update End
+        
+        // Update  start
        'v6' => [
            'date'      => '10 August 2023',
            'version'   => 'Version 3.1.1',
@@ -59,32 +74,7 @@ $change = [
             ],
         ]
     ],
-    // Update End
-    
-    // Update Start
-    'v3' => [
-        'date'      => '09 July 2023',
-        'version'   => 'Version 3.0.2',
-        'changelog' => [
-            'Fix'   =>   [
-                'Undefined issue',
-                'Card issues fix',
-                'Card items title issues fix',
-                'Guest checkout issues fixed( Pro )',
-                'Allow user to login during checkout fixed( Pro )',
-            ],
-            
-            'New'   =>  [
-                'New Payment Added (WooCommerce Square)',
-            ],
-
-            'Improvement'   =>   [
-                'Mobile Card items title',
-            ],
-        ]
-    ],
-    // Update End
-
+    // Update End  
     
 ]
 
