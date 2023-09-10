@@ -73,13 +73,6 @@ class INSTANTIO {
 		
 			// Ins_checkout_Editor
 			require_once INS_INC_PATH . '/controller/checkout_editor.php';
-<<<<<<< HEAD
-			add_filter('woocommerce_checkout_fields', 'ins_over_checkout_billing_fields', 10);
-			add_filter('woocommerce_checkout_fields', 'ins_over_checkout_shipping_fields', 10);
-			
-=======
-
->>>>>>> 2e17b7544ab7764e58ec114355e1dfbd4a2fc60e
 		}
 
 	}
@@ -205,8 +198,8 @@ class INSTANTIO {
 
 		add_filter('woocommerce_checkout_fields', 'ins_over_checkout_billing_fields', $ins_billing_fields, 2);
 		add_filter('woocommerce_checkout_fields', 'ins_over_checkout_shipping_fields', $ins_shipping_fields, 2);
-		add_filter('woocommerce_default_address_fields', 'ins_over_checkout_billing_address', 1000);
-		add_filter('woocommerce_default_address_fields', 'ins_over_checkout_shiping_address', 1000);
+		add_filter('woocommerce_default_address_fields', 'ins_over_checkout_billing_address');
+		// add_filter('woocommerce_default_address_fields', 'ins_over_checkout_shiping_address');
 	}
 
 }

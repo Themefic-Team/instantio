@@ -126,17 +126,7 @@
 
             } elseif ($field_origin == 'billing_postcode'){
                 // $fields['billing']['billing_postcode']['label']         = $ins_field['checkout_form_field_name'];
-<<<<<<< HEAD
-
-                // Modify the zip code field label
-                $fields['billing']['billing_postcode']['label'] = 'New Zip Code Label';
-                // Ensure the label is also set for shipping postcode (if using it)
-                $fields['shipping']['shipping_postcode']['label'] = 'New Shipping Zip Code Label';
-
-                $fields['billing']['billing_postcode']['placeholder']   = $ins_field['checkout_form_field_place'];
-=======
                 // $fields['billing']['billing_postcode']['placeholder']   = $ins_field['checkout_form_field_place'];
->>>>>>> 2e17b7544ab7764e58ec114355e1dfbd4a2fc60e
 
                 // $fields['billing']['billing_postcode']['priority']      = $fieldskey . '0';
 
@@ -346,37 +336,37 @@
                 }
 
             } elseif ($field_origin == 'shipping_country'){
-                $fields['shipping']['shipping_country']['label']            = $ins_field['checkout_shipping_form_field_name'];
-                $fields['shipping']['shipping_country']['placeholder']      = $ins_field['checkout_shipping_form_field_place'];
+                // $fields['shipping']['shipping_country']['label']            = $ins_field['checkout_shipping_form_field_name'];
+                // $fields['shipping']['shipping_country']['placeholder']      = $ins_field['checkout_shipping_form_field_place'];
 
-                $fields['shipping']['shipping_country']['priority']         = $fieldskey . '0';
+                // $fields['shipping']['shipping_country']['priority']         = $fieldskey . '0';
 
                 if($field_status === false){
                     unset($fields['shipping']['shipping_country']);
                 }
 
             } elseif ($field_origin == 'shipping_address_1'){
-                $fields['shipping']['shipping_address_1']['label']          = $ins_field['checkout_shipping_form_field_name'];
-                $fields['shipping']['shipping_address_1']['placeholder']    = $ins_field['checkout_shipping_form_field_place'];
+                // $fields['shipping']['shipping_address_1']['label']          = $ins_field['checkout_shipping_form_field_name'];
+                // $fields['shipping']['shipping_address_1']['placeholder']    = $ins_field['checkout_shipping_form_field_place'];
 
-                $fields['shipping']['shipping_address_1']['priority']       = $fieldskey . '0';
+                // $fields['shipping']['shipping_address_1']['priority']       = $fieldskey . '0';
 
                 if($field_status === false){
                     unset($fields['shipping']['shipping_address_1']);
                 }
 
             } elseif ($field_origin == 'shipping_address_2'){
-                $fields['shipping']['shipping_address_2']['placeholder']    = $ins_field['checkout_shipping_form_field_place'];
+                // $fields['shipping']['shipping_address_2']['placeholder']    = $ins_field['checkout_shipping_form_field_place'];
 
-                $fields['shipping']['shipping_address_2']['priority']       = $fieldskey . '0';
+                // $fields['shipping']['shipping_address_2']['priority']       = $fieldskey . '0';
 
                 if($field_status === false){
                     unset($fields['shipping']['shipping_address_2']);
                 }
 
             } elseif ($field_origin == 'shipping_city'){
-                $fields['shipping']['shipping_city']['label']               = $ins_field['checkout_shipping_form_field_name'];
-                $fields['shipping']['shipping_city']['placeholder']         = $ins_field['checkout_shipping_form_field_place'];
+                // $fields['shipping']['shipping_city']['label']               = $ins_field['checkout_shipping_form_field_name'];
+                // $fields['shipping']['shipping_city']['placeholder']         = $ins_field['checkout_shipping_form_field_place'];
 
                 $fields['shipping']['shipping_city']['priority']            = $fieldskey . '0';
 
@@ -395,10 +385,10 @@
                 }
 
             } elseif ($field_origin == 'shipping_postcode'){
-                $fields['shipping']['shipping_postcode']['label']           = $ins_field['checkout_shipping_form_field_name'];
-                $fields['shipping']['shipping_postcode']['placeholder']     = $ins_field['checkout_shipping_form_field_place'];
+                // $fields['shipping']['shipping_postcode']['label']           = $ins_field['checkout_shipping_form_field_name'];
+                // $fields['shipping']['shipping_postcode']['placeholder']     = $ins_field['checkout_shipping_form_field_place'];
 
-                $fields['shipping']['shipping_postcode']['priority']        = $fieldskey . '0';
+                // $fields['shipping']['shipping_postcode']['priority']        = $fieldskey . '0';
 
                 if($field_status === false){
                     unset($fields['shipping']['shipping_postcode']);
