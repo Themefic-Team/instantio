@@ -152,6 +152,12 @@
 
     }
 
+    /**
+     * Get Checkout Blling Address Fields Data form Instantio And Updated.
+     * @author M Hemel Hasan
+     * @since 3.1.0
+     * @return Address,
+     */
     function ins_over_checkout_billing_address($address_fields){
         $get_ins_add_data = insopt('checkout_editors_fields');
 
@@ -402,23 +408,29 @@
 
     }
 
+    /**
+     * Get Checkout Shipping Address Fields Data form Instantio And Updated.
+     * @author M Hemel Hasan
+     * @since 3.1.0
+     * @return Address,
+     */
     function ins_over_checkout_shiping_address($address_fields){
-        $get_ins_add_data = insopt('checkout_shiping_editors_fields');
+        $get_ins_add_shipping_data = insopt('checkout_shiping_editors_fields');
 
         // Check if the variable is serialized
-        if (is_serialized($get_ins_add_data)) {
+        if (is_serialized($get_ins_add_shipping_data)) {
             // If it's already serialized, unserialize it
-            $get_ins_data_add_editor_fl = unserialize($get_ins_add_data);
+            $get_ins_data_add_shiping_fl = unserialize($get_ins_add_shipping_data);
             
         } else {
             // If it's not serialized, serialize it
-            $get_ins_data_add_editor_fl = $get_ins_add_data;
+            $get_ins_data_add_shiping_fl = $get_ins_add_shipping_data;
         }
         
-        $ins_address_checkout_fields = !empty($get_ins_data_add_editor_fl) ? $get_ins_data_add_editor_fl : [];
+        $ins_address_shiping_fields = !empty($get_ins_data_add_shiping_fl) ? $get_ins_data_add_shiping_fl : [];
 
         
-        foreach( $ins_address_checkout_fields as $fieldskey => $ins_field){
+        foreach( $ins_address_shiping_fields as $fieldskey => $ins_field){
             $field_origin   = $ins_field['checkout_shipping_form_field_origin'];
 
             // Check Address Fields Origin And Set Data Accordingly 
@@ -451,6 +463,7 @@
         
         return $address_fields;
     }
+    
 
     function ins_shipping_unrequire_fields($fields) {
 
