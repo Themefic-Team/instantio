@@ -115,14 +115,15 @@
                 }
 
             } elseif ($field_origin == 'billing_state'){
-                $fields['billing']['billing_state']['label']            = $ins_field['checkout_form_field_name'];
-                $fields['billing']['billing_state']['placeholder']      = $ins_field['checkout_form_field_place'];
+                // $fields['billing']['billing_state']['label']            = $ins_field['checkout_form_field_name'];
+                // $fields['billing']['billing_state']['placeholder']      = $ins_field['checkout_form_field_place'];
 
-                $fields['billing']['billing_state']['priority']         = $fieldskey . '0';
+                // $fields['billing']['billing_state']['priority']         = $fieldskey . '0';
 
-                if($field_status === false){
-                    unset($fields['billing']['billing_state']);
-                }
+                // if($field_status === false){
+                //     unset($fields['billing']['billing_state']);
+                // }
+                // unset($fields['billing']['billing_state']);
 
             } elseif ($field_origin == 'billing_postcode'){
                 // $fields['billing']['billing_postcode']['label']         = $ins_field['checkout_form_field_name'];
@@ -191,6 +192,14 @@
             } elseif ($field_origin == 'billing_address_2'){
                 $address_fields['address_2']['placeholder']  = $ins_field['checkout_form_field_place'];
                 $address_fields['address_2']['priority']     = $fieldskey . '0';
+
+            } elseif ($field_origin == 'billing_state'){
+                // $address_fields['billing_state']['type']        = 'select';
+                // $address_fields['billing_state']['class']       = array('form-row-wide');
+                // $address_fields['state']['required']    = $ins_field['required'];
+                $address_fields['state']['label']       = $ins_field['checkout_form_field_name'];
+                $address_fields['state']['placeholder'] = $ins_field['checkout_form_field_place'];
+                $address_fields['state']['priority']    = $fieldskey . '0';
 
             } elseif ($field_origin == 'billing_city'){
                 $address_fields['city']['label']             = $ins_field['checkout_form_field_name'];
