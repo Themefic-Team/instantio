@@ -3,9 +3,9 @@ Contributors: themefic, kamrul0424, hemelhasan, hasanet, mdrejon, mdashikul
 Tags: woocommerce, direct checkout, woocommerce checkout, floating cart, side cart, ajax cart, cart popup, popup cart, ajax add to cart, one page checkout, single page checkout, fly cart, mini cart, quick buy, instant checkout, quick checkout, same page checkout, sidebar cart, sticky cart, woocommerce quick buy, one click checkout, woocommerce one page checkout, direct checkout woocommerce, woocommerce one click checkout, woocommerce quick checkout, woocommerce express checkout, woocommerce simple checkout, skip cart page woocommerce, woocommerce cart popup, edit woocommerce checkout page, woocommerce direct checkout, checkout manager, woocommerce checkout manager, One Page Checkout, add to cart
 Requires at least: 4.0
 Tested up to: 6.3
-Stable tag: 3.1.2
+Stable tag: 3.1.3
 WC requires at least: 7.0
-WC tested up to: 8.0.2
+WC tested up to: 8.0.3
 Requires PHP: 7.2
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -42,6 +42,13 @@ All a customer has to do is add an item to the cart; a cart drawer will then app
 * <a href="https://wpinstant.io/glass-morphism">Glassmorphism Mode</a>
 * <a href="https://wpinstant.io/gradient-mode">Gradient Mode</a>
 
+<strong>Woocommerce Checkout Field Editor: </strong>
+
+Woocommerce Checkout Field Editor enables change of input label, Change input placeholder, Change field position by drag and drop, Hide input field, Change required status, and more.
+
+* <a href="https://wpinstant.io/checkout-editor/">Checkout Field Editor</a>
+
+
 = Say Goodbye to Cart Abandonment with Instantio's Instant Checkout Process =
 
 Instantio features an advanced WooCommerce Quick Checkout system that revolutionizes the online shopping experience through its innovative one-page checkout. With Instantio's streamlined process, customers can complete transactions quickly and easily, thereby reducing cart abandonment and increasing conversions.
@@ -71,6 +78,7 @@ Instantio features an advanced WooCommerce Quick Checkout system that revolution
 * Responsive Layout
 * 15+ Popular theme Compatibility
 * RTL Support
+* Woocommerce Field Editor
 
 <strong>Demo Link </strong>
 > <strong><a href="https://themefic.com/instantio/lite/" target="_blank">Check out the demo</a></strong> to see it in action!
@@ -319,6 +327,15 @@ For those seeking simplicity, Instantio provides a simplified WooCommerce checko
 16. Optimized assets - You can enable optimized settings to load optimized scripts
 
 == Changelog ==
+
+= 3.1.3 - ( September 12, 2023 ) =
+
+- Added: Checkout Editor and drag to change field position
+- Added: Reset checkout editor (Pro)
+- Improved: Cart panel view
+- Improved: Side Cart Responsive
+- Improved: Compatibility with the latest PayPal Plugin
+- Fixed: Options Panel string translatable
 
 = 3.1.2 - ( August 24, 2023 ) =
 
