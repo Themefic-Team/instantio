@@ -149,18 +149,6 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 				);
 			}
 			
-			// if ( function_exists('is_tf_pro') ) {
-			// 	//License Info submenu
-			// 	add_submenu_page(
-			// 		$this->option_id,
-			// 		__('License Info', 'instantio'),
-			// 		__('License Info', 'instantio'),
-			// 		'manage_options',
-			// 		'tf_license_info',
-			// 		array( $this,'tf_license_info_callback'),
-			// 	);
-			// }
-
 			// remove first submenu
 			remove_submenu_page( $this->option_id, $this->option_id );
 
@@ -869,8 +857,8 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 										<a href="#" class="tf-mobile-tabs"><i class="fa-solid fa-bars"></i></a>
 									</div>
 									<?php
-									$content_count = 0;
-									foreach ( $this->option_sections as $key => $section ) : ?>
+										$content_count = 0;
+										foreach ( $this->option_sections as $key => $section ) : ?>
 										<div id="<?php echo esc_attr( $key ) ?>" class="tf-tab-content <?php echo $content_count == 0 ? 'active' : ''; ?>">
 
 											<?php
@@ -887,12 +875,15 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 											endif; ?>
 
 										</div>
-										<?php $content_count ++; endforeach; ?>
+									<?php $content_count ++; endforeach; ?>
 
 										<!-- Footer -->
-										<div class="tf-option-footer">
-											<button type="submit" class="tf-admin-btn tf-btn-secondary tf-submit-btn"><?php _e( 'Save', 'instantio' ); ?></button>
-										</div>
+									<div class="tf-option-footer">
+										<button type="submit" class="tf-admin-btn tf-btn-secondary tf-submit-btn"><?php _e( 'Save', 'instantio' ); ?></button>
+									</div>
+
+									
+
 								</div>
 							</div>
 							<?php wp_nonce_field( 'tf_option_nonce_action', 'tf_option_nonce' ); ?>
@@ -905,13 +896,15 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 
 		/**
 		 * Save Options
-		 * @author Foysal
-		 */
+		 * @author M Hemel Hasan
+		*/
 		public function save_options() {
 
 			// Add nonce for security and authentication.
 			$nonce_name   = isset( $_POST['tf_option_nonce'] ) ? $_POST['tf_option_nonce'] : '';
 			$nonce_action = 'tf_option_nonce_action';
+
+			
 
 			// Check if a nonce is set.
 			if ( ! isset( $nonce_name ) ) {
@@ -971,6 +964,7 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 				delete_option( $this->option_id );
 			}
 		}
+
 
 		/*
 		 * Ajax Save Options

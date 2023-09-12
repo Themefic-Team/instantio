@@ -1014,24 +1014,56 @@
         );
 
         // Repeater Drag and  show
-        $(".tf-repeater-wrap").sortable({
-            handle: ".tf-repeater-icon-move",
-            start: function (event, ui) {
-                // turn TinyMCE off while sorting (if not, it won't work when resorted)
-                var textareaID = $(ui.item).find(".tf_wp_editor").attr("id");
-            },
-            stop: function (event, ui) {
-                // re-initialize TinyMCE when sort is completed
-                $(ui.item)
-                    .find(".tf_wp_editor")
-                    .each(function () {
-                        var textareaID = $(this).attr("id");
-                        tinyMCE.execCommand("mceRemoveEditor", false, textareaID);
-                        tinyMCE.execCommand("mceAddEditor", false, textareaID);
-                    });
+        $(".tf-repeater-wrap").each(function () {
+            var $this = $(this);
+            $($this).sortable({
+                handle: ".tf-repeater-icon-move",
+                start: function (event, ui) {
+                    // turn TinyMCE off while sorting (if not, it won't work when resorted)
+                    var textareaID = $(ui.item).find(".tf_wp_editor").attr("id");
+                },
+                stop: function (event, ui) {
+                    var count = 1;
+                    $this.find('.tf-single-repeater').each(function () {
+                        // console.log(count);
+                        var parent_field = $(this).find('input[name="tf_parent_field"]')
+                            .val();
+                        var current_field = $(this).find('input[name="tf_current_field"]')
+                            .val();
+                        var repeater_count = $(this).find('input[name="tf_repeater_count"]')
+                            .val();
 
-                // $(this).find('.update-warning').show();
-            },
+
+                        // Replace input id and name
+                        $(this).find(":input").each(function () {
+                            if ($(this).closest(".tf-single-repeater-clone").length == 0) {
+                                this.name = this.name
+                                    .replace(
+                                        "[" + current_field + "][" + repeater_count + "]",
+                                        "[" + current_field + "][" + count + "]"
+                                    );
+                                this.id = this.id
+                                    .replace(
+                                        "[" + current_field + "][" + repeater_count + "]",
+                                        "[" + current_field + "][" + count + "]"
+                                    );
+                            }
+                        });
+                        $(this).find('input[name="tf_repeater_count"]').val(count)
+                        count++;
+                    });
+                    // re-initialize TinyMCE when sort is completed
+                    $(ui.item)
+                        .find(".tf_wp_editor")
+                        .each(function () {
+                            var textareaID = $(this).attr("id");
+                            tinyMCE.execCommand("mceRemoveEditor", false, textareaID);
+                            tinyMCE.execCommand("mceAddEditor", false, textareaID);
+                        });
+
+                    // $(this).find('.update-warning').show();
+                },
+            });
         });
 
         // TAB jquery

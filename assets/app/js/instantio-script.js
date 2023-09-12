@@ -282,7 +282,6 @@
 
 				single_step_order_review_callback();
 				$('.ins-checkout-layout button[name="update_cart"]').trigger("click");
-
 			},
 		});
 
@@ -300,6 +299,13 @@
 			product_id = cart_form.find("input[name=product_id]").val() || id,
 			product_qty = cart_form.find("input[name=quantity]").val() || 1,
 			variation_id = cart_form.find("input[name=variation_id]").val() || 0;
+
+		if (cart_form.find("input[name=variation_id]").length > 0) {
+			if (variation_id == '' || variation_id == 0) {
+				return;
+			}
+		}
+
 		$.ajax({
 			url: ins_params.ajax_url,
 			type: "POST",
@@ -338,7 +344,7 @@
 				$(".ins-quick-view").hide();
 				// go back to cart page
 				$(".loader-container").addClass("active");
-				single_step_order_review_callback();
+
 				setTimeout(function () {
 					$(".loader-container").removeClass("active");
 					// go back to cart page
@@ -351,9 +357,12 @@
 					$('.ins-content').find('.step-1').show();
 					$('.ins-content').find('.step-1').addClass('active');
 				}, 1000);
+
+				single_step_order_review_callback();
+				$('.ins-checkout-layout button[name="update_cart"]').trigger("click");
 			},
 		});
-		$('.ins-checkout-layout button[name="update_cart"]').trigger("click");
+
 	});
 
 	// Add To Cart Flying Animation
@@ -662,7 +671,6 @@
 					hide_toggle_btn();
 				},
 			});
-			console.log('updated!');
 			return false;
 		}
 	);

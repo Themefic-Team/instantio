@@ -1536,6 +1536,19 @@ Ajax Loader
   transition: opacity 0.2s ease, visibility 0.2s ease;
   animation: wd-rotate 450ms infinite linear;
 }
+
+button.ins-order-remove {
+  background: #f44336 !important;
+  border: 1px solid #f44336 !important;
+  color: #fff !important;
+  padding: 2px 18px !important;
+  font-family: "lato";
+  margin-top: 6px !important;
+}
+
+#checkout_editors .checkout_reset_btn {
+  background-color: rgba(219, 82, 9, 0.1098039216);
+}
 @keyframes wd-rotate {
   100% {
     transform: rotate(360deg);
@@ -1772,6 +1785,73 @@ Custom Modal
 }
 .tf-modal .tf-modal-close:hover {
   transform: rotate(180deg);
+}
+
+/* Switch Field Custom Style
+*  @Class Name checkout_form_field_status
+*/
+.tf-field-switch.checkout_form_field_status {
+  text-align: center;
+  width: 49.5% !important;
+}
+.tf-field-switch.checkout_form_field_status label {
+  justify-content: center;
+}
+.tf-field-switch.checkout_form_field_status .tf-fieldset label {
+  width: 64px;
+}
+.tf-field-switch.checkout_form_field_status .tf-fieldset label input:checked + .tf-switch-slider {
+  background-color: #db5209;
+  border-color: transparent;
+}
+.tf-field-switch.checkout_form_field_status .tf-fieldset label input:checked + .tf-switch-slider::before {
+  background-color: #fcf9f7;
+}
+.tf-field-switch.checkout_form_field_status .tf-fieldset label .tf-switch-slider {
+  background-color: transparent;
+  border: 1px solid #140701;
+}
+.tf-field-switch.checkout_form_field_status .tf-fieldset label .tf-switch-slider::before {
+  top: 3px;
+  border-radius: 24px;
+  background-color: #140701;
+  box-shadow: 0px 0px 8px rgba(27, 25, 25, 0.3);
+  transition: all 0.4s ease-in-out;
+}
+.tf-field-switch.checkout_form_field_status .tf-fieldset label .tf-switch-slider span {
+  display: none;
+}
+
+.tf-field-switch.checkout_form_field_required {
+  text-align: center;
+  width: 49.5% !important;
+}
+.tf-field-switch.checkout_form_field_required label {
+  justify-content: center;
+}
+.tf-field-switch.checkout_form_field_required .tf-fieldset label {
+  width: 64px;
+}
+.tf-field-switch.checkout_form_field_required .tf-fieldset label input:checked + .tf-switch-slider {
+  background-color: #db5209;
+  border-color: transparent;
+}
+.tf-field-switch.checkout_form_field_required .tf-fieldset label input:checked + .tf-switch-slider::before {
+  background-color: #fcf9f7;
+}
+.tf-field-switch.checkout_form_field_required .tf-fieldset label .tf-switch-slider {
+  background-color: transparent;
+  border: 1px solid #140701;
+}
+.tf-field-switch.checkout_form_field_required .tf-fieldset label .tf-switch-slider::before {
+  top: 3px;
+  border-radius: 24px;
+  background-color: #140701;
+  box-shadow: 0px 0px 8px rgba(27, 25, 25, 0.3);
+  transition: all 0.4s ease-in-out;
+}
+.tf-field-switch.checkout_form_field_required .tf-fieldset label .tf-switch-slider span {
+  display: none;
 }
 
 body.admin_page_tf-setup-wizard {
@@ -3224,13 +3304,14 @@ Steps
   display: flex;
   width: 100%;
   padding: 8px 0;
-  background: #d8e6ff;
+  background: rgba(219, 82, 9, 0.1098039216);
   position: relative;
   border-radius: 5px 5px 0px 0px;
   align-items: center;
   cursor: pointer;
 }
 .tf-repeater .tf-repeater-header .tf-repeater-icon {
+  color: #db5209;
   padding: 8px;
   cursor: pointer;
   text-align: center;
@@ -3242,10 +3323,10 @@ Steps
   width: 24px;
 }
 .tf-repeater .tf-repeater-header .tf-repeater-icon-move {
-  color: #76a9ff;
+  color: #db5209;
 }
 .tf-repeater .tf-repeater-header .tf-repeater-icon-move:hover {
-  background-color: #c4daff;
+  background-color: rgba(228, 85, 9, 0.474);
   transition: 0.4s;
   color: #db5209;
 }
@@ -3273,6 +3354,7 @@ Steps
   font-weight: 600;
   font-size: 16px;
   line-height: 24px;
+  color: #000;
 }
 .tf-repeater .tf-repeater-header .tf-repeater-icon-absulate {
   position: absolute;
@@ -3296,7 +3378,7 @@ Steps
   line-height: 0;
   display: inline-block;
   line-height: 24px;
-  background-color: #003c79;
+  background-color: #db5209;
   border-radius: 4px;
   font-size: 16px;
   font-weight: 600;
@@ -3670,4 +3752,4 @@ Steps
 }
 .tf-field-number input::placeholder {
   color: #a6b1bf;
-}/*# sourceMappingURL=tf-options.css.map */
+}

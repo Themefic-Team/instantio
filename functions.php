@@ -1,10 +1,5 @@
-<?php 
-
-	function insopt( $option = '', $default = null ) {
-		$options = get_option( 'wiopt' ); 
-		return ( isset( $options[$option] ) ) ? $options[$option] : $default;
-	}
-
+<?php
+	// Reset Data
 	add_filter(
 		'plugin_row_meta',
 		/**
@@ -49,5 +44,46 @@
 		10,
 		2
 	);
- 
+
+	// Reset Data
+	add_action( 'wp_ajax_nopriv_ins_del_billing_fields', 'ins_del_billing_fields'  );  
+	add_action( 'wp_ajax_ins_del_billing_fields', 'ins_del_billing_fields');
+	add_action( 'wp_ajax_nopriv_ins_del_shipping_fields', 'ins_del_shipping_fields'  );  
+	add_action( 'wp_ajax_ins_del_shipping_fields', 'ins_del_shipping_fields');
+
+	function insopt( $option = '', $default = null ) {
+		$options = get_option( 'wiopt' ); 
+		return ( isset( $options[$option] ) ) ? $options[$option] : $default;
+	}
+
+
+	function ins_del_billing_fields() {
+		$ins_billing_fields = get_option('wiopt');
+
+		if (isset($ins_billing_fields['checkout_editors_fields'])) {
+			// Remove the 'checkout_editors_fields' key from the 'wiopt' option
+			unset($ins_billing_fields['checkout_editors_fields']);
+		
+			// Update the 'wiopt' option without the 'checkout_editors_fields' key
+			update_option('wiopt', $ins_billing_fields);
+		}
+
+	}
+
+
+
+	function ins_del_shipping_fields() {
+		$ins_shipping_fields = get_option('wiopt');
+
+		if (isset($ins_shipping_fields['checkout_shiping_editors_fields'])) {
+			// Remove the 'checkout_shiping_editors_fields' key from the 'wiopt' option
+			unset($ins_shipping_fields['checkout_shiping_editors_fields']);
+		
+			// Update the 'wiopt' option without the 'checkout_shiping_editors_fields' key
+			update_option('wiopt', $ins_shipping_fields);
+		}
+
+	}
+
+
 ?>

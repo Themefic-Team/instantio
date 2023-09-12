@@ -15,9 +15,9 @@ if ( ! class_exists( 'TF_date' ) ) {
 				'format'     => 'Y-m-d',
 				'range'      => false,
 				'multiple'      => false,
-				'label_from' => esc_html__( 'From', 'tourfic' ),
-				'label_to'   => esc_html__( 'To', 'tourfic' ),
-                'placeholder' => esc_html__( 'Select Date', 'tourfic' ),
+				'label_from' => esc_html__( 'From', 'instantio' ),
+				'label_to'   => esc_html__( 'To', 'instantio' ),
+                'placeholder' => esc_html__( 'Select Date', 'instantio' ),
 			) );
 
 			$value = wp_parse_args( $this->value, array(
@@ -28,7 +28,7 @@ if ( ! class_exists( 'TF_date' ) ) {
 			$format = ( ! empty( $args['format'] ) ) ? $args['format'] : 'Y-m-d';
 			$range  = ( ! empty( $args['range'] ) ) ? $args['range'] : false;
 			$multiple  = ( ! empty( $args['multiple'] ) ) ? $args['multiple'] : false;
-			$placeholder  = ( ! empty( $args['placeholder'] ) ) ? $args['placeholder'] : esc_html__( 'Select Date', 'tourfic' );
+			$placeholder  = ( ! empty( $args['placeholder'] ) ) ? $args['placeholder'] : esc_html__( 'Select Date', 'instantio' );
 
 			if ( $range ): ?>
                 <div class="tf-date-range">
