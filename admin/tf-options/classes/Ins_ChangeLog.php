@@ -11,29 +11,41 @@
 
 $change = [
 
-    // Update Start
-    'v8' => [
-        'date'      => '12 September 2023',
-        'version'   => 'Version 3.1.3',
-        'changelog' => [
-            'New'   =>   [
-                'Checkout Editor and drag to change field position',
-                'Reset checkout editor (Pro)',
-            ],
-        
-            'Improvement'   =>   [
-                'Cart panel view',
-                'Side Cart Responsive',
-                'Compatibility with the latest PayPal Plugin',
-            ],
-        
-            'Fix'   =>   [
-                ' Options Panel string translatable',
-            ],
-        ]
-    ],
-    // Update End  
-        
+        // Update Start
+        'v9' => [
+            'date'      => '12 September 2023',
+            'version'   => 'Version 3.1.4',
+            'changelog' => [
+                'New'   =>   [
+                    'Checkout Editor and drag to change field position',
+                    'Reset checkout editor (Pro)',
+                ],
+            
+                'Improvement'   =>   [
+                    'Cart panel view',
+                    'Side Cart Responsive',
+                    'Compatibility with the latest PayPal Plugin',
+                ],
+            
+                'Fix'   =>   [
+                    ' Options Panel string translatable',
+                ],
+            ]
+        ],
+        // Update End  
+    
+        // Update  start
+       'v8' => [
+           'date'      => '25 August 2023',
+           'version'   => 'Version 3.1.3',
+           'changelog' => [
+               'Updated'   =>   [
+                   'readme.txt',
+               ],
+           ]
+       ],
+       // Update End
+    
         // Update  start
        'v7' => [
            'date'      => '24 August 2023',
@@ -62,26 +74,6 @@ $change = [
        ],
        // Update End
        
-       // Update  start
-       'v5' => [
-        'date'      => '07 August 2023',
-        'version'   => 'Version 3.1.0',
-        'changelog' => [
-            'Fix'   =>   [
-                'Form label issues',
-            ], 
-            'Improvement'   =>   [
-                'Error handling', 
-                'Cart responsive Issue', 
-                'Label/Descriptions in the Settings panel (Pro)', 
-            ],
-            'New'   =>   [
-                'Single-Step Checkout (Pro)', 
-            ]
-        ]
-    ],
-    // Update End
-
     
 ]
 
