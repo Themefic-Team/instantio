@@ -11,6 +11,29 @@
 
 $change = [
 
+    // Update Start
+    'v8' => [
+        'date'      => '12 September 2023',
+        'version'   => 'Version 3.1.3',
+        'changelog' => [
+            'New'   =>   [
+                'Checkout Editor and drag to change field position',
+                'Reset checkout editor (Pro)',
+            ],
+        
+            'Improvement'   =>   [
+                'Cart panel view',
+                'Side Cart Responsive',
+                'Compatibility with the latest PayPal Plugin',
+            ],
+        
+            'Fix'   =>   [
+                ' Options Panel string translatable',
+            ],
+        ]
+    ],
+    // Update End  
+        
         // Update  start
        'v7' => [
            'date'      => '24 August 2023',
@@ -59,22 +82,6 @@ $change = [
     ],
     // Update End
 
-    // Update Start
-    'v4' => [
-        'date'      => '23 July 2023',
-        'version'   => 'Version 3.0.3',
-        'changelog' => [
-            'Fix'   =>   [
-                'Customer login collapse issues (Pro)',
-                'Cart shipping price updates in real-time',
-            ],
-        
-            'Improvement'   =>   [
-                'Cart functionality',
-            ],
-        ]
-    ],
-    // Update End  
     
 ]
 
