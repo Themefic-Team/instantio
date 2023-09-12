@@ -62,6 +62,33 @@ $change = [
        // Update End
         
         // Update  start
+       'v8' => [
+           'date'      => '25 August 2023',
+           'version'   => 'Version 3.1.3',
+           'changelog' => [
+               'Updated'   =>   [
+                   'readme.txt',
+               ]
+           ]
+       ],
+       // Update End
+
+        // Update  start
+       'v7' => [
+           'date'      => '24 August 2023',
+           'version'   => 'Version 3.1.2',
+           'changelog' => [
+               'Updated'   =>   [
+                   'readme.txt',
+               ],
+                'Compatibility'   =>   [
+                   'Compatibility check with WooCommerce 8.0.2',
+               ]
+           ]
+       ],
+       // Update End
+        
+        // Update  start
        'v6' => [
            'date'      => '10 August 2023',
            'version'   => 'Version 3.1.1',
@@ -73,7 +100,6 @@ $change = [
            ]
        ],
        // Update End
-       
     
 ]
 

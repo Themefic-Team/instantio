@@ -44,6 +44,7 @@ All a customer has to do is add an item to the cart; a cart drawer will then app
 👉 <a href="https://wpinstant.io/glass-morphism">Glassmorphism Mode</a>
 👉 <a href="https://wpinstant.io/gradient-mode">Gradient Mode</a>
 
+
 <strong>Woocommerce Checkout Field Editor: </strong>
 
 Woocommerce Checkout Field Editor enables change of input label, Change input placeholder, Change field position by drag and drop, Hide input field, Change required status, and more.
@@ -120,6 +121,7 @@ Instantio (Free) comes up with 3 different Preview Styles:
 
 = 🎉  Layout Animation =
 Instantio has couple of layout animation: 1) Default Animation 2) Fade In Animation
+
 
 = 🎉  Complete Design Panel =
 Instantio has all the design options you need:
