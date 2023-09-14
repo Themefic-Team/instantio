@@ -288,6 +288,7 @@ class App {
             // 'fragments' => apply_filters( 'ins_cart_count_fragments', array() ),
             'cart_hash' => apply_filters( 'woocommerce_add_to_cart_hash', WC()->cart->get_cart_for_session() ? md5( json_encode( WC()->cart->get_cart_for_session() ) ) : '', WC()->cart->get_cart_for_session() ),
             'data' => $data,
+            'cart_total'    => WC()->cart->get_cart_total(),
             'hide_empty' => $hide_empty,
             'display' => $display, 
             'ins_cart_count' => $ins_cart_total,
@@ -388,10 +389,11 @@ class App {
         $cart_data = ob_get_clean(); 
         
         $data = array(
-            'cart_data' => $cart_data,
-            'hide_empty' => $hide_empty,
-            'display' => $display, 
-            'cart_hash' => apply_filters( 'woocommerce_add_to_cart_hash', WC()->cart->get_cart_for_session() ? md5( json_encode( WC()->cart->get_cart_for_session() ) ) : '', WC()->cart->get_cart_for_session() )
+            'cart_data'     => $cart_data,
+            'hide_empty'    => $hide_empty,
+            'display'       => $display, 
+            
+            'cart_hash'     => apply_filters( 'woocommerce_add_to_cart_hash', WC()->cart->get_cart_for_session() ? md5( json_encode( WC()->cart->get_cart_for_session() ) ) : '', WC()->cart->get_cart_for_session() )
         );
 
         wp_send_json( $data );
