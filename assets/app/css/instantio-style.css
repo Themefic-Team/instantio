@@ -102,7 +102,7 @@
   display: none !important;
 }
 .woocommerce .ins-content .upsells.products {
-  padding-top: 0 !important;
+  padding-top: 20 !important;
   padding-bottom: 0 !important;
 }
 
@@ -2930,4 +2930,4 @@ body.rtl .ins-cart-coupon .coupon {
     width: 100%;
   }
 }
-/* End breakpoints */
+/* End breakpoints *//*# sourceMappingURL=instantio-style.css.map */
