@@ -421,6 +421,14 @@
 	});
 
 	$(document).on("click", ".single_add_to_cart_button", function () {
+		var cart_form = thisbutton.closest("form.cart");
+
+		if (cart_form.find("input[name=variation_id]").length > 0) {
+			if (variation_id == '' || variation_id == 0) {
+				return;
+			}
+		}
+		
 		if (cart_fly_anim == false) {
 			return;
 		}
