@@ -1282,12 +1282,13 @@ TF_Settings::option( 'wiopt', array(
 					'default' 		=> !empty($my_plugin_billing_fields) ? $my_plugin_billing_fields : '',
 				),
 
-				// array(
-				// 	'id'       		=> 'ins_reset_blliling_fields_button',
-				// 	'class'		 	=> 'checkout_reset_btn',
-				// 	'type'     		=> 'callback',
-				// 	'function' 		=> 'ins_reset_blliling_fields_button',
-				// ),
+				array(
+					'id'       		=> 'ins_reset_blliling_fields_button',
+					'class'		 	=> 'checkout_reset_btn',
+					'type'     		=> 'callback',
+					'function' 		=> 'ins_reset_blliling_fields_button',
+					'is_pro'		=> true,
+				),
 
 				array(
 					'id'       		=> 'checkout_shiping_editors_fields',
@@ -1330,12 +1331,13 @@ TF_Settings::option( 'wiopt', array(
 					'default' 		=> !empty($my_plugin_shipping_fields) ? $my_plugin_shipping_fields : '',
 				),
 				
-				// array(
-				// 	'id'       		=> 'ins_reset_shipping_fields_button',
-				// 	'class'		 	=> 'checkout_reset_btn',
-				// 	'type'     		=> 'callback',
-				// 	'function' 		=> 'ins_reset_shipping_fields_button',
-				// ),
+				array(
+					'id'       		=> 'ins_reset_shipping_fields_button',
+					'class'		 	=> 'checkout_reset_btn',
+					'type'     		=> 'callback',
+					'function' 		=> 'ins_reset_shipping_fields_button',
+					'is_pro'		=> true,
+				),
 			),
 		),
 	 
