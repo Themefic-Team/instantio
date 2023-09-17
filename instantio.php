@@ -8,13 +8,11 @@
  * Domain Path: /lang/
  * Author URI: https://themefic.com
  * Tags: woocommerce, direct checkout, floating cart, side cart, ajax cart, cart popup, ajax add to cart, one page checkout, single page checkout, fly cart, mini cart, quick buy, instant checkout, quick checkout, same page checkout, sidebar cart, sticky cart, woocommerce ajax, one click checkout, woocommerce one page checkout, direct checkout woocommerce, woocommerce one click checkout, woocommerce quick checkout, woocommerce express checkout, woocommerce simple checkout, skip cart page woocommerce, woocommerce cart popup, edit woocommerce checkout page, woocommerce direct checkout
-
-
- * Version: 3.1.2
-
+ * Version: 3.1.4
  * Tested up to: 6.3
  * Requires PHP: 7.2
- * WC tested up to: 8.0.2
+ * WC tested up to: 8.0.3
+
 **/
 
 // don't load directly
@@ -35,7 +33,7 @@ class INSTANTIO {
 	private function define_constants() {
 		if ( ! defined( 'INSTANTIO_VERSION' ) ) { 
 
-			define( 'INSTANTIO_VERSION', '3.1.2' ); 
+			define( 'INSTANTIO_VERSION', '3.1.4' ); 
 
 		} 
 		define( 'INS_URL', plugin_dir_url( __FILE__ ) ); 
@@ -219,6 +217,7 @@ function ins_before_woocommerce_init() {
 	}
 }
 
+
 function admin_enqueue_scripts() { 
 	wp_enqueue_style( 'ins-admin', INS_ASSETS_URL.'/admin/css/instantio-admin-style.css', array(), INSTANTIO_VERSION ); 
 	wp_enqueue_script( 'ins-admin-script', INS_ASSETS_URL.'/admin/js/instantio-admin-script.js', array('jquery'), INSTANTIO_VERSION, true ); 
@@ -230,3 +229,4 @@ function admin_enqueue_scripts() {
 		) 
 	);
 }
+

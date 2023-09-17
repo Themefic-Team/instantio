@@ -3,9 +3,9 @@ Contributors: themefic, kamrul0424, hemelhasan, hasanet, mdrejon, mdashikul
 Tags: woocommerce, direct checkout, woocommerce checkout, floating cart, side cart, ajax cart, cart popup, popup cart, ajax add to cart, one page checkout, single page checkout, fly cart, mini cart, quick buy, instant checkout, quick checkout, same page checkout, sidebar cart, sticky cart, woocommerce quick buy, one click checkout, woocommerce one page checkout, direct checkout woocommerce, woocommerce one click checkout, woocommerce quick checkout, woocommerce express checkout, woocommerce simple checkout, skip cart page woocommerce, woocommerce cart popup, edit woocommerce checkout page, woocommerce direct checkout, checkout manager, woocommerce checkout manager, One Page Checkout, add to cart
 Requires at least: 4.0
 Tested up to: 6.3
-Stable tag: 3.1.2
+Stable tag: 3.1.4
 WC requires at least: 7.0
-WC tested up to: 8.0.2
+WC tested up to: 8.0.3
 Requires PHP: 7.2
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -18,6 +18,8 @@ Checkout Instantly within 10-15 seconds using Side Cart, Popup Cart, Slide Check
 
 Instantio is a plugin designed to reduce your cart abandonment rate by streamlining the WooCommerce checkout process. With Instantio's floating cart drawer, customers can skip the cart page and proceed directly to the checkout page in an instant. The entire WooCommerce checkout process takes only 15-25 seconds—yes, you read that correctly!
 
+> <strong><a href="https://themefic.com/introducing-instantio-3-0/" target="_blank">Check out what's new</a></strong> in Instantio Version 3!
+
 All a customer has to do is add an item to the cart; a cart drawer will then appear with a checkout button. This allows for instant checkout on your WooCommerce-based store, all from a single page. Such a streamlined process encourages customers to complete their purchases and return for more shopping in the future.
 
 👉 Official Demo Link: [Instantio Live Preview](https://themefic.com/instantio/lite)
@@ -26,21 +28,28 @@ All a customer has to do is add an item to the cart; a cart drawer will then app
 
 <strong>Instantio has 8 Different WooCommerce Checkout systems: </strong>
 
-* <a href="https://wpinstant.io/popup-cart/">Popup Cart</a>
-* <a href="https://wpinstant.io/side-cart/">Side Cart</a>
-* <a href="https://wpinstant.io/floating-button/">Floating / Direct Checkout Button</a>
-* <a href="https://wpinstant.io/side-checkout">Side Checkout - Multi Step (Pro)</a>
-* <a href="https://wpinstant.io/side-checkout-single/">Side Checkout - Single Step (Pro)</a>
-* <a href="https://wpinstant.io/popup-checkout/">Popup Checkout - Multi Step (Pro)</a>
-* <a href="https://wpinstant.io/popup-checkout-single/">Popup Checkout - Single Step (Pro)</a> 
-* <a href="https://wpinstant.io/rtl-demo">Right to Left / Arabic Checkout</a>
+👉 <a href="https://wpinstant.io/popup-cart/">Popup Cart</a>
+👉 <a href="https://wpinstant.io/side-cart/">Side Cart</a>
+👉 <a href="https://wpinstant.io/floating-button/">Floating / Direct Checkout Button</a>
+👉 <a href="https://wpinstant.io/side-checkout">Side Checkout - Multi Step (Pro)</a>
+👉 <a href="https://wpinstant.io/side-checkout-single/">Side Checkout - Single Step (Pro)</a>
+👉 <a href="https://wpinstant.io/popup-checkout/">Popup Checkout - Multi Step (Pro)</a>
+👉 <a href="https://wpinstant.io/popup-checkout-single/">Popup Checkout - Single Step (Pro)</a> 
+👉 <a href="https://wpinstant.io/right-to-left/">Right to Left / Arabic Checkout</a>
 
 <strong>Each above system comes with 4 Different Mode/Theme: </strong>
 
-* <a href="https://wpinstant.io/lite-mode">Lite Mode</a>
-* <a href="https://wpinstant.io/dark-mode">Dark Mode</a>
-* <a href="https://wpinstant.io/glass-morphism">Glassmorphism Mode</a>
-* <a href="https://wpinstant.io/gradient-mode">Gradient Mode</a>
+👉 <a href="https://wpinstant.io/lite-mode">Lite Mode</a>
+👉 <a href="https://wpinstant.io/dark-mode">Dark Mode</a>
+👉 <a href="https://wpinstant.io/glass-morphism">Glassmorphism Mode</a>
+👉 <a href="https://wpinstant.io/gradient-mode">Gradient Mode</a>
+
+
+<strong>Woocommerce Checkout Field Editor: </strong>
+
+Woocommerce Checkout Field Editor enables change of input label, Change input placeholder, Change field position by drag and drop, Hide input field, Change required status, and more.
+
+👉 <a href="https://wpinstant.io/checkout-editor/">Checkout Field Editor</a>
 
 = Say Goodbye to Cart Abandonment with Instantio's Instant Checkout Process =
 
@@ -71,6 +80,7 @@ Instantio features an advanced WooCommerce Quick Checkout system that revolution
 * Responsive Layout
 * 15+ Popular theme Compatibility
 * RTL Support
+* WooCommerce Field Editor
 
 <strong>Demo Link </strong>
 > <strong><a href="https://themefic.com/instantio/lite/" target="_blank">Check out the demo</a></strong> to see it in action!
@@ -93,7 +103,7 @@ Want to know all the latest news and be a part of the Instantio community? Join 
 
 Instantio comes up with tons of awesome features:
 
-= Preview Styles / Cart Options =
+= 🎉  Preview Styles / Cart Options =
 Instantio (Free) comes up with 3 different Preview Styles:
 
 * **<a href="https://wpinstant.io/popup-cart/">Popup Cart</a>:** When a customer adds an item to the cart, a popup appears displaying a cart summary, coupon application option, and buttons for the cart and checkout. Each button directs the user to the appropriate cart or checkout page.
@@ -102,17 +112,18 @@ Instantio (Free) comes up with 3 different Preview Styles:
 
 * **<a href="https://wpinstant.io/floating-button/">Direct Checkout</a>:** If a customer selects an item, a direct-to-checkout side button appears. This button leads to the checkout page. WooCommerce Direct Checkout reduces the steps in the default WooCommerce Checkout process. This option helps store owners boost their sales by redirecting customers directly to the Checkout page. On average, the checkout process would take only 15 seconds.
 
-= Multiple Themes =
+= 🎉  Multiple Themes =
 
 * **<a href="https://wpinstant.io/lite-mode">Lite Mode</a>:** Choose a pristine white theme that works seamlessly with all the above-mentioned options.
 * **<a href="https://wpinstant.io/dark-mode">Dark Mode</a>:** Opt for a sleek dark mode, also compatible with all the settings listed.
 * **<a href="https://wpinstant.io/glass-morphism">Glassmorphism Mode</a>:** Experience Glassmorphism, a trending design style that we've incorporated into the latest version of Instantio.
 * **<a href="https://wpinstant.io/gradient-mode">Gradient Mode</a>:** Select a vibrant multi-colored gradient theme that integrates well with all existing options.
 
-= Layout Animation =
+= 🎉  Layout Animation =
 Instantio has couple of layout animation: 1) Default Animation 2) Fade In Animation
 
-= Complete Design Panel =
+
+= 🎉  Complete Design Panel =
 Instantio has all the design options you need:
 
 * Change Cart Icon Style
@@ -124,19 +135,19 @@ Instantio has all the design options you need:
 * Quick View Design option
 * Custom CSS option
 
-= Ajax Floating Cart on Single Product =
+= 🎉  Ajax Floating Cart on Single Product =
 
 With <a href='https://wpinstant.io/side-checkout/product/platform-sneakers/'>Ajax Add to Cart</a>, customers can add products to the cart without any page reload. They can do this from single-product, variable, grouped, and even virtual product pages.
 
-= Quick view on variable product with Ajax Add to Cart =
+= 🎉  Quick view on variable product with Ajax Add to Cart =
 
 This <a href='https://wpinstant.io/side-checkout/product/perfume-de-lora/'>feature</a> allows customers to choose variations of variable products directly from the Shop page and then add the product to the cart instantly.
 
-= Option & Style Panel =
+= 🎉  Option & Style Panel =
 
 Instantio has a built-in, easy-to-use options panel. You can add or remove any options from this panel. It also has a built-in color-style panel. The colors and icons' background can be easily edited from this panel.
 
-= Popular Page Builder Support =
+= 🎉  Popular Page Builder Support =
 
 Instantio is fully compatible with popular page builders like Elementor and can also be used with WP Bakery, DIVI, Beaver, etc.
 
@@ -157,9 +168,10 @@ Instantio is fully compatible with popular page builders like Elementor and can 
 
 There is also a <strong><a href='https://themefic.com/instantio/pricing/' target='_blank'>Pro Version</a></strong> of this plugin. You will get more features and advantages with the Pro Version. Here are the features of the Pro Version:
 
-* **All Free Features**
+= All Free Features =
+Instantio Pro includes all the features available on the Free Version and more. See below.
 
-= Preview / Checkout Styles =
+= 🎉  Preview / Checkout Styles =
 Instantio Pro offers four additional preview styles:
 
 * **<a href="https://wpinstant.io/side-checkout">Side Checkout - Multi Step</a>:** When a customer adds an item to the cart, a side drawer appears, displaying a cart summary, coupon application option, and a proceed-to-checkout button. Clicking this button directs you to the checkout options within the same drawer. No page reload is necessary, allowing the customer to complete checkout within 10-15 seconds!
@@ -170,43 +182,43 @@ Instantio Pro offers four additional preview styles:
 
 * **<a href="https://wpinstant.io/popup-checkout-single">Popup Checkout - Single Step </a>:** This process is similar to the above one but also features a single-step checkout, combining both cart and checkout in the same window.
 
-= Same Page Instant Checkout =
+= 🎉  Same Page Instant Checkout =
 
 As described in the options above, Instantio Pro offers a unique <a href='https://wpinstant.io/side-checkout'>Same Page Checkout</a> process that allows customers to checkout and order products instantly from the same page. With this plugin, the entire WooCommerce checkout process can be reduced to just 10-15 seconds.
 
-= No Page Reload =
+= 🎉  No Page Reload =
 
 There will be no page reload! A cart drawer will appear on the same page, allowing customers to enjoy a hassle-free, instant, one-page checkout process.
 
-= Progress Bar =
+= 🎉  Progress Bar =
 
 The Pro Version comes with four different progress bars to choose from.
 
-= Disable Instantio Icon =
+= 🎉  Disable Instantio Icon =
 
 You can disable the Instantio icon on particular pages.
 
-= Ajax Side Cart =
+= 🎉  Ajax Side Cart =
 
 Instantio Pro offers a side cart that allows users to access cart items from anywhere on your site. When a visitor adds a product to the cart, Instantio's off-canvas cart page slides in to provide a one-click & express checkout system for WooCommerce. Visitors can easily add or remove product quantities in the side cart.
 
-= Disable Quick View & Ajax Add to Cart =
+= 🎉  Disable Quick View & Ajax Add to Cart =
 
 You can disable the Quick View option and the Ajax Add to Cart option.
 
-= Upsell =
+= 🎉  Upsell =
 
 Instantio offers a powerful Upsell feature that allows you to increase your sales and revenue by offering additional products during the checkout process. See it in action in this <a href='https://wpinstant.io/upsells/'>Preview Demo</a>.
 
-= Cross Sell =
+= 🎉  Cross Sell =
 
 Instantio offers a powerful Cross-Sell feature that allows you to increase your sales and revenue by offering additional products during the checkout process. See it in action in this <a href='https://wpinstant.io/cross-sells/'>Preview Demo</a>.
 
-= Dedicated Mobile Version =
+= 🎉  Dedicated Mobile Version =
 
 Although Instantio is fully responsive by default, Instantio Pro offers a dedicated mobile version for mobile users.
 
-= Optimization =
+= 🎉  Optimization =
 
 You have the option to enable or disable JS minification for Instantio.
 
@@ -319,6 +331,19 @@ For those seeking simplicity, Instantio provides a simplified WooCommerce checko
 16. Optimized assets - You can enable optimized settings to load optimized scripts
 
 == Changelog ==
+
+= 3.1.4 - ( September 12, 2023 ) =
+
+- Added: Checkout Editor and drag to change field position
+- Added: Reset checkout editor (Pro)
+- Improved: Cart panel view
+- Improved: Side Cart Responsive
+- Improved: Compatibility with the latest PayPal Plugin
+- Fixed: Options Panel string translatable
+
+= 3.1.3 - ( August 25, 2023 ) =
+
+- Updated: readme.txt
 
 = 3.1.2 - ( August 24, 2023 ) =
 
