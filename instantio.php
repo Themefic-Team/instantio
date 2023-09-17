@@ -94,7 +94,6 @@ class INSTANTIO {
 	public function init() {    
 		add_action( 'init', array( $this, 'tf_plugin_loaded_action' ) );
 
-
 		if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
             new INS\Controller\Assets();
         }
@@ -209,6 +208,7 @@ class INSTANTIO {
 
 new INSTANTIO();
 
+add_action( 'admin_enqueue_scripts', 'admin_enqueue_scripts');
 add_action( 'before_woocommerce_init', 'ins_before_woocommerce_init');
 
 function ins_before_woocommerce_init() {
@@ -216,3 +216,17 @@ function ins_before_woocommerce_init() {
 		\Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'custom_order_tables', __FILE__, true );
 	}
 }
+
+
+function admin_enqueue_scripts() { 
+	wp_enqueue_style( 'ins-admin', INS_ASSETS_URL.'/admin/css/instantio-admin-style.css', array(), INSTANTIO_VERSION ); 
+	wp_enqueue_script( 'ins-admin-script', INS_ASSETS_URL.'/admin/js/instantio-admin-script.js', array('jquery'), INSTANTIO_VERSION, true ); 
+
+	wp_localize_script( 'ins-admin-script', 'tf_admin_params', 
+		array( 
+			'ins_nonce' => wp_create_nonce( 'updates' ),
+			'ajax_url' => admin_url( 'admin-ajax.php' ),
+		) 
+	);
+}
+
