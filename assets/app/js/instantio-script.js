@@ -3,6 +3,9 @@
 
 	//Single Layout
 	function single_step_order_review_callback() {
+		if (inslayoutstep == false) {
+			return;
+		}
 		$('.ins-cart-inner.shipping input').each(function () {
 			var value = $(this).val();
 			if (value != '') {
@@ -228,7 +231,7 @@
 	}
 
 	// Ajax Add To Cart
-	$(document.body).on("added_to_cart", function () {
+	$(document.body).on("click", ".added_to_cart, .ajax_add_to_cart", function () {
 		var thisbutton = $(this);
 		$.ajax({
 			url: ins_params.ajax_url,
@@ -428,7 +431,7 @@
 				return;
 			}
 		}
-		
+
 		if (cart_fly_anim == false) {
 			return;
 		}
@@ -663,7 +666,7 @@
 				},
 				success: function (response) {
 					// console.log(response);
-					console.log(response.data);
+					// console.log(response.data);
 					$("#ins_cart_totals").html(response.data.ins_cart_count);
 					$("#ins-mobile-cart-total-amount").html(response.data.cart_total);
 					if (response.data.display == "ins-show") {

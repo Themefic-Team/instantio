@@ -470,8 +470,15 @@ class App {
 		}
         
         // checked is page seleted or not
-        $ins_page_selected = !empty(insopt( 'ins-page-selected' )) ? insopt( 'ins-page-selected' ) : array( 'cart', 'checkout' );
-        $pages = array_values($ins_page_selected);
+        $ins_page_selected = insopt('ins-page-selected'); // Retrieve the option value
+
+        if (!empty($ins_page_selected) && is_array($ins_page_selected)) {
+            // The option value is an array, so you can proceed with array operations
+            $pages = array_values($ins_page_selected);
+        } else {
+            // Handle the case where the option value is not an array (e.g., set a default value)
+            $pages = array('cart', 'checkout');
+        }
 
         // Return is particular page seleted
 		if ( class_exists( 'woocommerce' ) ) {
