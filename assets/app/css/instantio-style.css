@@ -2869,6 +2869,7 @@ body.rtl .ins-cart-coupon .coupon {
   .ins-cart-coupon .coupon button {
     width: 45%;
     font-size: 11px;
+    line-height: 11px;
   }
   .ins-cart-coupon .coupon input,
   .ins-cart-coupon .coupon button {
@@ -2930,4 +2931,4 @@ body.rtl .ins-cart-coupon .coupon {
     width: 100%;
   }
 }
-/* End breakpoints *//*# sourceMappingURL=instantio-style.css.map */
+/* End breakpoints */
