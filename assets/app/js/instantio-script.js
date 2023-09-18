@@ -3,9 +3,6 @@
 
 	//Single Layout
 	function single_step_order_review_callback() {
-		if (inslayoutstep == false) {
-			return;
-		}
 		$('.ins-cart-inner.shipping input').each(function () {
 			var value = $(this).val();
 			if (value != '') {
@@ -231,7 +228,7 @@
 	}
 
 	// Ajax Add To Cart
-	$(document.body).on("click", ".added_to_cart, .ajax_add_to_cart", function () {
+	$(document.body).on("added_to_cart", function () {
 		var thisbutton = $(this);
 		$.ajax({
 			url: ins_params.ajax_url,
@@ -282,9 +279,8 @@
 					$('.ins-content').find('.step-1').show();
 					$('.ins-content').find('.step-1').addClass('active');
 				}, 1000);
-
-				single_step_order_review_callback();
 				$('.ins-checkout-layout button[name="update_cart"]').trigger("click");
+				single_step_order_review_callback();
 			},
 		});
 
