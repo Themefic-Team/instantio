@@ -518,7 +518,6 @@
   border-radius: 50%;
   text-align: center;
   letter-spacing: -1px;
-  font-size: 14px;
   font-weight: bold;
   line-height: 28px;
   transition: 0.5s;
@@ -1027,6 +1026,7 @@
 .ins-cart-coupon .coupon input {
   width: 100% !important;
   margin: 0 !important;
+  padding: 10px !important;
 }
 .ins-cart-coupon > div {
   width: 100% !important;
