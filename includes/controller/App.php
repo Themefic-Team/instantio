@@ -94,6 +94,7 @@ class App {
     public function ins_cart_modern_header() {
 
         $ins_single_layout = !empty(insopt( 'ins-layout-step' )) ? insopt( 'ins-layout-step' ) : false;
+        
 
         ob_start(); 
         ?>
@@ -486,7 +487,7 @@ class App {
     			return;
     		}
 		}
-        
+       
         $toggle_position = isset(insopt( 'ins-toggle-tab' )['toggle-position'])  ? insopt( 'ins-toggle-tab' )['toggle-position'] : 'right-bottom';
 
         // checked is single step
@@ -512,8 +513,8 @@ class App {
         
         
         // Dedicated mobile Version hook for
-
         do_action( 'dedicated_mobile_version' ); 
+
         ob_start(); 
         if( $this->layout == 1 ||  $this->layout == 3):
         ?>

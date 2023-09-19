@@ -292,6 +292,10 @@ Custom Modal
   }
 }
 
+.tf-field-inline {
+  display: inline-block;
+}
+
 .tf-field-switch {
   &.checkout_form_field_required {
     text-align: center;

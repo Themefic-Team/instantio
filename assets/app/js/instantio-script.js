@@ -574,6 +574,13 @@
 					// Hide toggle button if empty cart
 					hide_toggle_btn();
 				}, 400);
+
+				// Progress bar hide if cart is empty 
+				if (response.data.ins_cart_count === 0) {
+					$(".ins-checkout-steps").addClass("hide");
+				} else {
+					$(".ins-checkout-steps").removeClass("hide");
+				}
 			},
 		});
 	});
@@ -607,6 +614,12 @@
 				single_step_order_review_callback();
 				// Hide toggle button if empty cart
 				hide_toggle_btn();
+				// Progress bar hide if cart is empty 
+				if (response.data.ins_cart_count === 0) {
+					$(".ins-checkout-steps").addClass("hide");
+				} else {
+					$(".ins-checkout-steps").removeClass("hide");
+				}
 			},
 		});
 	});
@@ -665,6 +678,14 @@
 					// console.log(response.data);
 					$("#ins_cart_totals").html(response.data.ins_cart_count);
 					$("#ins-mobile-cart-total-amount").html(response.data.cart_total);
+
+					// Progress bar hide if cart is empty 
+					if (response.data.ins_cart_count === 0) {
+						$(".ins-checkout-steps").addClass("hide");
+					} else {
+						$(".ins-checkout-steps").removeClass("hide");
+					}
+
 					if (response.data.display == "ins-show") {
 						$(".ins-checkout-layout .ins-content").removeClass("hide");
 						single_step_order_review_callback();
