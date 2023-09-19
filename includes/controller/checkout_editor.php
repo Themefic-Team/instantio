@@ -3,8 +3,7 @@
     // Filter Action
     add_filter('woocommerce_billing_fields', 'ins_billing_unrequire_fields');
     add_filter('woocommerce_shipping_fields', 'ins_shipping_unrequire_fields');
-
-
+    add_filter('woocommerce_checkout_fields' , 'ins_override_ordernote_fields' );
 
     /**
      * Get Billing Checkout Fields Data form Instantio.
@@ -317,7 +316,6 @@
 
             $field_status   = (isset($ins_field['checkout_shipping_form_field_status']) && $ins_field['checkout_shipping_form_field_status'] === '1') ? true : false;
 
-
             // All Fields
             // Check All Fields Origin And Set Data Accordingly 
             if($field_origin == 'shipping_first_name'){
@@ -410,6 +408,8 @@
                 }
 
             }
+
+            // var_dump($ins_field);
 
         }
 
@@ -576,6 +576,19 @@
             <div class="clear"></div>
         ';
     }
+
+
+    function ins_override_ordernote_fields($fields) {
+
+        $order_note_label = isset(insopt( 'order_note_editor' )['order_note_field_label']) ? insopt( 'order_note_editor' )['order_note_field_label'] : 'Order notes';
+        $order_note_place = isset(insopt( 'order_note_editor' )['order_note_field_placeh']) ? insopt( 'order_note_editor' )['order_note_field_placeh'] : 'Notes about your order, e.g. special notes for delivery.';
+
+        $fields['order']['order_comments']['label'] = $order_note_label;
+        $fields['order']['order_comments']['placeholder'] = $order_note_place;
+
+        return $fields;
+    }
+    
 
     
 
