@@ -124,16 +124,6 @@
                 // }
                 // unset($fields['billing']['billing_state']);
 
-            } elseif ($field_origin == 'billing_postcode'){
-                // $fields['billing']['billing_postcode']['label']         = $ins_field['checkout_form_field_name'];
-                // $fields['billing']['billing_postcode']['placeholder']   = $ins_field['checkout_form_field_place'];
-
-                // $fields['billing']['billing_postcode']['priority']      = $fieldskey . '0';
-
-                if($field_status === false){
-                    unset($fields['billing']['billing_postcode']);
-                }
-
             } elseif ($field_origin == 'billing_phone'){
                 $fields['billing']['billing_phone']['label']             = $ins_field['checkout_form_field_name'];
                 $fields['billing']['billing_phone']['placeholder']       = $ins_field['checkout_form_field_place'];
@@ -144,7 +134,11 @@
                     unset($fields['billing']['billing_phone']);
                 }
 
-            }
+            } 
+            // elseif ($field_origin == 'billing_postcode'){
+            //     $fields['billing']['billing_postcode']['label']             = $ins_field['checkout_form_field_name'];
+            //     $fields['billing']['billing_postcode']['placeholder']       = $ins_field['checkout_form_field_place'];
+            // }
 
         }
 
@@ -176,7 +170,9 @@
         
         foreach( $ins_address_checkout_fields as $fieldskey => $ins_field){
             $field_origin   = $ins_field['checkout_form_field_origin'];
-
+            $field_status   = (isset($ins_field['checkout_form_field_status']) && $ins_field['checkout_form_field_status'] === '1') ? true : false;
+            $required = (isset($ins_field['required']) && $ins_field['required'] === '1') ? true : false;
+             
             // Check Address Fields Origin And Set Data Accordingly 
             if ($field_origin == 'billing_country'){
                 $address_fields['country']['label']          = $ins_field['checkout_form_field_name'];
@@ -209,6 +205,10 @@
                 $address_fields['postcode']['label']         = $ins_field['checkout_form_field_name'];
                 $address_fields['postcode']['placeholder']   = $ins_field['checkout_form_field_place'];
                 $address_fields['postcode']['priority']      = $fieldskey . '0';
+                $address_fields['postcode']['required']      = $required;
+                if($field_status === false){
+                    unset($address_fields['postcode']);
+                }
             }
 
         }

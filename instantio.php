@@ -197,9 +197,9 @@ class INSTANTIO {
 		$ins_billing_fields  = apply_filters('ins_billing_fields_priority', 1000);
 		$ins_shipping_fields = apply_filters('ins_shipping_fields_priority', 1000);
 
+		add_filter('woocommerce_default_address_fields', 'ins_over_checkout_billing_address', $ins_billing_fields, 2);
 		add_filter('woocommerce_checkout_fields', 'ins_over_checkout_billing_fields', $ins_billing_fields, 2);
 		add_filter('woocommerce_checkout_fields', 'ins_over_checkout_shipping_fields', $ins_shipping_fields, 2);
-		add_filter('woocommerce_default_address_fields', 'ins_over_checkout_billing_address');
 		// add_filter('woocommerce_default_address_fields', 'ins_over_checkout_shiping_address');
 	}
 
