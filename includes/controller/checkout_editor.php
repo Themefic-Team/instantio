@@ -407,6 +407,15 @@
                     unset($fields['shipping']['shipping_postcode']);
                 }
 
+            } elseif($field_origin == 'ins_cus_shipingfield_origin1'){
+                $fields['shipping']['ins_cus_shipingfield_origin1'] = array(
+                    'label'     => __($ins_field['checkout_shipping_form_field_name'], 'woocommerce'),
+                    'placeholder'   => _x($ins_field['checkout_shipping_form_field_place'], 'placeholder', 'woocommerce'),
+                    // 'required'  => $required,
+                    'priority'  => $fieldskey . '0',
+                    'class'     => array('form-row-wide'),
+                    'clear'     => true
+                    );
             }
 
             // var_dump($ins_field);
@@ -538,6 +547,17 @@
 
     }
 
+    function ins_override_ordernote_fields($fields) {
+
+        $order_note_label = isset(insopt( 'order_note_editor' )['order_note_field_label']) ? insopt( 'order_note_editor' )['order_note_field_label'] : 'Order notes';
+        $order_note_place = isset(insopt( 'order_note_editor' )['order_note_field_placeh']) ? insopt( 'order_note_editor' )['order_note_field_placeh'] : 'Notes about your order, e.g. special notes for delivery.';
+
+        $fields['order']['order_comments']['label'] = $order_note_label;
+        $fields['order']['order_comments']['placeholder'] = $order_note_place;
+
+        return $fields;
+    }
+
 
     /**
      * Reset blliling Fields Data form Instantio.
@@ -576,21 +596,5 @@
             <div class="clear"></div>
         ';
     }
-
-
-    function ins_override_ordernote_fields($fields) {
-
-        $order_note_label = isset(insopt( 'order_note_editor' )['order_note_field_label']) ? insopt( 'order_note_editor' )['order_note_field_label'] : 'Order notes';
-        $order_note_place = isset(insopt( 'order_note_editor' )['order_note_field_placeh']) ? insopt( 'order_note_editor' )['order_note_field_placeh'] : 'Notes about your order, e.g. special notes for delivery.';
-
-        $fields['order']['order_comments']['label'] = $order_note_label;
-        $fields['order']['order_comments']['placeholder'] = $order_note_place;
-
-        return $fields;
-    }
-    
-
-    
-
 
 ?>

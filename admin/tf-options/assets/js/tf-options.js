@@ -712,6 +712,14 @@
                 $(this).remove();
             });
 
+            add_value.find(':input[name="wiopt[checkout_shiping_editors_fields][' + count + '][checkout_shipping_form_field_origin]"]').val('ins_cus_shipingfield_origin' + custom_field_serial);
+
+            var dddd = add_value.find(':input[name="wiopt[checkout_shiping_editors_fields][' + count + '][checkout_shipping_form_field_origin]"]').val();
+
+            console.log(dddd);
+
+            add_value.addClass("tf-single-repeater_added");
+
             // Update Data Append value
             var append = $this_parent.find(".tf-repeater-wrap-" + id + "");
 
