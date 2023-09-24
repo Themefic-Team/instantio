@@ -555,6 +555,7 @@
          */
         $(document).on("click", ".tf-repeater-icon-add", function () {
             var $this = $(this);
+            var custom_field_serial = 1;
             var $this_parent = $this.parent().parent();
             var id = $(this).attr("data-repeater-id");
             var max = $(this).attr("data-repeater-max");
