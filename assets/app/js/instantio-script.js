@@ -366,10 +366,18 @@
 
 	// Add To Cart Flying Animation
 	$(document).on("click", ".add_to_cart_button", function () {
+
+		var currentScreenSize = $(window).width() < 577;
+
+		if (currentScreenSize == true) {
+			return;
+		}
+
 		if (cart_fly_anim == false) {
 			ins_cart_icon_animation();
 			return;
 		}
+
 		if ($(this).hasClass("product_type_variable")) {
 			return;
 		}
