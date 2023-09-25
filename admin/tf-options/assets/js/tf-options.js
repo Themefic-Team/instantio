@@ -555,7 +555,6 @@
          */
         $(document).on("click", ".tf-repeater-icon-add", function () {
             var $this = $(this);
-            var custom_field_serial = 1;
             var $this_parent = $this.parent().parent();
             var id = $(this).attr("data-repeater-id");
             var max = $(this).attr("data-repeater-max");
@@ -567,6 +566,7 @@
             var count = $this_parent.find(
                 ".tf-repeater-wrap-" + id + " .tf-single-repeater-" + id + ""
             ).length;
+            var countplus = count + 1;
             var parent_field = add_value.find(':input[name="tf_parent_field"]').val();
             var current_field = add_value
                 .find(':input[name="tf_current_field"]')
@@ -713,11 +713,13 @@
                 $(this).remove();
             });
 
-            add_value.find(':input[name="wiopt[checkout_shiping_editors_fields][' + count + '][checkout_shipping_form_field_origin]"]').val('ins_cus_shipingfield_origin' + custom_field_serial);
+            // add_value.find(':input[name="wiopt[checkout_shiping_editors_fields][' + count + '][checkout_shipping_form_field_origin]"]').val('ins_cus_shipingfield_origin' + custom_field_serial);
 
-            var dddd = add_value.find(':input[name="wiopt[checkout_shiping_editors_fields][' + count + '][checkout_shipping_form_field_origin]"]').val();
+            add_value.find(':input[name="wiopt[checkout_shiping_editors_fields][' + count + '][checkout_shipping_form_field_origin]"]').attr('value', 'ins_cus_shipingfield_origin' + countplus);
 
-            console.log(dddd);
+            // var dddd = add_value.find(':input[name="wiopt[checkout_shiping_editors_fields][' + count + '][checkout_shipping_form_field_origin]"]').val();
+
+            // console.log(dddd);
 
             add_value.addClass("tf-single-repeater_added");
 
@@ -749,6 +751,7 @@
 
             // repeater dependency repeater
             TF_dependency();
+            orderingchang($this_parent.find('.tf-repeater-wrap'));
         });
 
         // Repeater Delete Value
@@ -1022,6 +1025,38 @@
             }
         );
 
+        function orderingchang($this) {
+            var count = 1;
+            $this.find('.tf-single-repeater').each(function () {
+                // console.log(count);
+                var parent_field = $(this).find('input[name="tf_parent_field"]')
+                    .val();
+                var current_field = $(this).find('input[name="tf_current_field"]')
+                    .val();
+                var repeater_count = $(this).find('input[name="tf_repeater_count"]')
+                    .val();
+
+
+                // Replace input id and name
+                $(this).find(":input").each(function () {
+                    if ($(this).closest(".tf-single-repeater-clone").length == 0) {
+                        this.name = this.name
+                            .replace(
+                                "[" + current_field + "][" + repeater_count + "]",
+                                "[" + current_field + "][" + count + "]"
+                            );
+                        this.id = this.id
+                            .replace(
+                                "[" + current_field + "][" + repeater_count + "]",
+                                "[" + current_field + "][" + count + "]"
+                            );
+                    }
+                });
+                $(this).find('input[name="tf_repeater_count"]').val(count)
+                count++;
+            });
+        }
+
         // Repeater Drag and  show
         $(".tf-repeater-wrap").each(function () {
             var $this = $(this);
@@ -1032,35 +1067,7 @@
                     var textareaID = $(ui.item).find(".tf_wp_editor").attr("id");
                 },
                 stop: function (event, ui) {
-                    var count = 1;
-                    $this.find('.tf-single-repeater').each(function () {
-                        // console.log(count);
-                        var parent_field = $(this).find('input[name="tf_parent_field"]')
-                            .val();
-                        var current_field = $(this).find('input[name="tf_current_field"]')
-                            .val();
-                        var repeater_count = $(this).find('input[name="tf_repeater_count"]')
-                            .val();
-
-
-                        // Replace input id and name
-                        $(this).find(":input").each(function () {
-                            if ($(this).closest(".tf-single-repeater-clone").length == 0) {
-                                this.name = this.name
-                                    .replace(
-                                        "[" + current_field + "][" + repeater_count + "]",
-                                        "[" + current_field + "][" + count + "]"
-                                    );
-                                this.id = this.id
-                                    .replace(
-                                        "[" + current_field + "][" + repeater_count + "]",
-                                        "[" + current_field + "][" + count + "]"
-                                    );
-                            }
-                        });
-                        $(this).find('input[name="tf_repeater_count"]').val(count)
-                        count++;
-                    });
+                    orderingchang();
                     // re-initialize TinyMCE when sort is completed
                     $(ui.item)
                         .find(".tf_wp_editor")
