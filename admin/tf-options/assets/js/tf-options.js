@@ -564,7 +564,6 @@
             var fielddeteck = $this.find('.tf-repeater-content-wrap').find(':input[value="added"]');
 
             if (fielddeteck.length) {
-                console.log(fielddeteck.length);
                 fielddeteck.parent().parent().parent().parent().children('.tf-repeater-header').children('.tf-repeater-icon-absulate').children('.tf-repeater-icon-delete').css("display", "inline-block");
             }
         });
@@ -574,7 +573,6 @@
             var fielddeteck = $this.find('.tf-repeater-content-wrap').find(':input[value="added"]');
 
             if (fielddeteck.length) {
-                console.log(fielddeteck.length);
                 fielddeteck.parent().parent().parent().parent().children('.tf-repeater-header').children('.tf-repeater-icon-absulate').children('.tf-repeater-icon-delete').css("display", "inline-block");
             }
         });
