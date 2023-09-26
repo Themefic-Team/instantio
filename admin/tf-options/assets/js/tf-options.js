@@ -167,6 +167,7 @@
                 .siblings()
                 .removeClass("current");
         });
+
         $('.tf-tablinks').each(function () {
             let $this = $(this);
             let tabId = $this.attr("data-tab");
@@ -174,6 +175,7 @@
                 $this.trigger('click');
             }
         });
+
         /*
          * Submenu toggle
          * @author: Foysal
@@ -339,10 +341,12 @@
                 $("body").addClass("tf-modal-open");
             }
         });
+
         $(document).on("click", ".tf-modal-close", function () {
             $(".tf-modal").removeClass("tf-modal-show");
             $("body").removeClass("tf-modal-open");
         });
+
         $(document).on("click", function (event) {
             if (!$(event.target).closest(".tf-modal-content,.tf-modal-btn").length) {
                 $("body").removeClass("tf-modal-open");
@@ -549,6 +553,81 @@
             TF_wp_editor($id);
         });
 
+
+
+        /*
+         * Add New Repeater Item Has Delete Options
+         * @author: Hemel Hasan
+         */
+        $(".tf-single-repeater.tf-single-repeater-checkout_shiping_editors_fields").each(function () {
+            var $this = $(this);
+            var fielddeteck = $this.find('.tf-repeater-content-wrap').find(':input[value="added"]');
+
+            if (fielddeteck.length) {
+                console.log(fielddeteck.length);
+                fielddeteck.parent().parent().parent().parent().children('.tf-repeater-header').children('.tf-repeater-icon-absulate').children('.tf-repeater-icon-delete').css("display", "inline-block");
+            }
+        });
+
+        $(".tf-single-repeater.tf-single-repeater-checkout_editors_fields").each(function () {
+            var $this = $(this);
+            var fielddeteck = $this.find('.tf-repeater-content-wrap').find(':input[value="added"]');
+
+            if (fielddeteck.length) {
+                console.log(fielddeteck.length);
+                fielddeteck.parent().parent().parent().parent().children('.tf-repeater-header').children('.tf-repeater-icon-absulate').children('.tf-repeater-icon-delete').css("display", "inline-block");
+            }
+        });
+
+        /*
+        * Repeater Item Logic
+        * @author: Hemel Hasan
+        */
+        function orderingchang($this) {
+            var count = 1;
+            $this.find('.tf-single-repeater').each(function () {
+                // console.log(count);
+                var parent_field = $(this).find('input[name="tf_parent_field"]')
+                    .val();
+                var current_field = $(this).find('input[name="tf_current_field"]')
+                    .val();
+                var repeater_count = $(this).find('input[name="tf_repeater_count"]')
+                    .val();
+
+
+                // Replace input id and name
+                $(this).find(":input").each(function () {
+                    if ($(this).closest(".tf-single-repeater-clone").length == 0) {
+                        this.name = this.name
+                            .replace(
+                                "[" + current_field + "][" + repeater_count + "]",
+                                "[" + current_field + "][" + count + "]"
+                            );
+                        this.id = this.id
+                            .replace(
+                                "[" + current_field + "][" + repeater_count + "]",
+                                "[" + current_field + "][" + count + "]"
+                            );
+                    }
+                });
+                // Update Repeaterr label
+                $(this).find("label").each(function () {
+                    var for_value = $(this).attr("for");
+                    if (typeof for_value !== "undefined") {
+                        for_value = for_value
+                            .replace(
+                                "[" + current_field + "][" + repeater_count + "]",
+                                "[" + current_field + "][" + count + "]"
+                            );
+                        $(this).attr("for", for_value);
+                    }
+                });
+                $(this).find('input[name="tf_repeater_count"]').val(count)
+                count++;
+            });
+        }
+
+
         /*
          * Add New Repeater Item
          * @author: Sydur
@@ -566,7 +645,8 @@
             var count = $this_parent.find(
                 ".tf-repeater-wrap-" + id + " .tf-single-repeater-" + id + ""
             ).length;
-            var countplus = count + 1;
+
+            var countpuls = count + 1;
             var parent_field = add_value.find(':input[name="tf_parent_field"]').val();
             var current_field = add_value
                 .find(':input[name="tf_current_field"]')
@@ -578,7 +658,7 @@
                 $this_parent
                     .find(".tf-repeater-wrap")
                     .append(
-                        '<div class="tf-field-notice-inner tf-notice-danger" style="display: block;">You have reached limit in free version. Please subscribe to Pro for unlimited access</div>'
+                        '<div class="tf-field-notice-inner tf-notice-danger" style="display: block;">You have reached the checkout editor field limit. We will increase the limit in future.</div>'
                     );
                 return false;
             }
@@ -715,7 +795,9 @@
 
             // add_value.find(':input[name="wiopt[checkout_shiping_editors_fields][' + count + '][checkout_shipping_form_field_origin]"]').val('ins_cus_shipingfield_origin' + custom_field_serial);
 
-            add_value.find(':input[name="wiopt[checkout_shiping_editors_fields][' + count + '][checkout_shipping_form_field_origin]"]').attr('value', 'ins_cus_shipingfield_origin' + countplus);
+            add_value.find(':input[name="wiopt[checkout_shiping_editors_fields][' + count + '][checkout_shipping_form_field_origin]"]').attr('value', 'ins_cus_shipingfield_origin' + countpuls);
+
+            add_value.find(':input[name="wiopt[checkout_editors_fields][' + count + '][checkout_form_field_origin]"]').attr('value', 'ins_cus_billingfield_origin' + countpuls);
 
             // var dddd = add_value.find(':input[name="wiopt[checkout_shiping_editors_fields][' + count + '][checkout_shipping_form_field_origin]"]').val();
 
@@ -748,6 +830,21 @@
                 var $this = $(this);
                 tfSelect2Int($this);
             });
+
+            // tf-field-switch
+            // add_value.find(".tf-field-switch").each(function () {
+            //     var switchlabel = this.find('.tf-fieldset').find('label');
+            //     var for_value = switchlabel.attr("for");
+            //     if (typeof for_value !== "undefined") {
+            //         for_value = for_value
+            //             .replace("_____", "")
+            //             .replace(
+            //                 "[" + current_field + "][00]",
+            //                 "[" + current_field + "][" + count + "]"
+            //             );
+            //         $(this).attr("for", for_value);
+            //     }
+            // });
 
             // repeater dependency repeater
             TF_dependency();
@@ -793,7 +890,7 @@
             // Chacked maximum repeater
             if (max != "" && count >= max) {
                 $this_parent.append(
-                    '<div class="tf-field-notice-inner tf-notice-danger" style="display: block;">You have reached limit in free version. Please subscribe to Pro for unlimited access</div>'
+                    '<div class="tf-field-notice-inner tf-notice-danger" style="display: block;">You have reached the checkout editor field limit. We will increase the limit in future.</div>'
                 );
                 return false;
             }
@@ -1025,38 +1122,6 @@
             }
         );
 
-        function orderingchang($this) {
-            var count = 1;
-            $this.find('.tf-single-repeater').each(function () {
-                // console.log(count);
-                var parent_field = $(this).find('input[name="tf_parent_field"]')
-                    .val();
-                var current_field = $(this).find('input[name="tf_current_field"]')
-                    .val();
-                var repeater_count = $(this).find('input[name="tf_repeater_count"]')
-                    .val();
-
-
-                // Replace input id and name
-                $(this).find(":input").each(function () {
-                    if ($(this).closest(".tf-single-repeater-clone").length == 0) {
-                        this.name = this.name
-                            .replace(
-                                "[" + current_field + "][" + repeater_count + "]",
-                                "[" + current_field + "][" + count + "]"
-                            );
-                        this.id = this.id
-                            .replace(
-                                "[" + current_field + "][" + repeater_count + "]",
-                                "[" + current_field + "][" + count + "]"
-                            );
-                    }
-                });
-                $(this).find('input[name="tf_repeater_count"]').val(count)
-                count++;
-            });
-        }
-
         // Repeater Drag and  show
         $(".tf-repeater-wrap").each(function () {
             var $this = $(this);
@@ -1067,7 +1132,7 @@
                     var textareaID = $(ui.item).find(".tf_wp_editor").attr("id");
                 },
                 stop: function (event, ui) {
-                    orderingchang();
+                    orderingchang($this);
                     // re-initialize TinyMCE when sort is completed
                     $(ui.item)
                         .find(".tf_wp_editor")

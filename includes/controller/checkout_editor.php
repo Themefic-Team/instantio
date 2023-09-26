@@ -32,10 +32,10 @@
 
             $field_status   = (isset($ins_field['checkout_form_field_status']) && $ins_field['checkout_form_field_status'] === '1') ? true : false;
 
+            $required = (isset($ins_field['required']) && $ins_field['required'] === '1') ? true : false;
+
             // var_dump($field_origin, $fieldskey);
 
-
-            // All Fields
             // Check All Fields Origin And Set Data Accordingly 
             if($field_origin == 'billing_first_name'){
                 $fields['billing']['billing_first_name']['label']       = $ins_field['checkout_form_field_name'];
@@ -134,12 +134,52 @@
                     unset($fields['billing']['billing_phone']);
                 }
 
-            } 
-            // elseif ($field_origin == 'billing_postcode'){
-            //     $fields['billing']['billing_postcode']['label']             = $ins_field['checkout_form_field_name'];
-            //     $fields['billing']['billing_postcode']['placeholder']       = $ins_field['checkout_form_field_place'];
-            // }
-
+            } elseif ($field_origin == 'ins_cus_billingfield_origin12'){
+                $fields['billing']['ins_cus_billingfield_origin12'] = array(
+                    'label'         => __($ins_field['checkout_form_field_name'], 'woocommerce'),
+                    'placeholder'   => _x($ins_field['checkout_form_field_place'], 'placeholder', 'woocommerce'),
+                    'required'      => $required,
+                    'priority'      => $fieldskey . '0',
+                    'class'         => array('form-row-wide'),
+                    'clear'         => true
+                    );
+            } elseif ($field_origin == 'ins_cus_billingfield_origin13'){
+                $fields['billing']['ins_cus_billingfield_origin13'] = array(
+                    'label'     => __($ins_field['checkout_form_field_name'], 'woocommerce'),
+                    'placeholder'   => _x($ins_field['checkout_form_field_place'], 'placeholder', 'woocommerce'),
+                    'required'  => $required,
+                    'priority'  => $fieldskey . '0',
+                    'class'     => array('form-row-wide'),
+                    'clear'     => true
+                    );
+            } elseif ($field_origin == 'ins_cus_billingfield_origin14'){
+                $fields['billing']['ins_cus_billingfield_origin14'] = array(
+                    'label'     => __($ins_field['checkout_form_field_name'], 'woocommerce'),
+                    'placeholder'   => _x($ins_field['checkout_form_field_place'], 'placeholder', 'woocommerce'),
+                    'required'  => $required,
+                    'priority'  => $fieldskey . '0',
+                    'class'     => array('form-row-wide'),
+                    'clear'     => true
+                    );
+            } elseif ($field_origin == 'ins_cus_billingfield_origin15'){
+                $fields['billing']['ins_cus_billingfield_origin15'] = array(
+                    'label'     => __($ins_field['checkout_form_field_name'], 'woocommerce'),
+                    'placeholder'   => _x($ins_field['checkout_form_field_place'], 'placeholder', 'woocommerce'),
+                    'required'  => $required,
+                    'priority'  => $fieldskey . '0',
+                    'class'     => array('form-row-wide'),
+                    'clear'     => true
+                    );
+            } elseif ($field_origin == 'ins_cus_billingfield_origin16'){
+                $fields['billing']['ins_cus_billingfield_origin16'] = array(
+                    'label'     => __($ins_field['checkout_form_field_name'], 'woocommerce'),
+                    'placeholder'   => _x($ins_field['checkout_form_field_place'], 'placeholder', 'woocommerce'),
+                    'required'  => $required,
+                    'priority'  => $fieldskey . '0',
+                    'class'     => array('form-row-wide'),
+                    'clear'     => true
+                    );
+            }
         }
 
         return $fields;
@@ -237,7 +277,6 @@
 
             $required = (isset($ins_field['required']) && $ins_field['required'] === '1') ? true : false;
             
-            // All Fields
             // Check All Fields Origin And Set Data Accordingly 
             if($field_origin == 'billing_first_name'){
                 $fields['billing_first_name']['required']   = $required;
@@ -313,7 +352,10 @@
 
         foreach( $ins_all_checkout_fields as $fieldskey => $ins_field){
             $field_origin   = $ins_field['checkout_shipping_form_field_origin'];
+
             $field_status   = (isset($ins_field['checkout_shipping_form_field_status']) && $ins_field['checkout_shipping_form_field_status'] === '1') ? true : false;
+
+            $required = (isset($ins_field['required_shipping']) && $ins_field['required_shipping'] === '1') ? true : false;
 
             // All Fields
             // Check All Fields Origin And Set Data Accordingly 
@@ -406,41 +448,41 @@
                     unset($fields['shipping']['shipping_postcode']);
                 }
 
-            } elseif($field_origin == 'ins_cus_shipingfield_origin10'){
+            } elseif ($field_origin == 'ins_cus_shipingfield_origin10'){
                 $fields['shipping']['ins_cus_shipingfield_origin10'] = array(
-                    'label'     => __($ins_field['checkout_shipping_form_field_name'], 'woocommerce'),
+                    'label'         => __($ins_field['checkout_shipping_form_field_name'], 'woocommerce'),
                     'placeholder'   => _x($ins_field['checkout_shipping_form_field_place'], 'placeholder', 'woocommerce'),
-                    // 'required'  => $required,
-                    'priority'  => $fieldskey . '0',
-                    'class'     => array('form-row-wide'),
-                    'clear'     => true
+                    'required'      => $required,
+                    'priority'      => $fieldskey . '0',
+                    'class'         => array('form-row-wide'),
+                    'clear'         => true
                     );
-            } elseif($field_origin == 'ins_cus_shipingfield_origin11'){
+            } elseif ($field_origin == 'ins_cus_shipingfield_origin11'){
                 $fields['shipping']['ins_cus_shipingfield_origin11'] = array(
-                    'label'     => __($ins_field['checkout_shipping_form_field_name'], 'woocommerce'),
+                    'label'         => __($ins_field['checkout_shipping_form_field_name'], 'woocommerce'),
                     'placeholder'   => _x($ins_field['checkout_shipping_form_field_place'], 'placeholder', 'woocommerce'),
-                    // 'required'  => $required,
-                    'priority'  => $fieldskey . '0',
-                    'class'     => array('form-row-wide'),
-                    'clear'     => true
+                    'required'      => $required,
+                    'priority'      => $fieldskey . '0',
+                    'class'         => array('form-row-wide'),
+                    'clear'         => true
                     );
-            } elseif($field_origin == 'ins_cus_shipingfield_origin12'){
+            } elseif ($field_origin == 'ins_cus_shipingfield_origin12'){
                 $fields['shipping']['ins_cus_shipingfield_origin12'] = array(
-                    'label'     => __($ins_field['checkout_shipping_form_field_name'], 'woocommerce'),
+                    'label'         => __($ins_field['checkout_shipping_form_field_name'], 'woocommerce'),
                     'placeholder'   => _x($ins_field['checkout_shipping_form_field_place'], 'placeholder', 'woocommerce'),
-                    // 'required'  => $required,
-                    'priority'  => $fieldskey . '0',
-                    'class'     => array('form-row-wide'),
-                    'clear'     => true
+                    'required'      => $required,
+                    'priority'      => $fieldskey . '0',
+                    'class'         => array('form-row-wide'),
+                    'clear'         => true
                     );
-            } elseif($field_origin == 'ins_cus_shipingfield_origin13'){
+            } elseif ($field_origin == 'ins_cus_shipingfield_origin13'){
                 $fields['shipping']['ins_cus_shipingfield_origin13'] = array(
-                    'label'     => __($ins_field['checkout_shipping_form_field_name'], 'woocommerce'),
+                    'label'         => __($ins_field['checkout_shipping_form_field_name'], 'woocommerce'),
                     'placeholder'   => _x($ins_field['checkout_shipping_form_field_place'], 'placeholder', 'woocommerce'),
-                    // 'required'  => $required,
-                    'priority'  => $fieldskey . '0',
-                    'class'     => array('form-row-wide'),
-                    'clear'     => true
+                    'required'      => $required,
+                    'priority'      => $fieldskey . '0',
+                    'class'         => array('form-row-wide'),
+                    'clear'         => true
                     );
             }
 
@@ -471,7 +513,6 @@
         
         $ins_address_shiping_fields = !empty($get_ins_data_add_shiping_fl) ? $get_ins_data_add_shiping_fl : [];
 
-        
         foreach( $ins_address_shiping_fields as $fieldskey => $ins_field){
             $field_origin   = $ins_field['checkout_shipping_form_field_origin'];
 
