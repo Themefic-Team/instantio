@@ -2635,6 +2635,13 @@ Steps
   }
 }
 
+#checkout_editors .tf-field-repeater .tf-fieldset .tf-repeater .tf-repeater-wrap .tf-single-repeater .tf-repeater-header .tf-repeater-icon-absulate .tf-repeater-icon-clone {
+  display: none;
+}
+#checkout_editors .tf-field-repeater .tf-fieldset .tf-repeater .tf-repeater-wrap .tf-single-repeater .tf-repeater-header .tf-repeater-icon-absulate .tf-repeater-icon-delete {
+  display: none;
+}
+
 .tf-field-text input {
   width: 100%;
   padding: 12px 8px 12px 12px;

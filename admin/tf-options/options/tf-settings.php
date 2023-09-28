@@ -1276,8 +1276,6 @@ TF_Settings::option( 'wiopt', array(
 							'label' 	  => __( 'Required Status', 'instantio' ),
 							'subtitle' 	  => __( 'You can able to enable/disable this field required.', 'instantio' ),
 						),
-
-						
 					),
 					'default' 		=> !empty($my_plugin_billing_fields) ? $my_plugin_billing_fields : '',
 				),
@@ -1366,34 +1364,34 @@ TF_Settings::option( 'wiopt', array(
 					'is_pro'		=> true,
 				),
 
-				// array(
-				// 	'id'			=> 'order_note_editor',
-				// 	'type'			=> 'fieldset',
-				// 	'label'  		=> __('Order Notes', 'instantio'),
-				// 	'subtitle' 		=> __('Edit Option For Order Notes Field', 'instantio'),
-				// 	'is_pro'		=> true,
-				// 	'fields' 		=> array(
-				// 		array(
-				// 			'id'        	=> 'order_note_field_label',
-				// 			'type'      	=> 'text',
-				// 			'class' 		=> 'tf-field-inline',
-				// 			'field_width'	=> '50',
-				// 			'label'     	=> __( 'Label', 'instantio'),
-				// 			'placeholder'  	=> __('Order notes', 'woocommerce'),
-				// 			'default'  		=> __('Order notes', 'woocommerce'),				
-				// 		),
-				// 		array(
-				// 			'id'        	=> 'order_note_field_placeh',
-				// 			'type'      	=> 'text',
-				// 			'class' 		=> 'tf-field-inline',
-				// 			'field_width'	=> '50',
-				// 			'label'     	=> __( 'Placeholder', 'instantio'),
-				// 			'placeholder'  	=> __('Notes about your order, e.g. special notes for delivery.', 'woocommerce'),
-				// 			'default'  		=> __('Notes about your order, e.g. special notes for delivery.', 'woocommerce'),				
-				// 		),
-				// 	),
+				array(
+					'id'			=> 'order_note_editor',
+					'type'			=> 'fieldset',
+					'label'  		=> __('Order Notes', 'instantio'),
+					'subtitle' 		=> __('Edit Option For Order Notes Field', 'instantio'),
+					'is_pro'		=> true,
+					'fields' 		=> array(
+						array(
+							'id'        	=> 'order_note_field_label',
+							'type'      	=> 'text',
+							'class' 		=> 'tf-field-inline',
+							'field_width'	=> '50',
+							'label'     	=> __( 'Label', 'instantio'),
+							'placeholder'  	=> __('Order notes', 'woocommerce'),
+							'default'  		=> __('Order notes', 'woocommerce'),				
+						),
+						array(
+							'id'        	=> 'order_note_field_placeh',
+							'type'      	=> 'text',
+							'class' 		=> 'tf-field-inline',
+							'field_width'	=> '50',
+							'label'     	=> __( 'Placeholder', 'instantio'),
+							'placeholder'  	=> __('Notes about your order, e.g. special notes for delivery.', 'woocommerce'),
+							'default'  		=> __('Notes about your order, e.g. special notes for delivery.', 'woocommerce'),				
+						),
+					),
 
-				// ),
+				),
 			),
 		),
 	 

@@ -1872,6 +1872,14 @@
 .ins-layout-dark .woocommerce-terms-and-conditions-checkbox-text {
   color: #ccc7c4 !important;
 }
+.ins-layout-dark .ins-steps-style-2 .ins-checkout-steps-wrap > div,
+.ins-layout-dark .ins-steps-style-3 .ins-checkout-steps-wrap > div {
+  background-color: transparent !important;
+}
+.ins-layout-dark .ins-steps-style-3 .ins-checkout-steps-wrap > div.active,
+.ins-layout-dark .ins-steps-style-3 .ins-checkout-steps-wrap > div.done {
+  background-color: transparent !important;
+}
 .ins-layout-dark .ins-checkout-steps-wrap > div {
   background-color: #323236;
 }
