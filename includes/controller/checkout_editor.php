@@ -5,6 +5,9 @@
     add_filter('woocommerce_shipping_fields', 'ins_shipping_unrequire_fields');
     add_filter('woocommerce_checkout_fields' , 'ins_override_ordernote_fields' );
 
+    add_action( 'woocommerce_admin_order_data_after_billing_address', 'ins_custom_checkout_field_display_order_meta', 10, 1 );
+
+
     /**
      * Get Billing Checkout Fields Data form Instantio.
      * @author M Hemel Hasan
@@ -621,6 +624,47 @@
         $fields['order']['order_comments']['placeholder'] = $order_note_place;
 
         return $fields;
+    }
+
+    function ins_custom_checkout_field_display_order_meta($order){
+        $check = get_post_meta( $order->get_id());
+
+        var_dump($check);
+
+        $get_ins_data = insopt('checkout_editors_fields');
+
+        // Check if the variable is serialized
+        if (is_serialized($get_ins_data)) {
+            // If it's already serialized, unserialize it
+            $get_ins_data_for_editor_fl = unserialize($get_ins_data);
+            
+        } else {
+            // If it's not serialized, serialize it
+            $get_ins_data_for_editor_fl = $get_ins_data;
+        }
+        
+        $ins_all_checkout_fields = !empty($get_ins_data_for_editor_fl) ? $get_ins_data_for_editor_fl : [];
+
+        foreach( $ins_all_checkout_fields as $fieldskey => $ins_field){
+
+            $field_origin   = $ins_field['checkout_form_field_origin'];
+
+            if($field_origin == 'ins_cus_billingfield_origin12'){
+                echo '<p><strong>'.$ins_field['checkout_form_field_name'].':</strong> ' . get_post_meta( $order->get_id(), 'New Billing 1', true ) . '</p>';
+            } elseif ($field_origin == 'ins_cus_billingfield_origin13'){
+                echo '<p><strong>'.$ins_field['checkout_form_field_name'].':</strong> ' . get_post_meta( $order->get_id(), 'ins_cus_billingfield_origin13', true ) . '</p>';
+            } elseif ($field_origin == 'ins_cus_billingfield_origin14'){
+                echo '<p><strong>'.$ins_field['checkout_form_field_name'].':</strong> ' . get_post_meta( $order->get_id(), 'ins_cus_billingfield_origin14', true ) . '</p>';
+            } elseif ($field_origin == 'ins_cus_billingfield_origin15'){
+                echo '<p><strong>'.$ins_field['checkout_form_field_name'].':</strong> ' . get_post_meta( $order->get_id(), 'ins_cus_billingfield_origin15', true ) . '</p>';
+            } elseif ($field_origin == 'ins_cus_billingfield_origin16'){
+                echo '<p><strong>'.$ins_field['checkout_form_field_name'].':</strong> ' . get_post_meta( $order->get_id(), 'ins_cus_billingfield_origin16', true ) . '</p>';
+            }
+            
+        }
+
+
+        
     }
 
 
