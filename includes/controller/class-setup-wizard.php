@@ -677,8 +677,6 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
 				return;
 			}
 
-          
-      
 			$options     = get_option( 'wiopt' );
            
             if($options == '' && !is_array($options)){
@@ -695,7 +693,9 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
                 $options['ins-toggle-tab']['cart-icon-style'] = isset($_POST['cart-icon-style']) ? $_POST['cart-icon-style'] : 'cart-style-1';
                 $options['ins-layout-animation'] = isset($_POST['ins-layout-animation']) ? $_POST['ins-layout-animation'] : 'ins_animate_default';
                 $options['cart-fly']['cart-fly-anim'] = isset($_POST['cart-fly-anim']) ? $_POST['cart-fly-anim'] : false;
-                $options['ins-toggle-tab']['ins-cart-emty-hide'] = isset($_POST['ins-cart-emty-hide']) ? $_POST['ins-cart-emty-hide'] : false; 
+                $options['ins-toggle-tab']['ins-cart-emty-hide'] = isset($_POST['ins-cart-emty-hide']) ? $_POST['ins-cart-emty-hide'] : false;
+                $options['ins-toggler'] = 'tog-1';
+                $options['cart-fly']['cart-fly-icon'] = 1;
                 
             } else{
                 $options['ins-layout-options'] = isset($_POST['ins-layout-options']) ? $_POST['ins-layout-options'] : 1;
@@ -710,7 +710,9 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
                 $options['ins-toggle-tab']['cart-icon-style'] = isset($_POST['cart-icon-style']) ? $_POST['cart-icon-style'] : 'cart-style-1';
                 $options['ins-layout-animation'] = isset($_POST['ins-layout-animation']) ? $_POST['ins-layout-animation'] : 'ins_animate_default';
                 $options['cart-fly']['cart-fly-anim'] = isset($_POST['cart-fly-anim']) ? $_POST['cart-fly-anim'] : false;
-                $options['ins-toggle-tab']['ins-cart-emty-hide'] = isset($_POST['ins-cart-emty-hide']) ? $_POST['ins-cart-emty-hide'] : false; 
+                $options['ins-toggle-tab']['ins-cart-emty-hide'] = isset($_POST['ins-cart-emty-hide']) ? $_POST['ins-cart-emty-hide'] : false;
+                $options['ins-toggler'] = 'tog-1';
+                $options['cart-fly']['cart-fly-icon'] = 1;
             }
             
 			update_option( 'wiopt', $options );

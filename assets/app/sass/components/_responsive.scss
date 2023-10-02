@@ -42,6 +42,12 @@
   }
 }
 
+@media (min-width: 1024px) and (max-width: 1199px) {
+  .ins-checkout-modern .ins-checkout-layout.slide {
+    width: var(--ins_panel_width_1024) !important;
+  }
+}
+
 @media (max-width: 1023px) {
   .ins-checkout-modern.ins-single-layout-step .ins-checkout-layout.popup {
     width: var(--ins_panel_width_1024) !important;

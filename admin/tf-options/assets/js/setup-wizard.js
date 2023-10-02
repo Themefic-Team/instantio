@@ -48,20 +48,20 @@
                 skipSteps = !skipSteps ? step : skipSteps.indexOf(step) === -1 ? skipSteps + ',' + step : skipSteps;
                 form.find('input[name="tf-skip-steps"]').val(skipSteps);
 
-                if(step === 1){
+                if (step === 1) {
                     $('.tf-hotel-setup-wizard').show();
                     $('.tf-tour-setup-wizard').show();
                 }
             }
 
             //remove skip steps from input[name="tf-skip-steps"] if user back to step and go to next step
-            if($(this).hasClass('tf-setup-next-btn') && skipSteps.indexOf(step) !== -1) {
+            if ($(this).hasClass('tf-setup-next-btn') && skipSteps.indexOf(step) !== -1) {
                 skipSteps = skipSteps.replace(step, '');
                 form.find('input[name="tf-skip-steps"]').val(skipSteps);
             }
 
             //hide current step and show next step (if not last step)
-            if(!$(this).hasClass('tf-setup-submit-btn')) {
+            if (!$(this).hasClass('tf-setup-submit-btn')) {
                 $('.tf-setup-step-' + step).fadeOut(300, function () {
                     $('.tf-setup-step-' + nextStep).fadeIn(300);
                 });
@@ -88,7 +88,7 @@
             let step = $(this).closest('.tf-setup-step-container').data('step');
             let skipSteps = form.find('input[name="tf-skip-steps"]').val();
 
-            if($(this).hasClass('tf-admin-btn') && skipSteps.indexOf(step) !== -1) {
+            if ($(this).hasClass('tf-admin-btn') && skipSteps.indexOf(step) !== -1) {
                 skipSteps = skipSteps.replace(step, '');
                 form.find('input[name="tf-skip-steps"]').val(skipSteps);
             }
