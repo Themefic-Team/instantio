@@ -1,4 +1,4 @@
-// Fly Cart Animation 
+// Fly Cart Animation
 
 .cart_boom {
   animation: cart_boom 0.3s ease-in-out 200ms 1 forwards;
@@ -20,7 +20,6 @@
     transform: scale(1);
   }
 }
-
 
 /* CSS Animation */
 
@@ -273,7 +272,6 @@
   top: auto;
   bottom: 0;
   height: 0;
-  width: 0 !important;
 }
 
 .ins_animate_two.ins-checkout-layout.slide {
@@ -396,7 +394,6 @@
 // }
 
 .ins-checkout-popup.active .ins_animate_two.ins-checkout-layout {
-
   .ins-checkout-header,
   .ins-content,
   .ins-checkout-steps {
@@ -421,8 +418,10 @@
 // }
 
 .ins-checkout-popup.active {
-
-  .ins_animate_one.ins-checkout-layout .ins-cart-inner .ins_animate_two.ins-checkout-layout.slide.active .ins-cart-inner,
+  .ins_animate_one.ins-checkout-layout
+    .ins-cart-inner
+    .ins_animate_two.ins-checkout-layout.slide.active
+    .ins-cart-inner,
   .ins_animate_two.ins-checkout-layout .ins-cart-inner {
     -webkit-animation-name: AnimateOneFadeInUp;
     animation-name: AnimateOneFadeInUp;
@@ -503,7 +502,6 @@
     }
 
     &.ins-hori-left.slide {
-
       // &.ins-var-cart-bottom, &.ins-var-cart-top {
       //   transform: translate(100%, 0) !important;
       // }
@@ -536,7 +534,6 @@
   }
 
   &.active {
-
     .ins-checkout-header,
     .ins-content,
     .ins-checkout-steps {
@@ -545,7 +542,8 @@
     }
   }
 
-  &.ins-hori-left.ins-var-cart-middle .ins-click-to-show.ins-toggle-btn.sidecart.tog-1 {
+  &.ins-hori-left.ins-var-cart-middle
+    .ins-click-to-show.ins-toggle-btn.sidecart.tog-1 {
     right: -90px !important;
   }
 
@@ -560,7 +558,8 @@
     // }
   }
 
-  &.ins-hori-left.ins-var-cart-bottom .ins-click-to-show.ins-toggle-btn.sidecart.tog-1 {
+  &.ins-hori-left.ins-var-cart-bottom
+    .ins-click-to-show.ins-toggle-btn.sidecart.tog-1 {
     top: -90px !important;
     left: 60px;
   }
@@ -603,14 +602,14 @@
 .ins_animate_one.ins-checkout-layout.slide.ins-hori-left,
 .ins_animate_two.ins-checkout-layout.slide,
 .ins_animate_two.ins-checkout-layout.slide.ins-hori-left {
-  width: var(--ins_panel_width_1200) !important;
+  // width: var(--ins_panel_width_1200) !important;
 }
 
 .ins_animate_one.ins-checkout-layout.slide.ins-hori-left.active,
 .ins_animate_one.ins-checkout-layout.slide.active,
 .ins_animate_two.ins-checkout-layout.slide.ins-hori-left.active,
 .ins_animate_two.ins-checkout-layout.slide.active {
-  width: var(--ins_panel_width_1200) !important;
+  // width: var(--ins_panel_width_1200) !important;
   height: 100%;
 }
 
