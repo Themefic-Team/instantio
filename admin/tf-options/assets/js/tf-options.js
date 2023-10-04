@@ -565,6 +565,8 @@
 
             if (fielddeteck.length) {
                 fielddeteck.parent().parent().parent().parent().children('.tf-repeater-header').children('.tf-repeater-icon-absulate').children('.tf-repeater-icon-delete').css("display", "inline-block");
+
+                fielddeteck.parent().parent().parent().children('.tf-field-switch.checkout_shipping_form_field_status').css("display", "none");
             }
         });
 
@@ -574,6 +576,8 @@
 
             if (fielddeteck.length) {
                 fielddeteck.parent().parent().parent().parent().children('.tf-repeater-header').children('.tf-repeater-icon-absulate').children('.tf-repeater-icon-delete').css("display", "inline-block");
+
+                fielddeteck.parent().parent().parent().children('.tf-field-switch.checkout_form_field_status').css("display", "none");
             }
         });
 

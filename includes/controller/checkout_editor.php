@@ -5,12 +5,12 @@
     add_filter('woocommerce_shipping_fields', 'ins_shipping_unrequire_fields');
     add_filter('woocommerce_checkout_fields' , 'ins_override_ordernote_fields' );
 
-    // // Display the custom field data in the admin order edit screen.
+    // Display the custom field data in the admin order edit screen.
     // add_action( 'woocommerce_admin_order_data_after_billing_address', 'ins_custom_checkout_field_display_order_meta', 10, 1 );
 
     // add_action( 'woocommerce_admin_order_data_after_shipping_address', 'ins_custom_checkout_field_display_order_meta_shipping', 10, 1 );
 
-    // // Hook to save the custom field data when the order is created.
+    // Hook to save the custom field data when the order is created.
     // add_action('woocommerce_checkout_create_order', 'save_custom_field_to_order_meta');
 
     
