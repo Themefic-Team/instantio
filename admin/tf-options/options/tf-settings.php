@@ -1280,32 +1280,13 @@ TF_Settings::option( 'wiopt', array(
 					'default' 		=> !empty($my_plugin_billing_fields) ? $my_plugin_billing_fields : '',
 				),
 
-				// array(
-				// 	'id'           => 'custom_billing_field_add',
-				// 	'type'         => 'repeater',
-				// 	'label'        => __( 'Create new field', 'instantio' ),
-				// 	'button_title' => __( 'Add New Field', 'instantio' ),
-				// 	'class'        => 'billing-field-repeater',
-				// 	'max'          => 5,
-				// 	'fields'       => array(
-				// 		array(
-				// 			'id'          => 'unique_id',
-				// 			'class'       => 'unique-id',
-				// 			'type'        => 'text',
-				// 			'label'       => __( 'Unique ID', 'instantio' ),
-				// 			'attributes'  => array(
-				// 				'readonly' => 'readonly',
-				// 			),
-				// 			'placeholder' => __( '', 'instantio' ),
-				// 		),
-				// 		array(
-				// 			'id'          => 'custom_billing_field_title',
-				// 			'type'        => 'text',
-				// 			'label'       => __( 'Custom filed label', 'instantio' ),
-				// 			'field_width' => 50,
-				// 		),
-				// 	)
-				// ),
+				array(
+					'id'           => 'custom_billing_field_add',
+					'type'         => 'notice',
+					'is_pro'		=> true,
+					'title'		   => __('Create new fields', 'instantio' ),
+					'content'	   => __('Active Pro Plugin to use this features', 'instantio'),
+				),
 
 				array(
 					'id'       		=> 'ins_reset_blliling_fields_button',
@@ -1354,6 +1335,14 @@ TF_Settings::option( 'wiopt', array(
 						),
 					),
 					'default' 		=> !empty($my_plugin_shipping_fields) ? $my_plugin_shipping_fields : '',
+				),
+
+				array(
+					'id'           => 'custom_billing_field_add',
+					'type'         => 'notice',
+					'is_pro'		=> true,
+					'title'		   => __('Create new fields', 'instantio' ),
+					'content'	   => __('Active Pro Plugin to use this features', 'instantio'),
 				),
 				
 				array(
