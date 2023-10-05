@@ -182,7 +182,7 @@ TF_Settings::option( 'wiopt', array(
 		),
 
 		'general_toggle'       		=> array(
-			'title'  				=> esc_html__( 'Icon', 'instantio' ),
+			'title'  				=> esc_html__( 'Toggle', 'instantio' ),
 			'parent' 				=> 'general',
 			'icon'  				=> 'fas fa-toggle-on',
 			'fields' 				=> array(
@@ -1276,18 +1276,25 @@ TF_Settings::option( 'wiopt', array(
 							'label' 	  => __( 'Required Status', 'instantio' ),
 							'subtitle' 	  => __( 'You can able to enable/disable this field required.', 'instantio' ),
 						),
-
-						
 					),
 					'default' 		=> !empty($my_plugin_billing_fields) ? $my_plugin_billing_fields : '',
 				),
 
-				// array(
-				// 	'id'       		=> 'ins_reset_blliling_fields_button',
-				// 	'class'		 	=> 'checkout_reset_btn',
-				// 	'type'     		=> 'callback',
-				// 	'function' 		=> 'ins_reset_blliling_fields_button',
-				// ),
+				array(
+					'id'           => 'custom_billing_field_add',
+					'type'         => 'notice',
+					'is_pro'		=> true,
+					'title'		   => __('Create new fields', 'instantio' ),
+					'content'	   => __('Active Pro Plugin to use this features', 'instantio'),
+				),
+
+				array(
+					'id'       		=> 'ins_reset_blliling_fields_button',
+					'class'		 	=> 'checkout_reset_btn',
+					'type'     		=> 'callback',
+					'function' 		=> 'ins_reset_blliling_fields_button',
+					'is_pro'		=> true,
+				),
 
 				array(
 					'id'       		=> 'checkout_shiping_editors_fields',
@@ -1329,13 +1336,51 @@ TF_Settings::option( 'wiopt', array(
 					),
 					'default' 		=> !empty($my_plugin_shipping_fields) ? $my_plugin_shipping_fields : '',
 				),
+
+				array(
+					'id'           => 'custom_billing_field_add',
+					'type'         => 'notice',
+					'is_pro'		=> true,
+					'title'		   => __('Create new fields', 'instantio' ),
+					'content'	   => __('Active Pro Plugin to use this features', 'instantio'),
+				),
 				
-				// array(
-				// 	'id'       		=> 'ins_reset_shipping_fields_button',
-				// 	'class'		 	=> 'checkout_reset_btn',
-				// 	'type'     		=> 'callback',
-				// 	'function' 		=> 'ins_reset_shipping_fields_button',
-				// ),
+				array(
+					'id'       		=> 'ins_reset_shipping_fields_button',
+					'class'		 	=> 'checkout_reset_btn',
+					'type'     		=> 'callback',
+					'function' 		=> 'ins_reset_shipping_fields_button',
+					'is_pro'		=> true,
+				),
+
+				array(
+					'id'			=> 'order_note_editor',
+					'type'			=> 'fieldset',
+					'label'  		=> __('Order Notes', 'instantio'),
+					'subtitle' 		=> __('Edit Option For Order Notes Field', 'instantio'),
+					'is_pro'		=> true,
+					'fields' 		=> array(
+						array(
+							'id'        	=> 'order_note_field_label',
+							'type'      	=> 'text',
+							'class' 		=> 'tf-field-inline',
+							'field_width'	=> '50',
+							'label'     	=> __( 'Label', 'instantio'),
+							'placeholder'  	=> __('Order notes', 'woocommerce'),
+							'default'  		=> __('Order notes', 'woocommerce'),				
+						),
+						array(
+							'id'        	=> 'order_note_field_placeh',
+							'type'      	=> 'text',
+							'class' 		=> 'tf-field-inline',
+							'field_width'	=> '50',
+							'label'     	=> __( 'Placeholder', 'instantio'),
+							'placeholder'  	=> __('Notes about your order, e.g. special notes for delivery.', 'woocommerce'),
+							'default'  		=> __('Notes about your order, e.g. special notes for delivery.', 'woocommerce'),				
+						),
+					),
+
+				),
 			),
 		),
 	 

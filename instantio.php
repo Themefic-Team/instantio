@@ -8,10 +8,10 @@
  * Domain Path: /lang/
  * Author URI: https://themefic.com
  * Tags: woocommerce, direct checkout, floating cart, side cart, ajax cart, cart popup, ajax add to cart, one page checkout, single page checkout, fly cart, mini cart, quick buy, instant checkout, quick checkout, same page checkout, sidebar cart, sticky cart, woocommerce ajax, one click checkout, woocommerce one page checkout, direct checkout woocommerce, woocommerce one click checkout, woocommerce quick checkout, woocommerce express checkout, woocommerce simple checkout, skip cart page woocommerce, woocommerce cart popup, edit woocommerce checkout page, woocommerce direct checkout
- * Version: 3.1.4
+ * Version: 3.1.5
  * Tested up to: 6.3
  * Requires PHP: 7.2
- * WC tested up to: 8.0.3
+ * WC tested up to: 8.1.1
 
 **/
 
@@ -33,7 +33,7 @@ class INSTANTIO {
 	private function define_constants() {
 		if ( ! defined( 'INSTANTIO_VERSION' ) ) { 
 
-			define( 'INSTANTIO_VERSION', '3.1.4' ); 
+			define( 'INSTANTIO_VERSION', '3.1.5' ); 
 
 		} 
 		define( 'INS_URL', plugin_dir_url( __FILE__ ) ); 
@@ -93,7 +93,6 @@ class INSTANTIO {
 	 */
 	public function init() {    
 		add_action( 'init', array( $this, 'tf_plugin_loaded_action' ) );
-
 
 		if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
             new INS\Controller\Assets();
@@ -198,9 +197,9 @@ class INSTANTIO {
 		$ins_billing_fields  = apply_filters('ins_billing_fields_priority', 1000);
 		$ins_shipping_fields = apply_filters('ins_shipping_fields_priority', 1000);
 
+		add_filter('woocommerce_default_address_fields', 'ins_over_checkout_billing_address', $ins_billing_fields, 2);
 		add_filter('woocommerce_checkout_fields', 'ins_over_checkout_billing_fields', $ins_billing_fields, 2);
 		add_filter('woocommerce_checkout_fields', 'ins_over_checkout_shipping_fields', $ins_shipping_fields, 2);
-		add_filter('woocommerce_default_address_fields', 'ins_over_checkout_billing_address');
 		// add_filter('woocommerce_default_address_fields', 'ins_over_checkout_shiping_address');
 	}
 
@@ -209,6 +208,7 @@ class INSTANTIO {
 
 new INSTANTIO();
 
+add_action( 'admin_enqueue_scripts', 'admin_enqueue_scripts');
 add_action( 'before_woocommerce_init', 'ins_before_woocommerce_init');
 
 function ins_before_woocommerce_init() {
@@ -216,3 +216,17 @@ function ins_before_woocommerce_init() {
 		\Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'custom_order_tables', __FILE__, true );
 	}
 }
+
+
+function admin_enqueue_scripts() { 
+	wp_enqueue_style( 'ins-admin', INS_ASSETS_URL.'/admin/css/instantio-admin-style.css', array(), INSTANTIO_VERSION ); 
+	wp_enqueue_script( 'ins-admin-script', INS_ASSETS_URL.'/admin/js/instantio-admin-script.js', array('jquery'), INSTANTIO_VERSION, true ); 
+
+	wp_localize_script( 'ins-admin-script', 'tf_admin_params', 
+		array( 
+			'ins_nonce' => wp_create_nonce( 'updates' ),
+			'ajax_url' => admin_url( 'admin-ajax.php' ),
+		) 
+	);
+}
+

@@ -193,6 +193,16 @@
   .woocommerce-terms-and-conditions-checkbox-text {
     color: #ccc7c4 !important;
   }
+  .ins-steps-style-2 .ins-checkout-steps-wrap > div,
+  .ins-steps-style-3 .ins-checkout-steps-wrap > div {
+    background-color: transparent !important;
+  }
+
+  .ins-steps-style-3 .ins-checkout-steps-wrap > div.active,
+  .ins-steps-style-3 .ins-checkout-steps-wrap > div.done {
+    background-color: transparent !important;
+  }
+
   .ins-checkout-steps-wrap > div {
     background-color: #323236;
   }
@@ -262,6 +272,12 @@
   .ins-steps-style-4 .ins-single-step span {
     background-color: transparent !important;
   }
+
+  // .ins-steps-style-4 .ins-single-step.shipping::before {
+  //   // display: none;
+  //   left: 75%;
+  //   width: calc(48% - 1%);
+  // }
 
   .ins-steps-style-4 .ins-single-step::before {
     display: none;

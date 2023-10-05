@@ -94,6 +94,7 @@ class App {
     public function ins_cart_modern_header() {
 
         $ins_single_layout = !empty(insopt( 'ins-layout-step' )) ? insopt( 'ins-layout-step' ) : false;
+        
 
         ob_start(); 
         ?>
@@ -288,6 +289,7 @@ class App {
             // 'fragments' => apply_filters( 'ins_cart_count_fragments', array() ),
             'cart_hash' => apply_filters( 'woocommerce_add_to_cart_hash', WC()->cart->get_cart_for_session() ? md5( json_encode( WC()->cart->get_cart_for_session() ) ) : '', WC()->cart->get_cart_for_session() ),
             'data' => $data,
+            'cart_total'    => WC()->cart->get_cart_total(),
             'hide_empty' => $hide_empty,
             'display' => $display, 
             'ins_cart_count' => $ins_cart_total,
@@ -388,10 +390,11 @@ class App {
         $cart_data = ob_get_clean(); 
         
         $data = array(
-            'cart_data' => $cart_data,
-            'hide_empty' => $hide_empty,
-            'display' => $display, 
-            'cart_hash' => apply_filters( 'woocommerce_add_to_cart_hash', WC()->cart->get_cart_for_session() ? md5( json_encode( WC()->cart->get_cart_for_session() ) ) : '', WC()->cart->get_cart_for_session() )
+            'cart_data'     => $cart_data,
+            'hide_empty'    => $hide_empty,
+            'display'       => $display, 
+            
+            'cart_hash'     => apply_filters( 'woocommerce_add_to_cart_hash', WC()->cart->get_cart_for_session() ? md5( json_encode( WC()->cart->get_cart_for_session() ) ) : '', WC()->cart->get_cart_for_session() )
         );
 
         wp_send_json( $data );
@@ -468,8 +471,15 @@ class App {
 		}
         
         // checked is page seleted or not
-        $ins_page_selected = !empty(insopt( 'ins-page-selected' )) ? insopt( 'ins-page-selected' ) : array( 'cart', 'checkout' );
-        $pages = array_values($ins_page_selected);
+        $ins_page_selected = insopt('ins-page-selected'); // Retrieve the option value
+
+        if (!empty($ins_page_selected) && is_array($ins_page_selected)) {
+            // The option value is an array, so you can proceed with array operations
+            $pages = array_values($ins_page_selected);
+        } else {
+            // Handle the case where the option value is not an array (e.g., set a default value)
+            $pages = array('cart', 'checkout');
+        }
 
         // Return is particular page seleted
 		if ( class_exists( 'woocommerce' ) ) {
@@ -477,7 +487,7 @@ class App {
     			return;
     		}
 		}
-        
+       
         $toggle_position = isset(insopt( 'ins-toggle-tab' )['toggle-position'])  ? insopt( 'ins-toggle-tab' )['toggle-position'] : 'right-bottom';
 
         // checked is single step
@@ -503,8 +513,8 @@ class App {
         
         
         // Dedicated mobile Version hook for
-
         do_action( 'dedicated_mobile_version' ); 
+
         ob_start(); 
         if( $this->layout == 1 ||  $this->layout == 3):
         ?>

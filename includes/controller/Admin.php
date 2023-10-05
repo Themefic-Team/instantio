@@ -27,7 +27,7 @@ class Admin{
          */
         if ( !is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
             add_action( 'admin_notices', array($this, 'ins_is_woo') );
-            deactivate_plugins('instantio/instantio.php');
+            // deactivate_plugins('instantio/instantio.php');
         }
 
         /**
@@ -191,7 +191,6 @@ class Admin{
                     <p><?php printf( __( 'Instantio requires %1$s WooCommerce %2$s to be activated.', 'instantio' ), '<strong><a href="https://wordpress.org/plugins/woocommerce/" target="_blank">', '</a></strong>' ); ?></p>
                     <p><a class="install-now button ins_wooinstall" data-plugin-slug="woocommerce"><?php esc_attr_e( 'Install Now', 'instantio' ); ?></a></p>
                 </div>
-
             <?php 
             } elseif ( !is_plugin_active( 'woocommerce/woocommerce.php' ) && file_exists( WP_PLUGIN_DIR . '/woocommerce/woocommerce.php' ) ) {
             ?>
