@@ -6,12 +6,12 @@
     add_filter('woocommerce_checkout_fields' , 'ins_override_ordernote_fields' );
 
     // Display the custom field data in the admin order edit screen.
-    // add_action( 'woocommerce_admin_order_data_after_billing_address', 'ins_custom_checkout_field_display_order_meta', 10, 1 );
+    add_action( 'woocommerce_admin_order_data_after_billing_address', 'ins_custom_checkout_field_display_order_meta', 10, 1 );
 
-    // add_action( 'woocommerce_admin_order_data_after_shipping_address', 'ins_custom_checkout_field_display_order_meta_shipping', 10, 1 );
+    add_action( 'woocommerce_admin_order_data_after_shipping_address', 'ins_custom_checkout_field_display_order_meta_shipping', 10, 1 );
 
     // Hook to save the custom field data when the order is created.
-    // add_action('woocommerce_checkout_create_order', 'save_custom_field_to_order_meta');
+    add_action('woocommerce_checkout_create_order', 'save_custom_field_to_order_meta');
 
     
     function save_custom_field_to_order_meta($order) {
@@ -309,6 +309,10 @@
                     'class'         => array('form-row-wide'),
                     'clear'         => true
                     );
+
+                if($field_status === false){
+                    unset($fields['billing']['ins_cus_billingfield_origin12']);
+                }
             } elseif ($field_origin == 'ins_cus_billingfield_origin13'){
                 $fields['billing']['ins_cus_billingfield_origin13'] = array(
                     'label'     => __($ins_field['checkout_form_field_name'], 'woocommerce'),
@@ -318,6 +322,9 @@
                     'class'     => array('form-row-wide'),
                     'clear'     => true
                     );
+                if($field_status === false){
+                    unset($fields['billing']['ins_cus_billingfield_origin13']);
+                }
             } elseif ($field_origin == 'ins_cus_billingfield_origin14'){
                 $fields['billing']['ins_cus_billingfield_origin14'] = array(
                     'label'     => __($ins_field['checkout_form_field_name'], 'woocommerce'),
@@ -327,6 +334,9 @@
                     'class'     => array('form-row-wide'),
                     'clear'     => true
                     );
+                if($field_status === false){
+                    unset($fields['billing']['ins_cus_billingfield_origin14']);
+                }
             } elseif ($field_origin == 'ins_cus_billingfield_origin15'){
                 $fields['billing']['ins_cus_billingfield_origin15'] = array(
                     'label'     => __($ins_field['checkout_form_field_name'], 'woocommerce'),
@@ -336,6 +346,9 @@
                     'class'     => array('form-row-wide'),
                     'clear'     => true
                     );
+                if($field_status === false){
+                    unset($fields['billing']['ins_cus_billingfield_origin15']);
+                }
             } elseif ($field_origin == 'ins_cus_billingfield_origin16'){
                 $fields['billing']['ins_cus_billingfield_origin16'] = array(
                     'label'     => __($ins_field['checkout_form_field_name'], 'woocommerce'),
@@ -345,6 +358,9 @@
                     'class'     => array('form-row-wide'),
                     'clear'     => true
                     );
+                if($field_status === false){
+                    unset($fields['billing']['ins_cus_billingfield_origin16']);
+                }
             }
         }
 
@@ -623,6 +639,9 @@
                     'class'         => array('form-row-wide'),
                     'clear'         => true
                     );
+                if($field_status === false){
+                    unset($fields['shipping']['ins_cus_shipingfield_origin10']);
+                }
             } elseif ($field_origin == 'ins_cus_shipingfield_origin11'){
                 $fields['shipping']['ins_cus_shipingfield_origin11'] = array(
                     'label'         => __($ins_field['checkout_shipping_form_field_name'], 'woocommerce'),
@@ -632,6 +651,9 @@
                     'class'         => array('form-row-wide'),
                     'clear'         => true
                     );
+                if($field_status === false){
+                    unset($fields['shipping']['ins_cus_shipingfield_origin11']);
+                }
             } elseif ($field_origin == 'ins_cus_shipingfield_origin12'){
                 $fields['shipping']['ins_cus_shipingfield_origin12'] = array(
                     'label'         => __($ins_field['checkout_shipping_form_field_name'], 'woocommerce'),
@@ -641,6 +663,9 @@
                     'class'         => array('form-row-wide'),
                     'clear'         => true
                     );
+                if($field_status === false){
+                    unset($fields['shipping']['ins_cus_shipingfield_origin12']);
+                }
             } elseif ($field_origin == 'ins_cus_shipingfield_origin13'){
                 $fields['shipping']['ins_cus_shipingfield_origin13'] = array(
                     'label'         => __($ins_field['checkout_shipping_form_field_name'], 'woocommerce'),
@@ -650,6 +675,9 @@
                     'class'         => array('form-row-wide'),
                     'clear'         => true
                     );
+                if($field_status === false){
+                    unset($fields['shipping']['ins_cus_shipingfield_origin13']);
+                }
             } elseif ($field_origin == 'ins_cus_shipingfield_origin14'){
                 $fields['shipping']['ins_cus_shipingfield_origin14'] = array(
                     'label'         => __($ins_field['checkout_shipping_form_field_name'], 'woocommerce'),
@@ -659,6 +687,9 @@
                     'class'         => array('form-row-wide'),
                     'clear'         => true
                     );
+                if($field_status === false){
+                    unset($fields['shipping']['ins_cus_shipingfield_origin14']);
+                }
             }
 
         }
