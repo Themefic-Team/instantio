@@ -451,16 +451,25 @@ class App {
 
 
     public function ins_layout_three(){
+        // Checking the pro is active or not
+        $is_Pro_class = is_tf_pro_active();
+
         // Return if WooCommerce not active
 		if ( !class_exists( 'woocommerce' ) ) {
     		return;
 		}
-		
+
 		// Return if checkout page
 		if ( class_exists( 'woocommerce' ) ) {
-    		if (is_checkout()) {
-    			return;
-    		}
+            if($is_Pro_class === false){
+                if (is_page( 'checkout' ) || is_checkout() ) {
+                    return;
+                }
+            } else {
+                if (is_page( 'checkout' )) {
+                    return;
+                }
+            }
 		}
 
 		// Return if cart page
