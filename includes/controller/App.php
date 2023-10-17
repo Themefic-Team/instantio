@@ -451,6 +451,15 @@ class App {
 
 
     public function ins_layout_three(){
+        // Get the checkout page's ID
+        $checkout_page_id = wc_get_page_id('checkout');
+
+        // Get the post object for the checkout page
+        $checkout_page = get_post($checkout_page_id);
+
+        // Get the slug of the checkout page
+        $checkout_page_slug = $checkout_page->post_name;
+
         // Checking the pro is active or not
         $is_Pro_class = is_tf_pro_active();
 
@@ -466,7 +475,7 @@ class App {
                     return;
                 }
             } else {
-                if (is_page( 'checkout' )) {
+                if (is_page($checkout_page_slug)  || is_page( 'checkout' )) {
                     return;
                 }
             }
