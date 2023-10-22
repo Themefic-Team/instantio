@@ -50,7 +50,7 @@ if ( ! class_exists( 'TF_Options' ) ) {
 		}
 
 		public function tf_options_version() {
-			return '1.0.0';
+			return '2.0.0';
 		}
 
 		public function tf_options_file_path( $file_path = '' ) {

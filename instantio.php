@@ -12,7 +12,6 @@
  * Tested up to: 6.3
  * Requires PHP: 7.2
  * WC tested up to: 8.1.1
-
 **/
 
 // don't load directly

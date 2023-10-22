@@ -56,6 +56,18 @@
 		return ( isset( $options[$option] ) ) ? $options[$option] : $default;
 	}
 
+	/**
+	 * Check Pro Active or not
+	 * @since 3.1.6
+	 * @author M Hemel Hasan
+	 * @return bool
+	 */
+	function is_tf_pro_active() {
+		if ( is_plugin_active( 'wooinstant/wooinstant.php' ) && class_exists('WOOINS') ) {
+			return true;
+		}
+		return false;
+	}
 
 	function ins_del_billing_fields() {
 		$ins_billing_fields = get_option('wiopt');

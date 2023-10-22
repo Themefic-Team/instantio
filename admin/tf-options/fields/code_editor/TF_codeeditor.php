@@ -5,7 +5,7 @@ defined( 'ABSPATH' ) || exit;
 if ( ! class_exists( 'TF_codeeditor' ) ) {
 	class TF_codeeditor extends TF_Fields {
 
-    public $version = '5.62.2';
+    public $version = '5.65.15';
     public $cdn_url = 'https://cdn.jsdelivr.net/npm/codemirror@';
 
 		public function __construct( $field, $value = '', $settings_id = '', $parent_field = '') {
@@ -18,7 +18,7 @@ if ( ! class_exists( 'TF_codeeditor' ) ) {
             $default_settings = array(
                 'tabSize'       => 2,
                 'lineNumbers'   => true,
-                'theme'         => 'default',
+                'theme'         => 'monokai',
                 'mode'          => 'htmlmixed',
                 'cdnURL'        => $this->cdn_url . $this->version,
               );
@@ -44,7 +44,7 @@ if ( ! class_exists( 'TF_codeeditor' ) ) {
         if ( in_array( $page, array( 'revslider' ) ) ) { return; }
   
         if ( ! wp_script_is( 'ins-codemirror' ) ) {
-          wp_enqueue_script( 'ins-codemirror', esc_url( $this->cdn_url . $this->version .'/lib/codemirror.min.js' ), $this->version, true );
+          wp_enqueue_script( 'ins-codemirror', esc_url( $this->cdn_url . $this->version .'/lib/codemirror.min.js' ), array(), $this->version, true );
           wp_enqueue_script( 'ins-codemirror-loadmode', esc_url( $this->cdn_url . $this->version .'/addon/mode/loadmode.min.js' ), array( 'ins-codemirror' ), $this->version, true );
         }
   
