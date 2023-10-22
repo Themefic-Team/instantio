@@ -341,7 +341,7 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  box-shadow: 0px 10px 20px rgba(75, 26, 0, 0.05);
+  box-shadow: 0px 10px 20px 0px rgba(75, 26, 0, 0.05);
   border-radius: 8px;
   height: 278px;
   margin-bottom: 40px;
@@ -442,20 +442,34 @@ body {
   }
 }
 .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-support-document .tf-single-support {
-  background: linear-gradient(141.81deg, #fb4682 0%, #fbae95 100%);
+  position: relative;
+  background: linear-gradient(322deg, #fb4682 0%, #fbae95 100%);
   border-radius: 8px;
   flex: 1;
   padding: 24px;
   transition: 0.3s all ease;
+  overflow: hidden;
 }
 .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-support-document .tf-single-support:hover {
   box-shadow: 0px 16px 40px rgba(80, 28, 0, 0.3);
 }
+.tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-support-document .tf-single-support ::after {
+  content: "";
+  position: absolute;
+  width: 133px;
+  height: 147px;
+  top: -43px;
+  left: -15px;
+  opacity: 0.1;
+  border-radius: 50%;
+  background: linear-gradient(228deg, #fae9e8 17.45%, rgba(250, 233, 232, 0) 90.84%);
+  z-index: 18;
+}
 .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-support-document .tf-single-support:nth-child(2) {
-  background: linear-gradient(141.81deg, #4338ca 0%, #a21caf 100%);
+  background: linear-gradient(142deg, #4338ca 0%, #a21caf 100%);
 }
 .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-support-document .tf-single-support:nth-child(3) {
-  background: linear-gradient(141.81deg, #f4c82f 0%, #fd5187 100%);
+  background: linear-gradient(142deg, #f4c82f 0%, #fd5187 100%);
 }
 @media only screen and (max-width: 1199.98px) {
   .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-support-document .tf-single-support {
@@ -469,6 +483,8 @@ body {
 .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-support-document .tf-single-support a img {
   width: 52px;
   margin-bottom: 20px;
+  position: relative;
+  z-index: 20;
 }
 .tf-setting-dashboard .ins-dashboad-wrapper .dashboad-content-wrap .dashboad-content .tf-settings-help-center .tf-support-document .tf-single-support a h3 {
   font-style: normal;
