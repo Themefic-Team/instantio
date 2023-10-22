@@ -377,6 +377,7 @@
 			ins_cart_icon_animation();
 			return;
 		}
+
 		if ($(this).hasClass("product_type_variable")) {
 			return;
 		}
