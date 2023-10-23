@@ -11,6 +11,34 @@
 
 $change = [
 
+        // Update  start
+       'v10' => [
+           'date'      => '05 October 2023',
+           'version'   => 'Version 3.1.5',
+           'changelog' => [
+               'New'   =>   [
+                    'Custom fields to the billing and shipping forms(Pro)',
+                    'Support for payment through 2Checkout(Pro)',
+                ],
+                'Fix'   =>   [
+                    'Responsiveness issues',
+                    'Cart update issues',
+                    'Problems involving array warnings',
+                    'All progress bar dark mode issues(Pro)',
+                    'Panel billing input border color issues(Pro)',
+                    'Billing padding problems(Pro)',
+                    'Problems with the payment method title color(Pro)',
+                    'Billing CSS issues when on the dedicated mobile version(Pro)',
+                    'The install button(Pro)',
+                    'Mobile bar(Pro)',
+                ],
+                'Improvement'   =>   [
+                    'Progress bar hiding when the cart is empty(Pro)',
+                ],
+           ]
+       ],
+       // Update End
+        
         // Update Start
         'v9' => [
             'date'      => '12 September 2023',
@@ -83,19 +111,6 @@ $change = [
                ],
                 'Compatibility'   =>   [
                    'Compatibility check with WooCommerce 8.0.2',
-               ]
-           ]
-       ],
-       // Update End
-        
-        // Update  start
-       'v6' => [
-           'date'      => '10 August 2023',
-           'version'   => 'Version 3.1.1',
-           'changelog' => [
-               'Compatibility'   =>   [
-                   'Compatibility check with WordPress 6.3',
-                   'Compatibility check with WooCommerce 8.0.1',
                ]
            ]
        ],
