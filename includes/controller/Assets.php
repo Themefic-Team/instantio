@@ -93,11 +93,17 @@ class Assets {
             $output .= '
             
                 .ins-checkout-layout {
-                    border-left: '.$ins_panel_border_left.'px solid !important; 
-                    border-right: '.$ins_panel_border_right.'px solid !important;
-                    border-top: '.$ins_panel_border_top.'px solid !important; 
-                    border-bottom: '.$ins_panel_border_bottom.'px solid !important;
-                    border-color: '.$ins_panel_border_color.' !important;
+                    border-left: ' . $ins_panel_border_left . 'px solid !important; 
+                    border-right: ' . $ins_panel_border_right . 'px solid !important;
+                    border-top: ' . $ins_panel_border_top . 'px solid !important; 
+                    border-bottom: ' . $ins_panel_border_bottom . 'px solid !important;
+                    border-color: ' . $ins_panel_border_color . ' !important;
+                }
+                .ins-checkout-layout.ins-hori-right .ins-toggle-btn.tog-1{
+                    left: -'. 90 + $ins_panel_border_left . 'px;
+                }
+                .ins-checkout-popup.ins-var-cart-bottom .ins-toggle-btn.tog-2{
+                    left: -'. 80 + $ins_panel_border_left . 'px;
                 }
             '; 
         }
