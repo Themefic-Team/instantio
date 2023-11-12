@@ -339,7 +339,6 @@ Compatibility: Compatible with WooCommerce 8.2.2
 Added: Integration of all payment methods supported by Woocommerce
 Added: Custom Field Data to the order details(Pro)
 
-
 = 3.1.5 - ( October 05, 2023 ) =
 
 - Fixed: responsiveness issues.
