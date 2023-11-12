@@ -332,7 +332,7 @@ For those seeking simplicity, Instantio provides a simplified WooCommerce checko
 
 == Changelog ==
 
-= 3.1.6 - ( November 11, 2023 ) =
+= 3.1.6 - ( November 12, 2023 ) =
 
 Fixed: High-Performance Order Storage issue for Woocommerce
 Compatibility: Compatible with WooCommerce 8.2.2
