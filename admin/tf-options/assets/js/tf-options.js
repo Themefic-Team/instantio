@@ -19,57 +19,54 @@
 
     // Field: code_editor
     $(document).ready(function () {
+        $(".tf-field-textarea").each(function () {
+            if (typeof CodeMirror !== 'function') { return; }
+            // console.log("working");
+            var $this = $(this),
+                $textarea = $this.find('textarea'),
+                $inited = $this.find('.CodeMirror'),
+                data_editor = $textarea.data('editor');
 
+            if ($inited.length) {
+                $inited.remove();
+            }
 
-        // if (typeof CodeMirror !== 'function') { return; }
-        // console.log("working");
-        var $this = $('.tf-field-textarea'),
-            $textarea = $this.find('textarea'),
-            $inited = $this.find('.CodeMirror'),
-            data_editor = $textarea.data('editor');
+            var interval = setInterval(function () {
+                if ($this.is(':visible')) {
 
-        // console.log($this);
+                    var code_editor = CodeMirror.fromTextArea($textarea[0], data_editor);
+                    console.log(code_editor);
+                    // load code-mirror theme css.
+                    if (data_editor.theme !== 'default' && TF.vars.code_themes.indexOf(data_editor.theme) === -1) {
 
-        if ($inited.length) {
-            $inited.remove();
-        }
+                        var $cssLink = $('<link>');
 
-        var interval = setInterval(function () {
-            if ($this.is(':visible')) {
+                        $('#ins-codemirror-css').after($cssLink);
 
-                var code_editor = CodeMirror.fromTextArea($textarea[0], data_editor);
-                console.log(code_editor);
-                // load code-mirror theme css.
-                if (data_editor.theme !== 'default' && TF.vars.code_themes.indexOf(data_editor.theme) === -1) {
+                        $cssLink.attr({
+                            rel: 'stylesheet',
+                            id: 'ins-codemirror-' + data_editor.theme + '-css',
+                            href: data_editor.cdnURL + '/theme/' + data_editor.theme + '.min.css',
+                            type: 'text/css',
+                            media: 'all'
+                        });
 
-                    var $cssLink = $('<link>');
+                        TF.vars.code_themes.push(data_editor.theme);
 
-                    $('#csf-codemirror-css').after($cssLink);
+                    }
 
-                    $cssLink.attr({
-                        rel: 'stylesheet',
-                        id: 'csf-codemirror-' + data_editor.theme + '-css',
-                        href: data_editor.cdnURL + '/theme/' + data_editor.theme + '.min.css',
-                        type: 'text/css',
-                        media: 'all'
+                    CodeMirror.modeURL = data_editor.cdnURL + '/mode/%N/%N.min.js';
+                    CodeMirror.autoLoadMode(code_editor, data_editor.mode);
+
+                    code_editor.on('change', function (editor, event) {
+                        $textarea.val(code_editor.getValue()).trigger('change');
                     });
 
-                    TF.vars.code_themes.push(data_editor.theme);
+                    clearInterval(interval);
 
                 }
-
-                CodeMirror.modeURL = data_editor.cdnURL + '/mode/%N/%N.min.js';
-                CodeMirror.autoLoadMode(code_editor, data_editor.mode);
-
-                code_editor.on('change', function (editor, event) {
-                    $textarea.val(code_editor.getValue()).trigger('change');
-                });
-
-                clearInterval(interval);
-
-            }
+            });
         });
-
     });
 
     $(document).ready(function () {
@@ -565,8 +562,6 @@
 
             if (fielddeteck.length) {
                 fielddeteck.parent().parent().parent().parent().children('.tf-repeater-header').children('.tf-repeater-icon-absulate').children('.tf-repeater-icon-delete').css("display", "inline-block");
-
-                fielddeteck.parent().parent().parent().children('.tf-field-switch.checkout_shipping_form_field_status').css("display", "none");
             }
         });
 
@@ -576,8 +571,6 @@
 
             if (fielddeteck.length) {
                 fielddeteck.parent().parent().parent().parent().children('.tf-repeater-header').children('.tf-repeater-icon-absulate').children('.tf-repeater-icon-delete').css("display", "inline-block");
-
-                fielddeteck.parent().parent().parent().children('.tf-field-switch.checkout_form_field_status').css("display", "none");
             }
         });
 
