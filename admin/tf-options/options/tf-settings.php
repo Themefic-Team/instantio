@@ -343,7 +343,7 @@ TF_Settings::option( 'wiopt', array(
 					'placeholder' 	=> __( 'Disable Instantio', 'instantio' ),
 					'label'       	=> __( 'Disable Instantio', 'instantio' ),
 					'default'	  	=> 'cart',
-					'description' 	=> __( 'The Instantio cart functionality will not be visible on this particular page.', 'instantio' ),
+					'description' 	=> __( 'The Instantio cart functionality will not be visible on this particular page. Note: You won\'t be able to hide it from the default shop page.', 'instantio' ),
 					'is_pro'	  	=> true,
 					'options'     	=> 'posts',
 					'query_args'  	=> array(
