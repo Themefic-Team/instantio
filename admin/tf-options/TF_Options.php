@@ -50,7 +50,7 @@ if ( ! class_exists( 'TF_Options' ) ) {
 		}
 
 		public function tf_options_version() {
-			return '2.0.0';
+			return '2.0.1';
 		}
 
 		public function tf_options_file_path( $file_path = '' ) {
@@ -135,7 +135,7 @@ if ( ! class_exists( 'TF_Options' ) ) {
 				wp_enqueue_style('wp-color-picker');
 				wp_enqueue_style('tf-fontawesome-4', '//cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css', array(), $this->tf_options_version() );
 				wp_enqueue_style('tf-fontawesome-5', '//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css', array(), $this->tf_options_version() );
-				wp_enqueue_style('tf-fontawesome-6', '//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css', array(), $this->tf_options_version() );
+				wp_enqueue_style('tf-fontawesome-6', '//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css', array(), $this->tf_options_version() );
 				wp_enqueue_style('tf-remixicon', '//cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css', array(), $this->tf_options_version() );
 				wp_enqueue_style('tf-select2', '//cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css', array(), $this->tf_options_version() );
 				wp_enqueue_style('tf-flatpickr', '//cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.css', array(), $this->tf_options_version() );
@@ -186,7 +186,7 @@ if ( ! class_exists( 'TF_Options' ) ) {
 		public function tf_options_wp_enqueue_scripts() {
 			wp_enqueue_style('tf-fontawesome-4', '//cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css', array(), $this->tf_options_version() );
 			wp_enqueue_style('tf-fontawesome-5', '//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css', array(), $this->tf_options_version() );
-			wp_enqueue_style('tf-fontawesome-6', '//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css', array(), $this->tf_options_version() );
+			wp_enqueue_style('tf-fontawesome-6', '//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css', array(), $this->tf_options_version() );
 			wp_enqueue_style('tf-remixicon', '//cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css', array(), $this->tf_options_version() );
 		}
 

@@ -11,6 +11,25 @@
 
 $change = [
 
+       // Update  start
+       'v11' => [
+           'date'      => '12 November 2023',
+           'version'   => 'Version 3.1.6',
+           'changelog' => [
+               'New'   =>   [
+                   'Integration of all payment methods supported by Woocommerce',
+                   'Custom Field Data to the order details(Pro)',
+               ],
+               'Fix'   =>   [
+                   'High-Performance Order Storage issue for Woocommerce',
+               ],
+                'Compatibility'   =>   [
+                   'Compatible with WooCommerce 8.2.2',
+               ]
+           ]
+       ],
+       // Update End
+
         // Update  start
        'v10' => [
            'date'      => '05 October 2023',
@@ -101,21 +120,6 @@ $change = [
        ],
        // Update End
 
-        // Update  start
-       'v7' => [
-           'date'      => '24 August 2023',
-           'version'   => 'Version 3.1.2',
-           'changelog' => [
-               'Updated'   =>   [
-                   'readme.txt',
-               ],
-                'Compatibility'   =>   [
-                   'Compatibility check with WooCommerce 8.0.2',
-               ]
-           ]
-       ],
-       // Update End
-    
 ]
 
 
