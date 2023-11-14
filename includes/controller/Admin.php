@@ -2,6 +2,7 @@
 namespace INS\Controller;
 
 class Admin{
+
     public function __construct() { 
 
         // Load Text Domain
@@ -18,7 +19,8 @@ class Admin{
 
         add_action( 'wp_ajax_ins_review_notice_callback', array($this, 'ins_review_notice_callback'));
         add_action( 'wp_ajax_nopriv_ins_review_notice_callback', array($this, 'ins_review_notice_callback'));
-        add_action('admin_init', array($this, 'ins_review_activation_status')); 
+
+        // add_action('admin_init', array($this, 'ins_review_activation_status')); 
        
         /**
          * Check if WooCommerce is active, and if it isn't, disable the plugin.
@@ -80,14 +82,14 @@ class Admin{
     } 
 
     // Themefic Plugin Review Admin Notice
-    public function ins_review_activation_status(){ 
-        $ins_installation_date = get_option('ins_installation_date'); 
-        if( !isset($_COOKIE['ins_installation_date']) && empty($ins_installation_date) && $ins_installation_date == 0){
-            setcookie('ins_installation_date', 1, time() + (86400 * 7), "/"); 
-        }else{
-            update_option( 'ins_installation_date', '1' );
-        }
-    }
+    // public function ins_review_activation_status(){ 
+    //     $ins_installation_date = get_option('ins_installation_date'); 
+    //     if( !isset($_COOKIE['ins_installation_date']) && empty($ins_installation_date) && $ins_installation_date == 0){
+    //         setcookie('ins_installation_date', 1, time() + (86400 * 7), "/"); 
+    //     }else{
+    //         update_option( 'ins_installation_date', '1' );
+    //     }
+    // }
 
     // Themefic Plugin Review Admin Notice
     public function ins_review_notice(){ 
@@ -122,19 +124,17 @@ class Admin{
                         $this.closest('.themefic_review_notice').css('display', 'none')
                         data = {
                             action: 'ins_review_notice_callback',
-                            security: 'ins_review_nonce', // Define ins_review_nonce in your JavaScript
-                            status: status,
                         };
 
-                        console.log(ajaxurl);
+                        console.log('<?php echo admin_url('admin-ajax.php'); ?>');
 
                         $.ajax({
-                            url: ajaxurl,
-                            type: 'post',
+                            url: '<?php echo admin_url('admin-ajax.php'); ?>',
+                            type: 'POST',
                             data: data,
-                            success: function (data) { 
+                            success: function (res) { 
                             },
-                            error: function (data) { 
+                            error: function (err) { 
                             }
                         });
                     });
@@ -155,26 +155,26 @@ class Admin{
     <?php }
 
     // Themefic Plugin Review Admin Notice
-    public function ins_review_notice_callback() {
-        // Check if this is a valid AJAX request
-        check_ajax_referer('ins_review_nonce', 'security');
+    // public function ins_review_notice_callback() {
+    //     // Check if this is a valid AJAX request
+    //     check_ajax_referer('ins_review_nonce', 'security');
     
-        $status = sanitize_text_field($_POST['status']); // Sanitize user input
+    //     $status = sanitize_text_field($_POST['status']); // Sanitize user input
     
-        if ($status === 'already') {
-            update_option('ins_review_notice_status', '1');
-        } elseif ($status === 'never') {
-            update_option('ins_review_notice_status', '2');
-        } elseif ($status === 'later') {
-            $cookie_name = 'ins_review_notice_status';
-            $cookie_value = '1';
-            // Set a cookie with a 7-day expiration
-            setcookie($cookie_name, $cookie_value, time() + (86400 * 7), '/');
-            update_option('ins_review_notice_status', '0');
-        }
+    //     if ($status === 'already') {
+    //         update_option('ins_review_notice_status', '1');
+    //     } elseif ($status === 'never') {
+    //         update_option('ins_review_notice_status', '2');
+    //     } elseif ($status === 'later') {
+    //         $cookie_name = 'ins_review_notice_status';
+    //         $cookie_value = '1';
+    //         // Set a cookie with a 7-day expiration
+    //         setcookie($cookie_name, $cookie_value, time() + (86400 * 7), '/');
+    //         update_option('ins_review_notice_status', '0');
+    //     }
     
-        wp_die();
-    } 
+    //     wp_die();
+    // } 
 
 
     /**
@@ -276,9 +276,5 @@ class Admin{
         if($installed){
             delete_option('instantio_active_time' );
         }
-    } 
-
- 
+    }
 }
-
-?>
