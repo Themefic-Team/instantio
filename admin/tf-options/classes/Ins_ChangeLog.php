@@ -11,6 +11,18 @@
 
 $change = [
 
+    // Update  start
+    'v12' => [
+        'date'      => '14 November 2023',
+        'version'   => 'Version 3.1.7',
+        'changelog' => [
+            'New'   =>   [
+                'Black Friday Announcements',
+            ],
+        ]
+    ],
+    // Update End
+
        // Update  start
        'v11' => [
            'date'      => '12 November 2023',
