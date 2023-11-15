@@ -334,7 +334,7 @@ For those seeking simplicity, Instantio provides a simplified WooCommerce checko
 
 = 3.1.7 - ( November 14, 2023 ) =
 
-- Notice: Black Friday Notice
+- Notice: Black Friday Announcements
 - Improvement: System stability Improved
 
 = 3.1.6 - ( November 12, 2023 ) =
