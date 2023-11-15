@@ -215,7 +215,7 @@
 			<div class="back_friday_2023_preview" style="text-align: center; overflow: hidden;">
 				<button type="button" class="notice-dismiss tf_hotel_friday_notice_dismiss"><span class="screen-reader-text">Dismiss this notice.</span></button>
 				<a href="<?php echo $deal_link; ?>" target="_blank">
-					<img style="width: 100%;" src="<?php echo INS_ASSETS_URL ?>/img/instantio.png" alt="">
+					<img style="width: 100%;" src="<?php echo INS_ASSETS_URL ?>/img/blackfriday_sidebanner.png" alt="">
 				</a>
 				<script>
 				jQuery(document).ready(function($) {
