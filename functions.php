@@ -106,9 +106,17 @@
 				return;
 			}
 
+			$expiration_time = time() + 3 * 60 * 60;  
+        	$tf_display_admin_notice_time = get_option( 'tf_display_admin_notice_time' );
+
+        	if($tf_display_admin_notice_time == ''){
+            	update_option( 'tf_display_admin_notice_time', $expiration_time );
+        	}
+
 			$deal_link =sanitize_url('https://themefic.com/deals/');
+			$tf_display_admin_notice_time = get_option( 'tf_display_admin_notice_time' );
 			$get_current_screen = get_current_screen();  
-			if(!isset($_COOKIE['tf_dismiss_admin_notice']) && $get_current_screen->base == 'dashboard'){ 
+			if(!isset($_COOKIE['tf_dismiss_admin_notice']) && $get_current_screen->base == 'dashboard' && time() > $tf_display_admin_notice_time){ 
 				?>
 				<style> 
 					.tf_black_friday_20222_admin_notice a:focus {
@@ -116,8 +124,11 @@
 					} 
 					.tf_black_friday_20222_admin_notice {
 						padding: 7px;
+						border: none;
+						background: transparent;
 						position: relative;
 						z-index: 10;
+						max-width: 825px;
 					} 
 					.tf_black_friday_20222_admin_notice button:before {
 						color: #fff !important;
@@ -130,7 +141,7 @@
 					<a href="<?php echo $deal_link; ?>" target="_blank" >
 						<img  style="width: 100%;" src="<?php echo INS_ASSETS_URL ?>/img/BLACK_FRIDAY_BACKGROUND_GRUNGE_notice.png" alt="">
 					</a> 
-					<button type="button" class="notice-dismiss tf_black_friday_notice_dismiss"><span class="screen-reader-text"><?php echo __('Dismiss this notice.', 'ultimate-addons-cf7' ) ?></span></button>
+					<button type="button" class="notice-dismiss tf_black_friday_notice_dismiss"><span class="screen-reader-text"><?php echo __('Dismiss this notice.', 'instantio' ) ?></span></button>
 				</div>
 				<script>
 					jQuery(document).ready(function($) {
@@ -165,9 +176,79 @@
 			$cookie_name = "tf_dismiss_admin_notice";
 			$cookie_value = "1"; 
 			setcookie($cookie_name, $cookie_value, strtotime('2023-12-01'), "/"); 
+			update_option( 'tf_display_admin_notice_time', '1' );
 			wp_die();
 		}
 		add_action( 'wp_ajax_tf_black_friday_notice_dismiss_callback', 'tf_black_friday_notice_dismiss_callback' );
 	}
+
+
+	//product pages 
+	if ( ! function_exists( 'tf_black_friday_2023_woo_product' ) ) {
+		function tf_black_friday_2023_woo_product() {
+			if ( ! isset( $_COOKIE['tf_black_friday_sidbar_notice'] ) ) {
+				add_meta_box( 'tf_black_friday_annous', __( ' ', 'instantio' ), 'tf_black_friday_2023_callback_woo_product', 'product', 'side', 'high' );
+			}
+		}
+	
+		if ( strtotime( '2023-12-01' ) > time() && !is_plugin_active( 'wooinstant/wooinstant.php' ) ) {
+			add_action( 'add_meta_boxes', 'tf_black_friday_2023_woo_product' );
+		}
+		function tf_black_friday_2023_callback_woo_product() {
+			$deal_link = sanitize_url( 'https://themefic.com/deals' );
+			?>
+			<style>
+				#tf_black_friday_annous{
+					border: 0px solid;
+					box-shadow: none;
+					background: transparent;
+				}
+				.back_friday_2023_preview a:focus {
+					box-shadow: none;
+				}
+	
+				.back_friday_2023_preview a {
+					display: inline-block;
+				}
+	
+				#tf_black_friday_annous .inside {
+					padding: 0;
+					margin-top: 0;
+				}
+	
+				#tf_black_friday_annous .postbox-header {
+					display: none;
+					visibility: hidden;
+				}
+			</style>
+			<div class="back_friday_2023_preview" style="text-align: center; overflow: hidden;">
+				<button type="button" class="notice-dismiss tf_hotel_friday_notice_dismiss"><span class="screen-reader-text">Dismiss this notice.</span></button>
+				<a href="<?php echo $deal_link; ?>" target="_blank">
+					<img style="width: 100%;" src="<?php echo INS_ASSETS_URL ?>/img/blackfriday_sidebanner.png" alt="">
+				</a>
+				<script>
+				jQuery(document).ready(function($) {
+					$(document).on('click', '.tf_hotel_friday_notice_dismiss', function( event ) { 
+						jQuery('.back_friday_2023_preview').css('display', 'none')
+						var cookieName = "tf_black_friday_sidbar_notice";
+						var cookieValue = "1";
+	
+						// Create a date object for the expiration date
+						var expirationDate = new Date();
+						expirationDate.setTime(expirationDate.getTime() + (5 * 24 * 60 * 60 * 1000)); // 5 days in milliseconds
+	
+						// Construct the cookie string
+						var cookieString = cookieName + "=" + cookieValue + ";expires=" + expirationDate.toUTCString() + ";path=/";
+	
+						// Set the cookie
+						document.cookie = cookieString;
+					});
+				});
+				</script>
+			</div>
+			<?php
+		}
+	}
+
 
 ?>
