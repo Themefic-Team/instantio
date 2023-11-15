@@ -250,5 +250,18 @@
 		}
 	}
 
+	add_filter( 'get_user_option_meta-box-order_product', 'metabox_order' );
+	function metabox_order( $order ) {
+		return array(
+			'side' => join( 
+				",", 
+				array(       // vvv  Arrange here as you desire
+					'submitdiv',
+					'tf_black_friday_annous',
+				)
+			),
+		);
+	}
+
 
 ?>
