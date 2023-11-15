@@ -19,6 +19,9 @@ $change = [
             'New'   =>   [
                 'Black Friday Announcements',
             ],
+            'Improvement'   =>   [
+                'System stability Improved',
+            ],
         ]
     ],
     // Update End
