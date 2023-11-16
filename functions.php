@@ -139,7 +139,7 @@
 				</style>
 				<div class="notice notice-success tf_black_friday_20222_admin_notice"> 
 					<a href="<?php echo $deal_link; ?>" target="_blank" >
-						<img  style="width: 100%;" src="<?php echo INS_ASSETS_URL ?>/img/BLACK_FRIDAY_BACKGROUND_GRUNGE_notice.png" alt="">
+						<img  style="width: 100%;" src="<?php echo esc_url( 'https://themefic.com/wp-content/uploads/2023/11/Themefic_BlackFriday_rectangle_banner.png') ?>" alt="">
 					</a> 
 					<button type="button" class="notice-dismiss tf_black_friday_notice_dismiss"><span class="screen-reader-text"><?php echo __('Dismiss this notice.', 'instantio' ) ?></span></button>
 				</div>
@@ -224,7 +224,7 @@
 			<div class="back_friday_2023_preview" style="text-align: center; overflow: hidden;">
 				<button type="button" class="notice-dismiss tf_hotel_friday_notice_dismiss"><span class="screen-reader-text">Dismiss this notice.</span></button>
 				<a href="<?php echo $deal_link; ?>" target="_blank">
-					<img style="width: 100%;" src="<?php echo INS_ASSETS_URL ?>/img/blackfriday_sidebanner.png" alt="">
+					<img style="width: 100%;" src="<?php echo esc_url('https://themefic.com/wp-content/uploads/2023/11/Instantio_BlackFriday_Square_banner.png') ?>" alt="">
 				</a>
 				<script>
 				jQuery(document).ready(function($) {
