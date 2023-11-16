@@ -221,7 +221,7 @@
 					visibility: hidden;
 				}
 			</style>
-			<div class="back_friday_2023_preview" style="text-align: center; overflow: hidden;">
+			<div class="back_friday_2023_preview ins-bf-preview" style="text-align: center; overflow: hidden;">
 				<button type="button" class="notice-dismiss tf_hotel_friday_notice_dismiss"><span class="screen-reader-text">Dismiss this notice.</span></button>
 				<a href="<?php echo $deal_link; ?>" target="_blank">
 					<img style="width: 100%;" src="<?php echo esc_url('https://themefic.com/wp-content/uploads/2023/11/Instantio_BlackFriday_Square_banner.png') ?>" alt="">
@@ -229,7 +229,7 @@
 				<script>
 				jQuery(document).ready(function($) {
 					$(document).on('click', '.tf_hotel_friday_notice_dismiss', function( event ) { 
-						jQuery('.back_friday_2023_preview').css('display', 'none')
+						jQuery('.ins-bf-preview').css('display', 'none')
 						var cookieName = "tf_black_friday_sidbar_notice";
 						var cookieValue = "1";
 	
