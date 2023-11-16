@@ -247,7 +247,7 @@ class Admin{
     public function instantio_plugin_action_links( $links ) {
 
         $settings_link = array(
-            '<a href="admin.php?page=instantio_options">' . esc_html__( 'Settings', 'instantio' ) . '</a>',
+            '<a href="admin.php?page=wiopt#tab=layout_option">' . esc_html__( 'Settings', 'instantio' ) . '</a>',
         );
 
         if ( !is_plugin_active( 'wooinstant/wooinstant.php' ) ) {
