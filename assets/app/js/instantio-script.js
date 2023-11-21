@@ -246,6 +246,7 @@
 	// Ajax Add To Cart
 	$(document.body).on("added_to_cart", function () {
 		var thisbutton = $(this);
+		// alert('Click');
 		$.ajax({
 			url: ins_params.ajax_url,
 			type: "POST",
@@ -270,6 +271,12 @@
 				$(".ins-checkout-layout .ins-cart-empty").addClass("hide");
 				$(".ins-checkout-layout .ins-cart-inner.step-1").html("");
 				$(".ins-checkout-layout .ins-cart-inner.step-1").append(response.data.data);
+
+				console.log(response.data);
+				$(".ins-checkout-layout .ins-content").find('.ins-checkout').remove();
+				$(".ins-checkout-layout .ins-content").find('.woocommerce-error').remove();
+				$(".ins-checkout-layout .ins-content").append(response.data.ins_checkout_load);
+
 
 				// $(".ins-checkout-layout").append(response); 
 
@@ -657,7 +664,6 @@
 		"click",
 		'.ins-checkout-layout button[name="update_cart"], .ins-checkout-layout button[name="apply_coupon"]',
 		function (e) {
-
 			$('.ins-cart-inner.shipping input').each(function () {
 				var value = $(this).val();
 				if (value != '') {

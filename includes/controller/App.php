@@ -277,7 +277,8 @@ class App {
         }
         
         // require_once INS_INC_PATH .  $this->layouts_slug;
-        $data = ob_get_clean(); 
+        
+        $data = ob_get_clean();
         $hide_empty = 'hide';
         $display = 'ins-show'; 
         if(WC()->cart->is_empty()):   
@@ -285,6 +286,7 @@ class App {
             $display = 'hide'; 
         endif; 
         $ins_cart_total = WC()->cart->get_cart_contents_count();
+        // $ins_checkout_load = apply_filters('ins_template_step_content', '');
         $response = array(
             // 'fragments' => apply_filters( 'ins_cart_count_fragments', array() ),
             'cart_hash' => apply_filters( 'woocommerce_add_to_cart_hash', WC()->cart->get_cart_for_session() ? md5( json_encode( WC()->cart->get_cart_for_session() ) ) : '', WC()->cart->get_cart_for_session() ),
@@ -293,6 +295,7 @@ class App {
             'hide_empty' => $hide_empty,
             'display' => $display, 
             'ins_cart_count' => $ins_cart_total,
+            // 'ins_checkout_load' => $ins_checkout_load,
         );
 
         wp_send_json_success( $response );
@@ -355,13 +358,12 @@ class App {
     // Ajax Update Cart
     public function ins_ajax_update_cart() { 
        
-    
         $cart_item_keys = $_POST['cart_item_keys'];
         $product_ids = $_POST['product_ids'];
         $quantities = $_POST['quantities'];
         $coupon_code = $_POST['coupon_code'];
         $cart_updated = false;
-       
+
         for ( $i = 0; $i < count( $cart_item_keys ); $i++ ) {
 
             WC()->cart->set_quantity( $cart_item_keys[ $i ], $quantities[ $i ], false );
@@ -393,7 +395,6 @@ class App {
             'cart_data'     => $cart_data,
             'hide_empty'    => $hide_empty,
             'display'       => $display, 
-            
             'cart_hash'     => apply_filters( 'woocommerce_add_to_cart_hash', WC()->cart->get_cart_for_session() ? md5( json_encode( WC()->cart->get_cart_for_session() ) ) : '', WC()->cart->get_cart_for_session() )
         );
 
@@ -471,7 +472,7 @@ class App {
 		// Return if checkout page
 		if ( class_exists( 'woocommerce' ) ) {
             if($is_Pro_class === false){
-                if (is_page( 'checkout' ) || is_checkout() ) {
+                if (is_page( 'checkout' )) {
                     return;
                 }
             } else {
