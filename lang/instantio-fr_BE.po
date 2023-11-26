@@ -22,7 +22,7 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-1: vendor\n"
 
 #: admin/tf-options/TF_Options.php:266
-#: admin/tf-options/classes/TF_Settings.php:233
+#: admin/tf-options/classes/Ins_TF_Settings.php:233
 msgid "Pro"
 msgstr ""
 
@@ -34,251 +34,251 @@ msgstr "Prochain"
 msgid "Field not found!"
 msgstr ""
 
-#: admin/tf-options/classes/TF_Settings.php:121
-#: admin/tf-options/classes/TF_Settings.php:122
+#: admin/tf-options/classes/Ins_TF_Settings.php:121
+#: admin/tf-options/classes/Ins_TF_Settings.php:122
 msgid "Dashboard"
 msgstr "Tableau de bord"
 
-#: admin/tf-options/classes/TF_Settings.php:132
-#: admin/tf-options/classes/TF_Settings.php:133
+#: admin/tf-options/classes/Ins_TF_Settings.php:132
+#: admin/tf-options/classes/Ins_TF_Settings.php:133
 #: includes/controller/Admin.php:239
 msgid "Settings"
 msgstr "Paramètres"
 
-#: admin/tf-options/classes/TF_Settings.php:144
-#: admin/tf-options/classes/TF_Settings.php:145
+#: admin/tf-options/classes/Ins_TF_Settings.php:144
+#: admin/tf-options/classes/Ins_TF_Settings.php:145
 msgid "Upgrade to Pro"
 msgstr ""
 
-#: admin/tf-options/classes/TF_Settings.php:193
+#: admin/tf-options/classes/Ins_TF_Settings.php:193
 msgid "Need Help?"
 msgstr ""
 
-#: admin/tf-options/classes/TF_Settings.php:199
-#: admin/tf-options/classes/TF_Settings.php:263 functions.php:29
+#: admin/tf-options/classes/Ins_TF_Settings.php:199
+#: admin/tf-options/classes/Ins_TF_Settings.php:263 functions.php:29
 msgid "Documentation"
 msgstr "Documentation"
 
-#: admin/tf-options/classes/TF_Settings.php:206
+#: admin/tf-options/classes/Ins_TF_Settings.php:206
 msgid "Feature Request"
 msgstr ""
 
-#: admin/tf-options/classes/TF_Settings.php:227
+#: admin/tf-options/classes/Ins_TF_Settings.php:227
 #: admin/tf-options/options/tf-settings.php:22
 #: admin/tf-options/options/tf-settings.php:605
 msgid "General"
 msgstr "Général"
 
-#: admin/tf-options/classes/TF_Settings.php:230
+#: admin/tf-options/classes/Ins_TF_Settings.php:230
 msgid "Tutorial"
 msgstr ""
 
-#: admin/tf-options/classes/TF_Settings.php:236
+#: admin/tf-options/classes/Ins_TF_Settings.php:236
 msgid "FAQs"
 msgstr "FAQ"
 
-#: admin/tf-options/classes/TF_Settings.php:239
+#: admin/tf-options/classes/Ins_TF_Settings.php:239
 msgid "What's New"
 msgstr "Quoi de Neuf"
 
-#: admin/tf-options/classes/TF_Settings.php:249
-#: admin/tf-options/classes/TF_Settings.php:251
+#: admin/tf-options/classes/Ins_TF_Settings.php:249
+#: admin/tf-options/classes/Ins_TF_Settings.php:251
 msgid "Setup Wizard"
 msgstr ""
 
-#: admin/tf-options/classes/TF_Settings.php:250
+#: admin/tf-options/classes/Ins_TF_Settings.php:250
 msgid ""
 "Click the button below to run the setup wizard of Instantio. Your existing "
 "settings will be change."
 msgstr ""
 
-#: admin/tf-options/classes/TF_Settings.php:264
+#: admin/tf-options/classes/Ins_TF_Settings.php:264
 msgid "How the plugin works, what it can do, and how to use it."
 msgstr ""
 
-#: admin/tf-options/classes/TF_Settings.php:265
+#: admin/tf-options/classes/Ins_TF_Settings.php:265
 msgid "Read More"
 msgstr "Lire la suite"
 
-#: admin/tf-options/classes/TF_Settings.php:271
+#: admin/tf-options/classes/Ins_TF_Settings.php:271
 msgid "Email Support"
 msgstr ""
 
-#: admin/tf-options/classes/TF_Settings.php:272
+#: admin/tf-options/classes/Ins_TF_Settings.php:272
 msgid "As part of our overall support strategy to provide the best experience."
 msgstr ""
 
-#: admin/tf-options/classes/TF_Settings.php:273
+#: admin/tf-options/classes/Ins_TF_Settings.php:273
 msgid "Contact Us"
 msgstr "Contactez-nous"
 
-#: admin/tf-options/classes/TF_Settings.php:280
+#: admin/tf-options/classes/Ins_TF_Settings.php:280
 msgid "Video Tutorials"
 msgstr ""
 
-#: admin/tf-options/classes/TF_Settings.php:281
+#: admin/tf-options/classes/Ins_TF_Settings.php:281
 msgid "We allows you to get help in real-time, which can improve satisfaction."
 msgstr ""
 
-#: admin/tf-options/classes/TF_Settings.php:282
+#: admin/tf-options/classes/Ins_TF_Settings.php:282
 msgid "Watch Video"
 msgstr "Voir la vidéo"
 
-#: admin/tf-options/classes/TF_Settings.php:295
+#: admin/tf-options/classes/Ins_TF_Settings.php:295
 msgid "Upgrade to PRO"
 msgstr ""
 
-#: admin/tf-options/classes/TF_Settings.php:299
+#: admin/tf-options/classes/Ins_TF_Settings.php:299
 #, no-php-format
 msgid ""
 "To provide amazing experience to your guests and sell more with less effort. "
 "Bonus: You can upgrade to our plans today and save 50% off."
 msgstr ""
 
-#: admin/tf-options/classes/TF_Settings.php:303
+#: admin/tf-options/classes/Ins_TF_Settings.php:303
 msgid "Upgrade now"
 msgstr ""
 
-#: admin/tf-options/classes/TF_Settings.php:313
+#: admin/tf-options/classes/Ins_TF_Settings.php:313
 msgid "Have any thoughts or feature request?"
 msgstr ""
 
-#: admin/tf-options/classes/TF_Settings.php:316
+#: admin/tf-options/classes/Ins_TF_Settings.php:316
 msgid ""
 "We believe your feature request will make our website more user-friendly. "
 "Our dedicated team will review it and take it into consideration for future "
 "updates."
 msgstr ""
 
-#: admin/tf-options/classes/TF_Settings.php:319
+#: admin/tf-options/classes/Ins_TF_Settings.php:319
 msgid "Submit request"
 msgstr ""
 
-#: admin/tf-options/classes/TF_Settings.php:329
+#: admin/tf-options/classes/Ins_TF_Settings.php:329
 msgid "Basic Tutorials"
 msgstr ""
 
-#: admin/tf-options/classes/TF_Settings.php:333
-#: admin/tf-options/classes/TF_Settings.php:388
+#: admin/tf-options/classes/Ins_TF_Settings.php:333
+#: admin/tf-options/classes/Ins_TF_Settings.php:388
 msgid "View all"
 msgstr "Voir tout"
 
-#: admin/tf-options/classes/TF_Settings.php:346
+#: admin/tf-options/classes/Ins_TF_Settings.php:346
 msgid "How to setup a Fast WooCommerce Checkout"
 msgstr ""
 
-#: admin/tf-options/classes/TF_Settings.php:359
+#: admin/tf-options/classes/Ins_TF_Settings.php:359
 msgid "How to Install / Update Instantio"
 msgstr ""
 
-#: admin/tf-options/classes/TF_Settings.php:373
+#: admin/tf-options/classes/Ins_TF_Settings.php:373
 msgid "Instant Checkout for WooCommerce"
 msgstr ""
 
-#: admin/tf-options/classes/TF_Settings.php:384
+#: admin/tf-options/classes/Ins_TF_Settings.php:384
 msgid "Pro Features"
 msgstr ""
 
-#: admin/tf-options/classes/TF_Settings.php:398
+#: admin/tf-options/classes/Ins_TF_Settings.php:398
 msgid "Side Cart + Side Checkout (Multi Step)"
 msgstr ""
 
-#: admin/tf-options/classes/TF_Settings.php:401
+#: admin/tf-options/classes/Ins_TF_Settings.php:401
 msgid ""
 "Customer will checkout from Same Window (Side drawer). The checkout process "
 "will be Multi-step (Cart -> Checkout, No Reload)."
 msgstr ""
 
-#: admin/tf-options/classes/TF_Settings.php:404
-#: admin/tf-options/classes/TF_Settings.php:421
-#: admin/tf-options/classes/TF_Settings.php:440
-#: admin/tf-options/classes/TF_Settings.php:457
-#: admin/tf-options/classes/TF_Settings.php:474
-#: admin/tf-options/classes/TF_Settings.php:491
-#: admin/tf-options/classes/TF_Settings.php:508
+#: admin/tf-options/classes/Ins_TF_Settings.php:404
+#: admin/tf-options/classes/Ins_TF_Settings.php:421
+#: admin/tf-options/classes/Ins_TF_Settings.php:440
+#: admin/tf-options/classes/Ins_TF_Settings.php:457
+#: admin/tf-options/classes/Ins_TF_Settings.php:474
+#: admin/tf-options/classes/Ins_TF_Settings.php:491
+#: admin/tf-options/classes/Ins_TF_Settings.php:508
 msgid "See Preview"
 msgstr ""
 
-#: admin/tf-options/classes/TF_Settings.php:415
+#: admin/tf-options/classes/Ins_TF_Settings.php:415
 msgid "Side Cart + Side Checkout (Single Step)"
 msgstr ""
 
-#: admin/tf-options/classes/TF_Settings.php:418
+#: admin/tf-options/classes/Ins_TF_Settings.php:418
 msgid ""
 "The checkout process will be Single-step. Cart & Checkout will be shown on "
 "the Same Window, No Page Reload."
 msgstr ""
 
-#: admin/tf-options/classes/TF_Settings.php:432
+#: admin/tf-options/classes/Ins_TF_Settings.php:432
 msgid "Popup Cart + Popup Checkout (Multi Step)"
 msgstr ""
 
-#: admin/tf-options/classes/TF_Settings.php:436
+#: admin/tf-options/classes/Ins_TF_Settings.php:436
 msgid ""
 "Customer will checkout from Same Window (Popup). The checkout process will "
 "be Multi-step (Cart -> Checkout)"
 msgstr ""
 
-#: admin/tf-options/classes/TF_Settings.php:451
+#: admin/tf-options/classes/Ins_TF_Settings.php:451
 msgid "Popup Cart + Popup Checkout (Single Step)"
 msgstr ""
 
-#: admin/tf-options/classes/TF_Settings.php:454
+#: admin/tf-options/classes/Ins_TF_Settings.php:454
 msgid ""
 "The checkout process will be Single-step Popup (Cart & Checkout on Same "
 "Window, No Page Reload)."
 msgstr ""
 
-#: admin/tf-options/classes/TF_Settings.php:468
+#: admin/tf-options/classes/Ins_TF_Settings.php:468
 msgid "Upsell (Pro)"
 msgstr ""
 
-#: admin/tf-options/classes/TF_Settings.php:471
+#: admin/tf-options/classes/Ins_TF_Settings.php:471
 msgid ""
 "Instantio offer Ajax-based Upsell feature with which you can sell related or "
 "complementary products to a customer."
 msgstr ""
 
-#: admin/tf-options/classes/TF_Settings.php:485
+#: admin/tf-options/classes/Ins_TF_Settings.php:485
 msgid "Cross-sell (Pro)"
 msgstr ""
 
-#: admin/tf-options/classes/TF_Settings.php:488
+#: admin/tf-options/classes/Ins_TF_Settings.php:488
 msgid ""
 "With Instantio, you can also do Ajax based cross-sell by selling related or "
 "complementary products to a customer."
 msgstr ""
 
-#: admin/tf-options/classes/TF_Settings.php:502
+#: admin/tf-options/classes/Ins_TF_Settings.php:502
 msgid "Dedicated Mobile Layout"
 msgstr ""
 
-#: admin/tf-options/classes/TF_Settings.php:505
+#: admin/tf-options/classes/Ins_TF_Settings.php:505
 msgid ""
 "A dedicated mobile layout for smaller devices to make your checkout process "
 "much smoother for customers."
 msgstr ""
 
-#: admin/tf-options/classes/TF_Settings.php:521
+#: admin/tf-options/classes/Ins_TF_Settings.php:521
 msgid "Frequently asked questions"
 msgstr "Foire aux questions"
 
-#: admin/tf-options/classes/TF_Settings.php:531
+#: admin/tf-options/classes/Ins_TF_Settings.php:531
 msgid "1. What is WooCommerce One Page Checkout?"
 msgstr ""
 
-#: admin/tf-options/classes/TF_Settings.php:536
+#: admin/tf-options/classes/Ins_TF_Settings.php:536
 msgid ""
 "WooCommerce One Page Checkout means converting the default multistep "
 "checkout for WooCommerce process into a single page Checkout. WordPress "
 "Plugins like Instantio offers such a solution."
 msgstr ""
 
-#: admin/tf-options/classes/TF_Settings.php:546
+#: admin/tf-options/classes/Ins_TF_Settings.php:546
 msgid "2. What is Direct Checkout for WooCommerce?"
 msgstr ""
 
-#: admin/tf-options/classes/TF_Settings.php:551
+#: admin/tf-options/classes/Ins_TF_Settings.php:551
 msgid ""
 "WooCommerce Direct Checkout is a solution to reduce the steps of the default "
 "Woocommerce checkout process. Customers can skip the cart page and directly "
@@ -287,128 +287,128 @@ msgid ""
 "solution."
 msgstr ""
 
-#: admin/tf-options/classes/TF_Settings.php:561
+#: admin/tf-options/classes/Ins_TF_Settings.php:561
 msgid "3. How to install Instantio?"
 msgstr ""
 
-#: admin/tf-options/classes/TF_Settings.php:566
+#: admin/tf-options/classes/Ins_TF_Settings.php:566
 msgid ""
 "See the installation link. <a traget='_blank' href='https://wordpress.org/"
 "plugins/instantio/#installation'>Install Link</a> "
 msgstr ""
 
-#: admin/tf-options/classes/TF_Settings.php:576
+#: admin/tf-options/classes/Ins_TF_Settings.php:576
 msgid "4. Is the Free version fully free or there is a gap?"
 msgstr ""
 
-#: admin/tf-options/classes/TF_Settings.php:581
+#: admin/tf-options/classes/Ins_TF_Settings.php:581
 msgid ""
 "Yes, Instantio is fully free which is available on WordPress.org. This free "
 "version will always be free. It also has a pro version with additional "
 "features which you can purchase from our official website."
 msgstr ""
 
-#: admin/tf-options/classes/TF_Settings.php:591
+#: admin/tf-options/classes/Ins_TF_Settings.php:591
 msgid "5. Is the free version supported?"
 msgstr ""
 
-#: admin/tf-options/classes/TF_Settings.php:596
+#: admin/tf-options/classes/Ins_TF_Settings.php:596
 msgid ""
 "Yes, we fully support both the free and pro version. Please feel free to "
 "post questions or bug reports through our website, but for timely support, "
 "we recommend purchasing Pro version."
 msgstr ""
 
-#: admin/tf-options/classes/TF_Settings.php:606
+#: admin/tf-options/classes/Ins_TF_Settings.php:606
 msgid "5. Will I be able to edit WooCommerce checkout page with Instantio?"
 msgstr ""
 
-#: admin/tf-options/classes/TF_Settings.php:611
+#: admin/tf-options/classes/Ins_TF_Settings.php:611
 msgid ""
 "Yes, Instantio allows you to edit WooCommerce checkout page to some extent. "
 "You can remove the cart page and make your customer directly go to the "
 "checkout page."
 msgstr ""
 
-#: admin/tf-options/classes/TF_Settings.php:621
+#: admin/tf-options/classes/Ins_TF_Settings.php:621
 msgid "6. Does Instantio allows WooCommerce one-click checkout?"
 msgstr ""
 
-#: admin/tf-options/classes/TF_Settings.php:626
+#: admin/tf-options/classes/Ins_TF_Settings.php:626
 msgid ""
 "Yes, Instantio converts WooCommerce multistep checkout process into "
 "WooCommerce one click checkout."
 msgstr ""
 
-#: admin/tf-options/classes/TF_Settings.php:636
+#: admin/tf-options/classes/Ins_TF_Settings.php:636
 msgid "7. Will I be able to skip cart page on WooCommerce?"
 msgstr ""
 
-#: admin/tf-options/classes/TF_Settings.php:641
+#: admin/tf-options/classes/Ins_TF_Settings.php:641
 msgid ""
 "Yes, Instantio allows you to skip cart page WooCommerce and make your "
 "customer directly go to the checkout page."
 msgstr ""
 
-#: admin/tf-options/classes/TF_Settings.php:651
+#: admin/tf-options/classes/Ins_TF_Settings.php:651
 msgid "8. Does Instantio allows WooCommerce Quick checkout?"
 msgstr ""
 
-#: admin/tf-options/classes/TF_Settings.php:656
+#: admin/tf-options/classes/Ins_TF_Settings.php:656
 msgid ""
 "Yes, Instantio converts the default multistep WooCommerce checkout process "
 "into WooCommerce Quick checkout."
 msgstr ""
 
-#: admin/tf-options/classes/TF_Settings.php:666
+#: admin/tf-options/classes/Ins_TF_Settings.php:666
 msgid "9. Does Instantio allows WooCommerce Express checkout?"
 msgstr ""
 
-#: admin/tf-options/classes/TF_Settings.php:671
+#: admin/tf-options/classes/Ins_TF_Settings.php:671
 msgid ""
 "Yes, Instantio converts the default multistep WooCommerce checkout process "
 "into WooCommerce Express checkout."
 msgstr ""
 
-#: admin/tf-options/classes/TF_Settings.php:685
+#: admin/tf-options/classes/Ins_TF_Settings.php:685
 msgid "All updates"
 msgstr ""
 
-#: admin/tf-options/classes/TF_Settings.php:721
+#: admin/tf-options/classes/Ins_TF_Settings.php:721
 msgid ""
 "No change logs found. Please try again later. Maybe the changelog is being "
 "updated, it will come shortly."
 msgstr ""
 
-#: admin/tf-options/classes/TF_Settings.php:767
+#: admin/tf-options/classes/Ins_TF_Settings.php:767
 msgid "License Key"
 msgstr "Clé de license"
 
-#: admin/tf-options/classes/TF_Settings.php:769
+#: admin/tf-options/classes/Ins_TF_Settings.php:769
 msgid ""
 "Enter your license key here, to activate the product, and get full feature "
 "updates and premium support."
 msgstr ""
 
-#: admin/tf-options/classes/TF_Settings.php:777
+#: admin/tf-options/classes/Ins_TF_Settings.php:777
 msgid "License Email "
 msgstr ""
 
-#: admin/tf-options/classes/TF_Settings.php:779
+#: admin/tf-options/classes/Ins_TF_Settings.php:779
 msgid ""
 "We will send update news of this product by this email address, don't worry, "
 "we hate spam"
 msgstr ""
 
-#: admin/tf-options/classes/TF_Settings.php:896
+#: admin/tf-options/classes/Ins_TF_Settings.php:896
 msgid "Save"
 msgstr "Enregistrer"
 
-#: admin/tf-options/classes/TF_Settings.php:983
+#: admin/tf-options/classes/Ins_TF_Settings.php:983
 msgid "Something went wrong!"
 msgstr ""
 
-#: admin/tf-options/classes/TF_Settings.php:990
+#: admin/tf-options/classes/Ins_TF_Settings.php:990
 msgid "Options saved successfully!"
 msgstr ""
 

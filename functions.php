@@ -62,7 +62,7 @@
 	 * @author M Hemel Hasan
 	 * @return bool
 	 */
-	function is_tf_pro_active() {
+	function is_ins_pro_active() {
 		if ( is_plugin_active( 'wooinstant/wooinstant.php' ) && class_exists('WOOINS') ) {
 			return true;
 		}

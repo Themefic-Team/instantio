@@ -462,7 +462,7 @@ class App {
         $checkout_page_slug = $checkout_page->post_name;
 
         // Checking the pro is active or not
-        $is_Pro_class = is_tf_pro_active();
+        $is_Pro_class = is_ins_pro_active();
 
         // Return if WooCommerce not active
 		if ( !class_exists( 'woocommerce' ) ) {

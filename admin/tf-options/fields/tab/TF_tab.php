@@ -49,7 +49,7 @@ if ( ! class_exists( 'TF_text' ) ) {
 										}
 									}
 
-									$tf_option = new TF_Options();
+									$tf_option = new Ins_TF_Options();
 									$tf_option->field( $field, $value, $this->settings_id, $parent );
 								}
 								?>

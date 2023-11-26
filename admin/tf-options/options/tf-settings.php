@@ -18,7 +18,7 @@ if(current_user_can('manage_options')) {
 	$my_plugin_shipping_fields = ins_defualt_shipping_checkout_from();
 }
 
-TF_Settings::option( 'wiopt', array(
+Ins_TF_Settings::option( 'wiopt', array(
 	'title'    			=> __( 'Instantio', 'instantio' ),
 	'icon'     			=> 'dashicons-cart',
 	'position' 			=> 25,

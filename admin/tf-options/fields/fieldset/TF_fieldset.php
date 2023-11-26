@@ -27,7 +27,7 @@ if ( ! class_exists( 'TF_fieldset' ) ) {
         $unique_id     = ( ! empty( $this->settings_id ) ) ? $this->settings_id .'['. $this->field['id'] .']' : $this->field['id'];
         
         // TF_Options::field( $field, $field_value, $unique_id, $this->parent_field );
-        $tf_option = new TF_Options();
+        $tf_option = new Ins_TF_Options();
 				$tf_option->field(  $field, $field_value, $unique_id, $this->parent_field); 
 
       } 

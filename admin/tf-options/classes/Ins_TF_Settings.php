@@ -2,8 +2,8 @@
 // don't load directly
 defined( 'ABSPATH' ) || exit;
 
-if ( ! class_exists( 'TF_Settings' ) ) {
-	class TF_Settings {
+if ( ! class_exists( 'Ins_TF_Settings' ) ) {
+	class Ins_TF_Settings {
 
 		public $option_id = null;
 		public $option_title = null;
@@ -273,8 +273,8 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 								</div>
 								
 								<?php 
-									$is_Pro_class = new TF_Options;
-									$is_Pro_active = $is_Pro_class->is_tf_pro_active(); 
+									$is_Pro_class = new Ins_TF_Options;
+									$is_Pro_active = $is_Pro_class->is_ins_pro_active(); 
 
 									if($is_Pro_active === false){ ?>
 
@@ -722,74 +722,6 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 		}
 
 
-		public function tf_license_info_callback(){
-			?>
-			<div class="tf-setting-dashboard">
-
-				<div class="tf-setting-license">
-					<div class="tf-setting-license-tabs">
-						<ul>
-							<li class="active">
-								<span>
-									<i class="fas fa-key"></i>
-									<?php // _e("License Info","instantio"); ?>
-								</span>
-							</li>
-						</ul>
-					</div>
-					<div class="tf-setting-license-field">
-						<div class="tf-tab-wrapper">
-							<div id="license" class="tf-tab-content">
-								<div class="tf-field tf-field-callback" style="width: 100%;">
-									<div class="tf-fieldset"></div>
-								</div>
-								<?php 
-								$licenseKey = ! empty( tfliopt( 'license-key' ) ) ? tfliopt( 'license-key' ) : '';
-								$liceEmail  = ! empty( tfliopt( 'license-email' ) ) ? tfliopt( 'license-email' ) : '';
-								
-								if ( InstantioProBase::CheckWPPlugin( $licenseKey, $liceEmail, $licenseMessage, $responseObj, INS_PRO_PATH . 'wooinstant.php' ) ) {
-									tf_license_info();
-								} else {
-								?>
-								<div class="tf-field tf-field-text" style="width: 100%;">
-									<label for="tf_settings[license-key]" class="tf-field-label"> <?php _e("License Key","instantio"); ?></label>
-
-									<span class="tf-field-sub-title"><?php _e("Enter your license key here, to activate the product, and get full feature updates and premium support.","instantio"); ?></span>
-
-									<div class="tf-fieldset">
-										<input type="text" name="tf_settings[license-key]" id="tf_settings[license-key]" value="" placeholder="xxxxxxxx-xxxxxxxx-xxxxxxxx-xxxxxxxx" />
-									</div>
-								</div>
-
-								<div class="tf-field tf-field-text" style="width: 100%;">
-									<label for="tf_settings[license-email]" class="tf-field-label"> <?php _e("License Email ","instantio"); ?></label>
-
-									<span class="tf-field-sub-title"><?php _e("We will send update news of this product by this email address, don't worry, we hate spam","instantio"); ?></span>
-
-									<div class="tf-fieldset">
-										<input type="text" name="tf_settings[license-email]" id="tf_settings[license-email]" value="" />
-									</div>
-								</div>
-
-								<div class="tf-field tf-field-callback" style="width: 100%;">
-									<div class="tf-fieldset">
-										<div class="tf-license-activate">
-											<p class="submit">
-												<input type="submit" name="submit" id="submit" class="button button-primary" value="Activate" />
-											</p>
-										</div>
-									</div>
-								</div>
-								<?php } ?>
-							</div>
-						</div>
-					</div>
-				</div>
-
-			</div>
-			<?php
-		}
-
 		/**
 		 * Options Page
 		 * @author M Hemel Hasan
@@ -868,7 +800,7 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 													$default = isset( $field['default'] ) ? $field['default'] : '';
 													$value   = isset( $tf_option_value[ $field['id'] ] ) ? $tf_option_value[ $field['id'] ] : $default;
 
-													$tf_option = new TF_Options();
+													$tf_option = new Ins_TF_Options();
 													$tf_option->field( $field, $value, $this->option_id );
 													
 												endforeach;
