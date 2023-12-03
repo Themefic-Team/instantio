@@ -2,8 +2,8 @@
 // don't load directly
 defined( 'ABSPATH' ) || exit;
 
-if ( ! class_exists( 'TF_Options' ) ) {
-	class TF_Options {
+if ( ! class_exists( 'Ins_TF_Options' ) ) {
+	class Ins_TF_Options {
 		private static $instance = null;
 
 		/**
@@ -24,20 +24,20 @@ if ( ! class_exists( 'TF_Options' ) ) {
 			$this->tf_options_define();
 
 			//load files
-			$this->load_files();
+			$this->Ins_classes_load_files();
 
 			//load metaboxes
 			$this->load_metaboxes();
 
 			//load options
-			$this->load_options();
+			$this->Ins_load_options();
 
 			//load taxonomy
 
 
 			//enqueue scripts
-			add_action( 'admin_enqueue_scripts', array( $this, 'tf_options_admin_enqueue_scripts' ) );
-			add_action( 'wp_enqueue_scripts', array( $this, 'tf_options_wp_enqueue_scripts' ) );
+			add_action( 'admin_enqueue_scripts', array( $this, 'Ins_tf_options_admin_enqueue_scripts' ) );
+			add_action( 'wp_enqueue_scripts', array( $this, 'Ins_tf_options_wp_enqueue_scripts' ) );
 		}
 
 		// constant define
@@ -49,15 +49,15 @@ if ( ! class_exists( 'TF_Options' ) ) {
 			 
 		}
 
-		public function tf_options_version() {
+		public function Ins_tf_options_version() {
 			return '2.0.1';
 		}
 
-		public function tf_options_file_path( $file_path = '' ) {
+		public function Ins_tf_options_file_path( $file_path = '' ) {
 			return plugin_dir_path( __FILE__ ) . $file_path;
 		}
 
-		public function tf_options_file_url( $file_url = '' ) {
+		public function Ins_tf_options_file_url( $file_url = '' ) {
 			return plugin_dir_url( __FILE__ ) . $file_url;
 		}
 
@@ -65,13 +65,13 @@ if ( ! class_exists( 'TF_Options' ) ) {
 		 * Load files
 		 * @author Foysal
 		 */
-		public function load_files() {
+		public function Ins_classes_load_files() {
 			// Metaboxes Class
-			require_once $this->tf_options_file_path( 'classes/TF_Metabox.php' );
+			require_once $this->Ins_tf_options_file_path( 'classes/TF_Metabox.php' );
 			// Settings Class
-			require_once $this->tf_options_file_path( 'classes/TF_Settings.php' );
+			require_once $this->Ins_tf_options_file_path( 'classes/Ins_TF_Settings.php' );
 			//Taxonomy Class
-			require_once $this->tf_options_file_path( 'classes/TF_Taxonomy_Metabox.php' );
+			require_once $this->Ins_tf_options_file_path( 'classes/TF_Taxonomy_Metabox.php' );
 
 		}
 
@@ -80,12 +80,12 @@ if ( ! class_exists( 'TF_Options' ) ) {
 		 * @author Foysal
 		 */
 		public function load_metaboxes() {
-			// if ( $this->is_tf_pro_active() ) {
+			// if ( $this->is_ins_pro_active() ) {
 			// 	$metaboxes = glob( INS_PRO_ADMIN_URL . '/tf-options/metaboxes/*.php' );
 			// } else {
-			// 	$metaboxes = glob( $this->tf_options_file_path( 'metaboxes/*.php' ) );
+			// 	$metaboxes = glob( $this->Ins_tf_options_file_path( 'metaboxes/*.php' ) );
 			// }
-			$metaboxes = glob( $this->tf_options_file_path( 'metaboxes/*.php' ) );
+			$metaboxes = glob( $this->Ins_tf_options_file_path( 'metaboxes/*.php' ) );
 
 			/*if( !empty( $pro_metaboxes ) ) {
 				$metaboxes = array_merge( $metaboxes, $pro_metaboxes );
@@ -103,12 +103,12 @@ if ( ! class_exists( 'TF_Options' ) ) {
 		 * Load Options
 		 * @author Foysal
 		 */
-		public function load_options() { 
+		public function Ins_load_options() { 
 			$license_status = apply_filters( 'ins_checked_license_status','false' );
-			if ( $this->is_tf_pro_active() &&  $license_status != false  ) {
+			if ( $this->is_ins_pro_active() &&  $license_status != false  ) {
 				$options = glob( INS_PRO_ADMIN_PATH . '/tf-options/options/*.php' );
 			} else {
-				$options = glob( $this->tf_options_file_path( 'options/*.php' ) );
+				$options = glob( $this->Ins_tf_options_file_path( 'options/*.php' ) );
 			}
 
 			if ( ! empty( $options ) ) {
@@ -126,35 +126,37 @@ if ( ! class_exists( 'TF_Options' ) ) {
 		 * Admin Enqueue scripts
 		 * @author Foysal
 		 */
-		public function tf_options_admin_enqueue_scripts($screen) {
+		public function Ins_tf_options_admin_enqueue_scripts($screen) {
 			// var_dump($screen);
 				global $post_type; 
 				$tf_options_screens   = array( 'toplevel_page_wiopt', 'instantio_page_ins_dashboard', 'instantio_page_tf_license_info', 'instantio_page_ins_get_help', 'instantio_page_ins_whats_new', 'admin_page_tf-setup-wizard', 'instantio_page_ins-license-activation');
 
 			if ( in_array( $screen, $tf_options_screens ) || $post_type  ) {
 				wp_enqueue_style('wp-color-picker');
-				wp_enqueue_style('tf-fontawesome-4', '//cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css', array(), $this->tf_options_version() );
-				wp_enqueue_style('tf-fontawesome-5', '//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css', array(), $this->tf_options_version() );
-				wp_enqueue_style('tf-fontawesome-6', '//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css', array(), $this->tf_options_version() );
-				wp_enqueue_style('tf-remixicon', '//cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css', array(), $this->tf_options_version() );
-				wp_enqueue_style('tf-select2', '//cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css', array(), $this->tf_options_version() );
-				wp_enqueue_style('tf-flatpickr', '//cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.css', array(), $this->tf_options_version() );
-				wp_enqueue_style('tf-options', $this->tf_options_file_url('assets/css/tf-options.css'), array(), $this->tf_options_version() ); 
-				wp_enqueue_style('notyf-css', $this->tf_options_file_url('assets/libs/notyf/notyf.min.css'), array(), $this->tf_options_version() );
+				wp_enqueue_style('tf-fontawesome-4', '//cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css', array(), $this->Ins_tf_options_version() );
+				wp_enqueue_style('tf-fontawesome-5', '//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css', array(), $this->Ins_tf_options_version() );
+				wp_enqueue_style('tf-fontawesome-6', '//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css', array(), $this->Ins_tf_options_version() );
+				wp_enqueue_style('tf-remixicon', '//cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css', array(), $this->Ins_tf_options_version() );
+				wp_enqueue_style('tf-select2', '//cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css', array(), $this->Ins_tf_options_version() );
+				wp_enqueue_style('tf-flatpickr', '//cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.css', array(), $this->Ins_tf_options_version() );
+				wp_enqueue_style('ins-tf-options', $this->Ins_tf_options_file_url('assets/css/tf-options.css'), array(), $this->Ins_tf_options_version() ); 
+				wp_enqueue_style('notyf-css', $this->Ins_tf_options_file_url('assets/libs/notyf/notyf.min.css'), array(), $this->Ins_tf_options_version() );
 			}
 
 			//Js
 			if ( in_array( $screen, $tf_options_screens ) || $post_type  ) {
 				
-				wp_enqueue_script('tf-flatpickr', '//cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.js', array( 'jquery' ), $this->tf_options_version(), true );
-				wp_enqueue_script('tf-select2', '//cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js', array( 'jquery' ), $this->tf_options_version(), true );
-				wp_enqueue_script('wp-color-picker-alpha', '//raw.githubusercontent.com/kallookoo/wp-color-picker-alpha/master/src/wp-color-picker-alpha.js', array( 'jquery', 'wp-color-picker' ), $this->tf_options_version(), true );
-				wp_enqueue_script('setup-wizard', $this->tf_options_file_url('assets/js/setup-wizard.js'), array( 'jquery'), $this->tf_options_version(), true );
-				wp_enqueue_script('notyf-js', $this->tf_options_file_url('assets/libs/notyf/notyf.min.js'), array( 'jquery'), $this->tf_options_version(), true );
+				wp_enqueue_script('tf-flatpickr', '//cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.js', array( 'jquery' ), $this->Ins_tf_options_version(), true );
+				wp_enqueue_script('tf-select2', '//cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js', array( 'jquery' ), $this->Ins_tf_options_version(), true );
+				wp_enqueue_script('wp-color-picker-alpha', '//raw.githubusercontent.com/kallookoo/wp-color-picker-alpha/master/src/wp-color-picker-alpha.js', array( 'jquery', 'wp-color-picker' ), $this->Ins_tf_options_version(), true );
+				wp_enqueue_script('setup-wizard', $this->Ins_tf_options_file_url('assets/js/setup-wizard.js'), array( 'jquery'), $this->Ins_tf_options_version(), true );
+				wp_enqueue_script('notyf-js', $this->Ins_tf_options_file_url('assets/libs/notyf/notyf.min.js'), array( 'jquery'), $this->Ins_tf_options_version(), true );
 				//dashboard
-				wp_enqueue_script('dashboard-js', $this->tf_options_file_url('assets/js/dashboard.js'), array( 'jquery'), $this->tf_options_version(), true ); 
+				if($screen == 'instantio_page_ins_dashboard'){
+					wp_enqueue_script('dashboard-js', $this->Ins_tf_options_file_url('assets/js/dashboard.js'), array( 'jquery'), $this->Ins_tf_options_version(), true );
+				}
 
-				wp_enqueue_script('ins-admin-js', $this->tf_options_file_url('assets/js/admin.js'), array( 'jquery'), $this->tf_options_version(), true ); 
+				wp_enqueue_script('ins-admin-js', $this->Ins_tf_options_file_url('assets/js/admin.js'), array( 'jquery'), $this->Ins_tf_options_version(), true ); 
 
 				wp_enqueue_script('jquery-ui-autocomplete');
 
@@ -166,9 +168,9 @@ if ( ! class_exists( 'TF_Options' ) ) {
 			}
 			
 
-			wp_enqueue_script('tf-options-js', $this->tf_options_file_url('assets/js/tf-options.js'), array( 'jquery'), $this->tf_options_version(), true ); 
+			wp_enqueue_script('ins_tf-options-js', $this->Ins_tf_options_file_url('assets/js/tf-options.js'), array( 'jquery'), $this->Ins_tf_options_version(), true ); 
 
-			wp_localize_script('tf-options-js', 'tf_options', array(
+			wp_localize_script('ins_tf-options-js', 'tf_options', array(
 				'ajax_url'          => admin_url( 'admin-ajax.php' ),
 				'nonce'             => wp_create_nonce( 'tf_options_nonce' ),
 				'option_id' 		=> 'wiopt',
@@ -183,11 +185,11 @@ if ( ! class_exists( 'TF_Options' ) ) {
 		 * Enqueue scripts
 		 * @author 
 		 */
-		public function tf_options_wp_enqueue_scripts() {
-			wp_enqueue_style('tf-fontawesome-4', '//cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css', array(), $this->tf_options_version() );
-			wp_enqueue_style('tf-fontawesome-5', '//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css', array(), $this->tf_options_version() );
-			wp_enqueue_style('tf-fontawesome-6', '//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css', array(), $this->tf_options_version() );
-			wp_enqueue_style('tf-remixicon', '//cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css', array(), $this->tf_options_version() );
+		public function Ins_tf_options_wp_enqueue_scripts() {
+			wp_enqueue_style('tf-fontawesome-4', '//cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css', array(), $this->Ins_tf_options_version() );
+			wp_enqueue_style('tf-fontawesome-5', '//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css', array(), $this->Ins_tf_options_version() );
+			wp_enqueue_style('tf-fontawesome-6', '//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css', array(), $this->Ins_tf_options_version() );
+			wp_enqueue_style('tf-remixicon', '//cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css', array(), $this->Ins_tf_options_version() );
 		}
 
 		/*
@@ -206,7 +208,7 @@ if ( ! class_exists( 'TF_Options' ) ) {
 			$is_pro   = isset( $field['is_pro'] ) ? $field['is_pro'] : '';
 			$badge_up = isset( $field['badge_up'] ) ? $field['badge_up'] : '';
 
-			if ( function_exists('is_tf_pro') && is_tf_pro() ) {
+			if ( function_exists('is_ins_pro') && is_ins_pro() ) {
 				$is_pro = false;
 			}
 			if ( $is_pro == true ) {
@@ -297,7 +299,7 @@ if ( ! class_exists( 'TF_Options' ) ) {
 			<?php
 		}
 
-		public function is_tf_pro_active() {
+		public function is_ins_pro_active() {
 			if ( is_plugin_active( 'wooinstant/wooinstant.php' ) && class_exists('WOOINS') ) {
 				return true;
 			}
@@ -307,4 +309,4 @@ if ( ! class_exists( 'TF_Options' ) ) {
 	}
 }
 
-TF_Options::instance();
+Ins_TF_Options::instance();

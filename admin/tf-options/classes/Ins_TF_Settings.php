@@ -2,8 +2,8 @@
 // don't load directly
 defined( 'ABSPATH' ) || exit;
 
-if ( ! class_exists( 'TF_Settings' ) ) {
-	class TF_Settings {
+if ( ! class_exists( 'Ins_TF_Settings' ) ) {
+	class Ins_TF_Settings {
 
 		public $option_id = null;
 		public $option_title = null;
@@ -24,7 +24,7 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 			$this->pre_sections = $this->pre_sections( $this->option_sections );
 
 			//options
-			add_action( 'admin_menu', array( $this, 'tf_options' ) );
+			add_action( 'admin_menu', array( $this, 'instantio_tf_options' ) );
 
 			//save options
 			add_action( 'admin_init', array( $this, 'save_options' ) );
@@ -104,13 +104,13 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 		 * Options Page menu
 		 * @author Foysal
 		 */
-		public function tf_options() {
+		public function instantio_tf_options() {
 			add_menu_page(
 				$this->option_title,
 				$this->option_title,
 				'manage_options',
 				$this->option_id,
-				array( $this, 'tf_options_page' ),
+				array( $this, 'ins_admin_options_page' ),
 				$this->option_icon,
 				$this->option_position
 			);
@@ -133,7 +133,7 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 				__('Settings', 'instantio'),
 				'manage_options',
 				$this->option_id . '#tab=general',
-				array( $this, 'tf_options_page' ),
+				array( $this, 'ins_admin_options_page' ),
 			);
 			
 			//What's New submenu Update to pro
@@ -159,7 +159,7 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 		 * Page top header
 		 * @author M Hemel Hasan
 		 */
-		function tf_top_header(){
+		function ins_admin_top_header(){
 		?>
 			<div class="tf-setting-top-bar">
 				<div class="version">
@@ -208,7 +208,7 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 			include_once 'Ins_ChangeLog.php';
 		 ?>	
 			<div class="tf-setting-dashboard">
-				<?php echo $this->tf_top_header(); ?>
+				<?php echo $this->ins_admin_top_header(); ?>
 				<div class="ins-dashboad-wrapper">
 					<ul class="dashboad-tab">
 						<li class="dashboad-tab-singel active">
@@ -273,8 +273,8 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 								</div>
 								
 								<?php 
-									$is_Pro_class = new TF_Options;
-									$is_Pro_active = $is_Pro_class->is_tf_pro_active(); 
+									$is_Pro_class = new Ins_TF_Options;
+									$is_Pro_active = $is_Pro_class->is_ins_pro_active(); 
 
 									if($is_Pro_active === false){ ?>
 
@@ -722,79 +722,11 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 		}
 
 
-		public function tf_license_info_callback(){
-			?>
-			<div class="tf-setting-dashboard">
-
-				<div class="tf-setting-license">
-					<div class="tf-setting-license-tabs">
-						<ul>
-							<li class="active">
-								<span>
-									<i class="fas fa-key"></i>
-									<?php // _e("License Info","instantio"); ?>
-								</span>
-							</li>
-						</ul>
-					</div>
-					<div class="tf-setting-license-field">
-						<div class="tf-tab-wrapper">
-							<div id="license" class="tf-tab-content">
-								<div class="tf-field tf-field-callback" style="width: 100%;">
-									<div class="tf-fieldset"></div>
-								</div>
-								<?php 
-								$licenseKey = ! empty( tfliopt( 'license-key' ) ) ? tfliopt( 'license-key' ) : '';
-								$liceEmail  = ! empty( tfliopt( 'license-email' ) ) ? tfliopt( 'license-email' ) : '';
-								
-								if ( InstantioProBase::CheckWPPlugin( $licenseKey, $liceEmail, $licenseMessage, $responseObj, INS_PRO_PATH . 'wooinstant.php' ) ) {
-									tf_license_info();
-								} else {
-								?>
-								<div class="tf-field tf-field-text" style="width: 100%;">
-									<label for="tf_settings[license-key]" class="tf-field-label"> <?php _e("License Key","instantio"); ?></label>
-
-									<span class="tf-field-sub-title"><?php _e("Enter your license key here, to activate the product, and get full feature updates and premium support.","instantio"); ?></span>
-
-									<div class="tf-fieldset">
-										<input type="text" name="tf_settings[license-key]" id="tf_settings[license-key]" value="" placeholder="xxxxxxxx-xxxxxxxx-xxxxxxxx-xxxxxxxx" />
-									</div>
-								</div>
-
-								<div class="tf-field tf-field-text" style="width: 100%;">
-									<label for="tf_settings[license-email]" class="tf-field-label"> <?php _e("License Email ","instantio"); ?></label>
-
-									<span class="tf-field-sub-title"><?php _e("We will send update news of this product by this email address, don't worry, we hate spam","instantio"); ?></span>
-
-									<div class="tf-fieldset">
-										<input type="text" name="tf_settings[license-email]" id="tf_settings[license-email]" value="" />
-									</div>
-								</div>
-
-								<div class="tf-field tf-field-callback" style="width: 100%;">
-									<div class="tf-fieldset">
-										<div class="tf-license-activate">
-											<p class="submit">
-												<input type="submit" name="submit" id="submit" class="button button-primary" value="Activate" />
-											</p>
-										</div>
-									</div>
-								</div>
-								<?php } ?>
-							</div>
-						</div>
-					</div>
-				</div>
-
-			</div>
-			<?php
-		}
-
 		/**
 		 * Options Page
 		 * @author M Hemel Hasan
 		 */
-		public function tf_options_page() {
+		public function ins_admin_options_page() {
 
 			// Retrieve an existing value from the database.
 			$tf_option_value = get_option( $this->option_id );
@@ -868,7 +800,7 @@ if ( ! class_exists( 'TF_Settings' ) ) {
 													$default = isset( $field['default'] ) ? $field['default'] : '';
 													$value   = isset( $tf_option_value[ $field['id'] ] ) ? $tf_option_value[ $field['id'] ] : $default;
 
-													$tf_option = new TF_Options();
+													$tf_option = new Ins_TF_Options();
 													$tf_option->field( $field, $value, $this->option_id );
 													
 												endforeach;

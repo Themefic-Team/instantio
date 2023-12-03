@@ -245,7 +245,8 @@
 			},
 			success: function (response) {
 				$(".ins-quick-view").hide();
-				$("#ins_cart_totals").html(response.data.ins_cart_count)
+				$("#ins_cart_totals").html(response.data.ins_cart_count);
+				$("#ins_cart_mobile_totals").html(response.data.ins_cart_count);
 				// $("#ins_cart_totals").append(response.data.ins_cart_count);
 				$(".ins-checkout-layout .ins-content").removeClass("hide");
 				$(".ins-checkout-layout .ins-content").addClass("ins-show");
@@ -324,7 +325,8 @@
 			},
 			success: function (response) {
 				$(".ins-quick-view").hide();
-				$("#ins_cart_totals").html(response.data.ins_cart_count)
+				$("#ins_cart_totals").html(response.data.ins_cart_count);
+				$("#ins_cart_mobile_totals").html(response.data.ins_cart_count);
 				$(".ins-checkout-layout .ins-content").removeClass("hide");
 				$(".ins-single-layout-wrap .ins_single_layout_checkout_area").removeClass("hide");
 				$(".ins-checkout-layout .ins-content").addClass("ins-show");
@@ -563,6 +565,7 @@
 				single_step_order_review_callback();
 				setTimeout(function () {
 					$("#ins_cart_totals").html(response.data.ins_cart_count);
+					$("#ins_cart_mobile_totals").html(response.data.ins_cart_count);
 					$("#ins-mobile-cart-total-amount").html(response.data.cart_total);
 					if (response.data.display == "ins-show") {
 						// alert("show");
@@ -611,6 +614,7 @@
 			},
 			success: function (response) {
 				$("#ins_cart_totals").html(response.data.ins_cart_count);
+				$("#ins_cart_mobile_totals").html(response.data.ins_cart_count);
 				$("#ins-mobile-cart-total-amount").html(response.data.cart_total);
 				$(".ins-checkout-layout .ins-content").removeClass("ins-show");
 				$(".ins-checkout-layout .ins-content").addClass("hide");
@@ -685,6 +689,7 @@
 					// console.log(response);
 					// console.log(response.data);
 					$("#ins_cart_totals").html(response.data.ins_cart_count);
+					$("#ins_cart_mobile_totals").html(response.data.ins_cart_count);
 					$("#ins-mobile-cart-total-amount").html(response.data.cart_total);
 
 					// Progress bar hide if cart is empty 

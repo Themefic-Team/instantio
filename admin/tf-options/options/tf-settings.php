@@ -18,7 +18,7 @@ if(current_user_can('manage_options')) {
 	$my_plugin_shipping_fields = ins_defualt_shipping_checkout_from();
 }
 
-TF_Settings::option( 'wiopt', array(
+Ins_TF_Settings::option( 'wiopt', array(
 	'title'    			=> __( 'Instantio', 'instantio' ),
 	'icon'     			=> 'dashicons-cart',
 	'position' 			=> 25,
@@ -211,7 +211,7 @@ TF_Settings::option( 'wiopt', array(
 					'label'    		=> __('Auto Open Toggle Panel', 'instantio'), 
 					'label_on'    	=> __('Enabled', 'instantio'),
 					'label_off'   	=> __('Disabled', 'instantio'),
-					'width' 		=> 100,
+					// 'width' 		=> 100,
 					'default'   	=> false,
 				),
 				
@@ -236,7 +236,7 @@ TF_Settings::option( 'wiopt', array(
 						  'label'    		=> __('Cart Fly Animation', 'instantio'), 
 						  'label_on'    	=> __('Enabled', 'instantio'),
 						  'label_off'   	=> __('Disabled', 'instantio'),
-						  'width' 			=> 100,
+						//   'width' 			=> 100,
 						  'default'   		=> false,
 						),
 						 
@@ -383,7 +383,7 @@ TF_Settings::option( 'wiopt', array(
 					'subtitle' 		=> __('Enable/disable upsells items in cart', 'instantio'),
 					'label_on'    	=> __('Enabled', 'instantio'),
 					'label_off'   	=> __('Disabled', 'instantio'),
-					'width' 		=> 100,
+					// 'width' 		=> 100,
 					'is_pro'    	=> true,
 					'default'   	=> false,
 				),
@@ -407,7 +407,7 @@ TF_Settings::option( 'wiopt', array(
 					'subtitle' 		=> __('Enable/disable cross sell items in checkout', 'instantio'),
 					'label_on'    	=> __('Enabled', 'instantio'),
 					'label_off'   	=> __('Disabled', 'instantio'),
-					'width' 		=> 100,
+					// 'width' 		=> 100,
 					'default'   	=> false,
 					'is_pro'    	=> true,
 				),
@@ -680,7 +680,7 @@ TF_Settings::option( 'wiopt', array(
 									'subtitle' 		=> __('Set Toggle Panel Border','instantio'),
 									'label_on'  	=> __('Enable', 'instantio'),
 									'label_off' 	=> __('Disable', 'instantio'),
-									'width'   		=> 100,
+									// 'width'   		=> 100,
 									'default'  		=> false,
 								),
 

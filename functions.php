@@ -62,7 +62,7 @@
 	 * @author M Hemel Hasan
 	 * @return bool
 	 */
-	function is_tf_pro_active() {
+	function is_ins_pro_active() {
 		if ( is_plugin_active( 'wooinstant/wooinstant.php' ) && class_exists('WOOINS') ) {
 			return true;
 		}
@@ -102,7 +102,7 @@
 	 */
 	if(!function_exists('tf_black_friday_2023_admin_notice')){
 		function tf_black_friday_2023_admin_notice(){ 
-			if(is_tf_pro_active()){
+			if(is_ins_pro_active()){
 				return;
 			}
 

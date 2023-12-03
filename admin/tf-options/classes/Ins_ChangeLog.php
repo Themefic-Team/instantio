@@ -12,34 +12,6 @@
 $change = [
 
        // Update  start
-       'v13' => [
-           'date'      => '16 November 2023',
-           'version'   => 'Version 3.1.8',
-           'changelog' => [
-               'Updated'   =>   [
-                   'readme.txt',
-                   'Black Friday Banner'
-               ],
-           ]
-       ],
-       // Update End
-    
-    // Update  start
-    'v12' => [
-        'date'      => '15 November 2023',
-        'version'   => 'Version 3.1.7',
-        'changelog' => [
-            'New'   =>   [
-                'Black Friday Announcements',
-            ],
-            'Improvement'   =>   [
-                'System stability Improved',
-            ],
-        ]
-    ],
-    // Update End
-
-       // Update  start
        'v11' => [
            'date'      => '12 November 2023',
            'version'   => 'Version 3.1.6',
@@ -109,6 +81,45 @@ $change = [
         ],
         // Update End  
     
+        // Update  start
+       'v8' => [
+           'date'      => '25 August 2023',
+           'version'   => 'Version 3.1.3',
+           'changelog' => [
+               'Updated'   =>   [
+                   'readme.txt',
+               ],
+           ]
+       ],
+       // Update End
+    
+        // Update  start
+       'v7' => [
+           'date'      => '24 August 2023',
+           'version'   => 'Version 3.1.2',
+           'changelog' => [
+               'Updated'   =>   [
+                   'readme.txt',
+               ],
+                'Compatibility'   =>   [
+                   'Compatibility check with WooCommerce 8.0.2',
+               ]
+           ]
+       ],
+       // Update End
+        
+        // Update  start
+       'v8' => [
+           'date'      => '25 August 2023',
+           'version'   => 'Version 3.1.3',
+           'changelog' => [
+               'Updated'   =>   [
+                   'readme.txt',
+               ]
+           ]
+       ],
+       // Update End
+
 ]
 
 
