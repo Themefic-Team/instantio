@@ -3,7 +3,7 @@
 
 	//Single Layout
 	function single_step_order_review_callback() {
-		if(!inslayoutstep){
+		if (!inslayoutstep) {
 			$('.ins-cart-inner.shipping input').each(function () {
 				var value = $(this).val();
 				if (value != '') {
@@ -22,19 +22,18 @@
 				success: function (response) {
 					$('.ins-cart-inner.payment .ins-contact-wrap').html('');
 					$('.ins-cart-inner.payment .ins-contact-wrap').append(response.data.ins_contact);
-	
+
 					$('.ins-cart-inner.payment .ins-card-cross-sell').html('');
 					$('.ins-cart-inner.payment .ins-card-cross-sell').append(response.data.cross_sells);
-	
+
 					$('.ins-cart-inner.payment .ins-shipping-wrap').html('');
 					$('.ins-cart-inner.payment .ins-shipping-wrap').append(response.data.ins_shiiping);
-	
+
 					if (response.data.cross_sells != '' && response.data.cross_sells != null) {
 						$('.ins-cart-inner.payment .ins-card-cross-sell').addClass('active');
 					} else {
 						$('.ins-cart-inner.payment .ins-card-cross-sell').removeClass('active');
 					}
-					$('body').trigger('update_checkout');
 				},
 			});
 		}
