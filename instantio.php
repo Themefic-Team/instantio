@@ -75,7 +75,7 @@ class INSTANTIO {
 			// Ins_checkout_Editor
 			require_once INS_INC_PATH . '/controller/checkout_editor.php';
 		}
-
+ 
 	}
 
 	/**
@@ -102,6 +102,11 @@ class INSTANTIO {
 		
 			// Appsero
 			$this->ins_appsero_init_tracker_instantio();
+
+			// ins Promo Banner
+			if(file_exists(INS_INC_PATH . '/controller/class-promo-notice.php')){
+				require_once INS_INC_PATH . '/controller/class-promo-notice.php';
+			}
 
         }else{  
 			new INS\Controller\App(); 
