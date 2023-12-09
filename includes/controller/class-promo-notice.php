@@ -19,7 +19,7 @@ class INS_PROMO_NOTICE {
     public function __construct() {
 
         if(in_array(date('F'), $this->months)){ 
-            
+            // $this->ins_get_api_response();
             add_filter('cron_schedules', array($this, 'ins_custom_cron_interval'));
              
             if (!wp_next_scheduled('ins_promo__schudle')) {
@@ -32,7 +32,7 @@ class INS_PROMO_NOTICE {
             if(get_option( 'ins_promo__schudle_option' )){
                 $this->ins_promo_option = get_option( 'ins_promo__schudle_option' );
             }
-             
+              
            
             // Admin Notice 
             $tf_existes = get_option( 'tf_promo_notice_exists' );
