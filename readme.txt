@@ -332,7 +332,7 @@ For those seeking simplicity, Instantio provides a simplified WooCommerce checko
 
 == Changelog ==
 
-= 3.1.9 - ( December 12, 2023 ) =
+= 3.1.9 - ( December 09, 2023 ) =
 
 - Updated: Extended Notice( Black Friday )
 - Improvement: Removed Unused CSS/JS
