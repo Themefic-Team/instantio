@@ -8,7 +8,7 @@
  * Domain Path: /lang/
  * Author URI: https://themefic.com
  * Tags: woocommerce, direct checkout, floating cart, side cart, ajax cart, cart popup, ajax add to cart, one page checkout, single page checkout, fly cart, mini cart, quick buy, instant checkout, quick checkout, same page checkout, sidebar cart, sticky cart, woocommerce ajax, one click checkout, woocommerce one page checkout, direct checkout woocommerce, woocommerce one click checkout, woocommerce quick checkout, woocommerce express checkout, woocommerce simple checkout, skip cart page woocommerce, woocommerce cart popup, edit woocommerce checkout page, woocommerce direct checkout
- * Version: 3.1.8
+ * Version: 3.1.9
  * Tested up to: 6.4
  * Requires PHP: 7.2
  * WC tested up to: 8.2.2
@@ -32,7 +32,7 @@ class INSTANTIO {
 	private function define_constants() {
 		if ( ! defined( 'INSTANTIO_VERSION' ) ) { 
 
-			define( 'INSTANTIO_VERSION', '3.1.8' ); 
+			define( 'INSTANTIO_VERSION', '3.1.9' ); 
 
 		} 
 		define( 'INS_URL', plugin_dir_url( __FILE__ ) ); 
@@ -75,7 +75,12 @@ class INSTANTIO {
 			// Ins_checkout_Editor
 			require_once INS_INC_PATH . '/controller/checkout_editor.php';
 		}
+ 
 
+		// ins Promo Banner
+		if(file_exists(INS_INC_PATH . '/controller/class-promo-notice.php')){
+			require_once INS_INC_PATH . '/controller/class-promo-notice.php';
+		}
 	}
 
 	/**
@@ -102,6 +107,8 @@ class INSTANTIO {
 		
 			// Appsero
 			$this->ins_appsero_init_tracker_instantio();
+
+			
 
         }else{  
 			new INS\Controller\App(); 
