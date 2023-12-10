@@ -18,8 +18,7 @@ class INS_PROMO_NOTICE {
 
     public function __construct() {
 
-        if(in_array(date('F'), $this->months)){ 
-            // $this->ins_get_api_response();
+        if(in_array(date('F'), $this->months) && !class_exists('WOOINS')){  
             add_filter('cron_schedules', array($this, 'ins_custom_cron_interval'));
              
             if (!wp_next_scheduled('ins_promo__schudle')) {
