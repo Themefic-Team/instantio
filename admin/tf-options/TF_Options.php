@@ -152,8 +152,9 @@ if ( ! class_exists( 'Ins_TF_Options' ) ) {
 				wp_enqueue_script('setup-wizard', $this->Ins_tf_options_file_url('assets/js/setup-wizard.js'), array( 'jquery'), $this->Ins_tf_options_version(), true );
 				wp_enqueue_script('notyf-js', $this->Ins_tf_options_file_url('assets/libs/notyf/notyf.min.js'), array( 'jquery'), $this->Ins_tf_options_version(), true );
 				//dashboard
-				wp_enqueue_script('dashboard-js', $this->Ins_tf_options_file_url('assets/js/dashboard.js'), array( 'jquery'), $this->Ins_tf_options_version(), true ); 
-
+				if($screen == 'instantio_page_ins_dashboard'){
+					wp_enqueue_script('dashboard-js', $this->Ins_tf_options_file_url('assets/js/dashboard.js'), array( 'jquery'), $this->Ins_tf_options_version(), true );
+				}
 				wp_enqueue_script('ins-admin-js', $this->Ins_tf_options_file_url('assets/js/admin.js'), array( 'jquery'), $this->Ins_tf_options_version(), true ); 
 
 				wp_enqueue_script('jquery-ui-autocomplete');
@@ -206,7 +207,7 @@ if ( ! class_exists( 'Ins_TF_Options' ) ) {
 			$is_pro   = isset( $field['is_pro'] ) ? $field['is_pro'] : '';
 			$badge_up = isset( $field['badge_up'] ) ? $field['badge_up'] : '';
 
-			if ( function_exists('is_tf_pro') && is_tf_pro() ) {
+			if ( function_exists('is_ins_pro') && is_ins_pro() ) {
 				$is_pro = false;
 			}
 			if ( $is_pro == true ) {

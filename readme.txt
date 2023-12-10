@@ -3,7 +3,7 @@ Contributors: themefic, kamrul0424, hemelhasan, hasanet, mdrejon, mdashikul
 Tags: woocommerce, direct checkout, woocommerce checkout, floating cart, side cart, ajax cart, cart popup, popup cart, ajax add to cart, one page checkout, single page checkout, fly cart, mini cart, quick buy, instant checkout, quick checkout, same page checkout, sidebar cart, sticky cart, woocommerce quick buy, one click checkout, woocommerce one page checkout, direct checkout woocommerce, woocommerce one click checkout, woocommerce quick checkout, woocommerce express checkout, woocommerce simple checkout, skip cart page woocommerce, woocommerce cart popup, edit woocommerce checkout page, woocommerce direct checkout, checkout manager, woocommerce checkout manager, One Page Checkout, add to cart
 Requires at least: 4.0
 Tested up to: 6.4
-Stable tag: 3.1.6
+Stable tag: 3.1.8
 WC requires at least: 7.0
 WC tested up to: 8.2.2
 Requires PHP: 7.2
@@ -251,9 +251,9 @@ The icon and banner used on this plugin are taken from <a href="https://www.icon
 
 1. Download and unzip the plugin. Upload the unzipped folder to the wp-contents/plugins folder of your WordPress installation.
 2. Active the plugin from the WordPress Plugins administration page.
-3. OR, Go to WP admin panel, click 'Plugins' -> 'Add new'. In the search input box, type 'Instantio'.
+3. OR, Go to the WordPress admin panel, click 'Plugins' -> 'Add new'. In the search input box, type 'Instantio'.
 4. Install and activate the plugin.
-5. That's it. No other settings is necessary. Your WooCommerce checkout will automatically convert to direct checkout.
+5. That's it. No other settings are necessary. Your WooCommerce checkout will automatically convert to direct checkout.
 
 == Frequently Asked Questions ==
 
@@ -332,12 +332,22 @@ For those seeking simplicity, Instantio provides a simplified WooCommerce checko
 
 == Changelog ==
 
+= 3.1.8 - ( November 16, 2023 ) =
+
+- Updated: readme.txt
+- Updated: Black Friday Banner
+
+= 3.1.7 - ( November 15, 2023 ) =
+
+- Notice: Black Friday Announcements
+- Improvement: System stability Improved
+
 = 3.1.6 - ( November 12, 2023 ) =
 
-Fixed: High-Performance Order Storage issue for Woocommerce
-Compatibility: Compatible with WooCommerce 8.2.2
-Added: Integration of all payment methods supported by Woocommerce
-Added: Custom Field Data to the order details(Pro)
+- Fixed: High-Performance Order Storage issue for Woocommerce
+- Compatibility: Compatible with WooCommerce 8.2.2
+- Added: Integration of all payment methods supported by Woocommerce
+- Added: Custom Field Data to the order details(Pro)
 
 = 3.1.5 - ( October 05, 2023 ) =
 

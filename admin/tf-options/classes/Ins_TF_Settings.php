@@ -24,7 +24,7 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 			$this->pre_sections = $this->pre_sections( $this->option_sections );
 
 			//options
-			add_action( 'admin_menu', array( $this, 'tf_options' ) );
+			add_action( 'admin_menu', array( $this, 'instantio_tf_options' ) );
 
 			//save options
 			add_action( 'admin_init', array( $this, 'save_options' ) );
@@ -104,13 +104,13 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 		 * Options Page menu
 		 * @author Foysal
 		 */
-		public function tf_options() {
+		public function instantio_tf_options() {
 			add_menu_page(
 				$this->option_title,
 				$this->option_title,
 				'manage_options',
 				$this->option_id,
-				array( $this, 'tf_options_page' ),
+				array( $this, 'ins_admin_options_page' ),
 				$this->option_icon,
 				$this->option_position
 			);
@@ -133,7 +133,7 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 				__('Settings', 'instantio'),
 				'manage_options',
 				$this->option_id . '#tab=general',
-				array( $this, 'tf_options_page' ),
+				array( $this, 'ins_admin_options_page' ),
 			);
 			
 			//What's New submenu Update to pro
@@ -159,7 +159,7 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 		 * Page top header
 		 * @author M Hemel Hasan
 		 */
-		function tf_top_header(){
+		function ins_admin_top_header(){
 		?>
 			<div class="tf-setting-top-bar">
 				<div class="version">
@@ -208,7 +208,7 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 			include_once 'Ins_ChangeLog.php';
 		 ?>	
 			<div class="tf-setting-dashboard">
-				<?php echo $this->tf_top_header(); ?>
+				<?php echo $this->ins_admin_top_header(); ?>
 				<div class="ins-dashboad-wrapper">
 					<ul class="dashboad-tab">
 						<li class="dashboad-tab-singel active">
@@ -726,7 +726,7 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 		 * Options Page
 		 * @author M Hemel Hasan
 		 */
-		public function tf_options_page() {
+		public function ins_admin_options_page() {
 
 			// Retrieve an existing value from the database.
 			$tf_option_value = get_option( $this->option_id );

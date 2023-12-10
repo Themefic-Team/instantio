@@ -32,8 +32,7 @@ class INSTANTIO {
 	private function define_constants() {
 		if ( ! defined( 'INSTANTIO_VERSION' ) ) { 
 			define( 'INSTANTIO_VERSION', '3.1.8' ); 
-		}
-
+		} 
 		define( 'INS_URL', plugin_dir_url( __FILE__ ) ); 
 		define( 'INS_INC_URL', INS_URL.'includes' );
 		define( 'INS_LAYOUTS_URL', INS_URL.'includes/layouts' );
@@ -204,7 +203,7 @@ class INSTANTIO {
 
 new INSTANTIO();
 
-add_action( 'admin_enqueue_scripts', 'admin_enqueue_scripts');
+add_action( 'admin_enqueue_scripts', 'ins_admin_enqueue_scripts');
 add_action( 'before_woocommerce_init', 'ins_before_woocommerce_init');
 
 function ins_before_woocommerce_init() {
@@ -214,7 +213,7 @@ function ins_before_woocommerce_init() {
 }
 
 
-function admin_enqueue_scripts() { 
+function ins_admin_enqueue_scripts() { 
 	wp_enqueue_style( 'ins-admin', INS_ASSETS_URL.'/admin/css/instantio-admin-style.css', array(), INSTANTIO_VERSION ); 
 	wp_enqueue_script( 'ins-admin-script', INS_ASSETS_URL.'/admin/js/instantio-admin-script.js', array('jquery'), INSTANTIO_VERSION, true ); 
 
