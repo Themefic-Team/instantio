@@ -23,6 +23,7 @@ $change = [
                      'Payment Stripe and Paypal Updated version(Pro)',
                      'Session time out(Pro)',
                      'Tourfic conflict(Pro)',
+                     'Mobile and Desktop cart count issues(Pro)',
                ],
                 'Improvement'   =>   [
                     'Tourfic hotel, tour added to the instantio cart',
