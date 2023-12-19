@@ -3,7 +3,7 @@ Contributors: themefic, kamrul0424, hemelhasan, hasanet, mdrejon, mdashikul
 Tags: woocommerce, direct checkout, woocommerce checkout, floating cart, side cart, ajax cart, cart popup, popup cart, ajax add to cart, one page checkout, single page checkout, fly cart, mini cart, quick buy, instant checkout, quick checkout, same page checkout, sidebar cart, sticky cart, woocommerce quick buy, one click checkout, woocommerce one page checkout, direct checkout woocommerce, woocommerce one click checkout, woocommerce quick checkout, woocommerce express checkout, woocommerce simple checkout, skip cart page woocommerce, woocommerce cart popup, edit woocommerce checkout page, woocommerce direct checkout, checkout manager, woocommerce checkout manager, One Page Checkout, add to cart
 Requires at least: 4.0
 Tested up to: 6.4
-Stable tag: 3.1.9
+Stable tag: 3.1.11
 WC requires at least: 7.0
 WC tested up to: 8.4
 Requires PHP: 7.2
@@ -332,7 +332,7 @@ For those seeking simplicity, Instantio provides a simplified WooCommerce checko
 
 == Changelog ==
 
-= 3.1.9- ( December 19, 2023 ) =
+= 3.1.11 - ( December 19, 2023 ) =
 
 - Improvement: Tourfic hotel, tour added to the instantio cart
 - Fixed: dashboard, Js console error warning fix
@@ -342,6 +342,16 @@ For those seeking simplicity, Instantio provides a simplified WooCommerce checko
 - Fixed: Session time out(Pro)
 - Fixed: Tourfic conflict(Pro)
 - Fixed: Mobile and Desktop cart count issues(Pro)
+
+= 3.1.10 - ( December 10, 2023 ) =
+
+- Fixed: Responsive issue. 
+- compatibility: Compatible with WooCommerce 8.3
+
+= 3.1.9 - ( December 09, 2023 ) =
+
+- Updated: Extended Notice( Black Friday )
+- Improvement: Removed Unused CSS/JS
 
 = 3.1.8 - ( November 16, 2023 ) =
 
