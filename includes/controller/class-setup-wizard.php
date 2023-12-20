@@ -207,8 +207,8 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
                     </div>
 
                     <?php
-                        $is_Pro_class = new TF_Options;
-                        $is_Pro_active = $is_Pro_class->is_tf_pro_active(); 
+                        $is_Pro_class = new Ins_TF_Options;
+                        $is_Pro_active = $is_Pro_class->is_ins_pro_active(); 
 
                         if($is_Pro_active === true) { ?>
 
@@ -293,8 +293,8 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
                                     <?php _e( 'Only Cart', 'instantio' ) ?>
                                 </option>
 
-                                <?php $is_Pro_class = new TF_Options;
-                                $is_Pro_active = $is_Pro_class->is_tf_pro_active(); 
+                                <?php $is_Pro_class = new Ins_TF_Options;
+                                $is_Pro_active = $is_Pro_class->is_ins_pro_active(); 
 
                                 if($is_Pro_active === true) { ?>
                                     <option value="cartandcheckout" <?php echo !empty($ins_layout) && ( 'cartandcheckout' === $ins_layout) ? esc_attr( 'selected' ) : ''; ?>>
@@ -358,8 +358,8 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
                         </div>
                     </div>
 
-                    <?php $is_Pro_class = new TF_Options;
-                        $is_Pro_active = $is_Pro_class->is_tf_pro_active(); 
+                    <?php $is_Pro_class = new Ins_TF_Options;
+                        $is_Pro_active = $is_Pro_class->is_ins_pro_active(); 
 
                         if($is_Pro_active === true) { ?>
 
@@ -530,8 +530,8 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
                         </div>
                         
                         <!-- Choose Optimization Option-->
-                        <?php $is_Pro_class = new TF_Options;
-                            $is_Pro_active = $is_Pro_class->is_tf_pro_active(); 
+                        <?php $is_Pro_class = new Ins_TF_Options;
+                            $is_Pro_active = $is_Pro_class->is_ins_pro_active(); 
 
                             if($is_Pro_active === true) { ?>
                             
@@ -718,7 +718,7 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
 			update_option( 'wiopt', $options );
 			$response              = [
 				'success'      => true,
-				'redirect_url' => esc_url( admin_url( 'admin.php?page=tf_settings' ) )
+				'redirect_url' => esc_url( admin_url( 'admin.php?page=ins_tf_settings' ) )
 			];
 
 			echo json_encode( $response );

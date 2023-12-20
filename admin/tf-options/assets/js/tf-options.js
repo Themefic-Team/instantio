@@ -19,7 +19,7 @@
 
     // Field: code_editor
     $(document).ready(function () {
-        $(".tf-field-textarea").each(function () {
+        $(".tf-field-codearea").each(function () {
             if (typeof CodeMirror !== 'function') { return; }
             // console.log("working");
             var $this = $(this),

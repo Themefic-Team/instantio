@@ -181,7 +181,7 @@ do_action( 'woocommerce_before_cart' ); ?>
             </div>
         </div> 
        
-    <?php echo apply_filters( 'ins_show_items_upsells', ''); ?>
+        <?php echo apply_filters( 'ins_show_items_upsells', ''); ?>
     </div>
     
     <?php do_action( 'woocommerce_cart_contents' ); ?>
@@ -255,6 +255,3 @@ do_action( 'woocommerce_before_cart' ); ?>
     ?> 
 </form>
 
-
-
-<?php //do_action( 'woocommerce_after_cart' ); ?>
