@@ -2,134 +2,134 @@
 // don't load directly
 defined( 'ABSPATH' ) || exit;
 
-if ( ! class_exists( 'TF_icon' ) ) {
-	class TF_icon extends TF_Fields {
+if ( ! class_exists( 'INS_icon' ) ) {
+	class INS_icon extends INS_Fields {
 
 		public function __construct( $field, $value = '', $settings_id = '', $parent_field = '' ) {
 			parent::__construct( $field, $value, $settings_id, $parent_field );
 
-			//tf_icon_modal method load single time
-			static $tf_icon_modal;
-			if ( ! $tf_icon_modal ) {
-				$tf_icon_modal = true;
-				add_action( 'admin_footer', array( $this, 'tf_icon_modal' ) );
+			//INS_icon_modal method load single time
+			static $INS_icon_modal;
+			if ( ! $INS_icon_modal ) {
+				$INS_icon_modal = true;
+				add_action( 'admin_footer', array( $this, 'INS_icon_modal' ) );
 			}
 		}
 
 		public function render() {
 
-			$default       = isset( $this->field['default'] ) ? $this->field['default'] : '';
-			$value         = $this->value ? $this->value : '';
+			$default = isset( $this->field['default'] ) ? $this->field['default'] : '';
+			$value = $this->value ? $this->value : '';
 			$preview_class = $value ? 'tf-icon-preview' : 'tf-icon-preview tf-hide';
-			$uniqueid      = uniqid();
+			$uniqueid = uniqid();
 			?>
-            <div class="tf-icon-select" id="tf-icon-<?php echo esc_attr( $this->field['id'] . $uniqueid ); ?>">
-                <div class="<?php echo esc_attr( $preview_class ); ?>">
-                    <span class="tf-icon-preview-wrap tf-modal-btn">
-                        <i class="<?php echo esc_attr( $value ); ?>"></i>
-                    </span>
-                    <span class="remove-icon">
-                        <i class="ri-close-line"></i>
-                    </span>
-                </div>
-                <a href="#" class="tf-admin-btn tf-modal-btn"><i class="ri-add-fill"></i><?php esc_html_e( 'Add Icon', 'instantio' ); ?></a>
-                <input type="hidden" class="tf-icon-value" name="<?php echo esc_attr( $this->field_name() ); ?>" value="<?php echo esc_attr( $value ); ?>" <?php echo $this->field_attributes() ?>/>
-            </div>
-			<?php
+						<div class="tf-icon-select" id="tf-icon-<?php echo esc_attr( $this->field['id'] . $uniqueid ); ?>">
+							<div class="<?php echo esc_attr( $preview_class ); ?>">
+								<span class="tf-icon-preview-wrap tf-modal-btn">
+									<i class="<?php echo esc_attr( $value ); ?>"></i>
+								</span>
+								<span class="remove-icon">
+									<i class="ri-close-line"></i>
+								</span>
+							</div>
+							<a href="#" class="tf-admin-btn tf-modal-btn"><i class="ri-add-fill"></i><?php esc_html_e( 'Add Icon', 'instantio' ); ?></a>
+							<input type="hidden" class="tf-icon-value" name="<?php echo esc_attr( $this->field_name() ); ?>" value="<?php echo esc_attr( $value ); ?>" <?php echo $this->field_attributes() ?>/>
+						</div>
+						<?php
 		}
 
-		public function tf_icon_modal() {
+		public function INS_icon_modal() {
 			?>
-            <div class="tf-modal" id="tf-icon-modal" data-icon-field="">
-                <div class="tf-modal-dialog">
-                    <div class="container tf-modal-content">
-                        <div class="tf-modal-header">
-                            <div class="tf-icon-search">
-                                <input type="text" placeholder="<?php esc_html_e( 'Search', 'instantio' ); ?>" class="tf-icon-search-input"/>
-                            </div>
-                            <a data-dismiss="modal" class="tf-modal-close">&#10005;</a>
-                        </div>
-                        <div class="tf-modal-body">
-                            <div class="tf-icon-wrapper">
-                                <ul class="tf-icon-tab-list">
-									<?php
-									$count     = 0;
-									$icon_list = $this->get_icon_list();
-									foreach ( $icon_list as $key => $value ) :
-										if ( $value['icons'] ):
-											?>
-                                            <li class="tf-icon-tab <?php echo $count == 0 ? 'active' : '' ?>" data-tab="tf-icon-tab-<?php echo esc_attr( $key ) ?>">
-                                                <i class="<?php echo esc_attr( $value['label_icon'] ) ?>"></i><?php echo esc_html( $value['label'] ); ?>
-                                            </li>
-										<?php
-										endif;
-										$count ++;
-									endforeach; ?>
-                                </ul>
-                                <div class="tf-icon-tab-content">
-									<?php
-									$count     = 0;
-									$icon_list = $this->get_icon_list();
-									foreach ( $icon_list as $key => $value ) :
-										?>
-                                        <div class="tf-icon-tab-pane <?php echo $count == 0 ? 'active' : '' ?>" id="tf-icon-tab-<?php echo esc_attr( $key ) ?>">
-                                            <ul class="tf-icon-list">
+						<div class="tf-modal" id="tf-icon-modal" data-icon-field="">
+							<div class="tf-modal-dialog">
+								<div class="container tf-modal-content">
+									<div class="tf-modal-header">
+										<div class="tf-icon-search">
+											<input type="text" placeholder="<?php esc_html_e( 'Search', 'instantio' ); ?>" class="tf-icon-search-input"/>
+										</div>
+										<a data-dismiss="modal" class="tf-modal-close">&#10005;</a>
+									</div>
+									<div class="tf-modal-body">
+										<div class="tf-icon-wrapper">
+											<ul class="tf-icon-tab-list">
 												<?php
-												if ( $value['icons'] ):
-													foreach ( $value['icons'] as $icon ) :
+												$count = 0;
+												$icon_list = $this->get_icon_list();
+												foreach ( $icon_list as $key => $value ) :
+													if ( $value['icons'] ) :
 														?>
-                                                        <li data-icon="<?php echo esc_attr( $icon ); ?>">
-                                                            <div class="tf-icon-inner">
-                                                                <i title="<?php echo esc_attr( $icon ); ?>" class="tf-main-icon <?php echo esc_attr( $icon ); ?>"></i>
+																<li class="tf-icon-tab <?php echo $count == 0 ? 'active' : '' ?>" data-tab="tf-icon-tab-<?php echo esc_attr( $key ) ?>">
+																	<i class="<?php echo esc_attr( $value['label_icon'] ) ?>"></i><?php echo esc_html( $value['label'] ); ?>
+																</li>
+															<?php
+													endif;
+													$count++;
+												endforeach; ?>
+											</ul>
+											<div class="tf-icon-tab-content">
+												<?php
+												$count = 0;
+												$icon_list = $this->get_icon_list();
+												foreach ( $icon_list as $key => $value ) :
+													?>
+														<div class="tf-icon-tab-pane <?php echo $count == 0 ? 'active' : '' ?>" id="tf-icon-tab-<?php echo esc_attr( $key ) ?>">
+															<ul class="tf-icon-list">
+																<?php
+																if ( $value['icons'] ) :
+																	foreach ( $value['icons'] as $icon ) :
+																		?>
+																				<li data-icon="<?php echo esc_attr( $icon ); ?>">
+																					<div class="tf-icon-inner">
+																						<i title="<?php echo esc_attr( $icon ); ?>" class="tf-main-icon <?php echo esc_attr( $icon ); ?>"></i>
 
-                                                                <span class="check-icon">
-                                                                    <i class="ri-check-line"></i>
-                                                                </span>
-                                                            </div>
-                                                        </li>
-													<?php endforeach;
-												endif; ?>
-                                            </ul>
-                                        </div>
-										<?php $count ++;
-									endforeach; ?>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tf-modal-footer">
-                            <a class="tf-icon-insert tf-admin-btn tf-btn-secondary disabled"><?php esc_html_e( 'Insert', 'instantio' ); ?></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-			<?php
+																						<span class="check-icon">
+																							<i class="ri-check-line"></i>
+																						</span>
+																					</div>
+																				</li>
+																		<?php endforeach;
+																endif; ?>
+															</ul>
+														</div>
+														<?php $count++;
+												endforeach; ?>
+											</div>
+										</div>
+									</div>
+									<div class="tf-modal-footer">
+										<a class="tf-icon-insert tf-admin-btn tf-btn-secondary disabled"><?php esc_html_e( 'Insert', 'instantio' ); ?></a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<?php
 		}
 
 		public function get_icon_list() {
 			$icons = array(
 				'fontawesome_4' => array(
-					'label'      => __( 'Font Awesome 4', 'instantio' ),
+					'label' => __( 'Font Awesome 4', 'instantio' ),
 					'label_icon' => 'fa-regular fa-font-awesome',
-					'icons'      => $this->fontawesome_four_icons(),
+					'icons' => $this->fontawesome_four_icons(),
 				),
 				'fontawesome_5' => array(
-					'label'      => __( 'Font Awesome 5', 'instantio' ),
+					'label' => __( 'Font Awesome 5', 'instantio' ),
 					'label_icon' => 'fa-regular fa-font-awesome',
-					'icons'      => $this->fontawesome_five_icons(),
+					'icons' => $this->fontawesome_five_icons(),
 				),
 				'fontawesome_6' => array(
-					'label'      => __( 'Font Awesome 6', 'instantio' ),
+					'label' => __( 'Font Awesome 6', 'instantio' ),
 					'label_icon' => 'fa-regular fa-font-awesome',
-					'icons'      => $this->fontawesome_six_icons(),
+					'icons' => $this->fontawesome_six_icons(),
 				),
-				'remixicon'     => array(
-					'label'      => __( 'Remix Icon', 'instantio' ),
+				'remixicon' => array(
+					'label' => __( 'Remix Icon', 'instantio' ),
 					'label_icon' => 'ri-remixicon-line',
-					'icons'      => $this->remix_icon(),
+					'icons' => $this->remix_icon(),
 				),
 			);
 
-			$icons = apply_filters( 'tf_icon_list', $icons );
+			$icons = apply_filters( 'INS_icon_list', $icons );
 
 			return $icons;
 		}

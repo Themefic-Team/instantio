@@ -37,20 +37,21 @@ if ( ! class_exists( 'Ins_TF_Options' ) ) {
 
 			//enqueue scripts
 			add_action( 'admin_enqueue_scripts', array( $this, 'Ins_tf_options_admin_enqueue_scripts' ) );
+
 			add_action( 'wp_enqueue_scripts', array( $this, 'Ins_tf_options_wp_enqueue_scripts' ) );
 		}
 
 		// constant define
 		public function tf_options_define() {
-			if ( ! defined( 'TF_OPTIONS_PATH' ) ) {
-				define( 'TF_OPTIONS_PATH', plugin_dir_path( __FILE__ ) );
+			if ( ! defined( 'INS_OPTIONS_PATH' ) ) {
+				define( 'INS_OPTIONS_PATH', plugin_dir_path( __FILE__ ) );
 			}
 
 
 		}
 
 		public function Ins_tf_options_version() {
-			return '2.0.1';
+			return '2.2.0';
 		}
 
 		public function Ins_tf_options_file_path( $file_path = '' ) {
@@ -67,7 +68,7 @@ if ( ! class_exists( 'Ins_TF_Options' ) ) {
 		 */
 		public function Ins_classes_load_files() {
 			// Metaboxes Class
-			require_once $this->Ins_tf_options_file_path( 'classes/TF_Metabox.php' );
+			require_once $this->Ins_tf_options_file_path( 'classes/INS_Metabox.php' );
 			// Settings Class
 			require_once $this->Ins_tf_options_file_path( 'classes/Ins_TF_Settings.php' );
 			//Taxonomy Class
@@ -87,9 +88,7 @@ if ( ! class_exists( 'Ins_TF_Options' ) ) {
 			// }
 			$metaboxes = glob( $this->Ins_tf_options_file_path( 'metaboxes/*.php' ) );
 
-			/*if( !empty( $pro_metaboxes ) ) {
-								  $metaboxes = array_merge( $metaboxes, $pro_metaboxes );
-							  }*/
+
 			if ( ! empty( $metaboxes ) ) {
 				foreach ( $metaboxes as $metabox ) {
 					if ( file_exists( $metabox ) ) {
@@ -124,7 +123,7 @@ if ( ! class_exists( 'Ins_TF_Options' ) ) {
 
 		/**
 		 * Admin Enqueue scripts
-		 * @author Foysal
+		 * @author M Hemel Hasan
 		 */
 		public function Ins_tf_options_admin_enqueue_scripts( $screen ) {
 			// var_dump($screen);
@@ -146,16 +145,16 @@ if ( ! class_exists( 'Ins_TF_Options' ) ) {
 			//Js
 			if ( in_array( $screen, $tf_options_screens ) ) {
 
-				wp_enqueue_script( 'tf-flatpickr', '//cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.js', array( 'jquery' ), $this->Ins_tf_options_version(), true );
-				wp_enqueue_script( 'tf-select2', '//cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js', array( 'jquery' ), $this->Ins_tf_options_version(), true );
-				wp_enqueue_script( 'wp-color-picker-alpha', '//raw.githubusercontent.com/kallookoo/wp-color-picker-alpha/master/src/wp-color-picker-alpha.js', array( 'jquery', 'wp-color-picker' ), $this->Ins_tf_options_version(), true );
-				wp_enqueue_script( 'setup-wizard', $this->Ins_tf_options_file_url( 'assets/js/setup-wizard.js' ), array( 'jquery' ), $this->Ins_tf_options_version(), true );
-				wp_enqueue_script( 'notyf-js', $this->Ins_tf_options_file_url( 'assets/libs/notyf/notyf.min.js' ), array( 'jquery' ), $this->Ins_tf_options_version(), true );
+				wp_enqueue_script( 'tf-flatpickr', '//cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.js', array( 'jquery' ), $this->Ins_tf_options_version() );
+				wp_enqueue_script( 'tf-select2', '//cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js', array( 'jquery' ), $this->Ins_tf_options_version() );
+				wp_enqueue_script( 'wp-color-picker-alpha', '//raw.githubusercontent.com/kallookoo/wp-color-picker-alpha/master/src/wp-color-picker-alpha.js', array( 'jquery', 'wp-color-picker' ), $this->Ins_tf_options_version() );
+				wp_enqueue_script( 'setup-wizard', $this->Ins_tf_options_file_url( 'assets/js/setup-wizard.js' ), array( 'jquery' ), $this->Ins_tf_options_version() );
+				wp_enqueue_script( 'notyf-js', $this->Ins_tf_options_file_url( 'assets/libs/notyf/notyf.min.js' ), array( 'jquery' ), $this->Ins_tf_options_version() );
 				//dashboard
 				if ( $screen == 'instantio_page_ins_dashboard' ) {
-					wp_enqueue_script( 'dashboard-js', $this->Ins_tf_options_file_url( 'assets/js/dashboard.js' ), array( 'jquery' ), $this->Ins_tf_options_version(), true );
+					wp_enqueue_script( 'dashboard-js', $this->Ins_tf_options_file_url( 'assets/js/dashboard.js' ), array( 'jquery' ), $this->Ins_tf_options_version() );
 				}
-				wp_enqueue_script( 'ins-admin-js', $this->Ins_tf_options_file_url( 'assets/js/admin.js' ), array( 'jquery' ), $this->Ins_tf_options_version(), true );
+				wp_enqueue_script( 'ins-admin', $this->Ins_tf_options_file_url( 'assets/js/admin.js' ), array( 'jquery' ), $this->Ins_tf_options_version() );
 
 				wp_enqueue_script( 'jquery-ui-autocomplete' );
 
@@ -167,15 +166,15 @@ if ( ! class_exists( 'Ins_TF_Options' ) ) {
 			}
 
 
-			wp_enqueue_script( 'ins_tf-options-js', $this->Ins_tf_options_file_url( 'assets/js/tf-options.js' ), array( 'jquery' ), $this->Ins_tf_options_version(), true );
+			wp_enqueue_script( 'ins_tf-options', $this->Ins_tf_options_file_url( 'assets/js/ins-options.js' ), array( 'jquery' ), $this->Ins_tf_options_version() );
 
-			wp_localize_script( 'ins_tf-options-js', 'tf_options', array(
+			wp_localize_script( 'ins_tf-options', 'tf_options', array(
 				'ajax_url' => admin_url( 'admin-ajax.php' ),
 				'nonce' => wp_create_nonce( 'tf_options_nonce' ),
 				'option_id' => 'wiopt',
 			) );
 
-			wp_localize_script( 'ins-admin-js', 'ins_admin', array(
+			wp_localize_script( 'ins-admin', 'ins_admin', array(
 				'ajax_url' => admin_url( 'admin-ajax.php' )
 			) );
 		}
@@ -288,7 +287,7 @@ if ( ! class_exists( 'Ins_TF_Options' ) ) {
 
 				<div class="tf-fieldset">
 					<?php
-					$fieldClass = 'TF_' . $field['type'];
+					$fieldClass = 'INS_' . $field['type'];
 					if ( class_exists( $fieldClass ) ) {
 						$_field = new $fieldClass( $field, $value, $settings_id, $parent );
 						$_field->render();
