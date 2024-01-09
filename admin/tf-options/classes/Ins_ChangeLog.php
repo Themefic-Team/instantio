@@ -12,6 +12,18 @@
 $change = [
        
        // Update  start
+       'v17' => [
+           'date'      => '09 January 2024',
+           'version'   => 'Version 3.2.1',
+           'changelog' => [
+               'Compatibility'   =>   [
+                   'Compatible With Tourfic Plugin',
+               ],
+           ]
+       ],
+       // Update End
+       
+       // Update  start
        'v16' => [
            'date'      => '20 December 2023',
            'version'   => 'Version 3.2.0',
@@ -62,20 +74,6 @@ $change = [
        ],
        // Update End
        
-       // Update  start
-       'v13' => [
-           'date'      => '16 November 2023',
-           'version'   => 'Version 3.1.8',
-           'changelog' => [
-               'Updated'   =>   [
-                   'readme.txt',
-                   'Black Friday Banner'
-               ],
-           ]
-       ],
-       // Update End
-    
-
 ]
 
 
