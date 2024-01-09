@@ -336,7 +336,7 @@ For those seeking simplicity, Instantio provides a simplified WooCommerce checko
 
 - Compatibility: Compatible With Tourfic Plugin
 
-= 3.2.0 - ( December 19, 2023 ) =
+= 3.2.0 - ( December 20, 2023 ) =
 
 - Improvement: Tourfic hotel, tour added to the instantio cart
 - Fixed: dashboard, Js console error warning fix
