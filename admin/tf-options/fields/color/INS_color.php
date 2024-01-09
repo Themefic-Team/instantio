@@ -2,8 +2,8 @@
 // don't load directly
 defined( 'ABSPATH' ) || exit;
 
-if ( ! class_exists( 'TF_color' ) ) {
-	class TF_color extends TF_Fields {
+if ( ! class_exists( 'INS_color' ) ) {
+	class INS_color extends INS_Fields {
 
 		public function __construct( $field, $value = '', $settings_id = '', $parent_field = '' ) {
 			parent::__construct( $field, $value, $settings_id, $parent_field );
