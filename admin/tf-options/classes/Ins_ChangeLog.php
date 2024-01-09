@@ -10,115 +10,71 @@
  */
 
 $change = [
-
+       
        // Update  start
-       'v11' => [
-           'date'      => '12 November 2023',
-           'version'   => 'Version 3.1.6',
+       'v16' => [
+           'date'      => '20 December 2023',
+           'version'   => 'Version 3.2.0',
            'changelog' => [
-               'New'   =>   [
-                   'Integration of all payment methods supported by Woocommerce',
-                   'Custom Field Data to the order details(Pro)',
-               ],
                'Fix'   =>   [
-                   'High-Performance Order Storage issue for Woocommerce',
+                     'Dashboard, Js console error warning fix',
+                     'Instantio Js and Min Js Check',
+                     'Resources optimization',
+                     'Payment Stripe and Paypal Updated version(Pro)',
+                     'Session time out(Pro)',
+                     'Tourfic conflict(Pro)',
+                     'Mobile and Desktop cart count issues(Pro)',
                ],
-                'Compatibility'   =>   [
-                   'Compatible with WooCommerce 8.2.2',
+                'Improvement'   =>   [
+                    'Tourfic hotel, tour added to the instantio cart',
                ]
            ]
        ],
        // Update End
 
         // Update  start
-       'v10' => [
-           'date'      => '05 October 2023',
-           'version'   => 'Version 3.1.5',
+       'v15' => [
+           'date'      => '10 December 2023',
+           'version'   => 'Version 3.1.10',
            'changelog' => [
-               'New'   =>   [
-                    'Custom fields to the billing and shipping forms(Pro)',
-                    'Support for payment through 2Checkout(Pro)',
-                ],
-                'Fix'   =>   [
-                    'Responsiveness issues',
-                    'Cart update issues',
-                    'Problems involving array warnings',
-                    'All progress bar dark mode issues(Pro)',
-                    'Panel billing input border color issues(Pro)',
-                    'Billing padding problems(Pro)',
-                    'Problems with the payment method title color(Pro)',
-                    'Billing CSS issues when on the dedicated mobile version(Pro)',
-                    'The install button(Pro)',
-                    'Mobile bar(Pro)',
-                ],
-                'Improvement'   =>   [
-                    'Progress bar hiding when the cart is empty(Pro)',
-                ],
-           ]
-       ],
-       // Update End
-        
-        // Update Start
-        'v9' => [
-            'date'      => '12 September 2023',
-            'version'   => 'Version 3.1.4',
-            'changelog' => [
-                'New'   =>   [
-                    'Checkout Editor and drag to change field position',
-                    'Reset checkout editor (Pro)',
-                ],
-            
-                'Improvement'   =>   [
-                    'Cart panel view',
-                    'Side Cart Responsive',
-                    'Compatibility with the latest PayPal Plugin',
-                ],
-            
-                'Fix'   =>   [
-                    ' Options Panel string translatable',
-                ],
-            ]
-        ],
-        // Update End  
-    
-        // Update  start
-       'v8' => [
-           'date'      => '25 August 2023',
-           'version'   => 'Version 3.1.3',
-           'changelog' => [
-               'Updated'   =>   [
-                   'readme.txt',
-               ],
-           ]
-       ],
-       // Update End
-    
-        // Update  start
-       'v7' => [
-           'date'      => '24 August 2023',
-           'version'   => 'Version 3.1.2',
-           'changelog' => [
-               'Updated'   =>   [
-                   'readme.txt',
+               'Fix'   =>   [
+                   'Responsive issue. ',
                ],
                 'Compatibility'   =>   [
-                   'Compatibility check with WooCommerce 8.0.2',
-               ]
+                   'Compatible with WooCommerce 8.3',
+               ],
            ]
        ],
        // Update End
         
         // Update  start
-       'v8' => [
-           'date'      => '25 August 2023',
-           'version'   => 'Version 3.1.3',
+       'v14' => [
+           'date'      => '09 December 2023',
+           'version'   => 'Version 3.1.9',
            'changelog' => [
                'Updated'   =>   [
-                   'readme.txt',
-               ]
+                   'Extended Notice( Black Friday )',
+               ],
+                'Improvement'   =>   [
+                   'Removed Unused CSS/JS',
+               ],
            ]
        ],
        // Update End
+       
+       // Update  start
+       'v13' => [
+           'date'      => '16 November 2023',
+           'version'   => 'Version 3.1.8',
+           'changelog' => [
+               'Updated'   =>   [
+                   'readme.txt',
+                   'Black Friday Banner'
+               ],
+           ]
+       ],
+       // Update End
+    
 
 ]
 

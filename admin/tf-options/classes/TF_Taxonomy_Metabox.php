@@ -12,16 +12,16 @@ if ( ! class_exists( 'TF_Taxonomy_Metabox' ) ) {
 
 		public function __construct( $key, $params = array() ) {
 			$defaults = array(
-				'title'    => '',
+				'title' => '',
 				'taxonomy' => 'category',
 				'sections' => array(),
 			);
 
 			$params = wp_parse_args( $params, $defaults );
 
-			$this->taxonomy_id     = $key;
-			$this->taxonomy_title  = $params['title'];
-			$this->taxonomy        = $params['taxonomy'];
+			$this->taxonomy_id = $key;
+			$this->taxonomy_title = $params['title'];
+			$this->taxonomy = $params['taxonomy'];
 			$this->taxonomy_fields = $params['fields'];
 
 			//load fields
@@ -42,13 +42,13 @@ if ( ! class_exists( 'TF_Taxonomy_Metabox' ) ) {
 		/*
 		 * Load fields
 		 * @author Foysal
-         */
+		 */
 		public function load_fields() {
 
 			// Fields Class
-			require_once TF_OPTIONS_PATH . 'fields/TF_Fields.php';
+			require_once INS_OPTIONS_PATH . 'fields/INS_Fields.php';
 
-			$fields = glob( TF_OPTIONS_PATH . 'fields/*/TF_*.php' );
+			$fields = glob( INS_OPTIONS_PATH . 'fields/*/INS_*.php' );
 
 			if ( ! empty( $fields ) ) {
 				foreach ( $fields as $field ) {
@@ -70,8 +70,8 @@ if ( ! class_exists( 'TF_Taxonomy_Metabox' ) ) {
 			wp_nonce_field( 'tf_taxonomy_nonce_action', 'tf_taxonomy_nonce' );
 
 			// Retrieve an existing value from the database.
-			$is_term           = ( is_object( $term ) && isset( $term->taxonomy ) ) ? true : false;
-			$term_id           = ( $is_term ) ? $term->term_id : 0;
+			$is_term = ( is_object( $term ) && isset( $term->taxonomy ) ) ? true : false;
+			$term_id = ( $is_term ) ? $term->term_id : 0;
 			$tf_taxonomy_value = get_term_meta( $term_id, $this->taxonomy_id, true );
 
 			// Set default values.
@@ -85,23 +85,23 @@ if ( ! class_exists( 'TF_Taxonomy_Metabox' ) ) {
 			// Form fields.
 
 			?>
-            <tr>
-                <td colspan="2">
-                    <div class="tf-admin-meta-box tf-taxonomy-metabox">
-                        <div class="tf-tab-wrapper">
+			<tr>
+				<td colspan="2">
+					<div class="tf-admin-meta-box tf-taxonomy-metabox">
+						<div class="tf-tab-wrapper">
 							<?php
 							foreach ( $this->taxonomy_fields as $key => $field ) {
 								$default = isset( $field['default'] ) ? $field['default'] : '';
-								$value   = isset( $tf_taxonomy_value[ $field['id'] ] ) ? $tf_taxonomy_value[ $field['id'] ] : $default;
+								$value = isset( $tf_taxonomy_value[ $field['id'] ] ) ? $tf_taxonomy_value[ $field['id'] ] : $default;
 
-								$tf_option = new TF_Options();
+								$tf_option = new Ins_TF_Options();
 								$tf_option->field( $field, $value, $this->taxonomy_id );
 							}
 							?>
-                        </div>
-                    </div>
-                </td>
-            </tr>
+						</div>
+					</div>
+				</td>
+			</tr>
 			<?php
 		}
 
@@ -111,7 +111,7 @@ if ( ! class_exists( 'TF_Taxonomy_Metabox' ) ) {
 		 */
 		public function save_taxonomy( $term_id ) {
 			// Add nonce for security and authentication.
-			$nonce_name   = isset( $_POST['tf_taxonomy_nonce'] ) ? $_POST['tf_taxonomy_nonce'] : '';
+			$nonce_name = isset( $_POST['tf_taxonomy_nonce'] ) ? $_POST['tf_taxonomy_nonce'] : '';
 			$nonce_action = 'tf_taxonomy_nonce_action';
 
 			// Check if a nonce is set.
@@ -126,7 +126,7 @@ if ( ! class_exists( 'TF_Taxonomy_Metabox' ) ) {
 
 
 			$tf_taxonomy_value = array();
-			$taxonomy_request  = ( ! empty( $_POST[ $this->taxonomy_id ] ) ) ? $_POST[ $this->taxonomy_id ] : array();
+			$taxonomy_request = ( ! empty( $_POST[ $this->taxonomy_id ] ) ) ? $_POST[ $this->taxonomy_id ] : array();
 
 			if ( ! empty( $taxonomy_request ) && ! empty( $this->taxonomy_fields ) ) {
 				foreach ( $this->taxonomy_fields as $field ) {
@@ -135,10 +135,10 @@ if ( ! class_exists( 'TF_Taxonomy_Metabox' ) ) {
 						$data = isset( $taxonomy_request[ $field['id'] ] ) ? $taxonomy_request[ $field['id'] ] : '';
 
 						$fieldClass = 'TF_' . $field['type'];
-						$data       = $fieldClass == 'TF_repeater' || $fieldClass == 'TF_map' || $fieldClass == 'TF_tab' || $fieldClass == 'TF_color' ? serialize( $data ) : $data;
+						$data = $fieldClass == 'TF_repeater' || $fieldClass == 'TF_map' || $fieldClass == 'TF_tab' || $fieldClass == 'TF_color' ? serialize( $data ) : $data;
 
 						if ( class_exists( $fieldClass ) ) {
-							$_field                            = new $fieldClass( $field, $data, $this->taxonomy_id );
+							$_field = new $fieldClass( $field, $data, $this->taxonomy_id );
 							$tf_taxonomy_value[ $field['id'] ] = $_field->sanitize();
 						}
 
