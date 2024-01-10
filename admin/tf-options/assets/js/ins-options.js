@@ -582,11 +582,11 @@
             var count = 1;
             $this.find('.tf-single-repeater').each(function () {
                 // console.log(count);
-                var parent_field = $(this).find('input[name="tf_parent_field"]')
+                var parent_field = $(this).find('input[name="INS_parent_field"]')
                     .val();
-                var current_field = $(this).find('input[name="tf_current_field"]')
+                var current_field = $(this).find('input[name="INS_current_field"]')
                     .val();
-                var repeater_count = $(this).find('input[name="tf_repeater_count"]')
+                var repeater_count = $(this).find('input[name="INS_repeater_count"]')
                     .val();
 
 
@@ -617,7 +617,7 @@
                         $(this).attr("for", for_value);
                     }
                 });
-                $(this).find('input[name="tf_repeater_count"]').val(count)
+                $(this).find('input[name="INS_repeater_count"]').val(count)
                 count++;
             });
         }
@@ -642,9 +642,9 @@
             ).length;
 
             var countpuls = count + 1;
-            var parent_field = add_value.find(':input[name="tf_parent_field"]').val();
+            var parent_field = add_value.find(':input[name="INS_parent_field"]').val();
             var current_field = add_value
-                .find(':input[name="tf_current_field"]')
+                .find(':input[name="INS_current_field"]')
                 .val();
 
             $this_parent.find(".tf-repeater-wrap .tf-field-notice-inner").remove();
@@ -659,7 +659,7 @@
             }
 
             // Repeater Count Add Value
-            add_value.find(':input[name="tf_repeater_count"]').val(count);
+            add_value.find(':input[name="INS_repeater_count"]').val(count);
 
             // Repeater Room Unique ID
             var room_uniqueid = add_value.find(".unique-id input");
@@ -698,7 +698,7 @@
                         );
                 });
                 var update_paren = add_value
-                    .find('.tf-repeater input[name="tf_parent_field"]')
+                    .find('.tf-repeater input[name="INS_parent_field"]')
                     .val();
                 if (typeof update_paren !== "undefined") {
                     var update_paren = update_paren.replace(
@@ -707,12 +707,12 @@
                     );
                 }
                 add_value
-                    .find('.tf-repeater input[name="tf_parent_field"]')
+                    .find('.tf-repeater input[name="INS_parent_field"]')
                     .val(update_paren);
             } else {
                 // Update  repeater name And id
                 var update_paren = add_value
-                    .find(':input[name="tf_parent_field"]')
+                    .find(':input[name="INS_parent_field"]')
                     .val();
                 add_value.find(":input").each(function () {
                     this.name = this.name
@@ -869,13 +869,13 @@
             let clone_value = $(this).closest(".tf-single-repeater").clone();
             var max = $(this).attr("data-repeater-max");
             var parent_field = clone_value
-                .find('input[name="tf_parent_field"]')
+                .find('input[name="INS_parent_field"]')
                 .val();
             var current_field = clone_value
-                .find('input[name="tf_current_field"]')
+                .find('input[name="INS_current_field"]')
                 .val();
             var repeater_count = clone_value
-                .find('input[name="tf_repeater_count"]')
+                .find('input[name="INS_repeater_count"]')
                 .val();
             var count = $this_parent.find(
                 ".tf-single-repeater-" + current_field + ""
@@ -930,7 +930,7 @@
                     }
                 });
                 var update_paren = clone_value
-                    .find('.tf-repeater input[name="tf_parent_field"]')
+                    .find('.tf-repeater input[name="INS_parent_field"]')
                     .val();
                 if (typeof update_paren !== "undefined") {
                     var update_paren = update_paren.replace(
@@ -939,7 +939,7 @@
                     );
                 }
                 clone_value
-                    .find('.tf-repeater input[name="tf_parent_field"]')
+                    .find('.tf-repeater input[name="INS_parent_field"]')
                     .val(update_paren);
             } else {
                 // Replace input id and name
@@ -1003,7 +1003,7 @@
                 }
             });
             // Replace Data repeter Count id ID
-            clone_value.find('input[name="tf_repeater_count"]').val(count);
+            clone_value.find('input[name="INS_repeater_count"]').val(count);
 
             // Replace Old editor
             clone_value.find(".wp-editor-wrap").each(function () {
@@ -1078,9 +1078,10 @@
             "click",
             ".tf-repeater-title, .tf-repeater-icon-collapse",
             function () {
+                console.log(tf_repater_fieldname);
                 var tf_repater_fieldname = $(this)
                     .closest(".tf-single-repeater")
-                    .find("input[name=tf_current_field]")
+                    .find("input[name=INS_current_field]")
                     .val();
                 $(this)
                     .closest(".tf-single-repeater-" + tf_repater_fieldname + "")

@@ -51,7 +51,7 @@ if ( ! class_exists( 'Ins_TF_Options' ) ) {
 		}
 
 		public function Ins_tf_options_version() {
-			return '2.2.0';
+			return '2.3.0';
 		}
 
 		public function Ins_tf_options_file_path( $file_path = '' ) {
