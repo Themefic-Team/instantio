@@ -447,6 +447,7 @@
 	});
 
 	$(document).on("click", ".single_add_to_cart_button", function () {
+		var thisbutton = $(this);
 		var cart_form = thisbutton.closest("form.cart");
 
 		if (cart_form.find("input[name=variation_id]").length > 0) {
