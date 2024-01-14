@@ -272,6 +272,8 @@
 				$(".ins-checkout-layout .ins-cart-empty").addClass("hide");
 				$(".ins-checkout-layout .ins-cart-inner.step-1").html("");
 				$(".ins-checkout-layout .ins-cart-inner.step-1").append(response.data.data);
+				$(".ins-checkout-layout .ins-checkout-shipping .ins-cart-content-wrap").html("");
+				$(".ins-checkout-layout .ins-checkout-shipping .ins-cart-content-wrap").append(response.data.ins_shipping_additional);
 
 				if (auto_open_toggle == true) {
 					$(".ins-checkout-layout-3").addClass("active");

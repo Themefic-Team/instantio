@@ -297,6 +297,11 @@ class App {
 			$hide_empty = 'ins-show';
 			$display = 'hide';
 		endif;
+
+		ob_start();
+		do_action( 'woocommerce_checkout_shipping' );
+
+		$ins_shipping_additional = ob_get_clean();
 		$ins_cart_total = WC()->cart->get_cart_contents_count();
 		// $ins_checkout_load = apply_filters('ins_template_step_content', '');
 		$response = array(
@@ -307,6 +312,7 @@ class App {
 			'hide_empty' => $hide_empty,
 			'display' => $display,
 			'ins_cart_count' => $ins_cart_total,
+			'ins_shipping_additional' => $ins_shipping_additional,
 			// 'ins_checkout_load' => $ins_checkout_load,
 		);
 
