@@ -29,6 +29,9 @@
 					$('.ins-cart-inner.payment .ins-shipping-wrap').html('');
 					$('.ins-cart-inner.payment .ins-shipping-wrap').append(response.data.ins_shiiping);
 
+					// $(".ins-checkout-layout .ins-checkout-shipping .ins-cart-content-wrap").html("");
+					// $(".ins-checkout-layout .ins-checkout-shipping .ins-cart-content-wrap").append(response.data.ins_shipping_additional);
+
 					if (response.data.cross_sells != '' && response.data.cross_sells != null) {
 						$('.ins-cart-inner.payment .ins-card-cross-sell').addClass('active');
 					} else {
@@ -273,6 +276,9 @@
 				$(".ins-checkout-layout .ins-cart-inner.step-1").html("");
 				$(".ins-checkout-layout .ins-cart-inner.step-1").append(response.data.data);
 
+				$(".ins-checkout-layout .ins-checkout-shipping .ins-cart-content-wrap").html("");
+				$(".ins-checkout-layout .ins-checkout-shipping .ins-cart-content-wrap").append(response.data.ins_shipping_additional);
+
 				if (auto_open_toggle == true) {
 					$(".ins-checkout-layout-3").addClass("active");
 					$(".ins-checkout-overlay").addClass("active");
@@ -445,6 +451,7 @@
 	});
 
 	$(document).on("click", ".single_add_to_cart_button", function () {
+		var thisbutton = $(this);
 		var cart_form = thisbutton.closest("form.cart");
 
 		if (cart_form.find("input[name=variation_id]").length > 0) {
@@ -726,6 +733,10 @@
 					$(".ins-checkout-layout .ins-cart-empty").addClass(response.data.hide_empty);
 					$(".ins-checkout-layout .ins-cart-inner.step-1").html("");
 					$(".ins-checkout-layout .ins-cart-inner.step-1").append(response.data.data);
+
+					$(".ins-checkout-layout .ins-checkout-shipping .ins-cart-content-wrap").html("");
+					$(".ins-checkout-layout .ins-checkout-shipping .ins-cart-content-wrap").append(response.data.ins_shipping_additional);
+
 					ins_owl_carousel();
 					// Hide toggle button if empty cart
 					hide_toggle_btn();
