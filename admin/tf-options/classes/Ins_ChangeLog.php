@@ -10,6 +10,22 @@
  */
 
 $change = [
+
+        // Update  start
+       'v18' => [
+           'date'      => '29 December 2023',
+           'version'   => 'Version 3.2.2',
+           'changelog' => [
+               'Fix'   =>   [
+                   'Ship to a different address issue( Pro )',
+                   'First customer order issue( Pro )',
+               ],
+                'Compatibility'   =>   [
+                   'Compatible With WooCommerce 8.5',
+               ],
+           ]
+       ],
+       // Update End
        
        // Update  start
        'v17' => [
@@ -59,20 +75,7 @@ $change = [
        ],
        // Update End
         
-        // Update  start
-       'v14' => [
-           'date'      => '09 December 2023',
-           'version'   => 'Version 3.1.9',
-           'changelog' => [
-               'Updated'   =>   [
-                   'Extended Notice( Black Friday )',
-               ],
-                'Improvement'   =>   [
-                   'Removed Unused CSS/JS',
-               ],
-           ]
-       ],
-       // Update End
+       
        
 ]
 
