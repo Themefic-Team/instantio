@@ -272,8 +272,6 @@ class App {
 		echo ob_get_clean();
 	}
 
-
-
 	// Ajax Cart reload After Product Add to Cart
 	public function ins_ajax_cart_reload() {
 		ob_start();
@@ -287,18 +285,33 @@ class App {
 		} else {
 			require_once INS_TEMPLATES_PATH . '/cart-modern.php';
 		}
-
 		// require_once INS_INC_PATH .  $this->layouts_slug;
-
 		$data = ob_get_clean();
+
+		// Override the checkout template
+		if ( ! is_user_logged_in() ) {
+			// Display for non-logged-in users
+			ob_start();
+			add_action( 'woocommerce_checkout_shipping', array( WC()->checkout(), 'checkout_form_shipping' ) );
+			do_action( 'woocommerce_checkout_shipping' );
+			$ins_shipping_additional = ob_get_clean();
+		} else {
+			// Use the default WooCommerce action for logged-in users
+			ob_start();
+			do_action( 'woocommerce_checkout_shipping' );
+			$ins_shipping_additional = ob_get_clean();
+		}
+
 		$hide_empty = 'hide';
 		$display = 'ins-show';
 		if ( WC()->cart->is_empty() ) :
 			$hide_empty = 'ins-show';
 			$display = 'hide';
 		endif;
+
 		$ins_cart_total = WC()->cart->get_cart_contents_count();
 		// $ins_checkout_load = apply_filters('ins_template_step_content', '');
+
 		$response = array(
 			// 'fragments' => apply_filters( 'ins_cart_count_fragments', array() ),
 			'cart_hash' => apply_filters( 'woocommerce_add_to_cart_hash', WC()->cart->get_cart_for_session() ? md5( json_encode( WC()->cart->get_cart_for_session() ) ) : '', WC()->cart->get_cart_for_session() ),
@@ -307,6 +320,7 @@ class App {
 			'hide_empty' => $hide_empty,
 			'display' => $display,
 			'ins_cart_count' => $ins_cart_total,
+			'ins_shipping_additional' => $ins_shipping_additional,
 			// 'ins_checkout_load' => $ins_checkout_load,
 		);
 
@@ -397,17 +411,32 @@ class App {
 			$hide_empty = 'ins-show';
 			$display = 'hide';
 		endif;
-		ob_start();
 
+		ob_start();
 		// require_once apply_filters( 'ins_layout_slug', INS_INC_PATH . $this->layouts_slug ); 
 		$this->ins_ajax_cart_reload();
 		$cart_data = ob_get_clean();
+
+		// Override the checkout template
+		if ( ! is_user_logged_in() ) {
+			// Display for non-logged-in users
+			ob_start();
+			add_action( 'woocommerce_checkout_shipping', array( WC()->checkout(), 'checkout_form_shipping' ) );
+			do_action( 'woocommerce_checkout_shipping' );
+			$ins_shipping_additional = ob_get_clean();
+		} else {
+			// Use the default WooCommerce action for logged-in users
+			ob_start();
+			do_action( 'woocommerce_checkout_shipping' );
+			$ins_shipping_additional = ob_get_clean();
+		}
 
 		$data = array(
 			'cart_data' => $cart_data,
 			'hide_empty' => $hide_empty,
 			'display' => $display,
-			'cart_hash' => apply_filters( 'woocommerce_add_to_cart_hash', WC()->cart->get_cart_for_session() ? md5( json_encode( WC()->cart->get_cart_for_session() ) ) : '', WC()->cart->get_cart_for_session() )
+			'cart_hash' => apply_filters( 'woocommerce_add_to_cart_hash', WC()->cart->get_cart_for_session() ? md5( json_encode( WC()->cart->get_cart_for_session() ) ) : '', WC()->cart->get_cart_for_session() ),
+			'ins_shipping_additional' => $ins_shipping_additional,
 		);
 
 		wp_send_json( $data );
