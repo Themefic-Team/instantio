@@ -42,6 +42,10 @@
 .ins-content p {
   font-size: 16px !important;
 }
+.ins-content .ins-up-sells .ins-cross-sell-title {
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
 .ins-content .woocommerce-content-box,
 .ins-content .coupon,
 .ins-content .cart_totals {
