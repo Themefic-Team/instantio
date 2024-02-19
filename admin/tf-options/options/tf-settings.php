@@ -99,7 +99,8 @@ Ins_TF_Settings::option( 'wiopt', array(
 							'url' => plugin_dir_url( __FILE__ ) . '../img/layout/Gradient.png',
 						)
 					),
-					'default' => 'light'
+					'default' => 'light',
+					'dependency' => array( 'ins-layout-options', '!=', '1' ),
 				),
 
 				array(
@@ -120,7 +121,8 @@ Ins_TF_Settings::option( 'wiopt', array(
 							'url' => plugin_dir_url( __FILE__ ) . '../img/layout/CartCheckout.svg',
 						)
 					),
-					'default' => 'cart'
+					'default' => 'cart',
+					'dependency' => array( 'ins-layout-options', '!=', '1' ),
 				),
 
 				array(
@@ -131,6 +133,7 @@ Ins_TF_Settings::option( 'wiopt', array(
 					'label_off' => __( 'Disabled', 'instantio' ),
 					'is_pro' => true,
 					'default' => false,
+					'dependency' => array( 'ins-layout-options', '!=', '1' ),
 				),
 
 				array(
@@ -144,6 +147,7 @@ Ins_TF_Settings::option( 'wiopt', array(
 						// 'ins_animate_two' 	=>  'Animate Two'
 					),
 					'default' => 'ins_animate_default',
+					'dependency' => array( 'ins-layout-options', '!=', '1' ),
 					// 'dependency' 	=> array('ins-layout',  '!=', '1', '', 'visible' ),
 				),
 
@@ -174,6 +178,7 @@ Ins_TF_Settings::option( 'wiopt', array(
 							'url' => plugin_dir_url( __FILE__ ) . '../img/layout/version4.png',
 						),
 					),
+					'dependency' => array( 'ins-layout-options', '!=', '1' ),
 					// 'default'   	=> 'progress2',
 				),
 

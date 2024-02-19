@@ -103,8 +103,9 @@
       display: none !important;
     }
     .upsells.products {
-      padding-top: 20 !important;
+      padding-top: 20px !important;
       padding-bottom: 0 !important;
+      margin: 0 !important;
     }
   }
 }
@@ -253,9 +254,16 @@
 // Owl Carousel
 .ins-product-sell-carousel {
   position: relative !important;
-
   &::before {
     left: 0 !important;
+  }
+
+  .owl-stage-outer {
+    .owl-stage {
+      .owl-item {
+        display: flex;
+      }
+    }
   }
 
   .owl-nav {
