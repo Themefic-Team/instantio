@@ -333,7 +333,8 @@
   max-height: 300px;
 }
 .ins-checkout-modern .ins-checkout-layout .ins-cart-inner.step-1 {
-  padding: 0 16px 16px !important;
+  padding: 16px !important;
+  padding-bottom: 0 !important;
 }
 
 /* layouts  */
@@ -681,7 +682,8 @@
   max-height: 300px;
 }
 .ins-checkout-modern .ins-checkout-layout .ins-cart-inner.step-1 {
-  padding: 0 16px 16px !important;
+  padding: 16px !important;
+  padding-bottom: 0 !important;
 }
 
 /* layouts  */
