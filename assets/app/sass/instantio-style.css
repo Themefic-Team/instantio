@@ -12,6 +12,24 @@
     --ins_toggle_item_color_hover: #000;
     --ins_toggle_item_size: 14px;
 } */
+.ins-checkout-popup ::-webkit-scrollbar {
+  width: 3px;
+  height: 3px;
+}
+.ins-checkout-popup ::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px #ddd;
+  border-radius: 10px;
+}
+.ins-checkout-popup ::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: rgba(219, 83, 9, 0.4431372549);
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
 .ins-content h1 {
   font-size: 20px !important;
   margin-bottom: 5px !important;
@@ -109,27 +127,6 @@
   padding-top: 20px !important;
   padding-bottom: 0 !important;
   margin: 0 !important;
-}
-
-.ins-single-cart-wrap::-webkit-scrollbar,
-.ins-content::-webkit-scrollbar {
-  width: 3px;
-  height: 3px;
-}
-.ins-single-cart-wrap::-webkit-scrollbar-track,
-.ins-content::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px #ddd;
-  border-radius: 10px;
-}
-.ins-single-cart-wrap::-webkit-scrollbar-thumb,
-.ins-content::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  background: gray;
-  border-radius: 10px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -o-border-radius: 10px;
 }
 
 /* Empty cart */
@@ -338,6 +335,14 @@
 }
 
 /* layouts  */
+.ins-checkout-popup .ins-checkout-layout .ins-single-layout-wrap .ins-content.ins-show {
+  height: auto !important;
+}
+.ins-checkout-popup .ins-checkout-layout .ins-single-layout-wrap .ins_single_layout_checkout_area .ins-checkout .ins-cart-inner.payment .ins-cart-btns.ins_single_layout_btn {
+  background: transparent !important;
+  border: none !important;
+}
+
 .ins-toggle {
   position: fixed;
   right: 30px;
@@ -687,6 +692,14 @@
 }
 
 /* layouts  */
+.ins-checkout-popup .ins-checkout-layout .ins-single-layout-wrap .ins-content.ins-show {
+  height: auto !important;
+}
+.ins-checkout-popup .ins-checkout-layout .ins-single-layout-wrap .ins_single_layout_checkout_area .ins-checkout .ins-cart-inner.payment .ins-cart-btns.ins_single_layout_btn {
+  background: transparent !important;
+  border: none !important;
+}
+
 /* Ins Cart Header */
 .ins-checkout-modern {
   width: 0;
@@ -1925,6 +1938,23 @@
 .ins-layout-dark .ins-cart-empty span {
   color: #FEF2EB !important;
 }
+.ins-layout-dark .ins-single-layout-wrap .ins_single_layout_checkout_area .woocommerce-checkout .ins-cart-inner.payment .ins-payment-wrap #order_review {
+  background-color: transparent !important;
+}
+.ins-layout-dark .ins-single-layout-wrap .ins_single_layout_checkout_area .woocommerce-checkout .ins-cart-inner.payment .ins-payment-wrap #order_review h3 {
+  color: #f2ece9;
+}
+.ins-layout-dark .ins-single-layout-wrap .ins_single_layout_checkout_area .woocommerce-checkout .ins-cart-inner.payment .ins-payment-wrap #order_review #payment ul li {
+  color: #f2ece9;
+  background-color: transparent !important;
+}
+.ins-layout-dark .ins-single-layout-wrap .ins_single_layout_checkout_area .woocommerce-checkout .ins-cart-inner.payment .ins-payment-wrap #order_review #payment ul li:hover {
+  background-color: transparent;
+}
+.ins-layout-dark .ins-single-layout-wrap .ins_single_layout_checkout_area .woocommerce-checkout .ins-cart-inner.payment .ins-payment-wrap #order_review #payment ul li .payment_box {
+  background-color: transparent;
+  border: 1px solid #33312e;
+}
 
 /* Dark Mode CSS */
 /* Gradient Mode CSS */
@@ -1995,18 +2025,18 @@
   border: none;
 }
 .ins-layout-gradient .ins-cart-coupon .coupon button {
-  background-color: #665F5C;
-  border-color: #665F5C;
+  background-color: var(--ins_checkout_theme);
+  border-color: var(--ins_checkout_theme);
 }
 .ins-layout-gradient .ins-cart-coupon .coupon input {
-  border-color: #665F5C;
+  border-color: var(--ins_checkout_theme);
 }
 .ins-layout-gradient .ins-cart-item-quantity .quantity input[type=number] {
   background: #FFF5F0 !important;
   border: 0.2px solid #db5209 !important;
 }
 .ins-layout-gradient .ins-empty-cart {
-  border-color: #665F5C !important;
+  border-color: var(--ins_checkout_theme) !important;
   color: #fff !important;
   background-color: var(--ins_checkout_theme) !important;
 }
@@ -2528,6 +2558,9 @@ body.rtl .ins-cart-coupon .coupon {
 .theme-Avada .ins-checkout-popup .ins-checkout-layout .ins-single-layout-wrap .ins-content {
   margin-top: 10px;
 }
+.theme-Avada .ins-checkout-popup .ins-checkout-layout .ins-single-layout-wrap .ins-content.ins-show {
+  height: auto !important;
+}
 .theme-Avada .ins-checkout-popup .ins-checkout-layout .ins-single-layout-wrap .ins_single_layout_checkout_area .ins-checkout .ins-cart-inner #customer_details .ins-cart-content-inner .ins-cart-content-wrap h3 {
   font-size: 19px;
   font-weight: 600;
@@ -2552,6 +2585,9 @@ body.rtl .ins-cart-coupon .coupon {
 }
 .theme-Avada .ins-checkout-popup .ins-checkout-layout .ins-single-layout-wrap .ins_single_layout_checkout_area .ins-checkout .ins-cart-inner.payment .ins-payment-wrap .ins-cart-content-wrap .ins-cart-summery #payment li .payment_box p {
   margin: 0 !important;
+}
+.theme-Avada .ins-checkout-popup .ins-checkout-layout .ins-single-layout-wrap .ins_single_layout_checkout_area .ins-checkout .ins-cart-inner.payment .ins-cart-btns.ins_single_layout_btn {
+  background: transparent !important;
 }
 
 @media (max-width: 1140px) {
