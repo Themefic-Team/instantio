@@ -334,7 +334,7 @@ For those seeking simplicity, Instantio provides a simplified WooCommerce checko
 
 = 3.2.3 - ( March 04, 2024 ) =
 
-- Compatibility: Free & Pro top 20 theme
+- Compatibility: Free & Pro top 20 themes
 - Fixed: Single Step All Mode Payment box design
 - Fixed: Cart section top margin
 - Improvement: System stability Improved
