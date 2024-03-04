@@ -10,6 +10,55 @@
  */
 
 $change = [
+
+       // Update  start
+       'v19' => [
+           'date'      => '04 March 2024',
+           'version'   => 'Version 3.2.3',
+           'changelog' => [
+               'Fix'   =>   [
+                   'Single Step All Mode Payment box design',
+                   'Cart section top margin',
+                   'Translatable string issues updated',
+               ],
+                'Compatibility'   =>   [
+                   'Free & Pro top 20 themes',
+               ],
+              'Improvement'   =>   [
+                    'System stability Improved',
+                    'The latest versions of PayPal and Stripe supported',
+               ]
+           ]
+       ],
+       // Update End
+
+        // Update  start
+       'v18' => [
+           'date'      => '29 January 2024',
+           'version'   => 'Version 3.2.2',
+           'changelog' => [
+               'Fix'   =>   [
+                   'Ship to a different address issue( Pro )',
+                   'First customer order issue( Pro )',
+               ],
+                'Compatibility'   =>   [
+                   'Compatible With WooCommerce 8.5',
+               ],
+           ]
+       ],
+       // Update End
+       
+       // Update  start
+       'v17' => [
+           'date'      => '09 January 2024',
+           'version'   => 'Version 3.2.1',
+           'changelog' => [
+               'Compatibility'   =>   [
+                   'Compatible With Tourfic Plugin',
+               ],
+           ]
+       ],
+       // Update End
        
        // Update  start
        'v16' => [
@@ -32,50 +81,7 @@ $change = [
        ],
        // Update End
 
-        // Update  start
-       'v15' => [
-           'date'      => '10 December 2023',
-           'version'   => 'Version 3.1.10',
-           'changelog' => [
-               'Fix'   =>   [
-                   'Responsive issue. ',
-               ],
-                'Compatibility'   =>   [
-                   'Compatible with WooCommerce 8.3',
-               ],
-           ]
-       ],
-       // Update End
-        
-        // Update  start
-       'v14' => [
-           'date'      => '09 December 2023',
-           'version'   => 'Version 3.1.9',
-           'changelog' => [
-               'Updated'   =>   [
-                   'Extended Notice( Black Friday )',
-               ],
-                'Improvement'   =>   [
-                   'Removed Unused CSS/JS',
-               ],
-           ]
-       ],
-       // Update End
        
-       // Update  start
-       'v13' => [
-           'date'      => '16 November 2023',
-           'version'   => 'Version 3.1.8',
-           'changelog' => [
-               'Updated'   =>   [
-                   'readme.txt',
-                   'Black Friday Banner'
-               ],
-           ]
-       ],
-       // Update End
-    
-
 ]
 
 
