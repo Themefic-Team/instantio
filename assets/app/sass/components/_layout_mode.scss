@@ -247,6 +247,40 @@
       color: $p_shade !important;
     }
   }
+
+  .ins-single-layout-wrap {
+    .ins_single_layout_checkout_area {
+      .woocommerce-checkout {
+        .ins-cart-inner {
+          &.payment {
+            .ins-payment-wrap {
+              #order_review {
+                background-color: transparent !important;
+                h3 {
+                  color: #f2ece9;
+                }
+                #payment {
+                  ul {
+                    li {
+                      color: #f2ece9;
+                      background-color: transparent !important;
+                      &:hover {
+                        background-color: transparent;
+                      }
+                      .payment_box {
+                        background-color: transparent;
+                        border: 1px solid #33312e;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 /* Dark Mode CSS */
@@ -369,12 +403,12 @@
 
   .ins-cart-coupon .coupon {
     button {
-      background-color: $s_shade;
-      border-color: $s_shade;
+      background-color: var(--ins_checkout_theme);
+      border-color: var(--ins_checkout_theme);
     }
 
     input {
-      border-color: $s_shade;
+      border-color: var(--ins_checkout_theme);
     }
   }
 
@@ -384,7 +418,7 @@
   }
 
   .ins-empty-cart {
-    border-color: $s_shade !important;
+    border-color: var(--ins_checkout_theme) !important;
     color: #fff !important;
     background-color: var(--ins_checkout_theme) !important;
 

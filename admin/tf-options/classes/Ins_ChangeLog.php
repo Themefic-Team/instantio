@@ -11,9 +11,30 @@
 
 $change = [
 
+       // Update  start
+       'v19' => [
+           'date'      => '04 March 2024',
+           'version'   => 'Version 3.2.3',
+           'changelog' => [
+               'Fix'   =>   [
+                   'Single Step All Mode Payment box design',
+                   'Cart section top margin',
+                   'Translatable string issues updated',
+               ],
+                'Compatibility'   =>   [
+                   'Free & Pro top 20 themes',
+               ],
+              'Improvement'   =>   [
+                    'System stability Improved',
+                    'The latest versions of PayPal and Stripe supported',
+               ]
+           ]
+       ],
+       // Update End
+
         // Update  start
        'v18' => [
-           'date'      => '29 December 2023',
+           'date'      => '29 January 2024',
            'version'   => 'Version 3.2.2',
            'changelog' => [
                'Fix'   =>   [
@@ -59,23 +80,6 @@ $change = [
            ]
        ],
        // Update End
-
-        // Update  start
-       'v15' => [
-           'date'      => '10 December 2023',
-           'version'   => 'Version 3.1.10',
-           'changelog' => [
-               'Fix'   =>   [
-                   'Responsive issue. ',
-               ],
-                'Compatibility'   =>   [
-                   'Compatible with WooCommerce 8.3',
-               ],
-           ]
-       ],
-       // Update End
-        
-       
        
 ]
 
