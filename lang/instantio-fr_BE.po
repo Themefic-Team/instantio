@@ -1672,9 +1672,9 @@ msgstr ""
 #: includes/controller/Admin.php:98
 #, php-format
 msgid ""
-" <p>Hey %1$s 👋, You have been using %2$s for quite a while. If you feel "
+"Hey %1$s 👋, You have been using %2$s for quite a while. If you feel "
 "%2$s is helping your business to grow in any way, would you please help %2$s "
-"to grow by simply leaving a 5* review on the WordPress Forum?</p>"
+"to grow by simply leaving a 5* review on the WordPress Forum?"
 msgstr ""
 
 #: includes/controller/Admin.php:104

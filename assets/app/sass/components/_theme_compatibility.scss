@@ -50,6 +50,7 @@ body.rtl {
     min-height: auto !important;
   }
 }
+
 // OceanWP Theme Compatibility
 .theme-oceanwp {
   .ins-cart-item-quantity .quantity {
@@ -58,6 +59,29 @@ body.rtl {
   .ins-cart-inner.shipping .woocommerce-billing-fields > div p select {
     height: auto !important;
     min-height: auto !important;
+  }
+
+  .ins-checkout-popup {
+    .ins-checkout-layout {
+      .ins-content {
+        .ins-cart-inner {
+          .woocommerce-cart-form {
+            .ins-cart-footer-wrap {
+              .ins-cart-collaterals {
+                .cart_totals {
+                  &.calculated_shipping {
+                    h2 {
+                      background-color: transparent !important;
+                      border: none !important;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }
 
@@ -101,6 +125,141 @@ body.rtl {
   }
   .ins-checkout-modern.popup .ins-checkout-layout.popup {
     max-width: 50%;
+  }
+
+  .ins-checkout-popup h3 {
+    font-size: 19px !important;
+    font-weight: 600;
+    margin: 0 !important;
+  }
+
+  .ins-checkout-popup {
+    .ins-checkout-layout {
+      .ins-content {
+        .ins-checkout {
+          .ins-cart-inner {
+            #customer_details {
+              .ins-cart-content-inner {
+                .ins-cart-content-wrap {
+                  .fusion-button {
+                    display: none !important;
+                  }
+                }
+              }
+            }
+            &.payment {
+              .ins-payment-wrap {
+                .ins-cart-content-wrap {
+                  .ins-cart-summery {
+                    #order_review {
+                      display: block !important;
+                    }
+                    #payment {
+                      ul {
+                        margin-top: 15px !important;
+                      }
+                      li {
+                        margin: 0 !important;
+                        .payment_box {
+                          padding: 0 20px !important;
+                          margin: 0 !important;
+                          p {
+                            margin: 0 !important;
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+        .ins-cart-inner {
+          .woocommerce-cart-form {
+            .ins-checkout-body {
+              .ins-cart-content-wrap {
+                .ins-single-cart-wrap {
+                  .woocommerce-content-box {
+                    h2 {
+                      display: none !important;
+                    }
+                    .ins-single-cart-item {
+                      .ins-cart-item-quantity {
+                        .quantity {
+                          border: none !important;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      .ins-single-layout-wrap {
+        .ins-content {
+          &.ins-show {
+            height: auto !important;
+          }
+          margin-top: 10px;
+        }
+        .ins_single_layout_checkout_area {
+          .ins-checkout {
+            .ins-cart-inner {
+              #customer_details {
+                .ins-cart-content-inner {
+                  .ins-cart-content-wrap {
+                    h3 {
+                      font-size: 19px;
+                      font-weight: 600;
+                      margin: 0 !important;
+                      margin-bottom: 5px !important;
+                    }
+
+                    .fusion-button {
+                      display: none !important;
+                    }
+                  }
+                }
+              }
+              &.payment {
+                .ins-payment-wrap {
+                  .ins-cart-content-wrap {
+                    .ins-cart-summery {
+                      #order_review {
+                        display: block !important;
+                      }
+                      #payment {
+                        ul {
+                          margin-top: 15px !important;
+                        }
+                        li {
+                          margin: 0 !important;
+                          .payment_box {
+                            padding: 0 20px !important;
+                            margin: 0 !important;
+                            p {
+                              margin: 0 !important;
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+                .ins-cart-btns {
+                  &.ins_single_layout_btn {
+                    background: transparent !important;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }
 

@@ -149,7 +149,7 @@
 		// ins content-height
 		if ($('.ins-checkout-steps').length == 0) {
 			// alert('Please add checkout steps');
-			$('.ins-content').attr('style', 'height: auto !important;');
+			// $('.ins-content').attr('style', 'height: auto !important;');
 		}
 
 		/*
