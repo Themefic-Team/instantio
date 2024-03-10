@@ -270,3 +270,46 @@ body.rtl {
     }
   }
 }
+
+// Flatsome Theme Compatibility
+.theme-flatsome {
+  .ins-checkout-popup {
+    .button,
+    button,
+    input[type="button"],
+    input[type="reset"],
+    input[type="submit"] {
+      margin: 0;
+      text-transform: unset;
+    }
+    .ins-checkout-layout {
+      .ins-content {
+        .ins-cart-inner {
+          .woocommerce-cart-form {
+            .ins-cart-footer-wrap {
+              .ins-cart-footer-content {
+                .ins-footer-cart-button {
+                  .ins-cart-coupon {
+                    .continue-shopping {
+                      display: none;
+                    }
+                  }
+                }
+                .ins-cart-collaterals {
+                  .cart_totals {
+                    &.calculated_shipping {
+                      h2 {
+                        background-color: transparent !important;
+                        border: none !important;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
