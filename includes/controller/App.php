@@ -178,7 +178,7 @@ class App {
 					<?php echo $toggle_icon ?>
 				</span>
 
-				<?php // echo insopt( 'ins-toggle-tab' )['ins-cart-emty-hide']; ?>
+				<?php // echo insopt( 'ins-toggle-tab' )['ins-cart-emty-hide'];        ?>
 				<span class="ins-items-count"><span id="ins_cart_totals" class="ins_cart_total">
 						<?php echo WC()->cart->get_cart_contents_count(); ?>
 					</span></span>
