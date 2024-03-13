@@ -332,7 +332,7 @@ For those seeking simplicity, Instantio provides a simplified WooCommerce checko
 
 == Changelog ==
 
-= 3.2.3 - ( March 04, 2024 ) =
+= 3.2.3 - ( March 13, 2024 ) =
 
 - Compatibility: Free & Pro top 20 themes
 - Fixed: Single Step All Mode Payment box design
@@ -340,6 +340,7 @@ For those seeking simplicity, Instantio provides a simplified WooCommerce checko
 - Improvement: System stability Improved
 - Improvement: The latest versions of PayPal and Stripe supported
 - Fixed: Translatable string issues updated
+- Fixed: Conflict with Flatsome theme
 
 = 3.2.2 - ( January 29, 2024 ) =
 
