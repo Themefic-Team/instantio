@@ -13,13 +13,14 @@ $change = [
 
        // Update  start
        'v19' => [
-           'date'      => '04 March 2024',
+           'date'      => '13 March 2024',
            'version'   => 'Version 3.2.3',
            'changelog' => [
                'Fix'   =>   [
                    'Single Step All Mode Payment box design',
                    'Cart section top margin',
                    'Translatable string issues updated',
+                   'Conflict with Flatsome theme'
                ],
                 'Compatibility'   =>   [
                    'Free & Pro top 20 themes',
