@@ -12,6 +12,21 @@
 $change = [
 
         // Update  start
+       'v21' => [
+           'date'      => '03 April 2024',
+           'version'   => 'Version 3.2.5',
+           'changelog' => [
+               'Compatibility'   =>   [
+                   'Compatible with WordPress 6.5',
+               ],
+                'Improvement'   =>   [
+                    'Minor bug fixes & improvements',
+               ]
+           ]
+       ],
+       // Update End
+
+        // Update  start
        'v20' => [
            'date'      => '15 March 2023',
            'version'   => 'Version 3.2.4',
@@ -63,19 +78,7 @@ $change = [
            ]
        ],
        // Update End
-       
-       // Update  start
-       'v17' => [
-           'date'      => '09 January 2024',
-           'version'   => 'Version 3.2.1',
-           'changelog' => [
-               'Compatibility'   =>   [
-                   'Compatible With Tourfic Plugin',
-               ],
-           ]
-       ],
-       // Update End
-       
+        
 ]
 
 
