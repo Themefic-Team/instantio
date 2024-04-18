@@ -14,7 +14,7 @@ $change = [
                 // Update  start
        'v22' => [
            'date'      => '18 April 2024',
-           'version'   => 'Version 3.2.5',
+           'version'   => 'Version 3.2.6',
            'changelog' => [
                'Improvement'   =>   [
                    'System stability Improved',
