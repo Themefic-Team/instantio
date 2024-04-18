@@ -11,6 +11,22 @@
 
 $change = [
 
+                // Update  start
+       'v22' => [
+           'date'      => '18 April 2024',
+           'version'   => 'Version 3.2.5',
+           'changelog' => [
+               'Improvement'   =>   [
+                   'System stability Improved',
+                   'Updated Tags',
+               ],
+                'Compatibility'   =>   [
+                   'Compatible with WooCommerce 8.8',
+               ],
+           ]
+       ],
+       // Update End
+
         // Update  start
        'v21' => [
            'date'      => '03 April 2024',
@@ -59,22 +75,6 @@ $change = [
                     'System stability Improved',
                     'The latest versions of PayPal and Stripe supported',
                ]
-           ]
-       ],
-       // Update End
-
-        // Update  start
-       'v18' => [
-           'date'      => '29 January 2024',
-           'version'   => 'Version 3.2.2',
-           'changelog' => [
-               'Fix'   =>   [
-                   'Ship to a different address issue( Pro )',
-                   'First customer order issue( Pro )',
-               ],
-                'Compatibility'   =>   [
-                   'Compatible With WooCommerce 8.5',
-               ],
            ]
        ],
        // Update End
