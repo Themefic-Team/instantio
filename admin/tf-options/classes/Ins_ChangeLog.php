@@ -11,7 +11,22 @@
 
 $change = [
 
-                // Update  start
+       // Update  start
+       'v23' => [
+           'date'      => '23 April 2024',
+           'version'   => 'Version 3.2.7',
+           'changelog' => [
+                'Updated'   =>   [
+                   'Updated readme.txt',
+               ],
+              'Improvement'   =>   [
+                    'Fixed minor bugs ',
+               ]
+           ]
+       ],
+       // Update End
+
+       // Update  start
        'v22' => [
            'date'      => '18 April 2024',
            'version'   => 'Version 3.2.6',
@@ -57,28 +72,6 @@ $change = [
        ],
        // Update End
 
-       // Update  start
-       'v19' => [
-           'date'      => '13 March 2024',
-           'version'   => 'Version 3.2.3',
-           'changelog' => [
-               'Fix'   =>   [
-                   'Single Step All Mode Payment box design',
-                   'Cart section top margin',
-                   'Translatable string issues updated',
-                   'Conflict with Flatsome theme'
-               ],
-                'Compatibility'   =>   [
-                   'Free & Pro top 20 themes',
-               ],
-              'Improvement'   =>   [
-                    'System stability Improved',
-                    'The latest versions of PayPal and Stripe supported',
-               ]
-           ]
-       ],
-       // Update End
-        
 ]
 
 
