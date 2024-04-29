@@ -11,6 +11,21 @@
 
 $change = [
 
+        // Update  start
+       'v24' => [
+           'date'      => '29 April 2024',
+           'version'   => 'Version 3.2.8',
+           'changelog' => [
+               'New'   =>   [
+                     'Plugin dependency notice'
+               ],
+                'Improvement'   =>   [
+                    'Fixed minor bugs',
+               ]
+           ]
+       ],
+       // Update End
+
        // Update  start
        'v23' => [
            'date'      => '23 April 2024',
@@ -52,21 +67,6 @@ $change = [
                ],
                 'Improvement'   =>   [
                     'Minor bug fixes & improvements',
-               ]
-           ]
-       ],
-       // Update End
-
-        // Update  start
-       'v20' => [
-           'date'      => '15 March 2023',
-           'version'   => 'Version 3.2.4',
-           'changelog' => [
-               'New'   =>   [
-                     'Disclaimer for Patchstack VDP'
-               ],
-                'Improvement'   =>   [
-                    'readme.txt',
                ]
            ]
        ],
