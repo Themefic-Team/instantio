@@ -3,9 +3,9 @@ Contributors: themefic, kamrul0424, hemelhasan, hasanet, mdrejon, mdashikul
 Tags: woocommerce cart, woocommerce checkout, woocommerce direct checkout, multistep checkout, woocommerce side cart
 Requires at least: 4.0
 Tested up to: 6.5
-Stable tag: 3.2.8
+Stable tag: 3.2.9
 WC requires at least: 7.0
-WC tested up to: 8.8
+WC tested up to: 8.9
 Requires PHP: 7.4
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -362,6 +362,12 @@ For those seeking simplicity, Instantio provides a simplified WooCommerce checko
 
 == Changelog ==
 
+= 3.2.9 - ( May 30, 2024 ) =
+
+- Improvement: System stability Improved
+- Compatible with WooCommerce 8.9
+- Updated readme.txt
+
 = 3.2.8 - ( April 29, 2024 ) =
 
 - Improvement: Fixed minor bugs
@@ -645,31 +651,6 @@ For those seeking simplicity, Instantio provides a simplified WooCommerce checko
 - Fixed: Side Cart & Popup Cart Responsive issues
 - Updated: Compatibility check with WooCommerce 6.8.0
 - Updated: Compatibility check with WordPress 6.0.1
-
-= 2.5.3 = ( July 10, 2022 )
-- Updated: Compatibility check with WooCommerce 6.6.1
-- Updated: Compatibility check with WordPress 6.0
-
-= 2.5.2 = ( May 12, 2022 )
-- Fixed: Some CSS bugs
-- Updated: Compatibility check with WooCommerce 6.5.0
-
-= 2.5.1 = ( April 24, 2022 )
-- Changed: Clicking on "Continue shopping" will close the sidebar/popup
-- Fixed: WooCommerce not object error on layouts 2, 3
-- Fixed: Auto sidebar opens when item added to cart
-- Updated: Compatibility check with WordPress 5.9.3
-- Updated: Compatibility check with WooCommerce 6.4.1
-
-= 2.5.0 = ( March 07, 2022 )
-- Added: In the mobile version hide the mobile bar if no items are in the cart (Pro)
-- Added: Translation files: Arabic, Bengali, Deutsch, Espaï¿½ol, Franï¿½ais, Hindi, Italiano, Dutch, Russian, Chinese
-- Added: Some new WP filters
-- Fixed: Scroll freezes after empty cart items.
-- Fixed: "Thank you" page loads in the iframe layout  (Pro)
-- Fixed: Option for layout width (Pro)
-- Improved: Backend option panel
-- Improved: Conditional check, error check
 
 **Old Changelog can be found [here](https://themefic.com/instantio/changelog/)**.
 
