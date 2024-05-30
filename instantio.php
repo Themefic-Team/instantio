@@ -73,7 +73,6 @@ class INSTANTIO {
 			require_once INS_INC_PATH . '/controller/checkout_editor.php';
 		}
 
-
 		// ins Promo Banner
 		if ( file_exists( INS_INC_PATH . '/controller/class-promo-notice.php' ) ) {
 			require_once INS_INC_PATH . '/controller/class-promo-notice.php';
@@ -104,8 +103,6 @@ class INSTANTIO {
 
 			// Appsero
 			$this->ins_appsero_init_tracker_instantio();
-
-
 
 		} else {
 			new INS\Controller\App();
@@ -181,7 +178,6 @@ class INSTANTIO {
 			require_once( INS_INC_PATH . '/app/src/Client.php' );
 		}
 
-
 		$client = new Appsero\Client( '29e55a76-0819-490f-b692-8368956cbf12', 'instantio', __FILE__ );
 
 		// Change notice text
@@ -222,11 +218,10 @@ function ins_before_woocommerce_init() {
 	}
 }
 
-
 function ins_admin_enqueue_scripts() {
 	wp_enqueue_style( 'ins-admin', INS_ASSETS_URL . '/admin/css/instantio-admin-style.css', array(), INSTANTIO_VERSION );
 	wp_enqueue_script( 'ins-admin-script', INS_ASSETS_URL . '/admin/js/instantio-admin-script.js', array( 'jquery' ), INSTANTIO_VERSION, true );
-
+	
 	wp_localize_script( 'ins-admin-script', 'tf_admin_params',
 		array(
 			'ins_nonce' => wp_create_nonce( 'updates' ),
