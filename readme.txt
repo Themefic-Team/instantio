@@ -365,6 +365,7 @@ For those seeking simplicity, Instantio provides a simplified WooCommerce checko
 = 3.2.9 - ( May 30, 2024 ) =
 
 - Improvement: System stability Improved
+- Compatible with WooCommerce 8.9
 - Updated readme.txt
 
 = 3.2.8 - ( April 29, 2024 ) =
