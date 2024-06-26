@@ -3,7 +3,7 @@ Contributors: themefic, kamrul0424, hemelhasan, hasanet, mdrejon, mdashikul
 Tags: woocommerce cart, woocommerce checkout, woocommerce direct checkout, multistep checkout, woocommerce side cart
 Requires at least: 4.0
 Tested up to: 6.5
-Stable tag: 3.2.9
+Stable tag: 3.2.10
 WC requires at least: 7.0
 WC tested up to: 8.9
 Requires PHP: 7.4
@@ -362,6 +362,12 @@ For those seeking simplicity, Instantio provides a simplified WooCommerce checko
 
 == Changelog ==
 
+= 3.2.10 - ( June 26, 2024 ) =
+
+- Improvement: System stability Improved
+- Compatible with WooCommerce 9.0
+- Updated readme.txt
+
 = 3.2.9 - ( May 30, 2024 ) =
 
 - Improvement: System stability Improved
@@ -642,15 +648,6 @@ For those seeking simplicity, Instantio provides a simplified WooCommerce checko
 - Fixed: Auto sidebar opens when Page Reload With Ajax Without Ajax
 - Updated: Compatibility check with WooCommerce 6.9.2
 - Updated: Compatibility check with WordPress 6.0.2
-
-= 2.5.4 = ( August 18, 2022 )
-- Added: WooCommerce Subscription compatibility
-- Changed: Clicking on "Continue shopping" will close the sidebar/popup
-- Fixed: WooCommerce not object error on layouts 2, 3
-- Fixed: Auto sidebar opens when item added to cart
-- Fixed: Side Cart & Popup Cart Responsive issues
-- Updated: Compatibility check with WooCommerce 6.8.0
-- Updated: Compatibility check with WordPress 6.0.1
 
 **Old Changelog can be found [here](https://themefic.com/instantio/changelog/)**.
 
