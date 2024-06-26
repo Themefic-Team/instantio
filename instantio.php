@@ -11,8 +11,7 @@
  * Version: 3.2.10
  * Tested up to: 6.5
  * Requires PHP: 7.4
- * WC tested up to: 8.9
- * Requires Plugins: woocommerce
+ * WC tested up to: 9.0
 **/
 
 // don't load directly
