@@ -10,6 +10,22 @@
  */
 
 $change = [
+
+        // Update  start
+       'v26' => [
+           'date'      => '26 June 2024',
+           'version'   => 'Version 3.2.10',
+           'changelog' => [
+               'Improvement'   =>   [
+                   'System stability Improved',
+                   'Updated readme.txt',
+               ],
+                'Compatibility'   =>   [
+                   'Compatible with WooCommerce 9.0',
+               ],
+           ]
+       ],
+       // Update End
         
         // Update  start
        'v25' => [
@@ -58,23 +74,6 @@ $change = [
            ]
        ],
        // Update End
-
-       // Update  start
-       'v22' => [
-           'date'      => '18 April 2024',
-           'version'   => 'Version 3.2.6',
-           'changelog' => [
-               'Improvement'   =>   [
-                   'System stability Improved',
-                   'Updated Tags',
-               ],
-                'Compatibility'   =>   [
-                   'Compatible with WooCommerce 8.8',
-               ],
-           ]
-       ],
-       // Update End
-
 
 ]
 
