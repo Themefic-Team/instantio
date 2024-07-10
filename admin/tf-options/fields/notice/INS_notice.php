@@ -25,10 +25,10 @@ if ( ! class_exists( 'INS_notice' ) ) {
 				<div class="tf-field-notice-content <?php echo ! empty( $this->field['content'] ) ? 'has-content' : '' ?>">
 					<?php if ( ! empty( $this->field['title'] ) ) : ?>
 						<h6>
-							<?php echo esc_html( $this->field['title'] ); ?>
+							<?php echo esc_html( $this->field['title'], "instantio" ); ?>
 						</h6>
 					<?php endif; ?>
-					<?php echo wp_kses_post( $this->field['content'] ); ?>
+					<?php echo wp_kses_post( $this->field['content'], "instantio" ); ?>
 				</div>
 
 			</div>

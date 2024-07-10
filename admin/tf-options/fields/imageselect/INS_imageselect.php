@@ -44,7 +44,7 @@ if ( ! class_exists( 'INS_imageselect' ) ) {
 					echo '<figure class="tf-image-seletor-card">';
 					echo '<img src="' . esc_url( $option['url'] ) . '" alt="img-' . esc_attr( $num++ ) . '" />';
 					echo '<input data-depend-id="' . esc_attr( $this->field['id'] ) . '' . $this->parent_field . '" type="' . esc_attr( $type ) . '" name="' . esc_attr( $this->field_name( $extra ) ) . '" value="' . esc_attr( $key ) . '"' . $this->field_attributes() . esc_attr( $checked ) . '/>';
-					echo '<span class="tf-image-seletor-card-info">' . esc_html( $option['title'] ) . '</span>';
+					echo '<span class="tf-image-seletor-card-info">' . esc_html( $option['title'], "instantio" ) . '</span>';
 					echo '</figure>';
 					echo '</div>';
 

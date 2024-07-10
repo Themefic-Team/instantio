@@ -23,12 +23,12 @@ if ( ! class_exists( 'INS_heading' ) ) {
 				<div class="tf-field-heading-content <?php echo ! empty( $this->field['content'] ) ? 'has-content' : '' ?>">
 					<?php if ( ! empty( $this->field['title'] ) ) : ?>
 						<h3>
-							<?php echo esc_html( $this->field['title'] ); ?>
+							<?php echo esc_html( $this->field['title'], "instantio" ); ?>
 						</h3>
 					<?php endif; ?>
 					<?php if ( ! empty( $this->field['sub_title'] ) ) : ?>
 						<span class="tf-field-sub-title">
-							<?php echo esc_html( $this->field['sub_title'] ); ?>
+							<?php echo esc_html( $this->field['sub_title'], "instantio" ); ?>
 						</span>
 					<?php endif; ?>
 					<?php if ( ! empty( $this->field['content'] ) ) : ?>

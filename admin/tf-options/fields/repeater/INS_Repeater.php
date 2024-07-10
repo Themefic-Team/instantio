@@ -1,6 +1,8 @@
-<?php if ( ! defined( 'ABSPATH' ) ) {
-	die;
-} // Cannot access directly.
+<?php
+
+// Cannot access directly.
+defined( 'ABSPATH' ) || exit;
+
 /**
  *
  * Field: repeater
@@ -47,7 +49,7 @@ if ( ! class_exists( 'INS_Repeater' ) ) {
 											<i class="fa-solid fa-angle-down"></i>
 										</span>
 										<span class="tf-repeater-title">
-											<?php echo ! empty( $INS_repater_default_value ) && gettype( $INS_repater_default_value ) == "string" ? $INS_repater_default_value : esc_html( $label ) ?>
+											<?php echo ! empty( $INS_repater_default_value ) && gettype( $INS_repater_default_value ) == "string" ? $INS_repater_default_value : esc_html( $label, "instantio" ) ?>
 										</span>
 										<div class="tf-repeater-icon-absulate">
 											<span class="tf-repeater-icon tf-repeater-icon-move">
@@ -123,7 +125,7 @@ if ( ! class_exists( 'INS_Repeater' ) ) {
 							</span>
 							<span class="tf-repeater-title">
 								<?php if ( isset( $this->field['label'] ) ) {
-									echo esc_html( $this->field['label'] );
+									echo esc_html( $this->field['label'], "instantio" );
 								} ?>
 							</span>
 							<div class="tf-repeater-icon-absulate">
