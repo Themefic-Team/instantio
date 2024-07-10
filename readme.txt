@@ -364,8 +364,8 @@ For those seeking simplicity, Instantio provides a simplified WooCommerce checko
 
 = 3.2.11 - ( July 10, 2024 ) =
 
-- Improvement: System stability Improved
-- Improvement: security and translation
+- Improvement: System stability improved
+- Improvement: Security and translation
 
 = 3.2.10 - ( June 26, 2024 ) =
 
