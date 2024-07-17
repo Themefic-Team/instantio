@@ -2,10 +2,10 @@
 Contributors: themefic, kamrul0424, hemelhasan, hasanet, mdrejon, mdashikul
 Tags: woocommerce cart, woocommerce checkout, woocommerce direct checkout, multistep checkout, woocommerce side cart
 Requires at least: 4.0
-Tested up to: 6.5
-Stable tag: 3.2.11
+Tested up to: 6.6
+Stable tag: 3.2.12
 WC requires at least: 7.0
-WC tested up to: 8.9
+WC tested up to: 9.1
 Requires PHP: 7.4
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -361,6 +361,12 @@ For those seeking simplicity, Instantio provides a simplified WooCommerce checko
 16. Optimized assets - You can enable optimized settings to load optimized scripts
 
 == Changelog ==
+
+= 3.2.12 - ( July 17, 2024 ) =
+
+- Improvement: System stability improved
+- Compatible with WooCommerce 9.1
+- Compatible with WooCommerce 6.6
 
 = 3.2.11 - ( July 10, 2024 ) =
 
