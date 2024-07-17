@@ -366,7 +366,7 @@ For those seeking simplicity, Instantio provides a simplified WooCommerce checko
 
 - Improvement: System stability improved
 - Compatible with WooCommerce 9.1
-- Compatible with WooCommerce 6.6
+- Compatible with WordPress 6.6
 
 = 3.2.11 - ( July 10, 2024 ) =
 
