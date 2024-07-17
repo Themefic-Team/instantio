@@ -12,6 +12,35 @@
 $change = [
 
         // Update  start
+       'v28' => [
+           'date'      => '17 June 2024',
+           'version'   => 'Version 3.2.12',
+           'changelog' => [
+                'Improvement'   =>   [
+                   'System stability improved',
+               ],
+                'Compatibility'   =>   [
+                   'Compatible with WooCommerce 9.1',
+                   'Compatible with WordPress 6.6',
+               ]
+           ]
+       ],
+       // Update End
+        
+        // Update  start
+       'v27' => [
+           'date'      => '10 June 2024',
+           'version'   => 'Version 3.2.11',
+           'changelog' => [
+                'Improvement'   =>   [
+                   'System stability improved',
+                   'Security and translation',
+               ]
+           ]
+       ],
+       // Update End
+        
+        // Update  start
        'v26' => [
            'date'      => '26 June 2024',
            'version'   => 'Version 3.2.10',
@@ -40,36 +69,6 @@ $change = [
                ],
                 'Updated'   =>   [
                     'Updated readme.txt',
-               ]
-           ]
-       ],
-       // Update End
-        
-        // Update  start
-       'v24' => [
-           'date'      => '29 April 2024',
-           'version'   => 'Version 3.2.8',
-           'changelog' => [
-               'New'   =>   [
-                     'Plugin dependency notice'
-               ],
-                'Improvement'   =>   [
-                    'Fixed minor bugs',
-               ]
-           ]
-       ],
-       // Update End
-
-       // Update  start
-       'v23' => [
-           'date'      => '23 April 2024',
-           'version'   => 'Version 3.2.7',
-           'changelog' => [
-                'Updated'   =>   [
-                   'Updated readme.txt',
-               ],
-              'Improvement'   =>   [
-                    'Fixed minor bugs ',
                ]
            ]
        ],
