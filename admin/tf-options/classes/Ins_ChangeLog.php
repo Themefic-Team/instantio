@@ -14,7 +14,7 @@ $change = [
         // Update  start
        'v29' => [
            'date'      => '28 July 2024',
-           'version'   => 'Version 3.2.14',
+           'version'   => 'Version 3.2.13',
            'changelog' => [
                'Compatibility'   =>   [
                    'Compatible with WooCommerce 9.1.4',
