@@ -1,17 +1,17 @@
 <?php
 /**
- * Plugin Name: Instantio - Instant Checkout for WooCommerce
+ * Plugin Name: Instantio - WooCommerce Quick Checkout
  * Plugin URI: https://themefic.com/instantio/
- * Description: WooCommerce Quick Checkout through Side Cart, Floating Cart, Popup Cart & Direct Checkout Button. The whole checkout process would take only 15-25 seconds. Less Cart Abandonment and Better Sales Rate.
+ * Description: WooCommerce direct checkout plugin with Side Cart, Popup Cart, Floating Cart & Popup Checkout function (+ 4 more WooCommerce Quick Checkout systems).
  * Author: Themefic
  * Text Domain: instantio
  * Domain Path: /lang/
  * Author URI: https://themefic.com
- * Tags: woocommerce, direct checkout, floating cart, side cart, ajax cart, cart popup, ajax add to cart, one page checkout, single page checkout, fly cart, mini cart, quick buy, instant checkout, quick checkout, same page checkout, sidebar cart, sticky cart, woocommerce ajax, one click checkout, woocommerce one page checkout, direct checkout woocommerce, woocommerce one click checkout, woocommerce quick checkout, woocommerce express checkout, woocommerce simple checkout, skip cart page woocommerce, woocommerce cart popup, edit woocommerce checkout page, woocommerce direct checkout
- * Version: 3.2.4
- * Tested up to: 6.4
+ * Tags: woocommerce cart, woocommerce checkout, woocommerce direct checkout, multistep checkout, woocommerce side cart
+ * Version: 3.2.13
+ * Tested up to: 6.6
  * Requires PHP: 7.4
- * WC tested up to: 8.6
+ * WC tested up to: 9.1.4
 **/
 
 // don't load directly
@@ -31,10 +31,7 @@ class INSTANTIO {
 	 */
 	private function define_constants() {
 		if ( ! defined( 'INSTANTIO_VERSION' ) ) {
-
-			define( 'INSTANTIO_VERSION', '3.2.4' );
-
-
+			define( 'INSTANTIO_VERSION', '3.2.13' );
 		}
 		define( 'INS_URL', plugin_dir_url( __FILE__ ) );
 		define( 'INS_INC_URL', INS_URL . 'includes' );
@@ -75,7 +72,6 @@ class INSTANTIO {
 			require_once INS_INC_PATH . '/controller/checkout_editor.php';
 		}
 
-
 		// ins Promo Banner
 		if ( file_exists( INS_INC_PATH . '/controller/class-promo-notice.php' ) ) {
 			require_once INS_INC_PATH . '/controller/class-promo-notice.php';
@@ -106,8 +102,6 @@ class INSTANTIO {
 
 			// Appsero
 			$this->ins_appsero_init_tracker_instantio();
-
-
 
 		} else {
 			new INS\Controller\App();
@@ -183,7 +177,6 @@ class INSTANTIO {
 			require_once( INS_INC_PATH . '/app/src/Client.php' );
 		}
 
-
 		$client = new Appsero\Client( '29e55a76-0819-490f-b692-8368956cbf12', 'instantio', __FILE__ );
 
 		// Change notice text
@@ -224,11 +217,10 @@ function ins_before_woocommerce_init() {
 	}
 }
 
-
 function ins_admin_enqueue_scripts() {
 	wp_enqueue_style( 'ins-admin', INS_ASSETS_URL . '/admin/css/instantio-admin-style.css', array(), INSTANTIO_VERSION );
 	wp_enqueue_script( 'ins-admin-script', INS_ASSETS_URL . '/admin/js/instantio-admin-script.js', array( 'jquery' ), INSTANTIO_VERSION, true );
-
+	
 	wp_localize_script( 'ins-admin-script', 'tf_admin_params',
 		array(
 			'ins_nonce' => wp_create_nonce( 'updates' ),

@@ -12,70 +12,65 @@
 $change = [
 
         // Update  start
-       'v20' => [
-           'date'      => '15 March 2023',
-           'version'   => 'Version 3.2.4',
+       'v29' => [
+           'date'      => '28 July 2024',
+           'version'   => 'Version 3.2.13',
            'changelog' => [
-               'New'   =>   [
-                     'Disclaimer for Patchstack VDP'
+               'Compatibility'   =>   [
+                   'Compatible with WooCommerce 9.1.4',
                ],
                 'Improvement'   =>   [
-                    'readme.txt',
-               ]
-           ]
-       ],
-       // Update End
-
-       // Update  start
-       'v19' => [
-           'date'      => '13 March 2024',
-           'version'   => 'Version 3.2.3',
-           'changelog' => [
-               'Fix'   =>   [
-                   'Single Step All Mode Payment box design',
-                   'Cart section top margin',
-                   'Translatable string issues updated',
-                   'Conflict with Flatsome theme'
-               ],
-                'Compatibility'   =>   [
-                   'Free & Pro top 20 themes',
-               ],
-              'Improvement'   =>   [
-                    'System stability Improved',
-                    'The latest versions of PayPal and Stripe supported',
+                    'Reorganized CSS and JS',
                ]
            ]
        ],
        // Update End
 
         // Update  start
-       'v18' => [
-           'date'      => '29 January 2024',
-           'version'   => 'Version 3.2.2',
+       'v28' => [
+           'date'      => '17 June 2024',
+           'version'   => 'Version 3.2.12',
            'changelog' => [
-               'Fix'   =>   [
-                   'Ship to a different address issue( Pro )',
-                   'First customer order issue( Pro )',
+                'Improvement'   =>   [
+                   'System stability improved',
                ],
                 'Compatibility'   =>   [
-                   'Compatible With WooCommerce 8.5',
-               ],
+                   'Compatible with WooCommerce 9.1',
+                   'Compatible with WordPress 6.6',
+               ]
            ]
        ],
        // Update End
-       
-       // Update  start
-       'v17' => [
-           'date'      => '09 January 2024',
-           'version'   => 'Version 3.2.1',
+        
+        // Update  start
+       'v27' => [
+           'date'      => '10 June 2024',
+           'version'   => 'Version 3.2.11',
            'changelog' => [
-               'Compatibility'   =>   [
-                   'Compatible With Tourfic Plugin',
+                'Improvement'   =>   [
+                   'System stability improved',
+                   'Security and translation',
+               ]
+           ]
+       ],
+       // Update End
+        
+        // Update  start
+       'v26' => [
+           'date'      => '26 June 2024',
+           'version'   => 'Version 3.2.10',
+           'changelog' => [
+               'Improvement'   =>   [
+                   'System stability Improved',
+                   'Updated readme.txt',
+               ],
+                'Compatibility'   =>   [
+                   'Compatible with WooCommerce 9.0',
                ],
            ]
        ],
        // Update End
-       
+
 ]
 
 

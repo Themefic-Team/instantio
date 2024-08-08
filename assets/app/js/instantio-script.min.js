@@ -3,44 +3,49 @@
 
 	//Single Layout
 	function single_step_order_review_callback() {
+		// Check if inslayoutstep is false, then exit the function
 		if (!inslayoutstep) {
-			$('.ins-cart-inner.shipping input').each(function () {
-				var value = $(this).val();
-				if (value != '') {
-					$(this).closest('p.form-row').find('label').addClass('active');
-				} else {
-					$(this).closest('p.form-row').find('label').removeClass('active');
-				}
-			});
-
-			$.ajax({
-				url: ins_params.ajax_url,
-				type: "POST",
-				data: {
-					action: "ins_update_order_review_callback"
-				},
-				success: function (response) {
-					$('.ins-cart-inner.payment .ins-contact-wrap').html('');
-					$('.ins-cart-inner.payment .ins-contact-wrap').append(response.data.ins_contact);
-
-					$('.ins-cart-inner.payment .ins-card-cross-sell').html('');
-					$('.ins-cart-inner.payment .ins-card-cross-sell').append(response.data.cross_sells);
-
-					$('.ins-cart-inner.payment .ins-shipping-wrap').html('');
-					$('.ins-cart-inner.payment .ins-shipping-wrap').append(response.data.ins_shiiping);
-
-					// $(".ins-checkout-layout .ins-checkout-shipping .ins-cart-content-wrap").html("");
-					// $(".ins-checkout-layout .ins-checkout-shipping .ins-cart-content-wrap").append(response.data.ins_shipping_additional);
-
-					if (response.data.cross_sells != '' && response.data.cross_sells != null) {
-						$('.ins-cart-inner.payment .ins-card-cross-sell').addClass('active');
-					} else {
-						$('.ins-cart-inner.payment .ins-card-cross-sell').removeClass('active');
-					}
-				},
-			});
+			return;
 		}
+
+		// Ins existing code for single_step_order_review_callback() goes here
+		$('.ins-cart-inner.shipping input').each(function () {
+			var value = $(this).val();
+			if (value != '') {
+				$(this).closest('p.form-row').find('label').addClass('active');
+			} else {
+				$(this).closest('p.form-row').find('label').removeClass('active');
+			}
+		});
+
+		$.ajax({
+			url: ins_params.ajax_url,
+			type: "POST",
+			data: {
+				action: "ins_update_order_review_callback"
+			},
+			success: function (response) {
+				$('.ins-cart-inner.payment .ins-contact-wrap').html('');
+				$('.ins-cart-inner.payment .ins-contact-wrap').append(response.data.ins_contact);
+
+				$('.ins-cart-inner.payment .ins-card-cross-sell').html('');
+				$('.ins-cart-inner.payment .ins-card-cross-sell').append(response.data.cross_sells);
+
+				$('.ins-cart-inner.payment .ins-shipping-wrap').html('');
+				$('.ins-cart-inner.payment .ins-shipping-wrap').append(response.data.ins_shiiping);
+
+				// $(".ins-checkout-layout .ins-checkout-shipping .ins-cart-content-wrap").html("");
+				// $(".ins-checkout-layout .ins-checkout-shipping .ins-cart-content-wrap").append(response.data.ins_shipping_additional);
+
+				if (response.data.cross_sells != '' && response.data.cross_sells != null) {
+					$('.ins-cart-inner.payment .ins-card-cross-sell').addClass('active');
+				} else {
+					$('.ins-cart-inner.payment .ins-card-cross-sell').removeClass('active');
+				}
+			},
+		});
 	}
+
 
 	/**
 	 * Check if a node is blocked for processing.
