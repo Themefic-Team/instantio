@@ -456,6 +456,11 @@
 	});
 
 	$(document).on("click", ".single_add_to_cart_button", function () {
+
+		if (cart_fly_anim == false) {
+			return;
+		}
+
 		var thisbutton = $(this);
 		var cart_form = thisbutton.closest("form.cart");
 
