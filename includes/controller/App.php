@@ -576,6 +576,7 @@ class App {
 		do_action( 'dedicated_mobile_version' );
 
 		ob_start();
+
 		if ( $this->layout == 1 || $this->layout == 3 ) :
 			?>
 			<div class="ins-fixed-toogle <?php echo esc_attr( $this->layout_class ) ?>">
@@ -596,6 +597,9 @@ class App {
 			</div>
 			<?php
 		endif;
+		?>
+		</div>
+		<?php
 		$output = ob_get_clean();
 		echo $output;
 	}
