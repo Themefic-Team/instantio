@@ -3,7 +3,7 @@ Contributors: themefic, kamrul0424, hemelhasan, hasanet, mdrejon, mdashikul
 Tags: woocommerce cart, woocommerce checkout, woocommerce direct checkout, multistep checkout, woocommerce side cart
 Requires at least: 4.0
 Tested up to: 6.6
-Stable tag: 3.2.13
+Stable tag: 3.2.14
 WC requires at least: 7.0
 WC tested up to: 9.1.4
 Requires PHP: 7.4
@@ -362,6 +362,12 @@ For those seeking simplicity, Instantio provides a simplified WooCommerce checko
 
 == Changelog ==
 
+= 3.2.14 - ( August 15, 2024 ) =
+
+- Compatible: Avada and  Astra theme
+- Improvement: Payment System security patch updated
+- Improvement: Billing form notices text improve
+
 = 3.2.13 - ( July 28, 2024 ) =
 
 - Improvement: Reorganized CSS/JS Code
@@ -650,20 +656,6 @@ For those seeking simplicity, Instantio provides a simplified WooCommerce checko
 - Updated: Compatibility check with WordPress 6.0.3
 - Updated: Compatibility check with WC 7.0.0
 - Improvement: Css/Js code
-
-= 2.5.7 = ( October 10, 2022 )
-- Updated: Compatibility check with WordPress
-- Fixed: Css update in the cart popup
-
-= 2.5.6 = ( September 28, 2022 )
-- Improvement: The payment gateway has been further improved
-- Updated: Compatibility check with WooCommerce 6.9.4
-
-= 2.5.5 = ( September 18, 2022 )
-- Improvement: The system has been further improved
-- Fixed: Auto sidebar opens when Page Reload With Ajax Without Ajax
-- Updated: Compatibility check with WooCommerce 6.9.2
-- Updated: Compatibility check with WordPress 6.0.2
 
 **Old Changelog can be found [here](https://themefic.com/instantio/changelog/)**.
 
