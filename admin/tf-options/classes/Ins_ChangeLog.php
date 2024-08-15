@@ -11,6 +11,21 @@
 
 $change = [
 
+       // Update  start
+       'v30' => [
+           'date'      => '15 August 2024',
+           'version'   => 'Version 3.2.14',
+           'changelog' => [
+               'Improvement'   =>   [
+                   'Billing form notices text improve',
+                   'Payment System security patch updated',
+               ],
+                'Compatibility'   =>   [
+                   'Avada and  Astra theme',
+               ],
+           ]
+       ],
+       // Update End
         // Update  start
        'v29' => [
            'date'      => '28 July 2024',
@@ -51,22 +66,6 @@ $change = [
                    'System stability improved',
                    'Security and translation',
                ]
-           ]
-       ],
-       // Update End
-        
-        // Update  start
-       'v26' => [
-           'date'      => '26 June 2024',
-           'version'   => 'Version 3.2.10',
-           'changelog' => [
-               'Improvement'   =>   [
-                   'System stability Improved',
-                   'Updated readme.txt',
-               ],
-                'Compatibility'   =>   [
-                   'Compatible with WooCommerce 9.0',
-               ],
            ]
        ],
        // Update End
