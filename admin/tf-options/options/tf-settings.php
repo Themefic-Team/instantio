@@ -455,6 +455,14 @@ Ins_TF_Settings::option( 'wiopt', array(
 							'content' => __( 'Code: <code>[instantio-cart-icon]</code>', 'instantio' ),
 							'dependency' => [ 'ins-mini-cart-option', '==', 'true' ],
 						],
+						[ 
+							'id' => 'ins-sidecart-icon',
+							'type' => 'switch',
+							'label' => __( 'Turn off main cart icon', 'instantio' ),
+							'label_on' => __( 'Yes', 'instantio' ),
+							'label_off' => __( 'No', 'instantio' ),
+							'default' => false,
+						]
 					],
 				],
 			],

@@ -123,11 +123,18 @@ class App {
 			$togglebtnClass = 'popupcart';
 		}
 
-		$output = '<div id="mini_cart" class="ins-click-to-show ' . esc_attr( $togglebtnClass ) . ' ">';
-		$output .= $toggle_icon;
-		$output .= '</div>';
+		if ( $this->layout == 1 || $this->layout == '' ) {
+			$output = '<a id="mini_cart" class="ins-click-to-show" href="' . esc_url( wc_get_checkout_url() ) . '">';
+			$output .= $toggle_icon;
+			$output .= '</a>';
+			return $output;
+		} else {
+			$output = '<div id="mini_cart" class="ins-click-to-show ' . esc_attr( $togglebtnClass ) . ' ">';
+			$output .= $toggle_icon;
+			$output .= '</div>';
+			return $output;
+		}
 
-		return $output;
 	}
 
 
@@ -212,11 +219,23 @@ class App {
 		$dedicated_mobile = ! empty( insopt( 'dedicated_mobile' ) ) ? insopt( 'dedicated_mobile' ) : false;
 		$mobile_cart_panel = ! empty( insopt( 'mobile-cart-panel' ) ) ? insopt( 'mobile-cart-panel' ) : false;
 		$dedicated_mobile_panel_class = $dedicated_mobile == true && $mobile_cart_panel == true ? ' ins-dedicated-mobile-card-panel' : '';
+
+		$offMain_cart = ! empty( insopt( 'ins-mini-cart' )['ins-sidecart-icon'] ) ? insopt( 'ins-mini-cart' )['ins-sidecart-icon'] : '0';
+
+		if ( $offMain_cart == 1 ) {
+			$hiddenClass = 'hidden';
+		} else {
+			$hiddenClass = '';
+		}
+
+		// Setting 
 		if ( $this->layout == 1 || $this->layout == '' ) {
 			$ins_toggler = 'tog-1';
 			?>
-			<a class="ins-toggle-btn <?php echo esc_attr( $ins_toggler ) ?> <?php echo esc_attr( $dedicated_mobile_panel_class ) ?> <?php echo esc_attr( $icon_style ) ?> "
-				href="<?php echo esc_url( wc_get_checkout_url() ); ?>">
+			<a class="ins-toggle-btn <?php echo esc_attr( $ins_toggler ) ?>
+			<?php echo esc_attr( $dedicated_mobile_panel_class ) ?>
+			<?php echo esc_attr( $icon_style ) ?>
+			<?php echo esc_attr( $hiddenClass ) ?> " href="<?php echo esc_url( wc_get_checkout_url() ); ?>">
 				<span class="ins-cart-icon">
 					<?php echo $toggle_icon ?>
 				</span>
@@ -230,13 +249,17 @@ class App {
 		} else {
 			?>
 			<div
-				class="ins-click-to-show ins-toggle-btn <?php echo esc_attr( $togglebtnClass ) ?> <?php echo esc_attr( $dedicated_mobile_panel_class ) ?> <?php echo esc_attr( $icon_style ) ?>  <?php echo esc_attr( $ins_toggler ) ?>">
+				class="ins-click-to-show ins-toggle-btn <?php echo esc_attr( $hiddenClass ) ?>
+				<?php echo esc_attr( $togglebtnClass ) ?> <?php echo esc_attr( $dedicated_mobile_panel_class ) ?> <?php echo esc_attr( $icon_style ) ?>  <?php echo esc_attr( $ins_toggler ) ?>">
 				<span class="ins-cart-icon">
 					<?php echo $toggle_icon ?>
 				</span>
-				<span class="ins-items-count"><span id="ins_cart_totals" class="ins_cart_total">
+
+				<span class="ins-items-count">
+					<span id="ins_cart_totals" class="ins_cart_total">
 						<?php echo WC()->cart->get_cart_contents_count(); ?>
-					</span></span>
+					</span>
+				</span>
 			</div>
 			<?php
 		}

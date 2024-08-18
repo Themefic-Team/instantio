@@ -2607,8 +2607,14 @@ body.rtl .ins-cart-coupon .coupon {
   display: none;
 }
 #mini_cart {
+  display: inline-block;
+  cursor: pointer;
   width: 20px;
   margin: 0;
+}
+
+.ins-toggle-btn.hidden {
+  display: none;
 }
 
 /* Breakpoints */
