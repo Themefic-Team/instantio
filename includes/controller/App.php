@@ -56,6 +56,8 @@ class App {
 		add_action( 'ins_cart_content', array( $this, 'ins_cart_content_modern' ), 10, 2 );
 		add_action( 'ins_cart_content_single', array( $this, 'ins_modern_cart_only' ), 10, 2 );
 
+		add_shortcode( 'instantio-cart-icon', [ $this, 'instantio_carticon_function' ] );
+
 	}
 
 
@@ -89,6 +91,45 @@ class App {
 			$this->layouts_slug = "/layouts/layout-3.php";
 		}
 	}
+
+	// ShortCode for instantio mini cart icon
+	public function instantio_carticon_function() {
+
+		// Option 
+		$mini_cart_option = ! empty( insopt( 'ins-mini-cart' )['ins-mini-cart-option'] ) ? insopt( 'ins-mini-cart' )['ins-mini-cart-option'] : '0';
+
+		if ( $mini_cart_option != 1 ) {
+			return;
+		}
+
+		// icons 
+		$cart_icon = ! empty( insopt( 'ins-toggle-tab' )['cart-icon'] ) ? insopt( 'ins-toggle-tab' )['cart-icon'] : 'shopping-bag';
+		$wi_icon_choice = ! empty( insopt( 'ins-toggle-tab' )['wi-icon-choice'] ) ? insopt( 'ins-toggle-tab' )['wi-icon-choice'] : 'icon';
+		$wi_icon_choice_uploder = ! empty( insopt( 'ins-toggle-tab' )['wi-icon-choice-uploder'] ) ? insopt( 'ins-toggle-tab' )['wi-icon-choice-uploder'] : '';
+
+		if ( $cart_icon == 'shopping-bag' ) {
+			$toggle_icon = apply_filters( 'ins_get_svg_icon_pro', instantio_svg_icon( $cart_icon ) );
+		} else {
+			$toggle_icon = '<i class="' . $cart_icon . '"></i>';
+		}
+		if ( $wi_icon_choice == 'image' && $wi_icon_choice_uploder != '' ) {
+			$toggle_icon = '<img src="' . $wi_icon_choice_uploder . '" alt="Icon Image">';
+		}
+
+		// class for toggle 
+		if ( $this->layout == 2 ) {
+			$togglebtnClass = 'sidecart';
+		} elseif ( $this->layout == 3 ) {
+			$togglebtnClass = 'popupcart';
+		}
+
+		$output = '<div id="mini_cart" class="ins-click-to-show ' . esc_attr( $togglebtnClass ) . ' ">';
+		$output .= $toggle_icon;
+		$output .= '</div>';
+
+		return $output;
+	}
+
 
 	// Ins Cart Header
 	public function ins_cart_modern_header() {
@@ -147,9 +188,11 @@ class App {
 	public function ins_cart_toggle() {
 		ob_start();
 		$ins_toggler = insopt( 'ins-toggler' );
+
 		$cart_icon = ! empty( insopt( 'ins-toggle-tab' )['cart-icon'] ) ? insopt( 'ins-toggle-tab' )['cart-icon'] : 'shopping-bag';
 		$wi_icon_choice = ! empty( insopt( 'ins-toggle-tab' )['wi-icon-choice'] ) ? insopt( 'ins-toggle-tab' )['wi-icon-choice'] : 'icon';
 		$wi_icon_choice_uploder = ! empty( insopt( 'ins-toggle-tab' )['wi-icon-choice-uploder'] ) ? insopt( 'ins-toggle-tab' )['wi-icon-choice-uploder'] : '';
+
 		if ( $cart_icon == 'shopping-bag' ) {
 
 			$toggle_icon = apply_filters( 'ins_get_svg_icon_pro', instantio_svg_icon( $cart_icon ) );

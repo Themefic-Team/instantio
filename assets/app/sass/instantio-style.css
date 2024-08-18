@@ -2606,6 +2606,11 @@ body.rtl .ins-cart-coupon .coupon {
 .theme-flatsome .ins-checkout-popup .ins-checkout-layout .ins-content .ins-cart-inner .woocommerce-cart-form .ins-cart-footer-wrap .ins-cart-footer-content .ins-footer-cart-button .ins-cart-coupon .continue-shopping {
   display: none;
 }
+#mini_cart {
+  width: 20px;
+  margin: 0;
+}
+
 /* Breakpoints */
 @media (max-width: 1240px) {
   .ins-checkout-modern.ins-single-layout-step .ins-checkout-layout.popup {
