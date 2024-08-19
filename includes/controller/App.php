@@ -456,15 +456,17 @@ class App {
 		$coupon_code = $_POST['coupon_code'];
 		$cart_updated = false;
 
-		for ( $i = 0; $i < count( $cart_item_keys ); $i++ ) {
-
-			WC()->cart->set_quantity( $cart_item_keys[ $i ], $quantities[ $i ], false );
-
-			if ( $quantities[ $i ] == 0 ) {
-				WC()->cart->remove_cart_item( $cart_item_keys[ $i ] );
-				continue;
+		// if cart_item_keys not empty then start the loop 
+		if ( ! empty( $cart_item_keys ) ) {
+			for ( $i = 0; $i < count( $cart_item_keys ); $i++ ) {
+				WC()->cart->set_quantity( $cart_item_keys[ $i ], $quantities[ $i ], false );
+				if ( $quantities[ $i ] == 0 ) {
+					WC()->cart->remove_cart_item( $cart_item_keys[ $i ] );
+					continue;
+				}
 			}
 		}
+
 		if ( ! empty( $coupon_code ) ) {
 			WC()->cart->add_discount( sanitize_text_field( $coupon_code ) );
 		}
