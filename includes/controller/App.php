@@ -56,6 +56,8 @@ class App {
 		add_action( 'ins_cart_content', array( $this, 'ins_cart_content_modern' ), 10, 2 );
 		add_action( 'ins_cart_content_single', array( $this, 'ins_modern_cart_only' ), 10, 2 );
 
+		add_shortcode( 'instantio-cart-icon', [ $this, 'instantio_carticon_function' ] );
+
 	}
 
 
@@ -89,6 +91,52 @@ class App {
 			$this->layouts_slug = "/layouts/layout-3.php";
 		}
 	}
+
+	// ShortCode for instantio mini cart icon
+	public function instantio_carticon_function() {
+
+		// Option 
+		$mini_cart_option = ! empty( insopt( 'ins-mini-cart' )['ins-mini-cart-option'] ) ? insopt( 'ins-mini-cart' )['ins-mini-cart-option'] : '0';
+
+		if ( $mini_cart_option != 1 ) {
+			return;
+		}
+
+		// icons 
+		$cart_icon = ! empty( insopt( 'ins-toggle-tab' )['cart-icon'] ) ? insopt( 'ins-toggle-tab' )['cart-icon'] : 'shopping-bag';
+		$wi_icon_choice = ! empty( insopt( 'ins-toggle-tab' )['wi-icon-choice'] ) ? insopt( 'ins-toggle-tab' )['wi-icon-choice'] : 'icon';
+		$wi_icon_choice_uploder = ! empty( insopt( 'ins-toggle-tab' )['wi-icon-choice-uploder'] ) ? insopt( 'ins-toggle-tab' )['wi-icon-choice-uploder'] : '';
+
+		if ( $cart_icon == 'shopping-bag' ) {
+			$toggle_icon = apply_filters( 'ins_get_svg_icon_pro', instantio_svg_icon( $cart_icon ) );
+		} else {
+			$toggle_icon = '<i class="' . $cart_icon . '"></i>';
+		}
+		if ( $wi_icon_choice == 'image' && $wi_icon_choice_uploder != '' ) {
+			$toggle_icon = '<img src="' . $wi_icon_choice_uploder . '" alt="Icon Image">';
+		}
+
+		// class for toggle 
+		if ( $this->layout == 2 ) {
+			$togglebtnClass = 'sidecart';
+		} elseif ( $this->layout == 3 ) {
+			$togglebtnClass = 'popupcart';
+		}
+
+		if ( $this->layout == 1 || $this->layout == '' ) {
+			$output = '<a id="mini_cart" class="ins-click-to-show" href="' . esc_url( wc_get_checkout_url() ) . '">';
+			$output .= $toggle_icon;
+			$output .= '</a>';
+			return $output;
+		} else {
+			$output = '<div id="mini_cart" class="ins-click-to-show ' . esc_attr( $togglebtnClass ) . ' ">';
+			$output .= $toggle_icon;
+			$output .= '</div>';
+			return $output;
+		}
+
+	}
+
 
 	// Ins Cart Header
 	public function ins_cart_modern_header() {
@@ -147,9 +195,11 @@ class App {
 	public function ins_cart_toggle() {
 		ob_start();
 		$ins_toggler = insopt( 'ins-toggler' );
+
 		$cart_icon = ! empty( insopt( 'ins-toggle-tab' )['cart-icon'] ) ? insopt( 'ins-toggle-tab' )['cart-icon'] : 'shopping-bag';
 		$wi_icon_choice = ! empty( insopt( 'ins-toggle-tab' )['wi-icon-choice'] ) ? insopt( 'ins-toggle-tab' )['wi-icon-choice'] : 'icon';
 		$wi_icon_choice_uploder = ! empty( insopt( 'ins-toggle-tab' )['wi-icon-choice-uploder'] ) ? insopt( 'ins-toggle-tab' )['wi-icon-choice-uploder'] : '';
+
 		if ( $cart_icon == 'shopping-bag' ) {
 
 			$toggle_icon = apply_filters( 'ins_get_svg_icon_pro', instantio_svg_icon( $cart_icon ) );
@@ -169,11 +219,23 @@ class App {
 		$dedicated_mobile = ! empty( insopt( 'dedicated_mobile' ) ) ? insopt( 'dedicated_mobile' ) : false;
 		$mobile_cart_panel = ! empty( insopt( 'mobile-cart-panel' ) ) ? insopt( 'mobile-cart-panel' ) : false;
 		$dedicated_mobile_panel_class = $dedicated_mobile == true && $mobile_cart_panel == true ? ' ins-dedicated-mobile-card-panel' : '';
+
+		$offMain_cart = ! empty( insopt( 'ins-mini-cart' )['ins-sidecart-icon'] ) ? insopt( 'ins-mini-cart' )['ins-sidecart-icon'] : '0';
+
+		if ( $offMain_cart == 1 ) {
+			$hiddenClass = 'hidden';
+		} else {
+			$hiddenClass = '';
+		}
+
+		// Setting 
 		if ( $this->layout == 1 || $this->layout == '' ) {
 			$ins_toggler = 'tog-1';
 			?>
-			<a class="ins-toggle-btn <?php echo esc_attr( $ins_toggler ) ?> <?php echo esc_attr( $dedicated_mobile_panel_class ) ?> <?php echo esc_attr( $icon_style ) ?> "
-				href="<?php echo esc_url( wc_get_checkout_url() ); ?>">
+			<a class="ins-toggle-btn <?php echo esc_attr( $ins_toggler ) ?>
+			<?php echo esc_attr( $dedicated_mobile_panel_class ) ?>
+			<?php echo esc_attr( $icon_style ) ?>
+			<?php echo esc_attr( $hiddenClass ) ?> " href="<?php echo esc_url( wc_get_checkout_url() ); ?>">
 				<span class="ins-cart-icon">
 					<?php echo $toggle_icon ?>
 				</span>
@@ -187,13 +249,17 @@ class App {
 		} else {
 			?>
 			<div
-				class="ins-click-to-show ins-toggle-btn <?php echo esc_attr( $togglebtnClass ) ?> <?php echo esc_attr( $dedicated_mobile_panel_class ) ?> <?php echo esc_attr( $icon_style ) ?>  <?php echo esc_attr( $ins_toggler ) ?>">
+				class="ins-click-to-show ins-toggle-btn <?php echo esc_attr( $hiddenClass ) ?>
+				<?php echo esc_attr( $togglebtnClass ) ?> <?php echo esc_attr( $dedicated_mobile_panel_class ) ?> <?php echo esc_attr( $icon_style ) ?>  <?php echo esc_attr( $ins_toggler ) ?>">
 				<span class="ins-cart-icon">
 					<?php echo $toggle_icon ?>
 				</span>
-				<span class="ins-items-count"><span id="ins_cart_totals" class="ins_cart_total">
+
+				<span class="ins-items-count">
+					<span id="ins_cart_totals" class="ins_cart_total">
 						<?php echo WC()->cart->get_cart_contents_count(); ?>
-					</span></span>
+					</span>
+				</span>
 			</div>
 			<?php
 		}
