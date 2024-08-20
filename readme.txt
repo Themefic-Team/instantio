@@ -3,7 +3,7 @@ Contributors: themefic, kamrul0424, hemelhasan, hasanet, mdrejon, mdashikul
 Tags: woocommerce cart, woocommerce checkout, woocommerce direct checkout, multistep checkout, woocommerce side cart
 Requires at least: 4.0
 Tested up to: 6.6
-Stable tag: 3.2.14
+Stable tag: 3.3.0
 WC requires at least: 7.0
 WC tested up to: 9.1.4
 Requires PHP: 7.4
@@ -33,6 +33,7 @@ WooCommerce direct checkout plugin with Side Cart, Popup Cart, Floating Cart & P
 👉 [Popup Checkout - Multi Step (Pro)](https://wpinstant.io/popup-checkout/)
 👉 [Popup Checkout - Single Step (Pro)](https://wpinstant.io/popup-checkout-single/)
 👉 [Right to Left / Arabic Checkout](https://wpinstant.io/right-to-left/)
+👉 [Mini Cart](https://wpinstant.io/mini-cart-drawer/)
 
 **Each above system comes with 4 Different Mode/Theme: **
 
@@ -63,6 +64,7 @@ Instantio features an advanced WooCommerce Quick Checkout system that revolution
 * Ajax based empty cart button
 * Ajax based variable product view & add to cart from any page
 * 8 Different WooCommerce Checkout systems
+* Use a shortcode to display the mini cart drawer
 * 4 Different Mode/Theme
 * 4 different Progress bar
 * Upsell & Cross Sell feature
@@ -359,8 +361,14 @@ For those seeking simplicity, Instantio provides a simplified WooCommerce checko
 14. Design panel - You can change any color and style in the instantio.
 15. Cart icon selection - You can set different cart Toggle styles and Cart positions.
 16. Optimized assets - You can enable optimized settings to load optimized scripts
+17. Mini Cart - The Mini Cart Drawer feature allows you to add a cart drawer for WooCommerce and place it anywhere on your website.
 
 == Changelog ==
+
+= 3.3.0 - ( August 20, 2024 ) =
+
+- New Feature: Mini Cart Drawer
+- Introduced shortcode for mini cart
 
 = 3.2.14 - ( August 15, 2024 ) =
 
@@ -622,40 +630,6 @@ For those seeking simplicity, Instantio provides a simplified WooCommerce checko
 - Added: SideCart Checkout Button On OFF Option  (Admin Area)
 - Improved: Cart Page Design 
 - WC tested up to: 7.2.0
-
-= 2.5.14 = ( December 13, 2022 )
-
-- Fixed: Warning Issues
-- Improved: Cart Page Design improve
-- WC tested up to: 7.1.1
-
-= 2.5.13 = ( December 04, 2022 )
-
-- Updated:  Instantio free and pro more theme compatibility
-
-= 2.5.12 = ( November 20, 2022 )
-
-- Fixed:  Woocommerce fragment issue
-- Updated: Compatibility check with WordPress 6.1.1
-
-= 2.5.11 = ( November 9, 2022 )
-
-- Fixed: Fragment loading issue.
-- Updated: Compatibility check with WC 7.1.0
-
-= 2.5.10 = ( November 3, 2022 )
-- Updated: Compatibility check with WordPress 6.1
-- Updated: Compatibility check with WC 7.0.1
-- Added: Appsero to the collection  
-
-= 2.5.9 = ( October 27, 2022 )
-- Fixed: Item loading issue on the side cart
-- Updated : Improvement: Css/Js code
-
-= 2.5.8 = ( October 20, 2022 )
-- Updated: Compatibility check with WordPress 6.0.3
-- Updated: Compatibility check with WC 7.0.0
-- Improvement: Css/Js code
 
 **Old Changelog can be found [here](https://themefic.com/instantio/changelog/)**.
 
