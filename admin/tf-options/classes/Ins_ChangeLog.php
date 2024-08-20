@@ -12,6 +12,19 @@
 $change = [
 
        // Update  start
+       'v31' => [
+           'date'      => '20 August 2024',
+           'version'   => 'Version 3.3.0',
+           'changelog' => [
+                'Improvement'   =>   [
+                   'New feature mini cart drawer',
+                   'Introduced shortcode for mini cart',
+               ]
+           ]
+       ],
+       // Update End
+
+       // Update  start
        'v30' => [
            'date'      => '15 August 2024',
            'version'   => 'Version 3.2.14',
@@ -57,18 +70,6 @@ $change = [
        ],
        // Update End
         
-        // Update  start
-       'v27' => [
-           'date'      => '10 June 2024',
-           'version'   => 'Version 3.2.11',
-           'changelog' => [
-                'Improvement'   =>   [
-                   'System stability improved',
-                   'Security and translation',
-               ]
-           ]
-       ],
-       // Update End
 
 ]
 

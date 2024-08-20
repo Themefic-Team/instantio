@@ -71,7 +71,6 @@ Ins_TF_Settings::option( 'wiopt', array(
 					// 'dependency' 	=> array('ins-layout',  '!=', '1', '', 'visible' ),
 				),
 
-
 				array(
 					'id' => 'ins-layout-mode',
 					'type' => 'imageselect',
@@ -150,7 +149,6 @@ Ins_TF_Settings::option( 'wiopt', array(
 					'dependency' => array( 'ins-layout-options', '!=', '1' ),
 					// 'dependency' 	=> array('ins-layout',  '!=', '1', '', 'visible' ),
 				),
-
 
 				array(
 					'id' => 'ins-layout-progressbar',
@@ -430,6 +428,45 @@ Ins_TF_Settings::option( 'wiopt', array(
 				),
 			),
 		),
+
+		'general_cart_mini' => [ 
+			'title' => esc_html__( 'Mini Cart', 'instantio' ),
+			'parent' => 'general',
+			'icon' => 'fas fa-cart-arrow-down',
+			'fields' => [ 
+				[ 
+					'id' => 'ins-mini-cart',
+					'type' => 'fieldset',
+					'label' => __( 'Mini Cart Option', 'instantio' ),
+					'subtitle' => __( 'Enable/Disable Mini cart option', 'instantio' ),
+					'fields' => [ 
+						[ 
+							'id' => 'ins-mini-cart-option',
+							'type' => 'switch',
+							'label' => __( 'Mini Cart ShortCode', 'instantio' ),
+							'label_on' => __( 'Yes', 'instantio' ),
+							'label_off' => __( 'No', 'instantio' ),
+							'default' => false,
+						],
+						[ 
+							'id' => 'ins-mini-cart-shortcode',
+							'type' => 'notice',
+							'title' => __( 'Mini cart shot-code', 'instantio' ),
+							'content' => __( 'Code: <code>[instantio-cart-icon]</code>', 'instantio' ),
+							'dependency' => [ 'ins-mini-cart-option', '==', 'true' ],
+						],
+						[ 
+							'id' => 'ins-sidecart-icon',
+							'type' => 'switch',
+							'label' => __( 'Turn off main cart icon', 'instantio' ),
+							'label_on' => __( 'Yes', 'instantio' ),
+							'label_off' => __( 'No', 'instantio' ),
+							'default' => false,
+						]
+					],
+				],
+			],
+		],
 
 		'design_option' => array(
 			'title' => esc_html__( 'Design', 'instantio' ),
