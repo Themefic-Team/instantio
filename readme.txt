@@ -367,7 +367,7 @@ For those seeking simplicity, Instantio provides a simplified WooCommerce checko
 
 = 3.3.0 - ( August 20, 2024 ) =
 
-- New Feature: Mini Cart Drawer
+- New Feature: Mini cart drawer
 - Introduced shortcode for mini cart
 
 = 3.2.14 - ( August 15, 2024 ) =
