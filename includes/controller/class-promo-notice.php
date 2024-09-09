@@ -13,7 +13,20 @@ class INS_PROMO_NOTICE {
     private $ins_promo_option = false; 
     private $error_message = ''; 
 
-    private $months = ['January', 'June', 'November', 'December'];
+    private $months = [
+        'January',  
+        'February',
+        'March',
+        'April',
+        'May',
+        'June',
+        'July',
+        'August',
+        'September',
+        'October',
+        'November',
+        'December'
+    ];
     private $plugins_existes = ['uacf7', 'tf', 'beaf', 'ebef'];
 
     public function __construct() {
@@ -35,14 +48,14 @@ class INS_PROMO_NOTICE {
            
             // Admin Notice 
             $tf_existes = get_option( 'tf_promo_notice_exists' );
-            if( ! in_array($tf_existes, $this->plugins_existes) && is_array($this->ins_promo_option) && strtotime($this->ins_promo_option['end_date']) > time() && strtotime($this->ins_promo_option['start_date']) < time()){
+            if( ! in_array($tf_existes, $this->plugins_existes) && is_array($this->ins_promo_option) && strtotime($this->ins_promo_option['end_date']) > time() && strtotime($this->ins_promo_option['start_date']) < time() && $this->ins_promo_option['enable_dasboard'] == true){
                 add_action( 'admin_notices', array( $this, 'tf_black_friday_2023_admin_notice' ) );
                 add_action( 'wp_ajax_tf_black_friday_notice_dismiss_callback', array($this, 'tf_black_friday_notice_dismiss_callback') );
             }
 
             // side Notice Woo Product Meta Box Notice 
             $tf_woo_existes = get_option( 'tf_promo_notice_woo_exists' );
-             if( is_array($this->ins_promo_option) && strtotime($this->ins_promo_option['end_date']) > time() && strtotime($this->ins_promo_option['start_date']) < time()){   
+             if( is_array($this->ins_promo_option) && strtotime($this->ins_promo_option['end_date']) > time() && strtotime($this->ins_promo_option['start_date']) < time() && $this->ins_promo_option['enable_side'] == true){   
                 add_action( 'add_meta_boxes', array($this, 'tf_black_friday_2023_woo_product') );
                 
 	            add_filter( 'get_user_option_meta-box-order_product', array($this, 'metabox_order') );
