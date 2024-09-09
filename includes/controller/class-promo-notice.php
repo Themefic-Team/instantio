@@ -52,7 +52,7 @@ class INS_PROMO_NOTICE {
             $tf_existes = get_option( 'tf_promo_notice_exists' );
             if( ! in_array($tf_existes, $this->plugins_existes) && is_array($dashboard_banner) && strtotime($dashboard_banner['end_date']) > time() && strtotime($dashboard_banner['start_date']) < time() && $dashboard_banner['enable_status'] == true){
                 add_action( 'admin_notices', array( $this, 'tf_black_friday_2023_admin_notice' ) );
-                add_action( 'wp_ajax_tf_black_friday_notice_dismiss_callback', array($this, 'tf_black_friday_notice_dismiss_callback') );
+                add_action( 'wp_ajax_tf_admin_notice_dismiss_callback', array($this, 'tf_admin_notice_dismiss_callback') );
             }
 
             // side Notice Woo Product Meta Box Notice 
@@ -147,6 +147,7 @@ class INS_PROMO_NOTICE {
         $tf_dismiss_admin_notice = get_option( 'tf_dismiss_admin_notice' );
         $get_current_screen = get_current_screen();  
         if(($tf_dismiss_admin_notice == 1  || time() >  $tf_dismiss_admin_notice ) && $get_current_screen->base == 'dashboard'   ){ 
+           
             // if very fist time then set the dismiss for our other plugins
             update_option( 'tf_promo_notice_exists', 'ins' );
             ?>
@@ -170,6 +171,7 @@ class INS_PROMO_NOTICE {
             <div class="notice notice-success tf_black_friday_20222_admin_notice"> 
                 <a href="<?php echo esc_attr( $deal_link ); ?>" style="display: block; line-height: 0;" target="_blank" >
                     <img  style="width: 100%;" src="<?php echo esc_attr($image_url) ?>" alt="">
+                    <?php echo $tf_dismiss_admin_notice ; ?>
                 </a> 
                 <?php if( isset($dashboard_banner['dismiss_status']) && $dashboard_banner['dismiss_status'] == true): ?>
                 <button type="button" class="notice-dismiss tf_black_friday_notice_dismiss"><span class="screen-reader-text"><?php echo __('Dismiss this notice.', 'ultimate-addons-cf7' ) ?></span></button>
@@ -180,7 +182,7 @@ class INS_PROMO_NOTICE {
                     $(document).on('click', '.tf_black_friday_notice_dismiss', function( event ) {
                         jQuery('.tf_black_friday_20222_admin_notice').css('display', 'none')
                         data = {
-                            action : 'tf_black_friday_notice_dismiss_callback',
+                            action : 'tf_admin_notice_dismiss_callback',
                         };
 
                         $.ajax({
@@ -202,16 +204,18 @@ class INS_PROMO_NOTICE {
     } 
 
 
-    public function tf_black_friday_notice_dismiss_callback() {  
-
+    public function tf_admin_notice_dismiss_callback() {  
+  
         $ins_promo_option = get_option( 'ins_promo__schudle_option' );
-        $dashboard_banner = isset($this->ins_promo_option['dashboard_banner']) ? $this->ins_promo_option['dashboard_banner'] : '';
+        $dashboard_banner = isset($ins_promo_option['dashboard_banner']) ? $ins_promo_option['dashboard_banner'] : '';
         $restart = isset($dashboard_banner['restart']) && $dashboard_banner['restart'] != false ? $dashboard_banner['restart'] : false; 
+        
         if($restart == false){
             update_option( 'tf_dismiss_admin_notice', strtotime($dashboard_banner['end_date']) ); 
         }else{
             update_option( 'tf_dismiss_admin_notice', time() + (86400 * $restart) );  
         } 
+    
 		wp_die();
 	}
 
