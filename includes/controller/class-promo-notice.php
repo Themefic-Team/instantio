@@ -30,7 +30,7 @@ class INS_PROMO_NOTICE {
     private $plugins_existes = ['uacf7', 'tf', 'beaf', 'ebef'];
 
     public function __construct() {
-
+        $this->ins_get_api_response();
         if(in_array(date('F'), $this->months) && !class_exists('WOOINS')){  
             add_filter('cron_schedules', array($this, 'ins_custom_cron_interval'));
              
@@ -44,24 +44,39 @@ class INS_PROMO_NOTICE {
             if(get_option( 'ins_promo__schudle_option' )){
                 $this->ins_promo_option = get_option( 'ins_promo__schudle_option' );
             }
-              
-           
+         
+            $dashboard_banner = isset($this->ins_promo_option['dashboard_banner']) ? $this->ins_promo_option['dashboard_banner'] : '';
+             
+            
             // Admin Notice 
             $tf_existes = get_option( 'tf_promo_notice_exists' );
-            if( ! in_array($tf_existes, $this->plugins_existes) && is_array($this->ins_promo_option) && strtotime($this->ins_promo_option['end_date']) > time() && strtotime($this->ins_promo_option['start_date']) < time() && $this->ins_promo_option['enable_dasboard'] == true){
+            if( ! in_array($tf_existes, $this->plugins_existes) && is_array($dashboard_banner) && strtotime($dashboard_banner['end_date']) > time() && strtotime($dashboard_banner['start_date']) < time() && $dashboard_banner['enable_status'] == true){
                 add_action( 'admin_notices', array( $this, 'tf_black_friday_2023_admin_notice' ) );
                 add_action( 'wp_ajax_tf_black_friday_notice_dismiss_callback', array($this, 'tf_black_friday_notice_dismiss_callback') );
             }
 
             // side Notice Woo Product Meta Box Notice 
             $tf_woo_existes = get_option( 'tf_promo_notice_woo_exists' );
-             if( is_array($this->ins_promo_option) && strtotime($this->ins_promo_option['end_date']) > time() && strtotime($this->ins_promo_option['start_date']) < time() && $this->ins_promo_option['enable_side'] == true){   
+            $service_banner = isset($this->ins_promo_option['service_banner']) ? $this->ins_promo_option['service_banner'] : array();
+            $promo_banner = isset($this->ins_promo_option['promo_banner']) ? $this->ins_promo_option['promo_banner'] : array();
+
+            $current_day = date('l'); 
+            if($service_banner['enable_status'] == true && in_array($current_day, $service_banner['display_days'])){ 
+             
+                $start_date = $service_banner['start_date'];
+                $end_date = $service_banner['end_date'];
+                $enable_side = $service_banner['enable_status']; 
+            }else{ 
+                $start_date = $promo_banner['start_date'];
+                $end_date = $promo_banner['end_date'];
+                $enable_side = $promo_banner['enable_status']; 
+            } 
+            if( strtotime($end_date) > time() && strtotime($start_date) < time() && $enable_side == true){  
                 add_action( 'add_meta_boxes', array($this, 'tf_black_friday_2023_woo_product') );
                 
 	            add_filter( 'get_user_option_meta-box-order_product', array($this, 'metabox_order') );
                 add_action( 'wp_ajax_ins_black_friday_notice_ins_dismiss_callback', array($this, 'ins_black_friday_notice_ins_dismiss_callback') ); 
-           
-            } 
+            }
             
 			
             register_deactivation_hook( INS_PATH . 'instantio.php', array($this, 'ins_promo_notice_deactivation_hook') );
@@ -125,9 +140,9 @@ class INS_PROMO_NOTICE {
      */
     
     public function tf_black_friday_2023_admin_notice(){ 
-        
-        $image_url = isset($this->ins_promo_option['dasboard_url']) ? esc_url($this->ins_promo_option['dasboard_url']) : '';
-        $deal_link = isset($this->ins_promo_option['promo_url']) ? esc_url($this->ins_promo_option['promo_url']) : ''; 
+        $dashboard_banner = isset($this->ins_promo_option['dashboard_banner']) ? $this->ins_promo_option['dashboard_banner'] : '';
+        $image_url = isset($dashboard_banner['banner_url']) ? esc_url($dashboard_banner['banner_url']) : '';
+        $deal_link = isset($dashboard_banner['redirect_url']) ? esc_url($dashboard_banner['redirect_url']) : ''; 
 
         $tf_dismiss_admin_notice = get_option( 'tf_dismiss_admin_notice' );
         $get_current_screen = get_current_screen();  
@@ -156,7 +171,7 @@ class INS_PROMO_NOTICE {
                 <a href="<?php echo esc_attr( $deal_link ); ?>" style="display: block; line-height: 0;" target="_blank" >
                     <img  style="width: 100%;" src="<?php echo esc_attr($image_url) ?>" alt="">
                 </a> 
-                <?php if( isset($this->ins_promo_option['dasboard_dismiss']) && $this->ins_promo_option['dasboard_dismiss'] == true): ?>
+                <?php if( isset($dashboard_banner['dismiss_status']) && $dashboard_banner['dismiss_status'] == true): ?>
                 <button type="button" class="notice-dismiss tf_black_friday_notice_dismiss"><span class="screen-reader-text"><?php echo __('Dismiss this notice.', 'ultimate-addons-cf7' ) ?></span></button>
                 <?php  endif; ?>
             </div>
@@ -190,9 +205,10 @@ class INS_PROMO_NOTICE {
     public function tf_black_friday_notice_dismiss_callback() {  
 
         $ins_promo_option = get_option( 'ins_promo__schudle_option' );
-        $restart = isset($ins_promo_option['dasboard_restart']) && $ins_promo_option['dasboard_restart'] != false ? $ins_promo_option['dasboard_restart'] : false; 
+        $dashboard_banner = isset($this->ins_promo_option['dashboard_banner']) ? $this->ins_promo_option['dashboard_banner'] : '';
+        $restart = isset($dashboard_banner['restart']) && $dashboard_banner['restart'] != false ? $dashboard_banner['restart'] : false; 
         if($restart == false){
-            update_option( 'tf_dismiss_admin_notice', strtotime($ins_promo_option['end_date']) ); 
+            update_option( 'tf_dismiss_admin_notice', strtotime($dashboard_banner['end_date']) ); 
         }else{
             update_option( 'tf_dismiss_admin_notice', time() + (86400 * $restart) );  
         } 
@@ -212,64 +228,77 @@ class INS_PROMO_NOTICE {
    
     }
     public function tf_black_friday_2023_callback_woo_product() {
-        $image_url = isset($this->ins_promo_option['side_url']) ? esc_url($this->ins_promo_option['side_url']) : '';
-        $deal_link = isset($this->ins_promo_option['promo_url']) ? esc_url($this->ins_promo_option['promo_url']) : ''; 
-      ?>
-        <style>
-            #tf_black_friday_annous{
-                border: 0px solid;
-                box-shadow: none;
-                background: transparent;
-            }
-            .back_friday_2023_preview a:focus {
-                box-shadow: none;
-            }
+        $service_banner = isset($this->ins_promo_option['service_banner']) ? $this->ins_promo_option['service_banner'] : array();
+        $promo_banner = isset($this->ins_promo_option['promo_banner']) ? $this->ins_promo_option['promo_banner'] : array();
 
-            .back_friday_2023_preview a {
-                display: inline-block;
-            }
+        $current_day = date('l'); 
+        if($service_banner['enable_status'] == true && in_array($current_day, $service_banner['display_days'])){ 
+           
+            $image_url = esc_url($service_banner['banner_url']);
+            $deal_link = esc_url($service_banner['redirect_url']);  
+            $dismiss_status = $service_banner['dismiss_status'];
+        }else{
+            $image_url = esc_url($promo_banner['banner_url']);
+            $deal_link = esc_url($promo_banner['redirect_url']); 
+            $dismiss_status = $promo_banner['dismiss_status'];  
+        }  
+           
+            ?>
+            <style>
+                #tf_black_friday_annous{
+                    border: 0px solid;
+                    box-shadow: none;
+                    background: transparent;
+                }
+                .back_friday_2023_preview a:focus {
+                    box-shadow: none;
+                }
 
-            #tf_black_friday_annous .inside {
-                padding: 0;
-                margin-top: 0;
-            }
+                .back_friday_2023_preview a {
+                    display: inline-block;
+                }
 
-            #tf_black_friday_annous .postbox-header {
-                display: none;
-                visibility: hidden;
-            }
-        </style> 
-     
-        <div class="back_friday_2023_preview ins-bf-preview" style="text-align: center; overflow: hidden;">
-            <a href="<?php echo esc_attr($deal_link); ?>" target="_blank" >
-                <img  style="width: 100%;" src="<?php echo esc_attr($image_url); ?>" alt="">
-            </a>  
-            <?php if( isset($this->ins_promo_option['side_dismiss']) && $this->ins_promo_option['side_dismiss'] == true): ?>
-                <button type="button" class="notice-dismiss ins_friday_notice_dismiss"><span class="screen-reader-text">Dismiss this notice.</span></button>
-            <?php  endif; ?>
-          
-        </div>
-        <script> 
-            jQuery(document).ready(function($) {
-                $(document).on('click', '.ins_friday_notice_dismiss', function( event ) { 
-                    jQuery('.ins-bf-preview').css('display', 'none');
-                    data = {
-                        action : 'ins_black_friday_notice_ins_dismiss_callback', 
-                    };
+                #tf_black_friday_annous .inside {
+                    padding: 0;
+                    margin-top: 0;
+                }
 
-                    $.ajax({
-                        url: ajaxurl,
-                        type: 'post',
-                        data: data,
-                        success: function (data) { ;
-                        },
-                        error: function (data) { 
-                        }
+                #tf_black_friday_annous .postbox-header {
+                    display: none;
+                    visibility: hidden;
+                }
+            </style> 
+        
+            <div class="back_friday_2023_preview ins-bf-preview" style="text-align: center; overflow: hidden;">
+                <a href="<?php echo esc_attr($deal_link); ?>" target="_blank" >
+                    <img  style="width: 100%;" src="<?php echo esc_attr($image_url); ?>" alt="">
+                </a>  
+                <?php if( isset($dismiss_status) && $dismiss_status == true): ?>
+                    <button type="button" class="notice-dismiss ins_friday_notice_dismiss"><span class="screen-reader-text">Dismiss this notice.</span></button>
+                <?php  endif; ?>
+            
+            </div>
+            <script> 
+                jQuery(document).ready(function($) {
+                    $(document).on('click', '.ins_friday_notice_dismiss', function( event ) { 
+                        jQuery('.ins-bf-preview').css('display', 'none');
+                        data = {
+                            action : 'ins_black_friday_notice_ins_dismiss_callback', 
+                        };
+
+                        $.ajax({
+                            url: ajaxurl,
+                            type: 'post',
+                            data: data,
+                            success: function (data) { ;
+                            },
+                            error: function (data) { 
+                            }
+                        });
                     });
                 });
-            });
-        </script>
-        <?php 
+            </script>
+            <?php  
     }
 
     public function metabox_order( $order ) {
@@ -285,9 +314,19 @@ class INS_PROMO_NOTICE {
 	}
 
     public  function ins_black_friday_notice_ins_dismiss_callback() {   
+
         $ins_promo_option = get_option( 'ins_promo__schudle_option' );
-        $start_date = isset($ins_promo_option['start_date']) ? strtotime($ins_promo_option['start_date']) : time();
-        $restart = isset($ins_promo_option['side_restart']) && $ins_promo_option['side_restart'] != false ? $ins_promo_option['side_restart'] : 5;
+        $service_banner = isset($ins_promo_option['service_banner']) ? $ins_promo_option['service_banner'] : array();
+        $promo_banner = isset($ins_promo_option['promo_banner']) ? $ins_promo_option['promo_banner'] : '';
+
+        $current_day = date('l'); 
+        if($service_banner['enable_status'] == true && in_array($current_day, $service_banner['display_days'])){ 
+            $start_date = $service_banner['start_date'];
+            $restart = isset($service_banner['restart']) && $service_banner['restart'] != false ? $service_banner['restart'] : 5;
+        }else{
+            $start_date = $promo_banner['start_date']; 
+            $restart = isset($promo_banner['restart']) && $promo_banner['restart'] != false ? $promo_banner['restart'] : 5;
+        } 
         update_option( 'ins_dismiss_post_woo_notice', time() + (86400 * $restart) );  
         wp_die();
     }
