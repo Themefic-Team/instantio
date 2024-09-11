@@ -31,14 +31,16 @@ class INS_PROMO_NOTICE {
 
  
 
-    public function __construct() { 
+    public function __construct() {  
         if(in_array(date('F'), $this->months) && !class_exists('WOOINS')){  
 
             $ins_promo__schudle_start_from = !empty(get_option( 'ins_promo__schudle_start_from' )) ? get_option( 'ins_promo__schudle_start_from' ) : 0;
-          
-            if($ins_promo__schudle_start_from  != 0 && $ins_promo__schudle_start_from > time()){
+            if($ins_promo__schudle_start_from == 0){
+                // delete option
+                delete_option('ins_promo__schudle_option');
+            }elseif($ins_promo__schudle_start_from  != 0 && $ins_promo__schudle_start_from > time()){
                 return;
-            } 
+            }  
  
             add_filter('cron_schedules', array($this, 'ins_custom_cron_interval'));
              
