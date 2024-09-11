@@ -29,9 +29,17 @@ class INS_PROMO_NOTICE {
     ];
     private $plugins_existes = ['uacf7', 'tf', 'beaf', 'ebef'];
 
-    public function __construct() {
-        $this->ins_get_api_response();
+ 
+
+    public function __construct() { 
         if(in_array(date('F'), $this->months) && !class_exists('WOOINS')){  
+
+            $ins_promo__schudle_start_from = !empty(get_option( 'ins_promo__schudle_start_from' )) ? get_option( 'ins_promo__schudle_start_from' ) : 0;
+          
+            if($ins_promo__schudle_start_from  != 0 && $ins_promo__schudle_start_from > time()){
+                return;
+            } 
+ 
             add_filter('cron_schedules', array($this, 'ins_custom_cron_interval'));
              
             if (!wp_next_scheduled('ins_promo__schudle')) {
@@ -111,9 +119,11 @@ class INS_PROMO_NOTICE {
             if(!empty($ins_promo__schudle_option) && $ins_promo__schudle_option['notice_name'] != $this->responsed['notice_name']){ 
                 // Unset the cookie variable in the current script
                 update_option( 'ins_dismiss_admin_notice', 1);
-                update_option( 'ins_dismiss_post_woo_notice', 1); 
+                update_option( 'ins_dismiss_post_woo_notice', 1);  
+                update_option( 'ins_promo__schudle_start_from', time() + 86400);
             }
             update_option( 'ins_promo__schudle_option', $this->responsed);
+            // Add 24 hours to the current time for the next update
             
         } 
     }
@@ -170,8 +180,7 @@ class INS_PROMO_NOTICE {
             </style>
             <div class="notice notice-success tf_black_friday_20222_admin_notice"> 
                 <a href="<?php echo esc_attr( $deal_link ); ?>" style="display: block; line-height: 0;" target="_blank" >
-                    <img  style="width: 100%;" src="<?php echo esc_attr($image_url) ?>" alt="">
-                    <?php echo $tf_dismiss_admin_notice ; ?>
+                    <img  style="width: 100%;" src="<?php echo esc_attr($image_url) ?>" alt=""> 
                 </a> 
                 <?php if( isset($dashboard_banner['dismiss_status']) && $dashboard_banner['dismiss_status'] == true): ?>
                 <button type="button" class="notice-dismiss tf_black_friday_notice_dismiss"><span class="screen-reader-text"><?php echo __('Dismiss this notice.', 'ultimate-addons-cf7' ) ?></span></button>
