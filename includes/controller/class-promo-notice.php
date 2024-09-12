@@ -38,10 +38,11 @@ class INS_PROMO_NOTICE {
             if($ins_promo__schudle_start_from == 0){
                 // delete option
                 delete_option('ins_promo__schudle_option');
+
             }elseif($ins_promo__schudle_start_from  != 0 && $ins_promo__schudle_start_from > time()){
                 return;
             }  
- 
+            
             add_filter('cron_schedules', array($this, 'ins_custom_cron_interval'));
              
             if (!wp_next_scheduled('ins_promo__schudle')) {
@@ -63,6 +64,7 @@ class INS_PROMO_NOTICE {
             if( ! in_array($tf_existes, $this->plugins_existes) && is_array($dashboard_banner) && strtotime($dashboard_banner['end_date']) > time() && strtotime($dashboard_banner['start_date']) < time() && $dashboard_banner['enable_status'] == true){
                 add_action( 'admin_notices', array( $this, 'tf_black_friday_2023_admin_notice' ) );
                 add_action( 'wp_ajax_tf_admin_notice_dismiss_callback', array($this, 'tf_admin_notice_dismiss_callback') );
+             
             }
 
             // side Notice Woo Product Meta Box Notice 
@@ -71,15 +73,15 @@ class INS_PROMO_NOTICE {
             $promo_banner = isset($this->ins_promo_option['promo_banner']) ? $this->ins_promo_option['promo_banner'] : array();
 
             $current_day = date('l'); 
-            if($service_banner['enable_status'] == true && in_array($current_day, $service_banner['display_days'])){ 
+            if(isset($service_banner['enable_status']) && $service_banner['enable_status'] == true && in_array($current_day, $service_banner['display_days'])){ 
              
-                $start_date = $service_banner['start_date'];
-                $end_date = $service_banner['end_date'];
-                $enable_side = $service_banner['enable_status']; 
-            }else{ 
-                $start_date = $promo_banner['start_date'];
-                $end_date = $promo_banner['end_date'];
-                $enable_side = $promo_banner['enable_status']; 
+                $start_date = isset($service_banner['start_date']) ? $service_banner['start_date'] : '';
+                $end_date = isset($service_banner['end_date']) ? $service_banner['end_date'] : '';
+                $enable_side = isset($service_banner['enable_status']) ? $service_banner['enable_status'] : false;
+            }else{  
+                $start_date = isset($promo_banner['start_date']) ? $promo_banner['start_date'] : '';
+                $end_date = isset($promo_banner['end_date']) ? $promo_banner['end_date'] : '';
+                $enable_side = isset($promo_banner['enable_status']) ? $promo_banner['enable_status'] : false;
             } 
             if( strtotime($end_date) > time() && strtotime($start_date) < time() && $enable_side == true){  
                 add_action( 'add_meta_boxes', array($this, 'tf_black_friday_2023_woo_product') );
@@ -122,6 +124,8 @@ class INS_PROMO_NOTICE {
                 // Unset the cookie variable in the current script
                 update_option( 'ins_dismiss_admin_notice', 1);
                 update_option( 'ins_dismiss_post_woo_notice', 1);  
+                update_option( 'ins_promo__schudle_start_from', time() + 86400);
+            }elseif(empty($ins_promo__schudle_option)){
                 update_option( 'ins_promo__schudle_start_from', time() + 86400);
             }
             update_option( 'ins_promo__schudle_option', $this->responsed);
