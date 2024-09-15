@@ -11,6 +11,34 @@
 
 $change = [
 
+       // Update  start
+       'v31' => [
+           'date'      => '20 August 2024',
+           'version'   => 'Version 3.3.0',
+           'changelog' => [
+                'Improvement'   =>   [
+                   'New feature mini cart drawer',
+                   'Introduced shortcode for mini cart',
+               ]
+           ]
+       ],
+       // Update End
+
+       // Update  start
+       'v30' => [
+           'date'      => '15 August 2024',
+           'version'   => 'Version 3.2.14',
+           'changelog' => [
+               'Improvement'   =>   [
+                   'Billing form notices text improve',
+                   'Payment System security patch updated',
+               ],
+                'Compatibility'   =>   [
+                   'Avada and  Astra theme',
+               ],
+           ]
+       ],
+       // Update End
         // Update  start
        'v29' => [
            'date'      => '28 July 2024',
@@ -42,34 +70,6 @@ $change = [
        ],
        // Update End
         
-        // Update  start
-       'v27' => [
-           'date'      => '10 June 2024',
-           'version'   => 'Version 3.2.11',
-           'changelog' => [
-                'Improvement'   =>   [
-                   'System stability improved',
-                   'Security and translation',
-               ]
-           ]
-       ],
-       // Update End
-        
-        // Update  start
-       'v26' => [
-           'date'      => '26 June 2024',
-           'version'   => 'Version 3.2.10',
-           'changelog' => [
-               'Improvement'   =>   [
-                   'System stability Improved',
-                   'Updated readme.txt',
-               ],
-                'Compatibility'   =>   [
-                   'Compatible with WooCommerce 9.0',
-               ],
-           ]
-       ],
-       // Update End
 
 ]
 
