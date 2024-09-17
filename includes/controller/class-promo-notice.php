@@ -32,6 +32,8 @@ class INS_PROMO_NOTICE {
  
 
     public function __construct() {  
+		
+        
         if(in_array(date('F'), $this->months) && !class_exists('WOOINS')){  
 
             $ins_promo__schudle_start_from = !empty(get_option( 'ins_promo__schudle_start_from' )) ? get_option( 'ins_promo__schudle_start_from' ) : 0;
@@ -160,9 +162,9 @@ class INS_PROMO_NOTICE {
         $image_url = isset($dashboard_banner['banner_url']) ? esc_url($dashboard_banner['banner_url']) : '';
         $deal_link = isset($dashboard_banner['redirect_url']) ? esc_url($dashboard_banner['redirect_url']) : ''; 
 
-        $tf_dismiss_admin_notice = get_option( 'tf_dismiss_admin_notice' );
+        $ins_dismiss_admin_notice = get_option( 'ins_dismiss_admin_notice' );
         $get_current_screen = get_current_screen();  
-        if(($tf_dismiss_admin_notice == 1  || time() >  $tf_dismiss_admin_notice ) && $get_current_screen->base == 'dashboard'   ){ 
+        if(($ins_dismiss_admin_notice == 1  || time() >  $ins_dismiss_admin_notice ) && $get_current_screen->base == 'dashboard'   ){ 
            
             // if very fist time then set the dismiss for our other plugins
             update_option( 'tf_promo_notice_exists', 'ins' );
@@ -226,9 +228,9 @@ class INS_PROMO_NOTICE {
         $restart = isset($dashboard_banner['restart']) && $dashboard_banner['restart'] != false ? $dashboard_banner['restart'] : false; 
         
         if($restart == false){
-            update_option( 'tf_dismiss_admin_notice', strtotime($dashboard_banner['end_date']) ); 
+            update_option( 'ins_dismiss_admin_notice', strtotime($dashboard_banner['end_date']) ); 
         }else{
-            update_option( 'tf_dismiss_admin_notice', time() + (86400 * $restart) );  
+            update_option( 'ins_dismiss_admin_notice', time() + (86400 * $restart) );  
         } 
     
 		wp_die();
