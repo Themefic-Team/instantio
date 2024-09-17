@@ -126,9 +126,9 @@ class INS_PROMO_NOTICE {
                 // Unset the cookie variable in the current script
                 update_option( 'ins_dismiss_admin_notice', 1);
                 update_option( 'ins_dismiss_post_woo_notice', 1);  
-                update_option( 'ins_promo__schudle_start_from', time() + 86400);
+                update_option( 'ins_promo__schudle_start_from', time() + 43200);
             }elseif(empty($ins_promo__schudle_option)){
-                update_option( 'ins_promo__schudle_start_from', time() + 86400);
+                update_option( 'ins_promo__schudle_start_from', time() + 43200);
             }
             update_option( 'ins_promo__schudle_option', $this->responsed);
             // Add 24 hours to the current time for the next update
