@@ -128,7 +128,7 @@ if ( ! class_exists( 'Ins_TF_Options' ) ) {
 		public function Ins_tf_options_admin_enqueue_scripts( $screen ) {
 			// var_dump($screen);
 			global $post_type;
-			$tf_options_screens = array( 'toplevel_page_wiopt', 'instantio_page_ins_dashboard', 'instantio_page_tf_license_info', 'instantio_page_ins_get_help', 'instantio_page_ins_whats_new', 'admin_page_tf-setup-wizard', 'instantio_page_ins-license-activation' );
+			$tf_options_screens = array( 'toplevel_page_wiopt', 'instantio_page_ins_dashboard', 'instantio_page_tf_license_info', 'instantio_page_ins_get_help', 'instantio_page_ins_whats_new', 'admin_page_ins-setup-wizard', 'instantio_page_ins-license-activation' );
 
 			if ( in_array( $screen, $tf_options_screens ) ) {
 				wp_enqueue_style( 'wp-color-picker' );
@@ -163,20 +163,20 @@ if ( ! class_exists( 'Ins_TF_Options' ) ) {
 				}
 				wp_enqueue_media();
 				wp_enqueue_editor();
+
+				wp_enqueue_script( 'ins_tf-options', $this->Ins_tf_options_file_url( 'assets/js/ins-options.js' ), array( 'jquery' ), $this->Ins_tf_options_version() );
+
+				wp_localize_script( 'ins_tf-options', 'tf_options', array(
+					'ajax_url' => admin_url( 'admin-ajax.php' ),
+					'nonce' => wp_create_nonce( 'tf_options_nonce' ),
+					'option_id' => 'wiopt',
+				) );
+
+				wp_localize_script( 'ins-admin', 'ins_admin', array(
+					'ajax_url' => admin_url( 'admin-ajax.php' )
+				) );
+
 			}
-
-
-			wp_enqueue_script( 'ins_tf-options', $this->Ins_tf_options_file_url( 'assets/js/ins-options.js' ), array( 'jquery' ), $this->Ins_tf_options_version() );
-
-			wp_localize_script( 'ins_tf-options', 'tf_options', array(
-				'ajax_url' => admin_url( 'admin-ajax.php' ),
-				'nonce' => wp_create_nonce( 'tf_options_nonce' ),
-				'option_id' => 'wiopt',
-			) );
-
-			wp_localize_script( 'ins-admin', 'ins_admin', array(
-				'ajax_url' => admin_url( 'admin-ajax.php' )
-			) );
 		}
 
 		/**

@@ -1,8 +1,8 @@
 (function ($) {
     $(document).ready(function () {
 
-        //if body has class .admin_page_tf-setup-wizard then add background-color: #ecf5ff; to html
-        if ($('body').hasClass('admin_page_tf-setup-wizard')) {
+        //if body has class .admin_page_ins-setup-wizard then add background-color: #ecf5ff; to html
+        if ($('body').hasClass('admin_page_ins-setup-wizard')) {
             $('html').css('padding', '0');
         }
 
@@ -79,7 +79,7 @@
 
         /*
         * Setup Wizard form submit
-        * @author: Foysal
+        * @author: M Hemel Hasan
         */
         $(document).on('click', '.tf-setup-submit-btn', function (e) {
             e.preventDefault();

@@ -270,13 +270,13 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 										<p>
 											<?php _e( "Click the button below to run the setup wizard of Instantio. Your existing settings will be change.", "instantio" ); ?>
 										</p>
-										<a href="<?php echo esc_url( admin_url( 'admin.php?page=tf-setup-wizard' ) ) ?>"
+										<a href="<?php echo esc_url( admin_url( 'admin.php?page=ins-setup-wizard' ) ) ?>"
 											class="tf-admin-btn tf-btn-secondary">
 											<?php _e( "Setup Wizard", "instantio" ); ?>
 										</a>
 									</div>
 									<!-- <div class="tf-help-center-content-img">
-										<img src="<?php // echo INS_ADMIN_URL?>/tf-options/img/wizard/setup_wizard_icon.svg" alt="image"/>
+										<img src="<?php // echo INS_ADMIN_URL ?>/tf-options/img/wizard/setup_wizard_icon.svg" alt="image"/>
 									</div> -->
 
 								</div>
@@ -782,7 +782,7 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 																	</li>
 																<?php } ?>
 															</ul>
-														<?php
+															<?php
 														}
 													} ?>
 												</div>

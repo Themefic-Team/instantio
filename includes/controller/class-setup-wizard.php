@@ -40,12 +40,12 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
 
 			if ( current_user_can( 'manage_options' ) ) {
 				add_submenu_page(
-					'',
+					' ',
 					esc_html__( 'Instantio Setup Wizard', 'instantio' ),
 					esc_html__( 'Instantio Setup Wizard', 'instantio' ),
 					'manage_options',
-					'tf-setup-wizard',
-					[ $this, 'tf_wizard_page' ],
+					'ins-setup-wizard',
+					[ $this, 'ins_wizard_page' ],
 					99
 				);
 			}
@@ -55,7 +55,7 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
 		 * Remove all notice in setup wizard page
 		 */
 		public function remove_notice() {
-			if ( isset( $_GET[ 'page' ] ) && $_GET[ 'page' ] == 'tf-setup-wizard' ) {
+			if ( isset( $_GET[ 'page' ] ) && $_GET[ 'page' ] == 'ins-setup-wizard' ) {
 				remove_all_actions( 'admin_notices' );
 				remove_all_actions( 'all_admin_notices' );
 			}
@@ -64,7 +64,7 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
 		/**
 		 * Setup wizard page
 		 */
-		public function tf_wizard_page() {
+		public function ins_wizard_page() {
 			?>
             <div class="tf-setup-wizard-wrapper" id="tf-setup-wizard-wrapper">
                 <div class="tf-setup-container">
@@ -606,7 +606,7 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
 		public function tf_activation_redirect() {
 			if ( ! get_option( 'tf_setup_wizard' )) {
 				update_option( 'tf_setup_wizard', 'active' );
-				wp_redirect( admin_url( 'admin.php?page=tf-setup-wizard' ) );
+				wp_redirect( admin_url( 'admin.php?page=ins-setup-wizard' ) );
 				exit;
 			}
 		}
