@@ -166,9 +166,9 @@ if ( ! class_exists( 'Ins_TF_Options' ) ) {
 
 				wp_enqueue_script( 'ins_tf-options', $this->Ins_tf_options_file_url( 'assets/js/ins-options.js' ), array( 'jquery' ), $this->Ins_tf_options_version() );
 
-				wp_localize_script( 'ins_tf-options', 'tf_options', array(
+				wp_localize_script( 'ins_tf-options', 'ins_options', array(
 					'ajax_url' => admin_url( 'admin-ajax.php' ),
-					'nonce' => wp_create_nonce( 'tf_options_nonce' ),
+					'nonce' => wp_create_nonce( 'ins_options_nonce' ),
 					'option_id' => 'wiopt',
 				) );
 
