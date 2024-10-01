@@ -24,6 +24,9 @@ class INSTANTIO {
 		$this->includes();
 		$this->init_hooks();
 		$this->ins_public_hooks();
+
+		//enqueue scripts
+		add_action( 'admin_enqueue_scripts', [ $this, 'Ins_tourfic_admin_denqueue_script' ], 20 );
 	}
 
 	/**
@@ -203,6 +206,27 @@ class INSTANTIO {
 		// add_filter('woocommerce_default_address_fields', 'ins_over_checkout_shiping_address');
 	}
 
+	public function Ins_tourfic_admin_denqueue_script( $screen ) {
+		$ins_options_screens = array( 
+			'toplevel_page_wiopt', 
+			'instantio_page_ins_dashboard', 
+			'instantio_page_tf_license_info', 
+			'instantio_page_ins_get_help', 
+			'instantio_page_ins_whats_new', 
+			'admin_page_ins-setup-wizard', 
+			'instantio_page_ins-license-activation' 
+		);
+	
+		//The tourfic admin js Listings Directory Compatibility
+		if ( in_array( $screen, $ins_options_screens ) ) {
+			wp_dequeue_style( 'tf-admin' );
+			wp_deregister_style( 'tf-admin' );
+			wp_dequeue_style( 'tf-pro' );
+			wp_dequeue_script( 'tf-pro' );
+			wp_deregister_script('tf-pro');
+		}
+	}
+
 }
 
 
@@ -217,7 +241,7 @@ function ins_before_woocommerce_init() {
 	}
 }
 
-function ins_admin_enqueue_scripts() {
+function ins_admin_enqueue_scripts($screen) {
 	wp_enqueue_style( 'ins-admin', INS_ASSETS_URL . '/admin/css/instantio-admin-style.css', array(), INSTANTIO_VERSION );
 	wp_enqueue_script( 'ins-admin-script', INS_ASSETS_URL . '/admin/js/instantio-admin-script.js', array( 'jquery' ), INSTANTIO_VERSION, true );
 	
