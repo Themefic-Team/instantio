@@ -76,9 +76,10 @@ class INSTANTIO {
 		}
 
 		// ins Promo Banner
-		if ( file_exists( INS_INC_PATH . '/controller/class-promo-notice.php' ) ) {
+		if ( defined('INS_INC_PATH') && !empty(INS_INC_PATH) ) {
 			require_once INS_INC_PATH . '/controller/class-promo-notice.php';
 		}
+		
 	}
 
 	/**
@@ -94,7 +95,7 @@ class INSTANTIO {
 	 * @since 1.0
 	 */
 	public function init() {
-		add_action( 'init', array( $this, 'tf_plugin_loaded_action' ) );
+		add_action( 'init', array( $this, 'ins_plugin_loaded_action' ) );
 
 		if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
 			new INS\Controller\Assets();
@@ -123,9 +124,9 @@ class INSTANTIO {
 	 *
 	 * Including Options
 	 */
-	public function tf_plugin_loaded_action() {
+	public function ins_plugin_loaded_action() {
 
-		if ( file_exists( INS_PATH . 'admin/tf-options/Ins_TF_Options.php' ) ) {
+		if ( defined('INS_PATH') && !empty(INS_PATH) ) {
 			require_once INS_PATH . 'admin/tf-options/Ins_TF_Options.php';
 		}
 
@@ -245,9 +246,9 @@ function ins_admin_enqueue_scripts($screen) {
 	wp_enqueue_style( 'ins-admin', INS_ASSETS_URL . '/admin/css/instantio-admin-style.css', array(), INSTANTIO_VERSION );
 	wp_enqueue_script( 'ins-admin-script', INS_ASSETS_URL . '/admin/js/instantio-admin-script.js', array( 'jquery' ), INSTANTIO_VERSION, true );
 	
-	wp_localize_script( 'ins-admin-script', 'tf_admin_params',
+	wp_localize_script( 'ins-admin-script', 'ins_admin_params',
 		array(
-			'ins_nonce' => wp_create_nonce( 'updates' ),
+			'ins_nonce' => wp_create_nonce( 'ins_updates' ),
 			'ajax_url' => admin_url( 'admin-ajax.php' ),
 		)
 	);

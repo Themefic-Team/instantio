@@ -30,13 +30,13 @@
 
         //     var data = {
         //         action: 'ins_ajax_install_plugin',
-        //         _ajax_nonce: tf_admin_params.ins_nonce,
+        //         _ajax_nonce: ins_admin_params.ins_nonce,
         //         slug: plugin_slug,
         //     };
 
         //     console.log(data);
 
-        //     jQuery.post(tf_admin_params.ajax_url, data, function (response) {
+        //     jQuery.post(ins_admin_params.ajax_url, data, function (response) {
         //         console.log(response);
         //         //console.log(response.data.activateUrl);
         //         current.removeClass('updating-message');
@@ -68,11 +68,11 @@
 
             var data = {
                 action: 'ins_ajax_install_woocommerce',
-                _ajax_nonce: tf_admin_params.ins_nonce,
+                _ajax_nonce: ins_admin_params.ins_nonce,
                 slug: plugin_slug,
             };
 
-            jQuery.post(tf_admin_params.ajax_url, data, function (response) {
+            jQuery.post(ins_admin_params.ajax_url, data, function (response) {
                 // console.log(response);
                 // console.log(response.data.activateUrl);
                 current.removeClass('updating-message');
