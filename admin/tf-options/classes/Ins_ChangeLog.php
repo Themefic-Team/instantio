@@ -12,6 +12,21 @@
 $change = [
 
        // Update  start
+       'v33' => [
+           'date'      => '08 October 2024',
+           'version'   => 'Version 3.3.1',
+           'changelog' => [
+               'Compatibility'   =>   [
+                   'Compatible with UACF7 plugin',
+               ],
+                'Improvement'   =>   [
+                    'System stability improved',
+               ]
+           ]
+       ],
+       // Update End  
+
+       // Update  start
        'v32' => [
            'date'      => '17 September 2024',
            'version'   => 'Version 3.3.1',
@@ -54,23 +69,6 @@ $change = [
            ]
        ],
        // Update End
-        // Update  start
-       'v29' => [
-           'date'      => '28 July 2024',
-           'version'   => 'Version 3.2.13',
-           'changelog' => [
-               'Compatibility'   =>   [
-                   'Compatible with WooCommerce 9.1.4',
-               ],
-                'Improvement'   =>   [
-                    'Reorganized CSS and JS',
-               ]
-           ]
-       ],
-       // Update End  
-
 ]
-
-
 
 ?>
