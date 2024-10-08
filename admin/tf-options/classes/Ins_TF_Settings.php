@@ -30,7 +30,7 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 			add_action( 'admin_init', array( $this, 'save_options' ) );
 
 			//ajax save options
-			add_action( 'wp_ajax_tf_options_save', array( $this, 'tf_ajax_save_options' ) );
+			add_action( 'wp_ajax_ins_options_save', array( $this, 'tf_ajax_save_options' ) );
 
 			// constent defined
 			if ( ! defined( 'TF_OPTION_ID' ) ) {
@@ -270,13 +270,13 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 										<p>
 											<?php _e( "Click the button below to run the setup wizard of Instantio. Your existing settings will be change.", "instantio" ); ?>
 										</p>
-										<a href="<?php echo esc_url( admin_url( 'admin.php?page=tf-setup-wizard' ) ) ?>"
+										<a href="<?php echo esc_url( admin_url( 'admin.php?page=ins-setup-wizard' ) ) ?>"
 											class="tf-admin-btn tf-btn-secondary">
 											<?php _e( "Setup Wizard", "instantio" ); ?>
 										</a>
 									</div>
 									<!-- <div class="tf-help-center-content-img">
-										<img src="<?php // echo INS_ADMIN_URL?>/tf-options/img/wizard/setup_wizard_icon.svg" alt="image"/>
+										<img src="<?php // echo INS_ADMIN_URL ?>/tf-options/img/wizard/setup_wizard_icon.svg" alt="image"/>
 									</div> -->
 
 								</div>
@@ -782,7 +782,7 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 																	</li>
 																<?php } ?>
 															</ul>
-														<?php
+															<?php
 														}
 													} ?>
 												</div>
@@ -910,7 +910,7 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 
 								</div>
 							</div>
-							<?php wp_nonce_field( 'tf_option_nonce_action', 'tf_option_nonce' ); ?>
+							<?php wp_nonce_field( 'ins_option_nonce_action', 'ins_option_nonce' ); ?>
 						</form>
 					</div>
 				</div>
@@ -925,8 +925,8 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 		public function save_options() {
 
 			// Add nonce for security and authentication.
-			$nonce_name = isset( $_POST['tf_option_nonce'] ) ? $_POST['tf_option_nonce'] : '';
-			$nonce_action = 'tf_option_nonce_action';
+			$nonce_name = isset( $_POST['ins_option_nonce'] ) ? $_POST['ins_option_nonce'] : '';
+			$nonce_action = 'ins_option_nonce_action';
 
 
 
@@ -1000,7 +1000,7 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 				'message' => __( 'Something went wrong!', 'instantio' ),
 			];
 
-			if ( ! empty( $_POST['tf_option_nonce'] ) && wp_verify_nonce( $_POST['tf_option_nonce'], 'tf_option_nonce_action' ) ) {
+			if ( ! empty( $_POST['ins_option_nonce'] ) && wp_verify_nonce( $_POST['ins_option_nonce'], 'ins_option_nonce_action' ) ) {
 				$this->save_options();
 				$response = [ 
 					'status' => 'success',
