@@ -3,7 +3,7 @@ Contributors: themefic, kamrul0424, hemelhasan, hasanet, mdrejon, mdashikul
 Tags: woocommerce cart, woocommerce checkout, woocommerce direct checkout, multistep checkout, woocommerce side cart
 Requires at least: 4.0
 Tested up to: 6.6
-Stable tag: 3.3.2
+Stable tag: 3.3.3
 WC requires at least: 7.0
 WC tested up to: 9.3
 Requires PHP: 7.4
@@ -365,9 +365,14 @@ For those seeking simplicity, Instantio provides a simplified WooCommerce checko
 
 == Changelog ==
 
+= 3.3.3 - ( October 25, 2024 ) =
+
+- Fixed: WooCommerce PayPal Payments Conflict Issue
+- Improvement: System stability improved
+
 = 3.3.2 - ( September 08, 2024 ) =
 
-- Compatible with UACF7 plugin
+- Compatibility with UACF7 plugin
 - System stability improved
 
 = 3.3.1 - ( September 17, 2024 ) =
@@ -579,67 +584,6 @@ For those seeking simplicity, Instantio provides a simplified WooCommerce checko
 - New Payment system added
 - Custom Icon option added
 - Multistep checkout process added
-
-= 2.5.25 = ( May 28, 2023 )
-
-- Compatibility check with WordPress 6.2.2
-- Update Notice for instantio 3.0
-
-= 2.5.24 = ( May 17, 2023 )
-
-- Compatibility check with WordPress 6.2.1
-- Compatibility check with WooCommerce 7.7.0
-
-= 2.5.23 = ( April 06, 2023 )
-
-- Updated: Demo URL
-- Updated: Readme.txt
-- Optimized Code
-
-= 2.5.22 = ( March 31, 2023 )
-
-- Compatibility check with WordPress 6.2
-- Removed Unused Code
-- Fixed CSS
-
-= 2.5.21 = ( March 29, 2023 )
-
-- Updated: Appsero update
-- Compatibility check with Woocommerce 7.5.1
-
-= 2.5.20 = ( March 15, 2023 )
-
-- Fixed: Admin Noties issues fix
-- Fixed: Some CSS bugs
-
-= 2.5.19 = ( February 26, 2023 )
-
-- Added: Notice for Next Update
-- Fixed: Mobile cart issues
-- Fixed: Cart Design
-
-= 2.5.18 = ( January 18, 2023 )
-
-- Added: Review admin notice
-- Compatibility check with Woocommerce 7.3.0
-
-= 2.5.17 = ( January 10, 2023 )
-
-- Fixed: JS Issue
-- More theme compatibility
-
-= 2.5.16 = ( December 29, 2022 )
-
-- WC tested up to: 7.2.2
-- Fixed: Css Issue
-
-= 2.5.15 = ( December 18, 2022 )
-
-- Fixed: Warning Issues 
-- Added: SideCart Cart Button On OFF Option (Admin Area)
-- Added: SideCart Checkout Button On OFF Option  (Admin Area)
-- Improved: Cart Page Design 
-- WC tested up to: 7.2.0
 
 **Old Changelog can be found [here](https://themefic.com/instantio/changelog/)**.
 
