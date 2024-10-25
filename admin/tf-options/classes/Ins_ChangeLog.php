@@ -12,9 +12,24 @@
 $change = [
 
        // Update  start
+       'v34' => [
+           'date'      => '25 October 2024',
+           'version'   => 'Version 3.3.3',
+           'changelog' => [
+               'Fix'   =>   [
+                   'WooCommerce PayPal Payments Conflict Issue',
+               ],
+                'Improvement'   =>   [
+                    'System stability improved',
+               ]
+           ]
+       ],
+       // Update End  
+
+       // Update  start
        'v33' => [
            'date'      => '08 October 2024',
-           'version'   => 'Version 3.3.1',
+           'version'   => 'Version 3.3.2',
            'changelog' => [
                'Compatibility'   =>   [
                    'Compatible with UACF7 plugin',
@@ -50,22 +65,6 @@ $change = [
                    'New feature mini cart drawer',
                    'Introduced shortcode for mini cart',
                ]
-           ]
-       ],
-       // Update End
-
-       // Update  start
-       'v30' => [
-           'date'      => '15 August 2024',
-           'version'   => 'Version 3.2.14',
-           'changelog' => [
-               'Improvement'   =>   [
-                   'Billing form notices text improve',
-                   'Payment System security patch updated',
-               ],
-                'Compatibility'   =>   [
-                   'Avada and  Astra theme',
-               ],
            ]
        ],
        // Update End
