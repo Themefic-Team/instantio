@@ -12,6 +12,21 @@
 $change = [
 
        // Update  start
+       'v35' => [
+           'date'      => '03 November 2024',
+           'version'   => 'Version 3.3.4',
+           'changelog' => [
+                'Improvement'   =>   [
+                   'Improved system stability',
+               ],
+              'Fix'   =>   [
+                   'Enhanced clarity of Instantio admin notices',
+               ],
+           ]
+       ],
+       // Update End
+
+       // Update  start
        'v34' => [
            'date'      => '25 October 2024',
            'version'   => 'Version 3.3.3',
@@ -56,18 +71,6 @@ $change = [
        ],
        // Update End
        
-       // Update  start
-       'v31' => [
-           'date'      => '20 August 2024',
-           'version'   => 'Version 3.3.0',
-           'changelog' => [
-                'Improvement'   =>   [
-                   'New feature mini cart drawer',
-                   'Introduced shortcode for mini cart',
-               ]
-           ]
-       ],
-       // Update End
 ]
 
 ?>

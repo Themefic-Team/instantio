@@ -34,7 +34,7 @@ class Assets {
 		wp_enqueue_style( 'ins-admin', INS_ASSETS_URL . '/admin/css/instantio-admin-style.css', array(), INSTANTIO_VERSION );
 		wp_enqueue_script( 'ins-admin-script', INS_ASSETS_URL . '/admin/js/instantio-admin-script.js', array( 'jquery' ), INSTANTIO_VERSION, true );
 
-		wp_localize_script( 'ins-admin-script', 'tf_admin_params',
+		wp_localize_script( 'ins-admin-script', 'ins_admin_params',
 			array(
 				'ins_nonce' => wp_create_nonce( 'updates' ),
 				'ajax_url' => admin_url( 'admin-ajax.php' ),
