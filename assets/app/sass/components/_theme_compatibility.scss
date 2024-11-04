@@ -144,6 +144,33 @@ body.rtl {
                   .fusion-button {
                     display: none !important;
                   }
+                  .woocommerce-billing-fields{
+                    .fusion-responsive-typography-calculated{
+                      margin-bottom: 20px;
+                    }
+                    .woocommerce-billing-fields__field-wrapper{
+                      .address-field{
+                        .woocommerce-input-wrapper{
+                          .select-arrow{
+                            background: transparent;
+                            width: 20px !important;
+                            height: 20px !important;
+                            position: absolute;
+                            color: black;
+                            top: 50%;
+                            right: 6px;
+                            transform: translateY(-50%);
+                            display: flex;
+                            align-items: center;
+                          }
+                          .select-arrow{
+                            background-color: transparent !important;
+                          }
+                        }
+                      }
+                      
+                    }
+                  }
                 }
               }
             }
