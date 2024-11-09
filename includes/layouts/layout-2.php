@@ -5,7 +5,9 @@ defined( 'ABSPATH' ) || exit;
 
 ?> 
 
-<div class="loader-container"><div class="db-spinner"></div></div>
+<div class="loader-container">
+	<div class="db-spinner"></div>
+</div>
 
 
 <?php 
