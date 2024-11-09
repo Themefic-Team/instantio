@@ -97,7 +97,7 @@
             formData.append('action', 'tf_setup_wizard_submit');
 
             $.ajax({
-                url: tf_admin_params.ajax_url,
+                url: ins_options.ajax_url,
                 type: 'POST',
                 data: formData,
                 processData: false,

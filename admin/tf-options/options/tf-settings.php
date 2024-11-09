@@ -438,7 +438,7 @@ Ins_TF_Settings::option( 'wiopt', array(
 					'id' => 'ins-mini-cart',
 					'type' => 'fieldset',
 					'label' => __( 'Mini Cart Option', 'instantio' ),
-					'subtitle' => __( 'Enable/Disable Mini cart option', 'instantio' ),
+					'subtitle' => __( 'Please utilize this shortcode in any location where you would like to display the mini cart.', 'instantio' ),
 					'fields' => [ 
 						[ 
 							'id' => 'ins-mini-cart-option',
@@ -446,6 +446,7 @@ Ins_TF_Settings::option( 'wiopt', array(
 							'label' => __( 'Mini Cart ShortCode', 'instantio' ),
 							'label_on' => __( 'Yes', 'instantio' ),
 							'label_off' => __( 'No', 'instantio' ),
+							'subtitle' => __( 'Enable/Disable Mini cart option', 'instantio' ),
 							'default' => false,
 						],
 						[ 
