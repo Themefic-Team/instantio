@@ -438,7 +438,7 @@ Ins_TF_Settings::option( 'wiopt', array(
 					'id' => 'ins-mini-cart',
 					'type' => 'fieldset',
 					'label' => __( 'Mini Cart Option', 'instantio' ),
-					'subtitle' => __( 'Please utilize this shortcode in any location where you would like to display the mini cart.', 'instantio' ),
+					'subtitle' => __( 'Utilize this shortcode in any location where you would like to display the mini cart.', 'instantio' ),
 					'fields' => [ 
 						[ 
 							'id' => 'ins-mini-cart-option',
