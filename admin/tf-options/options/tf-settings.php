@@ -462,6 +462,7 @@ Ins_TF_Settings::option( 'wiopt', array(
 							'label' => __( 'Turn off main cart icon', 'instantio' ),
 							'label_on' => __( 'Yes', 'instantio' ),
 							'label_off' => __( 'No', 'instantio' ),
+							'subtitle' => __('This option will turn off the Instantio Cart (floating) button.', 'instantio'),
 							'default' => false,
 						]
 					],
