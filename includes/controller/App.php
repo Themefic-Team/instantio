@@ -312,12 +312,10 @@ class App {
 	// Ins Cart Content Modern
 	public function ins_cart_content_modern( $display ) {
 		ob_start();
-
 		?>
 		<div class="ins-content <?php echo esc_attr( $display ) ?>">
 			<div class="ins-cart-inner step-1 ins-cart-step active">
 				<?php require_once apply_filters( 'ins_cart_template', INS_INC_PATH . '/templates/cart-modern.php' ); ?>
-
 			</div>
 			<?php do_action( 'ins_template_step_content' ); ?>
 		</div>
@@ -376,7 +374,8 @@ class App {
 		endif;
 
 		$ins_cart_total = WC()->cart->get_cart_contents_count();
-		// $ins_checkout_load = apply_filters('ins_template_step_content', '');
+		// need to check this again 
+		// $ins_checkout_load = apply_filters('ins_template_step_content');
 
 		$response = array(
 			// 'fragments' => apply_filters( 'ins_cart_count_fragments', array() ),
@@ -392,9 +391,7 @@ class App {
 
 		wp_send_json_success( $response );
 
-
 		wp_die();
-
 	}
 
 	// Ajax Single Page Add to Cart

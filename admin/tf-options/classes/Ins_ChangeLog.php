@@ -11,6 +11,22 @@
 
 $change = [
 
+       
+       // Update  start
+       'v36' => [
+           'date'      => '12 November 2024',
+           'version'   => 'Version 3.3.5',
+           'changelog' => [
+                'Improvement'   =>   [
+                   'Settings panel labels updated',
+               ],
+                'Fix'   =>   [
+                   'Quick Setup button functionality issue',
+               ]
+           ]
+       ],
+       // Update End
+       
        // Update  start
        'v35' => [
            'date'      => '03 November 2024',
@@ -55,21 +71,6 @@ $change = [
            ]
        ],
        // Update End  
-
-       // Update  start
-       'v32' => [
-           'date'      => '17 September 2024',
-           'version'   => 'Version 3.3.1',
-           'changelog' => [
-                'Improvement'   =>   [
-                   'System stability improved',
-               ],
-                'Info'   =>   [
-                   'Promo banner updated',
-               ]
-           ]
-       ],
-       // Update End
        
 ]
 
