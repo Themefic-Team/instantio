@@ -34,7 +34,7 @@ class INS_PROMO_NOTICE {
     public function __construct() {  
 		
         
-        if(in_array(date('F'), $this->months) && !class_exists('WOOINS')){  
+        if(in_array(date('F'), $this->months) && ! is_plugin_active( 'wooinstant/wooinstant.php' )){   
 
             $ins_promo__schudle_start_from = !empty(get_option( 'ins_promo__schudle_start_from' )) ? get_option( 'ins_promo__schudle_start_from' ) : 0;
             if($ins_promo__schudle_start_from == 0){
