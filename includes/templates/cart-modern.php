@@ -45,7 +45,7 @@ do_action( 'woocommerce_before_cart' );
 			<div class="ins-single-cart-wrap">
 				<!-- Single Cart item end Start -->
 				<?php
-				// do_action( 'woocommerce_before_cart_table' );
+				do_action( 'woocommerce_before_cart_table' );
 				foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ) {
 					$_product = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );
 					$product_id = apply_filters( 'woocommerce_cart_item_product_id', $cart_item['product_id'], $cart_item, $cart_item_key );
@@ -214,7 +214,11 @@ do_action( 'woocommerce_before_cart' );
 						</div>
 					<?php } ?>
 
-					
+					<button type="submit"
+						class="button<?php echo esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ); ?> ins-cart-coupon-updated-cart"
+						name="update_cart" value="<?php esc_attr_e( 'Update cart', 'woocommerce' ); ?>">
+						<?php esc_html_e( 'Update cart', 'woocommerce' ); ?>
+					</button>
 
 					<?php do_action( 'woocommerce_cart_actions' ); ?>
 
