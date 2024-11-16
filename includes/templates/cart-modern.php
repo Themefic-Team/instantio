@@ -47,7 +47,7 @@ if(! class_exists('ASTRA_Ext_WooCommerce_Markup') || ( class_exists(('ASTRA_Ext_
 			<div class="ins-single-cart-wrap">
 				<!-- Single Cart item end Start -->
 				<?php
-				do_action( 'woocommerce_before_cart_table' );
+				//do_action( 'woocommerce_before_cart_table' );
 				foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ) {
 					$_product = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );
 					$product_id = apply_filters( 'woocommerce_cart_item_product_id', $cart_item['product_id'], $cart_item, $cart_item_key );
@@ -233,11 +233,11 @@ if(! class_exists('ASTRA_Ext_WooCommerce_Markup') || ( class_exists(('ASTRA_Ext_
 				</div>
 			</div>
 
-			<?php // do_action( 'woocommerce_after_cart_table' );  ?>
+			<?php  //do_action( 'woocommerce_after_cart_table' );  ?>
 
 			<?php 
 				if(! class_exists('ASTRA_Ext_WooCommerce_Markup') || ( class_exists(('ASTRA_Ext_WooCommerce_Markup') && ! astra_get_option( 'cart-modern-layout' ) ))){
-					do_action( 'woocommerce_before_cart_collaterals' ); 
+					 do_action( 'woocommerce_before_cart_collaterals' ); 
 				}
 			?>
 
