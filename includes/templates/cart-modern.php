@@ -19,7 +19,9 @@ defined( 'ABSPATH' ) || exit;
 
 $ins_layout = ! empty( insopt( 'ins-layout-options' ) ) ? insopt( 'ins-layout-options' ) : '1';
 
-do_action( 'woocommerce_before_cart' );
+if(! class_exists('ASTRA_Ext_WooCommerce_Markup') || ( class_exists(('ASTRA_Ext_WooCommerce_Markup') && ! astra_get_option( 'cart-modern-layout' ) ))){
+	do_action( 'woocommerce_before_cart' );
+}
 ?>
 <form class="woocommerce-cart-form" action="<?php echo esc_url( wc_get_cart_url() ); ?>" method="post">
 
@@ -233,7 +235,11 @@ do_action( 'woocommerce_before_cart' );
 
 			<?php // do_action( 'woocommerce_after_cart_table' );  ?>
 
-			<?php do_action( 'woocommerce_before_cart_collaterals' ); ?>
+			<?php 
+				if(! class_exists('ASTRA_Ext_WooCommerce_Markup') || ( class_exists(('ASTRA_Ext_WooCommerce_Markup') && ! astra_get_option( 'cart-modern-layout' ) ))){
+					do_action( 'woocommerce_before_cart_collaterals' ); 
+				}
+			?>
 
 			<div class="ins-cart-collaterals cart-collaterals">
 				<?php
