@@ -204,9 +204,11 @@ class Admin {
 					<p>
 						<?php printf( __( 'Instantio requires %1$s WooCommerce %2$s to be activated.', 'instantio' ), '<strong><a href="https://wordpress.org/plugins/woocommerce/" target="_blank">', '</a></strong>' ); ?>
 					</p>
-					<p><a class="install-now button ins_wooinstall" data-plugin-slug="woocommerce">
+					<p>
+						<a href="plugin-install.php?s=woocommerce%2520%2520&tab=search&type=term" class="install-now button ins_wooinstall">
 							<?php esc_attr_e( 'Install Now', 'instantio' ); ?>
-						</a></p>
+						</a>
+					</p>
 				</div>
 			<?php
 			} elseif ( ! is_plugin_active( 'woocommerce/woocommerce.php' ) && file_exists( WP_PLUGIN_DIR . '/woocommerce/woocommerce.php' ) ) {
@@ -216,10 +218,11 @@ class Admin {
 					<p>
 						<?php printf( __( 'Instantio requires %1$s WooCommerce %2$s to be activated.', 'instantio' ), '<strong><a href="https://wordpress.org/plugins/woocommerce/" target="_blank">', '</a></strong>' ); ?>
 					</p>
-					<p><a href="<?php echo get_admin_url(); ?>plugins.php?_wpnonce=<?php echo wp_create_nonce( 'activate-plugin_woocommerce/woocommerce.php' ); ?>&action=activate&plugin=woocommerce/woocommerce.php"
-							class="button activate-now button-primary">
+					<p>
+						<a href="<?php echo get_admin_url(); ?>plugins.php?_wpnonce=<?php echo wp_create_nonce( 'activate-plugin_woocommerce/woocommerce.php' ); ?>&action=activate&plugin=woocommerce/woocommerce.php" class="button activate-now button-primary">
 							<?php esc_attr_e( 'Activate', 'instantio' ); ?>
-						</a></p>
+						</a>
+					</p>
 				</div>
 
 			<?php
