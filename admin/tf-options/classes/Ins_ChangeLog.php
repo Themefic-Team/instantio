@@ -11,6 +11,50 @@
 
 $change = [
 
+        // Update  start
+       'v39' => [
+           'date'      => '20 November 2024',
+           'version'   => 'Version 3.3.8',
+           'changelog' => [
+               'Fix'   =>   [
+                   'Improved and resolved security issues.',
+               ],
+                'Fix'   =>   [
+                    'Addressed minor bugs and implemented general improvements',
+               ]
+           ]
+       ],
+       // Update End  
+
+       // Update  start
+       'v38' => [
+           'date'      => '17 November 2024',
+           'version'   => 'Version 3.3.7',
+           'changelog' => [
+               'Fix'   =>   [
+                   'Resolved compatibility issues with the Astra Theme',
+               ],
+                'Fix'   =>   [
+                    'Addressed PayPal functionality issue',
+               ]
+           ]
+       ],
+       // Update End  
+       
+       // Update  start
+       'v37' => [
+           'date'      => '13 November 2024',
+           'version'   => 'Version 3.3.6',
+           'changelog' => [
+               'Fix'   =>   [
+                   'Cart update button functionality, ensuring seamless cart adjustments.',
+               ],
+                'Fix'   =>   [
+                    'Resolved the notice issue for a cleaner user experience.',
+               ]
+           ]
+       ],
+       // Update End  
        
        // Update  start
        'v36' => [
@@ -26,51 +70,6 @@ $change = [
            ]
        ],
        // Update End
-       
-       // Update  start
-       'v35' => [
-           'date'      => '03 November 2024',
-           'version'   => 'Version 3.3.4',
-           'changelog' => [
-                'Improvement'   =>   [
-                   'Improved system stability',
-               ],
-              'Fix'   =>   [
-                   'Enhanced clarity of Instantio admin notices',
-               ],
-           ]
-       ],
-       // Update End
-
-       // Update  start
-       'v34' => [
-           'date'      => '25 October 2024',
-           'version'   => 'Version 3.3.3',
-           'changelog' => [
-               'Fix'   =>   [
-                   'WooCommerce PayPal Payments Conflict Issue',
-               ],
-                'Improvement'   =>   [
-                    'System stability improved',
-               ]
-           ]
-       ],
-       // Update End  
-
-       // Update  start
-       'v33' => [
-           'date'      => '08 October 2024',
-           'version'   => 'Version 3.3.2',
-           'changelog' => [
-               'Compatibility'   =>   [
-                   'Compatible with UACF7 plugin',
-               ],
-                'Improvement'   =>   [
-                    'System stability improved',
-               ]
-           ]
-       ],
-       // Update End  
        
 ]
 
