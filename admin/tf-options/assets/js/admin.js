@@ -24,7 +24,8 @@
             e.preventDefault();
             var $this = $(this);
             var data = {
-                action: 'ins_del_billing_fields'
+                action: 'ins_del_billing_fields',
+                _wpnonce: ins_admin.ajax_nonce
             };
 
             $this.addClass("tf-btn-loading");
@@ -54,7 +55,8 @@
             e.preventDefault();
             var $this = $(this);
             var data = {
-                action: 'ins_del_shipping_fields'
+                action: 'ins_del_shipping_fields',
+                _wpnonce: ins_admin.ajax_nonce
             };
 
             $this.addClass("tf-btn-loading");
