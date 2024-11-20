@@ -8,7 +8,7 @@
  * Domain Path: /lang/
  * Author URI: https://themefic.com
  * Tags: woocommerce cart, woocommerce checkout, woocommerce direct checkout, multistep checkout, woocommerce side cart
- * Version: 3.3.1
+ * Version: 3.3.7
  * Tested up to: 6.6
  * Requires PHP: 7.4
  * WC tested up to: 9.3
