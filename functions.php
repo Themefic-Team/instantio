@@ -46,9 +46,7 @@ add_filter(
 );
 
 // Reset Data
-add_action( 'wp_ajax_nopriv_ins_del_billing_fields', 'ins_del_billing_fields' );
 add_action( 'wp_ajax_ins_del_billing_fields', 'ins_del_billing_fields' );
-add_action( 'wp_ajax_nopriv_ins_del_shipping_fields', 'ins_del_shipping_fields' );
 add_action( 'wp_ajax_ins_del_shipping_fields', 'ins_del_shipping_fields' );
 
 function insopt( $option = '', $default = null ) {
@@ -70,6 +68,18 @@ function is_ins_pro_active() {
 }
 
 function ins_del_billing_fields() {
+	// Verify nonce
+    if ( ! check_ajax_referer( 'ins_ajax_nonce', '_wpnonce', false ) ) {
+        wp_send_json_error( 'Invalid nonce.', 403 );
+        exit;
+    }
+
+	// Verify user capabilities
+    if ( ! is_user_logged_in() || ! current_user_can( 'manage_options' ) ) {
+        wp_send_json_error( 'Unauthorized action.', 403 );
+        exit;
+    }
+
 	$ins_billing_fields = get_option( 'wiopt' );
 
 	if ( isset( $ins_billing_fields['checkout_editors_fields'] ) ) {
@@ -80,11 +90,26 @@ function ins_del_billing_fields() {
 		update_option( 'wiopt', $ins_billing_fields );
 	}
 
+	wp_send_json_success( 'Shipping fields reset successfully.' );
+
+    exit;
 }
 
 
 
 function ins_del_shipping_fields() {
+	// Verify nonce
+    if ( ! check_ajax_referer( 'ins_ajax_nonce', '_wpnonce', false ) ) {
+        wp_send_json_error( 'Invalid nonce.', 403 );
+        exit;
+    }
+
+	// Verify user capabilities
+    if ( ! is_user_logged_in() || ! current_user_can( 'manage_options' ) ) {
+        wp_send_json_error( 'Unauthorized action.', 403 );
+        exit;
+    }
+
 	$ins_shipping_fields = get_option( 'wiopt' );
 
 	if ( isset( $ins_shipping_fields['checkout_shiping_editors_fields'] ) ) {
@@ -95,6 +120,9 @@ function ins_del_shipping_fields() {
 		update_option( 'wiopt', $ins_shipping_fields );
 	}
 
+	wp_send_json_success( 'Shipping fields reset successfully.' );
+
+    exit;
 }
 
 

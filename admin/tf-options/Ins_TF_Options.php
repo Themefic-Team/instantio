@@ -173,7 +173,8 @@ if ( ! class_exists( 'Ins_TF_Options' ) ) {
 				) );
 
 				wp_localize_script( 'ins-admin', 'ins_admin', array(
-					'ajax_url' => admin_url( 'admin-ajax.php' )
+					'ajax_url' => admin_url( 'admin-ajax.php' ),
+					'ajax_nonce' => wp_create_nonce( 'ins_ajax_nonce' )
 				) );
 
 			}
