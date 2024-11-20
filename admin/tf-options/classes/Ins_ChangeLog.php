@@ -18,9 +18,7 @@ $change = [
            'changelog' => [
                'Fix'   =>   [
                    'Improved and resolved security issues.',
-               ],
-                'Fix'   =>   [
-                    'Addressed minor bugs and implemented general improvements',
+                   'Addressed minor bugs and implemented general improvements'
                ]
            ]
        ],
@@ -33,9 +31,7 @@ $change = [
            'changelog' => [
                'Fix'   =>   [
                    'Resolved compatibility issues with the Astra Theme',
-               ],
-                'Fix'   =>   [
-                    'Addressed PayPal functionality issue',
+                   'Addressed PayPal functionality issue'
                ]
            ]
        ],
@@ -48,9 +44,7 @@ $change = [
            'changelog' => [
                'Fix'   =>   [
                    'Cart update button functionality, ensuring seamless cart adjustments.',
-               ],
-                'Fix'   =>   [
-                    'Resolved the notice issue for a cleaner user experience.',
+                   'Resolved the notice issue for a cleaner user experience'
                ]
            ]
        ],
@@ -70,7 +64,6 @@ $change = [
            ]
        ],
        // Update End
-       
 ]
 
 ?>
