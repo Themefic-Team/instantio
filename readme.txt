@@ -2,10 +2,10 @@
 Contributors: themefic, kamrul0424, hemelhasan, hasanet, mdrejon, mdashikul
 Tags: woocommerce cart, woocommerce checkout, woocommerce direct checkout, multistep checkout, woocommerce side cart
 Requires at least: 4.0
-Tested up to: 6.6
-Stable tag: 3.3.7
+Tested up to: 6.7
+Stable tag: 3.3.8
 WC requires at least: 7.0
-WC tested up to: 9.3
+WC tested up to: 9.4
 Requires PHP: 7.4
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -256,7 +256,8 @@ The icon used on this plugin is taken from [Iconfinder](https://www.iconfinder.c
 
 * [Ultimate Before After Image Slider & Gallery - BEAF](https://wordpress.org/plugins/beaf-before-and-after-gallery)
 * [Ultimate Addons For Contact Form 7](https://wordpress.org/plugins/ultimate-addons-for-contact-form-7/)
-* [Tourfic – Ultimate Hotel Booking & Travel Booking WordPress Plugin](https://wordpress.org/plugins/tourfic)
+* [Tourfic – Ultimate Hotel Booking, Travel Booking & Apartment Booking WordPress Plugin](https://wordpress.org/plugins/tourfic)
+* [Hydra Booking – All in One Appointment Scheduling and Booking Calendar Solution](https://wordpress.org/plugins/hydra-booking)
 
 == Installation ==
 
@@ -364,6 +365,11 @@ For those seeking simplicity, Instantio provides a simplified WooCommerce checko
 17. Mini Cart - The Mini Cart Drawer feature allows you to add a cart drawer for WooCommerce and place it anywhere on your website.
 
 == Changelog ==
+
+= 3.3.8 – November 20, 2024 =
+
+- Fix: Improved and resolved security issues.
+- Fix: Addressed minor bugs and implemented general improvements.
 
 = 3.3.7 – November 17, 2024 =
 
@@ -547,52 +553,6 @@ For those seeking simplicity, Instantio provides a simplified WooCommerce checko
 - Improved: Side Cart Responsive
 - Improved: Compatibility with the latest PayPal Plugin
 - Fixed: Options Panel string translatable
-
-= 3.1.3 - ( August 25, 2023 ) =
-
-- Updated: readme.txt
-
-= 3.1.2 - ( August 24, 2023 ) =
-
-- Compatibility check with WooCommerce 8.0.2
-- Updated: readme.txt
-
-= 3.1.1 - ( August 10, 2023 ) =
-
-- Compatibility check with WordPress 6.3
-- Compatibility check with WooCommerce 8.0.1
-
-= 3.1.0 - ( August 07, 2023 ) =
-
-- Added: Single-Step Checkout ( Pro )
-- Fixed: Form label issues
-- Improved: Error handling
-- Improved: Cart responsive Issue
-- Improved: Label/Descriptions in the Settings panel ( Pro )
-
-= 3.0.3 - ( July 23, 2023 ) =
-
-- Fixed: Customer login collapse issues (Pro)
-- Fixed: Cart shipping price updates in real-time
-- Improved: Cart functionality improve
-
-= 3.0.2 - ( July 09, 2023 ) =
-
-- Added: New Payment Added (WooCommerce Square)
-- Fixed: Undefined issue
-- Fixed: Card issues
-- Fixed: Card items title issues
-- Fixed: Guest checkout issues fixed( Pro )
-- Fixed: Allow user to log in during checkout( Pro )
-- Improved: Mobile Card items title
-
-= 3.0.1 - ( June 24, 2023 ) =
-
-- Updated: lang file Updated
-- Fixed: Undefined issue
-- Fixed: Upsell & Cross Sell issue ( Pro )
-- Fixed: Variation product issue in Cartfly
-- Fixed: Column break Issue fixed( Pro )
 
 **Old Changelog can be found [here](https://themefic.com/instantio/changelog/)**.
 
