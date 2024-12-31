@@ -3,7 +3,7 @@ Contributors: themefic, kamrul0424, hemelhasan, hasanet, mdrejon, mdashikul
 Tags: woocommerce cart, woocommerce checkout, woocommerce direct checkout, multistep checkout, woocommerce side cart
 Requires at least: 4.0
 Tested up to: 6.7
-Stable tag: 3.3.10
+Stable tag: 3.3.11
 WC requires at least: 7.0
 WC tested up to: 9.5
 Requires PHP: 7.4
@@ -16,35 +16,37 @@ WooCommerce direct checkout plugin with Side Cart, Popup Cart, Floating Cart & P
 
 ## THE BEST WOOCOMMERCE ONE PAGE CHECKOUT PLUGIN BY INSTANTIO | QUICK & DIRECT CHECKOUT FOR WOOCOMMERCE
 
-👉 Our Official Website: [Click Here](https://themefic.com/instantio/)
+👉 Our Official Website: [Click Here](https://themefic.com/instantio/?utm_source=wp_readme&utm_medium=instantio_top_slot&utm_campaign=website)
 👉 Live Demo Link: **See the Checkout systems below**
-👉 Buy Pro Version: [Click Here](https://themefic.com/instantio/pricing)
-👉 Video Guide on [Youtube](https://www.youtube.com/playlist?list=PLY0rtvOwg0ykIvNBa8XI3SR7WEbdqqKoO).
-👉 Our [Documentation](https://themefic.com/docs/instantio/).
-👉 Join Our [Facebook Group](https://www.facebook.com/groups/instantio.wp).
+👉 Explore Pro: [Play with Backend Options](https://themefic.com/instantio/backend-demo/?utm_source=wp_readme&utm_medium=instantio_top_slot&utm_campaign=pro_backend)
+👉 Buy Pro Version: [Click Here](https://themefic.com/instantio/pricing/?utm_source=wp_readme&utm_medium=instantio_top_slot&utm_campaign=pro_link)
+👉 Video Guide on [Youtube](https://www.youtube.com/playlist?list=PLY0rtvOwg0ykIvNBa8XI3SR7WEbdqqKoO)
+👉 Our [Documentation](https://themefic.com/docs/instantio/?utm_source=wp_readme&utm_medium=instantio_top_slot&utm_campaign=plugin_docs)
+👉 Get Support: [Click Here](https://portal.themefic.com/support/?utm_source=wp_readme&utm_medium=instantio_top_slot&utm_campaign=plugin_support)
+👉 Join Our [Facebook Group](https://www.facebook.com/groups/instantio.wp)
 
 **Instantio has 8 Different WooCommerce Single Page Checkout systems: **
 
-👉 [Popup Cart](https://wpinstant.io/popup-cart/)
-👉 [Side Cart](https://wpinstant.io/side-cart/)
-👉 [Floating / Direct Checkout Button](https://wpinstant.io/floating-button/)
-👉 [Side Checkout - Multi Step (Pro)](https://wpinstant.io/side-checkout)
-👉 [Side Checkout - Single Step (Pro)](https://wpinstant.io/side-checkout-single/)
-👉 [Popup Checkout - Multi Step (Pro)](https://wpinstant.io/popup-checkout/)
-👉 [Popup Checkout - Single Step (Pro)](https://wpinstant.io/popup-checkout-single/)
-👉 [Right to Left / Arabic Checkout](https://wpinstant.io/right-to-left/)
-👉 [Mini Cart](https://wpinstant.io/mini-cart-drawer/)
+👉 [Popup Cart](https://instantio-demo.themefic.com/popup-cart/?utm_source=wp_readme&utm_medium=instantio_top_slot&utm_campaign=demo_link)
+👉 [Side Cart](https://instantio-demo.themefic.com/side-cart/?utm_source=wp_readme&utm_medium=instantio_top_slot&utm_campaign=demo_link)
+👉 [Floating / Direct Checkout Button](https://instantio-demo.themefic.com/floating-button/?utm_source=wp_readme&utm_medium=instantio_top_slot&utm_campaign=demo_link)
+👉 [Side Checkout - Multi Step (Pro)](https://instantio-demo.themefic.com/side-checkout/?utm_source=wp_readme&utm_medium=instantio_top_slot&utm_campaign=demo_link)
+👉 [Side Checkout - Single Step (Pro)](https://instantio-demo.themefic.com/side-checkout-single/?utm_source=wp_readme&utm_medium=instantio_top_slot&utm_campaign=demo_link)
+👉 [Popup Checkout - Multi Step (Pro)](https://instantio-demo.themefic.com/popup-checkout/?utm_source=wp_readme&utm_medium=instantio_top_slot&utm_campaign=demo_link)
+👉 [Popup Checkout - Single Step (Pro)](https://instantio-demo.themefic.com/popup-checkout-single/?utm_source=wp_readme&utm_medium=instantio_top_slot&utm_campaign=demo_link)
+👉 [Right to Left / Arabic Checkout](https://instantio-demo.themefic.com/right-to-left/?utm_source=wp_readme&utm_medium=instantio_top_slot&utm_campaign=demo_link)
+👉 [Mini Cart](https://instantio-demo.themefic.com/mini-cart-drawer/?utm_source=wp_readme&utm_medium=instantio_top_slot&utm_campaign=demo_link)
 
 **Each above system comes with 4 Different Mode/Theme: **
 
-👉 [Lite Mode](https://wpinstant.io/lite-mode)
-👉 [Dark Mode](https://wpinstant.io/dark-mode)
-👉 [Glass Morphism Mode](https://wpinstant.io/glass-morphism)
-👉 [Gradient Mode](https://wpinstant.io/gradient-mode)
+👉 [Lite Mode](https://instantio-demo.themefic.com/lite-mode/?utm_source=wp_readme&utm_medium=instantio_top_slot&utm_campaign=demo_link)
+👉 [Dark Mode](https://instantio-demo.themefic.com/dark-mode/?utm_source=wp_readme&utm_medium=instantio_top_slot&utm_campaign=demo_link)
+👉 [Glass Morphism Mode](https://instantio-demo.themefic.com/glass-morphism/?utm_source=wp_readme&utm_medium=instantio_top_slot&utm_campaign=demo_link)
+👉 [Gradient Mode](https://instantio-demo.themefic.com/gradient-mode/?utm_source=wp_readme&utm_medium=instantio_top_slot&utm_campaign=demo_link)
 
 **Woocommerce Checkout Field Editor: **
 
-👉 [Checkout Field Editor](https://wpinstant.io/checkout-editor/)
+👉 [Checkout Field Editor](https://instantio-demo.themefic.com/checkout-editor/?utm_source=wp_readme&utm_medium=instantio_top_slot&utm_campaign=demo_link)
 
 Instantio is a plugin designed to reduce your cart abandonment rate by streamlining the WooCommerce multistep checkout process. With Instantio's floating cart drawer, customers can skip the cart page and proceed directly to the checkout page in an instant. The entire WooCommerce checkout process takes only 15-25 seconds—yes, you read that correctly!
 
@@ -83,7 +85,7 @@ Instantio features an advanced WooCommerce Quick Checkout system that revolution
 * WooCommerce Field Editor
 
 **Demo Link **
-> **[Check out the demo](https://themefic.com/instantio/lite/")** to see it in action!
+> **[Check out the demo](https://themefic.com/instantio/lite/?utm_source=wp_readme&utm_medium=instantio_bottom_slot&utm_campaign=demo_link")** to see it in action!
 
 ### How to setup a Fast WooCommerce Checkout Process with Instantio:
 
@@ -102,7 +104,7 @@ Instantio features an advanced WooCommerce Quick Checkout system that revolution
 
 > We believe the free version is good enough for most businesses. However, we have a **Pro version** of this plugin which has more advanced features. With Instantio Pro, Your Customer can checkout and order from a single window.  No Page Reload whatsoever!  It converts the Long & Boring Multi-step checkout of WooCommerce into Same Page Instant Checkout. The whole checkout process would take only 10-15 seconds.
 
-> **[Buy Instantio Pro](https://themefic.com/instantio/pricing/")**
+> **[Buy Instantio Pro](https://themefic.com/instantio/pricing/?utm_source=wp_readme&utm_medium=instantio_bottom_slot&utm_campaign=demo_link")**
 
 == Features of Instantio (Free version) ==
 
@@ -111,18 +113,18 @@ Instantio comes up with tons of awesome features:
 = Preview Styles / Cart Options =
 Instantio (Free) comes up with 3 different Preview Styles:
 
-* **[WooCommerce Popup Cart](https://wpinstant.io/popup-cart/):** When a customer adds an item to the cart, a cart popup appears displaying a cart summary, coupon application option, and buttons for the cart and checkout. Each button directs the user to the appropriate cart or checkout page.
+* **[WooCommerce Popup Cart](https://instantio-demo.themefic.com/popup-cart/):** When a customer adds an item to the cart, a cart popup appears displaying a cart summary, coupon application option, and buttons for the cart and checkout. Each button directs the user to the appropriate cart or checkout page.
 
-* **[WooCommerce Side Cart](https://wpinstant.io/side-cart/):** Upon adding an item to the cart, a side drawer emerges, offering similar features: cart summary, coupon application, and navigation buttons for cart and checkout.
+* **[WooCommerce Side Cart](https://instantio-demo.themefic.com/side-cart/):** Upon adding an item to the cart, a side drawer emerges, offering similar features: cart summary, coupon application, and navigation buttons for cart and checkout.
 
-* **[WooCommerce Direct Checkout Button](https://wpinstant.io/floating-button/):** If a customer selects an item, a direct-to-checkout side button appears. This button leads to the checkout page. Direct Checkout for WooCommerce reduces the steps in the default WooCommerce Checkout page. This option helps store owners boost their sales by redirecting customers directly to the Checkout page. On average, the checkout process would take only 15 seconds.
+* **[WooCommerce Direct Checkout Button](https://instantio-demo.themefic.com/floating-button/):** If a customer selects an item, a direct-to-checkout side button appears. This button leads to the checkout page. Direct Checkout for WooCommerce reduces the steps in the default WooCommerce Checkout page. This option helps store owners boost their sales by redirecting customers directly to the Checkout page. On average, the checkout process would take only 15 seconds.
 
 = Multiple Themes =
 
-* **[Lite Mode](https://wpinstant.io/lite-mode):** Choose a pristine white theme that works seamlessly with all the above-mentioned options.
-* **[Dark Mode](https://wpinstant.io/dark-mode):** Opt for a sleek dark mode, also compatible with all the settings listed.
-* **[Glassmorphism Mode](https://wpinstant.io/glass-morphism):** Experience Glassmorphism, a trending design style that we've incorporated into the latest version of Instantio.
-* **[Gradient Mode](https://wpinstant.io/gradient-mode):** Select a vibrant multi-colored gradient theme that integrates well with all existing options.
+* **[Lite Mode](https://instantio-demo.themefic.com/lite-mode):** Choose a pristine white theme that works seamlessly with all the above-mentioned options.
+* **[Dark Mode](https://instantio-demo.themefic.com/dark-mode):** Opt for a sleek dark mode, also compatible with all the settings listed.
+* **[Glassmorphism Mode](https://instantio-demo.themefic.com/glass-morphism):** Experience Glassmorphism, a trending design style that we've incorporated into the latest version of Instantio.
+* **[Gradient Mode](https://instantio-demo.themefic.com/gradient-mode):** Select a vibrant multi-colored gradient theme that integrates well with all existing options.
 
 = Layout Animation =
 Instantio has couple of layout animation: 1) Default Animation 2) Fade In Animation
@@ -144,11 +146,11 @@ Instantio has all the design options you need:
 
 = Ajax Floating Cart on Single Product =
 
-With [Ajax Add to Cart](https://wpinstant.io/side-checkout/product/platform-sneakers/), customers can add products to the cart without any page reload. They can do this from single-product, variable, grouped, and even virtual product pages.
+With [Ajax Add to Cart](https://instantio-demo.themefic.com/side-checkout/product/platform-sneakers/), customers can add products to the cart without any page reload. They can do this from single-product, variable, grouped, and even virtual product pages.
 
 = Quick view on variable product with Ajax Add to Cart =
 
-Our [Quick View](https://wpinstant.io/side-checkout/product/perfume-de-lora/) feature allows customers to choose variations of variable products directly from the Shop page and then add the product to the cart instantly.
+Our [Quick View](https://instantio-demo.themefic.com/side-checkout/product/perfume-de-lora/) feature allows customers to choose variations of variable products directly from the Shop page and then add the product to the cart instantly.
 
 = Option & Style Panel =
 
@@ -181,24 +183,24 @@ Instantio Pro includes all the features available on the Free Version and more. 
 = Preview / Checkout Styles =
 Instantio Pro offers four additional preview styles:
 
-* **[Side Checkout - Multi Step](https://wpinstant.io/side-checkout):** When a customer adds an item to the cart, a side drawer appears, displaying a cart summary, coupon application option, and a proceed-to-checkout button. Clicking this button directs you to the checkout options within the same drawer. No page reload is necessary, allowing the customer to complete checkout within 10-15 seconds!
+* **[Side Checkout - Multi Step](https://instantio-demo.themefic.com/side-checkout):** When a customer adds an item to the cart, a side drawer appears, displaying a cart summary, coupon application option, and a proceed-to-checkout button. Clicking this button directs you to the checkout options within the same drawer. No page reload is necessary, allowing the customer to complete checkout within 10-15 seconds!
 
-* **[Side Checkout - Single Step](https://wpinstant.io/side-checkout-single/):** This process is similar to the one above, but features a single-step checkout, combining both cart and checkout in the same window.
+* **[Side Checkout - Single Step](https://instantio-demo.themefic.com/side-checkout-single/):** This process is similar to the one above, but features a single-step checkout, combining both cart and checkout in the same window.
 
-* **[Popup Checkout - Multi Step](https://wpinstant.io/popup-checkout/):** When a customer adds an item to the cart, a popup appears that also displays a cart summary, coupon application option, and a proceed-to-checkout button. Clicking this button directs you to the checkout options within the same popup. Again, no page reload is necessary, allowing the customer to complete checkout within 10-15 seconds!
+* **[Popup Checkout - Multi Step](https://instantio-demo.themefic.com/popup-checkout/):** When a customer adds an item to the cart, a popup appears that also displays a cart summary, coupon application option, and a proceed-to-checkout button. Clicking this button directs you to the checkout options within the same popup. Again, no page reload is necessary, allowing the customer to complete checkout within 10-15 seconds!
 
-* **[Popup Checkout - Single Step](https://wpinstant.io/popup-checkout-single) :** This process is similar to the above one but also features a single-step checkout, combining both cart and checkout in the same window.
+* **[Popup Checkout - Single Step](https://instantio-demo.themefic.com/popup-checkout-single) :** This process is similar to the above one but also features a single-step checkout, combining both cart and checkout in the same window.
 
 = Woocommerce Checkout Field Editor =
 Along with the features of the free version, the pro version allows you to **add new fields** on the checkout page based on your business needs. 
 
 = Upsell =
 
-Instantio offers a powerful Upsell feature that allows you to increase your sales and revenue by offering additional products during the checkout process. See it in action in this [Preview Demo](https://wpinstant.io/upsells/).
+Instantio offers a powerful Upsell feature that allows you to increase your sales and revenue by offering additional products during the checkout process. See it in action in this [Preview Demo](https://instantio-demo.themefic.com/upsells/).
 
 = Cross Sell =
 
-Instantio offers a powerful Cross-Sell feature that allows you to increase your sales and revenue by offering additional products during the checkout process. See it in action in this [Preview Demo](https://wpinstant.io/cross-sells/).
+Instantio offers a powerful Cross-Sell feature that allows you to increase your sales and revenue by offering additional products during the checkout process. See it in action in this [Preview Demo](https://instantio-demo.themefic.com/cross-sells/).
 
 = Dedicated Mobile Version =
 
@@ -206,7 +208,7 @@ Although Instantio is fully responsive by default, Instantio Pro offers a dedica
 
 = Same Page Instant Checkout =
 
-As described in the options above, Instantio Pro offers a unique [Same Page Checkout](https://wpinstant.io/side-checkout) process that allows customers to checkout and order products instantly from the same page. With this plugin, the entire WooCommerce checkout process can be reduced to just 10-15 seconds.
+As described in the options above, Instantio Pro offers a unique [Same Page Checkout](https://instantio-demo.themefic.com/side-checkout) process that allows customers to checkout and order products instantly from the same page. With this plugin, the entire WooCommerce checkout process can be reduced to just 10-15 seconds.
 
 = No Page Reload =
 
@@ -258,6 +260,11 @@ The icon used on this plugin is taken from [Iconfinder](https://www.iconfinder.c
 * [Ultimate Addons For Contact Form 7](https://wordpress.org/plugins/ultimate-addons-for-contact-form-7/)
 * [Tourfic – Ultimate Hotel Booking, Travel Booking & Apartment Booking WordPress Plugin](https://wordpress.org/plugins/tourfic)
 * [Hydra Booking – All in One Appointment Scheduling and Booking Calendar Solution](https://wordpress.org/plugins/hydra-booking)
+
+###  Our Themes
+
+* [Travelfic – Ultimate Travel Booking WordPress Theme](https://wordpress.org/themes/travelfic/)
+* [Ultimate Hotel Booking WordPress Theme](https://wordpress.org/themes/ultimate-hotel-booking/)
 
 == Installation ==
 
@@ -365,6 +372,11 @@ For those seeking simplicity, Instantio provides a simplified WooCommerce checko
 17. Mini Cart - The Mini Cart Drawer feature allows you to add a cart drawer for WooCommerce and place it anywhere on your website.
 
 == Changelog ==
+
+= 3.3.11 – December 31, 2024 =
+
+- Updated: Updated the readme.txt file and plugin information.
+- Compatibility: Added compatibility with Dokan Pro Stripe payments.
 
 = 3.3.10 – December 23, 2024 =
 
@@ -552,15 +564,6 @@ For those seeking simplicity, Instantio provides a simplified WooCommerce checko
 - Fixed: the install button(Pro).
 - Fixed: mobile bar(Pro).
 - Improved: progress bar hiding when the cart is empty(Pro).
-
-= 3.1.4 - ( September 12, 2023 ) =
-
-- Added: Checkout Editor and drag to change field position
-- Added: Reset checkout editor (Pro)
-- Improved: Cart panel view
-- Improved: Side Cart Responsive
-- Improved: Compatibility with the latest PayPal Plugin
-- Fixed: Options Panel string translatable
 
 **Old Changelog can be found [here](https://themefic.com/instantio/changelog/)**.
 
