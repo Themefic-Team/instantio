@@ -3,9 +3,9 @@ Contributors: themefic, kamrul0424, hemelhasan, hasanet, mdrejon, mdashikul
 Tags: woocommerce cart, woocommerce checkout, woocommerce direct checkout, multistep checkout, woocommerce side cart
 Requires at least: 4.0
 Tested up to: 6.7
-Stable tag: 3.3.11
+Stable tag: 3.3.12
 WC requires at least: 7.0
-WC tested up to: 9.5
+WC tested up to: 9.6
 Requires PHP: 7.4
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -373,6 +373,11 @@ For those seeking simplicity, Instantio provides a simplified WooCommerce checko
 
 == Changelog ==
 
+= 3.3.12 – January 22, 2024 =
+
+- Compatibility: Compatible with WooCommerce 9.6.
+- Improvement: System stability improved.
+
 = 3.3.11 – December 31, 2024 =
 
 - Updated: Updated the readme.txt file and plugin information.
@@ -548,22 +553,6 @@ For those seeking simplicity, Instantio provides a simplified WooCommerce checko
 - Compatibility: Compatible with WooCommerce 8.2.2
 - Added: Integration of all payment methods supported by Woocommerce
 - Added: Custom Field Data to the order details(Pro)
-
-= 3.1.5 - ( October 05, 2023 ) =
-
-- Fixed: responsiveness issues.
-- Fixed: cart update issues.
-- Fixed: problems involving array warnings.
-- Added: Add custom fields to the billing and shipping forms(Pro).
-- Added: Added support for payment through 2Checkout(Pro).
-- Fixed: progress bar dark mode issues(Pro).
-- Fixed: panel billing input border color issues(Pro).
-- Fixed: billing padding problems(Pro).
-- Fixed: problems with the payment method title color(Pro).
-- Fixed: billing CSS issues when on the dedicated mobile version(Pro).
-- Fixed: the install button(Pro).
-- Fixed: mobile bar(Pro).
-- Improved: progress bar hiding when the cart is empty(Pro).
 
 **Old Changelog can be found [here](https://themefic.com/instantio/changelog/)**.
 
