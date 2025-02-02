@@ -3,7 +3,7 @@ Contributors: themefic, kamrul0424, hemelhasan, hasanet, mdrejon, mdashikul
 Tags: woocommerce cart, woocommerce checkout, woocommerce direct checkout, multistep checkout, woocommerce side cart
 Requires at least: 4.0
 Tested up to: 6.7
-Stable tag: 3.3.12
+Stable tag: 3.3.13
 WC requires at least: 7.0
 WC tested up to: 9.6
 Requires PHP: 7.4
@@ -344,7 +344,7 @@ Certainly, Instantio offers customizable checkout options for WooCommerce.
 
 If speed is a priority, Instantio offers a fast checkout solution for WooCommerce. A faster option is available in our <strong><a href="https://themefic.com/instantio/pricing/" target="_blank">Pro Version</a></strong>.
 
-= I Want a Simple Checkout Process, what to do? =
+= I want a simple checkout process. What do I do? =
 
 For those seeking simplicity, Instantio provides a simplified WooCommerce checkout process. An even simpler version is available in our <strong><a href="https://themefic.com/instantio/pricing/" target="_blank">Pro Version</a></strong>.
 
@@ -373,7 +373,12 @@ For those seeking simplicity, Instantio provides a simplified WooCommerce checko
 
 == Changelog ==
 
-= 3.3.12 – January 22, 2024 =
+= 3.3.13 – February 02, 2025 =
+
+- Fixed: Minor bugs and issues resolved.
+- Improved: System stability enhanced.
+
+= 3.3.12 – January 22, 2025 =
 
 - Compatibility: Compatible with WooCommerce 9.6.
 - Improvement: System stability improved.
