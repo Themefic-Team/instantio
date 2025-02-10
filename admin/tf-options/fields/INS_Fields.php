@@ -4,6 +4,10 @@ defined( 'ABSPATH' ) || exit;
 
 if ( ! class_exists( 'INS_Fields' ) ) {
 	class INS_Fields {
+		public $field;
+		public $value;
+		public $settings_id;
+		public $parent_field;
 
 		public function __construct( $field = array(), $value = '', $settings_id = '', $parent_field = '' ) {
 			$this->field = $field;
@@ -20,9 +24,7 @@ if ( ! class_exists( 'INS_Fields' ) ) {
 			} else {
 				$field_name = ( ! empty( $this->settings_id ) ) ? $this->settings_id . '[' . $field_id . ']' : $field_id;
 			}
-
 			return $field_name;
-
 		}
 
 		public function field_attributes( $custom_atts = array() ) {
