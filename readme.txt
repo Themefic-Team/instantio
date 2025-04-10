@@ -5,7 +5,7 @@ Requires at least: 4.0
 Tested up to: 6.7
 Stable tag: 3.3.14
 WC requires at least: 7.0
-WC tested up to: 9.7
+WC tested up to: 9.8
 Requires PHP: 7.4
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -373,6 +373,11 @@ For those seeking simplicity, Instantio provides a simplified WooCommerce checko
 
 == Changelog ==
 
+= 3.3.15 – April 10, 2025 =
+
+- Updated: POT file for translation.
+- Compatibility: Compatible with WooCommerce 9.8.
+
 = 3.3.14 – March 23, 2025 =
 
 - Compatibility: Compatible with WooCommerce 9.7.
@@ -435,134 +440,6 @@ For those seeking simplicity, Instantio provides a simplified WooCommerce checko
 
 - Compatibility with UACF7 plugin
 - System stability improved
-
-= 3.3.1 - ( September 17, 2024 ) =
-
-- Info: Promo banner updated
-- System stability improved
-
-= 3.3.0 - ( August 20, 2024 ) =
-
-- New Feature: Mini cart drawer
-- Introduced shortcode for mini cart
-
-= 3.2.14 - ( August 15, 2024 ) =
-
-- Compatible: Avada and  Astra theme
-- Improvement: Payment System security patch updated
-- Improvement: Billing form notices text improve
-
-= 3.2.13 - ( July 28, 2024 ) =
-
-- Improvement: Reorganized CSS/JS Code
-- Compatible with WooCommerce 9.1.4
-
-= 3.2.12 - ( July 17, 2024 ) =
-
-- Improvement: System stability improved
-- Compatible with WooCommerce 9.1
-- Compatible with WordPress 6.6
-
-= 3.2.11 - ( July 10, 2024 ) =
-
-- Improvement: System stability improved
-- Improvement: Security and translation
-
-= 3.2.10 - ( June 26, 2024 ) =
-
-- Improvement: System stability Improved
-- Compatible with WooCommerce 9.0
-- Updated readme.txt
-
-= 3.2.9 - ( May 30, 2024 ) =
-
-- Improvement: System stability Improved
-- Compatible with WooCommerce 8.9
-- Updated readme.txt
-
-= 3.2.8 - ( April 29, 2024 ) =
-
-- Improvement: Fixed minor bugs
-- Added: Plugin dependency notice
-
-= 3.2.7 - ( April 23, 2024 ) =
-
-- Improvement: Fixed minor bugs
-- Updated readme.txt
-
-= 3.2.6 - ( April 18, 2024 ) =
-
-- Improvement: System stability Improved
-- Compatible with WooCommerce 8.8
-- Updated Tags 
-
-= 3.2.5 - ( April 03, 2024 ) =
-
-- Minor bug fixes & improvements
-- Compatibility: Compatible with WordPress 6.5
-
-= 3.2.4 - ( March 15, 2024 ) =
-
-- Added: Disclaimer for Patchstack VDP
-- Updated: readme.txt
-
-= 3.2.3 - ( March 13, 2024 ) =
-
-- Compatibility: Free & Pro top 20 themes
-- Fixed: Single Step All Mode Payment box design
-- Fixed: Cart section top margin
-- Improvement: System stability Improved
-- Improvement: The latest versions of PayPal and Stripe supported
-- Fixed: Translatable string issues updated
-- Fixed: Conflict with Flatsome theme
-
-= 3.2.2 - ( January 29, 2024 ) =
-
-- Compatibility: Compatible With WooCommerce 8.5
-- Fixed: Ship to a different address issue( Pro )
-- Fixed: First customer order issue( Pro )
-
-= 3.2.1 - ( January 09, 2024 ) =
-
-- Compatibility: Compatible With Tourfic Plugin
-
-= 3.2.0 - ( December 20, 2023 ) =
-
-- Improvement: Tourfic hotel, tour added to the instantio cart
-- Fixed: dashboard, Js console error warning fix
-- Fixed: Instantio Js and Min Js Check
-- Fixed: Resources optimization
-- Fixed: Payment Stripe and Paypal Updated version(Pro)
-- Fixed: Session time out(Pro)
-- Fixed: Tourfic conflict(Pro)
-- Fixed: Mobile and Desktop cart count issues(Pro)
-
-= 3.1.10 - ( December 10, 2023 ) =
-
-- Fixed: Responsive issue. 
-- compatibility: Compatible with WooCommerce 8.3
-
-= 3.1.9 - ( December 09, 2023 ) =
-
-- Updated: Extended Notice( Black Friday )
-- Improvement: Removed Unused CSS/JS
-
-= 3.1.8 - ( November 16, 2023 ) =
-
-- Updated: readme.txt
-- Updated: Black Friday Banner
-
-= 3.1.7 - ( November 15, 2023 ) =
-
-- Notice: Black Friday Announcements
-- Improvement: System stability Improved
-
-= 3.1.6 - ( November 12, 2023 ) =
-
-- Fixed: High-Performance Order Storage issue for Woocommerce
-- Compatibility: Compatible with WooCommerce 8.2.2
-- Added: Integration of all payment methods supported by Woocommerce
-- Added: Custom Field Data to the order details(Pro)
 
 **Old Changelog can be found [here](https://themefic.com/instantio/changelog/)**.
 
