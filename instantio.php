@@ -9,7 +9,7 @@
  * Author URI: https://themefic.com
  * Tags: woocommerce cart, woocommerce checkout, woocommerce direct checkout, multistep checkout, woocommerce side cart
  * Version: 3.3.16
- * Tested up to: 6.7
+ * Tested up to: 6.8
  * Requires PHP: 7.4
  * WC tested up to: 9.8
 **/
