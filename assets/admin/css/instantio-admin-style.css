@@ -370,3 +370,21 @@
         grid-template-columns: 1fr;
     }
 }
+
+@media screen and (min-width: 1024px) and (max-width: 1280px) {
+	.instantio-settings-page  .tf-setting-wrapper .tf-option-form .tf-option .tf-admin-tab {
+		min-width: 200px;
+	}
+    .instantio-settings-page {
+		gap: 8px;
+	}
+	.instantio-settings-page .tf-setting-wrapper .tf-option-form .tf-option .tf-tab-wrapper {
+		flex: 0 0 calc(100% - 200px);
+	}
+	.instantio-settings-page .tf-field-imageselect.ins-layout-options-imageset200 .tf-fieldset .tf-image-seletor-wrap .tf-image-seletor-items {
+		width: 144px;
+	}
+	.instantio-settings-page .tf-image-seletor-items figure {
+		padding: 8px;
+	}
+}
