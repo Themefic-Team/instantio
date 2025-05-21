@@ -929,7 +929,7 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 								</div>
 								<div class="quote-content">
 									<h3><?php echo __('Need Help Customizing Your WordPress Site?', 'instantio');  ?></h3>
-									<p><?php echo __('Need help with a rental platform, booking system, service-based site, or custom WordPress development? We build smart, tailored solutions that align with your goals — so you can focus on growing your business. Let’s make your vision a reality.', 'instantio');  ?></p>								
+									<p><?php echo __('Want to tweak a theme, adjust a plugin like instantio or add custom functionality to your site? Our expert WordPress developers can tailor it just the way you need. We only charge $29/hour.', 'instantio');  ?></p>								
 								</div>
 							</div>
 
