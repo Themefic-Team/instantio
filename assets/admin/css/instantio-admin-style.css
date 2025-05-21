@@ -112,8 +112,8 @@
 .instantio-settings-page {
 	display: grid;
 	grid-template-columns: 4fr 2fr;
-	gap: 32px;
-	padding: 24px;
+	gap: 16px;
+	padding: 0px;
 	background-color: #fff;
 	border-radius: 4px;
 }
@@ -296,8 +296,21 @@
 .instantio-settings-page .tf-setting-wrapper .tf-option-form {
 	padding: 0px !important;
 }
-
-
+/**
+ * Style for sidebar adjustment on settings page
+ */
+.instantio-settings-page .tf-setting-wrapper .tf-option-form .tf-option .tf-tab-wrapper .tf-tab-content > .tf-field{
+	padding: 20px 0px;
+}
+.instantio-settings-page .tf-setting-wrapper .tf-option-form .tf-option .tf-tab-wrapper .tf-tab-content{
+	margin: 0px 0px 0px 0px;
+}
+.instantio-settings-page {
+    gap: 16px;
+}
+.instantio-settings-page .tf-field-imageselect.ins-layout-options-imageset200 .tf-fieldset .tf-image-seletor-wrap .tf-image-seletor-items {
+    width: 180px;
+}
 @media screen and (max-width: 1700px) {
     .plugin-item {
         padding: 18px;
@@ -346,13 +359,13 @@
     }
 }
 
-@media screen and (max-width: 760px) { 
+@media screen and (max-width: 760px) {
     .instantio-settings-page {
         grid-template-columns: 3fr 2fr;
     }
 }
 
-@media screen and (max-width: 645px) { 
+@media screen and (max-width: 645px) {
     .instantio-settings-page {
         grid-template-columns: 1fr;
     }
