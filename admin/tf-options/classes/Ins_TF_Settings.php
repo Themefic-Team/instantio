@@ -937,7 +937,7 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 								<h3><?php echo __('Helpful Resources', 'instantio');  ?></h3>
 								<div class="quick-access-wrapper">
 									<div class="access-item">
-										<a href="https://themefic.com/docs/beaf/" target="_blank">
+										<a href="https://themefic.com/docs/instantio/" target="_blank">
 											<span class="icon"><i class="fa-solid fa-folder-open"></i></span>
 											<?php echo _e( 'Documentation', 'instantio' ); ?>
 										</a>
@@ -949,7 +949,7 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 										</a>
 									</div>
 									<div class="access-item">
-										<a href="https://facebook.com/groups/beaf.wp" target="_blank">
+										<a href="https://facebook.com/groups/instantio.wp" target="_blank">
 											<span class="icon"><i class="fa-solid fa-users"></i></span>
 											<?php echo _e( 'Join our Community', 'instantio' ); ?>
 										</a>
