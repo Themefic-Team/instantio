@@ -40,6 +40,13 @@ class Assets {
 				'ajax_url' => admin_url( 'admin-ajax.php' ),
 			)
 		);
+
+		wp_localize_script('ins-admin-script', 'ins_admin_data', [
+			'ins_nonce' => wp_create_nonce('ins_admin_nonce'),
+			'themefic_nonce' => wp_create_nonce('themefic_plugin_nonce'),
+		]);
+
+
 	}
 
 	public function enqueue_custom_css_scripts() {
