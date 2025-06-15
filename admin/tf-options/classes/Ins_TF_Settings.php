@@ -1174,21 +1174,20 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 		 */
 		public function save_options() {
 
-			// Add nonce for security and authentication.
-			$nonce_name = isset( $_POST['ins_option_nonce'] ) ? $_POST['ins_option_nonce'] : '';
-			$nonce_action = 'ins_option_nonce_action';
-
-
-
-			// Check if a nonce is set.
-			if ( ! isset( $nonce_name ) ) {
-				return;
-			}
-
 			// Check if a nonce is valid.
-			if ( ! wp_verify_nonce( $nonce_name, $nonce_action ) ) {
+			if ( ! isset( $_POST['ins_option_nonce'] ) || ! isset( $_POST[ $this->option_id ] ) ) {
 				return;
 			}
+
+			if ( ! current_user_can( 'manage_options' ) ) {
+				wp_die( __( 'You are not allowed to perform this action.', 'bafg' ) );
+			}
+
+			// Check nonce
+			if ( ! wp_verify_nonce( $_POST['ins_option_nonce'], 'ins_option_nonce_action' ) ) {
+				return;
+			}
+
 
 			$tf_option_value = array();
 			$option_request = ( ! empty( $_POST[ $this->option_id ] ) ) ? $_POST[ $this->option_id ] : array();
