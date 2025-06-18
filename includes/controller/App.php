@@ -558,6 +558,12 @@ class App {
 
 
 	public function ins_layout_three() {
+
+		// Return if WooCommerce not active
+		if ( ! class_exists( 'WooCommerce' ) ) {
+			return;
+		}
+
 		// Get the checkout page's ID
 		$checkout_page_id = wc_get_page_id( 'checkout' );
 
@@ -570,13 +576,8 @@ class App {
 		// Checking the pro is active or not
 		$is_Pro_class = is_ins_pro_active();
 
-		// Return if WooCommerce not active
-		if ( ! class_exists( 'woocommerce' ) ) {
-			return;
-		}
-
 		// Return if checkout page
-		if ( class_exists( 'woocommerce' ) ) {
+		if ( class_exists( 'WooCommerce' ) ) {
 			if ( $is_Pro_class === false ) {
 				if ( is_page( 'checkout' ) ) {
 					return;
