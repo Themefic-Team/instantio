@@ -12,58 +12,17 @@
 $change = [
 
         // Update  start
-       'v39' => [
-           'date'      => '20 November 2024',
-           'version'   => 'Version 3.3.8',
+       'v40' => [
+           'date'      => '18 June 2025',
+           'version'   => 'Version 3.3.21',
            'changelog' => [
                'Fix'   =>   [
-                   'Improved and resolved security issues.',
-                   'Addressed minor bugs and implemented general improvements'
+                   'Improved: Compatibility issue with the Tourfic plugin',
+                   'Improved: System stability has been enhanced.'
                ]
            ]
        ],
-       // Update End  
-
-       // Update  start
-       'v38' => [
-           'date'      => '17 November 2024',
-           'version'   => 'Version 3.3.7',
-           'changelog' => [
-               'Fix'   =>   [
-                   'Resolved compatibility issues with the Astra Theme',
-                   'Addressed PayPal functionality issue'
-               ]
-           ]
-       ],
-       // Update End  
-       
-       // Update  start
-       'v37' => [
-           'date'      => '13 November 2024',
-           'version'   => 'Version 3.3.6',
-           'changelog' => [
-               'Fix'   =>   [
-                   'Cart update button functionality, ensuring seamless cart adjustments.',
-                   'Resolved the notice issue for a cleaner user experience'
-               ]
-           ]
-       ],
-       // Update End  
-       
-       // Update  start
-       'v36' => [
-           'date'      => '12 November 2024',
-           'version'   => 'Version 3.3.5',
-           'changelog' => [
-                'Improvement'   =>   [
-                   'Settings panel labels updated',
-               ],
-                'Fix'   =>   [
-                   'Quick Setup button functionality issue',
-               ]
-           ]
-       ],
-       // Update End
+       // Update End   
 ]
 
 ?>
