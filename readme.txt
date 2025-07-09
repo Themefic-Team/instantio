@@ -1,11 +1,11 @@
-=== Instantio - WooCommerce Quick Checkout | Direct Checkout, Floating Cart, Side Cart & Popup Cart ==
+=== Side Cart for WooCommerce - Instantio | Checkout Field Editor, Floating Cart & Popup Cart ==
 Contributors: themefic, kamrul0424, hemelhasan, hasanet, mdrejon, mdashikul
 Tags: woocommerce cart, woocommerce checkout, woocommerce direct checkout, multistep checkout, woocommerce side cart
 Requires at least: 4.0
 Tested up to: 6.8
-Stable tag: 3.3.21
+Stable tag: 3.3.22
 WC requires at least: 7.0
-WC tested up to: 9.8
+WC tested up to: 9.9
 Requires PHP: 7.4
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -372,6 +372,11 @@ For those seeking simplicity, Instantio provides a simplified WooCommerce checko
 17. Mini Cart - The Mini Cart Drawer feature allows you to add a cart drawer for WooCommerce and place it anywhere on your website.
 
 == Changelog ==
+
+= 3.3.22 – July 09, 2025 =
+
+- Updated Title: Plugin title has been updated.
+- Compatibility: Now compatible with WooCommerce v9.9.
 
 = 3.3.21 – June 18, 2025 =
 
