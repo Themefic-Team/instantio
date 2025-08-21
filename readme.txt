@@ -3,7 +3,7 @@ Contributors: themefic, kamrul0424, hemelhasan, hasanet, mdrejon, mdashikul
 Tags: woocommerce cart, woocommerce checkout, woocommerce direct checkout, multistep checkout, woocommerce side cart
 Requires at least: 4.0
 Tested up to: 6.8
-Stable tag: 3.3.22
+Stable tag: 3.3.23
 WC requires at least: 7.0
 WC tested up to: 9.9
 Requires PHP: 7.4
@@ -373,9 +373,15 @@ For those seeking simplicity, Instantio provides a simplified WooCommerce checko
 
 == Changelog ==
 
+= 3.3.23 – July 21, 2025 =
+
+- Updated: Stripe compatible issue has been resolved.
+- Updated: PayPal compatible issue has been resolved.
+- Improved: System stability has been enhanced.
+
 = 3.3.22 – July 09, 2025 =
 
-- Updated Title: Plugin title has been updated.
+- Updated: Plugin title has been updated.
 - Compatibility: Now compatible with WooCommerce v9.9.
 
 = 3.3.21 – June 18, 2025 =
@@ -451,16 +457,6 @@ For those seeking simplicity, Instantio provides a simplified WooCommerce checko
 
 - Fixed: Cart update button functionality, ensuring seamless cart adjustments.
 - Fixed: Resolved the notice issue for a cleaner user experience.
-
-= 3.3.5 – November 12, 2024 =
-
-- Fixed: Quick Setup button functionality issue
-- Improved: Settings panel labels updated
-
-= 3.3.4 - November 03, 2024 =
-
-- Fixed: Enhanced clarity of Instantio admin notices
-- Improvement: Improved system stability
 
 = 3.3.3 - ( October 25, 2024 ) =
 
