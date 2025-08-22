@@ -303,9 +303,4 @@ function metabox_order( $order ) {
 	);
 }
 
-// ins Featured Banner
-if ( file_exists( INS_INC_PATH . '/controller/class-helper-banner.php' ) ) {
-	require_once INS_INC_PATH . '/controller/class-helper-banner.php';
-}
-
 ?>
