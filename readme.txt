@@ -373,7 +373,7 @@ For those seeking simplicity, Instantio provides a simplified WooCommerce checko
 
 == Changelog ==
 
-= 3.3.23 – July 21, 2025 =
+= 3.3.23 – July 22, 2025 =
 
 - Updated: Stripe compatible issue has been resolved.
 - Updated: PayPal compatible issue has been resolved.
