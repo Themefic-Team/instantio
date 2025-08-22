@@ -923,9 +923,6 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 						</div>
 
 						<div class="instantio-sidebar-content">
-							<!-- promo banner  -->
-					 		<?php echo apply_filters('ins_dashboard_helper_banner', ''); ?>
-
 							<?php echo $this->tf_get_sidebar_plugin_list(); ?>
 
 							<div class="customization-quote">
