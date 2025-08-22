@@ -14,7 +14,7 @@
  * WC tested up to: 9.9
 **/
 
-// don't load directly
+// don't load directly 
 defined( 'ABSPATH' ) || exit;
 
 class INSTANTIO {
