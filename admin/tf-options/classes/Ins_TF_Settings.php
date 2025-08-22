@@ -5,11 +5,14 @@ defined( 'ABSPATH' ) || exit;
 if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 	class Ins_TF_Settings {
 
-		public $option_id = null;
-		public $option_title = null;
-		public $option_icon = null;
+		public $option_id       = null;
+		public $option_title    = null;
+		public $option_icon     = null;
 		public $option_position = null;
 		public $option_sections = array();
+		public $pre_tabs        = array();
+		public $pre_fields      = array();
+		public $pre_sections    = array();
 
 		public function __construct( $key, $params = array() ) {
 			$this->option_id = $key;
@@ -920,6 +923,9 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 						</div>
 
 						<div class="instantio-sidebar-content">
+							<!-- promo banner  -->
+					 		<?php echo apply_filters('ins_dashboard_helper_banner', ''); ?>
+
 							<?php echo $this->tf_get_sidebar_plugin_list(); ?>
 
 							<div class="customization-quote">

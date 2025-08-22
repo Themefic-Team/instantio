@@ -12,6 +12,22 @@
 $change = [
 
         // Update  start
+       'v42' => [
+           'date'      => '21 July 2025',
+           'version'   => 'Version 3.3.23',
+           'changelog' => [
+               'Updated'   =>   [
+                   'System stability has been enhanced.',
+               ],
+                'Fix'   =>   [
+                   'Stripe compatible issue has been resolved',
+                   'PayPal compatible issue has been resolved',
+               ]
+           ]
+       ],
+       // Update End   
+
+        // Update  start
        'v41' => [
            'date'      => '09 July 2025',
            'version'   => 'Version 3.3.22',

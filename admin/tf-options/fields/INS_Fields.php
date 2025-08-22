@@ -5,6 +5,11 @@ defined( 'ABSPATH' ) || exit;
 if ( ! class_exists( 'INS_Fields' ) ) {
 	class INS_Fields {
 
+		public $field;
+		public $value;
+		public $settings_id;
+		public $parent_field;
+
 		public function __construct( $field = array(), $value = '', $settings_id = '', $parent_field = '' ) {
 			$this->field = $field;
 			$this->value = $value;

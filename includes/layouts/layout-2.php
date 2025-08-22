@@ -28,8 +28,8 @@ defined( 'ABSPATH' ) || exit;
 
 	echo sprintf( '<div class="ins-cart-empty %s"><span>%s <br> %s</span></div>', 
 		esc_attr__($hide_empty), 
-		esc_html__('Your cart is empty.','instantio'), 
-		' Please go to <a href="'.esc_url( home_url( '/shop' ) ).'">'.esc_html__('Shop Now','instantio').'</a>' 
+		esc_html__('Your cart is empty.','instantio'),
+		esc_html__(' Please go to ', 'instantio') . ' <a href="'.esc_url( home_url( '/shop' ) ).'">'.esc_html__('Shop Now','instantio').'</a>' 
 	); 
 
 	do_action( 'ins_cart_content', $display ); 

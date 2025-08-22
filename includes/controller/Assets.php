@@ -197,10 +197,13 @@ class Assets {
 		$cart_button_text_colors_hover = isset( $ins_toggle_panel_tab['cart-button-text-colors']['hover'] ) && ! empty( $ins_toggle_panel_tab['cart-button-text-colors']['hover'] ) ? $ins_toggle_panel_tab['cart-button-text-colors']['hover'] : $ins_panel_button_text_hover;
 
 		$output .= ' 
-             .ins-checkout-header {
+             .ins-checkout-layout .ins-checkout-header {
                  background-color: ' . $cart_header_bg . ' !important;
              }
-             
+             .ins-cart-coupon .coupon input {
+				 background-color: ' . $cart_header_bg . ' !important;
+			 }
+
              .ins-checkout-header .ins-checkout-header-title {
                  color: ' . $cart_header_text . ' !important;
              }
