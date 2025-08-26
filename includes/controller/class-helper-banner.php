@@ -17,7 +17,7 @@ class INS_Helper_Banner {
 
     public function render_helper_banner() {
 
-        $campaign_id = 'banner60'; // change campaign id to start a new campaign
+        $campaign_id = 'flash60'; // change campaign id to start a new campaign
         $user_id = get_current_user_id();
         $user_first_visit_meta_key = 'ins_fomo_first_visit_time_' . $campaign_id;
 
@@ -39,7 +39,7 @@ class INS_Helper_Banner {
         }
 
         $description         = 'Buy within next 2 hours to avail this discount. Hurry, clock is ticking...';
-        $button_url          = 'https://cf7addons.com/discount-deal/';
+        $button_url          = 'https://themefic.com/instantio/discount-deal/';
         $button_text         = 'Grab this deal now';
         $discount_percentage = 60;
 
@@ -97,7 +97,7 @@ class INS_Helper_Banner {
                     <div class="countdown">
                         <?php echo $countdown_html; ?>
                     </div>
-                    <a class="discount-btn" href="<?php echo esc_url($button_url) . '?ending=' . urlencode($end_time); ?>&utm_source=banner_uacf7&utm_medium=plugin_banner&utm_campaign=flash60" target="_blank" class="tf-btn tf-btn-primary">
+                    <a class="discount-btn" href="<?php echo esc_url($button_url) . '?ending=' . urlencode($end_time); ?>&utm_source=banner_instantio&utm_medium=plugin_banner&utm_campaign=flash60" target="_blank" class="tf-btn tf-btn-primary">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M5.00006 20.9989H19.0001M11.5621 3.26487C11.6052 3.18648 11.6686 3.12111 11.7457 3.07558C11.8227 3.03005 11.9106 3.00603 12.0001 3.00603C12.0895 3.00603 12.1774 3.03005 12.2544 3.07558C12.3315 3.12111 12.3949 3.18648 12.4381 3.26487L15.3901 8.86887C15.4605 8.99863 15.5587 9.1112 15.6778 9.19849C15.7968 9.28578 15.9337 9.34562 16.0787 9.37373C16.2236 9.40184 16.3729 9.39751 16.516 9.36105C16.659 9.32459 16.7923 9.25691 16.9061 9.16287L21.1831 5.49887C21.2652 5.43209 21.3663 5.39309 21.472 5.38747C21.5777 5.38186 21.6824 5.40992 21.7712 5.46762C21.8599 5.52532 21.928 5.60968 21.9657 5.70856C22.0034 5.80744 22.0088 5.91574 21.9811 6.01787L19.1471 16.2639C19.0892 16.4735 18.9646 16.6586 18.7921 16.7911C18.6195 16.9235 18.4086 16.9961 18.1911 16.9979H5.81006C5.59239 16.9964 5.38117 16.9239 5.20845 16.7914C5.03573 16.6589 4.91095 16.4737 4.85306 16.2639L2.02006 6.01887C1.99231 5.91674 1.99768 5.80844 2.0354 5.70956C2.07312 5.61068 2.14124 5.52632 2.22996 5.46862C2.31868 5.41092 2.42342 5.38286 2.5291 5.38847C2.63478 5.39409 2.73595 5.43309 2.81806 5.49987L7.09406 9.16387C7.20786 9.25791 7.34107 9.32559 7.48412 9.36205C7.62718 9.39851 7.77653 9.40284 7.92146 9.37473C8.06639 9.34663 8.20329 9.28678 8.32235 9.19949C8.44141 9.1122 8.53966 8.99963 8.61006 8.86987L11.5621 3.26487Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
