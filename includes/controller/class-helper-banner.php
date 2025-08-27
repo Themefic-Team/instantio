@@ -7,11 +7,14 @@ class INS_Helper_Banner {
 
     public function __construct(){
 
-        if(!class_exists('WOOINS')){
+        add_action( 'plugins_loaded', array( $this, 'load_helper_banner' ) );
 
-            add_filter('ins_dashboard_helper_banner', [$this, 'render_helper_banner'], 10, 2);
-            add_action('admin_footer', [ $this, 'ins_admin_helper_footer_script']);
+    }
 
+    public function load_helper_banner() {
+        if ( ! class_exists( 'WOOINS' ) ) {
+            add_filter( 'ins_dashboard_helper_banner', [ $this, 'render_helper_banner' ], 10, 2 );
+            add_action( 'admin_footer', [ $this, 'ins_admin_helper_footer_script' ] );
         }
     }
 
@@ -89,13 +92,13 @@ class INS_Helper_Banner {
                     </svg>
                 </span>
                 <span class="promo-discount-percent"><?php echo esc_html($discount_percentage); ?>%</span>
-                <span class="promo-discount-text"><?php echo __('Discount', 'bafg'); ?></span>
+                <span class="promo-discount-text"><?php echo esc_html__('Discount', 'instantio'); ?></span>
             </div>
             <div class="promo-description">
                 <p><?php echo esc_html($description); ?></p>
                 <div class="dicount-timer">
                     <div class="countdown">
-                        <?php echo $countdown_html; ?>
+                        <?php echo wp_kses_post($countdown_html); ?>
                     </div>
                     <a class="discount-btn" href="<?php echo esc_url($button_url) . '?ending=' . urlencode($end_time); ?>&utm_source=banner_instantio&utm_medium=plugin_banner&utm_campaign=flash60" target="_blank" class="tf-btn tf-btn-primary">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
