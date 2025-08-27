@@ -8,10 +8,10 @@
  * Domain Path: /lang/
  * Author URI: https://themefic.com
  * Tags: woocommerce cart, woocommerce checkout, woocommerce direct checkout, multistep checkout, woocommerce side cart
- * Version: 3.3.23
+ * Version: 3.3.24
  * Tested up to: 6.8
  * Requires PHP: 7.4
- * WC tested up to: 9.9
+ * WC tested up to: 10.0
 **/
 
 // don't load directly 
@@ -34,7 +34,7 @@ class INSTANTIO {
 	 */
 	private function define_constants() {
 		if ( ! defined( 'INSTANTIO_VERSION' ) ) {
-			define( 'INSTANTIO_VERSION', '3.3.23' );
+			define( 'INSTANTIO_VERSION', '3.3.24' );
 		}
 		define( 'INS_URL', plugin_dir_url( __FILE__ ) );
 		define( 'INS_INC_URL', INS_URL . 'includes' );
