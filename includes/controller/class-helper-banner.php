@@ -7,11 +7,14 @@ class INS_Helper_Banner {
 
     public function __construct(){
 
-        if(!class_exists('WOOINS')){
+        add_action( 'plugins_loaded', array( $this, 'load_helper_banner' ) );
 
-            add_filter('ins_dashboard_helper_banner', [$this, 'render_helper_banner'], 10, 2);
-            add_action('admin_footer', [ $this, 'ins_admin_helper_footer_script']);
+    }
 
+    public function load_helper_banner( ){
+        if ( ! class_exists( 'WOOINS' ) ) {
+            add_filter( 'ins_dashboard_helper_banner', [ INS_Helper_Banner::class, 'render_helper_banner' ], 10, 2 );
+            add_action( 'admin_footer', [ INS_Helper_Banner::class, 'ins_admin_helper_footer_script' ] );
         }
     }
 
