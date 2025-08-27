@@ -1,4 +1,4 @@
-5<?php
+<?php
 /**
  * Plugin Name: Instantio - WooCommerce Quick Checkout
  * Plugin URI: https://themefic.com/instantio/
