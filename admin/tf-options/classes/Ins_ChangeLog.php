@@ -12,8 +12,23 @@
 $change = [
 
         // Update  start
+       'v43' => [
+           'date'      => '27 August, 2025',
+           'version'   => 'Version 3.3.24',
+           'changelog' => [
+               'Updated'   =>   [
+                   'System stability has been improved.',
+               ],
+                'Compatibility'   =>   [
+                   'Now compatible with WooCommerce v10.0.',
+               ]
+           ]
+       ],
+       // Update End   
+
+        // Update  start
        'v42' => [
-           'date'      => '21 July 2025',
+           'date'      => '21 August 2025',
            'version'   => 'Version 3.3.23',
            'changelog' => [
                'Updated'   =>   [
