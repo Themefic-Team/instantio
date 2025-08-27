@@ -3,9 +3,9 @@ Contributors: themefic, kamrul0424, hemelhasan, hasanet, mdrejon, mdashikul
 Tags: woocommerce cart, woocommerce checkout, woocommerce direct checkout, multistep checkout, woocommerce side cart
 Requires at least: 4.0
 Tested up to: 6.8
-Stable tag: 3.3.23
+Stable tag: 3.3.24
 WC requires at least: 7.0
-WC tested up to: 9.9
+WC tested up to: 10.0
 Requires PHP: 7.4
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -373,7 +373,12 @@ For those seeking simplicity, Instantio provides a simplified WooCommerce checko
 
 == Changelog ==
 
-= 3.3.23 – July 22, 2025 =
+= 3.3.24 – August 27, 2025 =
+
+- Compatibility: Now compatible with WooCommerce v10.0.
+- Improved: System stability has been improved.
+
+= 3.3.23 – August 22, 2025 =
 
 - Updated: Stripe compatible issue has been resolved.
 - Updated: PayPal compatible issue has been resolved.
@@ -434,34 +439,6 @@ For those seeking simplicity, Instantio provides a simplified WooCommerce checko
 
 - Updated: Updated the readme.txt file and plugin information.
 - Compatibility: Added compatibility with Dokan Pro Stripe payments.
-
-= 3.3.10 – December 23, 2024 =
-
-- Compatibility: Compatibility with WooCommerce 9.5.
-
-= 3.3.9 – November 23, 2024 =
-
-- Compatibility: Resolved translation notice issue for compatibility with WordPress 6.7.1.
-
-= 3.3.8 – November 20, 2024 =
-
-- Fix: Improved and resolved security issues.
-- Fix: Addressed minor bugs and implemented general improvements.
-
-= 3.3.7 – November 17, 2024 =
-
-- Fix: Resolved compatibility issues with the Astra Theme.
-- Fix: Addressed PayPal functionality issue.
-
-= 3.3.6 – November 13, 2024 =
-
-- Fixed: Cart update button functionality, ensuring seamless cart adjustments.
-- Fixed: Resolved the notice issue for a cleaner user experience.
-
-= 3.3.3 - ( October 25, 2024 ) =
-
-- Fixed: WooCommerce PayPal Payments Conflict Issue
-- Improvement: System stability improved
 
 **Old Changelog can be found [here](https://themefic.com/instantio/changelog/)**.
 
