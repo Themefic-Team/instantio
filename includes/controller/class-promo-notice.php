@@ -319,7 +319,7 @@ class INS_PROMO_NOTICE {
 
 
 
-    public function bafg_dashboard_widget_dismiss() {
+    public function ins_dashboard_widget_dismiss() {
         // Dismiss control - 7 days
 		update_option('ins_dashboard_widget_dismissed', time() + (86400 * 7));
 		wp_die();
