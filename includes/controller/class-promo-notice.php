@@ -27,7 +27,7 @@ class INS_PROMO_NOTICE {
         'November',
         'December'
     ];
-    private $plugins_existes = ['uacf7', 'tf', 'beaf', 'ebef'];
+    private $plugins_existes = ['uacf7', 'tf', 'beaf', 'ebef', 'uawpf', 'hydra'];
 
  
 
@@ -92,8 +92,16 @@ class INS_PROMO_NOTICE {
                 add_action( 'wp_ajax_ins_black_friday_notice_ins_dismiss_callback', array($this, 'ins_black_friday_notice_ins_dismiss_callback') ); 
             }
             
+            $tf_widget_exists = get_option('tf_promo_widget_exists');
             $dashboard_widget = isset($this->ins_promo_option['dashboard_widget']) ? $this->ins_promo_option['dashboard_widget'] : [];
-            if (isset($dashboard_widget['enable_status']) && $dashboard_widget['enable_status'] == true) {
+            if (
+                !in_array($tf_widget_exists, $this->plugins_existes) && 
+                isset($dashboard_widget['enable_status']) && 
+                $dashboard_widget['enable_status'] == true
+            ) {
+                // Mark that one Themefic widget already exists
+                update_option('tf_promo_widget_exists', 'ins');
+
                 add_action('wp_dashboard_setup', [$this, 'register_dashboard_notice_widget']);
                 add_action('wp_ajax_ins_dashboard_widget_dismiss', [$this, 'ins_dashboard_widget_dismiss']);
             }
@@ -227,11 +235,13 @@ class INS_PROMO_NOTICE {
                 margin-bottom:8px; 
                 text-align:left;
                 gap: 10px;
+                padding-top: 0px;
             }
 
             .ins-dashboard-widget .highlight .before-img {
                 width: 58px;
                 height: 58px;
+                flex: 0 0 58px;
             }
             .ins-dashboard-widget .highlight .after-img {
                 width: 100px;
@@ -242,6 +252,8 @@ class INS_PROMO_NOTICE {
                 justify-content: space-between;
                 align-items: flex-start;
                 flex-direction: column;
+                flex: 1;
+                width: 100%;
             }
             .ins-dashboard-widget .highlight .content p{
                 color: #1D2327;
@@ -583,6 +595,7 @@ class INS_PROMO_NOTICE {
         delete_option('ins_promo__schudle_option');
         delete_option('ins_dismiss_post_woo_notice');
         delete_option('tf_promo_notice_exists');
+        delete_option('tf_promo_widget_exists');
     }
  
 }
