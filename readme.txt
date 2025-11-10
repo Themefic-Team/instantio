@@ -5,7 +5,7 @@ Requires at least: 4.0
 Tested up to: 6.8
 Stable tag: 3.3.28
 WC requires at least: 7.0
-WC tested up to: 10.0
+WC tested up to: 10.3
 Requires PHP: 7.4
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -378,13 +378,13 @@ For those seeking simplicity, Instantio provides a simplified WooCommerce checko
 = 3.3.28 – November 10, 2025 =
 
 - Updated: Information in readme.txt file.
+- Improved: Compatibility with WooCommerce v10.3.
 
 = 3.3.27 – November 09, 2025 =
 
 - Updated: Information in readme.txt file.
 - Improved: System stability and performance.
-- Improved: Compatibility with Elementor version 10.3.
-- Improved: Compatibility with WooCommerce version 3.35.
+- Improved: Compatibility with Elementor v3.32.
 
 = 3.3.26 – October 16, 2025 =
 
