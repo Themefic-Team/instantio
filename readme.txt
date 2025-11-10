@@ -1,25 +1,25 @@
-=== Side Cart for WooCommerce - Instantio | Checkout Field Editor, Floating Cart & Popup Cart ==
+=== Instantio — Side Cart & One-Page Checkout for WooCommerce ===
 Contributors: themefic, kamrul0424, hemelhasan, hasanet, mdrejon, mdashikul
 Tags: woocommerce cart, woocommerce checkout, woocommerce direct checkout, multistep checkout, woocommerce side cart
 Requires at least: 4.0
 Tested up to: 6.8
-Stable tag: 3.3.27
+Stable tag: 3.3.28
 WC requires at least: 7.0
 WC tested up to: 10.0
 Requires PHP: 7.4
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
-WooCommerce direct checkout plugin with Side Cart, Popup Cart, Floating Cart & Popup Checkout function (+ 4 more WooCommerce Quick Checkout systems).
+Instantio adds side cart, popup cart, floating button, and one-page checkout layouts to WooCommerce for a faster, more convenient shopping and checkout experience.
 
 == Description ==
 
-## THE BEST WOOCOMMERCE ONE PAGE CHECKOUT PLUGIN BY INSTANTIO | QUICK & DIRECT CHECKOUT FOR WOOCOMMERCE
+## Instantio for WooCommerce — Side Cart, Popup Cart, and One-Page Checkout in One Plugin
 
 👉 Our Official Website: [Click Here](https://themefic.com/instantio/?utm_source=wp_readme&utm_medium=instantio_top_slot&utm_campaign=website)
 👉 Live Demo Link: **See the Checkout systems below**
-👉 Explore Pro: [Play with Backend Options](https://themefic.com/instantio/backend-demo/?utm_source=wp_readme&utm_medium=instantio_top_slot&utm_campaign=pro_backend)
-👉 Buy Pro Version: [Click Here](https://themefic.com/instantio/pricing/?utm_source=wp_readme&utm_medium=instantio_top_slot&utm_campaign=pro_link)
+👉 Explore Backend: [Play with Backend Options](https://themefic.com/instantio/backend-demo/?utm_source=wp_readme&utm_medium=instantio_top_slot&utm_campaign=pro_backend)
+👉 Unlock all features: [Click Here](https://themefic.com/instantio/pricing/?utm_source=wp_readme&utm_medium=instantio_top_slot&utm_campaign=pro_link)
 👉 Video Guide on [Youtube](https://www.youtube.com/playlist?list=PLY0rtvOwg0ykIvNBa8XI3SR7WEbdqqKoO)
 👉 Our [Documentation](https://themefic.com/docs/instantio/?utm_source=wp_readme&utm_medium=instantio_top_slot&utm_campaign=plugin_docs)
 👉 Get Support: [Click Here](https://portal.themefic.com/support/?utm_source=wp_readme&utm_medium=instantio_top_slot&utm_campaign=plugin_support)
@@ -48,15 +48,16 @@ WooCommerce direct checkout plugin with Side Cart, Popup Cart, Floating Cart & P
 
 👉 [Checkout Field Editor](https://instantio-demo.themefic.com/checkout-editor/?utm_source=wp_readme&utm_medium=instantio_top_slot&utm_campaign=demo_link)
 
-Instantio is a plugin designed to reduce your cart abandonment rate by streamlining the WooCommerce multistep checkout process. With Instantio's floating cart drawer, customers can skip the cart page and proceed directly to the checkout page in an instant. The entire WooCommerce checkout process takes only 15-25 seconds—yes, you read that correctly!
+Instantio improve the WooCommerce checkout experience by offering a floating cart drawer that allows customers to skip the default cart page and move directly to checkout. This reduces the number of steps in the purchasing process, helping users complete their orders more efficiently.
 
-All a customer has to do is add an item to the cart; a cart drawer will then appear with a checkout button. This allows for instant one page checkout on your WooCommerce-based store, all from a single page. Such a streamlined process encourages customers to complete their purchases and return for more shopping in the future.
+When a customer adds a product to the cart, a cart drawer appears with a checkout button. From there, shoppers can complete the entire process on a single page, providing a faster and more convenient checkout experience for WooCommerce stores.
 
-= Say Goodbye to Cart Abandonment with Instantio's WooCommerce one page checkout Process =
+= Simplify the WooCommerce Checkout Process with Instantio =
 
-Instantio features an advanced WooCommerce Quick Checkout system that revolutionizes the online shopping experience through its innovative one-page checkout. With Instantio's streamlined process, customers can complete transactions quickly and easily, thereby reducing cart abandonment and increasing conversions.
+Instantio provides a one-page checkout system for WooCommerce that simplifies the standard checkout flow. It enables customers to review their cart and complete the purchase within a single interface, creating a faster and more convenient experience.
 
-= Why Choose Instantio =
+
+= Key Features =
 
 * Quick & Simplified WooCommerce checkout process converting WooCommerce multistep checkout into Same Page Instant Checkout
 * WooCommerce Ajax Cart that includes Side Cart & Popup Cart
@@ -74,7 +75,7 @@ Instantio features an advanced WooCommerce Quick Checkout system that revolution
 * Optimized Assets
 * Smooth Animation
 * Payment Method Compatibility
-* Good looking Dashboard
+* User-friendly dashboard layout
 * Easy to use Settings panel
 * Design Panel
 * Icon Library
@@ -89,26 +90,24 @@ Instantio features an advanced WooCommerce Quick Checkout system that revolution
 
 ### How to setup a Fast WooCommerce Checkout Process with Instantio:
 
-[youtube https://www.youtube.com/watch?v=1biwrwu-Io8] 
+[youtube https://www.youtube.com/watch?v=1biwrwu-Io8]
 
 ### How to add a Popup Cart & Popup Checkout in WooCommerce:
 
-[youtube https://www.youtube.com/watch?v=KiYfphUocOE] 
+[youtube https://www.youtube.com/watch?v=KiYfphUocOE]
 
 
 ### How to add a Sliding Side Cart & Checkout in WooCommerce:
 
 [youtube https://www.youtube.com/watch?v=jwzuzaBVp50]
 
-**Pro Link **
+** Instantio Pro **
 
-> We believe the free version is good enough for most businesses. However, we have a **Pro version** of this plugin which has more advanced features. With Instantio Pro, Your Customer can checkout and order from a single window.  No Page Reload whatsoever!  It converts the Long & Boring Multi-step checkout of WooCommerce into Same Page Instant Checkout. The whole checkout process would take only 10-15 seconds.
+> The free version of Instantio includes key checkout and cart features suitable for WooCommerce stores. The Pro version adds additional options such as same-page checkout without page reloads, editable checkout fields, and flexible layout styles and many more. These features help create a faster and more efficient checkout flow within WooCommerce.
 
-> **[Buy Instantio Pro](https://themefic.com/instantio/pricing/?utm_source=wp_readme&utm_medium=instantio_bottom_slot&utm_campaign=demo_link")**
+> **[Unlock all features with Instantio Pro](https://themefic.com/instantio/pricing/?utm_source=wp_readme&utm_medium=instantio_bottom_slot&utm_campaign=demo_link")**
 
-== Features of Instantio (Free version) ==
-
-Instantio comes up with tons of awesome features:
+== Instantio Free Features ==
 
 = Preview Styles / Cart Options =
 Instantio (Free) comes up with 3 different Preview Styles:
@@ -130,9 +129,10 @@ Instantio (Free) comes up with 3 different Preview Styles:
 Instantio has couple of layout animation: 1) Default Animation 2) Fade In Animation
 
 = Woocommerce Checkout Field Editor =
-Instantio allows you to customize the checkout page of your WooCommerce store. With this feature, you can edit, or remove fields in the checkout form, enabling you to tailor the checkout experience to meet both your business requirements and your customers' needs. It includes modifying any existing fields like name and address, and arranging the order of all fields to streamline the checkout process. 
+Instantio allows you to customize the checkout page of your WooCommerce store. With this feature, you can edit, or remove fields in the checkout form, enabling you to tailor the checkout experience to meet both your business requirements and your customers' needs. It includes modifying any existing fields like name and address, and arranging the order of all fields to streamline the checkout process.
 
 = Complete Design Panel =
+
 Instantio has all the design options you need:
 
 * Change WooCommerce Cart Icon Style
@@ -173,9 +173,11 @@ Instantio is fully compatible with popular page builders like Elementor and can 
 
 <hr>
 
-== Pro Features ==
+== Instantio Pro Features ==
 
-There is also a **[Pro Version](https://themefic.com/instantio/pricing/')** of this plugin. You will get more features and advantages with the Pro Version. Here are the features of the Pro Version:
+There is also a of this plugin. You will get more features and advantages with the Pro Version. Here are the features of the Pro Version:
+
+Instantio **[Pro Version](https://themefic.com/instantio/pricing/')** is available with additional features and customization options. Below is a summary of the features included in the Pro version:
 
 = All Free Features =
 Instantio Pro includes all the features available on the Free Version and more. See below.
@@ -192,7 +194,7 @@ Instantio Pro offers four additional preview styles:
 * **[Popup Checkout - Single Step](https://instantio-demo.themefic.com/popup-checkout-single) :** This process is similar to the above one but also features a single-step checkout, combining both cart and checkout in the same window.
 
 = Woocommerce Checkout Field Editor =
-Along with the features of the free version, the pro version allows you to **add new fields** on the checkout page based on your business needs. 
+Along with the features of the free version, the pro version allows you to **add new fields** on the checkout page based on your business needs.
 
 = Upsell =
 
@@ -244,7 +246,7 @@ We provide full support on the WordPress.org forums & [Our Website](https://port
 
 ### Privacy Policy
 
-Instantio uses [Appsero](https://appsero.com/) SDK to collect some telemetry data. Appsero SDK does not gather any data by default. The SDK only starts gathering basic telemetry data when a user allows it via the admin notice. Appsero SDK DOES NOT IMMEDIATELY start gathering data, without confirmation from users in any case. We use this data to troubleshoot problems faster, make product improvements & ensure a great user experience for all our users.
+Instantio uses [Appsero](https://appsero.com/) SDK to collect some telemetry data. Appsero SDK does not gather any data by default. The SDK only starts gathering basic telemetry data when a user allows it via the admin notice. Appsero SDK DOES NOT IMMEDIATELY start gathering data, without confirmation from users in any case. We use this data to troubleshoot problems faster, make product improvements & ensure user experience for all our users.
 
 ### How can I report security bugs?
 
@@ -312,11 +314,11 @@ Absolutely, Instantio turns the standard WooCommerce checkout into a one-click e
 
 Yes, Instantio seamlessly converts WooCommerce cart into a same page side cart functionality to enable a faster checkout process.
 
-= How Does Instantio Enhance the WooCommerce Popup Cart Experience?  
+= How Does Instantio Enhance the WooCommerce Popup Cart Experience?
 
 Instantio enhances the WooCommerce popup cart by enabling a one-click checkout feature through a popup interface.
 
-= What Advantages Does Instantio Offer for WooCommerce Popup Checkout?  
+= What Advantages Does Instantio Offer for WooCommerce Popup Checkout?
 
 Instantio transforms the WooCommerce checkout into a quicker, more user-friendly Popup Checkout process and users can checkout instantly from the same page.
 
@@ -358,20 +360,24 @@ For those seeking simplicity, Instantio provides a simplified WooCommerce checko
 3. SideCart layout - The SideCart feature in instantio enables you to display the shopping cart from a side view.
 4. Popup cart layout - The Popup Cart feature display the cart contents in a popup window.
 5. Single Step Checkout - Single Step Checkout in instantio enables the checkout process in One Step
-6. UpSell and cross-sell - You can setup UpSell and cross-sell to boost your sales during the checkout process. ( Pro )
+6. UpSell and cross-sell - You can setup UpSell and cross-sell to boost your sales during the checkout process. (Pro)
 7. Lite theme - It Enables a lightweight and minimalistic, clean, and minimalist look.
 8. Dark theme -  The Dark theme is a sleek and sophisticated color theme with a black color palette.
 9. Glassmorphism theme - You can use the popular glass effect in the design.
 10. Gradient theme - It uses the smooth Gradient color effect to the instantio.
-11. Dedicated mobile layout - You can set a dedicated and optimized layout for mobile devices. ( Pro )
-12. Progress bar - You can choose a different progress-bar style for on-page checkout. ( Pro )
-13. Icons and custom icon upload - You can add fontawesome and remix icons, also you can upload any custom icon. ( Pro )
+11. Dedicated mobile layout - You can set a dedicated and optimized layout for mobile devices. (Pro)
+12. Progress bar - You can choose a different progress-bar style for on-page checkout. (Pro)
+13. Icons and custom icon upload - You can add fontawesome and remix icons, also you can upload any custom icon. (Pro)
 14. Design panel - You can change any color and style in the instantio.
 15. Cart icon selection - You can set different cart Toggle styles and Cart positions.
 16. Optimized assets - You can enable optimized settings to load optimized scripts
 17. Mini Cart - The Mini Cart Drawer feature allows you to add a cart drawer for WooCommerce and place it anywhere on your website.
 
 == Changelog ==
+
+= 3.3.28 – November 10, 2025 =
+
+- Updated: Information in readme.txt file.
 
 = 3.3.27 – November 09, 2025 =
 
@@ -412,7 +418,7 @@ For those seeking simplicity, Instantio provides a simplified WooCommerce checko
 
 = 3.3.20 – June 15, 2025 =
 
-- Improvement: Security has been enhanced to address vulnerabilities. 
+- Improvement: Security has been enhanced to address vulnerabilities.
 
 = 3.3.19 – May 21, 2025 =
 
