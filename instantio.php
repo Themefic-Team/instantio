@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: Instantio - WooCommerce Quick Checkout
+ * Plugin Name: Instantio — Side Cart & One-Page Checkout for WooCommerce
  * Plugin URI: https://themefic.com/instantio/
  * Description: WooCommerce direct checkout plugin with Side Cart, Popup Cart, Floating Cart & Popup Checkout function (+ 4 more WooCommerce Quick Checkout systems).
  * Author: Themefic
@@ -8,13 +8,13 @@
  * Domain Path: /lang/
  * Author URI: https://themefic.com
  * Tags: woocommerce cart, woocommerce checkout, woocommerce direct checkout, multistep checkout, woocommerce side cart
- * Version: 3.3.27
+ * Version: 3.3.28
  * Tested up to: 6.8
  * Requires PHP: 7.4
  * WC tested up to: 10.0
 **/
 
-// don't load directly 
+// don't load directly
 defined( 'ABSPATH' ) || exit;
 
 class INSTANTIO {
@@ -34,7 +34,7 @@ class INSTANTIO {
 	 */
 	private function define_constants() {
 		if ( ! defined( 'INSTANTIO_VERSION' ) ) {
-			define( 'INSTANTIO_VERSION', '3.3.27' );
+			define( 'INSTANTIO_VERSION', '3.3.28' );
 		}
 		define( 'INS_URL', plugin_dir_url( __FILE__ ) );
 		define( 'INS_INC_URL', INS_URL . 'includes' );
@@ -79,7 +79,7 @@ class INSTANTIO {
 		if ( defined('INS_INC_PATH') && !empty(INS_INC_PATH) ) {
 			require_once INS_INC_PATH . '/controller/class-promo-notice.php';
 		}
-		
+
 	}
 
 	/**
@@ -110,7 +110,7 @@ class INSTANTIO {
 		} else {
 			new INS\Controller\App();
 
-			// ins Variation product Quick Views 
+			// ins Variation product Quick Views
 			add_action( 'wp_ajax_ins_variable_product_quick_view', array( $this, 'ins_ajax_quickview_variable_products' ) );
 			add_action( 'wp_ajax_nopriv_ins_variable_product_quick_view', array( $this, 'ins_ajax_quickview_variable_products' ) );
 		}
@@ -208,16 +208,16 @@ class INSTANTIO {
 	}
 
 	public function Ins_tourfic_admin_denqueue_script( $screen ) {
-		$ins_options_screens = array( 
-			'toplevel_page_wiopt', 
-			'instantio_page_ins_dashboard', 
-			'instantio_page_tf_license_info', 
-			'instantio_page_ins_get_help', 
-			'instantio_page_ins_whats_new', 
-			'admin_page_ins-setup-wizard', 
-			'instantio_page_ins-license-activation' 
+		$ins_options_screens = array(
+			'toplevel_page_wiopt',
+			'instantio_page_ins_dashboard',
+			'instantio_page_tf_license_info',
+			'instantio_page_ins_get_help',
+			'instantio_page_ins_whats_new',
+			'admin_page_ins-setup-wizard',
+			'instantio_page_ins-license-activation'
 		);
-	
+
 		//The tourfic admin js Listings Directory Compatibility
 		if ( in_array( $screen, $ins_options_screens ) ) {
 			wp_dequeue_style( 'tf-admin' );
@@ -245,7 +245,7 @@ function ins_before_woocommerce_init() {
 function ins_admin_enqueue_scripts($screen) {
 	wp_enqueue_style( 'ins-admin', INS_ASSETS_URL . '/admin/css/instantio-admin-style.css', array(), INSTANTIO_VERSION );
 	wp_enqueue_script( 'ins-admin-script', INS_ASSETS_URL . '/admin/js/instantio-admin-script.js', array( 'jquery' ), INSTANTIO_VERSION, true );
-	
+
 	wp_localize_script( 'ins-admin-script', 'ins_admin_params',
 		array(
 			'ins_nonce' => wp_create_nonce( 'ins_updates' ),
