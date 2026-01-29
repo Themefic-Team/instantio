@@ -979,6 +979,21 @@ Ins_TF_Settings::option( 'wiopt', array(
 								),
 
 								array(
+									'id' => 'cart-coupon-button-background-colors',
+									'type' => 'color',
+									'multiple' => true,
+									'inline' => true,
+									'label' => __( 'Cart Coupon Button Background Colors', 'instantio' ),
+									'subtitle' => __( 'Set background & text color', 'instantio' ),
+									'colors' => array(
+										'background'       => __( 'Background Color', 'instantio' ),
+										'text'             => __( 'Text Color', 'instantio' ),
+										'input_background' => __( 'Input Background', 'instantio' ),
+										'input_text_color' => __( 'Input Text Color', 'instantio' ),
+									),
+								),
+
+								array(
 									'id' => 'cart-empty-button-background-colors',
 									'type' => 'color',
 									'multiple' => true,

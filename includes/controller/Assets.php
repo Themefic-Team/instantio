@@ -193,6 +193,11 @@ class Assets {
 		$cart_button_background_colors_regular = isset( $ins_toggle_panel_tab['cart-button-background-colors']['regular'] ) && ! empty( $ins_toggle_panel_tab['cart-button-background-colors']['regular'] ) ? $ins_toggle_panel_tab['cart-button-background-colors']['regular'] : $ins_panel_button_bg_regular;
 		$cart_button_background_colors_hover = isset( $ins_toggle_panel_tab['cart-button-background-colors']['hover'] ) && ! empty( $ins_toggle_panel_tab['cart-button-background-colors']['hover'] ) ? $ins_toggle_panel_tab['cart-button-background-colors']['hover'] : $ins_panel_button_bg_hover;
 
+		$cart_coupon_button_background_color = isset( $ins_toggle_panel_tab['cart-coupon-button-background-colors']['background'] ) && ! empty( $ins_toggle_panel_tab['cart-coupon-button-background-colors']['background'] ) ? $ins_toggle_panel_tab['cart-coupon-button-background-colors']['background'] : $ins_panel_button_bg_regular;
+		$cart_coupon_button_input_text_color = isset( $ins_toggle_panel_tab['cart-coupon-button-background-colors']['input_text_color'] ) && ! empty( $ins_toggle_panel_tab['cart-coupon-button-background-colors']['input_text_color'] ) ? $ins_toggle_panel_tab['cart-coupon-button-background-colors']['input_text_color'] : '#665F5C';
+		$cart_coupon_button_input_background_color = isset( $ins_toggle_panel_tab['cart-coupon-button-background-colors']['input_background'] ) && ! empty( $ins_toggle_panel_tab['cart-coupon-button-background-colors']['input_background'] ) ? $ins_toggle_panel_tab['cart-coupon-button-background-colors']['input_background'] : '#fff';
+		$cart_coupon_button_text_color = isset( $ins_toggle_panel_tab['cart-coupon-button-background-colors']['text'] ) && ! empty( $ins_toggle_panel_tab['cart-coupon-button-background-colors']['text'] ) ? $ins_toggle_panel_tab['cart-coupon-button-background-colors']['text'] : $ins_panel_button_text_regular;
+
 		$cart_empty_button_background_colors_regular = isset( $ins_toggle_panel_tab['cart-empty-button-background-colors']['regular'] ) && ! empty( $ins_toggle_panel_tab['cart-empty-button-background-colors']['regular'] ) ? $ins_toggle_panel_tab['cart-empty-button-background-colors']['regular'] : '#fff';
 		$cart_empty_button_background_colors_hover = isset( $ins_toggle_panel_tab['cart-empty-button-background-colors']['hover'] ) && ! empty( $ins_toggle_panel_tab['cart-empty-button-background-colors']['hover'] ) ? $ins_toggle_panel_tab['cart-empty-button-background-colors']['hover'] : $ins_panel_button_bg_hover;
 
@@ -249,14 +254,29 @@ class Assets {
                  color: ' . $cart_button_text_colors_hover . ' !important; 
              }
 
+             .ins-cart-inner.ins-cart-step .ins-cart-coupon .coupon #coupon_code,
+			 .ins-cart-inner.ins-cart-step .ins-cart-coupon .coupon input::placeholder {
+                 background-color: ' . $cart_coupon_button_input_background_color . ' !important;
+                 color: ' . $cart_coupon_button_input_text_color . ' !important;
+				 border-color: ' . $cart_coupon_button_background_color . ' !important;
+             }
+
+             .ins-cart-inner.ins-cart-step .ins-cart-coupon .coupon button {
+                 background-color: ' . $cart_coupon_button_background_color . ' !important;
+                 color: ' . $cart_coupon_button_text_color . ' !important;
+				 border-color: ' . $cart_coupon_button_background_color . ' !important; 
+             }
+
              .ins-cart-inner.ins-cart-step .ins-empty-cart-button .ins-empty-cart {
                  background-color: ' . $cart_empty_button_background_colors_regular . ' !important;
                  color: ' . $cart_empty_button_text_colors_regular . ' !important; 
              }
+
              .ins-cart-inner.ins-cart-step .ins-empty-cart-button .ins-empty-cart:hover {
                  background-color: ' . $cart_empty_button_background_colors_hover . ' !important;
                  color: ' . $cart_empty_button_text_colors_hover . ' !important; 
              }
+			
          ';
 
 
