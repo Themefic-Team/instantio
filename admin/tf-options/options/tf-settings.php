@@ -1045,6 +1045,19 @@ Ins_TF_Settings::option( 'wiopt', array(
 									),
 								),
 
+								array(
+									'id' => 'empty-cart-text-colors',
+									'type' => 'color',
+									'multiple' => true,
+									'inline' => true,
+									'label' => __( 'Empty Cart Text Colors', 'instantio' ),
+									'subtitle' => __( 'Set regular text & link color', 'instantio' ),
+									'colors' => array(
+										'text_color' => __( 'Text Color', 'instantio' ),
+										'link_color' => __( 'Link Color', 'instantio' ),
+									),
+								),
+
 							),
 						),
 
