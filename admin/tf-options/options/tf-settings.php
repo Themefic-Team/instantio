@@ -979,6 +979,32 @@ Ins_TF_Settings::option( 'wiopt', array(
 								),
 
 								array(
+									'id' => 'cart-empty-button-background-colors',
+									'type' => 'color',
+									'multiple' => true,
+									'inline' => true,
+									'label' => __( 'Cart Empty Button Background Colors', 'instantio' ),
+									'subtitle' => __( 'Set regular & hover color', 'instantio' ),
+									'colors' => array(
+										'regular' => __( 'Regular', 'instantio' ),
+										'hover' => __( 'Hover', 'instantio' ),
+									),
+								),
+
+								array(
+									'id' => 'cart-empty-button-text-colors',
+									'type' => 'color',
+									'multiple' => true,
+									'inline' => true,
+									'label' => __( 'Cart Empty Button Text Colors', 'instantio' ),
+									'subtitle' => __( 'Set regular & hover color', 'instantio' ),
+									'colors' => array(
+										'regular' => __( 'Regular', 'instantio' ),
+										'hover' => __( 'Hover', 'instantio' ),
+									),
+								),
+
+								array(
 									'id' => 'cart-button-background-colors',
 									'type' => 'color',
 									'multiple' => true,

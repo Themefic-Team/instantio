@@ -193,8 +193,14 @@ class Assets {
 		$cart_button_background_colors_regular = isset( $ins_toggle_panel_tab['cart-button-background-colors']['regular'] ) && ! empty( $ins_toggle_panel_tab['cart-button-background-colors']['regular'] ) ? $ins_toggle_panel_tab['cart-button-background-colors']['regular'] : $ins_panel_button_bg_regular;
 		$cart_button_background_colors_hover = isset( $ins_toggle_panel_tab['cart-button-background-colors']['hover'] ) && ! empty( $ins_toggle_panel_tab['cart-button-background-colors']['hover'] ) ? $ins_toggle_panel_tab['cart-button-background-colors']['hover'] : $ins_panel_button_bg_hover;
 
+		$cart_empty_button_background_colors_regular = isset( $ins_toggle_panel_tab['cart-empty-button-background-colors']['regular'] ) && ! empty( $ins_toggle_panel_tab['cart-empty-button-background-colors']['regular'] ) ? $ins_toggle_panel_tab['cart-empty-button-background-colors']['regular'] : '#fff';
+		$cart_empty_button_background_colors_hover = isset( $ins_toggle_panel_tab['cart-empty-button-background-colors']['hover'] ) && ! empty( $ins_toggle_panel_tab['cart-empty-button-background-colors']['hover'] ) ? $ins_toggle_panel_tab['cart-empty-button-background-colors']['hover'] : $ins_panel_button_bg_hover;
+
 		$cart_button_text_colors_regular = isset( $ins_toggle_panel_tab['cart-button-text-colors']['regular'] ) && ! empty( $ins_toggle_panel_tab['cart-button-text-colors']['regular'] ) ? $ins_toggle_panel_tab['cart-button-text-colors']['regular'] : $ins_panel_button_text_regular;
 		$cart_button_text_colors_hover = isset( $ins_toggle_panel_tab['cart-button-text-colors']['hover'] ) && ! empty( $ins_toggle_panel_tab['cart-button-text-colors']['hover'] ) ? $ins_toggle_panel_tab['cart-button-text-colors']['hover'] : $ins_panel_button_text_hover;
+
+		$cart_empty_button_text_colors_regular = isset( $ins_toggle_panel_tab['cart-empty-button-text-colors']['regular'] ) && ! empty( $ins_toggle_panel_tab['cart-empty-button-text-colors']['regular'] ) ? $ins_toggle_panel_tab['cart-empty-button-text-colors']['regular'] : $ins_panel_button_bg_hover;
+		$cart_empty_button_text_colors_hover = isset( $ins_toggle_panel_tab['cart-empty-button-text-colors']['hover'] ) && ! empty( $ins_toggle_panel_tab['cart-empty-button-text-colors']['hover'] ) ? $ins_toggle_panel_tab['cart-empty-button-text-colors']['hover'] : $ins_panel_button_text_hover;
 
 		$output .= ' 
              .ins-checkout-layout .ins-checkout-header {
@@ -228,10 +234,12 @@ class Assets {
                  background-color: ' . $cart_pricing_bg . ' !important;
                  color: ' . $cart_pricing_text . ' !important;
              }
+
              .ins-cart-inner.ins-cart-step .cart_totals h2, .ins-cart-inner.ins-cart-step td,  .ins-cart-inner.ins-cart-step th {
                  background-color: ' . $cart_pricing_bg . ' !important;
                  color: ' . $cart_pricing_text . ' !important;
              }
+			
              .ins-cart-inner.ins-cart-step .ins-cart-btns a, .ins-cart-btns a.active {
                  background-color: ' . $cart_button_background_colors_regular . ' !important;
                  color: ' . $cart_button_text_colors_regular . ' !important; 
@@ -239,6 +247,15 @@ class Assets {
              .ins-cart-inner.ins-cart-step .ins-cart-btns a:hover {
                  background-color: ' . $cart_button_background_colors_hover . ' !important;
                  color: ' . $cart_button_text_colors_hover . ' !important; 
+             }
+
+             .ins-cart-inner.ins-cart-step .ins-empty-cart-button .ins-empty-cart {
+                 background-color: ' . $cart_empty_button_background_colors_regular . ' !important;
+                 color: ' . $cart_empty_button_text_colors_regular . ' !important; 
+             }
+             .ins-cart-inner.ins-cart-step .ins-empty-cart-button .ins-empty-cart:hover {
+                 background-color: ' . $cart_empty_button_background_colors_hover . ' !important;
+                 color: ' . $cart_empty_button_text_colors_hover . ' !important; 
              }
          ';
 
