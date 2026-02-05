@@ -35,7 +35,7 @@ endif;
 		'<div class="ins-cart-empty %s"><span>%s <br> %s</span></div>',
 		esc_attr__( $hide_empty ),
 		esc_html__( $empty_cart_text, 'instantio' ),
-		esc_html__( $empty_cart_button_prefix_text, 'instantio') . '<a href="' . esc_url( $empty_cart_button_url ) . '">' . esc_html__( $empty_cart_button_text, 'instantio' ) . '</a>'
+		esc_html__( $empty_cart_button_prefix_text, 'instantio') . ' ' . '<a href="' . esc_url( $empty_cart_button_url ) . '">' . esc_html__( $empty_cart_button_text, 'instantio' ) . '</a>'
 	);
 	do_action( 'ins_cart_content', $display); 
 //  echo ob_get_clean();
