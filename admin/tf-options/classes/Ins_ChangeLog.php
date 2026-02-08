@@ -18,9 +18,7 @@ $change = [
            'changelog' => [
                'Added'   =>   [
                    'Custom link for empty cart.',
-               ],
-               'Added'   =>   [
-                   'Custom message for empty cart.',
+                   'Custom message for empty cart.'
                ]
            ]
        ],
