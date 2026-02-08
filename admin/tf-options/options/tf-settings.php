@@ -269,6 +269,60 @@ Ins_TF_Settings::option( 'wiopt', array(
 			'icon' => 'fas fa-cart-flatbed',
 			'fields' => array(
 				array(
+					'id' => 'empty-cart-content',
+					'type' => 'fieldset',
+					'label' => __( 'Empty Cart Content', 'instantio' ),
+					'subtitle' => __( 'Change empty cart content text & url', 'instantio' ),
+					// 'dependency' 	=> array('ins-layout','!=', '1'),
+					'fields' => array(
+						array(
+							'id'        => 'on-empty-cart-content',
+							'type'      => 'switch',
+							'label'     => __( 'Edit Empty Cart Content', 'instantio' ),
+							'label_on'  => __( 'Yes', 'instantio' ),
+							'label_off' => __( 'No', 'instantio' ),
+							'default'   => false,
+						),
+						array(
+							'id'          => 'empty_cart_text',
+							'type'        => 'text',
+							'label'       => __( 'Empty Cart Text', 'instantio' ),
+							'placeholder' => 'Your cart is empty.',
+							'description' => __( 'Default: <code>Your cart is empty.</code>', 'instantio' ),
+							'default'     => 'Your cart is empty.',
+							'dependency'  => array( 'on-empty-cart-content', '==', 'true' ),
+						),
+						array(
+							'id'          => 'empty_cart_button_prefix_info',
+							'type'        => 'text',
+							'label'       => __( 'Cart Button Prefix Info', 'instantio' ),
+							'placeholder' => 'Please go to',
+							'description' => __( 'Default: Please go to' ),
+							'default'     => 'Please go to',
+							'dependency'  => array( 'on-empty-cart-content', '==', 'true' ),
+						),
+						array(
+							'id'          => 'empty_cart_button_text',
+							'type'        => 'text',
+							'label'       => __( 'Button Text', 'instantio' ),
+							'placeholder' => 'Shop Now',
+							'description' => __( 'Default: Shop Now' ),
+							'default'     => 'Shop Now',
+							'dependency'  => array( 'on-empty-cart-content', '==', 'true' ),
+						),
+						array(
+							'id' => 'empty_cart_button_url',
+							'type' => 'text',
+							'label' => __( 'Button URL', 'instantio' ),
+							'placeholder' => 'https://',
+							'description' => __( 'Default: Default shop page', 'instantio' ),
+							'validate' => 'tf_validate_url',
+							'dependency' => array( 'on-empty-cart-content', '==', 'true' ),
+						),
+					),
+				),
+
+				array(
 					'id' => 'cart-btn',
 					'type' => 'fieldset',
 					'label' => __( 'Cart Button', 'instantio' ),
@@ -979,6 +1033,47 @@ Ins_TF_Settings::option( 'wiopt', array(
 								),
 
 								array(
+									'id' => 'cart-coupon-button-background-colors',
+									'type' => 'color',
+									'multiple' => true,
+									'inline' => true,
+									'label' => __( 'Cart Coupon Button Background Colors', 'instantio' ),
+									'subtitle' => __( 'Set background & text color', 'instantio' ),
+									'colors' => array(
+										'background'       => __( 'Background Color', 'instantio' ),
+										'text'             => __( 'Text Color', 'instantio' ),
+										'input_background' => __( 'Input Background', 'instantio' ),
+										'input_text_color' => __( 'Input Text Color', 'instantio' ),
+									),
+								),
+
+								array(
+									'id' => 'cart-empty-button-background-colors',
+									'type' => 'color',
+									'multiple' => true,
+									'inline' => true,
+									'label' => __( 'Cart Empty Button Background Colors', 'instantio' ),
+									'subtitle' => __( 'Set regular & hover color', 'instantio' ),
+									'colors' => array(
+										'regular' => __( 'Regular', 'instantio' ),
+										'hover' => __( 'Hover', 'instantio' ),
+									),
+								),
+
+								array(
+									'id' => 'cart-empty-button-text-colors',
+									'type' => 'color',
+									'multiple' => true,
+									'inline' => true,
+									'label' => __( 'Cart Empty Button Text Colors', 'instantio' ),
+									'subtitle' => __( 'Set regular & hover color', 'instantio' ),
+									'colors' => array(
+										'regular' => __( 'Regular', 'instantio' ),
+										'hover' => __( 'Hover', 'instantio' ),
+									),
+								),
+
+								array(
 									'id' => 'cart-button-background-colors',
 									'type' => 'color',
 									'multiple' => true,
@@ -1001,6 +1096,19 @@ Ins_TF_Settings::option( 'wiopt', array(
 									'colors' => array(
 										'regular' => __( 'Regular', 'instantio' ),
 										'hover' => __( 'Hover', 'instantio' ),
+									),
+								),
+
+								array(
+									'id' => 'empty-cart-text-colors',
+									'type' => 'color',
+									'multiple' => true,
+									'inline' => true,
+									'label' => __( 'Empty Cart Text Colors', 'instantio' ),
+									'subtitle' => __( 'Set regular text & link color', 'instantio' ),
+									'colors' => array(
+										'text_color' => __( 'Text Color', 'instantio' ),
+										'link_color' => __( 'Link Color', 'instantio' ),
 									),
 								),
 
