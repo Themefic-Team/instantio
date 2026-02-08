@@ -11,76 +11,31 @@
 
 $change = [
 
-         // Update  start
-       'v44' => [
-           'date'      => '27 August 2025',
-           'version'   => 'Version 3.3.25',
-           'changelog' => [
-               'Updated'   =>   [
-                   'readme.txt file info',
-               ]
-           ]
-       ],
-       // Update End   
-        
         // Update  start
-       'v43' => [
-           'date'      => '27 August 2025',
-           'version'   => 'Version 3.3.24',
+       'v46' => [
+           'date'      => 'February 08, 2026',
+           'version'   => 'Version 3.3.30',
            'changelog' => [
-               'Updated'   =>   [
-                   'System stability has been improved.',
+               'Added'   =>   [
+                   'Custom link for empty cart.',
                ],
-                'Compatibility'   =>   [
-                   'Now compatible with WooCommerce v10.0.',
+               'Added'   =>   [
+                   'Custom message for empty cart.',
                ]
            ]
        ],
-       // Update End   
-
-        // Update  start
-       'v42' => [
-           'date'      => '21 August 2025',
-           'version'   => 'Version 3.3.23',
+       // Update End  
+       // Update  start
+       'v45' => [
+           'date'      => 'December 08, 2025',
+           'version'   => 'Version 3.3.29',
            'changelog' => [
-               'Updated'   =>   [
-                   'System stability has been enhanced.',
-               ],
-                'Fix'   =>   [
-                   'Stripe compatible issue has been resolved',
-                   'PayPal compatible issue has been resolved',
+               'Compatibility'   =>   [
+                   'Fully compatible with WordPress v6.9',
                ]
            ]
        ],
-       // Update End   
-
-        // Update  start
-       'v41' => [
-           'date'      => '09 July 2025',
-           'version'   => 'Version 3.3.22',
-           'changelog' => [
-               'Updated'   =>   [
-                   'Plugin title has been updated.',
-               ],
-                'Compatibility'   =>   [
-                   'Now compatible with WooCommerce v9.9.',
-               ]
-           ]
-       ],
-       // Update End   
-
-        // Update  start
-       'v40' => [
-           'date'      => '18 June 2025',
-           'version'   => 'Version 3.3.21',
-           'changelog' => [
-               'Fix'   =>   [
-                   'Improved: Compatibility issue with the Tourfic plugin',
-                   'Improved: System stability has been enhanced.'
-               ]
-           ]
-       ],
-       // Update End   
+       // Update End  
 ]
 
 ?>
