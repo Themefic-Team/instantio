@@ -322,7 +322,7 @@
 		var thisbutton = $(this),
 			cart_form = thisbutton.closest("form.cart"),
 			id = thisbutton.val(),
-			product_id = cart_form.find("input[name=product_id]").val() || id,
+			product_id = cart_form.find("input[name=product_id]").val() || cart_form.find("input[name=add-to-cart]").val() || id,
 			product_qty = cart_form.find("input[name=quantity]").val() || 1,
 			variation_id = cart_form.find("input[name=variation_id]").val() || 0;
 
@@ -332,13 +332,29 @@
 			}
 		}
 
+		var grouped_data = {};
+
+		cart_form.find('input[name^="quantity["]').each(function () {
+			var name = $(this).attr('name'); // quantity[123]
+			var matches = name.match(/\[(\d+)\]/);
+
+			if (matches) {
+				var child_id = matches[1];
+				var qty = $(this).val();
+
+				if (qty > 0) {
+					grouped_data[child_id] = qty;
+				}
+			}
+		});
+
 		$.ajax({
 			url: ins_params.ajax_url,
 			type: "POST",
 			data: {
 				action: "ins_ajax_cart_single",
 				product_id: product_id,
-				quantity: product_qty,
+				quantity: Object.keys(grouped_data).length ? grouped_data : product_qty,
 				variation_id: variation_id,
 			},
 			beforeSend: function (response) {
