@@ -324,7 +324,8 @@
 			id = thisbutton.val(),
 			product_id = cart_form.find("input[name=product_id]").val() || cart_form.find("input[name=add-to-cart]").val() || id,
 			product_qty = cart_form.find("input[name=quantity]").val() || 1,
-			variation_id = cart_form.find("input[name=variation_id]").val() || 0;
+			variation_id = cart_form.find("input[name=variation_id]").val() || 0,
+			asnp_wepb_items = cart_form.find("input[name=asnp_wepb_items]").val() || '';
 
 		if (cart_form.find("input[name=variation_id]").length > 0) {
 			if (variation_id == '' || variation_id == 0) {
@@ -356,6 +357,7 @@
 				product_id: product_id,
 				quantity: Object.keys(grouped_data).length ? grouped_data : product_qty,
 				variation_id: variation_id,
+				asnp_wepb_items: asnp_wepb_items
 			},
 			beforeSend: function (response) {
 				thisbutton.removeClass("added").addClass("loading");

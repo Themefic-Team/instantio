@@ -464,6 +464,79 @@ class App {
 			] );
 		}
 
+		// EASY PRODUCT BUNDLE (Manual Add Like Grouped)
+		
+		if ( $product->get_type() === 'easy_product_bundle' ) {
+
+			$added = false;
+			$main_qty = ! empty( $_POST['quantity'] ) ? wc_stock_amount( $_POST['quantity'] ) : 1;
+
+			if ( ! empty( $_POST['asnp_wepb_items'] ) ) {
+
+				$items = json_decode( wp_unslash( $_POST['asnp_wepb_items'] ), true );
+
+				if ( is_array( $items ) ) {
+
+					foreach ( $items as $item ) {
+
+						$child_id = isset( $item['id'] ) ? absint( $item['id'] ) : 0;
+						$child_qty = isset( $item['qty'] ) ? wc_stock_amount( $item['qty'] ) : 0;
+
+						if ( $child_id <= 0 || $child_qty <= 0 ) {
+							continue;
+						}
+
+						$child_product = wc_get_product( $child_id );
+
+						if ( ! $child_product || get_post_status( $child_id ) !== 'publish' ) {
+							continue;
+						}
+
+						$passed_validation = apply_filters(
+							'woocommerce_add_to_cart_validation',
+							true,
+							$child_id,
+							$child_qty
+						);
+
+						if ( ! $passed_validation ) {
+							continue;
+						}
+
+						// Use sale price if available
+						$price = $child_product->get_price(); // returns sale price if active
+
+						$cart_item_data = [
+							'custom_bundle_price' => $price, // store in cart item
+						];
+
+						$total_qty = $child_qty * $main_qty;
+						
+						$cart_item_key = WC()->cart->add_to_cart( $child_id, $total_qty, 0, [], $cart_item_data );
+
+						if ( $cart_item_key ) {
+							$added = true;
+							do_action( 'woocommerce_ajax_added_to_cart', $child_id );
+						}
+					}
+				}
+			}
+
+			if ( $added ) {
+
+				if ( get_option( 'woocommerce_cart_redirect_after_add' ) === 'yes' ) {
+					wc_add_to_cart_message( array( $product_id => $main_qty  ), true );
+				}
+
+				$this->ins_ajax_cart_reload();
+			}
+
+			wp_send_json( [
+				'error'       => true,
+				'product_url' => get_permalink( $product_id )
+			] );
+		}
+
 		// SIMPLE / VARIABLE PRODUCTS
 		$quantity = empty( $_POST['quantity'] ) ? 1 : wc_stock_amount( $_POST['quantity'] );
 
