@@ -354,6 +354,7 @@
 			type: "POST",
 			data: {
 				action: "ins_ajax_cart_single",
+				nonce: ins_params.ins_ajax_nonce,
 				product_id: product_id,
 				quantity: Object.keys(grouped_data).length ? grouped_data : product_qty,
 				variation_id: variation_id,

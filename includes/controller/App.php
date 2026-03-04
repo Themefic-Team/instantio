@@ -396,6 +396,11 @@ class App {
 
 	public function ins_ajax_cart_single() {
 
+		if ( ! isset( $_POST['nonce'] ) || 
+			! wp_verify_nonce( $_POST['nonce'], 'ins_ajax_nonce' ) ) {
+			wp_send_json( [ 'error' => true ] );
+		}
+
 		if ( ! isset( $_POST['product_id'] ) ) {
 			wp_send_json( [ 'error' => true ] );
 		}
@@ -404,7 +409,7 @@ class App {
 		$variation_id = isset( $_POST['variation_id'] ) ? absint( $_POST['variation_id'] ) : 0;
 		$product      = wc_get_product( $product_id );
 
-		if ( ! $product ) {
+		if ( ! $product || get_post_status( $product_id ) !== 'publish' ) {
 			wp_send_json( [ 'error' => true ] );
 		}
 
@@ -465,7 +470,6 @@ class App {
 		}
 
 		// EASY PRODUCT BUNDLE (Manual Add Like Grouped)
-		
 		if ( $product->get_type() === 'easy_product_bundle' ) {
 
 			$added = false;
