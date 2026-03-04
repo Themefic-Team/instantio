@@ -479,8 +479,9 @@ class App {
 
 					foreach ( $items as $item ) {
 
-						$child_id = isset( $item['id'] ) ? absint( $item['id'] ) : 0;
-						$child_qty = isset( $item['qty'] ) ? wc_stock_amount( $item['qty'] ) : 0;
+						$child_id   = isset( $item['id'] ) ? absint( $item['id'] ) : 0;
+						$child_qty  = isset( $item['qty'] ) ? wc_stock_amount( $item['qty'] ) : 0;
+						$attributes = isset( $item['attributes'] ) ? (array) $item['attributes'] : [];
 
 						if ( $child_id <= 0 || $child_qty <= 0 ) {
 							continue;
@@ -492,27 +493,53 @@ class App {
 							continue;
 						}
 
-						$passed_validation = apply_filters(
-							'woocommerce_add_to_cart_validation',
-							true,
-							$child_id,
-							$child_qty
-						);
+						$total_qty = $child_qty * $main_qty;
 
-						if ( ! $passed_validation ) {
-							continue;
+						$variation_id   = 0;
+						$variation_data = [];
+
+						/*
+						|--------------------------------------------------------------------------
+						| Handle Variable Products
+						|--------------------------------------------------------------------------
+						*/
+						if ( $child_product->is_type( 'variable' ) && ! empty( $attributes ) ) {
+
+							$variation_data = [];
+
+							foreach ( $attributes as $attr_key => $attr_value ) {
+
+								// Convert to proper WooCommerce format
+								$taxonomy = wc_attribute_taxonomy_name( $attr_key );
+
+								if ( taxonomy_exists( $taxonomy ) ) {
+									$variation_data[ 'attribute_' . $taxonomy ] = sanitize_title( $attr_value );
+								} else {
+									$variation_data[ 'attribute_' . sanitize_title( $attr_key ) ] = sanitize_title( $attr_value );
+								}
+							}
+
+							// Find matching variation
+							$data_store   = \WC_Data_Store::load( 'product' );
+							$variation_id = $data_store->find_matching_product_variation(
+								$child_product,
+								$variation_data
+							);
 						}
 
-						// Use sale price if available
-						$price = $child_product->get_price(); // returns sale price if active
+						$price = $child_product->get_price();
 
 						$cart_item_data = [
-							'custom_bundle_price' => $price, // store in cart item
+							'custom_bundle_price' => $price,
 						];
 
-						$total_qty = $child_qty * $main_qty;
-						
-						$cart_item_key = WC()->cart->add_to_cart( $child_id, $total_qty, 0, [], $cart_item_data );
+						$cart_item_key = WC()->cart->add_to_cart(
+							$child_id,
+							$total_qty,
+							$variation_id,
+							$variation_data,
+							$cart_item_data
+						);
 
 						if ( $cart_item_key ) {
 							$added = true;
