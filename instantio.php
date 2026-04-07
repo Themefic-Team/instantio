@@ -80,6 +80,11 @@ class INSTANTIO {
 			require_once INS_INC_PATH . '/controller/class-promo-notice.php';
 		}
 
+		// ins Promo Banner
+		if ( defined('INS_INC_PATH') && !empty(INS_INC_PATH) ) {
+			require_once INS_INC_PATH . '/controller/class-dashboard-widget.php';
+		}
+
 	}
 
 	/**
