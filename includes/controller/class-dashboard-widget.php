@@ -111,7 +111,7 @@ class InsDashboardWidget {
 
             <!-- Button for more integrations -->
             <div class="ins-actions">
-                <a href="<?php echo esc_url( admin_url( 'admin.php?page=wiopt=#tab=layout_option' ) ); ?>" class="button">
+                <a href="<?php echo esc_url( admin_url( 'admin.php?page=wiopt#tab=layout_option' ) ); ?>" class="button">
                     <?php esc_html_e( 'Check More Features', 'instantio' ); ?>
                 </a>
             </div>
