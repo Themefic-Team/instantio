@@ -398,11 +398,11 @@ class App {
 
 		if ( ! isset( $_POST['nonce'] ) || 
 			! wp_verify_nonce( $_POST['nonce'], 'ins_ajax_nonce' ) ) {
-			wp_send_json( [ 'error' => true ] );
+			wp_send_json_error( [ 'error' => true ] );
 		}
 
 		if ( ! isset( $_POST['product_id'] ) ) {
-			wp_send_json( [ 'error' => true ] );
+			wp_send_json_error( [ 'error' => true ] );
 		}
 
 		$product_id   = apply_filters( 'woocommerce_add_to_cart_product_id', absint( $_POST['product_id'] ) );
@@ -410,7 +410,7 @@ class App {
 		$product      = wc_get_product( $product_id );
 
 		if ( ! $product || get_post_status( $product_id ) !== 'publish' ) {
-			wp_send_json( [ 'error' => true ] );
+			wp_send_json_error( [ 'error' => true ] );
 		}
 
 		$product_status = get_post_status( $product_id );

@@ -369,6 +369,7 @@
 				thisbutton.addClass("added").removeClass("loading");
 			},
 			success: function (response) {
+				if (!response || !response.data) return;
 				$(".ins-quick-view").hide();
 				$("#ins_cart_totals").html(response.data.ins_cart_count);
 				$("#ins_cart_mobile_totals").html(response.data.ins_cart_count);
@@ -606,6 +607,7 @@
 				$(".loader-container").removeClass("active");
 			},
 			success: function (response) {
+				if (!response || !response.data) return;
 				gsap.to(animate_remove, {
 					opacity: 0,
 					x: -100,
@@ -664,6 +666,7 @@
 				$(".loader-container").removeClass("active");
 			},
 			success: function (response) {
+				if (!response || !response.data) return;
 				$("#ins_cart_totals").html(response.data.ins_cart_count);
 				$("#ins_cart_mobile_totals").html(response.data.ins_cart_count);
 				$("#ins-mobile-cart-total-amount").html(response.data.cart_total);
@@ -736,6 +739,7 @@
 					$(".loader-container").removeClass("active");
 				},
 				success: function (response) {
+					if (!response || !response.data) return;
 					// console.log(response);
 					// console.log(response.data);
 					$("#ins_cart_totals").html(response.data.ins_cart_count);
