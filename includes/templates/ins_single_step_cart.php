@@ -231,7 +231,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 				</div>
 				<div class="ins-empty-cart-button">
 					<button class="ins-empty-cart">
-						<?php esc_attr_e( 'Empty Cart', 'instantio' ); ?>
+						<?php esc_html_e( 'Empty Cart', 'instantio' ); ?>
 					</button>
 				</div>
 			</div>
