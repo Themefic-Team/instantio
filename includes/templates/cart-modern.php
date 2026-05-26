@@ -228,7 +228,7 @@ if(! class_exists('ASTRA_Ext_WooCommerce_Markup') || ( class_exists(('ASTRA_Ext_
 				</div>
 				<div class="ins-empty-cart-button">
 					<button class="ins-empty-cart">
-						<?php esc_attr_e( 'Empty Cart', 'instantio' ); ?>
+						<?php esc_html_e( 'Empty Cart', 'instantio' ); ?>
 					</button>
 				</div>
 			</div>
