@@ -596,3 +596,174 @@
         gap: 4px;
     }
 }
+
+
+/*
+* Dashboard promo banner notice
+*/
+
+.ins-dashboard-promo-banner-header {
+    margin-bottom:24px;
+    max-width:1631px;
+    margin-left:auto;
+    margin-right:auto;
+    width:100%;
+}
+
+.ins-promo-banner{
+    display:flex;
+    align-items:center;
+    gap:24px;
+    position:relative;
+    padding: 12px 16px 12px 24px;
+    border:1px solid #805830;
+    border-radius:8px;
+    min-height:96px;
+    box-sizing:border-box;
+    background: linear-gradient(90deg, #FFD5BE 0%, var(--Color-Fill-White, #FFF) 50%, #FFF3EF 100%);
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+
+}
+
+.ins-promo-close {
+    position: absolute;
+    top: -8PX;
+    left: -8px;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    line-height: 1;
+    color: #888;
+    background: #fff;
+    border-radius: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+}
+
+.ins-promo-icon{
+    flex:0 0 70px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.ins-promo-content{
+    flex:1;
+    text-align:center;
+}
+
+.ins-promo-content h3{
+    margin:0;
+    font-size:20px;
+    font-weight:700;
+    color:#2c2c2c;
+    text-align: center;
+    font-family: "Inter", sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 120%;
+    background: linear-gradient(90deg, var(--Color-Text-Title, #28201C) 0%, #613F00 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.ins-sidebar-promo-header .ins-promo-content h3 {
+    font-family: "Inter", sans-serif;
+    font-size: 19px;
+    font-weight: 600;
+    line-height: 150%;
+}
+
+.ins-promo-content p{
+    margin:4px 0 0;
+    font-size:14px;
+    color:#DB5209;
+    text-align: center;
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 150%;
+}
+
+.ins-sidebar-promo-header .ins-promo-content p {
+    color: var(--color-text-muted, #DB5209);
+    font-family: "Inter", sans-serif;
+    font-size: 15px;
+    line-height: 24px;
+}
+
+.ins-promo-action{
+    flex:0 0 auto;
+}
+
+.ins-promo-action .button{
+    font-family: "Inter", sans-serif;
+    font-size: 19px;
+    font-weight: 700;
+    line-height: 150%;
+
+    display: flex;
+    padding: 12px 32px;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    border-radius: 4px;
+    background: var(--Color-Primary-Default, #DB5209);
+    transition: background-color 0.3s ease;
+}
+
+.ins-promo-action .button .buy-now-text {
+    display: inline-block;
+}
+
+.ins-promo-action .button .arrow-icon {
+    display: none;
+}
+
+.ins-sidebar-promo-header .ins-promo-action .button .arrow-icon {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.ins-sidebar-promo-header .ins-promo-action .button .arrow-icon {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.ins-sidebar-promo-header .ins-promo-icon {
+	width: 44px;
+	aspect-ratio: 11/13;
+}
+
+.ins-sidebar-promo-header .ins-promo-action .button .buy-now-text {
+    display: none;
+}
+
+.ins-sidebar-promo-header .ins-promo-action .button {
+    display: flex;
+    width: 40px;
+    height: 40px;
+    padding: 12px;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+}
+
+@media (max-width:768px){
+
+    .ins-promo-banner{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .ins-promo-content{
+        text-align:center;
+    }
+}

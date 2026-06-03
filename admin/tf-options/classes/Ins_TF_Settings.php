@@ -233,6 +233,10 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 			?>
 			<div class="tf-setting-dashboard">
 				<?php echo $this->ins_admin_top_header(); ?>
+				
+				<div class="ins-dashboard-promo-banner-header ins-sidebar-promo-header">
+					<?php do_action( 'ins_dashboard_promo_notice' ); ?>
+				</div>
 				<div class="ins-dashboad-wrapper">
 					<ul class="dashboad-tab">
 						<li class="dashboad-tab-singel active">
@@ -923,6 +927,11 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 						</div>
 
 						<div class="instantio-sidebar-content">
+							
+							<div class="ins-dashboard-promo-banner-header ins-sidebar-promo-header">
+								<?php do_action( 'ins_dashboard_promo_notice' ); ?>
+							</div>
+
 							<!-- promo banner  -->
 					 		<?php echo apply_filters('ins_dashboard_helper_banner', ''); ?>
 

@@ -161,3 +161,29 @@ jQuery(document).ready(function($) {
         });
     });
 });
+
+
+jQuery(function ($) {
+
+	$(document).on(
+		'click',
+		'.ins-promo-close',
+		function () {
+
+			const $banner = $(this).closest(
+				'.ins-promo-banner'
+			);
+
+			$.post(
+				insPromo.ajaxurl,
+				{
+					action: 'ins_dismiss_promo_notice',
+					nonce: insPromo.nonce
+				},
+				function () {
+					$banner.slideUp(200);
+				}
+			);
+		}
+	);
+});

@@ -303,9 +303,25 @@ function metabox_order( $order ) {
 	);
 }
 
+function ins_utm_generator( $url, $utm_params = array() ) {
+	$host_url = parse_url( get_site_url(), PHP_URL_HOST );
+	$utm_params = array_merge( array(
+		'utm_source'   => 'ins_' . $host_url,
+		'utm_medium'   => 'plugin',
+		'utm_campaign' => 'ins_plugin_installation',
+	), $utm_params );
+
+	$query_string = http_build_query( $utm_params );
+	return esc_url( $url . ( strpos( $url, '?' ) === false ? '?' : '&' ) . $query_string );
+}
+
 // ins Featured Banner
 if ( file_exists( INS_INC_PATH . '/controller/class-helper-banner.php' ) ) {
 	require_once INS_INC_PATH . '/controller/class-helper-banner.php';
+}
+
+if ( file_exists( INS_INC_PATH . '/controller/dashboard-promo-notice.php' ) ) {
+	require_once INS_INC_PATH . '/controller/dashboard-promo-notice.php';
 }
 
 ?>
