@@ -234,7 +234,7 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 			<div class="tf-setting-dashboard">
 				<?php echo $this->ins_admin_top_header(); ?>
 				
-				<div class="ins-dashboard-promo-banner-header ins-sidebar-promo-header">
+				<div class="ins-dashboard-promo-banner-header">
 					<?php do_action( 'ins_dashboard_promo_notice' ); ?>
 				</div>
 				<div class="ins-dashboad-wrapper">
