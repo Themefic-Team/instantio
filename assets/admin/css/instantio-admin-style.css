@@ -620,7 +620,6 @@
     border-radius:8px;
     min-height:96px;
     box-sizing:border-box;
-    background: linear-gradient(90deg, #FFD5BE 0%, var(--Color-Fill-White, #FFF) 50%, #FFF3EF 100%);
     background: 
         linear-gradient(90deg, #FFD5BE 0%, var(--Color-Fill-White, #FFF) 50%, #FFF3EF 100%) padding-box,
         linear-gradient(to right, #805830 0%, #FFF 50%, #E89700 100%) border-box;
