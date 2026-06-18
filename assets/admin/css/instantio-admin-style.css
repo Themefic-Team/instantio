@@ -757,6 +757,12 @@
     border-radius: 50%;
 }
 
+#checkout_editors .checkout_reset_btn {
+	background-color: rgba(219, 82, 9, 0.1098039216);
+	padding-left: 20px;
+	padding-top: 0;
+}
+
 @media (max-width:768px){
 
     .ins-promo-banner{
