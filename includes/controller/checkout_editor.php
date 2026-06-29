@@ -15,6 +15,14 @@
 
     
     function save_custom_field_to_order_meta($order) {
+        if (isset($_POST['ins_cus_billingfield_origin11'])) {
+            // Get the custom field value from the POST data.
+            $custom_field_value = sanitize_text_field($_POST['ins_cus_billingfield_origin11']);
+
+            // Save the custom field value to the order meta.
+            $order->update_meta_data('ins_cus_billingfield_origin11', $custom_field_value);
+        }
+
         if (isset($_POST['ins_cus_billingfield_origin12'])) {
             // Get the custom field value from the POST data.
             $custom_field_value = sanitize_text_field($_POST['ins_cus_billingfield_origin12']);
@@ -116,7 +124,9 @@
 
             $field_origin   = $ins_field['checkout_form_field_origin'];
 
-            if($field_origin == 'ins_cus_billingfield_origin12'){
+            if($field_origin == 'ins_cus_billingfield_origin11'){
+                echo '<p><strong>'.$ins_field['checkout_form_field_name'].':</strong> ' . get_post_meta( $order->get_id(), 'ins_cus_billingfield_origin11', true ) . '</p>';
+            } elseif ($field_origin == 'ins_cus_billingfield_origin12'){
                 echo '<p><strong>'.$ins_field['checkout_form_field_name'].':</strong> ' . get_post_meta( $order->get_id(), 'ins_cus_billingfield_origin12', true ) . '</p>';
             } elseif ($field_origin == 'ins_cus_billingfield_origin13'){
                 echo '<p><strong>'.$ins_field['checkout_form_field_name'].':</strong> ' . get_post_meta( $order->get_id(), 'ins_cus_billingfield_origin13', true ) . '</p>';
@@ -300,6 +310,19 @@
                     unset($fields['billing']['billing_phone']);
                 }
 
+            } elseif ($field_origin == 'ins_cus_billingfield_origin11'){
+                $fields['billing']['ins_cus_billingfield_origin11'] = array(
+                    'label'         => __($ins_field['checkout_form_field_name'], 'woocommerce'),
+                    'placeholder'   => _x($ins_field['checkout_form_field_place'], 'placeholder', 'woocommerce'),
+                    'required'      => $required,
+                    'priority'      => $fieldskey . '0',
+                    'class'         => array('form-row-wide'),
+                    'clear'         => true
+                    );
+
+                if($field_status === false){
+                    unset($fields['billing']['ins_cus_billingfield_origin11']);
+                }
             } elseif ($field_origin == 'ins_cus_billingfield_origin12'){
                 $fields['billing']['ins_cus_billingfield_origin12'] = array(
                     'label'         => __($ins_field['checkout_form_field_name'], 'woocommerce'),

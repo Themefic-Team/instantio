@@ -3,7 +3,7 @@ Contributors: themefic, kamrul0424, hemelhasan, hasanet, mdrejon, mdashikul
 Tags: woocommerce cart, woocommerce checkout, woocommerce direct checkout, multistep checkout, woocommerce side cart
 Requires at least: 4.0
 Tested up to: 7.0
-Stable tag: 3.3.33
+Stable tag: 3.3.34
 WC requires at least: 7.0
 WC tested up to: 10.7
 Requires PHP: 7.4
@@ -374,6 +374,10 @@ For those seeking simplicity, Instantio provides a simplified WooCommerce checko
 17. Mini Cart - The Mini Cart Drawer feature allows you to add a cart drawer for WooCommerce and place it anywhere on your website.
 
 == Changelog ==
+
+= 3.3.34 – Jun 28, 2026 =
+
+- Compatibility: Checkout Editor compatible with latest woocommerce.
 
 = 3.3.33 – April 26, 2026 =
 
