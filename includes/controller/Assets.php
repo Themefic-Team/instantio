@@ -46,6 +46,16 @@ class Assets {
 			'themefic_nonce' => wp_create_nonce('themefic_plugin_nonce'),
 		]);
 
+		wp_localize_script(
+			'ins-admin-script',
+			'insPromo',
+			array(
+				'ajaxurl' => admin_url( 'admin-ajax.php' ),
+				'nonce'   => wp_create_nonce(
+					'ins_notice_nonce'
+				),
+			)
+		);
 
 	}
 
