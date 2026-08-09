@@ -236,7 +236,7 @@ class Ins_Dashboard_Promo_Notice {
 
 			<div class="ins-promo-icon">
 
-				<img style="height:72px; width:60px;" src="<?php echo INS_ASSETS_URL; ?>/img/shield-icon.gif" alt="shield logo">
+				<img style="height:72px; width:60px;" src="<?php echo esc_url( INS_ASSETS_URL . '/img/shield-icon.gif' ); ?>" alt="shield logo">
 
 			</div>
 
@@ -244,9 +244,10 @@ class Ins_Dashboard_Promo_Notice {
 
 				<h3>
 					<?php
-					echo esc_html(
-						sprintf(
-							__( 'Lifetime License only for $%s', 'instantio' ),
+						echo esc_html(
+							sprintf(
+								/* translators: %s: discounted lifetime license price. */
+								__( 'Lifetime License only for $%s', 'instantio' ),
 							number_format_i18n( $offer['discount_price'] )
 						)
 					);

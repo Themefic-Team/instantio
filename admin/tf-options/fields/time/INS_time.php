@@ -21,7 +21,10 @@ if ( ! class_exists( 'INS_time' ) ) {
 			?>
 			<input type="text" name="<?php echo esc_attr( $this->field_name() ); ?>"
 				placeholder="<?php echo esc_attr( $placeholder ) ?>" value="<?php echo esc_attr( $this->value ); ?>"
-				class="flatpickr " data-format="<?php echo esc_attr( $format ); ?>" <?php echo $this->field_attributes() ?> />
+				class="flatpickr " data-format="<?php echo esc_attr( $format ); ?>" <?php
+				// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Pre-escaped attribute fragment.
+				echo $this->field_attributes();
+				?> />
 			<i class="fa-regular fa-clock"></i>
 			<?php
 		}

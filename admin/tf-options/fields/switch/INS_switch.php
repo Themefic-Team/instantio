@@ -22,9 +22,12 @@ if ( ! class_exists( 'INS_switch' ) ) {
 			?>
 			<label for="<?php echo esc_attr( $this->field_name() ); ?>" class="tf-switch-label" <?php echo wp_kses_post( $width ); ?>>
 				<input type="checkbox" id="<?php echo esc_attr( $this->field_name() ); ?>"
-					name="<?php echo esc_attr( $this->field_name() ); ?>" value="<?php echo $this->value; ?>"
+					name="<?php echo esc_attr( $this->field_name() ); ?>" value="<?php echo esc_attr( $this->value ); ?>"
 					data-depend-id="<?php echo esc_attr( $this->field['id'] ); ?><?php echo esc_attr( $this->parent_field ); ?>"
-					class="tf-switch" <?php checked( $this->value, 1 ); ?> 			<?php echo $this->field_attributes() ?> />
+					class="tf-switch" <?php checked( $this->value, 1 ); ?> <?php
+					// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Pre-escaped attribute fragment.
+					echo $this->field_attributes();
+					?> />
 				<span class="tf-switch-slider">
 					<span class="tf-switch-on">
 						<?php echo esc_html( $on ); ?>

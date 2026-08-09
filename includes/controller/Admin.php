@@ -1,12 +1,12 @@
 <?php
+// INS is the established Instantio namespace and its hooks are public compatibility APIs.
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 namespace INS\Controller;
 
 class Admin {
 
 	public function __construct() {
 
-		// Load Text Domain
-		add_action( 'init', array( $this, 'ins_load_textdomain' ) );
 		add_action( 'init', array( $this, 'ins_update_option' ) );
 
 		$ins_review_notice_status = get_option( 'ins_review_notice_status' );
@@ -74,13 +74,6 @@ class Admin {
 		}
 	}
 
-	/**
-	 * Load plugin textdomain.
-	 */
-	public function ins_load_textdomain() {
-		load_plugin_textdomain( 'instantio', false, 'instantio/lang/' );
-	}
-
 	// Themefic Plugin Review Admin Notice
 	// public function ins_review_activation_status(){ 
 	//     $ins_installation_date = get_option('ins_installation_date'); 
@@ -99,30 +92,33 @@ class Admin {
 			?>
 			<div class="notice notice-info themefic_review_notice">
 
-				<?php echo sprintf(
-					__( ' Hey %1$s 👋, You have been using %2$s for quite a while. If you feel %2$s is helping your business to grow in any way, would you please help %2$s to grow by simply leaving a 5* review on the WordPress Forum?', 'instantio' ),
-					$current_user->user_login,
-					'Instantio'
-				); ?>
+					<?php
+						printf(
+							/* translators: 1: current user login, 2: plugin name. */
+							esc_html__( ' Hey %1$s 👋, You have been using %2$s for quite a while. If you feel %2$s is helping your business to grow in any way, would you please help %2$s to grow by simply leaving a 5* review on the WordPress Forum?', 'instantio' ),
+							esc_html( $current_user->user_login ),
+							esc_html( 'Instantio' )
+					);
+					?>
 
 				<ul>
 					<li><a target="_blank"
 							href="<?php echo esc_url( 'https://wordpress.org/support/plugin/instantio/reviews/#new-post' ) ?>"
 							class=""><span class="dashicons dashicons-external"></span>
-							<?php _e( ' Ok, you deserve it!', 'instantio' ) ?>
+								<?php esc_html_e( ' Ok, you deserve it!', 'instantio' ) ?>
 						</a></li>
 					<li><a href="#" class="already_done" data-status="already"><span class="dashicons dashicons-smiley"></span>
-							<?php _e( 'I already did', 'instantio' ) ?>
+								<?php esc_html_e( 'I already did', 'instantio' ) ?>
 						</a></li>
 					<li><a href="#" class="later" data-status="later"><span class="dashicons dashicons-calendar-alt"></span>
-							<?php _e( 'Maybe Later', 'instantio' ) ?>
+								<?php esc_html_e( 'Maybe Later', 'instantio' ) ?>
 						</a></li>
 					<li><a target="_blank" href="<?php echo esc_url( 'https://themefic.com/docs/instantio/' ) ?>" class=""><span
 								class="dashicons dashicons-sos"></span>
-							<?php _e( 'I need help', 'instantio' ) ?>
+								<?php esc_html_e( 'I need help', 'instantio' ) ?>
 						</a></li>
 					<li><a href="#" class="never" data-status="never"><span class="dashicons dashicons-dismiss"></span>
-							<?php _e( 'Never show again', 'instantio' ) ?>
+								<?php esc_html_e( 'Never show again', 'instantio' ) ?>
 						</a></li>
 				</ul>
 			</div>
@@ -139,10 +135,8 @@ class Admin {
 							action: 'ins_review_notice_callback',
 						};
 
-						console.log('<?php echo admin_url( 'admin-ajax.php' ); ?>');
-
-						$.ajax({
-							url: '<?php echo admin_url( 'admin-ajax.php' ); ?>',
+							$.ajax({
+								url: '<?php echo esc_url( admin_url( 'admin-ajax.php' ) ); ?>',
 							type: 'POST',
 							data: data,
 							success: function (res) {
@@ -159,11 +153,8 @@ class Admin {
 
 	// Version Warning Admin Notice
 	public function version_warning() { ?>
-		<div class="notice notice-error">
-			<?php echo sprintf(
-				__( '<p> We have noticed a discrepancy between the version of your Pro plugin and the free plugin. We kindly request that you update your Pro plugin to ensure compatibility and optimal performance. Thank you for your attention to this matter.</p>', 'instantio' ),
-			);
-			?>
+			<div class="notice notice-error">
+				<p><?php esc_html_e( 'We have noticed a discrepancy between the version of your Pro plugin and the free plugin. Please update your Pro plugin to ensure compatibility and optimal performance.', 'instantio' ); ?></p>
 		</div>
 	<?php }
 
@@ -202,7 +193,10 @@ class Admin {
 
 				<div id="message" class="error">
 					<p>
-						<?php printf( __( 'Instantio requires %1$s WooCommerce %2$s to be activated.', 'instantio' ), '<strong><a href="https://wordpress.org/plugins/woocommerce/" target="_blank">', '</a></strong>' ); ?>
+							<?php
+							/* translators: 1: opening link markup, 2: closing link markup. */
+								echo wp_kses_post( sprintf( __( 'Instantio requires %1$s WooCommerce %2$s to be activated.', 'instantio' ), '<strong><a href="https://wordpress.org/plugins/woocommerce/" target="_blank">', '</a></strong>' ) );
+							?>
 					</p>
 					<p>
 						<a href="plugin-install.php?s=woocommerce%2520%2520&tab=search&type=term" class="install-now button ins_wooinstall">
@@ -216,10 +210,13 @@ class Admin {
 
 				<div id="message" class="error">
 					<p>
-						<?php printf( __( 'Instantio requires %1$s WooCommerce %2$s to be activated.', 'instantio' ), '<strong><a href="https://wordpress.org/plugins/woocommerce/" target="_blank">', '</a></strong>' ); ?>
+							<?php
+							/* translators: 1: opening link markup, 2: closing link markup. */
+								echo wp_kses_post( sprintf( __( 'Instantio requires %1$s WooCommerce %2$s to be activated.', 'instantio' ), '<strong><a href="https://wordpress.org/plugins/woocommerce/" target="_blank">', '</a></strong>' ) );
+							?>
 					</p>
 					<p>
-						<a href="<?php echo get_admin_url(); ?>plugins.php?_wpnonce=<?php echo wp_create_nonce( 'activate-plugin_woocommerce/woocommerce.php' ); ?>&action=activate&plugin=woocommerce/woocommerce.php" class="button activate-now button-primary">
+						<a href="<?php echo esc_url( wp_nonce_url( admin_url( 'plugins.php?action=activate&plugin=woocommerce/woocommerce.php' ), 'activate-plugin_woocommerce/woocommerce.php' ) ); ?>" class="button activate-now button-primary">
 							<?php esc_attr_e( 'Activate', 'instantio' ); ?>
 						</a>
 					</p>
@@ -231,7 +228,10 @@ class Admin {
 
 				<div id="message" class="error">
 					<p>
-						<?php printf( __( '%sInstantio is inactive.%s This plugin requires WooCommerce 7.0 or newer. Please %supdate WooCommerce to version 7.0 or newer%s', 'instantio' ), '<strong>', '</strong>', '<a href="' . admin_url( 'plugins.php' ) . '">', '&nbsp;&raquo;</a>' ); ?>
+							<?php
+							/* translators: 1: opening strong tag, 2: closing strong tag, 3: opening update link, 4: closing update link. */
+								echo wp_kses_post( sprintf( __( '%1$sInstantio is inactive.%2$s This plugin requires WooCommerce 7.0 or newer. Please %3$supdate WooCommerce to version 7.0 or newer%4$s', 'instantio' ), '<strong>', '</strong>', '<a href="' . esc_url( admin_url( 'plugins.php' ) ) . '">', '&nbsp;&raquo;</a>' ) );
+							?>
 					</p>
 				</div>
 
@@ -250,7 +250,7 @@ class Admin {
 			?>
 			<div id="message" class="error">
 				<p>
-					<?php printf( __( 'To activate Instantio, it is necessary to have the Instantio Pro version 3 installed.', 'instantio' ), '<strong><a href="https://themefic.com/instantio/" target="_blank">', '</a></strong>' ); ?>
+					<?php esc_html_e( 'To activate Instantio, it is necessary to have Instantio Pro version 3 installed.', 'instantio' ); ?>
 				</p>
 
 				<p>

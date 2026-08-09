@@ -5,8 +5,7 @@ defined( 'ABSPATH' ) || exit;
 if ( ! class_exists( 'INS_codeeditor' ) ) {
 	class INS_codeeditor extends INS_Fields {
 
-		public $version = '5.65.15';
-		public $cdn_url = 'https://cdn.jsdelivr.net/npm/codemirror@';
+		public $editor_settings = array();
 
 		public function __construct( $field, $value = '', $settings_id = '', $parent_field = '' ) {
 			parent::__construct( $field, $value, $settings_id, $parent_field );
@@ -18,10 +17,10 @@ if ( ! class_exists( 'INS_codeeditor' ) ) {
 			$default_settings = array(
 				'tabSize' => 4,
 				'lineNumbers' => true,
-				'theme' => 'monokai',
+				'theme' => 'default',
 				'mode' => 'htmlmixed',
-				'cdnURL' => $this->cdn_url . $this->version,
 			);
+			$default_settings = wp_parse_args( $this->editor_settings, $default_settings );
 
 			$settings = ( ! empty( $this->field['settings'] ) ) ? $this->field['settings'] : array();
 			$settings = wp_parse_args( $settings, $default_settings );
@@ -29,7 +28,9 @@ if ( ! class_exists( 'INS_codeeditor' ) ) {
 			?>
 			<div class="tf-field-textarea tf-field-codearea">
 				<?php
-				echo '<textarea name="' . esc_attr( $this->field_name() ) . '"' . $this->field_attributes() . ' data-editor="' . esc_attr( json_encode( $settings ) ) . '">' . $this->value . '</textarea>';
+				// field_attributes() returns an attribute fragment with escaped keys and values.
+				// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				echo '<textarea name="' . esc_attr( $this->field_name() ) . '"' . $this->field_attributes() . ' data-editor="' . esc_attr( wp_json_encode( $settings ) ) . '">' . esc_textarea( $this->value ) . '</textarea>';
 				?>
 
 			</div>
@@ -38,20 +39,18 @@ if ( ! class_exists( 'INS_codeeditor' ) ) {
 
 		public function enqueue() {
 
-			$page = ( ! empty( $_GET['page'] ) ) ? sanitize_text_field( wp_unslash( $_GET['page'] ) ) : '';
+				// Read-only screen detection; no state change is performed from this value.
+				// phpcs:ignore WordPress.Security.NonceVerification.Recommended
+				$page = ( ! empty( $_GET['page'] ) ) ? sanitize_text_field( wp_unslash( $_GET['page'] ) ) : '';
 
 			// Do not loads CodeMirror in revslider page.
 			if ( in_array( $page, array( 'revslider' ) ) ) {
 				return;
 			}
 
-			if ( ! wp_script_is( 'ins-codemirror' ) ) {
-				wp_enqueue_script( 'ins-codemirror', esc_url( $this->cdn_url . $this->version . '/lib/codemirror.min.js' ), array(), $this->version, true );
-				wp_enqueue_script( 'ins-codemirror-loadmode', esc_url( $this->cdn_url . $this->version . '/addon/mode/loadmode.min.js' ), array( 'ins-codemirror' ), $this->version, true );
-			}
-
-			if ( ! wp_style_is( 'ins-codemirror' ) ) {
-				wp_enqueue_style( 'ins-codemirror', esc_url( $this->cdn_url . $this->version . '/lib/codemirror.min.css' ), array(), $this->version );
+			$core_settings = wp_enqueue_code_editor( array( 'type' => 'text/html' ) );
+			if ( is_array( $core_settings ) && isset( $core_settings['codemirror'] ) ) {
+				$this->editor_settings = $core_settings['codemirror'];
 			}
 
 		}

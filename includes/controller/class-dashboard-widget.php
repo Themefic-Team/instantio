@@ -64,7 +64,7 @@ class InsDashboardWidget {
 
                         $total_active_orders = count( $orders );
 
-                        echo $total_active_orders;
+	                        echo absint( $total_active_orders );
                         ?>
                     </strong>
                     <span><?php esc_html_e( 'Total Active Orders', 'instantio' ); ?></span>

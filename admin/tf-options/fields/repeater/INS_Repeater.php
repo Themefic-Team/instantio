@@ -19,8 +19,8 @@ if ( ! class_exists( 'INS_Repeater' ) ) {
 		public function render() {
 			$label = ( ! empty( $this->field['label'] ) ) ? $this->field['label'] : '';
 			?>
-			<div id="tf-repeater-1" class="tf-repeater <?php echo $this->field['id']; ?>">
-				<div class="tf-repeater-wrap tf-repeater-wrap-<?php echo $this->field['id']; ?>">
+			<div id="tf-repeater-1" class="tf-repeater <?php echo esc_attr( $this->field['id'] ); ?>">
+				<div class="tf-repeater-wrap tf-repeater-wrap-<?php echo esc_attr( $this->field['id'] ); ?>">
 					<?php if ( ! empty( $this->value ) ) :
 						$num = 0;
 
@@ -40,16 +40,16 @@ if ( ! class_exists( 'INS_Repeater' ) ) {
 									$INS_repater_default_value = $value['title'];
 								}
 								?>
-								<div class="tf-single-repeater tf-single-repeater-<?php echo $this->field['id']; ?>">
-									<input type="hidden" name="INS_parent_field" value="<?php echo $this->parent_field; ?>">
-									<input type="hidden" name="INS_repeater_count" value="<?php echo $key; ?>">
-									<input type="hidden" name="INS_current_field" value="<?php echo $this->field['id']; ?>">
+								<div class="tf-single-repeater tf-single-repeater-<?php echo esc_attr( $this->field['id'] ); ?>">
+									<input type="hidden" name="INS_parent_field" value="<?php echo esc_attr( $this->parent_field ); ?>">
+									<input type="hidden" name="INS_repeater_count" value="<?php echo absint( $key ); ?>">
+									<input type="hidden" name="INS_current_field" value="<?php echo esc_attr( $this->field['id'] ); ?>">
 									<div class="tf-repeater-header">
 										<span class="tf-repeater-icon tf-repeater-icon-collapse">
 											<i class="fa-solid fa-angle-down"></i>
 										</span>
 										<span class="tf-repeater-title">
-											<?php echo ! empty( $INS_repater_default_value ) && gettype( $INS_repater_default_value ) == "string" ? $INS_repater_default_value : esc_html( $label, "instantio" ) ?>
+											<?php echo esc_html( ! empty( $INS_repater_default_value ) && is_string( $INS_repater_default_value ) ? $INS_repater_default_value : $label ); ?>
 										</span>
 										<div class="tf-repeater-icon-absulate">
 											<span class="tf-repeater-icon tf-repeater-icon-move">
@@ -105,7 +105,7 @@ if ( ! class_exists( 'INS_Repeater' ) ) {
 				<div class=" tf-single-repeater-clone tf-single-repeater-clone-<?php if ( isset( $this->field['id'] ) ) {
 					echo esc_attr( $this->field['id'] );
 				} ?>">
-					<div class="tf-single-repeater tf-single-repeater-<?php echo $this->field['id']; ?>">
+					<div class="tf-single-repeater tf-single-repeater-<?php echo esc_attr( $this->field['id'] ); ?>">
 
 						<input type="hidden" name="INS_parent_field" value="<?php if ( isset( $this->parent_field ) ) {
 							echo esc_attr( $this->parent_field );
@@ -180,7 +180,7 @@ if ( ! class_exists( 'INS_Repeater' ) ) {
 						  } ?>">
 							<?php
 							if ( isset( $this->field['button_title'] ) && ! empty( $this->field['button_title'] ) ) {
-								echo $this->field['button_title'];
+								echo esc_html( $this->field['button_title'] );
 							} else {
 								echo '<i class="fa-solid fa-plus"></i>';
 							}

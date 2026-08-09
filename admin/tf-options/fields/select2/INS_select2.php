@@ -48,14 +48,16 @@ if ( ! class_exists( 'INS_select2' ) ) {
 			$parent_class = ( ! empty( $this->parent_field ) ) ? 'tf-select2-parent' : 'tf-select2';
 			$parent_class = ( isset( $this->field['select2'] ) ) ? 'tf-select2' : $parent_class;
 
-			echo '<select name="' . $field_name . '" id="' . $INS_select2_unique_id . '" class=" tf-select-two ' . $parent_class . ' " data-placeholder="' . esc_attr( $placeholder ) . '" ' . $multiple . ' ' . $this->field_attributes() . '>';
+			// field_attributes() returns an attribute fragment with escaped keys and values.
+			// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			echo '<select name="' . esc_attr( $field_name ) . '" id="' . esc_attr( $INS_select2_unique_id ) . '" class="tf-select-two ' . esc_attr( $parent_class ) . '" data-placeholder="' . esc_attr( $placeholder ) . '" ' . esc_attr( $multiple ) . ' ' . $this->field_attributes() . '>';
 			foreach ( $args['options'] as $key => $value ) {
 				if ( ! empty( $this->field['multiple'] ) && is_array( $this->value ) && in_array( $key, $this->value ) ) {
 					$selected = 'selected';
 				} else {
 					$selected = selected( $this->value, $key, false );
 				}
-				echo '<option value="' . esc_attr( $key ) . '" ' . $selected . '>' . esc_html( $value ) . '</option>';
+				echo '<option value="' . esc_attr( $key ) . '" ' . esc_attr( $selected ) . '>' . esc_html( $value ) . '</option>';
 			}
 			echo '</select>';
 		}

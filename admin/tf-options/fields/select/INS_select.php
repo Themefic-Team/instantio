@@ -35,7 +35,9 @@ if ( ! class_exists( 'INS_select' ) ) {
 				}
 			}
 
-			echo '<select name="' . $this->field_name() . '" id="' . esc_attr( $this->field_name() ) . '" data-depend-id="' . esc_attr( $this->field['id'] ) . '' . $this->parent_field . '" class="tf-select"  ' . $this->field_attributes() . '>';
+			// field_attributes() returns an attribute fragment with escaped keys and values.
+			// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			echo '<select name="' . esc_attr( $this->field_name() ) . '" id="' . esc_attr( $this->field_name() ) . '" data-depend-id="' . esc_attr( $this->field['id'] . $this->parent_field ) . '" class="tf-select"  ' . $this->field_attributes() . '>';
 			if ( ! empty( $this->field['placeholder'] ) ) {
 				echo '<option value="">' . esc_html( $this->field['placeholder'] ) . '</option>';
 			}

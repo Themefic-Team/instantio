@@ -1,5 +1,10 @@
 <?php
 
+defined( 'ABSPATH' ) || exit;
+
+// Checkout callbacks are established public symbols used by existing installations and extensions.
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+
     // Filter Action
     add_filter('woocommerce_billing_fields', 'ins_billing_unrequire_fields');
     add_filter('woocommerce_shipping_fields', 'ins_shipping_unrequire_fields');
@@ -14,95 +19,30 @@
     add_action('woocommerce_checkout_create_order', 'save_custom_field_to_order_meta');
 
     
-    function save_custom_field_to_order_meta($order) {
-        if (isset($_POST['ins_cus_billingfield_origin11'])) {
-            // Get the custom field value from the POST data.
-            $custom_field_value = sanitize_text_field($_POST['ins_cus_billingfield_origin11']);
+	function save_custom_field_to_order_meta( $order ) {
+		$custom_field_keys = array(
+			'ins_cus_billingfield_origin11',
+			'ins_cus_billingfield_origin12',
+			'ins_cus_billingfield_origin13',
+			'ins_cus_billingfield_origin14',
+			'ins_cus_billingfield_origin15',
+			'ins_cus_billingfield_origin16',
+			'ins_cus_shipingfield_origin10',
+			'ins_cus_shipingfield_origin11',
+			'ins_cus_shipingfield_origin12',
+			'ins_cus_shipingfield_origin13',
+			'ins_cus_shipingfield_origin14',
+		);
 
-            // Save the custom field value to the order meta.
-            $order->update_meta_data('ins_cus_billingfield_origin11', $custom_field_value);
-        }
-
-        if (isset($_POST['ins_cus_billingfield_origin12'])) {
-            // Get the custom field value from the POST data.
-            $custom_field_value = sanitize_text_field($_POST['ins_cus_billingfield_origin12']);
-
-            // Save the custom field value to the order meta.
-            $order->update_meta_data('ins_cus_billingfield_origin12', $custom_field_value);
-        }
-
-        if (isset($_POST['ins_cus_billingfield_origin13'])) {
-            // Get the custom field value from the POST data.
-            $custom_field_value = sanitize_text_field($_POST['ins_cus_billingfield_origin13']);
-
-            // Save the custom field value to the order meta.
-            $order->update_meta_data('ins_cus_billingfield_origin13', $custom_field_value);
-        }
-
-        if (isset($_POST['ins_cus_billingfield_origin14'])) {
-            // Get the custom field value from the POST data.
-            $custom_field_value = sanitize_text_field($_POST['ins_cus_billingfield_origin14']);
-
-            // Save the custom field value to the order meta.
-            $order->update_meta_data('ins_cus_billingfield_origin14', $custom_field_value);
-        }
-
-        if (isset($_POST['ins_cus_billingfield_origin15'])) {
-            // Get the custom field value from the POST data.
-            $custom_field_value = sanitize_text_field($_POST['ins_cus_billingfield_origin15']);
-
-            // Save the custom field value to the order meta.
-            $order->update_meta_data('ins_cus_billingfield_origin15', $custom_field_value);
-        }
-
-        if (isset($_POST['ins_cus_billingfield_origin16'])) {
-            // Get the custom field value from the POST data.
-            $custom_field_value = sanitize_text_field($_POST['ins_cus_billingfield_origin16']);
-
-            // Save the custom field value to the order meta.
-            $order->update_meta_data('ins_cus_billingfield_origin16', $custom_field_value);
-        }
-
-        //Shipping Fields 
-        if (isset($_POST['ins_cus_shipingfield_origin10'])) {
-            // Get the custom field value from the POST data.
-            $custom_field_value = sanitize_text_field($_POST['ins_cus_shipingfield_origin10']);
-
-            // Save the custom field value to the order meta.
-            $order->update_meta_data('ins_cus_shipingfield_origin10', $custom_field_value);
-        } 
-
-        if (isset($_POST['ins_cus_shipingfield_origin11'])) {
-            // Get the custom field value from the POST data.
-            $custom_field_value = sanitize_text_field($_POST['ins_cus_shipingfield_origin11']);
-
-            // Save the custom field value to the order meta.
-            $order->update_meta_data('ins_cus_shipingfield_origin11', $custom_field_value);
-        }
-
-        if (isset($_POST['ins_cus_shipingfield_origin12'])) {
-            // Get the custom field value from the POST data.
-            $custom_field_value = sanitize_text_field($_POST['ins_cus_shipingfield_origin12']);
-
-            // Save the custom field value to the order meta.
-            $order->update_meta_data('ins_cus_shipingfield_origin12', $custom_field_value);
-        }
-
-        if (isset($_POST['ins_cus_shipingfield_origin13'])) {
-            // Get the custom field value from the POST data.
-            $custom_field_value = sanitize_text_field($_POST['ins_cus_shipingfield_origin13']);
-
-            // Save the custom field value to the order meta.
-            $order->update_meta_data('ins_cus_shipingfield_origin13', $custom_field_value);
-        }
-
-        if (isset($_POST['ins_cus_shipingfield_origin14'])) {
-            // Get the custom field value from the POST data.
-            $custom_field_value = sanitize_text_field($_POST['ins_cus_shipingfield_origin14']);
-
-            // Save the custom field value to the order meta.
-            $order->update_meta_data('ins_cus_shipingfield_origin14', $custom_field_value);
-        }
+		// WooCommerce verifies its checkout nonce before firing this order-creation hook.
+		// phpcs:disable WordPress.Security.NonceVerification.Missing
+		foreach ( $custom_field_keys as $custom_field_key ) {
+			if ( isset( $_POST[ $custom_field_key ] ) ) {
+				$custom_field_value = sanitize_text_field( wp_unslash( $_POST[ $custom_field_key ] ) );
+				$order->update_meta_data( $custom_field_key, $custom_field_value );
+			}
+		}
+		// phpcs:enable WordPress.Security.NonceVerification.Missing
     }
 
     function ins_custom_checkout_field_display_order_meta($order){
@@ -125,17 +65,17 @@
             $field_origin   = $ins_field['checkout_form_field_origin'];
 
             if($field_origin == 'ins_cus_billingfield_origin11'){
-                echo '<p><strong>'.$ins_field['checkout_form_field_name'].':</strong> ' . get_post_meta( $order->get_id(), 'ins_cus_billingfield_origin11', true ) . '</p>';
+	                echo '<p><strong>' . esc_html( $ins_field['checkout_form_field_name'] ) . ':</strong> ' . esc_html( get_post_meta( $order->get_id(), 'ins_cus_billingfield_origin11', true ) ) . '</p>';
             } elseif ($field_origin == 'ins_cus_billingfield_origin12'){
-                echo '<p><strong>'.$ins_field['checkout_form_field_name'].':</strong> ' . get_post_meta( $order->get_id(), 'ins_cus_billingfield_origin12', true ) . '</p>';
+	                echo '<p><strong>' . esc_html( $ins_field['checkout_form_field_name'] ) . ':</strong> ' . esc_html( get_post_meta( $order->get_id(), 'ins_cus_billingfield_origin12', true ) ) . '</p>';
             } elseif ($field_origin == 'ins_cus_billingfield_origin13'){
-                echo '<p><strong>'.$ins_field['checkout_form_field_name'].':</strong> ' . get_post_meta( $order->get_id(), 'ins_cus_billingfield_origin13', true ) . '</p>';
+	                echo '<p><strong>' . esc_html( $ins_field['checkout_form_field_name'] ) . ':</strong> ' . esc_html( get_post_meta( $order->get_id(), 'ins_cus_billingfield_origin13', true ) ) . '</p>';
             } elseif ($field_origin == 'ins_cus_billingfield_origin14'){
-                echo '<p><strong>'.$ins_field['checkout_form_field_name'].':</strong> ' . get_post_meta( $order->get_id(), 'ins_cus_billingfield_origin14', true ) . '</p>';
+	                echo '<p><strong>' . esc_html( $ins_field['checkout_form_field_name'] ) . ':</strong> ' . esc_html( get_post_meta( $order->get_id(), 'ins_cus_billingfield_origin14', true ) ) . '</p>';
             } elseif ($field_origin == 'ins_cus_billingfield_origin15'){
-                echo '<p><strong>'.$ins_field['checkout_form_field_name'].':</strong> ' . get_post_meta( $order->get_id(), 'ins_cus_billingfield_origin15', true ) . '</p>';
+	                echo '<p><strong>' . esc_html( $ins_field['checkout_form_field_name'] ) . ':</strong> ' . esc_html( get_post_meta( $order->get_id(), 'ins_cus_billingfield_origin15', true ) ) . '</p>';
             } elseif ($field_origin == 'ins_cus_billingfield_origin16'){
-                echo '<p><strong>'.$ins_field['checkout_form_field_name'].':</strong> ' . get_post_meta( $order->get_id(), 'ins_cus_billingfield_origin16', true ) . '</p>';
+	                echo '<p><strong>' . esc_html( $ins_field['checkout_form_field_name'] ) . ':</strong> ' . esc_html( get_post_meta( $order->get_id(), 'ins_cus_billingfield_origin16', true ) ) . '</p>';
             }
             
         }  
@@ -161,19 +101,19 @@
             $field_origin   = $ins_field['checkout_shipping_form_field_origin'];
 
             if($field_origin == 'ins_cus_shipingfield_origin10'){
-                echo '<p><strong>'.$ins_field['checkout_shipping_form_field_name'].':</strong> ' . get_post_meta( $order->get_id(), 'ins_cus_shipingfield_origin10', true ) . '</p>';
+	                echo '<p><strong>' . esc_html( $ins_field['checkout_shipping_form_field_name'] ) . ':</strong> ' . esc_html( get_post_meta( $order->get_id(), 'ins_cus_shipingfield_origin10', true ) ) . '</p>';
 
             } elseif ($field_origin == 'ins_cus_shipingfield_origin11'){
-                echo '<p><strong>'.$ins_field['checkout_shipping_form_field_name'].':</strong> ' . get_post_meta( $order->get_id(), 'ins_cus_shipingfield_origin11', true ) . '</p>';
+	                echo '<p><strong>' . esc_html( $ins_field['checkout_shipping_form_field_name'] ) . ':</strong> ' . esc_html( get_post_meta( $order->get_id(), 'ins_cus_shipingfield_origin11', true ) ) . '</p>';
 
             } elseif ($field_origin == 'ins_cus_shipingfield_origin12'){
-                echo '<p><strong>'.$ins_field['checkout_shipping_form_field_name'].':</strong> ' . get_post_meta( $order->get_id(), 'ins_cus_shipingfield_origin12', true ) . '</p>';
+	                echo '<p><strong>' . esc_html( $ins_field['checkout_shipping_form_field_name'] ) . ':</strong> ' . esc_html( get_post_meta( $order->get_id(), 'ins_cus_shipingfield_origin12', true ) ) . '</p>';
 
             } elseif ($field_origin == 'ins_cus_shipingfield_origin13'){
-                echo '<p><strong>'.$ins_field['checkout_shipping_form_field_name'].':</strong> ' . get_post_meta( $order->get_id(), 'ins_cus_shipingfield_origin13', true ) . '</p>';
+	                echo '<p><strong>' . esc_html( $ins_field['checkout_shipping_form_field_name'] ) . ':</strong> ' . esc_html( get_post_meta( $order->get_id(), 'ins_cus_shipingfield_origin13', true ) ) . '</p>';
 
             } elseif ($field_origin == 'ins_cus_shipingfield_origin14'){
-                echo '<p><strong>'.$ins_field['checkout_shipping_form_field_name'].':</strong> ' . get_post_meta( $order->get_id(), 'ins_cus_shipingfield_origin14', true ) . '</p>';
+	                echo '<p><strong>' . esc_html( $ins_field['checkout_shipping_form_field_name'] ) . ':</strong> ' . esc_html( get_post_meta( $order->get_id(), 'ins_cus_shipingfield_origin14', true ) ) . '</p>';
 
             }
             
@@ -312,8 +252,8 @@
 
             } elseif ($field_origin == 'ins_cus_billingfield_origin11'){
                 $fields['billing']['ins_cus_billingfield_origin11'] = array(
-                    'label'         => __($ins_field['checkout_form_field_name'], 'woocommerce'),
-                    'placeholder'   => _x($ins_field['checkout_form_field_place'], 'placeholder', 'woocommerce'),
+	                    'label'         => $ins_field['checkout_form_field_name'],
+	                    'placeholder'   => $ins_field['checkout_form_field_place'],
                     'required'      => $required,
                     'priority'      => $fieldskey . '0',
                     'class'         => array('form-row-wide'),
@@ -325,8 +265,8 @@
                 }
             } elseif ($field_origin == 'ins_cus_billingfield_origin12'){
                 $fields['billing']['ins_cus_billingfield_origin12'] = array(
-                    'label'         => __($ins_field['checkout_form_field_name'], 'woocommerce'),
-                    'placeholder'   => _x($ins_field['checkout_form_field_place'], 'placeholder', 'woocommerce'),
+	                    'label'         => $ins_field['checkout_form_field_name'],
+	                    'placeholder'   => $ins_field['checkout_form_field_place'],
                     'required'      => $required,
                     'priority'      => $fieldskey . '0',
                     'class'         => array('form-row-wide'),
@@ -338,8 +278,8 @@
                 }
             } elseif ($field_origin == 'ins_cus_billingfield_origin13'){
                 $fields['billing']['ins_cus_billingfield_origin13'] = array(
-                    'label'     => __($ins_field['checkout_form_field_name'], 'woocommerce'),
-                    'placeholder'   => _x($ins_field['checkout_form_field_place'], 'placeholder', 'woocommerce'),
+	                    'label'     => $ins_field['checkout_form_field_name'],
+	                    'placeholder'   => $ins_field['checkout_form_field_place'],
                     'required'  => $required,
                     'priority'  => $fieldskey . '0',
                     'class'     => array('form-row-wide'),
@@ -350,8 +290,8 @@
                 }
             } elseif ($field_origin == 'ins_cus_billingfield_origin14'){
                 $fields['billing']['ins_cus_billingfield_origin14'] = array(
-                    'label'     => __($ins_field['checkout_form_field_name'], 'woocommerce'),
-                    'placeholder'   => _x($ins_field['checkout_form_field_place'], 'placeholder', 'woocommerce'),
+	                    'label'     => $ins_field['checkout_form_field_name'],
+	                    'placeholder'   => $ins_field['checkout_form_field_place'],
                     'required'  => $required,
                     'priority'  => $fieldskey . '0',
                     'class'     => array('form-row-wide'),
@@ -362,8 +302,8 @@
                 }
             } elseif ($field_origin == 'ins_cus_billingfield_origin15'){
                 $fields['billing']['ins_cus_billingfield_origin15'] = array(
-                    'label'     => __($ins_field['checkout_form_field_name'], 'woocommerce'),
-                    'placeholder'   => _x($ins_field['checkout_form_field_place'], 'placeholder', 'woocommerce'),
+	                    'label'     => $ins_field['checkout_form_field_name'],
+	                    'placeholder'   => $ins_field['checkout_form_field_place'],
                     'required'  => $required,
                     'priority'  => $fieldskey . '0',
                     'class'     => array('form-row-wide'),
@@ -374,8 +314,8 @@
                 }
             } elseif ($field_origin == 'ins_cus_billingfield_origin16'){
                 $fields['billing']['ins_cus_billingfield_origin16'] = array(
-                    'label'     => __($ins_field['checkout_form_field_name'], 'woocommerce'),
-                    'placeholder'   => _x($ins_field['checkout_form_field_place'], 'placeholder', 'woocommerce'),
+	                    'label'     => $ins_field['checkout_form_field_name'],
+	                    'placeholder'   => $ins_field['checkout_form_field_place'],
                     'required'  => $required,
                     'priority'  => $fieldskey . '0',
                     'class'     => array('form-row-wide'),
@@ -656,8 +596,8 @@
 
             } elseif ($field_origin == 'ins_cus_shipingfield_origin10'){
                 $fields['shipping']['ins_cus_shipingfield_origin10'] = array(
-                    'label'         => __($ins_field['checkout_shipping_form_field_name'], 'woocommerce'),
-                    'placeholder'   => _x($ins_field['checkout_shipping_form_field_place'], 'placeholder', 'woocommerce'),
+	                    'label'         => $ins_field['checkout_shipping_form_field_name'],
+	                    'placeholder'   => $ins_field['checkout_shipping_form_field_place'],
                     'required'      => $required,
                     'priority'      => $fieldskey . '0',
                     'class'         => array('form-row-wide'),
@@ -668,8 +608,8 @@
                 }
             } elseif ($field_origin == 'ins_cus_shipingfield_origin11'){
                 $fields['shipping']['ins_cus_shipingfield_origin11'] = array(
-                    'label'         => __($ins_field['checkout_shipping_form_field_name'], 'woocommerce'),
-                    'placeholder'   => _x($ins_field['checkout_shipping_form_field_place'], 'placeholder', 'woocommerce'),
+	                    'label'         => $ins_field['checkout_shipping_form_field_name'],
+	                    'placeholder'   => $ins_field['checkout_shipping_form_field_place'],
                     'required'      => $required,
                     'priority'      => $fieldskey . '0',
                     'class'         => array('form-row-wide'),
@@ -680,8 +620,8 @@
                 }
             } elseif ($field_origin == 'ins_cus_shipingfield_origin12'){
                 $fields['shipping']['ins_cus_shipingfield_origin12'] = array(
-                    'label'         => __($ins_field['checkout_shipping_form_field_name'], 'woocommerce'),
-                    'placeholder'   => _x($ins_field['checkout_shipping_form_field_place'], 'placeholder', 'woocommerce'),
+	                    'label'         => $ins_field['checkout_shipping_form_field_name'],
+	                    'placeholder'   => $ins_field['checkout_shipping_form_field_place'],
                     'required'      => $required,
                     'priority'      => $fieldskey . '0',
                     'class'         => array('form-row-wide'),
@@ -692,8 +632,8 @@
                 }
             } elseif ($field_origin == 'ins_cus_shipingfield_origin13'){
                 $fields['shipping']['ins_cus_shipingfield_origin13'] = array(
-                    'label'         => __($ins_field['checkout_shipping_form_field_name'], 'woocommerce'),
-                    'placeholder'   => _x($ins_field['checkout_shipping_form_field_place'], 'placeholder', 'woocommerce'),
+	                    'label'         => $ins_field['checkout_shipping_form_field_name'],
+	                    'placeholder'   => $ins_field['checkout_shipping_form_field_place'],
                     'required'      => $required,
                     'priority'      => $fieldskey . '0',
                     'class'         => array('form-row-wide'),
@@ -704,8 +644,8 @@
                 }
             } elseif ($field_origin == 'ins_cus_shipingfield_origin14'){
                 $fields['shipping']['ins_cus_shipingfield_origin14'] = array(
-                    'label'         => __($ins_field['checkout_shipping_form_field_name'], 'woocommerce'),
-                    'placeholder'   => _x($ins_field['checkout_shipping_form_field_place'], 'placeholder', 'woocommerce'),
+	                    'label'         => $ins_field['checkout_shipping_form_field_name'],
+	                    'placeholder'   => $ins_field['checkout_shipping_form_field_place'],
                     'required'      => $required,
                     'priority'      => $fieldskey . '0',
                     'class'         => array('form-row-wide'),
@@ -859,17 +799,17 @@
      * @since 3.1.0
      * @return obj,
      */
-    function ins_reset_blliling_fields_button() {
-        echo '
-            <div class="csf-title">
-                <h4>' . __( "Reset Billing Fields", "instantio" ) . '</h4>
-                <div class="csf-subtitle-text">' . __( "All data entered in the edit field will be erased and reset to the default position.<br><b style='color: red;'>Be aware! You will lose your old data!</b>", "instantio" ) . '</div>
-            </div>
-            <div class="csf-fieldset">
-                <button type="button" data-delete-all="no" class="button button-large ins-del-billing-fields ins-order-remove">' . __( "Reset Fields", "instantio" ) . '</button>
-            </div>
-            <div class="clear"></div>
-        ';
+	    function ins_reset_blliling_fields_button() {
+	        ?>
+	        <div class="csf-title">
+	            <h4><?php esc_html_e( 'Reset Billing Fields', 'instantio' ); ?></h4>
+	            <div class="csf-subtitle-text"><?php esc_html_e( 'All data entered in the edit field will be erased and reset to the default position.', 'instantio' ); ?><br><b style="color: red;"><?php esc_html_e( 'Be aware! You will lose your old data!', 'instantio' ); ?></b></div>
+	        </div>
+	        <div class="csf-fieldset">
+	            <button type="button" data-delete-all="no" class="button button-large ins-del-billing-fields ins-order-remove"><?php esc_html_e( 'Reset Fields', 'instantio' ); ?></button>
+	        </div>
+	        <div class="clear"></div>
+	        <?php
     }
 
     /**
@@ -878,17 +818,17 @@
      * @since 3.1.0
      * @return obj,
      */
-    function ins_reset_shipping_fields_button() {
-        echo '
-            <div class="csf-title">
-                <h4>' . __( "Reset Shipping Fields", "instantio" ) . '</h4>
-                <div class="csf-subtitle-text">' . __( "All data entered in the edit field will be erased and reset to the default position.<br><b style='color: red;'>Be aware! You will lose your old data!</b>", "instantio" ) . '</div>
-            </div>
-            <div class="csf-fieldset">
-                <button type="button" data-delete-all="no" class="button button-large ins-del-shipping-fields ins-order-remove">' . __( "Reset Fields", "instantio" ) . '</button>
-            </div>
-            <div class="clear"></div>
-        ';
+	    function ins_reset_shipping_fields_button() {
+	        ?>
+	        <div class="csf-title">
+	            <h4><?php esc_html_e( 'Reset Shipping Fields', 'instantio' ); ?></h4>
+	            <div class="csf-subtitle-text"><?php esc_html_e( 'All data entered in the edit field will be erased and reset to the default position.', 'instantio' ); ?><br><b style="color: red;"><?php esc_html_e( 'Be aware! You will lose your old data!', 'instantio' ); ?></b></div>
+	        </div>
+	        <div class="csf-fieldset">
+	            <button type="button" data-delete-all="no" class="button button-large ins-del-shipping-fields ins-order-remove"><?php esc_html_e( 'Reset Fields', 'instantio' ); ?></button>
+	        </div>
+	        <div class="clear"></div>
+	        <?php
     }
 
 ?>

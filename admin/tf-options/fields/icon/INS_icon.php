@@ -2,6 +2,9 @@
 // don't load directly
 defined( 'ABSPATH' ) || exit;
 
+// INS_icon_list is a legacy public extension hook and cannot be renamed without breaking integrations.
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+
 if ( ! class_exists( 'INS_icon' ) ) {
 	class INS_icon extends INS_Fields {
 
@@ -33,7 +36,10 @@ if ( ! class_exists( 'INS_icon' ) ) {
 								</span>
 							</div>
 							<a href="#" class="tf-admin-btn tf-modal-btn"><i class="ri-add-fill"></i><?php esc_html_e( 'Add Icon', 'instantio' ); ?></a>
-							<input type="hidden" class="tf-icon-value" name="<?php echo esc_attr( $this->field_name() ); ?>" value="<?php echo esc_attr( $value ); ?>" <?php echo $this->field_attributes() ?>/>
+							<input type="hidden" class="tf-icon-value" name="<?php echo esc_attr( $this->field_name() ); ?>" value="<?php echo esc_attr( $value ); ?>" <?php
+							// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Pre-escaped attribute fragment.
+							echo $this->field_attributes();
+							?>/>
 						</div>
 						<?php
 		}

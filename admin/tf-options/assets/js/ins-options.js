@@ -34,29 +34,7 @@
             var interval = setInterval(function () {
                 if ($this.is(':visible')) {
 
-                    var code_editor = CodeMirror.fromTextArea($textarea[0], data_editor);
-                    console.log(code_editor);
-                    // load code-mirror theme css.
-                    if (data_editor.theme !== 'default' && TF.vars.code_themes.indexOf(data_editor.theme) === -1) {
-
-                        var $cssLink = $('<link>');
-
-                        $('#ins-codemirror-css').after($cssLink);
-
-                        $cssLink.attr({
-                            rel: 'stylesheet',
-                            id: 'ins-codemirror-' + data_editor.theme + '-css',
-                            href: data_editor.cdnURL + '/theme/' + data_editor.theme + '.min.css',
-                            type: 'text/css',
-                            media: 'all'
-                        });
-
-                        TF.vars.code_themes.push(data_editor.theme);
-
-                    }
-
-                    CodeMirror.modeURL = data_editor.cdnURL + '/mode/%N/%N.min.js';
-                    CodeMirror.autoLoadMode(code_editor, data_editor.mode);
+					var code_editor = CodeMirror.fromTextArea($textarea[0], data_editor);
 
                     code_editor.on('change', function (editor, event) {
                         $textarea.val(code_editor.getValue()).trigger('change');
@@ -478,26 +456,27 @@
             }
             data.append("action", "ins_options_save");
 
-            $.ajax({
-                url: ins_options.ajax_url,
-                type: "POST",
-                data: data,
+			$.ajax({
+				url: ins_options.ajax_url,
+				type: "POST",
+				dataType: "json",
+				data: data,
                 processData: false,
                 contentType: false,
                 beforeSend: function () {
                     submitBtn.addClass("tf-btn-loading");
-                },
-                success: function (response) {
-                    let obj = JSON.parse(response);
-                    if (obj.status === "success") {
-                        notyf.success(obj.message);
-                    } else {
-                        notyf.error(obj.message);
-                    }
-                    submitBtn.removeClass("tf-btn-loading");
-                },
-                error: function (error) {
-                    console.log(error);
+				},
+				success: function (response) {
+					if (response.status === "success") {
+						notyf.success(response.message);
+					} else {
+						notyf.error(response.message);
+					}
+					submitBtn.removeClass("tf-btn-loading");
+				},
+				error: function () {
+					notyf.error("Unable to save options. Please try again.");
+					submitBtn.removeClass("tf-btn-loading");
                 },
             });
         });

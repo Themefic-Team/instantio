@@ -29,6 +29,8 @@ if ( ! class_exists( 'INS_imageselect' ) ) {
 
 			if ( ! empty( $args['options'] ) ) {
 
+				// field_attributes() returns an attribute fragment with escaped keys and values.
+				// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 				echo '<div class="tf-image-seletor-wrap' . esc_attr( $inlinewrap ) . '" data-multiple="' . esc_attr( $args['multiple'] ) . '" ' . $this->field_attributes() . ' >';
 
 				$num = 1;
@@ -36,14 +38,15 @@ if ( ! class_exists( 'INS_imageselect' ) ) {
 				foreach ( $args['options'] as $key => $option ) {
 
 					$type = ( $args['multiple'] ) ? 'checkbox' : 'radio';
-					$extra = ( $args['multiple'] ) ? '[]' : '';
 					$active = ( in_array( $key, $value ) ) ? ' tf-active' : '';
 					$checked = ( in_array( $key, $value ) ) ? ' checked' : '';
 
 					echo '<div class="tf-image-seletor-items' . esc_attr( $inline ) . esc_attr( $active ) . '">';
 					echo '<figure class="tf-image-seletor-card">';
 					echo '<img src="' . esc_url( $option['url'] ) . '" alt="img-' . esc_attr( $num++ ) . '" />';
-					echo '<input data-depend-id="' . esc_attr( $this->field['id'] ) . '' . $this->parent_field . '" type="' . esc_attr( $type ) . '" name="' . esc_attr( $this->field_name( $extra ) ) . '" value="' . esc_attr( $key ) . '"' . $this->field_attributes() . esc_attr( $checked ) . '/>';
+					// field_attributes() returns an attribute fragment with escaped keys and values.
+					// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+					echo '<input data-depend-id="' . esc_attr( $this->field['id'] . $this->parent_field ) . '" type="' . esc_attr( $type ) . '" name="' . esc_attr( $this->field_name() ) . '" value="' . esc_attr( $key ) . '"' . $this->field_attributes() . esc_attr( $checked ) . '/>';
 					echo '<span class="tf-image-seletor-card-info">' . esc_html( $option['title'], "instantio" ) . '</span>';
 					echo '</figure>';
 					echo '</div>';
@@ -71,6 +74,25 @@ if ( ! class_exists( 'INS_imageselect' ) ) {
 
 			return $output;
 
+		}
+
+		/**
+		 * Sanitize the image selector's single persisted value.
+		 *
+		 * The UI uses checkbox markup for some image cards, but its JavaScript
+		 * enforces one active card and existing runtime consumers expect a scalar.
+		 * Normalize array-shaped requests defensively without changing that schema.
+		 *
+		 * @return string
+		 */
+		public function sanitize() {
+			if ( is_array( $this->value ) ) {
+				$value = end( $this->value );
+			} else {
+				$value = $this->value;
+			}
+
+			return sanitize_text_field( $value );
 		}
 
 	}

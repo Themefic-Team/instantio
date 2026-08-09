@@ -2,6 +2,9 @@
 // don't load directly
 defined( 'ABSPATH' ) || exit;
 
+// Existing settings extension hooks are public compatibility points used by Instantio integrations.
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+
 if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 	class Ins_TF_Settings {
 
@@ -168,9 +171,9 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 			?>
 			<div class="tf-setting-top-bar">
 				<div class="version">
-					<img src="<?php echo INS_ADMIN_URL; ?>/tf-options/img/instanio-logo.png" alt="logo">
+					<img src="<?php echo esc_url( INS_ADMIN_URL . '/tf-options/img/instanio-logo.png' ); ?>" alt="logo">
 					<span>
-						<?php echo INSTANTIO_VERSION; ?>
+						<?php echo esc_html( INSTANTIO_VERSION ); ?>
 					</span>
 				</div>
 				<div class="other-document">
@@ -193,7 +196,7 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 										fill="#DB5209"></path>
 								</svg>
 								<span>
-									<?php _e( "Need Help?", "instantio" ); ?>
+									<?php esc_html_e( "Need Help?", "instantio" ); ?>
 								</span>
 							</a>
 							<a href="https://themefic.com/docs/instantio/" target="_blank">
@@ -203,7 +206,7 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 										fill="#DB5209"></path>
 								</svg>
 								<span>
-									<?php _e( "Documentation", "instantio" ); ?>
+									<?php esc_html_e( "Documentation", "instantio" ); ?>
 								</span>
 
 							</a>
@@ -214,7 +217,7 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 										fill="#DB5209"></path>
 								</svg>
 								<span>
-									<?php _e( "Feature Request", "instantio" ); ?>
+									<?php esc_html_e( "Feature Request", "instantio" ); ?>
 								</span>
 							</a>
 						</div>
@@ -232,7 +235,7 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 			include_once 'Ins_ChangeLog.php';
 			?>
 			<div class="tf-setting-dashboard">
-				<?php echo $this->ins_admin_top_header(); ?>
+				<?php $this->ins_admin_top_header(); ?>
 				
 				<div class="ins-dashboard-promo-banner-header">
 					<?php do_action( 'ins_dashboard_promo_notice' ); ?>
@@ -241,27 +244,27 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 					<ul class="dashboad-tab">
 						<li class="dashboad-tab-singel active">
 							<span>
-								<?php _e( "General", "instantio" ); ?>
+								<?php esc_html_e( "General", "instantio" ); ?>
 							</span>
 						</li>
 						<li class="dashboad-tab-singel">
 							<span>
-								<?php _e( "Tutorial", "instantio" ); ?>
+								<?php esc_html_e( "Tutorial", "instantio" ); ?>
 							</span>
 						</li>
 						<li class="dashboad-tab-singel">
 							<span>
-								<?php _e( "Pro", "instantio" ); ?>
+								<?php esc_html_e( "Pro", "instantio" ); ?>
 							</span>
 						</li>
 						<li class="dashboad-tab-singel">
 							<span>
-								<?php _e( "FAQs", "instantio" ); ?>
+								<?php esc_html_e( "FAQs", "instantio" ); ?>
 							</span>
 						</li>
 						<li class="dashboad-tab-singel">
 							<span>
-								<?php _e( "What's New", "instantio" ); ?>
+								<?php esc_html_e( "What's New", "instantio" ); ?>
 							</span>
 						</li>
 					</ul>
@@ -271,17 +274,17 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 						<div class="dashboad-content help-center active">
 							<div class="tf-settings-help-center">
 								<div class="tf-help-center-banner"
-									style="background-image: url('<?php echo INS_ADMIN_URL ?>/tf-options/img/wizard/setup_wizard_bg.png')">
+							style="background-image: url('<?php echo esc_url( INS_ADMIN_URL . '/tf-options/img/wizard/setup_wizard_bg.png' ); ?>')">
 									<div class="tf-help-center-content">
 										<h2>
-											<?php _e( "Setup Wizard", "instantio" ); ?>
+											<?php esc_html_e( "Setup Wizard", "instantio" ); ?>
 										</h2>
 										<p>
-											<?php _e( "Click the button below to run the setup wizard of Instantio. Your existing settings will be change.", "instantio" ); ?>
+											<?php esc_html_e( "Click the button below to run the setup wizard of Instantio. Your existing settings will be change.", "instantio" ); ?>
 										</p>
 										<a href="<?php echo esc_url( admin_url( 'admin.php?page=ins-setup-wizard' ) ) ?>"
 											class="tf-admin-btn tf-btn-secondary">
-											<?php _e( "Setup Wizard", "instantio" ); ?>
+											<?php esc_html_e( "Setup Wizard", "instantio" ); ?>
 										</a>
 									</div>
 									<!-- <div class="tf-help-center-content-img">
@@ -293,31 +296,31 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 								<div class="tf-support-document">
 									<div class="tf-single-support">
 										<a href="https://themefic.com/docs/instantio/" target="_blank">
-											<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/wizard/tf-documents.svg' ?>"
+											<img src="<?php echo esc_url( plugin_dir_url( __FILE__ ) . '../img/wizard/tf-documents.svg' ) ?>"
 												alt="Document">
 											<h3>
-												<?php _e( "Documentation", "instantio" ); ?>
+												<?php esc_html_e( "Documentation", "instantio" ); ?>
 											</h3>
 											<p>
-												<?php _e( "How the plugin works, what it can do, and how to use it.", "instantio" ); ?>
+												<?php esc_html_e( "How the plugin works, what it can do, and how to use it.", "instantio" ); ?>
 											</p>
 											<span>
-												<?php _e( "Read More", "instantio" ); ?>
+												<?php esc_html_e( "Read More", "instantio" ); ?>
 											</span>
 										</a>
 									</div>
 									<div class="tf-single-support">
 										<a href="https://portal.themefic.com/support/" target="_blank">
-											<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/wizard/tf-mail.svg' ?>"
+											<img src="<?php echo esc_url( plugin_dir_url( __FILE__ ) . '../img/wizard/tf-mail.svg' ) ?>"
 												alt="Document">
 											<h3>
-												<?php _e( "Email Support", "instantio" ); ?>
+												<?php esc_html_e( "Email Support", "instantio" ); ?>
 											</h3>
 											<p>
-												<?php _e( "As part of our overall support strategy to provide the best experience.", "instantio" ); ?>
+												<?php esc_html_e( "As part of our overall support strategy to provide the best experience.", "instantio" ); ?>
 											</p>
 											<span>
-												<?php _e( "Contact Us", "instantio" ); ?>
+												<?php esc_html_e( "Contact Us", "instantio" ); ?>
 											</span>
 										</a>
 									</div>
@@ -325,16 +328,16 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 									<div class="tf-single-support">
 										<a href="https://www.youtube.com/playlist?list=PLY0rtvOwg0ykIvNBa8XI3SR7WEbdqqKoO"
 											target="_blank">
-											<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/wizard/tf-tutorial.svg' ?>"
+											<img src="<?php echo esc_url( plugin_dir_url( __FILE__ ) . '../img/wizard/tf-tutorial.svg' ) ?>"
 												alt="Document">
 											<h3>
-												<?php _e( "Video Tutorials", "instantio" ); ?>
+												<?php esc_html_e( "Video Tutorials", "instantio" ); ?>
 											</h3>
 											<p>
-												<?php _e( "We allows you to get help in real-time, which can improve satisfaction.", "instantio" ); ?>
+												<?php esc_html_e( "We allows you to get help in real-time, which can improve satisfaction.", "instantio" ); ?>
 											</p>
 											<span>
-												<?php _e( "Watch Video", "instantio" ); ?>
+												<?php esc_html_e( "Watch Video", "instantio" ); ?>
 											</span>
 										</a>
 									</div>
@@ -348,15 +351,15 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 
 									<div class="updatedtopro">
 										<h4>
-											<?php _e( "Upgrade to PRO", "instantio" ); ?>
+											<?php esc_html_e( "Upgrade to PRO", "instantio" ); ?>
 										</h4>
 
 										<p>
-											<?php _e( "To provide amazing experience to your guests and sell more with less effort. Bonus: You can upgrade to our plans today and save 50% off.", "instantio" ); ?>
+											<?php esc_html_e( "To provide amazing experience to your guests and sell more with less effort. Bonus: You can upgrade to our plans today and save 50% off.", "instantio" ); ?>
 										</p>
 
 										<a target="_blank" href="https://themefic.com/instantio/" class="btn-desh-primary">
-											<?php _e( "Upgrade now", "instantio" ); ?>
+											<?php esc_html_e( "Upgrade now", "instantio" ); ?>
 										</a>
 									</div>
 
@@ -364,15 +367,15 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 
 
 								<div class="request-features">
-									<img src="<?php echo INS_ADMIN_URL ?>/tf-options/img/feature-selection.png" alt="image">
+						<img src="<?php echo esc_url( INS_ADMIN_URL . '/tf-options/img/feature-selection.png' ); ?>" alt="image">
 									<h4>
-										<?php _e( "Have any thoughts or feature request?", "instantio" ); ?>
+										<?php esc_html_e( "Have any thoughts or feature request?", "instantio" ); ?>
 									</h4>
 									<p>
-										<?php _e( "We believe your feature request will make our website more user-friendly. Our dedicated team will review it and take it into consideration for future updates.", "instantio" ); ?>
+										<?php esc_html_e( "We believe your feature request will make our website more user-friendly. Our dedicated team will review it and take it into consideration for future updates.", "instantio" ); ?>
 									</p>
 									<a target="_blank" href="https://themefic.com/feature-request/" class="btn-desh-primary-tran">
-										<?php _e( "Submit request", "instantio" ); ?>
+										<?php esc_html_e( "Submit request", "instantio" ); ?>
 									</a>
 								</div>
 							</div>
@@ -382,62 +385,62 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 							<div class="tutorial_wrapper">
 								<div class="tutorial-heading">
 									<h4>
-										<?php _e( "Basic Tutorials", "instantio" ); ?>
+										<?php esc_html_e( "Basic Tutorials", "instantio" ); ?>
 									</h4>
 
 									<a target="_blank"
 										href="https://www.youtube.com/playlist?list=PLY0rtvOwg0ykIvNBa8XI3SR7WEbdqqKoO"
 										class="btn view-all-btn">
-										<?php _e( "View all", "instantio" ); ?>
+										<?php esc_html_e( "View all", "instantio" ); ?>
 									</a>
 								</div>
 								<div class="tutorial-body">
 									<figure class="figure">
 										<div class="main-caption">
-											<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/tutorial-2.png' ?>"
+											<img src="<?php echo esc_url( plugin_dir_url( __FILE__ ) . '../img/tutorial-2.png' ) ?>"
 												class="figure-img" alt="turorial" />
 											<div class="play-button-overlap">
 												<a target="_blank"
 													href="https://www.youtube.com/watch?v=1biwrwu-Io8&list=PLY0rtvOwg0ykIvNBa8XI3SR7WEbdqqKoO&index=2">
-													<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/play.png' ?>"
+													<img src="<?php echo esc_url( plugin_dir_url( __FILE__ ) . '../img/play.png' ) ?>"
 														alt="turorial" /></a>
 											</div>
 										</div>
 										<figcaption class="figure-caption">
-											<?php _e( "How to setup a Fast WooCommerce Checkout", "instantio" ); ?>
+											<?php esc_html_e( "How to setup a Fast WooCommerce Checkout", "instantio" ); ?>
 										</figcaption>
 									</figure>
 
 									<figure class="figure">
 										<div class="main-caption">
-											<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/tutorial-1.png' ?>"
+											<img src="<?php echo esc_url( plugin_dir_url( __FILE__ ) . '../img/tutorial-1.png' ) ?>"
 												class="figure-img" alt="turorial" />
 											<div class="play-button-overlap">
 												<a target="_blank"
 													href="https://www.youtube.com/watch?v=2RYjb-dZSlE&list=PLY0rtvOwg0ykIvNBa8XI3SR7WEbdqqKoO&index=1">
-													<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/play.png' ?>"
+													<img src="<?php echo esc_url( plugin_dir_url( __FILE__ ) . '../img/play.png' ) ?>"
 														alt="turorial" /></a>
 											</div>
 										</div>
 										<figcaption class="figure-caption">
-											<?php _e( "How to Install / Update Instantio", "instantio" ); ?>
+											<?php esc_html_e( "How to Install / Update Instantio", "instantio" ); ?>
 										</figcaption>
 									</figure>
 
 									<figure class="figure">
 										<div class="main-caption">
-											<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/tutorial.png' ?>"
+											<img src="<?php echo esc_url( plugin_dir_url( __FILE__ ) . '../img/tutorial.png' ) ?>"
 												class="figure-img" alt="turorial" />
 											<div class="play-button-overlap">
 												<a target="_blank"
 													href="https://www.youtube.com/watch?v=tW9iRCYASSs&list=PLY0rtvOwg0ykIvNBa8XI3SR7WEbdqqKoO&index=3">
-													<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/play.png' ?>"
+													<img src="<?php echo esc_url( plugin_dir_url( __FILE__ ) . '../img/play.png' ) ?>"
 														alt="turorial" />
 												</a>
 											</div>
 										</div>
 										<figcaption class="figure-caption">
-											<?php _e( "Instant Checkout for WooCommerce", "instantio" ); ?>
+											<?php esc_html_e( "Instant Checkout for WooCommerce", "instantio" ); ?>
 										</figcaption>
 									</figure>
 								</div>
@@ -448,140 +451,140 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 							<div class="premium_wrapper">
 								<div class="premium-heading">
 									<h4>
-										<?php _e( "Pro Features", "instantio" ); ?>
+										<?php esc_html_e( "Pro Features", "instantio" ); ?>
 									</h4>
 
 									<a target="_blank" href="https://themefic.com/instantio/" class="btn view-all-btn">
-										<?php _e( "View all", "instantio" ); ?>
+										<?php esc_html_e( "View all", "instantio" ); ?>
 									</a>
 								</div>
 								<div class="premium-body">
 									<figure class="figure">
 										<div class="main-caption">
-											<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/pro/Side-CartCheckout-Pro-Multi-Step.jpg' ?>"
+											<img src="<?php echo esc_url( plugin_dir_url( __FILE__ ) . '../img/pro/Side-CartCheckout-Pro-Multi-Step.jpg' ) ?>"
 												class="figure-img" alt="turorial" />
 										</div>
 										<figcaption class="figure-caption">
 											<h4>
-												<?php _e( "Side Cart + Side Checkout (Multi Step)", "instantio" ); ?>
+												<?php esc_html_e( "Side Cart + Side Checkout (Multi Step)", "instantio" ); ?>
 											</h4>
 											<p>
-												<?php _e( "Customer will checkout from Same Window (Side drawer). The checkout process will be Multi-step (Cart -> Checkout, No Reload).", "instantio" ); ?>
+												<?php esc_html_e( "Customer will checkout from Same Window (Side drawer). The checkout process will be Multi-step (Cart -> Checkout, No Reload).", "instantio" ); ?>
 											</p>
 											<a target="_blank" href="https://wpinstant.io/side-checkout/" class="btn-premium-fea">
-												<?php _e( "See Preview", "instantio" ); ?>
+												<?php esc_html_e( "See Preview", "instantio" ); ?>
 											</a>
 										</figcaption>
 									</figure>
 
 									<figure class="figure">
 										<div class="main-caption">
-											<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/pro/Side-CartCheckout-Pro-Single-Step.jpg' ?>"
+											<img src="<?php echo esc_url( plugin_dir_url( __FILE__ ) . '../img/pro/Side-CartCheckout-Pro-Single-Step.jpg' ) ?>"
 												class="figure-img" alt="turorial" />
 										</div>
 										<figcaption class="figure-caption">
 											<h4>
-												<?php _e( "Side Cart + Side Checkout (Single Step)", "instantio" ); ?>
+												<?php esc_html_e( "Side Cart + Side Checkout (Single Step)", "instantio" ); ?>
 											</h4>
 											<p>
-												<?php _e( "The checkout process will be Single-step. Cart & Checkout will be shown on the Same Window, No Page Reload.", "instantio" ); ?>
+												<?php esc_html_e( "The checkout process will be Single-step. Cart & Checkout will be shown on the Same Window, No Page Reload.", "instantio" ); ?>
 											</p>
 											<a target="_blank" href="https://wpinstant.io/side-checkout-single/"
 												class="btn-premium-fea">
-												<?php _e( "See Preview", "instantio" ); ?>
+												<?php esc_html_e( "See Preview", "instantio" ); ?>
 											</a>
 										</figcaption>
 									</figure>
 
 									<figure class="figure">
 										<div class="main-caption">
-											<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/pro/Popup-CartCheckout-Pro-Multi-Step.jpg' ?>"
+											<img src="<?php echo esc_url( plugin_dir_url( __FILE__ ) . '../img/pro/Popup-CartCheckout-Pro-Multi-Step.jpg' ) ?>"
 												class="figure-img" alt="turorial" />
 										</div>
 										<figcaption class="figure-caption">
 											<h4>
-												<?php _e( "Popup Cart + Popup Checkout (Multi Step)", "instantio" ); ?>
+												<?php esc_html_e( "Popup Cart + Popup Checkout (Multi Step)", "instantio" ); ?>
 											</h4>
 
 											<p>
-												<?php _e( "Customer will checkout from Same Window (Popup). The checkout process will be Multi-step (Cart -> Checkout)", "instantio" ); ?>
+												<?php esc_html_e( "Customer will checkout from Same Window (Popup). The checkout process will be Multi-step (Cart -> Checkout)", "instantio" ); ?>
 											</p>
 
 											<a target="_blank" href="https://wpinstant.io/popup-checkout/" class="btn-premium-fea">
-												<?php _e( "See Preview", "instantio" ); ?>
+												<?php esc_html_e( "See Preview", "instantio" ); ?>
 											</a>
 										</figcaption>
 									</figure>
 
 									<figure class="figure">
 										<div class="main-caption">
-											<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/pro/Popup-CartCheckout-Pro-Single-Step.jpg' ?>"
+											<img src="<?php echo esc_url( plugin_dir_url( __FILE__ ) . '../img/pro/Popup-CartCheckout-Pro-Single-Step.jpg' ) ?>"
 												class="figure-img" alt="turorial" />
 										</div>
 										<figcaption class="figure-caption">
 											<h4>
-												<?php _e( "Popup Cart + Popup Checkout (Single Step)", "instantio" ); ?>
+												<?php esc_html_e( "Popup Cart + Popup Checkout (Single Step)", "instantio" ); ?>
 											</h4>
 											<p>
-												<?php _e( "The checkout process will be Single-step Popup (Cart & Checkout on Same Window, No Page Reload).", "instantio" ); ?>
+												<?php esc_html_e( "The checkout process will be Single-step Popup (Cart & Checkout on Same Window, No Page Reload).", "instantio" ); ?>
 											</p>
 											<a target="_blank" href="https://wpinstant.io/popup-checkout-single/"
 												class="btn-premium-fea">
-												<?php _e( "See Preview", "instantio" ); ?>
+												<?php esc_html_e( "See Preview", "instantio" ); ?>
 											</a>
 										</figcaption>
 									</figure>
 
 									<figure class="figure">
 										<div class="main-caption">
-											<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/pro/Up-Sell.jpg' ?>"
+											<img src="<?php echo esc_url( plugin_dir_url( __FILE__ ) . '../img/pro/Up-Sell.jpg' ) ?>"
 												class="figure-img" alt="turorial" />
 										</div>
 										<figcaption class="figure-caption">
 											<h4>
-												<?php _e( "Upsell (Pro)", "instantio" ); ?>
+												<?php esc_html_e( "Upsell (Pro)", "instantio" ); ?>
 											</h4>
 											<p>
-												<?php _e( "Instantio offer Ajax-based Upsell feature with which you can sell related or complementary products to a customer.", "instantio" ); ?>
+												<?php esc_html_e( "Instantio offer Ajax-based Upsell feature with which you can sell related or complementary products to a customer.", "instantio" ); ?>
 											</p>
 											<a target="_blank" href="https://wpinstant.io/upsells/" class="btn-premium-fea">
-												<?php _e( "See Preview", "instantio" ); ?>
+												<?php esc_html_e( "See Preview", "instantio" ); ?>
 											</a>
 										</figcaption>
 									</figure>
 
 									<figure class="figure">
 										<div class="main-caption">
-											<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/pro/Cross-Sell.jpg' ?>"
+											<img src="<?php echo esc_url( plugin_dir_url( __FILE__ ) . '../img/pro/Cross-Sell.jpg' ) ?>"
 												class="figure-img" alt="turorial" />
 										</div>
 										<figcaption class="figure-caption">
 											<h4>
-												<?php _e( "Cross-sell (Pro)", "instantio" ); ?>
+												<?php esc_html_e( "Cross-sell (Pro)", "instantio" ); ?>
 											</h4>
 											<p>
-												<?php _e( "With Instantio, you can also do Ajax based cross-sell by selling related or complementary products to a customer.", "instantio" ); ?>
+												<?php esc_html_e( "With Instantio, you can also do Ajax based cross-sell by selling related or complementary products to a customer.", "instantio" ); ?>
 											</p>
 											<a target="_blank" href="https://wpinstant.io/cross-sells/" class="btn-premium-fea">
-												<?php _e( "See Preview", "instantio" ); ?>
+												<?php esc_html_e( "See Preview", "instantio" ); ?>
 											</a>
 										</figcaption>
 									</figure>
 
 									<figure class="figure">
 										<div class="main-caption">
-											<img src="<?php echo plugin_dir_url( __FILE__ ) . '../img/pro/Dedicated-Mobile-Layout.png' ?>"
+											<img src="<?php echo esc_url( plugin_dir_url( __FILE__ ) . '../img/pro/Dedicated-Mobile-Layout.png' ) ?>"
 												class="figure-img" alt="turorial" />
 										</div>
 										<figcaption class="figure-caption">
 											<h4>
-												<?php _e( "Dedicated Mobile Layout", "instantio" ); ?>
+												<?php esc_html_e( "Dedicated Mobile Layout", "instantio" ); ?>
 											</h4>
 											<p>
-												<?php _e( "A dedicated mobile layout for smaller devices to make your checkout process much smoother for customers.", "instantio" ); ?>
+												<?php esc_html_e( "A dedicated mobile layout for smaller devices to make your checkout process much smoother for customers.", "instantio" ); ?>
 											</p>
 											<a target="_blank" href="https://wpinstant.io/mobile/" class="btn-premium-fea">
-												<?php _e( "See Preview", "instantio" ); ?>
+												<?php esc_html_e( "See Preview", "instantio" ); ?>
 											</a>
 										</figcaption>
 									</figure>
@@ -594,7 +597,7 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 							<div class="faqs_wrapper">
 								<div class="faqs-heading">
 									<h4>
-										<?php _e( "Frequently asked questions", "instantio" ); ?>
+										<?php esc_html_e( "Frequently asked questions", "instantio" ); ?>
 									</h4>
 								</div>
 
@@ -604,12 +607,12 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 											<div class="tf-faq-title">
 												<i class="fas fa-angle-down"></i>
 												<h4>
-													<?php _e( "1. What is WooCommerce One Page Checkout?", "instantio" ); ?>
+													<?php esc_html_e( "1. What is WooCommerce One Page Checkout?", "instantio" ); ?>
 												</h4>
 											</div>
 											<div class="tf-faq-desc">
 												<p>
-													<?php _e( "WooCommerce One Page Checkout means converting the default multistep checkout for WooCommerce process into a single page Checkout. WordPress Plugins like Instantio offers such a solution.", "instantio" ); ?>
+													<?php esc_html_e( "WooCommerce One Page Checkout means converting the default multistep checkout for WooCommerce process into a single page Checkout. WordPress Plugins like Instantio offers such a solution.", "instantio" ); ?>
 												</p>
 											</div>
 										</div>
@@ -619,12 +622,12 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 											<div class="tf-faq-title">
 												<i class="fas fa-angle-down"></i>
 												<h4>
-													<?php _e( "2. What is Direct Checkout for WooCommerce?", "instantio" ); ?>
+													<?php esc_html_e( "2. What is Direct Checkout for WooCommerce?", "instantio" ); ?>
 												</h4>
 											</div>
 											<div class="tf-faq-desc">
 												<p>
-													<?php _e( "WooCommerce Direct Checkout is a solution to reduce the steps of the default Woocommerce checkout process. Customers can skip the cart page and directly checkout woocommerce (go directly to the checkout page). This helps improving cart abandonment of a website. Our Plugin Instantio offers such a solution.", "instantio" ); ?>
+													<?php esc_html_e( "WooCommerce Direct Checkout is a solution to reduce the steps of the default Woocommerce checkout process. Customers can skip the cart page and directly checkout woocommerce (go directly to the checkout page). This helps improving cart abandonment of a website. Our Plugin Instantio offers such a solution.", "instantio" ); ?>
 												</p>
 											</div>
 										</div>
@@ -634,12 +637,12 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 											<div class="tf-faq-title">
 												<i class="fas fa-angle-down"></i>
 												<h4>
-													<?php _e( "3. How to install Instantio?", "instantio" ); ?>
+													<?php esc_html_e( "3. How to install Instantio?", "instantio" ); ?>
 												</h4>
 											</div>
 											<div class="tf-faq-desc">
 												<p>
-													<?php _e( "See the installation link. <a traget='_blank' href='https://wordpress.org/plugins/instantio/#installation'>Install Link</a> ", "instantio" ); ?>
+												<?php echo wp_kses_post( __( "See the installation link. <a target='_blank' href='https://wordpress.org/plugins/instantio/#installation'>Install Link</a>", 'instantio' ) ); ?>
 												</p>
 											</div>
 										</div>
@@ -649,12 +652,12 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 											<div class="tf-faq-title">
 												<i class="fas fa-angle-down"></i>
 												<h4>
-													<?php _e( "4. Is the Free version fully free or there is a gap?", "instantio" ); ?>
+													<?php esc_html_e( "4. Is the Free version fully free or there is a gap?", "instantio" ); ?>
 												</h4>
 											</div>
 											<div class="tf-faq-desc">
 												<p>
-													<?php _e( "Yes, Instantio is fully free which is available on WordPress.org. This free version will always be free. It also has a pro version with additional features which you can purchase from our official website.", "instantio" ); ?>
+													<?php esc_html_e( "Yes, Instantio is fully free which is available on WordPress.org. This free version will always be free. It also has a pro version with additional features which you can purchase from our official website.", "instantio" ); ?>
 												</p>
 											</div>
 										</div>
@@ -664,12 +667,12 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 											<div class="tf-faq-title">
 												<i class="fas fa-angle-down"></i>
 												<h4>
-													<?php _e( "5. Is the free version supported?", "instantio" ); ?>
+													<?php esc_html_e( "5. Is the free version supported?", "instantio" ); ?>
 												</h4>
 											</div>
 											<div class="tf-faq-desc">
 												<p>
-													<?php _e( "Yes, we fully support both the free and pro version. Please feel free to post questions or bug reports through our website, but for timely support, we recommend purchasing Pro version.", "instantio" ); ?>
+													<?php esc_html_e( "Yes, we fully support both the free and pro version. Please feel free to post questions or bug reports through our website, but for timely support, we recommend purchasing Pro version.", "instantio" ); ?>
 												</p>
 											</div>
 										</div>
@@ -679,12 +682,12 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 											<div class="tf-faq-title">
 												<i class="fas fa-angle-down"></i>
 												<h4>
-													<?php _e( "5. Will I be able to edit WooCommerce checkout page with Instantio?", "instantio" ); ?>
+													<?php esc_html_e( "5. Will I be able to edit WooCommerce checkout page with Instantio?", "instantio" ); ?>
 												</h4>
 											</div>
 											<div class="tf-faq-desc">
 												<p>
-													<?php _e( "Yes, Instantio allows you to edit WooCommerce checkout page to some extent. You can remove the cart page and make your customer directly go to the checkout page.", "instantio" ); ?>
+													<?php esc_html_e( "Yes, Instantio allows you to edit WooCommerce checkout page to some extent. You can remove the cart page and make your customer directly go to the checkout page.", "instantio" ); ?>
 												</p>
 											</div>
 										</div>
@@ -694,12 +697,12 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 											<div class="tf-faq-title">
 												<i class="fas fa-angle-down"></i>
 												<h4>
-													<?php _e( "6. Does Instantio allows WooCommerce one-click checkout?", "instantio" ); ?>
+													<?php esc_html_e( "6. Does Instantio allows WooCommerce one-click checkout?", "instantio" ); ?>
 												</h4>
 											</div>
 											<div class="tf-faq-desc">
 												<p>
-													<?php _e( "Yes, Instantio converts WooCommerce multistep checkout process into WooCommerce one click checkout.", "instantio" ); ?>
+													<?php esc_html_e( "Yes, Instantio converts WooCommerce multistep checkout process into WooCommerce one click checkout.", "instantio" ); ?>
 												</p>
 											</div>
 										</div>
@@ -709,12 +712,12 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 											<div class="tf-faq-title">
 												<i class="fas fa-angle-down"></i>
 												<h4>
-													<?php _e( "7. Will I be able to skip cart page on WooCommerce?", "instantio" ); ?>
+													<?php esc_html_e( "7. Will I be able to skip cart page on WooCommerce?", "instantio" ); ?>
 												</h4>
 											</div>
 											<div class="tf-faq-desc">
 												<p>
-													<?php _e( "Yes, Instantio allows you to skip cart page WooCommerce and make your customer directly go to the checkout page.", "instantio" ); ?>
+													<?php esc_html_e( "Yes, Instantio allows you to skip cart page WooCommerce and make your customer directly go to the checkout page.", "instantio" ); ?>
 												</p>
 											</div>
 										</div>
@@ -724,12 +727,12 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 											<div class="tf-faq-title">
 												<i class="fas fa-angle-down"></i>
 												<h4>
-													<?php _e( "8. Does Instantio allows WooCommerce Quick checkout?", "instantio" ); ?>
+													<?php esc_html_e( "8. Does Instantio allows WooCommerce Quick checkout?", "instantio" ); ?>
 												</h4>
 											</div>
 											<div class="tf-faq-desc">
 												<p>
-													<?php _e( "Yes, Instantio converts the default multistep WooCommerce checkout process into WooCommerce Quick checkout.", "instantio" ); ?>
+													<?php esc_html_e( "Yes, Instantio converts the default multistep WooCommerce checkout process into WooCommerce Quick checkout.", "instantio" ); ?>
 												</p>
 											</div>
 										</div>
@@ -739,12 +742,12 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 											<div class="tf-faq-title">
 												<i class="fas fa-angle-down"></i>
 												<h4>
-													<?php _e( "9. Does Instantio allows WooCommerce Express checkout?", "instantio" ); ?>
+													<?php esc_html_e( "9. Does Instantio allows WooCommerce Express checkout?", "instantio" ); ?>
 												</h4>
 											</div>
 											<div class="tf-faq-desc">
 												<p>
-													<?php _e( "Yes, Instantio converts the default multistep WooCommerce checkout process into WooCommerce Express checkout.", "instantio" ); ?>
+													<?php esc_html_e( "Yes, Instantio converts the default multistep WooCommerce checkout process into WooCommerce Express checkout.", "instantio" ); ?>
 												</p>
 											</div>
 										</div>
@@ -758,7 +761,7 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 							<div class="whatnew_wrapper">
 								<div class="whatnew-heading">
 									<h4>
-										<?php _e( "All updates", "instantio" ); ?>
+										<?php esc_html_e( "All updates", "instantio" ); ?>
 									</h4>
 								</div>
 								<div class="whatnew_updates">
@@ -769,10 +772,10 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 											<div class="whatnew_updates_card">
 												<div class="cardleft_date_version">
 													<div class="ins_cardleft_date">
-														<?php echo $value['date']; ?>
+									<?php echo esc_html( $value['date'] ); ?>
 													</div>
 													<div class="ins_cardleft_version">
-														<?php echo $value['version']; ?>
+									<?php echo esc_html( $value['version'] ); ?>
 													</div>
 												</div>
 
@@ -781,13 +784,13 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 													$changelogs = $value['changelog'];
 													if ( ! empty( $changelogs ) ) {
 														foreach ( $changelogs as $key => $values ) { ?>
-															<ul class="ins_changelog_<?php echo $key ?>">
+								<ul class="ins_changelog_<?php echo esc_attr( $key ); ?>">
 																<span>
-																	<?php echo $key ?>
+									<?php echo esc_html( $key ); ?>
 																</span>
 																<?php foreach ( $values as $value ) { ?>
 																	<li>
-																		<?php echo $value ?>
+										<?php echo wp_kses_post( $value ); ?>
 																	</li>
 																<?php } ?>
 															</ul>
@@ -802,7 +805,7 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 
 										<div class="whatnew_updates_card">
 											<div class="chnagelog_not_found">
-												<?php _e( "No change logs found. Please try again later. Maybe the changelog is being updated, it will come shortly.", "instantio" ); ?>
+												<?php esc_html_e( "No change logs found. Please try again later. Maybe the changelog is being updated, it will come shortly.", "instantio" ); ?>
 											</div>
 										</div>
 
@@ -862,7 +865,7 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 													class="tf-tablinks <?php echo $section_count == 0 ? 'active' : ''; ?>"
 													data-tab="<?php echo esc_attr( $parent_tab_key ) ?>">
 													<?php echo ! empty( $section['icon'] ) ? '<span class="tf-sec-icon"><i class="' . esc_attr( $section['icon'] ) . '"></i></span>' : ''; ?>
-													<?php echo $section['title']; ?>
+									<?php echo esc_html( $section['title'] ); ?>
 												</a>
 
 												<?php if ( ! empty( $section['sub_section'] ) ) : ?>
@@ -874,7 +877,7 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 																	data-tab="<?php echo esc_attr( $sub_key ) ?>">
 																	<span class="tf-tablinks-inner">
 																		<?php echo ! empty( $sub['icon'] ) ? '<span class="tf-sec-icon"><i class="' . esc_attr( $sub['icon'] ) . '"></i></span>' : ''; ?>
-																		<?php echo $sub['title']; ?>
+											<?php echo esc_html( $sub['title'] ); ?>
 																	</span>
 																</a>
 															</li>
@@ -914,7 +917,7 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 										<!-- Footer -->
 										<div class="tf-option-footer">
 											<button type="submit" class="tf-admin-btn tf-btn-secondary tf-submit-btn">
-												<?php _e( 'Save', 'instantio' ); ?>
+												<?php esc_html_e( 'Save', 'instantio' ); ?>
 											</button>
 										</div>
 
@@ -933,46 +936,46 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 							</div>
 
 							<!-- promo banner  -->
-					 		<?php echo apply_filters('ins_dashboard_helper_banner', ''); ?>
+					<?php echo wp_kses_post( apply_filters( 'ins_dashboard_helper_banner', '' ) ); ?>
 
-							<?php echo $this->tf_get_sidebar_plugin_list(); ?>
+					<?php echo wp_kses_post( $this->tf_get_sidebar_plugin_list() ); ?>
 
 							<div class="customization-quote">
 								<div class="quote-header">
 									<i class="fa-solid fa-code"></i>
-									<a href="<?php echo esc_url( 'https://portal.themefic.com/hire-us/' ); ?>" target="_blank"><?php echo __('Get Free Quote', 'instantio');  ?></a>
+						<a href="<?php echo esc_url( 'https://portal.themefic.com/hire-us/' ); ?>" target="_blank"><?php esc_html_e( 'Get Free Quote', 'instantio' ); ?></a>
 								</div>
 								<div class="quote-content">
-									<h3><?php echo __('Need Help Customizing Your WordPress Site?', 'instantio');  ?></h3>
-									<p><?php echo __('Want to tweak a theme, adjust a plugin like instantio or add custom functionality to your site? Our expert WordPress developers can tailor it just the way you need. We only charge $29/hour.', 'instantio');  ?></p>								
+						<h3><?php esc_html_e( 'Need Help Customizing Your WordPress Site?', 'instantio' ); ?></h3>
+						<p><?php esc_html_e( 'Want to tweak a theme, adjust a plugin like instantio or add custom functionality to your site? Our expert WordPress developers can tailor it just the way you need. We only charge $29/hour.', 'instantio' ); ?></p>
 								</div>
 							</div>
 
 							<div class="quick-access">
-								<h3><?php echo __('Helpful Resources', 'instantio');  ?></h3>
+					<h3><?php esc_html_e( 'Helpful Resources', 'instantio' ); ?></h3>
 								<div class="quick-access-wrapper">
 									<div class="access-item">
 										<a href="https://themefic.com/docs/instantio/" target="_blank">
 											<span class="icon"><i class="fa-solid fa-folder-open"></i></span>
-											<?php echo _e( 'Documentation', 'instantio' ); ?>
+											<?php esc_html_e( 'Documentation', 'instantio' ); ?>
 										</a>
 									</div>
 									<div class="access-item">
 										<a href="https://portal.themefic.com/support/" target="_blank">
 											<span class="icon"><i class="fa-solid fa-headset"></i></span>
-											<?php echo _e( 'Get Support', 'instantio' ); ?>
+											<?php esc_html_e( 'Get Support', 'instantio' ); ?>
 										</a>
 									</div>
 									<div class="access-item">
 										<a href="https://facebook.com/groups/instantio.wp" target="_blank">
 											<span class="icon"><i class="fa-solid fa-users"></i></span>
-											<?php echo _e( 'Join our Community', 'instantio' ); ?>
+											<?php esc_html_e( 'Join our Community', 'instantio' ); ?>
 										</a>
 									</div>
 									<div class="access-item">
 										<a href="https://portal.themefic.com/support/" target="_blank">
 											<span class="icon"><i class="fa-solid fa-lightbulb"></i></span>
-											<?php echo _e( 'Request a Feature', 'instantio' ); ?>
+											<?php esc_html_e( 'Request a Feature', 'instantio' ); ?>
 										</a>
 									</div>
 								</div>
@@ -1134,9 +1137,9 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 				wp_send_json_error('You do not have permission to perform this action.');
 			}
 
-			$plugin_slug = isset($_POST['plugin_slug']) ? sanitize_text_field($_POST['plugin_slug']) : '';
-			$plugin_filename = isset($_POST['plugin_filename']) ? sanitize_text_field($_POST['plugin_filename']) : '';
-			$plugin_action = isset($_POST['plugin_action']) ? sanitize_text_field($_POST['plugin_action']) : '';
+				$plugin_slug = isset($_POST['plugin_slug']) ? sanitize_key( wp_unslash( $_POST['plugin_slug'] ) ) : '';
+				$plugin_filename = isset($_POST['plugin_filename']) ? sanitize_text_field( wp_unslash( $_POST['plugin_filename'] ) ) : '';
+				$plugin_action = isset($_POST['plugin_action']) ? sanitize_key( wp_unslash( $_POST['plugin_action'] ) ) : '';
 
 			if (!$plugin_slug || !$plugin_action) {
 				wp_send_json_error('Invalid request.');
@@ -1195,17 +1198,19 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 			}
 
 			if ( ! current_user_can( 'manage_options' ) ) {
-				wp_die( __( 'You are not allowed to perform this action.', 'bafg' ) );
+					wp_die( esc_html__( 'You are not allowed to perform this action.', 'instantio' ) );
 			}
 
 			// Check nonce
-			if ( ! wp_verify_nonce( $_POST['ins_option_nonce'], 'ins_option_nonce_action' ) ) {
+				if ( ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['ins_option_nonce'] ) ), 'ins_option_nonce_action' ) ) {
 				return;
 			}
 
 
 			$tf_option_value = array();
-			$option_request = ( ! empty( $_POST[ $this->option_id ] ) ) ? $_POST[ $this->option_id ] : array();
+				// Individual field classes apply their context-specific sanitization below.
+				// phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+				$option_request = ! empty( $_POST[ $this->option_id ] ) ? wp_unslash( $_POST[ $this->option_id ] ) : array();
 			if ( ! empty( $option_request ) && ! empty( $this->option_sections ) ) {
 				foreach ( $this->option_sections as $section ) {
 					if ( ! empty( $section['fields'] ) ) {
@@ -1218,7 +1223,7 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 								if ( $fieldClass != 'INS_file' ) {
 									$data = $fieldClass == 'INS_repeater' || $fieldClass == 'INS_map' ? serialize( $data ) : $data;
 								}
-								if ( isset( $_FILES ) && ! empty( $_FILES['file'] ) ) {
+								if ( ! empty( $_FILES['file'] ) && is_array( $_FILES['file'] ) ) {
 									$tf_upload_dir = wp_upload_dir();
 									if ( ! empty( $tf_upload_dir['basedir'] ) ) {
 										$tf_itinerary_fonts = $tf_upload_dir['basedir'] . '/itinerary-fonts';
@@ -1236,17 +1241,35 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 											'woff2' => 'font/woff2'
 										);
 									
-										for ( $i = 0; $i < count( $_FILES['file']['name'] ); $i++ ) {
-											$original_name = $_FILES['file']['name'][ $i ];
-											$tmp_name      = $_FILES['file']['tmp_name'][ $i ];
-											$type          = $_FILES['file']['type'][ $i ];
+										// Each entry is validated and sanitized in the upload loop below.
+										// phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+										$file_names = isset( $_FILES['file']['name'] ) && is_array( $_FILES['file']['name'] ) ? $_FILES['file']['name'] : array();
+										// phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+										$tmp_names = isset( $_FILES['file']['tmp_name'] ) && is_array( $_FILES['file']['tmp_name'] ) ? $_FILES['file']['tmp_name'] : array();
+										// phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+										$file_types = isset( $_FILES['file']['type'] ) && is_array( $_FILES['file']['type'] ) ? $_FILES['file']['type'] : array();
+
+										for ( $i = 0; $i < count( $file_names ); $i++ ) {
+											if ( ! isset( $tmp_names[ $i ], $file_types[ $i ] ) ) {
+												continue;
+											}
+
+											$original_name = sanitize_file_name( $file_names[ $i ] );
+											$tmp_name      = sanitize_text_field( $tmp_names[ $i ] );
+											$type          = sanitize_mime_type( $file_types[ $i ] );
 									
-											$sanitized_name = sanitize_file_name( $original_name );
+											$sanitized_name = $original_name;
 											$extension      = strtolower( pathinfo( $sanitized_name, PATHINFO_EXTENSION ) );
 									
 											// Validate extension and MIME type
 											if ( in_array( $extension, $allowed_extensions, true ) && $type === $allowed_mime_types[ $extension ] ) {
-												move_uploaded_file( $tmp_name, $tf_itinerary_fonts . '/' . $sanitized_name );
+												require_once ABSPATH . 'wp-admin/includes/file.php';
+												WP_Filesystem();
+												global $wp_filesystem;
+
+												if ( $wp_filesystem && is_uploaded_file( $tmp_name ) ) {
+													$wp_filesystem->move( $tmp_name, $tf_itinerary_fonts . '/' . $sanitized_name, true );
+												}
 											}
 										}
 									}
@@ -1281,7 +1304,7 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 				'message' => __( 'Something went wrong!', 'instantio' ),
 			];
 
-			if ( ! empty( $_POST['ins_option_nonce'] ) && wp_verify_nonce( $_POST['ins_option_nonce'], 'ins_option_nonce_action' ) ) {
+				if ( ! empty( $_POST['ins_option_nonce'] ) && wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['ins_option_nonce'] ) ), 'ins_option_nonce_action' ) ) {
 				$this->save_options();
 				$response = [ 
 					'status' => 'success',
@@ -1289,8 +1312,7 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 				];
 			}
 
-			echo json_encode( $response );
-			wp_die();
+			wp_send_json( $response );
 		}
 
 		/*
@@ -1299,7 +1321,10 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 		 * @author Foysal
 		 */
 		public function get_current_page_url() {
-			$page_url = ( isset( $_SERVER['HTTPS'] ) && $_SERVER['HTTPS'] === 'on' ? "https" : "http" ) . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+				$scheme      = isset( $_SERVER['HTTPS'] ) && 'on' === sanitize_text_field( wp_unslash( $_SERVER['HTTPS'] ) ) ? 'https' : 'http';
+				$host        = isset( $_SERVER['HTTP_HOST'] ) ? sanitize_text_field( wp_unslash( $_SERVER['HTTP_HOST'] ) ) : '';
+				$request_uri = isset( $_SERVER['REQUEST_URI'] ) ? sanitize_text_field( wp_unslash( $_SERVER['REQUEST_URI'] ) ) : '';
+				$page_url    = esc_url_raw( $scheme . '://' . $host . $request_uri );
 
 			return $page_url;
 		}
@@ -1310,7 +1335,7 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 		 * @author Foysal
 		 */
 		public function get_query_string( $url ) {
-			$url_parts = parse_url( $url );
+				$url_parts = wp_parse_url( $url );
 			parse_str( $url_parts['query'], $query_string );
 
 			return $query_string;

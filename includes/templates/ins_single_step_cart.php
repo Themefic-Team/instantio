@@ -16,6 +16,9 @@
  */
 
 defined( 'ABSPATH' ) || exit;
+
+// WooCommerce template variables/hooks are compatibility APIs; copied WooCommerce strings retain its translations.
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals,WordPress.WP.I18n.TextDomainMismatch
 $ins_layout = ! empty( insopt( 'ins-layout-options' ) ) ? insopt( 'ins-layout-options' ) : '1';
 do_action( 'woocommerce_before_cart' ); ?>
 <form class="woocommerce-cart-form" action="<?php echo esc_url( wc_get_cart_url() ); ?>" method="post">
@@ -54,8 +57,8 @@ do_action( 'woocommerce_before_cart' ); ?>
 						?>
 						<!-- Single Cart Item Start -->
 						<div class="ins-single-cart-item woocommerce-cart-form__cart-item <?php echo esc_attr( apply_filters( 'woocommerce_cart_item_class', 'cart_item', $cart_item, $cart_item_key ) ); ?>"
-							data-cart-item-key="<?php echo $cart_item_key ?>"
-							data-product-id="<?php echo $cart_item['product_id'] ?>">
+								data-cart-item-key="<?php echo esc_attr( $cart_item_key ); ?>"
+								data-product-id="<?php echo absint( $cart_item['product_id'] ); ?>">
 							<div class="ins-cart-remove">
 
 								<span class="ins-cart-item-remove product-remove">
@@ -86,9 +89,11 @@ do_action( 'woocommerce_before_cart' ); ?>
 									$thumbnail = apply_filters( 'woocommerce_cart_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key );
 
 									if ( ! $product_permalink ) {
-										echo $thumbnail; // PHPCS: XSS ok.
+										// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- WooCommerce image HTML filtered by woocommerce_cart_item_thumbnail.
+										echo $thumbnail;
 									} else {
-										printf( '<a href="%s">%s</a>', esc_url( $product_permalink ), $thumbnail ); // PHPCS: XSS ok.
+										// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- URL is escaped; thumbnail is WooCommerce-filtered image HTML.
+										printf( '<a href="%s">%s</a>', esc_url( $product_permalink ), $thumbnail );
 									}
 									?>
 								</div>
@@ -112,7 +117,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 									do_action( 'woocommerce_after_cart_item_name', $cart_item, $cart_item_key );
 
 									// Meta data.
-									echo wc_get_formatted_cart_item_data( $cart_item ); // PHPCS: XSS ok.
+										echo wp_kses_post( wc_get_formatted_cart_item_data( $cart_item ) );
 							
 									// Backorder notification.
 									if ( $_product->backorders_require_notification() && $_product->is_on_backorder( $cart_item['quantity'] ) ) {
@@ -123,7 +128,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 							</div>
 							<div class="ins-cart-price" data-title="<?php esc_attr_e( 'Price', 'woocommerce' ); ?>">
 								<?php
-								echo apply_filters( 'woocommerce_cart_item_price', WC()->cart->get_product_price( $_product ), $cart_item, $cart_item_key ); // PHPCS: XSS ok.
+								echo wp_kses_post( apply_filters( 'woocommerce_cart_item_price', WC()->cart->get_product_price( $_product ), $cart_item, $cart_item_key ) );
 								?>
 							</div>
 							<div class="ins-cart-item-quantity ins-cart-qty-wrap">
@@ -172,13 +177,14 @@ do_action( 'woocommerce_before_cart' ); ?>
 								);
 								$product_quantity .= '<button type="button" class="plus ins-cart-plus">' . $plus_icon . '</button>';
 
-								echo apply_filters( 'woocommerce_cart_item_quantity', $product_quantity, $cart_item_key, $cart_item ); // PHPCS: XSS ok.
+								// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- WooCommerce quantity HTML plus static local buttons; callbacks own escaping.
+								echo apply_filters( 'woocommerce_cart_item_quantity', $product_quantity, $cart_item_key, $cart_item );
 								?>
 
 							</div>
 							<div class="ins-cart-item-total" data-title="<?php esc_attr_e( 'Subtotal', 'woocommerce' ); ?>">
 								<?php
-								echo apply_filters( 'woocommerce_cart_item_subtotal', WC()->cart->get_product_subtotal( $_product, $cart_item['quantity'] ), $cart_item, $cart_item_key ); // PHPCS: XSS ok.
+								echo wp_kses_post( apply_filters( 'woocommerce_cart_item_subtotal', WC()->cart->get_product_subtotal( $_product, $cart_item['quantity'] ), $cart_item, $cart_item_key ) );
 								?>
 							</div>
 
@@ -191,7 +197,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 			</div>
 		</div>
 
-		<?php echo apply_filters( 'ins_show_items_upsells', '' ); ?>
+			<?php echo wp_kses_post( apply_filters( 'ins_show_items_upsells', '' ) ); ?>
 	</div>
 
 	<?php do_action( 'woocommerce_cart_contents' ); ?>

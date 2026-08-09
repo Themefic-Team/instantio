@@ -2,7 +2,7 @@
   "name": "themefic/instantio",
   "description": "WooCommerce Quick Checkout through Side Cart, Floating Cart, Popup Cart & Direct Checkout Button.",
   "type": "wordpress-plugin",
-  "license": "GPLv2",
+  "license": "GPL-3.0-or-later",
   "authors": [
     {
       "name": "M Hemel Hasan",
