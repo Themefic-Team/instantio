@@ -151,7 +151,7 @@ if ( ! class_exists( 'INS_Metabox' ) ) {
 		 */
 		public function save_metabox( $post_id ) {
 			// Add nonce for security and authentication.
-			$nonce_name = isset( $_POST['tf_meta_box_nonce'] ) ? $_POST['tf_meta_box_nonce'] : '';
+				$nonce_name = isset( $_POST['tf_meta_box_nonce'] ) ? sanitize_text_field( wp_unslash( $_POST['tf_meta_box_nonce'] ) ) : '';
 			$nonce_action = 'tf_meta_box_nonce_action';
 
 			// Check if a nonce is set.
@@ -180,7 +180,9 @@ if ( ! class_exists( 'INS_Metabox' ) ) {
 			}
 
 			$tf_meta_box_value = array();
-			$metabox_request = ( ! empty( $_POST[ $this->metabox_id ] ) ) ? $_POST[ $this->metabox_id ] : array();
+				// Individual field classes apply their context-specific sanitization below.
+				// phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+				$metabox_request = ! empty( $_POST[ $this->metabox_id ] ) ? wp_unslash( $_POST[ $this->metabox_id ] ) : array();
 
 			if ( ! empty( $metabox_request ) && ! empty( $this->metabox_sections ) ) {
 				foreach ( $this->metabox_sections as $section ) {
@@ -215,5 +217,4 @@ if ( ! class_exists( 'INS_Metabox' ) ) {
 
 	}
 }
-
 

@@ -1,4 +1,10 @@
 <?php
+
+defined( 'ABSPATH' ) || exit;
+
+// Legacy helper and promotion callback names are retained for extension and saved-hook compatibility.
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+
 // Reset Data
 add_filter(
 	'plugin_row_meta',
@@ -170,13 +176,13 @@ if ( ! function_exists( 'tf_black_friday_2023_admin_notice' ) ) {
 				}
 			</style>
 			<div class="notice notice-success tf_black_friday_20222_admin_notice">
-				<a href="<?php echo $deal_link; ?>" target="_blank">
+				<a href="<?php echo esc_url( $deal_link ); ?>" target="_blank">
 					<img style="width: 100%;"
 						src="<?php echo esc_url( 'https://themefic.com/wp-content/uploads/2023/11/Themefic_BlackFriday_rectangle_banner.png' ) ?>"
 						alt="">
 				</a>
 				<button type="button" class="notice-dismiss tf_black_friday_notice_dismiss"><span
-						class="screen-reader-text"><?php echo __( 'Dismiss this notice.', 'instantio' ) ?></span></button>
+						class="screen-reader-text"><?php esc_html_e( 'Dismiss this notice.', 'instantio' ); ?></span></button>
 			</div>
 			<script>
 				jQuery(document).ready(function ($) {
@@ -223,7 +229,7 @@ if ( ! function_exists( 'tf_black_friday_notice_dismiss_callback' ) ) {
 if ( ! function_exists( 'tf_black_friday_2023_woo_product' ) ) {
 	function tf_black_friday_2023_woo_product() {
 		if ( ! isset( $_COOKIE['tf_black_friday_sidbar_notice'] ) ) {
-			add_meta_box( 'tf_black_friday_annous', __( ' ', 'instantio' ), 'tf_black_friday_2023_callback_woo_product', 'product', 'side', 'high' );
+			add_meta_box( 'tf_black_friday_annous', '', 'tf_black_friday_2023_callback_woo_product', 'product', 'side', 'high' );
 		}
 	}
 
@@ -261,7 +267,7 @@ if ( ! function_exists( 'tf_black_friday_2023_woo_product' ) ) {
 		<div class="back_friday_2023_preview ins-bf-preview" style="text-align: center; overflow: hidden;">
 			<button type="button" class="notice-dismiss tf_hotel_friday_notice_dismiss"><span class="screen-reader-text">Dismiss
 					this notice.</span></button>
-			<a href="<?php echo $deal_link; ?>" target="_blank">
+			<a href="<?php echo esc_url( $deal_link ); ?>" target="_blank">
 				<img style="width: 100%;"
 					src="<?php echo esc_url( 'https://themefic.com/wp-content/uploads/2023/11/Instantio_BlackFriday_Square_banner.png' ) ?>"
 					alt="">
@@ -304,7 +310,7 @@ function metabox_order( $order ) {
 }
 
 function ins_utm_generator( $url, $utm_params = array() ) {
-	$host_url = parse_url( get_site_url(), PHP_URL_HOST );
+	$host_url = wp_parse_url( get_site_url(), PHP_URL_HOST );
 	$utm_params = array_merge( array(
 		'utm_source'   => 'ins_' . $host_url,
 		'utm_medium'   => 'plugin',

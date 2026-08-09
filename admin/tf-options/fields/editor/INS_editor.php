@@ -16,9 +16,9 @@ if ( ! class_exists( 'INS_editor' ) ) {
 			$parent_class = ( isset( $this->field['wp_editor'] ) ) ? 'wp_editor' : $parent_class;
 			?>
 			<div class="tf-field-textarea">
-				<textarea name="<?php echo $this->field_name(); ?>" id="<?php echo $INS_editor_unique_id; ?>"
+				<textarea name="<?php echo esc_attr( $this->field_name() ); ?>" id="<?php echo esc_attr( $INS_editor_unique_id ); ?>"
 					class="<?php echo esc_attr( $parent_class ) ?> INS_wp_editor" cols="30"
-					data-count-id=""><?php echo $this->value; ?></textarea>
+					data-count-id=""><?php echo esc_textarea( $this->value ); ?></textarea>
 			</div>
 			<?php
 		}

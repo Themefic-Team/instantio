@@ -9,13 +9,19 @@
  * Author URI: https://themefic.com
  * Tags: woocommerce cart, woocommerce checkout, woocommerce direct checkout, multistep checkout, woocommerce side cart
  * Version: 3.3.34
+ * Requires at least: 4.9
  * Tested up to: 7.0
  * Requires PHP: 7.4
+ * License: GPLv3
+ * License URI: https://www.gnu.org/licenses/gpl-3.0.html
  * WC tested up to: 10.7
 **/
 
 // don't load directly
 defined( 'ABSPATH' ) || exit;
+
+// Legacy hooks and callback names are public compatibility APIs shared with Instantio Pro.
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 
 class INSTANTIO {
 
@@ -109,9 +115,6 @@ class INSTANTIO {
 		if ( is_admin() && ! wp_doing_ajax() ) {
 			new INS\Controller\Admin();
 
-			// Appsero
-			$this->ins_appsero_init_tracker_instantio();
-
 		} else {
 			new INS\Controller\App();
 
@@ -149,7 +152,10 @@ class INSTANTIO {
 
 		add_action( 'wcqv_product_data', 'woocommerce_template_single_add_to_cart' );
 
-		$product_id = $_POST['product_id'];
+		$product_id = isset( $_POST['product_id'] ) ? absint( wp_unslash( $_POST['product_id'] ) ) : 0;
+		if ( ! $product_id ) {
+			wp_send_json_error( array( 'message' => __( 'Invalid product.', 'instantio' ) ), 400 );
+		}
 
 		$wiqv_loop = new WP_Query(
 			array(
@@ -157,45 +163,20 @@ class INSTANTIO {
 				'p' => $product_id,
 			)
 		);
-		ob_start();
 		if ( $wiqv_loop->have_posts() ) :
 			while ( $wiqv_loop->have_posts() ) :
 				$wiqv_loop->the_post(); ?>
 				<?php wc_get_template( 'single-product/add-to-cart/variation.php' ); ?>
 				<script>
-					jQuery.getScript("<?php echo $woocommerce->plugin_url(); ?>/assets/js/frontend/add-to-cart-variation.min.js");
+					jQuery.getScript("<?php echo esc_url( $woocommerce->plugin_url() . '/assets/js/frontend/add-to-cart-variation.min.js' ); ?>");
 				</script>
 				<?php
 				do_action( 'wcqv_product_data' );
 			endwhile;
 		endif;
-
-		echo ob_get_clean();
+		wp_reset_postdata();
 
 		wp_die();
-	}
-
-	/**
-	 * Appsero
-	 *
-	 * Including Options
-	 */
-	public function ins_appsero_init_tracker_instantio() {
-
-		if ( ! class_exists( 'Appsero\Client' ) ) {
-			require_once( INS_INC_PATH . '/app/src/Client.php' );
-		}
-
-		$client = new Appsero\Client( '29e55a76-0819-490f-b692-8368956cbf12', 'instantio', __FILE__ );
-
-		// Change notice text
-		$notice = sprintf( $client->__trans( 'Want to help make <strong>%1$s</strong> even more awesome? Allow %1$s to collect non-sensitive diagnostic data and usage information. I agree to get Important Product Updates & Discount related information on my email from  %1$s (I can unsubscribe anytime).' ), $client->name );
-
-		$client->insights()->notice( $notice );
-
-		// Active insights
-		$client->insights()->init();
-
 	}
 
 	private function ins_public_hooks() {
@@ -258,4 +239,3 @@ function ins_admin_enqueue_scripts($screen) {
 		)
 	);
 }
-

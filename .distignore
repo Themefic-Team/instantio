@@ -1,0 +1,8 @@
+/.git
+/.gitignore
+/.distignore
+/composer.lock
+/docs
+**/*.map
+**/*.scss
+**/*.sass

@@ -2,6 +2,9 @@
 // don't load directly
 defined( 'ABSPATH' ) || exit;
 
+// The options schema is included into a method scope, and WooCommerce-owned defaults intentionally use its text domain.
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals,WordPress.WP.I18n.TextDomainMismatch
+
 
 if ( file_exists( INS_OPTIONS_PATH . 'options/tf-menu-icon.php' ) ) {
 	require_once INS_OPTIONS_PATH . 'options/tf-menu-icon.php';
@@ -297,7 +300,7 @@ Ins_TF_Settings::option( 'wiopt', array(
 							'type'        => 'text',
 							'label'       => __( 'Cart Button Prefix Info', 'instantio' ),
 							'placeholder' => 'Please go to',
-							'description' => __( 'Default: Please go to' ),
+								'description' => __( 'Default: Please go to', 'instantio' ),
 							'default'     => 'Please go to',
 							'dependency'  => array( 'on-empty-cart-content', '==', 'true' ),
 						),
@@ -306,7 +309,7 @@ Ins_TF_Settings::option( 'wiopt', array(
 							'type'        => 'text',
 							'label'       => __( 'Button Text', 'instantio' ),
 							'placeholder' => 'Shop Now',
-							'description' => __( 'Default: Shop Now' ),
+								'description' => __( 'Default: Shop Now', 'instantio' ),
 							'default'     => 'Shop Now',
 							'dependency'  => array( 'on-empty-cart-content', '==', 'true' ),
 						),
@@ -1608,4 +1611,3 @@ Ins_TF_Settings::option( 'wiopt', array(
 		),
 	),
 ) );
-

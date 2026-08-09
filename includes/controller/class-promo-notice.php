@@ -34,7 +34,7 @@ class INS_PROMO_NOTICE {
     public function __construct() {  
 		
         
-        if(in_array(date('F'), $this->months) && ! is_plugin_active( 'wooinstant/wooinstant.php' )){   
+	        if(in_array(current_time('F'), $this->months) && ! is_plugin_active( 'wooinstant/wooinstant.php' )){
 
             $ins_promo__schudle_start_from = !empty(get_option( 'ins_promo__schudle_start_from' )) ? get_option( 'ins_promo__schudle_start_from' ) : 0;
             if($ins_promo__schudle_start_from == 0){
@@ -74,7 +74,7 @@ class INS_PROMO_NOTICE {
             $service_banner = isset($this->ins_promo_option['service_banner']) ? $this->ins_promo_option['service_banner'] : array();
             $promo_banner = isset($this->ins_promo_option['promo_banner']) ? $this->ins_promo_option['promo_banner'] : array();
 
-            $current_day = date('l'); 
+	            $current_day = current_time('l');
             if(isset($service_banner['enable_status']) && $service_banner['enable_status'] == true && in_array($current_day, $service_banner['display_days'])){ 
              
                 $start_date = isset($service_banner['start_date']) ? $service_banner['start_date'] : '';
@@ -377,7 +377,7 @@ class INS_PROMO_NOTICE {
         $schedules['ins_every_day'] = array(
             'interval' => 86400, // Every 24 hours
             // 'interval' => 5, // Every 24 hours
-            'display' => __('Every 24 hours')
+			'display' => __('Every 24 hours', 'instantio')
         );
         return $schedules;
     }
@@ -427,7 +427,7 @@ class INS_PROMO_NOTICE {
                     <img  style="width: 100%;" src="<?php echo esc_attr($image_url) ?>" alt=""> 
                 </a> 
                 <?php if( isset($dashboard_banner['dismiss_status']) && $dashboard_banner['dismiss_status'] == true): ?>
-                <button type="button" class="notice-dismiss tf_black_friday_notice_dismiss"><span class="screen-reader-text"><?php echo __('Dismiss this notice.', 'ultimate-addons-cf7' ) ?></span></button>
+	                <button type="button" class="notice-dismiss tf_black_friday_notice_dismiss"><span class="screen-reader-text"><?php esc_html_e( 'Dismiss this notice.', 'instantio' ); ?></span></button>
                 <?php  endif; ?>
             </div>
             <script>
@@ -480,7 +480,7 @@ class INS_PROMO_NOTICE {
     public function tf_black_friday_2023_woo_product() { 
         $ins_dismiss_post_woo_notice = get_option( 'ins_dismiss_post_woo_notice' ); 
         if($ins_dismiss_post_woo_notice == 1  || time() >  $ins_dismiss_post_woo_notice ): 
-            add_meta_box( 'tf_black_friday_annous', __( ' ', 'instantio' ), array($this, 'tf_black_friday_2023_callback_woo_product'), 'product', 'side', 'high' );
+			add_meta_box( 'tf_black_friday_annous', '', array($this, 'tf_black_friday_2023_callback_woo_product'), 'product', 'side', 'high' );
         endif;
    
     }
@@ -488,7 +488,7 @@ class INS_PROMO_NOTICE {
         $service_banner = isset($this->ins_promo_option['service_banner']) ? $this->ins_promo_option['service_banner'] : array();
         $promo_banner = isset($this->ins_promo_option['promo_banner']) ? $this->ins_promo_option['promo_banner'] : array();
 
-        $current_day = date('l'); 
+	        $current_day = current_time('l');
         if($service_banner['enable_status'] == true && in_array($current_day, $service_banner['display_days'])){ 
            
             $image_url = esc_url($service_banner['banner_url']);
@@ -576,7 +576,7 @@ class INS_PROMO_NOTICE {
         $service_banner = isset($ins_promo_option['service_banner']) ? $ins_promo_option['service_banner'] : array();
         $promo_banner = isset($ins_promo_option['promo_banner']) ? $ins_promo_option['promo_banner'] : '';
 
-        $current_day = date('l'); 
+	        $current_day = current_time('l');
         if($service_banner['enable_status'] == true && in_array($current_day, $service_banner['display_days'])){ 
             $start_date = $service_banner['start_date'];
             $restart = isset($service_banner['restart']) && $service_banner['restart'] != false ? $service_banner['restart'] : 5;

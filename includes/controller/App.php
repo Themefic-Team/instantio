@@ -1,4 +1,6 @@
 <?php
+// INS is the established Instantio namespace and its hooks are public compatibility APIs.
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 namespace INS\Controller;
 
 class App {
@@ -62,12 +64,7 @@ class App {
 
 
 	public function ins_options_init() {
-		$options = get_option( 'wiopt' );
-		$cart_icon = ! empty( insopt( 'ins-toggle-tab' )['cart-icon'] ) ? insopt( 'ins-toggle-tab' )['cart-icon'] : 'shopping-bag';
-		echo "<pre>";
-		print_r( $cart_icon );
-		echo "</pre>";
-		die;
+		// Retained for backward compatibility. Options are initialized elsewhere.
 	}
 
 	// Instantio Layout Set Data
@@ -110,10 +107,10 @@ class App {
 		if ( $cart_icon == 'shopping-bag' ) {
 			$toggle_icon = apply_filters( 'ins_get_svg_icon_pro', instantio_svg_icon( $cart_icon ) );
 		} else {
-			$toggle_icon = '<i class="' . $cart_icon . '"></i>';
+			$toggle_icon = '<i class="' . esc_attr( $cart_icon ) . '"></i>';
 		}
 		if ( $wi_icon_choice == 'image' && $wi_icon_choice_uploder != '' ) {
-			$toggle_icon = '<img src="' . $wi_icon_choice_uploder . '" alt="Icon Image">';
+			$toggle_icon = '<img src="' . esc_url( $wi_icon_choice_uploder ) . '" alt="' . esc_attr__( 'Cart icon', 'instantio' ) . '">';
 		}
 
 		// class for toggle 
@@ -188,6 +185,8 @@ class App {
 			?>
 		</div>
 		<?php
+		// The buffer contains only the static local template above and registered action output.
+		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		echo ob_get_clean();
 	}
 
@@ -204,10 +203,10 @@ class App {
 
 			$toggle_icon = apply_filters( 'ins_get_svg_icon_pro', instantio_svg_icon( $cart_icon ) );
 		} else {
-			$toggle_icon = '<i class="' . $cart_icon . '"></i>';
+			$toggle_icon = '<i class="' . esc_attr( $cart_icon ) . '"></i>';
 		}
 		if ( $wi_icon_choice == 'image' && $wi_icon_choice_uploder != '' ) {
-			$toggle_icon = '<img src="' . $wi_icon_choice_uploder . '" alt="Icon Image">';
+			$toggle_icon = '<img src="' . esc_url( $wi_icon_choice_uploder ) . '" alt="' . esc_attr__( 'Cart icon', 'instantio' ) . '">';
 		}
 
 		if ( $this->layout == 2 ) {
@@ -237,12 +236,13 @@ class App {
 			<?php echo esc_attr( $icon_style ) ?>
 			<?php echo esc_attr( $hiddenClass ) ?> " href="<?php echo esc_url( wc_get_checkout_url() ); ?>">
 				<span class="ins-cart-icon">
-					<?php echo $toggle_icon ?>
+					<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Sanitized local SVG or escaped icon/image markup. ?>
+					<?php echo $toggle_icon; ?>
 				</span>
 
 				<?php // echo insopt( 'ins-toggle-tab' )['ins-cart-emty-hide'];        ?>
 				<span class="ins-items-count"><span id="ins_cart_totals" class="ins_cart_total">
-						<?php echo WC()->cart->get_cart_contents_count(); ?>
+						<?php echo absint( WC()->cart->get_cart_contents_count() ); ?>
 					</span></span>
 			</a>
 			<?php
@@ -252,18 +252,21 @@ class App {
 				class="ins-click-to-show ins-toggle-btn <?php echo esc_attr( $hiddenClass ) ?>
 				<?php echo esc_attr( $togglebtnClass ) ?> <?php echo esc_attr( $dedicated_mobile_panel_class ) ?> <?php echo esc_attr( $icon_style ) ?>  <?php echo esc_attr( $ins_toggler ) ?>">
 				<span class="ins-cart-icon">
-					<?php echo $toggle_icon ?>
+					<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Sanitized local SVG or escaped icon/image markup. ?>
+					<?php echo $toggle_icon; ?>
 				</span>
 
 				<span class="ins-items-count">
 					<span id="ins_cart_totals" class="ins_cart_total">
-						<?php echo WC()->cart->get_cart_contents_count(); ?>
+						<?php echo absint( WC()->cart->get_cart_contents_count() ); ?>
 					</span>
 				</span>
 			</div>
 			<?php
 		}
 
+		// The buffer contains only the template above; all dynamic attributes are escaped.
+		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		echo ob_get_clean();
 	}
 
@@ -277,7 +280,7 @@ class App {
 		$cart_button_text = isset( insopt( 'cart-btn' )['cart_button_text'] ) ? insopt( 'cart-btn' )['cart_button_text'] : '';
 		$cart_button_url = isset( insopt( 'cart-btn' )['cart_button_url'] ) ? insopt( 'cart-btn' )['cart_button_url'] : '';
 
-		$cart_button_text = ! empty( $cart_button_text ) && $on_cart_btn == true ? wp_strip_all_tags( __( $cart_button_text, 'instantio' ) ) : __( 'View Cart', 'instantio' );
+			$cart_button_text = ! empty( $cart_button_text ) && $on_cart_btn == true ? wp_strip_all_tags( $cart_button_text ) : __( 'View Cart', 'instantio' );
 		$cart_button_url = ! empty( $cart_button_url ) && $on_cart_btn == true ? $cart_button_url : wc_get_cart_url();
 
 		// Cart Button Link
@@ -290,7 +293,7 @@ class App {
 		$checkout_button_text = isset( insopt( 'checkout-btn' )['checkout_button_text'] ) ? insopt( 'checkout-btn' )['checkout_button_text'] : '';
 		$checkout_button_url = isset( insopt( 'checkout-btn' )['checkout_button_url'] ) ? insopt( 'checkout-btn' )['checkout_button_url'] : '';
 
-		$checkout_button_text = ! empty( $checkout_button_text ) && $on_checkout_btn == true ? wp_strip_all_tags( __( $checkout_button_text, 'instantio' ) ) : __( 'Checkout Now', 'instantio' );
+			$checkout_button_text = ! empty( $checkout_button_text ) && $on_checkout_btn == true ? wp_strip_all_tags( $checkout_button_text ) : __( 'Checkout Now', 'instantio' );
 		$checkout_button_url = ! empty( $checkout_button_url ) && $on_checkout_btn == true ? $checkout_button_url : wc_get_checkout_url();
 
 		//  Checkout button Link
@@ -299,13 +302,13 @@ class App {
 
 		?>
 		<div class="ins-cart-btns">
-			<?php echo $cart_button; ?>
-			<?php echo $checkout_button; ?>
+			<?php echo wp_kses_post( $cart_button ); ?>
+			<?php echo wp_kses_post( $checkout_button ); ?>
 		</div>
 		<?php
 
 		$html = ob_get_clean();
-		echo apply_filters( 'ins_cart_buttons_pro', $html );
+		echo wp_kses_post( apply_filters( 'ins_cart_buttons_pro', $html ) );
 	}
 
 
@@ -320,6 +323,8 @@ class App {
 			<?php do_action( 'ins_template_step_content' ); ?>
 		</div>
 		<?php
+		// The buffer contains a local cart template and registered extension action output.
+		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		echo ob_get_clean();
 	}
 
@@ -333,6 +338,8 @@ class App {
 			</div>
 		</div>
 		<?php
+		// The buffer contains a local cart template whose dynamic attributes are escaped.
+		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		echo ob_get_clean();
 	}
 
@@ -396,8 +403,8 @@ class App {
 
 	public function ins_ajax_cart_single() {
 
-		if ( ! isset( $_POST['nonce'] ) || 
-			! wp_verify_nonce( $_POST['nonce'], 'ins_ajax_nonce' ) ) {
+			if ( ! isset( $_POST['nonce'] ) ||
+				! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['nonce'] ) ), 'ins_ajax_nonce' ) ) {
 			wp_send_json( [ 'error' => true ] );
 		}
 
@@ -405,9 +412,12 @@ class App {
 			wp_send_json( [ 'error' => true ] );
 		}
 
-		$product_id   = apply_filters( 'woocommerce_add_to_cart_product_id', absint( $_POST['product_id'] ) );
-		$variation_id = isset( $_POST['variation_id'] ) ? absint( $_POST['variation_id'] ) : 0;
-		$product      = wc_get_product( $product_id );
+			$product_id   = apply_filters( 'woocommerce_add_to_cart_product_id', absint( wp_unslash( $_POST['product_id'] ) ) );
+			$variation_id = isset( $_POST['variation_id'] ) ? absint( wp_unslash( $_POST['variation_id'] ) ) : 0;
+			$quantity_request = isset( $_POST['quantity'] )
+				? map_deep( wp_unslash( $_POST['quantity'] ), 'sanitize_text_field' )
+				: null;
+			$product      = wc_get_product( $product_id );
 
 		if ( ! $product || get_post_status( $product_id ) !== 'publish' ) {
 			wp_send_json( [ 'error' => true ] );
@@ -420,9 +430,9 @@ class App {
 
 			$added = false;
 
-			if ( ! empty( $_POST['quantity'] ) && is_array( $_POST['quantity'] ) ) {
+			if ( ! empty( $quantity_request ) && is_array( $quantity_request ) ) {
 
-				foreach ( $_POST['quantity'] as $child_id => $qty ) {
+					foreach ( $quantity_request as $child_id => $qty ) {
 
 					$child_id = absint( $child_id );
 					$qty      = wc_stock_amount( $qty );
@@ -473,11 +483,11 @@ class App {
 		if ( $product->get_type() === 'easy_product_bundle' ) {
 
 			$added = false;
-			$main_qty = ! empty( $_POST['quantity'] ) ? wc_stock_amount( $_POST['quantity'] ) : 1;
+			$main_qty = ! empty( $quantity_request ) ? wc_stock_amount( $quantity_request ) : 1;
 
 			if ( ! empty( $_POST['asnp_wepb_items'] ) ) {
 
-				$items = json_decode( wp_unslash( $_POST['asnp_wepb_items'] ), true );
+				$items = json_decode( sanitize_text_field( wp_unslash( $_POST['asnp_wepb_items'] ) ), true );
 
 				if ( is_array( $items ) ) {
 
@@ -569,7 +579,7 @@ class App {
 		}
 
 		// SIMPLE / VARIABLE PRODUCTS
-		$quantity = empty( $_POST['quantity'] ) ? 1 : wc_stock_amount( $_POST['quantity'] );
+			$quantity = empty( $quantity_request ) ? 1 : wc_stock_amount( $quantity_request );
 
 		$passed_validation = apply_filters(
 			'woocommerce_add_to_cart_validation',
@@ -605,9 +615,11 @@ class App {
 	}
 
 	// Ajax Cart Remove To cart
-	public function ins_ajax_cart_item_remove() {
-		$product_id = $_POST['product_id'];
-		$variation_id = $_POST['variation_id'];
+		public function ins_ajax_cart_item_remove() {
+			check_ajax_referer( 'ins_ajax_nonce', 'nonce' );
+
+			$product_id   = isset( $_POST['product_id'] ) ? absint( wp_unslash( $_POST['product_id'] ) ) : 0;
+			$variation_id = isset( $_POST['variation_id'] ) ? absint( wp_unslash( $_POST['variation_id'] ) ) : 0;
 
 		$cart = WC()->cart->get_cart();
 
@@ -627,17 +639,24 @@ class App {
 	}
 
 	// Ajax Update Cart
-	public function ins_ajax_update_cart() {
+		public function ins_ajax_update_cart() {
+			check_ajax_referer( 'ins_ajax_nonce', 'nonce' );
 
-		$cart_item_keys = $_POST['cart_item_keys'];
-		$product_ids = $_POST['product_ids'];
-		$quantities = $_POST['quantities'];
-		$coupon_code = $_POST['coupon_code'];
-		$cart_updated = false;
+			$cart_item_keys = isset( $_POST['cart_item_keys'] ) && is_array( $_POST['cart_item_keys'] )
+				? array_map( 'sanitize_text_field', wp_unslash( $_POST['cart_item_keys'] ) )
+				: array();
+			$quantities = isset( $_POST['quantities'] ) && is_array( $_POST['quantities'] )
+				? array_map( 'wc_stock_amount', array_map( 'sanitize_text_field', wp_unslash( $_POST['quantities'] ) ) )
+				: array();
+			$coupon_code = isset( $_POST['coupon_code'] ) ? sanitize_text_field( wp_unslash( $_POST['coupon_code'] ) ) : '';
+			$cart_updated = false;
 
 		// if cart_item_keys not empty then start the loop 
 		if ( ! empty( $cart_item_keys ) ) {
-			for ( $i = 0; $i < count( $cart_item_keys ); $i++ ) {
+				for ( $i = 0; $i < count( $cart_item_keys ); $i++ ) {
+					if ( ! isset( $quantities[ $i ] ) ) {
+						continue;
+					}
 				WC()->cart->set_quantity( $cart_item_keys[ $i ], $quantities[ $i ], false );
 				if ( $quantities[ $i ] == 0 ) {
 					WC()->cart->remove_cart_item( $cart_item_keys[ $i ] );
@@ -692,9 +711,10 @@ class App {
 	}
 
 	// Ajax Cart Empty To cart
-	public function ins_ajax_empty_cart() {
+		public function ins_ajax_empty_cart() {
+			check_ajax_referer( 'ins_ajax_nonce', 'nonce' );
 
-		WC()->cart->empty_cart();
+			WC()->cart->empty_cart();
 		WC()->cart->calculate_totals();
 		WC()->cart->maybe_set_cart_cookies();
 
@@ -715,9 +735,11 @@ class App {
 	}
 
 	// Ajax Remove Coupon
-	public function ins_ajax_remove_coupon() {
-		$coupon_code = $_POST['coupon'];
-		WC()->cart->remove_coupon( $coupon_code );
+		public function ins_ajax_remove_coupon() {
+			check_ajax_referer( 'ins_ajax_nonce', 'nonce' );
+
+			$coupon_code = isset( $_POST['coupon'] ) ? wc_format_coupon_code( sanitize_text_field( wp_unslash( $_POST['coupon'] ) ) ) : '';
+			WC()->cart->remove_coupon( $coupon_code );
 
 		WC()->cart->calculate_totals();
 		WC()->cart->maybe_set_cart_cookies();
@@ -828,7 +850,7 @@ class App {
 		if ( $this->layout == 1 || $this->layout == 3 ) :
 			?>
 			<div class="ins-fixed-toogle <?php echo esc_attr( $this->layout_class ) ?>">
-				<?php echo do_action( 'ins_cart_toggle' ); ?>
+				<?php do_action( 'ins_cart_toggle' ); ?>
 			</div>
 			<?php
 		endif;
@@ -848,8 +870,10 @@ class App {
 		?>
 		</div>
 		<?php
-		$output = ob_get_clean();
-		echo $output;
+			$output = ob_get_clean();
+			// The buffer contains local layout templates; each template owns contextual escaping.
+			// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			echo $output;
 	}
 
 }

@@ -111,7 +111,7 @@ if ( ! class_exists( 'TF_Taxonomy_Metabox' ) ) {
 		 */
 		public function save_taxonomy( $term_id ) {
 			// Add nonce for security and authentication.
-			$nonce_name = isset( $_POST['tf_taxonomy_nonce'] ) ? $_POST['tf_taxonomy_nonce'] : '';
+				$nonce_name = isset( $_POST['tf_taxonomy_nonce'] ) ? sanitize_text_field( wp_unslash( $_POST['tf_taxonomy_nonce'] ) ) : '';
 			$nonce_action = 'tf_taxonomy_nonce_action';
 
 			// Check if a nonce is set.
@@ -120,13 +120,19 @@ if ( ! class_exists( 'TF_Taxonomy_Metabox' ) ) {
 			}
 
 			// Check if a nonce is valid.
-			if ( ! wp_verify_nonce( $nonce_name, $nonce_action ) ) {
-				return;
-			}
+				if ( ! wp_verify_nonce( $nonce_name, $nonce_action ) ) {
+					return;
+				}
+
+				if ( ! current_user_can( 'edit_term', $term_id ) ) {
+					return;
+				}
 
 
 			$tf_taxonomy_value = array();
-			$taxonomy_request = ( ! empty( $_POST[ $this->taxonomy_id ] ) ) ? $_POST[ $this->taxonomy_id ] : array();
+				// Individual field classes apply their context-specific sanitization below.
+				// phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+				$taxonomy_request = ! empty( $_POST[ $this->taxonomy_id ] ) ? wp_unslash( $_POST[ $this->taxonomy_id ] ) : array();
 
 			if ( ! empty( $taxonomy_request ) && ! empty( $this->taxonomy_fields ) ) {
 				foreach ( $this->taxonomy_fields as $field ) {
@@ -156,5 +162,4 @@ if ( ! class_exists( 'TF_Taxonomy_Metabox' ) ) {
 
 	}
 }
-
 

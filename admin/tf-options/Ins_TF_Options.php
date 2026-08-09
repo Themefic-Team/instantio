@@ -2,6 +2,9 @@
 // don't load directly
 defined( 'ABSPATH' ) || exit;
 
+// Existing settings hooks are public compatibility points used by Instantio integrations.
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+
 if ( ! class_exists( 'Ins_TF_Options' ) ) {
 	class Ins_TF_Options {
 		private static $instance = null;
@@ -132,12 +135,12 @@ if ( ! class_exists( 'Ins_TF_Options' ) ) {
 
 			if ( in_array( $screen, $tf_options_screens ) ) {
 				wp_enqueue_style( 'wp-color-picker' );
-				wp_enqueue_style( 'tf-fontawesome-4', '//cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css', array(), $this->Ins_tf_options_version() );
-				wp_enqueue_style( 'tf-fontawesome-5', '//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css', array(), $this->Ins_tf_options_version() );
-				wp_enqueue_style( 'tf-fontawesome-6', '//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css', array(), $this->Ins_tf_options_version() );
-				wp_enqueue_style( 'tf-remixicon', '//cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css', array(), $this->Ins_tf_options_version() );
-				wp_enqueue_style( 'tf-select2', '//cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css', array(), $this->Ins_tf_options_version() );
-				wp_enqueue_style( 'tf-flatpickr', '//cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.css', array(), $this->Ins_tf_options_version() );
+					wp_enqueue_style( 'tf-fontawesome-4', $this->Ins_tf_options_file_url( 'assets/libs/font-awesome-4/css/font-awesome.min.css' ), array(), '4.7.0' );
+					wp_enqueue_style( 'tf-fontawesome-5', $this->Ins_tf_options_file_url( 'assets/libs/font-awesome-5/css/all.min.css' ), array(), '5.15.4' );
+					wp_enqueue_style( 'tf-fontawesome-6', $this->Ins_tf_options_file_url( 'assets/libs/font-awesome-6/css/all.min.css' ), array(), '6.4.2' );
+					wp_enqueue_style( 'tf-remixicon', $this->Ins_tf_options_file_url( 'assets/libs/remixicon/fonts/remixicon.css' ), array(), '2.5.0' );
+					wp_enqueue_style( 'tf-select2', $this->Ins_tf_options_file_url( 'assets/libs/select2/css/select2.min.css' ), array(), '4.1.0-rc.0' );
+					wp_enqueue_style( 'tf-flatpickr', $this->Ins_tf_options_file_url( 'assets/libs/flatpickr/flatpickr.min.css' ), array(), '4.6.13' );
 				wp_enqueue_style( 'ins-tf-options', $this->Ins_tf_options_file_url( 'assets/css/tf-options.css' ), array(), $this->Ins_tf_options_version() );
 				wp_enqueue_style( 'notyf-css', $this->Ins_tf_options_file_url( 'assets/libs/notyf/notyf.min.css' ), array(), $this->Ins_tf_options_version() );
 			}
@@ -145,16 +148,16 @@ if ( ! class_exists( 'Ins_TF_Options' ) ) {
 			//Js
 			if ( in_array( $screen, $tf_options_screens ) ) {
 
-				wp_enqueue_script( 'tf-flatpickr', '//cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.js', array( 'jquery' ), $this->Ins_tf_options_version() );
-				wp_enqueue_script( 'tf-select2', '//cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js', array( 'jquery' ), $this->Ins_tf_options_version() );
-				wp_enqueue_script( 'wp-color-picker-alpha', '//raw.githubusercontent.com/kallookoo/wp-color-picker-alpha/master/src/wp-color-picker-alpha.js', array( 'jquery', 'wp-color-picker' ), $this->Ins_tf_options_version() );
-				wp_enqueue_script( 'setup-wizard', $this->Ins_tf_options_file_url( 'assets/js/setup-wizard.js' ), array( 'jquery' ), $this->Ins_tf_options_version() );
-				wp_enqueue_script( 'notyf-js', $this->Ins_tf_options_file_url( 'assets/libs/notyf/notyf.min.js' ), array( 'jquery' ), $this->Ins_tf_options_version() );
+					wp_enqueue_script( 'tf-flatpickr', $this->Ins_tf_options_file_url( 'assets/libs/flatpickr/flatpickr.min.js' ), array( 'jquery' ), '4.6.13', true );
+					wp_enqueue_script( 'tf-select2', $this->Ins_tf_options_file_url( 'assets/libs/select2/js/select2.min.js' ), array( 'jquery' ), '4.1.0-rc.0', true );
+					wp_enqueue_script( 'wp-color-picker-alpha', $this->Ins_tf_options_file_url( 'assets/libs/wp-color-picker-alpha/wp-color-picker-alpha.js' ), array( 'jquery', 'wp-color-picker' ), $this->Ins_tf_options_version(), true );
+					wp_enqueue_script( 'setup-wizard', $this->Ins_tf_options_file_url( 'assets/js/setup-wizard.js' ), array( 'jquery' ), $this->Ins_tf_options_version(), true );
+					wp_enqueue_script( 'notyf-js', $this->Ins_tf_options_file_url( 'assets/libs/notyf/notyf.min.js' ), array( 'jquery' ), $this->Ins_tf_options_version(), true );
 				//dashboard
 				if ( $screen == 'instantio_page_ins_dashboard' ) {
-					wp_enqueue_script( 'dashboard-js', $this->Ins_tf_options_file_url( 'assets/js/dashboard.js' ), array( 'jquery' ), $this->Ins_tf_options_version() );
+						wp_enqueue_script( 'dashboard-js', $this->Ins_tf_options_file_url( 'assets/js/dashboard.js' ), array( 'jquery' ), $this->Ins_tf_options_version(), true );
 				}
-				wp_enqueue_script( 'ins-admin', $this->Ins_tf_options_file_url( 'assets/js/admin.js' ), array( 'jquery' ), $this->Ins_tf_options_version() );
+					wp_enqueue_script( 'ins-admin', $this->Ins_tf_options_file_url( 'assets/js/admin.js' ), array( 'jquery' ), $this->Ins_tf_options_version(), true );
 
 				wp_enqueue_script( 'jquery-ui-autocomplete' );
 
@@ -164,7 +167,7 @@ if ( ! class_exists( 'Ins_TF_Options' ) ) {
 				wp_enqueue_media();
 				wp_enqueue_editor();
 
-				wp_enqueue_script( 'ins_tf-options', $this->Ins_tf_options_file_url( 'assets/js/ins-options.js' ), array( 'jquery' ), $this->Ins_tf_options_version() );
+					wp_enqueue_script( 'ins_tf-options', $this->Ins_tf_options_file_url( 'assets/js/ins-options.js' ), array( 'jquery' ), $this->Ins_tf_options_version(), true );
 
 				wp_localize_script( 'ins_tf-options', 'ins_options', array(
 					'ajax_url' => admin_url( 'admin-ajax.php' ),
@@ -185,10 +188,10 @@ if ( ! class_exists( 'Ins_TF_Options' ) ) {
 		 * @author 
 		 */
 		public function Ins_tf_options_wp_enqueue_scripts() {
-			wp_enqueue_style( 'tf-fontawesome-4', '//cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css', array(), $this->Ins_tf_options_version() );
-			wp_enqueue_style( 'tf-fontawesome-5', '//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css', array(), $this->Ins_tf_options_version() );
-			wp_enqueue_style( 'tf-fontawesome-6', '//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css', array(), $this->Ins_tf_options_version() );
-			wp_enqueue_style( 'tf-remixicon', '//cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css', array(), $this->Ins_tf_options_version() );
+			wp_enqueue_style( 'tf-fontawesome-4', $this->Ins_tf_options_file_url( 'assets/libs/font-awesome-4/css/font-awesome.min.css' ), array(), '4.7.0' );
+			wp_enqueue_style( 'tf-fontawesome-5', $this->Ins_tf_options_file_url( 'assets/libs/font-awesome-5/css/all.min.css' ), array(), '5.15.4' );
+			wp_enqueue_style( 'tf-fontawesome-6', $this->Ins_tf_options_file_url( 'assets/libs/font-awesome-6/css/all.min.css' ), array(), '6.4.2' );
+			wp_enqueue_style( 'tf-remixicon', $this->Ins_tf_options_file_url( 'assets/libs/remixicon/fonts/remixicon.css' ), array(), '2.5.0' );
 		}
 
 		/*
@@ -243,7 +246,7 @@ if ( ! class_exists( 'Ins_TF_Options' ) ) {
 					$depend_visible = ( ! empty( $dependency[4] ) ) ? $dependency[4] : '';
 				}
 
-				$depend .= ' data-controller="' . esc_attr( $data_controller ) . '' . $parent . '"';
+				$depend .= ' data-controller="' . esc_attr( $data_controller . $parent ) . '"';
 				$depend .= ' data-condition="' . esc_attr( $data_condition ) . '"';
 				$depend .= ' data-value="' . esc_attr( $data_value ) . '"';
 				$depend .= ( ! empty( $data_global ) ) ? ' data-depend-global="true"' : '';
@@ -261,20 +264,23 @@ if ( ! class_exists( 'Ins_TF_Options' ) ) {
 			}
 			?>
 
-			<div class="tf-field tf-field-<?php echo esc_attr( $field['type'] ); ?> <?php echo esc_attr( $class ); ?> <?php echo ! empty( $visible ) ? $visible : ''; ?>"
-				<?php echo ! empty( $depend ) ? $depend : ''; ?> style="<?php echo esc_attr( $field_style ); ?>">
+			<div class="tf-field tf-field-<?php echo esc_attr( $field['type'] ); ?> <?php echo esc_attr( $class ); ?> <?php echo esc_attr( ! empty( $visible ) ? $visible : '' ); ?>"
+				<?php
+				// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Attribute fragment is assembled above with escaped dynamic values.
+				echo ! empty( $depend ) ? $depend : '';
+				?> style="<?php echo esc_attr( $field_style ); ?>">
 
 				<?php if ( ! empty( $field['label'] ) ) : ?>
 					<label for="<?php echo esc_attr( $id ) ?>" class="tf-field-label">
 						<?php echo esc_html( $field['label'] ) ?>
 						<?php if ( $is_pro ) : ?>
 							<div class="tf-csf-badge"><span class="tf-pro">
-									<?php _e( "Pro", "instantio" ); ?>
+								<?php esc_html_e( 'Pro', 'instantio' ); ?>
 								</span></div>
 						<?php endif; ?>
 						<?php if ( $badge_up ) : ?>
 							<div class="tf-csf-badge"><span class="tf-upcoming">
-									<?php _e( "Upcoming", "instantio" ); ?>
+								<?php esc_html_e( 'Upcoming', 'instantio' ); ?>
 								</span></div>
 						<?php endif; ?>
 					</label>
@@ -293,7 +299,7 @@ if ( ! class_exists( 'Ins_TF_Options' ) ) {
 						$_field = new $fieldClass( $field, $value, $settings_id, $parent );
 						$_field->render();
 					} else {
-						echo '<p>' . __( 'Field not found!', 'instantio' ) . '</p>';
+						echo '<p>' . esc_html__( 'Field not found!', 'instantio' ) . '</p>';
 					}
 					?>
 				</div>

@@ -595,6 +595,7 @@
 			url: ins_params.ajax_url,
 			type: "POST",
 			data: {
+				nonce: ins_params.ins_ajax_nonce,
 				product_id: product_id,
 				variation_id: variation_id,
 				action: "ins_ajax_cart_item_remove",
@@ -655,6 +656,7 @@
 			url: ins_params.ajax_url,
 			type: "POST",
 			data: {
+				nonce: ins_params.ins_ajax_nonce,
 				action: "ins_ajax_empty_cart",
 			},
 			beforeSend: function (response) {
@@ -723,6 +725,7 @@
 				url: ins_params.ajax_url,
 				type: "post",
 				data: {
+					nonce: ins_params.ins_ajax_nonce,
 					action: "ins_ajax_update_cart",
 					cart_item_keys: cart_item_keys,
 					product_ids: product_ids,
@@ -786,6 +789,7 @@
 				url: ins_params.ajax_url,
 				type: "post",
 				data: {
+					nonce: ins_params.ins_ajax_nonce,
 					coupon: coupon,
 					action: "ins_ajax_remove_coupon",
 				},

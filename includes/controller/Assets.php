@@ -1,4 +1,6 @@
 <?php
+// INS is the established Instantio namespace and its hooks are public compatibility APIs.
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 namespace INS\Controller;
 
 class Assets {

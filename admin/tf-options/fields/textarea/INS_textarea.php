@@ -10,8 +10,10 @@ if ( ! class_exists( 'INS_textarea' ) ) {
 		}
 
 		public function render() {
-			$placeholder = ( ! empty( $this->field['placeholder'] ) ) ? 'placeholder="' . $this->field['placeholder'] . '"' : '';
-			echo '<textarea name="' . esc_attr( $this->field_name() ) . '" id="' . esc_attr( $this->field_name() ) . '"' . $placeholder . ' ' . $this->field_attributes() . '>' . $this->value . '</textarea>';
+			$placeholder = ( ! empty( $this->field['placeholder'] ) ) ? ' placeholder="' . esc_attr( $this->field['placeholder'] ) . '"' : '';
+			// Placeholder and field_attributes() are pre-escaped attribute fragments.
+			// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			echo '<textarea name="' . esc_attr( $this->field_name() ) . '" id="' . esc_attr( $this->field_name() ) . '"' . $placeholder . ' ' . $this->field_attributes() . '>' . esc_textarea( $this->value ) . '</textarea>';
 		}
 
 	}

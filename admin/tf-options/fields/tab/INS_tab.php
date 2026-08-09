@@ -22,7 +22,7 @@ if ( ! class_exists( 'INS_text' ) ) {
 								} ?>" data-tab-id="<?php if ( isset( $value['id'] ) ) {
 									 echo esc_attr( $value['id'] );
 								 } ?>">
-									<?php echo $value['title'] ?>
+									<?php echo esc_html( $value['title'] ); ?>
 								</li>
 							<?php endforeach; ?>
 						<?php endif; ?>

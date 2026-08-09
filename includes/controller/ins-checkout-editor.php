@@ -1,4 +1,10 @@
 <?php
+
+defined( 'ABSPATH' ) || exit;
+
+// Checkout callbacks are established public symbols used by existing installations and extensions.
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+
     /**
      * init Instantio Checkout Editor.
      * @author M Hemel Hasan
