@@ -5,7 +5,7 @@ Requires at least: 4.9
 Tested up to: 7.0
 Stable tag: 3.3.34
 WC requires at least: 7.0
-WC tested up to: 10.7
+WC tested up to: 11.0
 Requires PHP: 7.4
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -19,7 +19,7 @@ Add a side cart, popup cart, floating cart button, and one-page checkout layouts
 👉 Our Official Website: [Click Here](https://themefic.com/instantio/?utm_source=wp_readme&utm_medium=instantio_top_slot&utm_campaign=website)
 👉 Live Demo Link: **See the Checkout systems below**
 👉 Explore Backend: [Play with Backend Options](https://themefic.com/instantio/backend-demo/?utm_source=wp_readme&utm_medium=instantio_top_slot&utm_campaign=pro_backend)
-👉 Unlock all features: [Click Here](https://themefic.com/instantio/pricing/?utm_source=wp_readme&utm_medium=instantio_top_slot&utm_campaign=pro_link)
+👉 Explore Instantio Pro: [Click Here](https://themefic.com/instantio/pricing/?utm_source=wp_readme&utm_medium=instantio_top_slot&utm_campaign=pro_link)
 👉 Video Guide on [Youtube](https://www.youtube.com/playlist?list=PLY0rtvOwg0ykIvNBa8XI3SR7WEbdqqKoO)
 👉 Our [Documentation](https://themefic.com/docs/instantio/?utm_source=wp_readme&utm_medium=instantio_top_slot&utm_campaign=plugin_docs)
 👉 Get Support: [Click Here](https://portal.themefic.com/support/?utm_source=wp_readme&utm_medium=instantio_top_slot&utm_campaign=plugin_support)
@@ -103,9 +103,9 @@ Instantio provides a one-page checkout system for WooCommerce that simplifies th
 
 ** Instantio Pro **
 
-> The free version of Instantio includes key checkout and cart features suitable for WooCommerce stores. The Pro version adds additional options such as same-page checkout without page reloads, editable checkout fields, and flexible layout styles and many more. These features help create a faster and more efficient checkout flow within WooCommerce.
+> The free version of Instantio includes fully functional cart, layout, design, optimization, and checkout-field editing features. Instantio Pro is a separately distributed add-on that provides additional same-page checkout layouts, dedicated mobile presentation, progress styles, upsells, and cross-sells.
 
-> **[Unlock all features with Instantio Pro](https://themefic.com/instantio/pricing/?utm_source=wp_readme&utm_medium=instantio_bottom_slot&utm_campaign=demo_link")**
+> **[Explore Instantio Pro](https://themefic.com/instantio/pricing/?utm_source=wp_readme&utm_medium=instantio_bottom_slot&utm_campaign=demo_link)**
 
 == Instantio Free Features ==
 
@@ -177,7 +177,7 @@ Instantio is fully compatible with popular page builders like Elementor and can 
 
 There is also a of this plugin. You will get more features and advantages with the Pro Version. Here are the features of the Pro Version:
 
-Instantio **[Pro Version](https://themefic.com/instantio/pricing/')** is available with additional features and customization options. Below is a summary of the features included in the Pro version:
+Instantio **[Pro Version](https://themefic.com/instantio/pricing/)** is a separately distributed add-on with additional features and customization options. Below is a summary of the features included in the Pro version:
 
 = All Free Features =
 Instantio Pro includes all the features available on the Free Version and more. See below.
@@ -192,9 +192,6 @@ Instantio Pro offers four additional preview styles:
 * **[Popup Checkout - Multi Step](https://instantio-demo.themefic.com/popup-checkout/):** When a customer adds an item to the cart, a popup appears that also displays a cart summary, coupon application option, and a proceed-to-checkout button. Clicking this button directs you to the checkout options within the same popup. Again, no page reload is necessary, allowing the customer to complete checkout within 10-15 seconds!
 
 * **[Popup Checkout - Single Step](https://instantio-demo.themefic.com/popup-checkout-single) :** This process is similar to the above one but also features a single-step checkout, combining both cart and checkout in the same window.
-
-= Woocommerce Checkout Field Editor =
-Along with the features of the free version, the pro version allows you to **add new fields** on the checkout page based on your business needs.
 
 = Upsell =
 
@@ -376,6 +373,11 @@ For those seeking simplicity, Instantio provides a simplified WooCommerce checko
 = 3.3.34 – Jun 28, 2026 =
 
 - Compatibility: Checkout Editor compatible with latest woocommerce.
+- Compliance: Removed built-in locked controls and fully enabled the Free checkout editor.
+- Privacy: Removed telemetry and automatic promotional service requests.
+- Licensing: Replaced GSAP with native browser animations and bundled required admin assets locally.
+- Security: Hardened settings and cart AJAX requests while preserving existing option storage.
+- Accessibility: Improved cart control names, keyboard behavior, focus handling, and reduced-motion support.
 
 = 3.3.33 – April 26, 2026 =
 

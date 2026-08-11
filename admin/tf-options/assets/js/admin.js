@@ -86,17 +86,6 @@
             window.open('https://themefic.com/instantio/');
         });
 
-        $(window).on('load', function () {
-            $('.tf-field-disable').find('input, select, textarea, button, div, span').attr('disabled', 'disabled');
-        });
-
-        $(document).on('click', '.tf-field-pro', function (e) {
-            e.preventDefault();
-            window.open('https://themefic.com/instantio/');
-        });
-
-
-
     });
 
 })(jQuery);

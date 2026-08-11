@@ -128,17 +128,6 @@ Ins_TF_Settings::option( 'wiopt', array(
 				),
 
 				array(
-					'id' => 'ins-layout-step',
-					'type' => 'switch',
-					'label' => __( 'Enabled single step', 'instantio' ),
-					'label_on' => __( 'Enabled', 'instantio' ),
-					'label_off' => __( 'Disabled', 'instantio' ),
-					'is_pro' => true,
-					'default' => false,
-					'dependency' => array( 'ins-layout-options', '!=', '1' ),
-				),
-
-				array(
 					'id' => 'ins-layout-animation',
 					'type' => 'select',
 					'class' => 'ins-layout-options-imageset200',
@@ -151,36 +140,6 @@ Ins_TF_Settings::option( 'wiopt', array(
 					'default' => 'ins_animate_default',
 					'dependency' => array( 'ins-layout-options', '!=', '1' ),
 					// 'dependency' 	=> array('ins-layout',  '!=', '1', '', 'visible' ),
-				),
-
-				array(
-					'id' => 'ins-layout-progressbar',
-					'type' => 'imageselect',
-					'label' => 'Choose progress bar',
-					'class' => 'ins-layout-options-imageset300',
-					'is_pro' => true,
-					'multiple' => true,
-					'inline' => true,
-					'options' => array(
-						'progress1' => array(
-							'title' => __( 'Version 1', 'instantio' ),
-							'url' => plugin_dir_url( __FILE__ ) . '../img/layout/version1.png',
-						),
-						'progress2' => array(
-							'title' => __( 'Version 2', 'instantio' ),
-							'url' => plugin_dir_url( __FILE__ ) . '../img/layout/version2.png',
-						),
-						'progress3' => array(
-							'title' => __( 'Version 3', 'instantio' ),
-							'url' => plugin_dir_url( __FILE__ ) . '../img/layout/version3.png',
-						),
-						'progress4' => array(
-							'title' => __( 'Version 4', 'instantio' ),
-							'url' => plugin_dir_url( __FILE__ ) . '../img/layout/version4.png',
-						),
-					),
-					'dependency' => array( 'ins-layout-options', '!=', '1' ),
-					// 'default'   	=> 'progress2',
 				),
 
 			),
@@ -404,8 +363,8 @@ Ins_TF_Settings::option( 'wiopt', array(
 					'label' => __( 'Disable Instantio', 'instantio' ),
 					'default' => 'cart',
 					'description' => __( 'The Instantio cart functionality will not be visible on this particular page. Note: You won\'t be able to hide it from the default shop page.', 'instantio' ),
-					'is_pro' => true,
 					'options' => 'posts',
+					'multiple' => true,
 					'query_args' => array(
 						'post_type' => 'page',
 						'posts_per_page' => -1,
@@ -418,7 +377,6 @@ Ins_TF_Settings::option( 'wiopt', array(
 					'type' => 'switch',
 					'label' => __( 'Disable Quick View', 'instantio' ),
 					'subtitle' => __( 'You can disable it if you already have quick view function in your theme (Applicable for Variable products)', 'instantio' ),
-					'is_pro' => true,
 					'label_on' => __( 'Yes', 'instantio' ),
 					'label_off' => __( 'No', 'instantio' ),
 					'default' => false,
@@ -430,58 +388,9 @@ Ins_TF_Settings::option( 'wiopt', array(
 					'type' => 'switch',
 					'label' => __( 'Disable Ajax Add to Cart', 'instantio' ),
 					'subtitle' => __( 'You can disable it if you already have ajax "add to cart" function in your theme (To avoid conflict)', 'instantio' ),
-					'is_pro' => true,
 					'label_on' => __( 'Yes', 'instantio' ),
 					'label_off' => __( 'No', 'instantio' ),
 					'default' => false,
-				),
-				array(
-					'id' => 'ins-upsell',
-					'class' => 'ins-csf-disable ins-csf-pro',
-					'type' => 'switch',
-					'label' => __( 'Show Upsells Product in Cart', 'instantio' ),
-					'subtitle' => __( 'Enable/disable upsells items in cart', 'instantio' ),
-					'label_on' => __( 'Enabled', 'instantio' ),
-					'label_off' => __( 'Disabled', 'instantio' ),
-					// 'width' 		=> 100,
-					'is_pro' => true,
-					'default' => false,
-				),
-
-				array(
-					'id' => 'upsell-heading',
-					'class' => 'ins-csf-disable ins-csf-pro',
-					'type' => 'text',
-					'label' => __( 'Upsell Heading', 'instantio' ),
-					'subtitle' => __( 'The text shown before upsell items', 'instantio' ),
-					'desc' => __( 'Default: Hang on! We have this offer just for you!', 'instantio' ),
-					'placeholder' => __( 'Hang on! We have this offer just for you!', 'instantio' ),
-					'is_pro' => true,
-				),
-
-				array(
-					'id' => 'crosssell',
-					'class' => 'ins-csf-disable ins-csf-pro',
-					'type' => 'switch',
-					'label' => __( 'Cross Sells in Checkout', 'instantio' ),
-					'subtitle' => __( 'Enable/disable cross sell items in checkout', 'instantio' ),
-					'label_on' => __( 'Enabled', 'instantio' ),
-					'label_off' => __( 'Disabled', 'instantio' ),
-					// 'width' 		=> 100,
-					'default' => false,
-					'is_pro' => true,
-				),
-
-				array(
-					'id' => 'crosssell-heading',
-					'class' => 'ins-csf-disable ins-csf-pro',
-					'type' => 'text',
-					'label' => __( 'Cross Sell Heading', 'instantio' ),
-					'subtitle' => __( 'The text shown before cross sell items', 'instantio' ),
-					'desc' => __( 'Default: You may be interested in…', 'instantio' ),
-					'placeholder' => __( 'You may be interested in…', 'instantio' ),
-					'default' => 'Enter your default value',
-					'is_pro' => true,
 				),
 			),
 		),
@@ -606,7 +515,6 @@ Ins_TF_Settings::option( 'wiopt', array(
 								array(
 									'id' => 'wi-icon-choice-uploder',
 									'type' => 'image',
-									'is_pro' => true,
 									'label' => 'Custom Toggler Icon',
 									'subtitle' => __( 'Upload your cart icon. Recommended size of an icon is 26x26px', 'instantio' ),
 									'description' => __( 'If Custom Image as Toggler Icon it\'s then it will work', 'instantio' ),
@@ -1118,191 +1026,6 @@ Ins_TF_Settings::option( 'wiopt', array(
 							),
 						),
 
-						array(
-							'id' => 'toggle_panel_checkout',
-							'title' => esc_html__( 'Checkout', 'instantio' ),
-							'fields' => array(
-								array(
-									'id' => 'Billing_section',
-									'type' => 'heading',
-									'content' => __( 'Billing Section', 'instantio' ),
-								),
-
-								array(
-									'id' => 'ins-bill-bg',
-									'type' => 'color',
-									'class' => 'tf-field-color-single',
-									'label' => __( 'Panel Billing Background', 'instantio' ),
-									'subtitle' => __( 'Toggle panel billing section background color', 'instantio' ),
-									'is_pro' => true,
-								),
-
-								array(
-									'id' => 'ins-bill-heading',
-									'type' => 'color',
-									'class' => 'tf-field-color-single',
-									'label' => __( 'Panel Billing Heading Color', 'instantio' ),
-									'subtitle' => __( 'Toggle panel billing section heading text color', 'instantio' ),
-									'is_pro' => true,
-								),
-
-								array(
-									'id' => 'ins-bill-label',
-									'type' => 'color',
-									'class' => 'tf-field-color-single',
-									'label' => __( 'Panel Billing Label Color', 'instantio' ),
-									'subtitle' => __( 'Toggle panel billing section label text color', 'instantio' ),
-									'output' => array( '.ins-checkout-body form.woocommerce-checkout .form-row label' ),
-									'is_pro' => true,
-								),
-
-								array(
-									'id' => 'ins-bill-input-bg',
-									'type' => 'color',
-									'class' => 'tf-field-color-single',
-									'label' => __( 'Panel Billing Input Background', 'instantio' ),
-									'subtitle' => __( 'Toggle panel billing section input background color', 'instantio' ),
-									'is_pro' => true,
-								),
-
-								array(
-									'id' => 'ins-bill-input-border',
-									'type' => 'color',
-									'class' => 'tf-field-color-single',
-									'label' => __( 'Panel Billing Input Border Color', 'instantio' ),
-									'subtitle' => __( 'Toggle panel billing section input border color', 'instantio' ),
-									'is_pro' => true,
-								),
-
-								array(
-									'id' => 'ins-bill-input-text',
-									'type' => 'color',
-									'class' => 'tf-field-color-single',
-									'label' => __( 'Panel Billing Input Text Color', 'instantio' ),
-									'subtitle' => __( 'Toggle panel billing section input text color', 'instantio' ),
-									'is_pro' => true,
-								),
-
-								array(
-									'id' => 'ins-bill-input-shadow',
-									'type' => 'color',
-									'class' => 'tf-field-color-single',
-									'label' => __( 'Panel Billing Input Shadow Color', 'instantio' ),
-									'subtitle' => __( 'Toggle panel billing section input shadow color', 'instantio' ),
-									'is_pro' => true,
-								),
-
-							),
-						),
-
-						array(
-							'id' => 'toggle_panel_payment',
-							'title' => esc_html__( 'Payment', 'instantio' ),
-							'fields' => array(
-								array(
-									'id' => 'payment-section',
-									'type' => 'heading',
-									'content' => __( 'Payment Section', 'instantio' ),
-								),
-
-								array(
-									'id' => 'ins-pay-item-bg',
-									'type' => 'color',
-									'class' => 'tf-field-color-single',
-									'label' => __( 'Payment Methods Background', 'instantio' ),
-									'subtitle' => __( 'Toggle panel Payment methods background color', 'instantio' ),
-									'is_pro' => true,
-								),
-
-								array(
-									'id' => 'ins-pay-item-txt',
-									'type' => 'color',
-									'class' => 'tf-field-color-single',
-									'label' => __( 'Payment Methods Text Color', 'instantio' ),
-									'subtitle' => __( 'Toggle panel Payment methods text color', 'instantio' ),
-									'is_pro' => true,
-								),
-
-								array(
-									'id' => 'ins-pay-item-des-bg',
-									'type' => 'color',
-									'class' => 'tf-field-color-single',
-									'label' => __( 'Payment Methods Description Background', 'instantio' ),
-									'subtitle' => __( 'Toggle panel Payment methods description background color', 'instantio' ),
-									'is_pro' => true,
-								),
-
-								array(
-									'id' => 'ins-pay-item-des-txt',
-									'type' => 'color',
-									'class' => 'tf-field-color-single',
-									'label' => __( 'Payment Methods Description Text Color', 'instantio' ),
-									'subtitle' => __( 'Toggle panel Payment methods description text color', 'instantio' ),
-									'is_pro' => true,
-								),
-
-								array(
-									'id' => 'ins-place-order-bg',
-									'type' => 'color',
-									'class' => 'tf-field-color-single',
-									'label' => __( 'Place Order Background', 'instantio' ),
-									'subtitle' => __( 'Toggle panel place order background color', 'instantio' ),
-									'is_pro' => true,
-								),
-
-								array(
-									'id' => 'ins-place-order-txt',
-									'type' => 'color',
-									'class' => 'tf-field-color-single',
-									'label' => __( 'Place Order Text Color', 'instantio' ),
-									'subtitle' => __( 'Toggle panel place order text color', 'instantio' ),
-									'is_pro' => true,
-								),
-
-								array(
-									'id' => 'ins-place-order-button-bg',
-									'type' => 'color',
-									'multiple' => true,
-									'inline' => true,
-									'label' => __( 'Place Order Button Background', 'instantio' ),
-									'subtitle' => __( 'Place order button background regular & hover color', 'instantio' ),
-									'colors' => array(
-										'regular' => __( 'Regular', 'instantio' ),
-										'hover' => __( 'Hover', 'instantio' ),
-									),
-									'is_pro' => true,
-								),
-
-								array(
-									'id' => 'ins-place-order-button-border',
-									'type' => 'color',
-									'multiple' => true,
-									'inline' => true,
-									'label' => __( 'Place Order Button Border Colors', 'instantio' ),
-									'subtitle' => __( 'Place order button border regular & hover color', 'instantio' ),
-									'colors' => array(
-										'regular' => __( 'Regular', 'instantio' ),
-										'hover' => __( 'Hover', 'instantio' ),
-									),
-									'is_pro' => true,
-								),
-
-								array(
-									'id' => 'ins-place-order-button-text',
-									'type' => 'color',
-									'multiple' => true,
-									'inline' => true,
-									'label' => __( 'Place Order Button Text Colors', 'instantio' ),
-									'subtitle' => __( 'Place order button text regular & hover color', 'instantio' ),
-									'colors' => array(
-										'regular' => __( 'Regular', 'instantio' ),
-										'hover' => __( 'Hover', 'instantio' ),
-									),
-									'is_pro' => true,
-								),
-							),
-						),
-
 						// array(
 						// 	'id'  		=> 'toggle_panel_confirmation',
 						// 	'title'		=> esc_html__( 'Checkout Confirmation', 'instantio' ),
@@ -1393,7 +1116,7 @@ Ins_TF_Settings::option( 'wiopt', array(
 					'id' => 'checkout_editors_fields',
 					'type' => 'repeater',
 					// 'class'    		=> 'disable-sortable',
-					'drag_only' => true,
+					'button_title' => __( 'Add billing field', 'instantio' ),
 					'label' => __( 'Checkout Billing Form', 'instantio' ),
 					'subtitle' => __( 'You can able to change form field positions by Drag.', 'instantio' ),
 					'fields' => array(
@@ -1435,26 +1158,17 @@ Ins_TF_Settings::option( 'wiopt', array(
 				),
 
 				array(
-					'id' => 'custom_billing_field_add',
-					'type' => 'notice',
-					'is_pro' => true,
-					'title' => __( 'Create new fields', 'instantio' ),
-					'content' => __( 'Active Pro Plugin to use this features', 'instantio' ),
-				),
-
-				array(
 					'id' => 'ins_reset_blliling_fields_button',
 					'class' => 'checkout_reset_btn',
 					'type' => 'callback',
 					'function' => 'ins_reset_blliling_fields_button',
-					'is_pro' => true,
 				),
 
 				array(
 					'id' => 'checkout_shiping_editors_fields',
 					'type' => 'repeater',
 					// 'class'    		=> 'disable-sortable',
-					'drag_only' => true,
+					'button_title' => __( 'Add shipping field', 'instantio' ),
 					'label' => __( 'Checkout Shipping Form', 'instantio' ),
 					'subtitle' => __( 'You can able to change form field positions by Drag.', 'instantio' ),
 					'fields' => array(
@@ -1492,19 +1206,10 @@ Ins_TF_Settings::option( 'wiopt', array(
 				),
 
 				array(
-					'id' => 'custom_billing_field_add',
-					'type' => 'notice',
-					'is_pro' => true,
-					'title' => __( 'Create new fields', 'instantio' ),
-					'content' => __( 'Active Pro Plugin to use this features', 'instantio' ),
-				),
-
-				array(
 					'id' => 'ins_reset_shipping_fields_button',
 					'class' => 'checkout_reset_btn',
 					'type' => 'callback',
 					'function' => 'ins_reset_shipping_fields_button',
-					'is_pro' => true,
 				),
 
 				array(
@@ -1512,7 +1217,6 @@ Ins_TF_Settings::option( 'wiopt', array(
 					'type' => 'fieldset',
 					'label' => __( 'Order Notes', 'instantio' ),
 					'subtitle' => __( 'Edit Option For Order Notes Field', 'instantio' ),
-					'is_pro' => true,
 					'fields' => array(
 						array(
 							'id' => 'order_note_field_label',
@@ -1538,48 +1242,6 @@ Ins_TF_Settings::option( 'wiopt', array(
 			),
 		),
 
-		/**
-		 * Mobile
-		 * Main menu
-		 */
-		'mobile' => array(
-			'title' => __( 'Mobile', 'instantio' ),
-			'icon' => 'fas fa-mobile-alt',
-			'fields' => array(
-
-				array(
-					'id' => 'mobile',
-					'type' => 'switch',
-					'label' => __( 'Dedicated Mobile Version', 'instantio' ),
-					'subtitle' => __( 'Enable/disable dedicated mobile version', 'instantio' ),
-					'label_on' => __( 'Enabled', 'instantio' ),
-					'label_off' => __( 'Disabled', 'instantio' ),
-					'is_pro' => true,
-					'default' => false,
-				),
-
-				array(
-					'id' => 'cart-section_mobile',
-					'type' => 'heading',
-					'content' => __( 'Cart Section', 'instantio' ),
-					'dependency' => array( 'mobile', '==', 'true' ),
-				),
-
-				array(
-					'id' => 'mobile-cart-panel',
-					'type' => 'switch',
-					'label' => __( 'Enable Cart Panel', 'instantio' ),
-					'subtitle' => __( 'Enable/disable Bottom cart in mobile version', 'instantio' ),
-					'label_on' => __( 'Yes', 'instantio' ),
-					'label_off' => __( 'No', 'instantio' ),
-					'default' => false,
-					'dependency' => array( 'mobile', '==', 'true' ),
-				),
-
-			),
-		),
-
-
 		'optimization' => array(
 			'title' => __( 'Optimization', 'instantio' ),
 			'icon' => 'fas fa-bolt',
@@ -1600,7 +1262,6 @@ Ins_TF_Settings::option( 'wiopt', array(
 				array(
 					'id' => 'js-min',
 					'type' => 'switch',
-					'is_pro' => true,
 					'label' => __( 'Minify JS', 'instantio' ),
 					'subtitle' => __( 'Enable/disable Instantio JS minification', 'instantio' ),
 					'label_on' => __( 'Enabled', 'instantio' ),

@@ -10,8 +10,6 @@ defined( 'ABSPATH' ) || exit;
      * @author M Hemel Hasan
      * @since 3.1.0
      */
-    ob_start();
-
     add_action( 'init', 'ins_defualt_billing_checkout_from', 9 );
     add_action( 'init', 'ins_defualt_shipping_checkout_from', 9 );
 
@@ -79,8 +77,4 @@ defined( 'ABSPATH' ) || exit;
     }
     
 
-   
-// echo ob_get_clean();
-    
-    
 ?>

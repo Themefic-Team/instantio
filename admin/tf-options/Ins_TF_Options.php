@@ -106,8 +106,8 @@ if ( ! class_exists( 'Ins_TF_Options' ) ) {
 		 * @author Foysal
 		 */
 		public function Ins_load_options() {
-			$license_status = apply_filters( 'ins_checked_license_status', 'false' );
-			if ( $this->is_ins_pro_active() && $license_status != false ) {
+			$license_status = apply_filters( 'ins_checked_license_status', false );
+			if ( $this->is_ins_pro_active() && false !== $license_status ) {
 				$options = glob( INS_PRO_ADMIN_PATH . '/tf-options/options/*.php' );
 			} else {
 				$options = glob( $this->Ins_tf_options_file_path( 'options/*.php' ) );
@@ -207,15 +207,8 @@ if ( ! class_exists( 'Ins_TF_Options' ) ) {
 
 			$class = isset( $field['class'] ) ? $field['class'] : '';
 
-			$is_pro = isset( $field['is_pro'] ) ? $field['is_pro'] : '';
 			$badge_up = isset( $field['badge_up'] ) ? $field['badge_up'] : '';
 
-			if ( function_exists( 'is_ins_pro' ) && is_ins_pro() ) {
-				$is_pro = false;
-			}
-			if ( $is_pro == true ) {
-				$class .= ' tf-field-disable tf-field-pro';
-			}
 			if ( $badge_up == true ) {
 				$class .= ' tf-field-disable tf-field-upcoming';
 			}
@@ -273,11 +266,6 @@ if ( ! class_exists( 'Ins_TF_Options' ) ) {
 				<?php if ( ! empty( $field['label'] ) ) : ?>
 					<label for="<?php echo esc_attr( $id ) ?>" class="tf-field-label">
 						<?php echo esc_html( $field['label'] ) ?>
-						<?php if ( $is_pro ) : ?>
-							<div class="tf-csf-badge"><span class="tf-pro">
-								<?php esc_html_e( 'Pro', 'instantio' ); ?>
-								</span></div>
-						<?php endif; ?>
 						<?php if ( $badge_up ) : ?>
 							<div class="tf-csf-badge"><span class="tf-upcoming">
 								<?php esc_html_e( 'Upcoming', 'instantio' ); ?>

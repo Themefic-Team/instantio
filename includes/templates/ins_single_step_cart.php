@@ -163,7 +163,11 @@ do_action( 'woocommerce_before_cart' ); ?>
                                 </svg>';
 
 
-								$product_quantity = '<button type="button" class="minus ins-cart-minus">' . $minus_icon . '</button>';
+								/* translators: %s: Product name. */
+								$decrease_quantity_label = sprintf( __( 'Decrease quantity for %s', 'instantio' ), $_product->get_name() );
+								/* translators: %s: Product name. */
+								$increase_quantity_label = sprintf( __( 'Increase quantity for %s', 'instantio' ), $_product->get_name() );
+								$product_quantity = '<button type="button" class="minus ins-cart-minus" aria-label="' . esc_attr( $decrease_quantity_label ) . '">' . $minus_icon . '</button>';
 								$product_quantity .= woocommerce_quantity_input(
 									array(
 										'input_name' => "cart[{$cart_item_key}][qty]",
@@ -175,7 +179,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 									$_product,
 									false
 								);
-								$product_quantity .= '<button type="button" class="plus ins-cart-plus">' . $plus_icon . '</button>';
+								$product_quantity .= '<button type="button" class="plus ins-cart-plus" aria-label="' . esc_attr( $increase_quantity_label ) . '">' . $plus_icon . '</button>';
 
 								// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- WooCommerce quantity HTML plus static local buttons; callbacks own escaping.
 								echo apply_filters( 'woocommerce_cart_item_quantity', $product_quantity, $cart_item_key, $cart_item );
@@ -211,7 +215,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 				<div class="ins-cart-coupon">
 					<?php if ( wc_coupons_enabled() ) { ?>
 						<div class="coupon">
-							<!-- <label for="coupon_code"><?php //esc_html_e( 'Coupon:', 'woocommerce' );  ?></label>  -->
+							<label class="screen-reader-text" for="coupon_code"><?php esc_html_e( 'Coupon code', 'woocommerce' ); ?></label>
 							<input type="text" name="coupon_code" class="input-text" id="coupon_code" value=""
 								placeholder="<?php esc_attr_e( 'Coupon code', 'woocommerce' ); ?>" />
 

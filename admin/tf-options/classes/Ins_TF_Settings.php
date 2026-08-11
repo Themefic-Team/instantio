@@ -38,8 +38,6 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 			//ajax save options
 			add_action( 'wp_ajax_ins_options_save', array( $this, 'tf_ajax_save_options' ) );
 
-			add_action('wp_ajax_ins_themefic_manage_plugin', array( $this, 'ins_themefic_manage_plugin' ) );
-
 			// constent defined
 			if ( ! defined( 'TF_OPTION_ID' ) ) {
 				define( 'TF_OPTION_ID', $this->option_id );
@@ -938,8 +936,6 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 							<!-- promo banner  -->
 					<?php echo wp_kses_post( apply_filters( 'ins_dashboard_helper_banner', '' ) ); ?>
 
-					<?php echo wp_kses_post( $this->tf_get_sidebar_plugin_list() ); ?>
-
 							<div class="customization-quote">
 								<div class="quote-header">
 									<i class="fa-solid fa-code"></i>
@@ -996,7 +992,7 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 					'slug'       => 'hydra-booking',
 					'file_name'  => 'hydra-booking',
 					'subtitle'   => 'All in One Appointment Booking System',
-					'image'      => 'https://ps.w.org/hydra-booking/assets/icon-128x128.jpg',
+					'image'      => INS_ADMIN_URL . '/tf-options/img/instanio-logo.png',
 					// 'pro'        => [
 					// 	'slug'      => 'hydra-booking-pro',
 					// 	'file_name' => 'hydra-booking-pro',
@@ -1008,7 +1004,7 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 					'slug'       => 'ultimate-addons-for-contact-form-7',
 					'file_name'  => 'ultimate-addons-for-contact-form-7',
 					'subtitle'   => '40+ Essential Addons for Contact Form 7',
-					'image'      => 'https://ps.w.org/ultimate-addons-for-contact-form-7/assets/icon-128x128.png',
+					'image'      => INS_ADMIN_URL . '/tf-options/img/instanio-logo.png',
 					// 'pro'        => [
 					// 	'slug'      => 'ultimate-addons-for-contact-form-7-pro',
 					// 	'file_name' => 'ultimate-addons-for-contact-form-7-pro',
@@ -1020,7 +1016,7 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 					'slug'       => 'beaf-before-and-after-gallery',
 					'file_name'  => 'before-and-after-gallery',
 					'subtitle'   => 'Ultimate Before After Image Slider & Gallery',
-					'image'      => 'https://ps.w.org/beaf-before-and-after-gallery/assets/icon-128x128.png',
+					'image'      => INS_ADMIN_URL . '/tf-options/img/instanio-logo.png',
 					// 'pro'        => [
 					// 	'slug'      => 'beaf-before-and-after-gallery-pro',
 					// 	'file_name' => 'before-and-after-gallery-pro',
@@ -1032,7 +1028,7 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 					'slug'       => 'tourfic',
 					'file_name'  => 'tourfic',
 					'subtitle'   => 'Travel, Hotel Booking & Car Rental WP Plugin',
-					'image'      => 'https://ps.w.org/tourfic/assets/icon-128x128.gif',
+					'image'      => INS_ADMIN_URL . '/tf-options/img/instanio-logo.png',
 					// 'pro'        => [
 					// 	'slug'      => 'tourfic-pro',
 					// 	'file_name' => 'tourfic-pro',
@@ -1044,7 +1040,6 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 				// 	'slug'       => 'instantio',
 				// 	'file_name'  => 'instantio',
 				// 	'subtitle'   => 'WooCommerce Quick & Direct Checkout',
-				// 	'image'      => 'https://ps.w.org/instantio/assets/icon-128x128.png',
 				// 	// 'pro'        => [
 				// 	// 	'slug'      => 'wooinstant',
 				// 	// 	'file_name' => 'wooinstant',
@@ -1055,7 +1050,6 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 				// 	'name'       => 'Before After Slider for WooCommerce – eBEAF',
 				// 	'slug'       => 'before-after-for-woocommerce',
 				// 	'file_name'  => 'before-after-for-woocommerce',
-				// 	'image'      => 'https://ps.w.org/before-after-for-woocommerce/assets/icon-128x128.gif',
 				// 	'pro_url'    => '',
 				// 	'pro'        => [
 				// 		'slug'      => 'before-after-for-woocommerce-pro',
@@ -1187,6 +1181,108 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 
 
 		/**
+		 * Determine whether an array uses sequential numeric keys.
+		 *
+		 * Kept compatible with the plugin's PHP 7.4 minimum, where array_is_list()
+		 * is not available.
+		 *
+		 * @param array $value Array to inspect.
+		 * @return bool
+		 */
+		private function ins_is_list_array( $value ) {
+			if ( array() === $value ) {
+				return true;
+			}
+
+			return array_keys( $value ) === range( 0, count( $value ) - 1 );
+		}
+
+		/**
+		 * Merge submitted settings without deleting settings owned by an add-on.
+		 *
+		 * Associative groups are merged recursively so an Instantio Free save keeps
+		 * unsubmitted Instantio Pro keys. Numeric lists (such as repeater rows) are
+		 * replaced as a unit so intentionally deleted rows do not return.
+		 *
+		 * @param array $stored    Previously stored settings.
+		 * @param array $submitted Sanitized settings submitted by the active schema.
+		 * @return array
+		 */
+		private function ins_merge_option_values( $stored, $submitted ) {
+			foreach ( $submitted as $key => $value ) {
+				if (
+					isset( $stored[ $key ] ) &&
+					is_array( $stored[ $key ] ) &&
+					is_array( $value ) &&
+					! $this->ins_is_list_array( $stored[ $key ] ) &&
+					! $this->ins_is_list_array( $value )
+				) {
+					$stored[ $key ] = $this->ins_merge_option_values( $stored[ $key ], $value );
+				} else {
+					$stored[ $key ] = $value;
+				}
+			}
+
+			return $stored;
+		}
+
+		/**
+		 * Merge submitted repeater rows with stored add-on metadata by stable origin.
+		 *
+		 * Only submitted rows are returned, so deleting a row remains intentional.
+		 * Matching stored rows contribute keys that are not rendered by the active
+		 * Free or Pro schema.
+		 *
+		 * @param mixed  $stored_value    Previously stored serialized rows.
+		 * @param mixed  $submitted_value Submitted serialized rows.
+		 * @param string $origin_key      Stable origin key in each row.
+		 * @return string
+		 */
+		private function ins_merge_repeater_rows( $stored_value, $submitted_value, $origin_key ) {
+			$stored_rows    = maybe_unserialize( $stored_value );
+			$submitted_rows = maybe_unserialize( $submitted_value );
+			$checkbox_keys  = 'checkout_form_field_origin' === $origin_key
+				? array( 'checkout_form_field_status', 'required' )
+				: array( 'checkout_shipping_form_field_status', 'required_shipping' );
+
+			if ( ! is_array( $submitted_rows ) ) {
+				return $submitted_value;
+			}
+
+			$stored_by_origin = array();
+			if ( is_array( $stored_rows ) ) {
+				foreach ( $stored_rows as $stored_row ) {
+					if ( is_array( $stored_row ) && isset( $stored_row[ $origin_key ] ) ) {
+						$stored_by_origin[ (string) $stored_row[ $origin_key ] ] = $stored_row;
+					}
+				}
+			}
+
+			$merged_rows = array();
+			foreach ( $submitted_rows as $submitted_row ) {
+				if ( ! is_array( $submitted_row ) ) {
+					continue;
+				}
+
+				$origin = isset( $submitted_row[ $origin_key ] ) ? (string) $submitted_row[ $origin_key ] : '';
+				if ( '' !== $origin && isset( $stored_by_origin[ $origin ] ) ) {
+					$submitted_keys = $submitted_row;
+					$submitted_row  = $this->ins_merge_option_values( $stored_by_origin[ $origin ], $submitted_row );
+
+					foreach ( $checkbox_keys as $checkbox_key ) {
+						if ( ! array_key_exists( $checkbox_key, $submitted_keys ) ) {
+							$submitted_row[ $checkbox_key ] = '';
+						}
+					}
+				}
+
+				$merged_rows[] = $submitted_row;
+			}
+
+			return serialize( $merged_rows );
+		}
+
+		/**
 		 * Save Options
 		 * @author M Hemel Hasan
 		 */
@@ -1286,10 +1382,24 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 				}
 			}
 
-			if ( ! empty( $tf_option_value ) ) {
-				update_option( $this->option_id, $tf_option_value );
-			} else {
-				delete_option( $this->option_id );
+				if ( ! empty( $tf_option_value ) ) {
+					$stored_option_value = get_option( $this->option_id, array() );
+					$stored_option_value = is_array( $stored_option_value ) ? $stored_option_value : array();
+					$shared_repeaters = array(
+						'checkout_editors_fields'         => 'checkout_form_field_origin',
+						'checkout_shiping_editors_fields' => 'checkout_shipping_form_field_origin',
+					);
+
+					foreach ( $shared_repeaters as $repeater_key => $origin_key ) {
+						if ( isset( $tf_option_value[ $repeater_key ] ) ) {
+							$stored_repeater_value = isset( $stored_option_value[ $repeater_key ] ) ? $stored_option_value[ $repeater_key ] : '';
+							$tf_option_value[ $repeater_key ] = $this->ins_merge_repeater_rows( $stored_repeater_value, $tf_option_value[ $repeater_key ], $origin_key );
+						}
+					}
+
+					$merged_option_value = $this->ins_merge_option_values( $stored_option_value, $tf_option_value );
+
+				update_option( $this->option_id, $merged_option_value );
 			}
 		}
 
@@ -1304,7 +1414,21 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 				'message' => __( 'Something went wrong!', 'instantio' ),
 			];
 
-				if ( ! empty( $_POST['ins_option_nonce'] ) && wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['ins_option_nonce'] ) ), 'ins_option_nonce_action' ) ) {
+			if ( ! current_user_can( 'manage_options' ) ) {
+				wp_send_json_error(
+					array( 'message' => __( 'You are not allowed to change these settings.', 'instantio' ) ),
+					403
+				);
+			}
+
+			if ( ! check_ajax_referer( 'ins_option_nonce_action', 'ins_option_nonce', false ) ) {
+				wp_send_json_error(
+					array( 'message' => __( 'The security check failed. Refresh the page and try again.', 'instantio' ) ),
+					403
+				);
+			}
+
+			if ( ! empty( $_POST['ins_option_nonce'] ) ) {
 				$this->save_options();
 				$response = [ 
 					'status' => 'success',

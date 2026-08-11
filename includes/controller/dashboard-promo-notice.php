@@ -49,56 +49,6 @@ class Ins_Dashboard_Promo_Notice {
         return false;
 	}
 
-	private function get_dynamic_pricing() {
-
-		$cache_key = 'ins_dynamic_pricing';
-
-		$pricing = get_transient( $cache_key );
-
-		if ( false !== $pricing ) {
-			return $pricing;
-		}
-
-		$response = wp_remote_get(
-			'http://api.themefic.com/dynamic-pricing/pricing.json',
-			array(
-				'timeout'     => 10,
-				'redirection' => 3,
-			)
-		);
-
-		if ( is_wp_error( $response ) ) {
-			return array();
-		}
-
-		if ( 200 !== (int) wp_remote_retrieve_response_code( $response ) ) {
-			return array();
-		}
-
-		$body = wp_remote_retrieve_body( $response );
-
-		if ( empty( $body ) ) {
-			return array();
-		}
-
-		$data = json_decode( $body, true );
-
-		if (
-			JSON_ERROR_NONE !== json_last_error() ||
-			! is_array( $data )
-		) {
-			return array();
-		}
-
-		set_transient(
-			$cache_key,
-			$data,
-			DAY_IN_SECONDS
-		);
-
-		return $data;
-	}
-
 	private function get_current_offer() {
 
 		$base_price = 199;
@@ -111,67 +61,7 @@ class Ins_Dashboard_Promo_Notice {
 			'discount_price' => 49,
 		);
 
-		$pricing = $this->get_dynamic_pricing();
-
-		try {
-
-			$datetime = new DateTime(
-				'now',
-				new DateTimeZone( 'America/Toronto' )
-			);
-
-			$is_weekend = ( (int) $datetime->format( 'N' ) >= 6 );
-
-			$key = $is_weekend ? 'weekend' : 'weekday';
-
-			if (
-				empty( $pricing[ $key ] ) ||
-				! is_array( $pricing[ $key ] )
-			) {
-				return $fallback;
-			}
-
-			$config = $pricing[ $key ];
-
-			$discount = isset( $config['discount'] )
-				? absint( $config['discount'] )
-				: 0;
-
-			if ( $discount <= 0 || $discount >= 100 ) {
-				return $fallback;
-			}
-
-			$discount_price = (int) floor(
-				$base_price * ( ( 100 - $discount ) / 100 )
-			);
-
-			$coupon = '';
-
-			if ( ! empty( $config['coupons']['instantio'] ) ) {
-				$coupon = sanitize_text_field(
-					$config['coupons']['instantio']
-				);
-			}
-
-			if ( ! empty( $config['coupon'] ) ) {
-				$coupon = sanitize_text_field(
-					$config['coupon']
-				);
-			}
-
-			return array(
-				'offer_name'     => ! empty( $config['offer'] )
-					? sanitize_text_field( $config['offer'] )
-					: 'Special Deal',
-				'discount'       => $discount,
-				'coupon'         => $coupon,
-				'regular_price'  => $base_price,
-				'discount_price' => $discount_price,
-			);
-
-		} catch ( Exception $e ) {
-			return $fallback;
-		}
+		return $fallback;
 	}
 
 	/**

@@ -1,6 +1,36 @@
 (function ($) {
 	"use strict";
 
+	/**
+	 * Animate Instantio elements without requiring a third-party animation runtime.
+	 * Large translations become a short fade when reduced motion is requested.
+	 *
+	 * @param {string|Element|JQuery} targets Elements or selector to animate.
+	 * @param {Object} options Animation options.
+	 */
+	window.insAnimateFrom = function (targets, options) {
+		var settings = $.extend({ x: 0, y: 0, duration: 200, delay: 0, reverse: false }, options || {});
+		var reducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+		var elements = typeof targets === "string" ? document.querySelectorAll(targets) : $(targets).toArray();
+
+		Array.prototype.forEach.call(elements, function (element) {
+			if (!element || typeof element.animate !== "function") {
+				return;
+			}
+
+			var offset = reducedMotion ? "translate3d(0, 0, 0)" : "translate3d(" + settings.x + "px, " + settings.y + "px, 0)";
+			var visible = { opacity: 1, transform: "translate3d(0, 0, 0)" };
+			var hidden = { opacity: 0, transform: offset };
+
+			element.animate(settings.reverse ? [visible, hidden] : [hidden, visible], {
+				duration: reducedMotion ? 150 : settings.duration,
+				delay: reducedMotion ? 0 : settings.delay,
+				easing: "ease-out",
+				fill: "backwards"
+			});
+		});
+	};
+
 	//Single Layout
 	function single_step_order_review_callback() {
 		// Check if inslayoutstep is false, then exit the function
@@ -93,28 +123,51 @@
 	};
 
 	$(document).ready(function () {
+		var insCartTrigger = null;
+
+		function insCartIsOpen() {
+			return $(".ins-checkout-layout-3").hasClass("active") || $(".ins-checkout-popup").hasClass("active");
+		}
+
+		function insFocusCart() {
+			var closeButton = $("#instantio-cart-panel .ins-checkout-close:visible").first();
+			(closeButton.length ? closeButton : $("#instantio-cart-panel")).trigger("focus");
+		}
+
+		function insCloseCart() {
+			$(".ins-checkout-layout-3.slide").removeClass("active");
+			$(".ins-checkout-overlay").removeClass("active");
+			$(".ins-checkout-popup").removeClass("active fadeIn");
+			$(".ins-checkout-layout").removeClass("active");
+			$(".ins-click-to-show.popupcart").removeClass("hide");
+			$(".ins-click-to-show").attr("aria-expanded", "false");
+			if (insCartTrigger && document.contains(insCartTrigger)) {
+				insCartTrigger.focus();
+			}
+		}
+
 		// instantio Close Button
 		$(document).on("click", ".ins-checkout-close", function (e) {
 			e.preventDefault();
-			// gsap.reverse();
-			$(".ins-checkout-layout-3.slide").removeClass("active");
-			$(".ins-checkout-overlay").removeClass("active");
-			$(".ins-checkout-popup").removeClass("active");
-			$(".ins-checkout-layout").removeClass("active");
-			$(".ins-checkout-popup").removeClass("fadeIn");
-			$(".ins-click-to-show.popupcart").removeClass("hide");
+			insCloseCart();
 		});
 		// instantio Clikc to Show Cart Slide
 		$(document).on("click", ".ins-click-to-show.sidecart", function (e) {
 			e.preventDefault();
+			insCartTrigger = this;
 			$(".ins-checkout-layout-3.slide").toggleClass("active");
 			$(".ins-checkout-overlay").toggleClass("active");
+			$(this).attr("aria-expanded", $(".ins-checkout-layout-3.slide").hasClass("active") ? "true" : "false");
+			if (insCartIsOpen()) {
+				setTimeout(insFocusCart, 0);
+			}
 			ins_owl_carousel();
 		});
 
 		// instantio Clikc to Show Cart popup
 		$(document).on("click", ".ins-click-to-show.popupcart", function (e) {
 			e.preventDefault();
+			insCartTrigger = this;
 			$(".ins-checkout-overlay").toggleClass("active");
 			$(".ins-checkout-popup").toggleClass("active");
 			$(".ins-checkout-layout").toggleClass("active");
@@ -123,17 +176,45 @@
 
 			ins_cart_animation("cart");
 			$(this).toggleClass("hide");
+			$(this).attr("aria-expanded", $(".ins-checkout-popup").hasClass("active") ? "true" : "false");
+			if (insCartIsOpen()) {
+				setTimeout(insFocusCart, 0);
+			}
 		});
 
 		// instantio Overlay
 		$(document).on("click", ".ins-checkout-overlay", function (e) {
 			e.preventDefault();
-			$(".ins-checkout-layout-3.slide").removeClass("active");
-			$(".ins-checkout-overlay").removeClass("active");
-			$(".ins-checkout-popup").removeClass("active");
-			$(".ins-checkout-layout").removeClass("active");
-			$(".ins-checkout-popup").removeClass("fadeIn");
-			$(".ins-click-to-show.popupcart").removeClass("hide");
+			insCloseCart();
+		});
+
+		$(document).on("keydown", function (e) {
+			if (!insCartIsOpen()) {
+				return;
+			}
+			if (e.key === "Escape") {
+				e.preventDefault();
+				insCloseCart();
+				return;
+			}
+			if (e.key !== "Tab") {
+				return;
+			}
+			var focusable = $("#instantio-cart-panel").find('a[href], button:not([disabled]), input:not([disabled]):not([type="hidden"]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])').filter(":visible");
+			if (!focusable.length) {
+				e.preventDefault();
+				$("#instantio-cart-panel").trigger("focus");
+				return;
+			}
+			var first = focusable.first()[0];
+			var last = focusable.last()[0];
+			if (e.shiftKey && document.activeElement === first) {
+				e.preventDefault();
+				last.focus();
+			} else if (!e.shiftKey && document.activeElement === last) {
+				e.preventDefault();
+				first.focus();
+			}
 		});
 
 		// Instantio Multistep Checkout
@@ -250,17 +331,20 @@
 
 			}
 		}
-	}
+		}
 
-	// Ajax Add To Cart
-	$(document.body).on("added_to_cart", function () {
-		var thisbutton = $(this);
-		// alert('Click');
+		// Ajax Add To Cart
+		var ins_cart_refresh_timeout;
+		var ins_cart_last_local_update = 0;
+
+		function ins_refresh_cart_after_add() {
+			var thisbutton = $(document.body);
 		$.ajax({
 			url: ins_params.ajax_url,
 			type: "POST",
 			data: {
 				id: "1",
+				nonce: ins_params.ins_ajax_nonce,
 				action: "ins_ajax_cart_reload",
 			},
 			beforeSend: function (response) {
@@ -269,8 +353,12 @@
 			complete: function (response) {
 				thisbutton.addClass("added").removeClass("loading");
 			},
-			success: function (response) {
-				$(".ins-quick-view").hide();
+				success: function (response) {
+					if (!response || !response.success || !response.data) {
+						return;
+					}
+
+					$(".ins-quick-view").hide();
 				$("#ins_cart_totals").html(response.data.ins_cart_count);
 				$("#ins_cart_mobile_totals").html(response.data.ins_cart_count);
 				// $("#ins_cart_totals").append(response.data.ins_cart_count);
@@ -309,11 +397,25 @@
 				single_step_order_review_callback();
 				$('.ins-checkout-layout button[name="update_cart"]').trigger("click");
 			},
-		});
+			});
+		}
 
-	});
+		function ins_schedule_cart_refresh() {
+			if (Date.now() - ins_cart_last_local_update < 500) {
+				return;
+			}
 
-	// Ajax Single Page Add To Cart
+			clearTimeout(ins_cart_refresh_timeout);
+			ins_cart_refresh_timeout = setTimeout(ins_refresh_cart_after_add, 100);
+		}
+
+		$(document.body).on("added_to_cart", ins_schedule_cart_refresh);
+
+		if (document.body && document.body.addEventListener) {
+			document.body.addEventListener("wc-blocks_added_to_cart", ins_schedule_cart_refresh);
+		}
+
+		// Ajax Single Page Add To Cart
 	$(document).on("click", ".single_add_to_cart_button", function (e) {
 		if (disable_ajax_add_cart == true) {
 			return;
@@ -369,6 +471,10 @@
 				thisbutton.addClass("added").removeClass("loading");
 			},
 			success: function (response) {
+				if (!response || !response.success || !response.data) {
+					return;
+				}
+
 				$(".ins-quick-view").hide();
 				$("#ins_cart_totals").html(response.data.ins_cart_count);
 				$("#ins_cart_mobile_totals").html(response.data.ins_cart_count);
@@ -406,6 +512,13 @@
 
 				single_step_order_review_callback();
 				$('.ins-checkout-layout button[name="update_cart"]').trigger("click");
+
+				ins_cart_last_local_update = Date.now();
+				$(document.body).trigger("added_to_cart", [
+					response.data.fragments || {},
+					response.data.cart_hash || "",
+					thisbutton,
+				]);
 			},
 		});
 
@@ -429,10 +542,16 @@
 			return;
 		}
 
-		var productThumb = $(this).closest(".product").find("img").attr("src");
-		var startPos = $(this).closest(".product").find("img").offset();
-		var productThumbwidth = $(this).closest(".product").find("img").width();
+		var productContainer = $(this).closest(".product, .ins-single-product-sell");
+		var productImage = productContainer.find("img").first();
+		var productThumb = productImage.attr("src");
+		var startPos = productImage.offset();
+		var productThumbwidth = productImage.width();
 		var endPos = $(".ins-toggle-btn").offset();
+		if (!productImage.length || !startPos || !endPos) {
+			ins_cart_icon_animation();
+			return;
+		}
 		if (cart_fly_icon != "" && cart_fly_icon != true) {
 			var productThumbtag =
 				'<span class="ins-cart-fly-icon">' + cart_fly_icon + "</span>";
@@ -482,6 +601,7 @@
 
 		var thisbutton = $(this);
 		var cart_form = thisbutton.closest("form.cart");
+		var variation_id = cart_form.find("input[name=variation_id]").val() || 0;
 
 		if (cart_form.find("input[name=variation_id]").length > 0) {
 			if (variation_id == '' || variation_id == 0) {
@@ -607,13 +727,7 @@
 				$(".loader-container").removeClass("active");
 			},
 			success: function (response) {
-				gsap.to(animate_remove, {
-					opacity: 0,
-					x: -100,
-					duration: 0.2,
-					delay: 0.2,
-					ease: "fadeIn",
-				});
+				window.insAnimateFrom(animate_remove, { x: -100, duration: 200, delay: 200, reverse: true });
 				single_step_order_review_callback();
 				setTimeout(function () {
 					$("#ins_cart_totals").html(response.data.ins_cart_count);
@@ -880,38 +994,13 @@
 		}, 1000);
 	}
 
-	// Cart Animation Gsap
+	// Cart entrance animation.
 	function ins_cart_animation($step = "cart") {
 		if ($step == "cart" && $('.ins_animate_one').length > 0) {
-			gsap.from(".ins_animate_one .ins-checkout-header", {
-				opacity: 0,
-				y: -100,
-				duration: 0.2,
-				delay: 0.2,
-				ease: "fadeIn",
-			});
-			gsap.from(".ins_animate_one .ins-checkout-steps", {
-				opacity: 0,
-				x: -100,
-				duration: 0.2,
-				delay: 0.2,
-				ease: "fadeIn",
-			});
-			// gsap.from(".ins-cart-btns", {opacity: 0, y: 100, duration: 0.4, delay: 0.4, ease: "slideIn" });
-			gsap.from(".ins_animate_one .step-1 .ins-cart-content-wrap, .step-1 .ins-up-sells", {
-				opacity: 0,
-				y: -100,
-				duration: 0.2,
-				delay: 0.4,
-				ease: "fadeIn",
-			});
-			gsap.from(".ins_animate_one .step-1 .ins-cart-footer-content, .step-1  .ins-cart-btns", {
-				opacity: 0,
-				x: 100,
-				duration: 0.2,
-				delay: 0.6,
-				ease: "fadeIn",
-			});
+			window.insAnimateFrom(".ins_animate_one .ins-checkout-header", { y: -100, delay: 200 });
+			window.insAnimateFrom(".ins_animate_one .ins-checkout-steps", { x: -100, delay: 200 });
+			window.insAnimateFrom(".ins_animate_one .step-1 .ins-cart-content-wrap, .step-1 .ins-up-sells", { y: -100, delay: 400 });
+			window.insAnimateFrom(".ins_animate_one .step-1 .ins-cart-footer-content, .step-1 .ins-cart-btns", { x: 100, delay: 600 });
 		}
 	}
 })(jQuery);

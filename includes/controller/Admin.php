@@ -17,9 +17,6 @@ class Admin {
 
 		// add_action( 'admin_notices', array($this, 'ins_review_notice') ); 
 
-		add_action( 'wp_ajax_ins_review_notice_callback', array( $this, 'ins_review_notice_callback' ) );
-		add_action( 'wp_ajax_nopriv_ins_review_notice_callback', array( $this, 'ins_review_notice_callback' ) );
-
 		// add_action('admin_init', array($this, 'ins_review_activation_status')); 
 
 		/**
@@ -38,17 +35,13 @@ class Admin {
 		 * @since 3.0
 		 */
 		if ( class_exists( 'WOOINS' ) ) {
-			$curvarsion = (double) INSTANTIO_PRO_VERSION;
-			$allowver = (double) '3.0.0';
+			$minimum_pro_version = '3.0.0';
 
-			if ( $curvarsion >= $allowver ) {
-				return;
-			} else {
+			if ( ! defined( 'INSTANTIO_PRO_VERSION' ) || version_compare( INSTANTIO_PRO_VERSION, $minimum_pro_version, '<' ) ) {
 				deactivate_plugins( 'wooinstant/wooinstant.php' );
 				add_action( 'admin_notices', array( $this, 'version_warning' ) );
 				add_action( 'admin_notices', array( $this, 'ins_wooinstantio_updated' ) );
 			}
-			return;
 		}
 
 		// Define Plugin Action Links.

@@ -620,7 +620,7 @@
                 ".tf-repeater-wrap-" + id + " .tf-single-repeater-" + id + ""
             ).length;
 
-            var countpuls = count + 1;
+			var customFieldId = new Date().valueOf().toString() + count.toString();
             var parent_field = add_value.find(':input[name="INS_parent_field"]').val();
             var current_field = add_value
                 .find(':input[name="INS_current_field"]')
@@ -632,7 +632,7 @@
                 $this_parent
                     .find(".tf-repeater-wrap")
                     .append(
-                        '<div class="tf-field-notice-inner tf-notice-danger" style="display: block;">You have reached the checkout editor field limit. We will increase the limit in future.</div>'
+						'<div class="tf-field-notice-inner tf-notice-danger" style="display: block;">Maximum number of items reached.</div>'
                     );
                 return false;
             }
@@ -769,9 +769,9 @@
 
             // add_value.find(':input[name="wiopt[checkout_shiping_editors_fields][' + count + '][checkout_shipping_form_field_origin]"]').val('ins_cus_shipingfield_origin' + custom_field_serial);
 
-            add_value.find(':input[name="wiopt[checkout_shiping_editors_fields][' + count + '][checkout_shipping_form_field_origin]"]').attr('value', 'ins_cus_shipingfield_origin' + countpuls);
+			add_value.find(':input[name="wiopt[checkout_shiping_editors_fields][' + count + '][checkout_shipping_form_field_origin]"]').val('ins_cus_shipingfield_origin' + customFieldId);
 
-            add_value.find(':input[name="wiopt[checkout_editors_fields][' + count + '][checkout_form_field_origin]"]').attr('value', 'ins_cus_billingfield_origin' + countpuls);
+			add_value.find(':input[name="wiopt[checkout_editors_fields][' + count + '][checkout_form_field_origin]"]').val('ins_cus_billingfield_origin' + customFieldId);
 
             // var dddd = add_value.find(':input[name="wiopt[checkout_shiping_editors_fields][' + count + '][checkout_shipping_form_field_origin]"]').val();
 
@@ -864,7 +864,7 @@
             // Chacked maximum repeater
             if (max != "" && count >= max) {
                 $this_parent.append(
-                    '<div class="tf-field-notice-inner tf-notice-danger" style="display: block;">You have reached the checkout editor field limit. We will increase the limit in future.</div>'
+					'<div class="tf-field-notice-inner tf-notice-danger" style="display: block;">Maximum number of items reached.</div>'
                 );
                 return false;
             }
@@ -983,6 +983,10 @@
             });
             // Replace Data repeter Count id ID
             clone_value.find('input[name="INS_repeater_count"]').val(count);
+
+			var clonedCustomFieldId = new Date().valueOf().toString() + count.toString();
+			clone_value.find(':input[name="wiopt[checkout_shiping_editors_fields][' + count + '][checkout_shipping_form_field_origin]"]').val('ins_cus_shipingfield_origin' + clonedCustomFieldId);
+			clone_value.find(':input[name="wiopt[checkout_editors_fields][' + count + '][checkout_form_field_origin]"]').val('ins_cus_billingfield_origin' + clonedCustomFieldId);
 
             // Replace Old editor
             clone_value.find(".wp-editor-wrap").each(function () {
@@ -1323,10 +1327,7 @@ var frame, gframe;
 
                 var mapInit = L.map($map.get(0), map_data);
 
-                L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-                    attribution:
-                        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-                }).addTo(mapInit);
+				L.tileLayer("").addTo(mapInit);
 
                 var mapMarker = L.marker(map_data.center, { draggable: true }).addTo(
                     mapInit
@@ -1370,37 +1371,8 @@ var frame, gframe;
                             return;
                         }
 
-                        $.get(
-                            "https://nominatim.openstreetmap.org/search",
-                            {
-                                format: "json",
-                                q: term,
-                            },
-                            function (results) {
-                                var data;
-
-                                if (results.length) {
-                                    data = results.map(function (item) {
-                                        return {
-                                            value: item.display_name,
-                                            label: item.display_name,
-                                            lat: item.lat,
-                                            lon: item.lon,
-                                        };
-                                    }, "json");
-                                } else {
-                                    data = [
-                                        {
-                                            value: "no-data",
-                                            label: "No Results.",
-                                        },
-                                    ];
-                                }
-
-                                cache[term] = data;
-                                response(data);
-                            }
-                        );
+						cache[term] = [{ value: "no-data", label: "Address search is unavailable." }];
+						response(cache[term]);
                     },
                     select: function (event, ui) {
                         if (ui.item.value === "no-data") {
@@ -1796,20 +1768,6 @@ var frame, gframe;
                     },
                 });
             }
-        });
-        /**
-         * Pro Feature button link
-         */
-
-        $(window).on("load", function () {
-            $(".tf-field-disable")
-                .find("input, select, textarea, button, div, span")
-                .attr("disabled", "disabled");
-        });
-
-        $(document).on("click", ".tf-field-pro", function (e) {
-            e.preventDefault();
-            window.open("https://themefic.com/instantio/");
         });
     });
 })(jQuery);

@@ -177,6 +177,147 @@ All field-component changes concern contextual escaping of names, identifiers, v
 
 Review these areas first because their changes affect runtime behavior rather than only output formatting:
 
+### WordPress.org reopening work
+
+- `admin/tf-options/classes/Ins_TF_Settings.php` — now merges sanitized settings into the existing shared `wiopt` value. Associative groups preserve unsubmitted nested Pro keys, while numeric repeater lists replace as complete lists so deleted rows stay deleted.
+- `admin/tf-options/classes/Ins_TF_Settings.php` — Checkout Editor lists now merge retained rows by stable origin, preserving Pro-only row metadata while still honoring Free reorder, deletion, and new rows.
+- `admin/tf-options/options/tf-settings.php` — Free `ins-page-selected` now uses the same multiple-value array contract expected by the runtime and Pro schema, preventing an empty selector from saving the first page automatically.
+- `admin/tf-options/options/tf-settings.php` — enabled five controls whose runtime belongs to Free: page exclusion, quick-view conflict handling, AJAX add-to-cart conflict handling, custom toggle-image upload, and JavaScript minification. IDs and storage shapes remain unchanged.
+- `includes/controller/Assets.php` — Free now independently honors `js-min` when choosing its readable/minified frontend script while retaining the established URL filter for Pro compatibility.
+- `admin/tf-options/assets/js/ins-options.js` — Checkout Editor additions and clones now receive unique legacy-compatible field keys; checkout-specific quota copy was removed.
+- `includes/controller/checkout_editor.php` — custom billing/shipping fields are handled from validated configured keys, saved with the WooCommerce order object for HPOS compatibility, and displayed from order-object metadata.
+- `admin/tf-options/options/tf-settings.php` — fully enabled Checkout Editor add/clone/delete, reset, and Order Notes controls in Free and removed its disabled activation notices.
+- `admin/tf-options/options/tf-settings.php` — removed the remaining Pro-owned and obsolete controls from the Free schema without deleting their stored values; the corresponding WooInstant controls remain in Pro.
+- `admin/tf-options/Ins_TF_Options.php` — removed the generic `is_pro` field-lock renderer while retaining licensed Pro schema loading and separate upcoming-field support.
+- `admin/tf-options/assets/js/admin.js` and `admin/tf-options/assets/js/ins-options.js` — removed generic disabled-field and Pro-click redirect behavior after the Free schema reached zero active Pro locks.
+- `docs/wordpress-org-reopening-plan.md` — complete reopening phases and regression gates.
+- `docs/phase-0-baseline-record.md` — pre-remediation source, environment, option types/hash, static checks, and live Free smoke evidence.
+- `docs/phase-1-reviewer-issue-ledger.md` — current status, ownership, resolution, and evidence requirement for every Plugins Team email category.
+- `docs/phase-2-free-pro-separation-record.md` — locked-field ownership, approved Checkout Editor direction, preservation validation, and remaining phase gates.
+- `docs/phase-3-browser-regression-record.md` — authenticated Free and licensed Pro browser evidence, reversible activation testing, and the settings round-trip drift stop gate.
+
+The Phase 2 record now also contains the licensed Instantio Free + WooInstant Pro automated regression results. Credentials are intentionally excluded.
+
+## Phase 5 technical and security remediation — 2026-08-10
+
+- `instantio.php` — aligns the plugin header's `Tested up to` value with the valid WordPress 7.0 readme declaration.
+- `includes/controller/Admin.php` — removes obsolete review-notice AJAX registrations whose callback is no longer active.
+- `includes/controller/App.php` — verifies the existing public nonce on direct cart-reload AJAX requests while preserving internal fragment generation.
+- `assets/app/js/instantio-script.js` — sends the established Instantio nonce with direct cart reloads.
+- `assets/app/js/instantio-script.min.js` — rebuilt from the readable source so the distributed optimized path has the same security behavior.
+- `admin/tf-options/classes/Ins_TF_Settings.php` — enforces `manage_options` and the settings nonce at the settings AJAX boundary while preserving the existing JSON envelope and `wiopt` merge/storage contract.
+- `includes/controller/ins-checkout-editor.php` — removes an unused, unbalanced global output buffer.
+- `docs/phase-5-technical-security-record.md` — records the audit, changes, negative tests, compatibility checks, exact option restoration, and Gate 5 evidence.
+
+## Phase 6 Free/Pro integration hardening — 2026-08-10
+
+### Instantio Free
+
+- `includes/controller/Admin.php` — replaces dotted-version floating-point comparison with `version_compare()` and keeps normal Free admin initialization running for compatible Pro versions.
+- `admin/tf-options/Ins_TF_Options.php` — uses a strict false license contract when deciding between the Free and licensed Pro settings schemas.
+- `docs/phase-6-free-pro-integration-record.md` — records the compatibility matrix, ownership changes, activation-state tests, option/license restoration evidence, and Gate 6 result.
+
+### WooInstant Pro
+
+- `wooinstant.php` — adds explicit minimum Free compatibility, dependency-safe and WooCommerce-safe early returns, administrator dependency messaging, and one consistent license-controlled controller bootstrap.
+- `includes/controller/Assets.php` — assigns unique Pro admin handles and resolves Free's Notyf asset through `INS_ADMIN_URL`.
+- `includes/controller/App.php` — changes the fallback license state from permissive to unlicensed and uses strict comparison.
+- `includes/controller/Functions.php` — removes the duplicate runtime `insopt()` declaration so Free owns the shared helper.
+- `includes/license/license.php` — secures license-notice dismissal and corrects the activation-hook bootstrap path.
+- `uninstall.php` — preserves shared `wiopt` configuration and removes only Pro-owned license/dismissal metadata.
+
+## AJAX add-to-cart immediate refresh fix — 2026-08-10
+
+- `assets/app/js/instantio-script.min.js` — regenerated from the current readable frontend source so optimized mode sends the established nonce and handles the current JSON response envelope. This fixes cart content and badge refresh immediately after AJAX add-to-cart.
+- `includes/controller/Assets.php` — now adds the selected frontend script's modification time to its version, preventing a browser or proxy from retaining a stale optimized bundle. The existing option value and WooInstant URL filter contract remain unchanged.
+- `docs/phase-3-browser-regression-record.md` — records the failing optimized-only reproduction, root cause, implementation, browser evidence, settings restoration, and syntax checks.
+- `docs/changed-files-record.md` — records this fix and its affected files.
+
+### Follow-up: WooCommerce Blocks event support
+
+- `assets/app/js/instantio-script.js` — now refreshes Instantio after both the legacy WooCommerce jQuery cart event and the native WooCommerce Blocks cart event. A shared 100 ms debounce avoids duplicate requests and waits for Store API session synchronization.
+- `assets/app/js/instantio-script.min.js` — rebuilt again from the corrected readable source so optimized mode includes WooCommerce Blocks compatibility.
+- `docs/phase-3-browser-regression-record.md` — adds the exact real-button failing reproduction and passing readable/optimized browser evidence.
+
+### Follow-up: variation-popup theme cart and animation
+
+- `includes/controller/App.php` — Instantio's private add-to-cart response can now include standard filtered WooCommerce Mini-Cart fragments and ensures the cart cookie is available to theme and Blocks consumers.
+- `assets/app/js/instantio-script.js` — publishes the standard WooCommerce post-add event after a successful Instantio popup add, avoids a redundant Instantio refresh, validates the JSON envelope, and obtains the selected variation locally for fly animation.
+- `assets/app/js/instantio-script.min.js` — rebuilt from the corrected readable source.
+- `docs/phase-3-browser-regression-record.md` — records the popup-specific cause, implementation, and real variation-selection browser evidence.
+
+### Checkout Editor CRUD and HPOS checkout phase
+
+- `admin/tf-options/classes/Ins_TF_Settings.php` — submitted Checkout Editor rows now clear known unchecked status/required checkbox keys instead of restoring their prior values. Unknown Free/Pro metadata remains origin-merged and preserved.
+- `docs/phase-3-browser-regression-record.md` — records authenticated add/clone/delete/reorder/disable/reset evidence plus real checkout, custom metadata, order note, HPOS, restoration, and cleanup evidence.
+- `docs/changed-files-record.md` — records the focused checkbox-merge correction and phase evidence.
+
+### Final Phase 3 recommendations and mobile matrix
+
+- `assets/app/js/instantio-script.js` — fly-cart animation now supports normal product cards and Instantio recommendation cards, with a safe geometry fallback.
+- `assets/app/js/instantio-script.min.js` — rebuilt from the corrected readable source.
+- `docs/phase-3-browser-regression-record.md` — records passing side-cart, popup-cart, upsell, cross-sell, recommendation add-to-cart, dedicated-mobile, quantity, checkout opening, removal, responsive visibility, and restoration evidence.
+
+## Official Phase 3 GSAP replacement — 2026-08-10
+
+- `includes/controller/Assets.php` — removed the GSAP frontend enqueue; the established `ins-script` handle and Free/Pro filter contract remain unchanged.
+- `assets/app/js/gsap.min.js` — deleted the rejected third-party runtime.
+- `assets/app/js/instantio-script.js` — replaced Free entrance and removal calls with one native Web Animations helper. Normal timing and displacement are preserved; reduced motion becomes a 150 ms opacity-only cue with no stagger.
+- `assets/app/js/instantio-script.min.js` — rebuilt from the readable Free source.
+- `../wooinstant/assets/app/js/instantio-script-pro.js` — moved Pro shipping, cart, and payment step entrances to the shared Free native helper without changing selectors or normal-motion timing.
+- `../wooinstant/assets/app/js/instantio-script-pro.min.js` — rebuilt from the readable Pro source.
+- `docs/phase-3-gsap-replacement-record.md` — records inventory, implementation, build commands, readable/optimized browser evidence, reduced-motion evidence, scans, and settings restoration.
+- `docs/changed-files-record.md` — records the official Phase 3 files and purpose.
+
+## Official Phase 4 external-services cleanup — 2026-08-10
+
+- `instantio.php` — removed the remote promotion service bootstrap while retaining the local dashboard widget.
+- `functions.php` — removed obsolete remote-image promotions, made clicked-link UTM source site-agnostic, and added cleanup for Instantio-specific legacy promotion data and cron state.
+- `includes/controller/class-promo-notice.php` — deleted the daily Themefic promotion API client and remote-controlled promotion renderer.
+- `includes/controller/dashboard-promo-notice.php` — replaced remote dynamic pricing with the existing local fallback; the dashboard UI and clicked pricing link remain.
+- `admin/tf-options/assets/css/tf-options.css`, `admin/tf-options/assets/css/tf-options.min.css`, `admin/tf-options/assets/sass/tf-options.css`, and `admin/tf-options/assets/sass/tf-options.min.css` — removed Google Fonts loading and synchronized production CSS.
+- `assets/admin/css/instantio-admin-style.css` — removed the obsolete remote-font import comment.
+- `admin/tf-options/classes/Ins_TF_Settings.php` — stopped rendering remote product-card images and removed the related automatic plugin-management action from the active settings UI.
+- `admin/tf-options/assets/js/ins-options.js` and `admin/tf-options/fields/map/INS_map.php` — removed the unused generic map field's OpenStreetMap/Nominatim service dependency.
+- `docs/phase-4-external-services-record.md` — records classifications, removals, retained clicked links, Pro-owned services, and live/static evidence.
+- `docs/changed-files-record.md` — records the official Phase 4 changes.
+
+## Phase 7 full regression and compatibility — 2026-08-10
+
+### Instantio Free
+
+- `includes/controller/App.php` — cart triggers and panel controls now use named native semantics with synchronized expanded state and dialog metadata.
+- `assets/app/js/instantio-script.js` — adds cart-dialog focus entry, Escape close, focus restoration, and keyboard focus containment while preserving existing cart events.
+- `assets/app/js/instantio-script.min.js` — rebuilt from the readable source for optimized-mode parity.
+- `assets/app/css/instantio-style.css` and `assets/app/css/instantio-style.min.css` — reset native close-button presentation and add visible keyboard focus indicators.
+- `includes/templates/cart-modern.php` and `includes/templates/ins_single_step_cart.php` — add product-specific quantity-button names, coupon labels, and required translator comments.
+- `docs/phase-7-regression-record.md` — records the complete product, cart, layout, checkout, HPOS, settings, legacy, accessibility, mobile, asset, theme, Plugin Check, cleanup, and restoration evidence.
+
+### WooInstant Pro
+
+- `../wooinstant/includes/templates/cart.php` — adds product-specific quantity-button names and coupon labels to the Pro cart template.
+- `../wooinstant/includes/templates/form-checkout.php` — compares the shared layout option using its established string-compatible contract.
+- `../wooinstant/includes/templates/content/ins-payment-popup.php` — allows the filtered WooCommerce order-button HTML through the appropriate safe HTML policy.
+- `../wooinstant/assets/app/js/instantio-script-pro.js` and `../wooinstant/assets/app/js/instantio-script-pro.min.js` — retain readable/optimized parity for the tested checkout-step behavior.
+
+## Phase 8 release packaging — 2026-08-10
+
+- `instantio.php` and `readme.txt` — align WooCommerce tested-up-to metadata with the completed WooCommerce 11.0 regression.
+- `readme.txt` — clarifies the fully functional Free scope, separates Pro add-on messaging, removes outdated field-editor claims, and records the compliance release work.
+- `docs/phase-8-release-packaging-record.md` — records the distribution build, artifact inventory, hash, scans, Plugin Check result, and remaining clean-install gate.
+- `docs/phase-8-clean-install-checklist.md` — provides the exact disposable-site installation and smoke sequence.
+- `docs/wordpress-org-reviewer-response.md` — provides the copy-ready Plugins Team response and reviewer steps.
+
+### WooInstant P3 integration follow-up
+
+- `assets/app/js/instantio-script.js` and `assets/app/js/instantio-script.min.js` — Free's Pro order-review refresh now sends the existing `ins_ajax_nonce`, matching the secured WooInstant P3 endpoint without changing the action or response contract.
+- The prior Phase 8 Free ZIP predates this integration change and is superseded; rebuild the matching Free/Pro artifact pair before clean-install testing.
+
+### Settings-page warning cleanup
+
+- `admin/tf-options/Ins_TF_Options.php` — removes the stale Free Pro-badge conditional left after Free-side Pro locks were removed, eliminating the repeated undefined `$is_pro` warning without changing `wiopt` storage or settings behavior.
+- `docs/phase-8-release-packaging-record.md` — records the reproduction, root cause, scope, and regression evidence.
+
 1. `admin/tf-options/Ins_TF_Options.php` and the newly bundled libraries — administrator dependency loading changed from CDNs to local files.
 2. `admin/tf-options/fields/code_editor/INS_codeeditor.php` and `admin/tf-options/assets/js/ins-options.js` — CodeMirror loading changed to WordPress's native editor API.
 3. `includes/controller/App.php` plus both `instantio-script` files — cart requests now require and send nonces.

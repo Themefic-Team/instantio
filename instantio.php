@@ -14,7 +14,7 @@
  * Requires PHP: 7.4
  * License: GPLv3
  * License URI: https://www.gnu.org/licenses/gpl-3.0.html
- * WC tested up to: 10.7
+ * WC tested up to: 11.0
 **/
 
 // don't load directly
@@ -79,11 +79,6 @@ class INSTANTIO {
 
 			// Ins_checkout_Editor
 			require_once INS_INC_PATH . '/controller/checkout_editor.php';
-		}
-
-		// ins Promo Banner
-		if ( defined('INS_INC_PATH') && !empty(INS_INC_PATH) ) {
-			require_once INS_INC_PATH . '/controller/class-promo-notice.php';
 		}
 
 		// ins Promo Banner

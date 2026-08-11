@@ -121,14 +121,14 @@ class App {
 		}
 
 		if ( $this->layout == 1 || $this->layout == '' ) {
-			$output = '<a id="mini_cart" class="ins-click-to-show" href="' . esc_url( wc_get_checkout_url() ) . '">';
+			$output = '<a id="mini_cart" class="ins-click-to-show" aria-label="' . esc_attr__( 'Go to checkout', 'instantio' ) . '" href="' . esc_url( wc_get_checkout_url() ) . '">';
 			$output .= $toggle_icon;
 			$output .= '</a>';
 			return $output;
 		} else {
-			$output = '<div id="mini_cart" class="ins-click-to-show ' . esc_attr( $togglebtnClass ) . ' ">';
+			$output = '<button type="button" id="mini_cart" class="ins-click-to-show ' . esc_attr( $togglebtnClass ) . '" aria-label="' . esc_attr__( 'Open cart', 'instantio' ) . '" aria-controls="instantio-cart-panel" aria-expanded="false">';
 			$output .= $toggle_icon;
-			$output .= '</div>';
+			$output .= '</button>';
 			return $output;
 		}
 
@@ -162,7 +162,7 @@ class App {
 				<span class="ins-checkout-header-title">
 					<?php esc_html_e( 'Your cart ', 'instantio' ) ?>
 				</span>
-				<span class="ins-checkout-close">
+				<button type="button" class="ins-checkout-close" aria-label="<?php esc_attr_e( 'Close cart', 'instantio' ); ?>">
 					<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<g clip-path="url(#clip0_139_578)">
 							<path
@@ -175,7 +175,7 @@ class App {
 							</clipPath>
 						</defs>
 					</svg>
-				</span>
+				</button>
 			</div>
 			<?php
 			if ( $ins_single_layout == false ) {
@@ -231,7 +231,7 @@ class App {
 		if ( $this->layout == 1 || $this->layout == '' ) {
 			$ins_toggler = 'tog-1';
 			?>
-			<a class="ins-toggle-btn <?php echo esc_attr( $ins_toggler ) ?>
+			<a aria-label="<?php esc_attr_e( 'Go to checkout', 'instantio' ); ?>" class="ins-toggle-btn <?php echo esc_attr( $ins_toggler ) ?>
 			<?php echo esc_attr( $dedicated_mobile_panel_class ) ?>
 			<?php echo esc_attr( $icon_style ) ?>
 			<?php echo esc_attr( $hiddenClass ) ?> " href="<?php echo esc_url( wc_get_checkout_url() ); ?>">
@@ -248,9 +248,10 @@ class App {
 			<?php
 		} else {
 			?>
-			<div
+			<button type="button"
 				class="ins-click-to-show ins-toggle-btn <?php echo esc_attr( $hiddenClass ) ?>
-				<?php echo esc_attr( $togglebtnClass ) ?> <?php echo esc_attr( $dedicated_mobile_panel_class ) ?> <?php echo esc_attr( $icon_style ) ?>  <?php echo esc_attr( $ins_toggler ) ?>">
+				<?php echo esc_attr( $togglebtnClass ) ?> <?php echo esc_attr( $dedicated_mobile_panel_class ) ?> <?php echo esc_attr( $icon_style ) ?>  <?php echo esc_attr( $ins_toggler ) ?>"
+				aria-label="<?php esc_attr_e( 'Open cart', 'instantio' ); ?>" aria-controls="instantio-cart-panel" aria-expanded="false">
 				<span class="ins-cart-icon">
 					<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Sanitized local SVG or escaped icon/image markup. ?>
 					<?php echo $toggle_icon; ?>
@@ -261,7 +262,7 @@ class App {
 						<?php echo absint( WC()->cart->get_cart_contents_count() ); ?>
 					</span>
 				</span>
-			</div>
+			</button>
 			<?php
 		}
 
@@ -344,7 +345,10 @@ class App {
 	}
 
 	// Ajax Cart reload After Product Add to Cart
-	public function ins_ajax_cart_reload() {
+	public function ins_ajax_cart_reload( $include_fragments = false ) {
+		if ( wp_doing_ajax() && ! $include_fragments ) {
+			check_ajax_referer( 'ins_ajax_nonce', 'nonce' );
+		}
 		ob_start();
 		// require_once apply_filters( 'ins_layout_slug', INS_INC_PATH . $this->layouts_slug );
 
@@ -381,6 +385,20 @@ class App {
 		endif;
 
 		$ins_cart_total = WC()->cart->get_cart_contents_count();
+		$fragments      = array();
+
+		if ( $include_fragments ) {
+			WC()->cart->maybe_set_cart_cookies();
+			ob_start();
+			woocommerce_mini_cart();
+			$mini_cart = ob_get_clean();
+			$fragments = apply_filters(
+				'woocommerce_add_to_cart_fragments',
+				array(
+					'div.widget_shopping_cart_content' => '<div class="widget_shopping_cart_content">' . $mini_cart . '</div>',
+				)
+			);
+		}
 		// need to check this again 
 		// $ins_checkout_load = apply_filters('ins_template_step_content');
 
@@ -393,6 +411,7 @@ class App {
 			'display' => $display,
 			'ins_cart_count' => $ins_cart_total,
 			'ins_shipping_additional' => $ins_shipping_additional,
+			'fragments' => $fragments,
 			// 'ins_checkout_load' => $ins_checkout_load,
 		);
 
@@ -466,7 +485,7 @@ class App {
 					wc_add_to_cart_message( array( $product_id => 1 ), true );
 				}
 
-				$this->ins_ajax_cart_reload();
+					$this->ins_ajax_cart_reload( true );
 			}
 
 			wp_send_json( [
@@ -569,7 +588,7 @@ class App {
 					wc_add_to_cart_message( array( $product_id => $main_qty  ), true );
 				}
 
-				$this->ins_ajax_cart_reload();
+					$this->ins_ajax_cart_reload( true );
 			}
 
 			wp_send_json( [
@@ -601,7 +620,7 @@ class App {
 				wc_add_to_cart_message( array( $product_id => $quantity ), true );
 			}
 
-			$this->ins_ajax_cart_reload();
+				$this->ins_ajax_cart_reload( true );
 		}
 
 		wp_send_json( [
@@ -859,7 +878,7 @@ class App {
 			?>
 			<div class="ins-checkout-popup ins-checkout-modern <?php echo esc_attr( $ins_layout_class ) ?>">
 				<div class="ins-checkout-overlay"></div>
-				<div class="ins-checkout-layout ins-checkout-layout-3 <?php echo esc_attr( $ins_layout_class ) ?>">
+				<div id="instantio-cart-panel" role="dialog" aria-modal="true" aria-label="<?php esc_attr_e( 'Shopping cart', 'instantio' ); ?>" tabindex="-1" class="ins-checkout-layout ins-checkout-layout-3 <?php echo esc_attr( $ins_layout_class ) ?>">
 					<?php
 					require_once apply_filters( 'ins_layout_slug', INS_INC_PATH . $this->layouts_slug );
 					?>

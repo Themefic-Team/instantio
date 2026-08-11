@@ -724,6 +724,18 @@
 .ins-checkout-modern .ins-checkout-close {
   cursor: pointer;
   position: relative;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  line-height: 0;
+}
+
+.ins-content button:focus-visible,
+.ins-checkout-close:focus-visible,
+.ins-click-to-show:focus-visible,
+.ins-toggle-btn:focus-visible {
+  outline: 2px solid var(--ins_checkout_theme) !important;
+  outline-offset: 2px;
 }
 .ins-checkout-modern .ins-checkout-header-title {
   font-size: 24px;
@@ -1024,13 +1036,14 @@
 
 .ins-cart-coupon .coupon {
   display: flex;
-  flex-direction: row;
+  flex-wrap: nowrap !important;
 }
 .ins-cart-coupon .coupon button {
   background: var(--ins_checkout_theme) !important;
   border-radius: 0px 8px 8px 0px !important;
   color: #fff;
   border: 1px solid var(--ins_checkout_theme);
+  font-size: 14px;
   font-weight: 500;
   line-height: 20px;
 }
