@@ -329,3 +329,10 @@ The Phase 2 record now also contains the licensed Instantio Free + WooInstant Pr
 ## Important distinction
 
 Plugin Check passing with zero findings confirms static policy compliance for the release artifact. It does not prove functional equivalence. Because functionality loss has now been observed, the next task should be a regression investigation comparing each high-risk diff against the original Git version and testing the affected feature in the browser before retaining or revising that change.
+
+## Setup Wizard Finish response fix — 2026-08-11
+
+- `admin/tf-options/assets/js/setup-wizard.js` — declares the WordPress AJAX response as JSON and consumes the object returned by jQuery directly. The previous callback passed an already-decoded object into `JSON.parse()`, causing `"[object Object]" is not valid JSON` and leaving the Step 3 Finish button loading even though PHP returned `wp_send_json()`.
+- `admin/tf-options/Ins_TF_Options.php` — versions the setup-wizard script with its modification time so browsers immediately load this fix instead of retaining the previous `ver=2.3.0` response parser.
+- No setup-wizard field name, `wiopt` key, value type, nonce, capability check, or PHP save behavior changed.
+- PHP syntax and `git diff --check` pass. Browser verification remains pending because the Local site is currently stopped.

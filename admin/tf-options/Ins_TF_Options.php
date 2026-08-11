@@ -146,12 +146,14 @@ if ( ! class_exists( 'Ins_TF_Options' ) ) {
 			}
 
 			//Js
-			if ( in_array( $screen, $tf_options_screens ) ) {
+				if ( in_array( $screen, $tf_options_screens ) ) {
+					$setup_wizard_path    = $this->Ins_tf_options_file_path( 'assets/js/setup-wizard.js' );
+					$setup_wizard_version = file_exists( $setup_wizard_path ) ? (string) filemtime( $setup_wizard_path ) : $this->Ins_tf_options_version();
 
-					wp_enqueue_script( 'tf-flatpickr', $this->Ins_tf_options_file_url( 'assets/libs/flatpickr/flatpickr.min.js' ), array( 'jquery' ), '4.6.13', true );
+						wp_enqueue_script( 'tf-flatpickr', $this->Ins_tf_options_file_url( 'assets/libs/flatpickr/flatpickr.min.js' ), array( 'jquery' ), '4.6.13', true );
 					wp_enqueue_script( 'tf-select2', $this->Ins_tf_options_file_url( 'assets/libs/select2/js/select2.min.js' ), array( 'jquery' ), '4.1.0-rc.0', true );
 					wp_enqueue_script( 'wp-color-picker-alpha', $this->Ins_tf_options_file_url( 'assets/libs/wp-color-picker-alpha/wp-color-picker-alpha.js' ), array( 'jquery', 'wp-color-picker' ), $this->Ins_tf_options_version(), true );
-					wp_enqueue_script( 'setup-wizard', $this->Ins_tf_options_file_url( 'assets/js/setup-wizard.js' ), array( 'jquery' ), $this->Ins_tf_options_version(), true );
+						wp_enqueue_script( 'setup-wizard', $this->Ins_tf_options_file_url( 'assets/js/setup-wizard.js' ), array( 'jquery' ), $setup_wizard_version, true );
 					wp_enqueue_script( 'notyf-js', $this->Ins_tf_options_file_url( 'assets/libs/notyf/notyf.min.js' ), array( 'jquery' ), $this->Ins_tf_options_version(), true );
 				//dashboard
 				if ( $screen == 'instantio_page_ins_dashboard' ) {

@@ -100,15 +100,15 @@
                 url: ins_options.ajax_url,
                 type: 'POST',
                 data: formData,
+                dataType: 'json',
                 processData: false,
                 contentType: false,
                 beforeSend: function () {
                     submitBtn.addClass('tf-btn-loading');
                 },
                 success: function (response) {
-                    let data = JSON.parse(response);
                     submitBtn.removeClass('tf-btn-loading');
-                    if (data.success) {
+                    if (response && response.success) {
                         $('.tf-finish-step').show();
                         $('.tf-setup-step-' + step).hide();
                     }

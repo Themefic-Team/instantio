@@ -117,11 +117,6 @@ Ins_TF_Settings::option( 'wiopt', array(
 							'title' => __( 'Cart', 'instantio' ),
 							'url' => plugin_dir_url( __FILE__ ) . '../img/layout/sidecart.jpg',
 						),
-
-						'cart_and_checkout' => array(
-							'title' => __( 'Cart & Checkout', 'instantio' ),
-							'url' => plugin_dir_url( __FILE__ ) . '../img/layout/CartCheckout.svg',
-						)
 					),
 					'default' => 'cart',
 					'dependency' => array( 'ins-layout-options', '!=', '1' ),
@@ -354,43 +349,6 @@ Ins_TF_Settings::option( 'wiopt', array(
 							'dependency' => array( 'on-checkout-btn', '==', 'true' ),
 						),
 					),
-				),
-
-				array(
-					'id' => 'ins-page-selected',
-					'type' => 'select2',
-					'placeholder' => __( 'Disable Instantio', 'instantio' ),
-					'label' => __( 'Disable Instantio', 'instantio' ),
-					'default' => 'cart',
-					'description' => __( 'The Instantio cart functionality will not be visible on this particular page. Note: You won\'t be able to hide it from the default shop page.', 'instantio' ),
-					'options' => 'posts',
-					'multiple' => true,
-					'query_args' => array(
-						'post_type' => 'page',
-						'posts_per_page' => -1,
-					)
-				),
-
-				array(
-					'id' => 'woins-quickview-disable',
-					'class' => 'ins-csf-disable badge_pro',
-					'type' => 'switch',
-					'label' => __( 'Disable Quick View', 'instantio' ),
-					'subtitle' => __( 'You can disable it if you already have quick view function in your theme (Applicable for Variable products)', 'instantio' ),
-					'label_on' => __( 'Yes', 'instantio' ),
-					'label_off' => __( 'No', 'instantio' ),
-					'default' => false,
-				),
-
-				array(
-					'id' => 'wi-disable-ajax-add-cart',
-					'class' => 'ins-csf-disable badge_pro',
-					'type' => 'switch',
-					'label' => __( 'Disable Ajax Add to Cart', 'instantio' ),
-					'subtitle' => __( 'You can disable it if you already have ajax "add to cart" function in your theme (To avoid conflict)', 'instantio' ),
-					'label_on' => __( 'Yes', 'instantio' ),
-					'label_off' => __( 'No', 'instantio' ),
-					'default' => false,
 				),
 			),
 		),
@@ -1116,7 +1074,8 @@ Ins_TF_Settings::option( 'wiopt', array(
 					'id' => 'checkout_editors_fields',
 					'type' => 'repeater',
 					// 'class'    		=> 'disable-sortable',
-					'button_title' => __( 'Add billing field', 'instantio' ),
+					'drag_only' => true,
+					// 'button_title' => __( 'Add billing field', 'instantio' ),
 					'label' => __( 'Checkout Billing Form', 'instantio' ),
 					'subtitle' => __( 'You can able to change form field positions by Drag.', 'instantio' ),
 					'fields' => array(
@@ -1167,8 +1126,9 @@ Ins_TF_Settings::option( 'wiopt', array(
 				array(
 					'id' => 'checkout_shiping_editors_fields',
 					'type' => 'repeater',
+					'drag_only' => true,
 					// 'class'    		=> 'disable-sortable',
-					'button_title' => __( 'Add shipping field', 'instantio' ),
+					// 'button_title' => __( 'Add shipping field', 'instantio' ),
 					'label' => __( 'Checkout Shipping Form', 'instantio' ),
 					'subtitle' => __( 'You can able to change form field positions by Drag.', 'instantio' ),
 					'fields' => array(
@@ -1242,33 +1202,6 @@ Ins_TF_Settings::option( 'wiopt', array(
 			),
 		),
 
-		'optimization' => array(
-			'title' => __( 'Optimization', 'instantio' ),
-			'icon' => 'fas fa-bolt',
-			'fields' => array(
-
-				// array(
-				// 	'id'       		=> 'css-min',
-				// 	'type'     		=> 'switch',
-				// 	'is_pro'    	=> true,
-				// 	'label'    		=> __('Minify CSS', 'instantio'),
-				// 	'subtitle' 		=> __('Enable/disable Instantio CSS minification', 'instantio'),
-				// 	'label_on'    	=> __('Enabled', 'instantio' ),
-				// 	'label_off'   	=> __('Disabled', 'instantio' ),
-				// 	'width' 		=> 100,
-				// 	'default'   	=> false,           
-				// ),
-
-				array(
-					'id' => 'js-min',
-					'type' => 'switch',
-					'label' => __( 'Minify JS', 'instantio' ),
-					'subtitle' => __( 'Enable/disable Instantio JS minification', 'instantio' ),
-					'label_on' => __( 'Enabled', 'instantio' ),
-					'label_off' => __( 'Disabled', 'instantio' ),
-					'default' => false,
-				),
-			),
-		),
+		
 	),
 ) );
