@@ -1792,8 +1792,6 @@ msgstr ""
 msgid "Upgrade now"
 msgstr ""
 
-
-
 #: admin/tf-options/options/tf-settings.php:608
 msgid "Upload your cart icon. Recommended size of an icon is 26x26px"
 msgstr ""

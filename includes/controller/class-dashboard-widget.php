@@ -119,15 +119,14 @@ class InsDashboardWidget {
             <?php if(!class_exists('WOOINS')){  ?>
             <!-- Upsell -->
             <div class="ins-upsell">
-                <h4><?php esc_html_e( 'Unlock Pro Features', 'instantio' ); ?></h4>
+                <h4><?php esc_html_e( 'Additional Features in Instantio Pro', 'instantio' ); ?></h4>
                 <ul>
-                    <li><?php esc_html_e( '✔ Single Page Checkout', 'instantio' ); ?></li>
+                    <li><?php esc_html_e( '✔ Additional Same-Page Checkout Layouts', 'instantio' ); ?></li>
                     <li><?php esc_html_e( '✔ Upsells Products', 'instantio' ); ?></li>
                     <li><?php esc_html_e( '✔ Crossell Products', 'instantio' ); ?></li>
-                    <li><?php esc_html_e( '✔ Customize Checkout Fields', 'instantio' ); ?></li>
                 </ul>
                 <a href="<?php echo esc_url( 'https://themefic.com/instantio/pricing/' ); ?>" target="_blank" class="button button-primary go-pro">
-                    <?php esc_html_e( 'Upgrade Now', 'instantio' ); ?>
+                    <?php esc_html_e( 'Explore Instantio Pro', 'instantio' ); ?>
                 </a>
             </div>
             <?php } ?>
