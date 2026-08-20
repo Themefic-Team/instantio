@@ -627,9 +627,6 @@ msgstr ""
 msgid "Disabled"
 msgstr ""
 
-#: includes/controller/class-helper-banner.php:95
-msgid "Discount"
-msgstr ""
 
 #: functions.php:179
 msgid "Dismiss this notice."
@@ -1795,14 +1792,7 @@ msgstr ""
 msgid "Upgrade now"
 msgstr ""
 
-#: admin/tf-options/classes/Ins_TF_Settings.php:347
-msgid "Upgrade to PRO"
-msgstr ""
 
-#: admin/tf-options/classes/Ins_TF_Settings.php:149
-#: admin/tf-options/classes/Ins_TF_Settings.php:150
-msgid "Upgrade to Pro"
-msgstr ""
 
 #: admin/tf-options/options/tf-settings.php:608
 msgid "Upload your cart icon. Recommended size of an icon is 26x26px"

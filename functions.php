@@ -157,13 +157,4 @@ function ins_cleanup_remote_promotion_data() {
 }
 add_action( 'admin_init', 'ins_cleanup_remote_promotion_data' );
 
-// ins Featured Banner
-if ( file_exists( INS_INC_PATH . '/controller/class-helper-banner.php' ) ) {
-	require_once INS_INC_PATH . '/controller/class-helper-banner.php';
-}
-
-if ( file_exists( INS_INC_PATH . '/controller/dashboard-promo-notice.php' ) ) {
-	require_once INS_INC_PATH . '/controller/dashboard-promo-notice.php';
-}
-
 ?>

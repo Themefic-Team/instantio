@@ -67,82 +67,6 @@ class Admin {
 		}
 	}
 
-	// Themefic Plugin Review Admin Notice
-	// public function ins_review_activation_status(){ 
-	//     $ins_installation_date = get_option('ins_installation_date'); 
-	//     if( !isset($_COOKIE['ins_installation_date']) && empty($ins_installation_date) && $ins_installation_date == 0){
-	//         setcookie('ins_installation_date', 1, time() + (86400 * 7), "/"); 
-	//     }else{
-	//         update_option( 'ins_installation_date', '1' );
-	//     }
-	// }
-
-	// Themefic Plugin Review Admin Notice
-	public function ins_review_notice() {
-		$get_current_screen = get_current_screen();
-		if ( $get_current_screen->base == 'dashboard' ) {
-			$current_user = wp_get_current_user();
-			?>
-			<div class="notice notice-info themefic_review_notice">
-
-					<?php
-						printf(
-							/* translators: 1: current user login, 2: plugin name. */
-							esc_html__( ' Hey %1$s 👋, You have been using %2$s for quite a while. If you feel %2$s is helping your business to grow in any way, would you please help %2$s to grow by simply leaving a 5* review on the WordPress Forum?', 'instantio' ),
-							esc_html( $current_user->user_login ),
-							esc_html( 'Instantio' )
-					);
-					?>
-
-				<ul>
-					<li><a target="_blank"
-							href="<?php echo esc_url( 'https://wordpress.org/support/plugin/instantio/reviews/#new-post' ) ?>"
-							class=""><span class="dashicons dashicons-external"></span>
-								<?php esc_html_e( ' Ok, you deserve it!', 'instantio' ) ?>
-						</a></li>
-					<li><a href="#" class="already_done" data-status="already"><span class="dashicons dashicons-smiley"></span>
-								<?php esc_html_e( 'I already did', 'instantio' ) ?>
-						</a></li>
-					<li><a href="#" class="later" data-status="later"><span class="dashicons dashicons-calendar-alt"></span>
-								<?php esc_html_e( 'Maybe Later', 'instantio' ) ?>
-						</a></li>
-					<li><a target="_blank" href="<?php echo esc_url( 'https://themefic.com/docs/instantio/' ) ?>" class=""><span
-								class="dashicons dashicons-sos"></span>
-								<?php esc_html_e( 'I need help', 'instantio' ) ?>
-						</a></li>
-					<li><a href="#" class="never" data-status="never"><span class="dashicons dashicons-dismiss"></span>
-								<?php esc_html_e( 'Never show again', 'instantio' ) ?>
-						</a></li>
-				</ul>
-			</div>
-
-			<!--   Themefic Plugin Review Admin Notice Script -->
-			<script>
-				jQuery(document).ready(function ($) {
-					$(document).on('click', '.already_done, .later, .never', function (event) {
-						event.preventDefault();
-						var $this = jQuery(this);
-						var status = $this.attr('data-status');
-						$this.closest('.themefic_review_notice').css('display', 'none')
-						data = {
-							action: 'ins_review_notice_callback',
-						};
-
-							$.ajax({
-								url: '<?php echo esc_url( admin_url( 'admin-ajax.php' ) ); ?>',
-							type: 'POST',
-							data: data,
-							success: function (res) {
-							},
-							error: function (err) {
-							}
-						});
-					});
-				});
-			</script>
-		<?php
-		}
-	}
 
 	// Version Warning Admin Notice
 	public function version_warning() { ?>
@@ -151,27 +75,6 @@ class Admin {
 		</div>
 	<?php }
 
-	// Themefic Plugin Review Admin Notice
-	// public function ins_review_notice_callback() {
-	//     // Check if this is a valid AJAX request
-	//     check_ajax_referer('ins_review_nonce', 'security');
-
-	//     $status = sanitize_text_field($_POST['status']); // Sanitize user input
-
-	//     if ($status === 'already') {
-	//         update_option('ins_review_notice_status', '1');
-	//     } elseif ($status === 'never') {
-	//         update_option('ins_review_notice_status', '2');
-	//     } elseif ($status === 'later') {
-	//         $cookie_name = 'ins_review_notice_status';
-	//         $cookie_value = '1';
-	//         // Set a cookie with a 7-day expiration
-	//         setcookie($cookie_name, $cookie_value, time() + (86400 * 7), '/');
-	//         update_option('ins_review_notice_status', '0');
-	//     }
-
-	//     wp_die();
-	// } 
 
 
 	/**
@@ -250,10 +153,6 @@ class Admin {
 					<span class="ins-notices" data-plugin-slug="instantiopro">
 						<?php esc_attr_e( 'Please Updated Now', 'instantio' ); ?>
 					</span>
-
-					<!-- <a  href="<?php //echo get_admin_url();  ?>update.php?action=upgrade-plugin&amp;plugin=wooinstant%2Fwooinstant.php&_wpnonce=<?php // echo wp_create_nonce('updates')  ?>" href="//echo get_admin_url();wp-admin/update.php?action=upgrade-plugin&amp;plugin=wooinstant%2Fwooinstant.php&amp;_wpnonce=442cf75765" class="update-link" aria-label="Update Instantio Pro now">update now</a> -->
-					<!-- //echo get_admin_url();wp-admin/update.php?action=upgrade-plugin&plugin=wooinstant%2Fwooinstant.php&_wpnonce=00962cb15e -->
-
 				</p>
 			</div>
 

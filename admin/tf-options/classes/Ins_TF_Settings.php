@@ -141,20 +141,6 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 				$this->option_id . '#tab=general',
 				array( $this, 'ins_admin_options_page' ),
 			);
-
-			//What's New submenu Update to pro
-			if ( ! is_plugin_active( 'wooinstant/wooinstant.php' ) ) {
-
-				add_submenu_page(
-					$this->option_id,
-					__( 'Upgrade to Pro', 'instantio' ),
-					'<span style="color:#db5209; font-weight: 900;">' . __( "Upgrade to Pro", "instantio" ) . '</span>',
-					'manage_options',
-					'https://themefic.com/instantio/go/upgrade',
-
-				);
-			}
-
 			// remove first submenu
 			remove_submenu_page( $this->option_id, $this->option_id );
 
