@@ -3,6 +3,8 @@
 // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 namespace INS\Controller;
 
+defined( 'ABSPATH' ) || exit;
+
 class App {
 
 	public $layout = 1;
