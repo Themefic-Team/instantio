@@ -4,10 +4,10 @@
   "type": "wordpress-plugin",
   "license": "GPL-3.0-or-later",
   "authors": [
-    {
-      "name": "M Hemel Hasan",
-      "email": "hemelsrgmts@gmail.com"
-    }
+     {
+      "name": "Themefic",
+      "homepage": "https://themefic.com/"
+    },
   ],
   "minimum-stability": "dev",
   "require": {},
