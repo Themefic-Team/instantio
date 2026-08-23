@@ -370,7 +370,7 @@ For those seeking simplicity, Instantio provides a simplified WooCommerce checko
 
 == Changelog ==
 
-= 3.3.34 – Aug 23, 2026 =
+= 3.3.35 – Aug 23, 2026 =
 
 - Security: Nonce verification and capability checks for admin actions.
 - Improvement: Optimized frontend animations and bundled local assets.
