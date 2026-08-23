@@ -380,11 +380,6 @@ For those seeking simplicity, Instantio provides a simplified WooCommerce checko
 = 3.3.34 – Jun 28, 2026 =
 
 - Compatibility: Checkout Editor compatible with latest woocommerce.
-- Compliance: Removed built-in locked controls and fully enabled the Free checkout editor.
-- Privacy: Removed telemetry and automatic promotional service requests.
-- Licensing: Replaced GSAP with native browser animations and bundled required admin assets locally.
-- Security: Hardened settings and cart AJAX requests while preserving existing option storage.
-- Accessibility: Improved cart control names, keyboard behavior, focus handling, and reduced-motion support.
 
 = 3.3.33 – April 26, 2026 =
 
