@@ -3,6 +3,8 @@
 // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 namespace INS\Controller;
 
+defined( 'ABSPATH' ) || exit;
+
 class Admin {
 
 	public function __construct() {
