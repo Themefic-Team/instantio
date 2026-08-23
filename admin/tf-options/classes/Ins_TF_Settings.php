@@ -326,19 +326,7 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 										</a>
 									</div>
 								</div>
-
-								<div class="request-features">
-									<img src="<?php echo esc_url( INS_ADMIN_URL . '/tf-options/img/feature-selection.png' ); ?>" alt="image">
-									<h4>
-										<?php esc_html_e( "Have any thoughts or feature request?", "instantio" ); ?>
-									</h4>
-									<p>
-										<?php esc_html_e( "We believe your feature request will make our website more user-friendly. Our dedicated team will review it and take it into consideration for future updates.", "instantio" ); ?>
-									</p>
-									<a target="_blank" href="https://themefic.com/feature-request/" class="btn-desh-primary-tran">
-										<?php esc_html_e( "Submit request", "instantio" ); ?>
-									</a>
-								</div>
+ 
 							</div>
 						</div>
 
