@@ -15,24 +15,15 @@
 $change = [
 
         // Update  start
-       'v46' => [
-           'date'      => 'February 08, 2026',
-           'version'   => 'Version 3.3.30',
+       'v47' => [
+           'date'      => 'Aug 23, 2026',
+           'version'   => 'Version 3.3.35',
            'changelog' => [
-               'Added'   =>   [
-                   'Custom link for empty cart.',
-                   'Custom message for empty cart.'
-               ]
-           ]
-       ],
-       // Update End  
-       // Update  start
-       'v45' => [
-           'date'      => 'December 08, 2025',
-           'version'   => 'Version 3.3.29',
-           'changelog' => [
-               'Compatibility'   =>   [
-                   'Fully compatible with WordPress v6.9',
+               'Updated'   =>   [
+                   'Nonce verification and capability checks for admin actions.',
+                   'Optimized frontend animations and bundled local assets.',
+                   'Addressed minor bugs and code standards improvements.',
+                   'Addressed WordPress.org reported issues.'
                ]
            ]
        ],
