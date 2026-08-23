@@ -1,9 +1,9 @@
 === Instantio — Side Cart & One-Page Checkout for WooCommerce ===
 Contributors: themefic, kamrul0424, hemelhasan, hasanet, mdrejon, mdashikul
 Tags: woocommerce cart, woocommerce checkout, woocommerce direct checkout, multistep checkout, woocommerce side cart
-Requires at least: 4.9
-Tested up to: 7.0
-Stable tag: 3.3.34
+Requires at least: 6.8
+Tested up to: 7.1
+Stable tag: 3.3.35
 WC requires at least: 7.0
 WC tested up to: 11.0
 Requires PHP: 7.4
@@ -369,6 +369,13 @@ For those seeking simplicity, Instantio provides a simplified WooCommerce checko
 17. Mini Cart - The Mini Cart Drawer feature allows you to add a cart drawer for WooCommerce and place it anywhere on your website.
 
 == Changelog ==
+
+= 3.3.34 – Aug 23, 2026 =
+
+- Security: Nonce verification and capability checks for admin actions.
+- Improvement: Optimized frontend animations and bundled local assets.
+- Fix: Addressed minor bugs and code standards improvements.
+- Updated: Addressed WordPress.org reported issues.
 
 = 3.3.34 – Jun 28, 2026 =
 
