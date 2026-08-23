@@ -405,7 +405,7 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 											<p>
 												<?php esc_html_e( "Customer will checkout from Same Window (Side drawer). The checkout process will be Multi-step (Cart -> Checkout, No Reload).", "instantio" ); ?>
 											</p>
-											<a target="_blank" href="https://wpinstant.io/side-checkout/" class="btn-premium-fea">
+											<a target="_blank" href="https://themefic.com/instantio/" class="btn-premium-fea">
 												<?php esc_html_e( "See Preview", "instantio" ); ?>
 											</a>
 										</figcaption>
@@ -423,7 +423,7 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 											<p>
 												<?php esc_html_e( "The checkout process will be Single-step. Cart & Checkout will be shown on the Same Window, No Page Reload.", "instantio" ); ?>
 											</p>
-											<a target="_blank" href="https://wpinstant.io/side-checkout-single/"
+											<a target="_blank" href="https://themefic.com/instantio/"
 												class="btn-premium-fea">
 												<?php esc_html_e( "See Preview", "instantio" ); ?>
 											</a>
@@ -444,7 +444,7 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 												<?php esc_html_e( "Customer will checkout from Same Window (Popup). The checkout process will be Multi-step (Cart -> Checkout)", "instantio" ); ?>
 											</p>
 
-											<a target="_blank" href="https://wpinstant.io/popup-checkout/" class="btn-premium-fea">
+											<a target="_blank" href="https://themefic.com/instantio/" class="btn-premium-fea">
 												<?php esc_html_e( "See Preview", "instantio" ); ?>
 											</a>
 										</figcaption>
@@ -462,7 +462,7 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 											<p>
 												<?php esc_html_e( "The checkout process will be Single-step Popup (Cart & Checkout on Same Window, No Page Reload).", "instantio" ); ?>
 											</p>
-											<a target="_blank" href="https://wpinstant.io/popup-checkout-single/"
+											<a target="_blank" href="https://themefic.com/instantio/"
 												class="btn-premium-fea">
 												<?php esc_html_e( "See Preview", "instantio" ); ?>
 											</a>
@@ -481,7 +481,7 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 											<p>
 												<?php esc_html_e( "Instantio offer Ajax-based Upsell feature with which you can sell related or complementary products to a customer.", "instantio" ); ?>
 											</p>
-											<a target="_blank" href="https://wpinstant.io/upsells/" class="btn-premium-fea">
+											<a target="_blank" href="https://themefic.com/instantio/" class="btn-premium-fea">
 												<?php esc_html_e( "See Preview", "instantio" ); ?>
 											</a>
 										</figcaption>
@@ -499,7 +499,7 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 											<p>
 												<?php esc_html_e( "With Instantio, you can also do Ajax based cross-sell by selling related or complementary products to a customer.", "instantio" ); ?>
 											</p>
-											<a target="_blank" href="https://wpinstant.io/cross-sells/" class="btn-premium-fea">
+											<a target="_blank" href="https://themefic.com/instantio/" class="btn-premium-fea">
 												<?php esc_html_e( "See Preview", "instantio" ); ?>
 											</a>
 										</figcaption>
@@ -517,7 +517,7 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 											<p>
 												<?php esc_html_e( "A dedicated mobile layout for smaller devices to make your checkout process much smoother for customers.", "instantio" ); ?>
 											</p>
-											<a target="_blank" href="https://wpinstant.io/mobile/" class="btn-premium-fea">
+											<a target="_blank" href="https://themefic.com/instantio/" class="btn-premium-fea">
 												<?php esc_html_e( "See Preview", "instantio" ); ?>
 											</a>
 										</figcaption>
