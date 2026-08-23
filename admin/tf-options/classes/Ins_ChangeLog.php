@@ -1,5 +1,5 @@
 <?php 
-
+defined( 'ABSPATH' ) || exit;
 // This included data file exposes its legacy variable to the settings renderer.
 // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 
