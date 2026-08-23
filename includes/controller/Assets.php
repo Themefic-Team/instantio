@@ -3,6 +3,8 @@
 // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 namespace INS\Controller;
 
+defined( 'ABSPATH' ) || exit;
+
 class Assets {
 	public function __construct() {
 		WC()->frontend_includes();
