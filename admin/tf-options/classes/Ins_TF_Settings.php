@@ -293,22 +293,7 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 											</span>
 										</a>
 									</div>
-									<div class="tf-single-support">
-										<a href="https://portal.themefic.com/support/" target="_blank">
-											<img src="<?php echo esc_url( plugin_dir_url( __FILE__ ) . '../img/wizard/tf-mail.svg' ) ?>"
-												alt="Document">
-											<h3>
-												<?php esc_html_e( "Email Support", "instantio" ); ?>
-											</h3>
-											<p>
-												<?php esc_html_e( "As part of our overall support strategy to provide the best experience.", "instantio" ); ?>
-											</p>
-											<span>
-												<?php esc_html_e( "Contact Us", "instantio" ); ?>
-											</span>
-										</a>
-									</div>
-
+									
 									<div class="tf-single-support">
 										<a href="https://www.youtube.com/playlist?list=PLY0rtvOwg0ykIvNBa8XI3SR7WEbdqqKoO"
 											target="_blank">
