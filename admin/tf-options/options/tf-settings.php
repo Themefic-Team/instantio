@@ -611,28 +611,6 @@ Ins_TF_Settings::option( 'wiopt', array(
 									'type' => 'heading',
 									'label' => __( 'Cart Panel Design', 'instantio' ),
 								),
-
-								// array(
-								// 	'id'       		=> 'toggle-panel-position',
-								// 	'type'     		=> 'imageselect',
-								// 	'multiple' 		=> true,
-								// 	'inline'   		=> true,
-								// 	'class' 		=> 'ins-layout-options-imageset200',
-								// 	'label'    		=> __('Toggle Panel Position', 'instantio'),
-								// 	'subtitle' 		=> __('Changes position of the Cart Toggle Panel (Cart Panel)', 'instantio'),
-								// 	'options'  		=> array(
-								// 		'left'   			=> array(
-								// 			'title'			=> 'Cart Panel Left',
-								// 			'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/sidecartleft.png',
-								// 		),
-								// 		'right'  			=> array(
-								// 			'title'			=> 'Cart Panel Right',
-								// 			'url' 			=> plugin_dir_url( __FILE__ ).'../img/layout/sidecart.jpg',
-								// 		),
-								// 	), 
-								// 	'default'  		=> 'right',
-								// 	'inline'   		=> true,
-								// ),
 								array(
 									'id' => 'ins_panel_Theme_color',
 									'type' => 'color',
@@ -984,40 +962,6 @@ Ins_TF_Settings::option( 'wiopt', array(
 							),
 						),
 
-						// array(
-						// 	'id'  		=> 'toggle_panel_confirmation',
-						// 	'title'		=> esc_html__( 'Checkout Confirmation', 'instantio' ),
-						// 	'fields' 	=> array(
-						// 		array(
-						// 			'id'       		=> 'confirmation_thankyou',
-						// 			'type'     		=> 'color',
-						// 			'class'			=> 'tf-field-color-single',
-						// 			'label'    		=> __( 'Confirmation Page ThankYou', 'instantio' ),
-						// 			'subtitle' 		=> __( 'Confirmation Page Thank You message Color', 'instantio' ),
-						// 			'is_pro'		=> true,
-						// 		),
-
-						// 		array(
-						// 			'id'       		=> 'confirmation_contact',
-						// 			'type'     		=> 'color',
-						// 			'class'			=> 'tf-field-color-single',
-						// 			'label'    		=> __( 'Confirmation Page Contact', 'instantio' ),
-						// 			'subtitle' 		=> __( 'Confirmation Page Contact Info Color', 'instantio' ),
-						// 			'is_pro'		=> true,
-						// 		),
-
-						// 		array(
-						// 			'id'       		=> 'confirmation_shipping',
-						// 			'type'     		=> 'color',
-						// 			'class'			=> 'tf-field-color-single',
-						// 			'label'    		=> __( 'Confirmation Page Shipping', 'instantio' ),
-						// 			'subtitle' 		=> __( 'Confirmation Page Shipping Info Color', 'instantio' ),
-						// 			'is_pro'		=> true,
-						// 		),
-						// 	),
-						// ),
-
-
 					),
 				),
 
@@ -1036,7 +980,6 @@ Ins_TF_Settings::option( 'wiopt', array(
 					'class' => 'tf-field-color-single',
 					'label' => __( 'Quick View Background', 'instantio' ),
 					'subtitle' => __( 'Instantio Quick View Panel Background Color', 'instantio' ),
-					// 'is_pro'		=> true,
 				),
 
 				array(
@@ -1044,8 +987,7 @@ Ins_TF_Settings::option( 'wiopt', array(
 					'type' => 'color',
 					'class' => 'tf-field-color-single',
 					'label' => __( 'Quick View Color', 'instantio' ),
-					'subtitle' => __( 'Instantio Quick View Panel Text & Cross Color', 'instantio' ),
-					// 'is_pro'		=> true, 		
+					'subtitle' => __( 'Instantio Quick View Panel Text & Cross Color', 'instantio' ),		
 				),
 
 				array(

@@ -327,29 +327,6 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 									</div>
 								</div>
 
-								<?php
-								$is_Pro_class = new Ins_TF_Options;
-								$is_Pro_active = $is_Pro_class->is_ins_pro_active();
-
-								if ( $is_Pro_active === false ) { ?>
-
-									<div class="updatedtopro">
-										<h4>
-											<?php esc_html_e( "Upgrade to PRO", "instantio" ); ?>
-										</h4>
-
-										<p>
-											<?php esc_html_e( "To provide amazing experience to your guests and sell more with less effort. Bonus: You can upgrade to our plans today and save 50% off.", "instantio" ); ?>
-										</p>
-
-										<a target="_blank" href="https://themefic.com/instantio/" class="btn-desh-primary">
-											<?php esc_html_e( "Upgrade now", "instantio" ); ?>
-										</a>
-									</div>
-
-								<?php } ?>
-
-
 								<div class="request-features">
 									<img src="<?php echo esc_url( INS_ADMIN_URL . '/tf-options/img/feature-selection.png' ); ?>" alt="image">
 									<h4>
