@@ -23,11 +23,11 @@ Previous SHA-256: `1bddca6902e3852bca89df06815e5bda62185bbdd0741f0d730546425a912
 
 These steps must be run on a separate disposable WordPress installation so the existing development site's plugin directory and settings are not reused.
 
-- [ ] Install WordPress with WooCommerce but without an existing Instantio directory or `wiopt` option.
-- [ ] Upload and activate `instantio-3.3.34.zip` through Plugins > Add New > Upload Plugin.
-- [ ] Confirm activation produces no PHP warning, fatal error, or unexpected outbound network request.
-- [ ] Complete the Instantio setup wizard.
-- [ ] Save Layout, Design, Cart Icon, Mobile, Optimization, and Checkout Editor settings; reload and verify persistence.
+- [x] Install WordPress with WooCommerce but without an existing Instantio directory or `wiopt` option.
+- [x] Upload and activate `instantio-3.3.34.zip` through Plugins > Add New > Upload Plugin.
+- [x] Confirm activation produces no PHP warning, fatal error, or unexpected outbound network request.
+- [x] Complete the Instantio setup wizard.
+- [x] Save Layout, Design, Cart Icon, Mobile, Optimization, and Checkout Editor settings; reload and verify persistence.
 - [ ] Add, clone, reorder, disable, delete, and reset a Checkout Editor field.
 - [ ] Test Direct Checkout, Side Cart, and Popup Cart.
 - [ ] Test simple, variable, grouped, virtual, and sold-individually products.

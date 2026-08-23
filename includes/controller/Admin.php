@@ -15,10 +15,6 @@ class Admin {
 			// add_action( 'admin_notices', array($this, 'ins_review_notice') );  
 		}
 
-		// add_action( 'admin_notices', array($this, 'ins_review_notice') ); 
-
-		// add_action('admin_init', array($this, 'ins_review_activation_status')); 
-
 		/**
 		 * Check if WooCommerce is active, and if it isn't, disable the plugin.
 		 *
@@ -50,8 +46,6 @@ class Admin {
 		// Activation & Dactivation Hook
 		register_activation_hook( INS_PATH . 'instantio.php', array( $this, 'ins_activate' ) );
 		register_deactivation_hook( INS_PATH . 'instantio.php', array( $this, 'ins_deactivate' ) );
-
-
 	}
 
 

@@ -351,7 +351,7 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 
 
 								<div class="request-features">
-						<img src="<?php echo esc_url( INS_ADMIN_URL . '/tf-options/img/feature-selection.png' ); ?>" alt="image">
+									<img src="<?php echo esc_url( INS_ADMIN_URL . '/tf-options/img/feature-selection.png' ); ?>" alt="image">
 									<h4>
 										<?php esc_html_e( "Have any thoughts or feature request?", "instantio" ); ?>
 									</h4>
@@ -861,7 +861,7 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 																	data-tab="<?php echo esc_attr( $sub_key ) ?>">
 																	<span class="tf-tablinks-inner">
 																		<?php echo ! empty( $sub['icon'] ) ? '<span class="tf-sec-icon"><i class="' . esc_attr( $sub['icon'] ) . '"></i></span>' : ''; ?>
-											<?php echo esc_html( $sub['title'] ); ?>
+																		<?php echo esc_html( $sub['title'] ); ?>
 																	</span>
 																</a>
 															</li>
@@ -904,68 +904,12 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 												<?php esc_html_e( 'Save', 'instantio' ); ?>
 											</button>
 										</div>
-
-
-
 									</div>
 								</div>
 								<?php wp_nonce_field( 'ins_option_nonce_action', 'ins_option_nonce' ); ?>
 							</form>
-						</div>
-
-						<div class="instantio-sidebar-content">
-							
-							<div class="ins-dashboard-promo-banner-header ins-sidebar-promo-header">
-								<?php do_action( 'ins_dashboard_promo_notice' ); ?>
-							</div>
-
-							<!-- promo banner  -->
-					<?php echo wp_kses_post( apply_filters( 'ins_dashboard_helper_banner', '' ) ); ?>
-
-							<div class="customization-quote">
-								<div class="quote-header">
-									<i class="fa-solid fa-code"></i>
-						<a href="<?php echo esc_url( 'https://portal.themefic.com/hire-us/' ); ?>" target="_blank"><?php esc_html_e( 'Get Free Quote', 'instantio' ); ?></a>
-								</div>
-								<div class="quote-content">
-						<h3><?php esc_html_e( 'Need Help Customizing Your WordPress Site?', 'instantio' ); ?></h3>
-						<p><?php esc_html_e( 'Want to tweak a theme, adjust a plugin like instantio or add custom functionality to your site? Our expert WordPress developers can tailor it just the way you need. We only charge $29/hour.', 'instantio' ); ?></p>
-								</div>
-							</div>
-
-							<div class="quick-access">
-					<h3><?php esc_html_e( 'Helpful Resources', 'instantio' ); ?></h3>
-								<div class="quick-access-wrapper">
-									<div class="access-item">
-										<a href="https://themefic.com/docs/instantio/" target="_blank">
-											<span class="icon"><i class="fa-solid fa-folder-open"></i></span>
-											<?php esc_html_e( 'Documentation', 'instantio' ); ?>
-										</a>
-									</div>
-									<div class="access-item">
-										<a href="https://portal.themefic.com/support/" target="_blank">
-											<span class="icon"><i class="fa-solid fa-headset"></i></span>
-											<?php esc_html_e( 'Get Support', 'instantio' ); ?>
-										</a>
-									</div>
-									<div class="access-item">
-										<a href="https://facebook.com/groups/instantio.wp" target="_blank">
-											<span class="icon"><i class="fa-solid fa-users"></i></span>
-											<?php esc_html_e( 'Join our Community', 'instantio' ); ?>
-										</a>
-									</div>
-									<div class="access-item">
-										<a href="https://portal.themefic.com/support/" target="_blank">
-											<span class="icon"><i class="fa-solid fa-lightbulb"></i></span>
-											<?php esc_html_e( 'Request a Feature', 'instantio' ); ?>
-										</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					
+						</div>					
 					</div>
-
 				</div>
 				<?php
 			endif;
