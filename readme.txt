@@ -345,9 +345,6 @@ If speed is a priority, Instantio offers a fast checkout solution for WooCommerc
 
 For those seeking simplicity, Instantio provides a simplified WooCommerce checkout process. An even simpler version is available in our <strong><a href="https://themefic.com/instantio/pricing/" target="_blank">Pro Version</a></strong>.
 
-
-=  =
-
 == Screenshots ==
 
 1. Layout and settings panel - Organised and Optimised  Control.
