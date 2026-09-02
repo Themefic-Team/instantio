@@ -29,9 +29,6 @@ if ( ! class_exists( 'Ins_TF_Options' ) ) {
 			//load files
 			$this->Ins_classes_load_files();
 
-			//load metaboxes
-			$this->load_metaboxes();
-
 			//load options
 			$this->Ins_load_options();
 
@@ -70,35 +67,18 @@ if ( ! class_exists( 'Ins_TF_Options' ) ) {
 		 * @author Foysal
 		 */
 		public function Ins_classes_load_files() {
-			// Metaboxes Class
-			require_once $this->Ins_tf_options_file_path( 'classes/INS_Metabox.php' );
 			// Settings Class
 			require_once $this->Ins_tf_options_file_path( 'classes/Ins_TF_Settings.php' );
-			//Taxonomy Class
-			require_once $this->Ins_tf_options_file_path( 'classes/TF_Taxonomy_Metabox.php' );
 
-		}
-
-		/**
-		 * Load metaboxes
-		 * @author Foysal
-		 */
-		public function load_metaboxes() {
-			// if ( $this->is_ins_pro_active() ) {
-			// 	$metaboxes = glob( INS_PRO_ADMIN_URL . '/tf-options/metaboxes/*.php' );
-			// } else {
-			// 	$metaboxes = glob( $this->Ins_tf_options_file_path( 'metaboxes/*.php' ) );
-			// }
-			$metaboxes = glob( $this->Ins_tf_options_file_path( 'metaboxes/*.php' ) );
-
-
-			if ( ! empty( $metaboxes ) ) {
-				foreach ( $metaboxes as $metabox ) {
-					if ( file_exists( $metabox ) ) {
-						require_once $metabox;
-					}
+			// Field base class must load before the individual field implementations.
+			require_once $this->Ins_tf_options_file_path( 'fields/INS_Fields.php' );
+			$field_files = glob( $this->Ins_tf_options_file_path( 'fields/*/*.php' ) );
+			if ( is_array( $field_files ) ) {
+				foreach ( $field_files as $field_file ) {
+					require_once $field_file;
 				}
 			}
+
 		}
 
 		/**
@@ -284,7 +264,7 @@ if ( ! class_exists( 'Ins_TF_Options' ) ) {
 
 				<div class="tf-fieldset">
 					<?php
-					$fieldClass = 'INS_' . $field['type'];
+					$fieldClass = 'Instantio_Field_' . ucfirst( $field['type'] );
 					if ( class_exists( $fieldClass ) ) {
 						$_field = new $fieldClass( $field, $value, $settings_id, $parent );
 						$_field->render();

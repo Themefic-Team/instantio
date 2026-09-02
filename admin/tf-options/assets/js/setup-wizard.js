@@ -94,7 +94,7 @@
             }
 
             let formData = new FormData(form[0]);
-            formData.append('action', 'tf_setup_wizard_submit');
+            formData.append('action', 'instantio_setup_wizard_submit');
 
             $.ajax({
                 url: ins_options.ajax_url,

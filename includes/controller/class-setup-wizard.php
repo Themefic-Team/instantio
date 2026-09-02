@@ -5,8 +5,8 @@ defined( 'ABSPATH' ) || exit;
  * @since 3.0.0
  * @author M Hemel Hasan
  */
-if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
-	class TF_Setup_Wizard {
+if ( ! class_exists( 'Instantio_Setup_Wizard' ) ) {
+	class Instantio_Setup_Wizard {
 
 		private static $instance = null;
 		private static $current_step = null;
@@ -27,7 +27,7 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
 			add_action( 'admin_menu', [ $this, 'tf_wizard_menu' ], 100 );
 			add_filter( 'woocommerce_enable_setup_wizard', '__return_false' );
 			add_action( 'admin_init', [ $this, 'tf_activation_redirect' ] );
-			add_action( 'wp_ajax_tf_setup_wizard_submit', [ $this, 'tf_setup_wizard_submit_ajax' ] );
+			add_action( 'wp_ajax_instantio_setup_wizard_submit', [ $this, 'instantio_setup_wizard_submit_ajax' ] );
 			add_action( 'in_admin_header', [ $this, 'remove_notice' ], 1000 );
 
 				// Read-only wizard routing; no state change is performed from this value.
@@ -88,7 +88,7 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
 						$this->tf_setup_step_three();
 						$this->tf_setup_finish_step();
 						?>
-						<?php wp_nonce_field( 'tf_setup_wizard_action', 'tf_setup_wizard_nonce' ); ?>
+						<?php wp_nonce_field( 'instantio_setup_wizard_action', 'instantio_setup_wizard_nonce' ); ?>
                         <input type="hidden" name="tf-skip-steps">
                     </form>
                 </div>
@@ -483,8 +483,16 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
 		 * redirect to set up wizard when active plugin
 		 */
 		public function tf_activation_redirect() {
-			if ( ! get_option( 'tf_setup_wizard' )) {
-				update_option( 'tf_setup_wizard', 'active' );
+			$wizard_status = get_option( 'instantio_setup_wizard', false );
+			$legacy_status = get_option( 'tf_setup_wizard', false );
+
+			if ( false === $wizard_status && false !== $legacy_status ) {
+				update_option( 'instantio_setup_wizard', $legacy_status );
+				$wizard_status = $legacy_status;
+			}
+
+			if ( ! $wizard_status ) {
+				update_option( 'instantio_setup_wizard', 'active' );
 				wp_safe_redirect( admin_url( 'admin.php?page=ins-setup-wizard' ) );
 				exit;
 			}
@@ -549,8 +557,8 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
 			<?php
 		}
 
-			function tf_setup_wizard_submit_ajax() {
-				check_ajax_referer( 'tf_setup_wizard_action', 'tf_setup_wizard_nonce' );
+			function instantio_setup_wizard_submit_ajax() {
+				check_ajax_referer( 'instantio_setup_wizard_action', 'instantio_setup_wizard_nonce' );
 
 				if ( ! current_user_can( 'manage_options' ) ) {
 					wp_send_json_error( array( 'message' => esc_html__( 'You are not allowed to change these settings.', 'instantio' ) ), 403 );
@@ -609,4 +617,4 @@ if ( ! class_exists( 'TF_Setup_Wizard' ) ) {
 	}
 }
 
-TF_Setup_Wizard::instance();
+Instantio_Setup_Wizard::instance();

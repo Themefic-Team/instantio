@@ -2,8 +2,8 @@
 // don't load directly
 defined( 'ABSPATH' ) || exit;
 
-if ( ! class_exists( 'INS_time' ) ) {
-	class INS_time extends INS_Fields {
+if ( ! class_exists( 'Instantio_Field_Time' ) ) {
+	class Instantio_Field_Time extends Instantio_Field {
 
 		public function __construct( $field, $value = '', $settings_id = '', $parent_field = '' ) {
 			parent::__construct( $field, $value, $settings_id, $parent_field );

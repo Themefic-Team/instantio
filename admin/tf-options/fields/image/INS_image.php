@@ -5,8 +5,8 @@ defined( 'ABSPATH' ) || exit;
 /**
  * Field: image
  */
-if ( ! class_exists( 'INS_image' ) ) {
-	class INS_image extends INS_Fields {
+if ( ! class_exists( 'Instantio_Field_Image' ) ) {
+	class Instantio_Field_Image extends Instantio_Field {
 
 		public function __construct( $field, $value = '', $settings_id = '', $parent_field = '' ) {
 			parent::__construct( $field, $value, $settings_id, $parent_field );

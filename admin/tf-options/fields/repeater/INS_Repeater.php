@@ -11,8 +11,8 @@ defined( 'ABSPATH' ) || exit;
  * @version 1.0.0
  *
  */
-if ( ! class_exists( 'INS_Repeater' ) ) {
-	class INS_Repeater extends INS_Fields {
+if ( ! class_exists( 'Instantio_Field_Repeater' ) ) {
+	class Instantio_Field_Repeater extends Instantio_Field {
 		public function __construct( $field, $value = '', $settings_id = '', $parent_field = '' ) {
 			parent::__construct( $field, $value, $settings_id, $parent_field );
 		}

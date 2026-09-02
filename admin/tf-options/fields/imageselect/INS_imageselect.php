@@ -6,8 +6,8 @@ defined( 'ABSPATH' ) || exit;
  * Field: imageselect
  * Author MHemel Hasan
  */
-if ( ! class_exists( 'INS_imageselect' ) ) {
-	class INS_imageselect extends INS_Fields {
+if ( ! class_exists( 'Instantio_Field_Imageselect' ) ) {
+	class Instantio_Field_Imageselect extends Instantio_Field {
 
 		public function __construct( $field, $value = '', $settings_id = '', $parent_field = '' ) {
 			parent::__construct( $field, $value, $settings_id, $parent_field );

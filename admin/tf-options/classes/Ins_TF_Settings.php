@@ -39,8 +39,8 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 			add_action( 'wp_ajax_ins_options_save', array( $this, 'tf_ajax_save_options' ) );
 
 			// constent defined
-			if ( ! defined( 'TF_OPTION_ID' ) ) {
-				define( 'TF_OPTION_ID', $this->option_id );
+			if ( ! defined( 'INSTANTIO_OPTION_ID' ) ) {
+				define( 'INSTANTIO_OPTION_ID', $this->option_id );
 			}
 		}
 
@@ -1163,6 +1163,256 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 		}
 
 		/**
+		 * Return the field classes that settings submissions may instantiate.
+		 *
+		 * Keeping this list explicit prevents a submitted or filtered field type from
+		 * being turned into an arbitrary class name during a settings save.
+		 *
+		 * @return array<string, string>
+		 */
+		private function ins_get_allowed_field_classes() {
+			return array(
+				'callback'    => 'Instantio_Field_Callback',
+				'checkbox'    => 'Instantio_Field_Checkbox',
+				'codeeditor'  => 'Instantio_Field_Codeeditor',
+				'color'       => 'Instantio_Field_Color',
+				'date'        => 'Instantio_Field_Date',
+				'editor'      => 'Instantio_Field_Editor',
+				'fieldset'    => 'Instantio_Field_Fieldset',
+				'gallery'     => 'Instantio_Field_Gallery',
+				'heading'     => 'Instantio_Field_Heading',
+				'icon'        => 'Instantio_Field_Icon',
+				'image'       => 'Instantio_Field_Image',
+				'imageselect' => 'Instantio_Field_Imageselect',
+				'notice'      => 'Instantio_Field_Notice',
+				'number'      => 'Instantio_Field_Number',
+				'radio'       => 'Instantio_Field_Radio',
+				'repeater'    => 'Instantio_Field_Repeater',
+				'select'      => 'Instantio_Field_Select',
+				'select2'     => 'Instantio_Field_Select2',
+				'switch'      => 'Instantio_Field_Switch',
+				'tab'         => 'Instantio_Field_Tab',
+				'text'        => 'Instantio_Field_Text',
+				'textarea'    => 'Instantio_Field_Textarea',
+				'time'        => 'Instantio_Field_Time',
+			);
+		}
+
+		/**
+		 * Sanitize a submitted value according to its registered field schema.
+		 *
+		 * Compound controls are rebuilt from their declared child fields, so unknown
+		 * request keys are discarded before data reaches a field class.
+		 *
+		 * @param array $field Field definition.
+		 * @param mixed $value Unslashed submitted value.
+		 * @return mixed
+		 */
+		private function ins_sanitize_submitted_field( $field, $value ) {
+			$type = isset( $field['type'] ) ? sanitize_key( $field['type'] ) : '';
+
+			if ( 'repeater' === $type ) {
+				if ( ! is_array( $value ) || empty( $field['fields'] ) || ! is_array( $field['fields'] ) ) {
+					return array();
+				}
+
+				$rows = array();
+				foreach ( $value as $row ) {
+					if ( ! is_array( $row ) ) {
+						continue;
+					}
+
+					$sanitized_row = $this->ins_sanitize_submitted_children( $field['fields'], $row );
+					if ( ! empty( $sanitized_row ) ) {
+						$rows[] = $sanitized_row;
+					}
+				}
+
+				return $rows;
+			}
+
+			if ( 'fieldset' === $type ) {
+				return is_array( $value ) && ! empty( $field['fields'] ) && is_array( $field['fields'] )
+					? $this->ins_sanitize_submitted_children( $field['fields'], $value )
+					: array();
+			}
+
+			if ( 'tab' === $type ) {
+				if ( ! is_array( $value ) || empty( $field['tabs'] ) || ! is_array( $field['tabs'] ) ) {
+					return array();
+				}
+
+				$tab_fields = array();
+				foreach ( $field['tabs'] as $tab ) {
+					if ( ! empty( $tab['fields'] ) && is_array( $tab['fields'] ) ) {
+						$tab_fields = array_merge( $tab_fields, $tab['fields'] );
+					}
+				}
+
+				return $this->ins_sanitize_submitted_children( $tab_fields, $value );
+			}
+
+			if ( 'color' === $type && ! empty( $field['multiple'] ) ) {
+				$colors = array();
+				if ( is_array( $value ) && ! empty( $field['colors'] ) && is_array( $field['colors'] ) ) {
+					foreach ( array_keys( $field['colors'] ) as $color_key ) {
+						if ( isset( $value[ $color_key ] ) && is_scalar( $value[ $color_key ] ) ) {
+							$color = $this->ins_sanitize_color( $value[ $color_key ] );
+							if ( '' !== $color ) {
+								$colors[ $color_key ] = $color;
+							}
+						}
+					}
+				}
+
+				return $colors;
+			}
+
+			if ( 'checkbox' === $type && is_array( $value ) ) {
+				return $this->ins_validate_field_choices( $field, $value );
+			}
+
+			if ( 'select2' === $type && ! empty( $field['multiple'] ) ) {
+				return is_array( $value ) ? $this->ins_validate_field_choices( $field, $value ) : array();
+			}
+
+			if ( 'gallery' === $type ) {
+				if ( ! is_scalar( $value ) ) {
+					return '';
+				}
+
+				$attachment_ids = array_filter( array_map( 'absint', explode( ',', (string) $value ) ) );
+				return implode( ',', $attachment_ids );
+			}
+
+			if ( is_array( $value ) || is_object( $value ) ) {
+				return '';
+			}
+
+			switch ( $type ) {
+				case 'checkbox':
+				case 'switch':
+					$value = sanitize_text_field( $value );
+					return in_array( $value, array( '', '0', '1' ), true ) ? $value : '';
+				case 'imageselect':
+				case 'radio':
+				case 'select':
+				case 'select2':
+					$choices = $this->ins_validate_field_choices( $field, array( $value ) );
+					return isset( $choices[0] ) ? $choices[0] : '';
+				case 'color':
+					return $this->ins_sanitize_color( $value );
+				case 'image':
+					return esc_url_raw( $value );
+				case 'editor':
+					return wp_kses_post( $value );
+				case 'codeeditor':
+				case 'textarea':
+					return sanitize_textarea_field( $value );
+				case 'number':
+					$value = sanitize_text_field( $value );
+					return '' === $value || is_numeric( $value ) ? $value : '';
+				default:
+					return sanitize_text_field( $value );
+			}
+		}
+
+		/**
+		 * Validate submitted values against a field's declared choices.
+		 *
+		 * @param array $field Field definition.
+		 * @param array $values Submitted values.
+		 * @return array
+		 */
+		private function ins_validate_field_choices( $field, $values ) {
+			$options = isset( $field['options'] ) ? $field['options'] : array();
+
+			if ( isset( $field['options_callback'] ) && is_callable( $field['options_callback'] ) ) {
+				$options = call_user_func( $field['options_callback'] );
+			}
+
+			if ( ! empty( $field['query_args'] ) && 'posts' === $options ) {
+				$options = array();
+				foreach ( get_posts( $field['query_args'] ) as $post ) {
+					$options[ $post->ID ] = $post->post_title;
+				}
+			} elseif ( ! empty( $field['query_args'] ) && 'terms' === $options ) {
+				$options = array();
+				$terms   = get_terms( $field['query_args'] );
+				if ( ! is_wp_error( $terms ) ) {
+					foreach ( $terms as $term ) {
+						$options[ $term->term_id ] = $term->name;
+					}
+				}
+			}
+
+			$values = array_filter( $values, 'is_scalar' );
+			$values = array_map( 'sanitize_text_field', $values );
+			if ( ! is_array( $options ) ) {
+				return array();
+			}
+
+			$allowed = array_map( 'strval', array_keys( $options ) );
+			return array_values(
+				array_filter(
+					$values,
+					static function ( $value ) use ( $allowed ) {
+						return in_array( (string) $value, $allowed, true );
+					}
+				)
+			);
+		}
+
+		/**
+		 * Validate a color-picker value while retaining supported alpha colors.
+		 *
+		 * @param mixed $value Submitted color.
+		 * @return string
+		 */
+		private function ins_sanitize_color( $value ) {
+			$value = is_scalar( $value ) ? sanitize_text_field( (string) $value ) : '';
+			if ( '' === $value || 'transparent' === strtolower( $value ) ) {
+				return $value;
+			}
+
+			if ( preg_match( '/^#(?:[0-9a-f]{3,4}|[0-9a-f]{6}|[0-9a-f]{8})$/i', $value ) ) {
+				return $value;
+			}
+
+			if ( preg_match( '/^rgba?\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})(?:\s*,\s*(0(?:\.\d+)?|1(?:\.0+)?))?\s*\)$/i', $value, $matches ) ) {
+				if ( (int) $matches[1] <= 255 && (int) $matches[2] <= 255 && (int) $matches[3] <= 255 ) {
+					return $value;
+				}
+			}
+
+			return '';
+		}
+
+		/**
+		 * Sanitize the declared children of a compound field.
+		 *
+		 * @param array $child_fields Child field definitions.
+		 * @param array $submitted Submitted compound value.
+		 * @return array
+		 */
+		private function ins_sanitize_submitted_children( $child_fields, $submitted ) {
+			$sanitized = array();
+
+			foreach ( $child_fields as $child_field ) {
+				if ( empty( $child_field['id'] ) || ! array_key_exists( $child_field['id'], $submitted ) ) {
+					continue;
+				}
+
+				$sanitized[ $child_field['id'] ] = $this->ins_sanitize_submitted_field(
+					$child_field,
+					$submitted[ $child_field['id'] ]
+				);
+			}
+
+			return $sanitized;
+		}
+
+		/**
 		 * Save Options
 		 * @author M Hemel Hasan
 		 */
@@ -1184,9 +1434,10 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 
 
 			$tf_option_value = array();
-				// Individual field classes apply their context-specific sanitization below.
-				// phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
-				$option_request = ! empty( $_POST[ $this->option_id ] ) ? wp_unslash( $_POST[ $this->option_id ] ) : array();
+				// Values are sanitized against the registered field schema before a field class is created.
+				// phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Sanitized per field by ins_sanitize_submitted_field().
+				$option_request       = ! empty( $_POST[ $this->option_id ] ) && is_array( $_POST[ $this->option_id ] ) ? wp_unslash( $_POST[ $this->option_id ] ) : array();
+				$allowed_field_classes = $this->ins_get_allowed_field_classes();
 			if ( ! empty( $option_request ) && ! empty( $this->option_sections ) ) {
 				foreach ( $this->option_sections as $section ) {
 					if ( ! empty( $section['fields'] ) ) {
@@ -1194,67 +1445,16 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 						foreach ( $section['fields'] as $field ) {
 
 							if ( ! empty( $field['id'] ) ) {
-								$data = isset( $option_request[ $field['id'] ] ) ? $option_request[ $field['id'] ] : '';
-								$fieldClass = 'INS_' . $field['type'];
-								if ( $fieldClass != 'INS_file' ) {
-									$data = $fieldClass == 'INS_repeater' || $fieldClass == 'INS_map' ? serialize( $data ) : $data;
-								}
-								if ( ! empty( $_FILES['file'] ) && is_array( $_FILES['file'] ) ) {
-									$tf_upload_dir = wp_upload_dir();
-									if ( ! empty( $tf_upload_dir['basedir'] ) ) {
-										$tf_itinerary_fonts = $tf_upload_dir['basedir'] . '/itinerary-fonts';
-									
-										if ( ! file_exists( $tf_itinerary_fonts ) ) {
-											wp_mkdir_p( $tf_itinerary_fonts );
-										}
-									
-										// Safe extensions and MIME types
-										$allowed_extensions = array( 'ttf', 'otf', 'woff', 'woff2' );
-										$allowed_mime_types = array(
-											'ttf'   => 'font/ttf',
-											'otf'   => 'font/otf',
-											'woff'  => 'font/woff',
-											'woff2' => 'font/woff2'
-										);
-									
-										// Each entry is validated and sanitized in the upload loop below.
-										// phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
-										$file_names = isset( $_FILES['file']['name'] ) && is_array( $_FILES['file']['name'] ) ? $_FILES['file']['name'] : array();
-										// phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
-										$tmp_names = isset( $_FILES['file']['tmp_name'] ) && is_array( $_FILES['file']['tmp_name'] ) ? $_FILES['file']['tmp_name'] : array();
-										// phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
-										$file_types = isset( $_FILES['file']['type'] ) && is_array( $_FILES['file']['type'] ) ? $_FILES['file']['type'] : array();
-
-										for ( $i = 0; $i < count( $file_names ); $i++ ) {
-											if ( ! isset( $tmp_names[ $i ], $file_types[ $i ] ) ) {
-												continue;
-											}
-
-											$original_name = sanitize_file_name( $file_names[ $i ] );
-											$tmp_name      = sanitize_text_field( $tmp_names[ $i ] );
-											$type          = sanitize_mime_type( $file_types[ $i ] );
-									
-											$sanitized_name = $original_name;
-											$extension      = strtolower( pathinfo( $sanitized_name, PATHINFO_EXTENSION ) );
-									
-											// Validate extension and MIME type
-											if ( in_array( $extension, $allowed_extensions, true ) && $type === $allowed_mime_types[ $extension ] ) {
-												require_once ABSPATH . 'wp-admin/includes/file.php';
-												WP_Filesystem();
-												global $wp_filesystem;
-
-												if ( $wp_filesystem && is_uploaded_file( $tmp_name ) ) {
-													$wp_filesystem->move( $tmp_name, $tf_itinerary_fonts . '/' . $sanitized_name, true );
-												}
-											}
-										}
-									}
+								$field_type = isset( $field['type'] ) ? sanitize_key( $field['type'] ) : '';
+								if ( ! isset( $allowed_field_classes[ $field_type ] ) ) {
+									continue;
 								}
 
-								if ( class_exists( $fieldClass ) ) {
-									$_field = new $fieldClass( $field, $data, $this->option_id );
-									$tf_option_value[ $field['id'] ] = $_field->sanitize();
-								}
+								$data       = isset( $option_request[ $field['id'] ] ) ? $option_request[ $field['id'] ] : '';
+								$data       = $this->ins_sanitize_submitted_field( $field, $data );
+								$data = 'repeater' === $field_type ? serialize( $data ) : $data;
+
+								$tf_option_value[ $field['id'] ] = $data;
 
 							}
 						}
@@ -1339,8 +1539,11 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 		 * @author Foysal
 		 */
 		public function get_query_string( $url ) {
-				$url_parts = wp_parse_url( $url );
-			parse_str( $url_parts['query'], $query_string );
+			$url_parts    = wp_parse_url( $url );
+			$query_string = array();
+			if ( is_array( $url_parts ) && ! empty( $url_parts['query'] ) ) {
+				parse_str( $url_parts['query'], $query_string );
+			}
 
 			return $query_string;
 		}

@@ -4,7 +4,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-class InsDashboardWidget {
+class Instantio_Dashboard_Widget {
 
     private static $instance = null;
 
@@ -174,4 +174,4 @@ class InsDashboardWidget {
 
 }
 
-InsDashboardWidget::instance();
+Instantio_Dashboard_Widget::instance();

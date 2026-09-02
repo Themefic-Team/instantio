@@ -2,8 +2,8 @@
 // don't load directly
 defined( 'ABSPATH' ) || exit;
 
-if ( ! class_exists( 'INS_Fields' ) ) {
-	class INS_Fields {
+if ( ! class_exists( 'Instantio_Field' ) ) {
+	class Instantio_Field {
 
 		public $field;
 		public $value;

@@ -5,8 +5,8 @@ defined( 'ABSPATH' ) || exit;
 // INS_icon_list is a legacy public extension hook and cannot be renamed without breaking integrations.
 // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 
-if ( ! class_exists( 'INS_icon' ) ) {
-	class INS_icon extends INS_Fields {
+if ( ! class_exists( 'Instantio_Field_Icon' ) ) {
+	class Instantio_Field_Icon extends Instantio_Field {
 
 		public function __construct( $field, $value = '', $settings_id = '', $parent_field = '' ) {
 			parent::__construct( $field, $value, $settings_id, $parent_field );

@@ -2,8 +2,8 @@
 // don't load directly
 defined( 'ABSPATH' ) || exit;
 
-if ( ! class_exists( 'INS_codeeditor' ) ) {
-	class INS_codeeditor extends INS_Fields {
+if ( ! class_exists( 'Instantio_Field_Codeeditor' ) ) {
+	class Instantio_Field_Codeeditor extends Instantio_Field {
 
 		public $editor_settings = array();
 

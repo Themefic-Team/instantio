@@ -16,7 +16,7 @@ defined( 'ABSPATH' ) || exit;
     add_action( 'woocommerce_admin_order_data_after_shipping_address', 'ins_custom_checkout_field_display_order_meta_shipping', 10, 1 );
 
     // Hook to save the custom field data when the order is created.
-    add_action('woocommerce_checkout_create_order', 'save_custom_field_to_order_meta');
+    add_action('woocommerce_checkout_create_order', 'instantio_save_custom_field_to_order_meta');
 
     
 	function ins_is_custom_checkout_field_key( $field_key, $type = '' ) {
@@ -57,7 +57,7 @@ defined( 'ABSPATH' ) || exit;
 		return $fields;
 	}
 
-	function save_custom_field_to_order_meta( $order ) {
+	function instantio_save_custom_field_to_order_meta( $order ) {
 		$custom_field_keys = array_keys( ins_get_custom_checkout_fields() );
 
 		// WooCommerce verifies its checkout nonce before firing this order-creation hook.

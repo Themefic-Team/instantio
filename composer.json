@@ -7,7 +7,7 @@
      {
       "name": "Themefic",
       "homepage": "https://themefic.com/"
-    },
+    }
   ],
   "minimum-stability": "dev",
   "require": {},
