@@ -13,14 +13,12 @@ defined( 'ABSPATH' ) || exit;
 $instantio_change = [
 
         // Update  start
-       'v47' => [
-           'date'      => 'Aug 23, 2026',
-           'version'   => 'Version 3.3.35',
+       'v48' => [
+           'date'      => 'Sep 04, 2026',
+           'version'   => 'Version 3.3.36',
            'changelog' => [
                'Updated'   =>   [
-                   'Nonce verification and capability checks for admin actions.',
-                   'Optimized frontend animations and bundled local assets.',
-                   'Addressed minor bugs and code standards improvements.',
+                   'Security: Improved security and system stability.',
                    'Addressed WordPress.org reported issues.'
                ]
            ]
