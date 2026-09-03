@@ -2,6 +2,9 @@
 // don't load directly
 defined( 'ABSPATH' ) || exit;
 
+// Existing settings hooks are public compatibility points used by Instantio integrations.
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+
 if ( ! class_exists( 'Instantio_Options' ) ) {
 	class Instantio_Options {
 		private static $instance = null;
