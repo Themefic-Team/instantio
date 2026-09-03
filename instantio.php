@@ -87,7 +87,7 @@ class INSTANTIO {
 		if ( defined('INSTANTIO_INC_PATH') && !empty(INSTANTIO_INC_PATH) ) {
 			require_once INSTANTIO_INC_PATH . '/controller/class-dashboard-widget.php';
 		}
-
+ 
 	}
 
 	/**
