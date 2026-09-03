@@ -8,7 +8,7 @@
  * Domain Path: /lang/
  * Author URI: https://themefic.com
  * Tags: woocommerce cart, woocommerce checkout, woocommerce direct checkout, multistep checkout, woocommerce side cart
- * Version: 3.3.36 
+ * Version: 3.3.37
  * Requires PHP: 7.4
  * License: GPLv3
  * License URI: https://www.gnu.org/licenses/gpl-3.0.html 
@@ -18,6 +18,13 @@
 defined( 'ABSPATH' ) || exit;
 
 class INSTANTIO {
+
+	/**
+	 * Legacy Pro version prevented from booting during this request.
+	 *
+	 * @var string
+	 */
+	private $instantio_incompatible_pro_version = '';
 
 	public function __construct() {
 		$this->define_constants();
@@ -34,8 +41,9 @@ class INSTANTIO {
 	 */
 	private function define_constants() {
 		if ( ! defined( 'INSTANTIO_VERSION' ) ) {
-			define( 'INSTANTIO_VERSION', '3.3.36' );
+			define( 'INSTANTIO_VERSION', '3.3.37' );
 		}
+		define( 'INSTANTIO_MIN_PREFIXED_PRO_VERSION', '3.2.12' );
 		define( 'INSTANTIO_URL', plugin_dir_url( __FILE__ ) );
 		define( 'INSTANTIO_INC_URL', INSTANTIO_URL . 'includes' );
 		define( 'INSTANTIO_LAYOUTS_URL', INSTANTIO_URL . 'includes/layouts' );
@@ -95,6 +103,8 @@ class INSTANTIO {
 	 * @since 1.0
 	 */
 	public function init() {
+		$this->instantio_guard_legacy_pro();
+
 		add_action( 'init', array( $this, 'ins_plugin_loaded_action' ) );
 
 		if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
@@ -112,6 +122,75 @@ class INSTANTIO {
 			add_action( 'wp_ajax_nopriv_instantio_variable_product_quick_view', array( $this, 'ins_ajax_quickview_variable_products' ) );
 		}
 
+	}
+
+	/**
+	 * Prevent legacy Pro releases from calling removed, noncompliant Free APIs.
+	 *
+	 * Instantio Pro versions before 3.2.12 call the former global insopt()
+	 * helper. That short global name cannot remain in the WordPress.org package.
+	 * Free initializes at priority 0, before Pro's priority-10 bootstrap, so the
+	 * incompatible callback can be paused without deactivating the add-on.
+	 */
+	private function instantio_guard_legacy_pro() {
+		if ( ! is_plugin_active( 'wooinstant/wooinstant.php' ) || ! class_exists( 'WOOINS', false ) ) {
+			return;
+		}
+
+		$pro_version = defined( 'INSTANTIO_PRO_VERSION' ) ? INSTANTIO_PRO_VERSION : '0';
+		if ( version_compare( $pro_version, INSTANTIO_MIN_PREFIXED_PRO_VERSION, '>=' ) ) {
+			return;
+		}
+
+		global $wp_filter;
+
+		if ( empty( $wp_filter['init'] ) || empty( $wp_filter['init']->callbacks ) ) {
+			return;
+		}
+
+		foreach ( $wp_filter['init']->callbacks as $priority => $callbacks ) {
+			foreach ( $callbacks as $callback ) {
+				$function = isset( $callback['function'] ) ? $callback['function'] : null;
+
+				if (
+					is_array( $function )
+					&& isset( $function[0], $function[1] )
+					&& is_object( $function[0] )
+					&& is_a( $function[0], 'WOOINS' )
+					&& 'wooinstant' === $function[1]
+				) {
+					remove_action( 'init', $function, $priority );
+					$this->instantio_incompatible_pro_version = $pro_version;
+				}
+			}
+		}
+
+		if ( $this->instantio_incompatible_pro_version && is_admin() ) {
+			add_action( 'admin_notices', array( $this, 'instantio_incompatible_pro_notice' ) );
+		}
+	}
+
+	/**
+	 * Tell administrators why legacy Pro was safely paused.
+	 */
+	public function instantio_incompatible_pro_notice() {
+		if ( ! current_user_can( 'update_plugins' ) ) {
+			return;
+		}
+		?>
+		<div class="notice notice-error">
+			<p>
+				<?php
+				printf(
+					/* translators: 1: installed Pro version, 2: required Pro version. */
+					esc_html__( 'Instantio Pro %1$s was not loaded because it is incompatible with this Instantio Free release. Update Instantio Pro to version %2$s or newer to restore Pro features.', 'instantio' ),
+					esc_html( $this->instantio_incompatible_pro_version ),
+					esc_html( INSTANTIO_MIN_PREFIXED_PRO_VERSION )
+				);
+				?>
+			</p>
+		</div>
+		<?php
 	}
 
 	/**
