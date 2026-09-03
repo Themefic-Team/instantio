@@ -367,7 +367,7 @@ For those seeking simplicity, Instantio provides a simplified WooCommerce checko
 
 == Changelog ==
 
-= 3.3.36 – Sep 3, 2026 =
+= 3.3.36 – Sep 4, 2026 =
 
 - Security: Improved security and system stability.
 - Updated: Addressed WordPress.org reported issues.
