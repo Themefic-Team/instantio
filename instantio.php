@@ -41,7 +41,7 @@ class INSTANTIO {
 	 */
 	private function define_constants() {
 		if ( ! defined( 'INSTANTIO_VERSION' ) ) {
-			define( 'INSTANTIO_VERSION', '3.3.37' );
+			define( 'INSTANTIO_VERSION', '3.3.36' );
 		}
 		define( 'INSTANTIO_MIN_PREFIXED_PRO_VERSION', '3.2.12' );
 		define( 'INSTANTIO_URL', plugin_dir_url( __FILE__ ) );
