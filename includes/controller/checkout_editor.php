@@ -3,23 +3,21 @@
 defined( 'ABSPATH' ) || exit;
 
 // Checkout callbacks are established public symbols used by existing installations and extensions.
-// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
-
     // Filter Action
-    add_filter('woocommerce_billing_fields', 'ins_billing_unrequire_fields');
-    add_filter('woocommerce_shipping_fields', 'ins_shipping_unrequire_fields');
-    add_filter('woocommerce_checkout_fields' , 'ins_override_ordernote_fields' );
+    add_filter('woocommerce_billing_fields', 'instantio_billing_unrequire_fields');
+    add_filter('woocommerce_shipping_fields', 'instantio_shipping_unrequire_fields');
+    add_filter('woocommerce_checkout_fields' , 'instantio_override_order_note_fields' );
 
     // Display the custom field data in the admin order edit screen.
-    add_action( 'woocommerce_admin_order_data_after_billing_address', 'ins_custom_checkout_field_display_order_meta', 10, 1 );
+    add_action( 'woocommerce_admin_order_data_after_billing_address', 'instantio_custom_checkout_field_display_order_meta', 10, 1 );
 
-    add_action( 'woocommerce_admin_order_data_after_shipping_address', 'ins_custom_checkout_field_display_order_meta_shipping', 10, 1 );
+    add_action( 'woocommerce_admin_order_data_after_shipping_address', 'instantio_custom_checkout_field_display_order_meta_shipping', 10, 1 );
 
     // Hook to save the custom field data when the order is created.
     add_action('woocommerce_checkout_create_order', 'instantio_save_custom_field_to_order_meta');
 
     
-	function ins_is_custom_checkout_field_key( $field_key, $type = '' ) {
+	function instantio_is_custom_checkout_field_key( $field_key, $type = '' ) {
 		$patterns = array(
 			'billing'  => '/^ins_cus_billingfield_origin[1-9][0-9]*$/',
 			'shipping' => '/^ins_cus_shipingfield_origin[1-9][0-9]*$/',
@@ -29,10 +27,10 @@ defined( 'ABSPATH' ) || exit;
 			return 1 === preg_match( $patterns[ $type ], (string) $field_key );
 		}
 
-		return ins_is_custom_checkout_field_key( $field_key, 'billing' ) || ins_is_custom_checkout_field_key( $field_key, 'shipping' );
+		return instantio_is_custom_checkout_field_key( $field_key, 'billing' ) || instantio_is_custom_checkout_field_key( $field_key, 'shipping' );
 	}
 
-	function ins_get_custom_checkout_fields() {
+	function instantio_get_custom_checkout_fields() {
 		$fields = array();
 		$groups = array(
 			array( 'checkout_editors_fields', 'checkout_form_field_origin', 'checkout_form_field_name', 'billing' ),
@@ -40,7 +38,7 @@ defined( 'ABSPATH' ) || exit;
 		);
 
 		foreach ( $groups as $group ) {
-			$rows = insopt( $group[0] );
+			$rows = instantio_get_option( $group[0] );
 			$rows = is_serialized( $rows ) ? maybe_unserialize( $rows ) : $rows;
 			if ( ! is_array( $rows ) ) {
 				continue;
@@ -48,7 +46,7 @@ defined( 'ABSPATH' ) || exit;
 
 			foreach ( $rows as $row ) {
 				$key = isset( $row[ $group[1] ] ) ? sanitize_key( $row[ $group[1] ] ) : '';
-				if ( ins_is_custom_checkout_field_key( $key, $group[3] ) ) {
+				if ( instantio_is_custom_checkout_field_key( $key, $group[3] ) ) {
 					$fields[ $key ] = isset( $row[ $group[2] ] ) ? $row[ $group[2] ] : '';
 				}
 			}
@@ -58,7 +56,7 @@ defined( 'ABSPATH' ) || exit;
 	}
 
 	function instantio_save_custom_field_to_order_meta( $order ) {
-		$custom_field_keys = array_keys( ins_get_custom_checkout_fields() );
+		$custom_field_keys = array_keys( instantio_get_custom_checkout_fields() );
 
 		// WooCommerce verifies its checkout nonce before firing this order-creation hook.
 		// phpcs:disable WordPress.Security.NonceVerification.Missing
@@ -71,17 +69,17 @@ defined( 'ABSPATH' ) || exit;
 		// phpcs:enable WordPress.Security.NonceVerification.Missing
     }
 
-	function ins_custom_checkout_field_display_order_meta($order){
-		foreach ( ins_get_custom_checkout_fields() as $field_key => $field_label ) {
-			if ( ins_is_custom_checkout_field_key( $field_key, 'billing' ) ) {
+	function instantio_custom_checkout_field_display_order_meta($order){
+		foreach ( instantio_get_custom_checkout_fields() as $field_key => $field_label ) {
+			if ( instantio_is_custom_checkout_field_key( $field_key, 'billing' ) ) {
 				echo '<p><strong>' . esc_html( $field_label ) . ':</strong> ' . esc_html( $order->get_meta( $field_key, true ) ) . '</p>';
 			}
 		}
 	}
 
-	function ins_custom_checkout_field_display_order_meta_shipping($order){
-		foreach ( ins_get_custom_checkout_fields() as $field_key => $field_label ) {
-			if ( ins_is_custom_checkout_field_key( $field_key, 'shipping' ) ) {
+	function instantio_custom_checkout_field_display_order_meta_shipping($order){
+		foreach ( instantio_get_custom_checkout_fields() as $field_key => $field_label ) {
+			if ( instantio_is_custom_checkout_field_key( $field_key, 'shipping' ) ) {
 				echo '<p><strong>' . esc_html( $field_label ) . ':</strong> ' . esc_html( $order->get_meta( $field_key, true ) ) . '</p>';
 			}
 		}
@@ -94,9 +92,9 @@ defined( 'ABSPATH' ) || exit;
      * @since 3.1.0
      * @return Var,
      */
-    function ins_over_checkout_billing_fields($fields) {
+    function instantio_override_checkout_billing_fields($fields) {
 
-        $get_ins_data = insopt('checkout_editors_fields');
+        $get_ins_data = instantio_get_option('checkout_editors_fields');
 
         // Check if the variable is serialized
         if (is_serialized($get_ins_data)) {
@@ -217,7 +215,7 @@ defined( 'ABSPATH' ) || exit;
                     unset($fields['billing']['billing_phone']);
                 }
 
-	            } elseif ( ins_is_custom_checkout_field_key( $field_origin, 'billing' ) ) {
+	            } elseif ( instantio_is_custom_checkout_field_key( $field_origin, 'billing' ) ) {
 	                $fields['billing'][ $field_origin ] = array(
 	                    'label'       => isset( $ins_field['checkout_form_field_name'] ) ? $ins_field['checkout_form_field_name'] : '',
 	                    'placeholder' => isset( $ins_field['checkout_form_field_place'] ) ? $ins_field['checkout_form_field_place'] : '',
@@ -318,8 +316,8 @@ defined( 'ABSPATH' ) || exit;
      * @since 3.1.0
      * @return Address,
      */
-    function ins_over_checkout_billing_address($address_fields){
-        $get_ins_add_data = insopt('checkout_editors_fields');
+    function instantio_override_checkout_billing_address($address_fields){
+        $get_ins_add_data = instantio_get_option('checkout_editors_fields');
 
         // Check if the variable is serialized
         if (is_serialized($get_ins_add_data)) {
@@ -383,9 +381,9 @@ defined( 'ABSPATH' ) || exit;
     }
     
 
-    function ins_billing_unrequire_fields($fields) {
+    function instantio_billing_unrequire_fields($fields) {
 
-        $get_ins_data = insopt('checkout_editors_fields');
+        $get_ins_data = instantio_get_option('checkout_editors_fields');
 
         // Check if the variable is serialized
         if (is_serialized($get_ins_data)) {
@@ -460,9 +458,9 @@ defined( 'ABSPATH' ) || exit;
      * @since 3.1.0
      * @return Var,
      */
-    function ins_over_checkout_shipping_fields($fields) {
+    function instantio_override_checkout_shipping_fields($fields) {
 
-        $get_ins_data = insopt('checkout_shiping_editors_fields');
+        $get_ins_data = instantio_get_option('checkout_shiping_editors_fields');
 
         // Check if the variable is serialized
         if (is_serialized($get_ins_data)) {
@@ -574,7 +572,7 @@ defined( 'ABSPATH' ) || exit;
                     unset($fields['shipping']['shipping_postcode']);
                 }
 
-	            } elseif ( ins_is_custom_checkout_field_key( $field_origin, 'shipping' ) ) {
+	            } elseif ( instantio_is_custom_checkout_field_key( $field_origin, 'shipping' ) ) {
 	                $fields['shipping'][ $field_origin ] = array(
 	                    'label'       => isset( $ins_field['checkout_shipping_form_field_name'] ) ? $ins_field['checkout_shipping_form_field_name'] : '',
 	                    'placeholder' => isset( $ins_field['checkout_shipping_form_field_place'] ) ? $ins_field['checkout_shipping_form_field_place'] : '',
@@ -661,8 +659,8 @@ defined( 'ABSPATH' ) || exit;
      * @since 3.1.0
      * @return Address,
      */
-    function ins_over_checkout_shiping_address($address_fields){
-        $get_ins_add_shipping_data = insopt('checkout_shiping_editors_fields');
+    function instantio_override_checkout_shipping_address($address_fields){
+        $get_ins_add_shipping_data = instantio_get_option('checkout_shiping_editors_fields');
 
         // Check if the variable is serialized
         if (is_serialized($get_ins_add_shipping_data)) {
@@ -710,9 +708,9 @@ defined( 'ABSPATH' ) || exit;
         return $address_fields;
     }
     
-    function ins_shipping_unrequire_fields($fields) {
+    function instantio_shipping_unrequire_fields($fields) {
 
-        $get_ins_data = insopt('checkout_shiping_editors_fields');
+        $get_ins_data = instantio_get_option('checkout_shiping_editors_fields');
 
         // Check if the variable is serialized
         if (is_serialized($get_ins_data)) {
@@ -774,10 +772,10 @@ defined( 'ABSPATH' ) || exit;
 
     }
 
-    function ins_override_ordernote_fields($fields) {
+    function instantio_override_order_note_fields($fields) {
 
-        $order_note_label = isset(insopt( 'order_note_editor' )['order_note_field_label']) ? insopt( 'order_note_editor' )['order_note_field_label'] : 'Order notes';
-        $order_note_place = isset(insopt( 'order_note_editor' )['order_note_field_placeh']) ? insopt( 'order_note_editor' )['order_note_field_placeh'] : 'Notes about your order, e.g. special notes for delivery.';
+        $order_note_label = isset(instantio_get_option( 'order_note_editor' )['order_note_field_label']) ? instantio_get_option( 'order_note_editor' )['order_note_field_label'] : 'Order notes';
+        $order_note_place = isset(instantio_get_option( 'order_note_editor' )['order_note_field_placeh']) ? instantio_get_option( 'order_note_editor' )['order_note_field_placeh'] : 'Notes about your order, e.g. special notes for delivery.';
 
         $fields['order']['order_comments']['label'] = $order_note_label;
         $fields['order']['order_comments']['placeholder'] = $order_note_place;
@@ -792,7 +790,7 @@ defined( 'ABSPATH' ) || exit;
      * @since 3.1.0
      * @return obj,
      */
-	    function ins_reset_blliling_fields_button() {
+	    function instantio_reset_billing_fields_button() {
 	        ?>
 	        <div class="csf-title">
 	            <h4><?php esc_html_e( 'Reset Billing Fields', 'instantio' ); ?></h4>
@@ -811,7 +809,7 @@ defined( 'ABSPATH' ) || exit;
      * @since 3.1.0
      * @return obj,
      */
-	    function ins_reset_shipping_fields_button() {
+	    function instantio_reset_shipping_fields_button() {
 	        ?>
 	        <div class="csf-title">
 	            <h4><?php esc_html_e( 'Reset Shipping Fields', 'instantio' ); ?></h4>

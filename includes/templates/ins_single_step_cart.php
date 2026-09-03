@@ -18,8 +18,8 @@
 defined( 'ABSPATH' ) || exit;
 
 // WooCommerce template variables/hooks are compatibility APIs; copied WooCommerce strings retain its translations.
-// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals,WordPress.WP.I18n.TextDomainMismatch
-$ins_layout = ! empty( insopt( 'ins-layout-options' ) ) ? insopt( 'ins-layout-options' ) : '1';
+// phpcs:disable WordPress.WP.I18n.TextDomainMismatch
+$instantio_layout = ! empty( instantio_get_option( 'ins-layout-options' ) ) ? instantio_get_option( 'ins-layout-options' ) : '1';
 do_action( 'woocommerce_before_cart' ); ?>
 <form class="woocommerce-cart-form" action="<?php echo esc_url( wc_get_cart_url() ); ?>" method="post">
 
@@ -47,18 +47,18 @@ do_action( 'woocommerce_before_cart' ); ?>
 
 				<?php do_action( 'woocommerce_before_cart_table' ); ?>
 				<?php
-				foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ) {
+				foreach ( WC()->cart->get_cart() as $instantio_cart_item_key => $instantio_cart_item ) {
 
-					$_product = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );
-					$product_id = apply_filters( 'woocommerce_cart_item_product_id', $cart_item['product_id'], $cart_item, $cart_item_key );
-					$variation_id = $cart_item['variation_id'];
-					if ( $_product && $_product->exists() && $cart_item['quantity'] > 0 && apply_filters( 'woocommerce_cart_item_visible', true, $cart_item, $cart_item_key ) ) {
-						$product_permalink = apply_filters( 'woocommerce_cart_item_permalink', $_product->is_visible() ? $_product->get_permalink( $cart_item ) : '', $cart_item, $cart_item_key );
+					$instantio_product = apply_filters( 'woocommerce_cart_item_product', $instantio_cart_item['data'], $instantio_cart_item, $instantio_cart_item_key );
+					$instantio_product_id = apply_filters( 'woocommerce_cart_item_product_id', $instantio_cart_item['product_id'], $instantio_cart_item, $instantio_cart_item_key );
+					$instantio_variation_id = $instantio_cart_item['variation_id'];
+					if ( $instantio_product && $instantio_product->exists() && $instantio_cart_item['quantity'] > 0 && apply_filters( 'woocommerce_cart_item_visible', true, $instantio_cart_item, $instantio_cart_item_key ) ) {
+						$instantio_product_permalink = apply_filters( 'woocommerce_cart_item_permalink', $instantio_product->is_visible() ? $instantio_product->get_permalink( $instantio_cart_item ) : '', $instantio_cart_item, $instantio_cart_item_key );
 						?>
 						<!-- Single Cart Item Start -->
-						<div class="ins-single-cart-item woocommerce-cart-form__cart-item <?php echo esc_attr( apply_filters( 'woocommerce_cart_item_class', 'cart_item', $cart_item, $cart_item_key ) ); ?>"
-								data-cart-item-key="<?php echo esc_attr( $cart_item_key ); ?>"
-								data-product-id="<?php echo absint( $cart_item['product_id'] ); ?>">
+						<div class="ins-single-cart-item woocommerce-cart-form__cart-item <?php echo esc_attr( apply_filters( 'woocommerce_cart_item_class', 'cart_item', $instantio_cart_item, $instantio_cart_item_key ) ); ?>"
+								data-cart-item-key="<?php echo esc_attr( $instantio_cart_item_key ); ?>"
+								data-product-id="<?php echo absint( $instantio_cart_item['product_id'] ); ?>">
 							<div class="ins-cart-remove">
 
 								<span class="ins-cart-item-remove product-remove">
@@ -71,13 +71,13 @@ do_action( 'woocommerce_before_cart' ); ?>
                                                 <path d="M4.83366 2.33329V0.666626H13.167V2.33329H17.3337V3.99996H15.667V16.5C15.667 16.721 15.5792 16.9329 15.4229 17.0892C15.2666 17.2455 15.0547 17.3333 14.8337 17.3333H3.16699C2.94598 17.3333 2.73402 17.2455 2.57774 17.0892C2.42146 16.9329 2.33366 16.721 2.33366 16.5V3.99996H0.666992V2.33329H4.83366ZM4.00033 3.99996V15.6666H14.0003V3.99996H4.00033ZM6.50033 6.49996H8.16699V13.1666H6.50033V6.49996ZM9.83366 6.49996H11.5003V13.1666H9.83366V6.49996Z" fill="#535E70"/>
                                                 </svg></span>
                                             </a>',
-											esc_url( wc_get_cart_remove_url( $cart_item_key ) ),
+											esc_url( wc_get_cart_remove_url( $instantio_cart_item_key ) ),
 											esc_html__( 'Remove this item', 'woocommerce' ),
-											esc_attr( $product_id ),
-											esc_attr( $variation_id ),
-											esc_attr( $_product->get_sku() )
+											esc_attr( $instantio_product_id ),
+											esc_attr( $instantio_variation_id ),
+											esc_attr( $instantio_product->get_sku() )
 										),
-										$cart_item_key
+										$instantio_cart_item_key
 									);
 									?>
 								</span>
@@ -86,61 +86,61 @@ do_action( 'woocommerce_before_cart' ); ?>
 							<div class="ins-cart-item-product">
 								<div class="ins-cart-item-image">
 									<?php
-									$thumbnail = apply_filters( 'woocommerce_cart_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key );
+									$instantio_thumbnail = apply_filters( 'woocommerce_cart_item_thumbnail', $instantio_product->get_image(), $instantio_cart_item, $instantio_cart_item_key );
 
-									if ( ! $product_permalink ) {
+									if ( ! $instantio_product_permalink ) {
 										// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- WooCommerce image HTML filtered by woocommerce_cart_item_thumbnail.
-										echo $thumbnail;
+										echo $instantio_thumbnail;
 									} else {
 										// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- URL is escaped; thumbnail is WooCommerce-filtered image HTML.
-										printf( '<a href="%s">%s</a>', esc_url( $product_permalink ), $thumbnail );
+										printf( '<a href="%s">%s</a>', esc_url( $instantio_product_permalink ), $instantio_thumbnail );
 									}
 									?>
 								</div>
 								<div class="ins-cart-item-title" data-title="<?php esc_attr_e( 'Product', 'woocommerce' ); ?>">
 									<?php
 
-									$productName = $_product->get_name();
+									$instantio_product_name = $instantio_product->get_name();
 
-									if ( strlen( $productName ) > 30 ) {
-										$limitedName = substr( $productName, 0, 30 ) . "...";
+									if ( strlen( $instantio_product_name ) > 30 ) {
+										$instantio_limited_name = substr( $instantio_product_name, 0, 30 ) . "...";
 									} else {
-										$limitedName = $productName;
+										$instantio_limited_name = $instantio_product_name;
 									}
 
-									if ( ! $product_permalink ) {
-										echo wp_kses_post( apply_filters( 'woocommerce_cart_item_name', $limitedName, $cart_item, $cart_item_key ) . '&nbsp;' );
+									if ( ! $instantio_product_permalink ) {
+										echo wp_kses_post( apply_filters( 'woocommerce_cart_item_name', $instantio_limited_name, $instantio_cart_item, $instantio_cart_item_key ) . '&nbsp;' );
 									} else {
-										echo wp_kses_post( apply_filters( 'woocommerce_cart_item_name', sprintf( '<a href="%s">%s</a>', esc_url( $product_permalink ), $limitedName ), $cart_item, $cart_item_key ) );
+										echo wp_kses_post( apply_filters( 'woocommerce_cart_item_name', sprintf( '<a href="%s">%s</a>', esc_url( $instantio_product_permalink ), $instantio_limited_name ), $instantio_cart_item, $instantio_cart_item_key ) );
 									}
 
-									do_action( 'woocommerce_after_cart_item_name', $cart_item, $cart_item_key );
+									do_action( 'woocommerce_after_cart_item_name', $instantio_cart_item, $instantio_cart_item_key );
 
 									// Meta data.
-										echo wp_kses_post( wc_get_formatted_cart_item_data( $cart_item ) );
+										echo wp_kses_post( wc_get_formatted_cart_item_data( $instantio_cart_item ) );
 							
 									// Backorder notification.
-									if ( $_product->backorders_require_notification() && $_product->is_on_backorder( $cart_item['quantity'] ) ) {
-										echo wp_kses_post( apply_filters( 'woocommerce_cart_item_backorder_notification', '<p class="backorder_notification">' . esc_html__( 'Available on backorder', 'woocommerce' ) . '</p>', $product_id ) );
+									if ( $instantio_product->backorders_require_notification() && $instantio_product->is_on_backorder( $instantio_cart_item['quantity'] ) ) {
+										echo wp_kses_post( apply_filters( 'woocommerce_cart_item_backorder_notification', '<p class="backorder_notification">' . esc_html__( 'Available on backorder', 'woocommerce' ) . '</p>', $instantio_product_id ) );
 									}
 									?>
 								</div>
 							</div>
 							<div class="ins-cart-price" data-title="<?php esc_attr_e( 'Price', 'woocommerce' ); ?>">
 								<?php
-								echo wp_kses_post( apply_filters( 'woocommerce_cart_item_price', WC()->cart->get_product_price( $_product ), $cart_item, $cart_item_key ) );
+								echo wp_kses_post( apply_filters( 'woocommerce_cart_item_price', WC()->cart->get_product_price( $instantio_product ), $instantio_cart_item, $instantio_cart_item_key ) );
 								?>
 							</div>
 							<div class="ins-cart-item-quantity ins-cart-qty-wrap">
 								<?php
-								if ( $_product->is_sold_individually() ) {
-									$min_quantity = 1;
-									$max_quantity = 1;
+								if ( $instantio_product->is_sold_individually() ) {
+									$instantio_min_quantity = 1;
+									$instantio_max_quantity = 1;
 								} else {
-									$min_quantity = 0;
-									$max_quantity = $_product->get_max_purchase_quantity();
+									$instantio_min_quantity = 0;
+									$instantio_max_quantity = $instantio_product->get_max_purchase_quantity();
 								}
-								$minus_icon = '<svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+								$instantio_minus_icon = '<svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g clip-path="url(#clip0_173_413)">
                                 <rect x="4.66699" y="9.16663" width="11.6667" height="1.66667" fill="#494E5C"/>
                                 </g>
@@ -151,7 +151,7 @@ do_action( 'woocommerce_before_cart' ); ?>
                                 </defs>
                                 </svg>';
 
-								$plus_icon = '<svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+								$instantio_plus_icon = '<svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g clip-path="url(#clip0_173_410)">
                                 <path d="M9.66699 9.16663V4.16663H11.3337V9.16663H16.3337V10.8333H11.3337V15.8333H9.66699V10.8333H4.66699V9.16663H9.66699Z" fill="#494E5C"/>
                                 </g>
@@ -164,31 +164,31 @@ do_action( 'woocommerce_before_cart' ); ?>
 
 
 								/* translators: %s: Product name. */
-								$decrease_quantity_label = sprintf( __( 'Decrease quantity for %s', 'instantio' ), $_product->get_name() );
+								$instantio_decrease_quantity_label = sprintf( __( 'Decrease quantity for %s', 'instantio' ), $instantio_product->get_name() );
 								/* translators: %s: Product name. */
-								$increase_quantity_label = sprintf( __( 'Increase quantity for %s', 'instantio' ), $_product->get_name() );
-								$product_quantity = '<button type="button" class="minus ins-cart-minus" aria-label="' . esc_attr( $decrease_quantity_label ) . '">' . $minus_icon . '</button>';
-								$product_quantity .= woocommerce_quantity_input(
+								$instantio_increase_quantity_label = sprintf( __( 'Increase quantity for %s', 'instantio' ), $instantio_product->get_name() );
+								$instantio_product_quantity = '<button type="button" class="minus ins-cart-minus" aria-label="' . esc_attr( $instantio_decrease_quantity_label ) . '">' . $instantio_minus_icon . '</button>';
+								$instantio_product_quantity .= woocommerce_quantity_input(
 									array(
-										'input_name' => "cart[{$cart_item_key}][qty]",
-										'input_value' => $cart_item['quantity'],
-										'max_value' => $max_quantity,
-										'min_value' => $min_quantity,
-										'product_name' => $_product->get_name(),
+										'input_name' => "cart[{$instantio_cart_item_key}][qty]",
+										'input_value' => $instantio_cart_item['quantity'],
+										'max_value' => $instantio_max_quantity,
+										'min_value' => $instantio_min_quantity,
+										'product_name' => $instantio_product->get_name(),
 									),
-									$_product,
+									$instantio_product,
 									false
 								);
-								$product_quantity .= '<button type="button" class="plus ins-cart-plus" aria-label="' . esc_attr( $increase_quantity_label ) . '">' . $plus_icon . '</button>';
+								$instantio_product_quantity .= '<button type="button" class="plus ins-cart-plus" aria-label="' . esc_attr( $instantio_increase_quantity_label ) . '">' . $instantio_plus_icon . '</button>';
 
 								// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- WooCommerce quantity HTML plus static local buttons; callbacks own escaping.
-								echo apply_filters( 'woocommerce_cart_item_quantity', $product_quantity, $cart_item_key, $cart_item );
+								echo apply_filters( 'woocommerce_cart_item_quantity', $instantio_product_quantity, $instantio_cart_item_key, $instantio_cart_item );
 								?>
 
 							</div>
 							<div class="ins-cart-item-total" data-title="<?php esc_attr_e( 'Subtotal', 'woocommerce' ); ?>">
 								<?php
-								echo wp_kses_post( apply_filters( 'woocommerce_cart_item_subtotal', WC()->cart->get_product_subtotal( $_product, $cart_item['quantity'] ), $cart_item, $cart_item_key ) );
+								echo wp_kses_post( apply_filters( 'woocommerce_cart_item_subtotal', WC()->cart->get_product_subtotal( $instantio_product, $instantio_cart_item['quantity'] ), $instantio_cart_item, $instantio_cart_item_key ) );
 								?>
 							</div>
 
@@ -201,7 +201,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 			</div>
 		</div>
 
-			<?php echo wp_kses_post( apply_filters( 'ins_show_items_upsells', '' ) ); ?>
+			<?php echo wp_kses_post( apply_filters( 'instantio_show_items_upsells', '' ) ); ?>
 	</div>
 
 	<?php do_action( 'woocommerce_cart_contents' ); ?>

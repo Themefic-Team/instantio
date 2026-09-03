@@ -29,7 +29,7 @@ if ( ! class_exists( 'Instantio_Field_Fieldset' ) ) {
 				$unique_id = ( ! empty( $this->settings_id ) ) ? $this->settings_id . '[' . $this->field['id'] . ']' : $this->field['id'];
 
 				// INS_Options::field( $field, $field_value, $unique_id, $this->parent_field );
-				$INS_option = new Ins_TF_Options();
+				$INS_option = new Instantio_Options();
 				$INS_option->field( $field, $field_value, $unique_id, $this->parent_field );
 
 			}

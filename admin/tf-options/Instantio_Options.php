@@ -2,11 +2,8 @@
 // don't load directly
 defined( 'ABSPATH' ) || exit;
 
-// Existing settings hooks are public compatibility points used by Instantio integrations.
-// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
-
-if ( ! class_exists( 'Ins_TF_Options' ) ) {
-	class Ins_TF_Options {
+if ( ! class_exists( 'Instantio_Options' ) ) {
+	class Instantio_Options {
 		private static $instance = null;
 
 		/**
@@ -43,8 +40,8 @@ if ( ! class_exists( 'Ins_TF_Options' ) ) {
 
 		// constant define
 		public function tf_options_define() {
-			if ( ! defined( 'INS_OPTIONS_PATH' ) ) {
-				define( 'INS_OPTIONS_PATH', plugin_dir_path( __FILE__ ) );
+			if ( ! defined( 'INSTANTIO_OPTIONS_PATH' ) ) {
+				define( 'INSTANTIO_OPTIONS_PATH', plugin_dir_path( __FILE__ ) );
 			}
 
 
@@ -68,7 +65,7 @@ if ( ! class_exists( 'Ins_TF_Options' ) ) {
 		 */
 		public function Ins_classes_load_files() {
 			// Settings Class
-			require_once $this->Ins_tf_options_file_path( 'classes/Ins_TF_Settings.php' );
+			require_once $this->Ins_tf_options_file_path( 'classes/Instantio_Settings.php' );
 
 			// Field base class must load before the individual field implementations.
 			require_once $this->Ins_tf_options_file_path( 'fields/INS_Fields.php' );
@@ -86,8 +83,8 @@ if ( ! class_exists( 'Ins_TF_Options' ) ) {
 		 * @author Foysal
 		 */
 		public function Ins_load_options() {
-			$license_status = apply_filters( 'ins_checked_license_status', false );
-			if ( $this->is_ins_pro_active() && false !== $license_status ) {
+			$license_status = apply_filters( 'instantio_checked_license_status', false );
+			if ( $this->instantio_is_pro_active() && false !== $license_status ) {
 				$options = glob( INS_PRO_ADMIN_PATH . '/tf-options/options/*.php' );
 			} else {
 				$options = glob( $this->Ins_tf_options_file_path( 'options/*.php' ) );
@@ -115,14 +112,14 @@ if ( ! class_exists( 'Ins_TF_Options' ) ) {
 
 			if ( in_array( $screen, $tf_options_screens ) ) {
 				wp_enqueue_style( 'wp-color-picker' );
-					wp_enqueue_style( 'tf-fontawesome-4', $this->Ins_tf_options_file_url( 'assets/libs/font-awesome-4/css/font-awesome.min.css' ), array(), '4.7.0' );
-					wp_enqueue_style( 'tf-fontawesome-5', $this->Ins_tf_options_file_url( 'assets/libs/font-awesome-5/css/all.min.css' ), array(), '5.15.4' );
-					wp_enqueue_style( 'tf-fontawesome-6', $this->Ins_tf_options_file_url( 'assets/libs/font-awesome-6/css/all.min.css' ), array(), '6.4.2' );
-					wp_enqueue_style( 'tf-remixicon', $this->Ins_tf_options_file_url( 'assets/libs/remixicon/fonts/remixicon.css' ), array(), '2.5.0' );
-					wp_enqueue_style( 'tf-select2', $this->Ins_tf_options_file_url( 'assets/libs/select2/css/select2.min.css' ), array(), '4.1.0-rc.0' );
-					wp_enqueue_style( 'tf-flatpickr', $this->Ins_tf_options_file_url( 'assets/libs/flatpickr/flatpickr.min.css' ), array(), '4.6.13' );
-				wp_enqueue_style( 'ins-tf-options', $this->Ins_tf_options_file_url( 'assets/css/tf-options.css' ), array(), $this->Ins_tf_options_version() );
-				wp_enqueue_style( 'notyf-css', $this->Ins_tf_options_file_url( 'assets/libs/notyf/notyf.min.css' ), array(), $this->Ins_tf_options_version() );
+					wp_enqueue_style( 'instantio-fontawesome-4', $this->Ins_tf_options_file_url( 'assets/libs/font-awesome-4/css/font-awesome.min.css' ), array(), '4.7.0' );
+					wp_enqueue_style( 'instantio-fontawesome-5', $this->Ins_tf_options_file_url( 'assets/libs/font-awesome-5/css/all.min.css' ), array(), '5.15.4' );
+					wp_enqueue_style( 'instantio-fontawesome-6', $this->Ins_tf_options_file_url( 'assets/libs/font-awesome-6/css/all.min.css' ), array(), '6.4.2' );
+					wp_enqueue_style( 'instantio-remixicon', $this->Ins_tf_options_file_url( 'assets/libs/remixicon/fonts/remixicon.css' ), array(), '2.5.0' );
+					wp_enqueue_style( 'instantio-select2', $this->Ins_tf_options_file_url( 'assets/libs/select2/css/select2.min.css' ), array(), '4.1.0-rc.0' );
+					wp_enqueue_style( 'instantio-flatpickr', $this->Ins_tf_options_file_url( 'assets/libs/flatpickr/flatpickr.min.css' ), array(), '4.6.13' );
+				wp_enqueue_style( 'instantio-options-style', $this->Ins_tf_options_file_url( 'assets/css/tf-options.css' ), array(), $this->Ins_tf_options_version() );
+				wp_enqueue_style( 'instantio-notyf-css', $this->Ins_tf_options_file_url( 'assets/libs/notyf/notyf.min.css' ), array(), $this->Ins_tf_options_version() );
 			}
 
 			//Js
@@ -130,16 +127,16 @@ if ( ! class_exists( 'Ins_TF_Options' ) ) {
 					$setup_wizard_path    = $this->Ins_tf_options_file_path( 'assets/js/setup-wizard.js' );
 					$setup_wizard_version = file_exists( $setup_wizard_path ) ? (string) filemtime( $setup_wizard_path ) : $this->Ins_tf_options_version();
 
-						wp_enqueue_script( 'tf-flatpickr', $this->Ins_tf_options_file_url( 'assets/libs/flatpickr/flatpickr.min.js' ), array( 'jquery' ), '4.6.13', true );
-					wp_enqueue_script( 'tf-select2', $this->Ins_tf_options_file_url( 'assets/libs/select2/js/select2.min.js' ), array( 'jquery' ), '4.1.0-rc.0', true );
-					wp_enqueue_script( 'wp-color-picker-alpha', $this->Ins_tf_options_file_url( 'assets/libs/wp-color-picker-alpha/wp-color-picker-alpha.js' ), array( 'jquery', 'wp-color-picker' ), $this->Ins_tf_options_version(), true );
-						wp_enqueue_script( 'setup-wizard', $this->Ins_tf_options_file_url( 'assets/js/setup-wizard.js' ), array( 'jquery' ), $setup_wizard_version, true );
-					wp_enqueue_script( 'notyf-js', $this->Ins_tf_options_file_url( 'assets/libs/notyf/notyf.min.js' ), array( 'jquery' ), $this->Ins_tf_options_version(), true );
+						wp_enqueue_script( 'instantio-flatpickr', $this->Ins_tf_options_file_url( 'assets/libs/flatpickr/flatpickr.min.js' ), array( 'jquery' ), '4.6.13', true );
+					wp_enqueue_script( 'instantio-select2', $this->Ins_tf_options_file_url( 'assets/libs/select2/js/select2.min.js' ), array( 'jquery' ), '4.1.0-rc.0', true );
+					wp_enqueue_script( 'instantio-color-picker-alpha', $this->Ins_tf_options_file_url( 'assets/libs/wp-color-picker-alpha/wp-color-picker-alpha.js' ), array( 'jquery', 'wp-color-picker' ), $this->Ins_tf_options_version(), true );
+						wp_enqueue_script( 'instantio-setup-wizard', $this->Ins_tf_options_file_url( 'assets/js/setup-wizard.js' ), array( 'jquery' ), $setup_wizard_version, true );
+					wp_enqueue_script( 'instantio-notyf-js', $this->Ins_tf_options_file_url( 'assets/libs/notyf/notyf.min.js' ), array( 'jquery' ), $this->Ins_tf_options_version(), true );
 				//dashboard
 				if ( $screen == 'instantio_page_ins_dashboard' ) {
-						wp_enqueue_script( 'dashboard-js', $this->Ins_tf_options_file_url( 'assets/js/dashboard.js' ), array( 'jquery' ), $this->Ins_tf_options_version(), true );
+						wp_enqueue_script( 'instantio-dashboard-js', $this->Ins_tf_options_file_url( 'assets/js/dashboard.js' ), array( 'jquery' ), $this->Ins_tf_options_version(), true );
 				}
-					wp_enqueue_script( 'ins-admin', $this->Ins_tf_options_file_url( 'assets/js/admin.js' ), array( 'jquery' ), $this->Ins_tf_options_version(), true );
+					wp_enqueue_script( 'instantio-admin', $this->Ins_tf_options_file_url( 'assets/js/admin.js' ), array( 'jquery' ), $this->Ins_tf_options_version(), true );
 
 				wp_enqueue_script( 'jquery-ui-autocomplete' );
 
@@ -149,17 +146,17 @@ if ( ! class_exists( 'Ins_TF_Options' ) ) {
 				wp_enqueue_media();
 				wp_enqueue_editor();
 
-					wp_enqueue_script( 'ins_tf-options', $this->Ins_tf_options_file_url( 'assets/js/ins-options.js' ), array( 'jquery' ), $this->Ins_tf_options_version(), true );
+					wp_enqueue_script( 'instantio-options', $this->Ins_tf_options_file_url( 'assets/js/ins-options.js' ), array( 'jquery' ), $this->Ins_tf_options_version(), true );
 
-				wp_localize_script( 'ins_tf-options', 'ins_options', array(
+				wp_localize_script( 'instantio-options', 'instantio_options', array(
 					'ajax_url' => admin_url( 'admin-ajax.php' ),
-					'nonce' => wp_create_nonce( 'ins_options_nonce' ),
+					'nonce' => wp_create_nonce( 'instantio_options_nonce' ),
 					'option_id' => 'wiopt',
 				) );
 
-				wp_localize_script( 'ins-admin', 'ins_admin', array(
+				wp_localize_script( 'instantio-admin', 'instantio_admin', array(
 					'ajax_url' => admin_url( 'admin-ajax.php' ),
-					'ajax_nonce' => wp_create_nonce( 'ins_ajax_nonce' )
+					'ajax_nonce' => wp_create_nonce( 'instantio_ajax_nonce' )
 				) );
 
 			}
@@ -170,10 +167,10 @@ if ( ! class_exists( 'Ins_TF_Options' ) ) {
 		 * @author 
 		 */
 		public function Ins_tf_options_wp_enqueue_scripts() {
-			wp_enqueue_style( 'tf-fontawesome-4', $this->Ins_tf_options_file_url( 'assets/libs/font-awesome-4/css/font-awesome.min.css' ), array(), '4.7.0' );
-			wp_enqueue_style( 'tf-fontawesome-5', $this->Ins_tf_options_file_url( 'assets/libs/font-awesome-5/css/all.min.css' ), array(), '5.15.4' );
-			wp_enqueue_style( 'tf-fontawesome-6', $this->Ins_tf_options_file_url( 'assets/libs/font-awesome-6/css/all.min.css' ), array(), '6.4.2' );
-			wp_enqueue_style( 'tf-remixicon', $this->Ins_tf_options_file_url( 'assets/libs/remixicon/fonts/remixicon.css' ), array(), '2.5.0' );
+			wp_enqueue_style( 'instantio-fontawesome-4', $this->Ins_tf_options_file_url( 'assets/libs/font-awesome-4/css/font-awesome.min.css' ), array(), '4.7.0' );
+			wp_enqueue_style( 'instantio-fontawesome-5', $this->Ins_tf_options_file_url( 'assets/libs/font-awesome-5/css/all.min.css' ), array(), '5.15.4' );
+			wp_enqueue_style( 'instantio-fontawesome-6', $this->Ins_tf_options_file_url( 'assets/libs/font-awesome-6/css/all.min.css' ), array(), '6.4.2' );
+			wp_enqueue_style( 'instantio-remixicon', $this->Ins_tf_options_file_url( 'assets/libs/remixicon/fonts/remixicon.css' ), array(), '2.5.0' );
 		}
 
 		/*
@@ -282,7 +279,7 @@ if ( ! class_exists( 'Ins_TF_Options' ) ) {
 			<?php
 		}
 
-		public function is_ins_pro_active() {
+		public function instantio_is_pro_active() {
 			if ( is_plugin_active( 'wooinstant/wooinstant.php' ) && class_exists( 'WOOINS' ) ) {
 				return true;
 			}
@@ -292,4 +289,4 @@ if ( ! class_exists( 'Ins_TF_Options' ) ) {
 	}
 }
 
-Ins_TF_Options::instance();
+Instantio_Options::instance();

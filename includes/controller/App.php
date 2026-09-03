@@ -1,7 +1,5 @@
 <?php
-// INS is the established Instantio namespace and its hooks are public compatibility APIs.
-// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
-namespace INS\Controller;
+namespace Themefic\Instantio\Controller;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -20,45 +18,45 @@ class App {
 
 		add_action( 'wp_body_open', array( $this, 'ins_layout_three' ), 10 );
 
-		// add_filter( 'woocommerce_add_to_cart_fragments', array($this, 'ins_cart_count_fragments'), 50, 1 );
+		// add_filter( 'woocommerce_add_to_cart_fragments', array($this, 'instantio_cart_count_fragments'), 50, 1 );
 
 		// Ajax Cart reload After Product Add to Cart
-		add_action( 'wp_ajax_nopriv_ins_ajax_cart_reload', array( $this, 'ins_ajax_cart_reload' ), 20 );
-		add_action( 'wp_ajax_ins_ajax_cart_reload', array( $this, 'ins_ajax_cart_reload' ), 20 );
+		add_action( 'wp_ajax_nopriv_instantio_ajax_cart_reload', array( $this, 'instantio_ajax_cart_reload' ), 20 );
+		add_action( 'wp_ajax_instantio_ajax_cart_reload', array( $this, 'instantio_ajax_cart_reload' ), 20 );
 
 		// Single Product Page Ajax Add to Cart
-		add_action( 'wp_ajax_nopriv_ins_ajax_cart_single', array( $this, 'ins_ajax_cart_single' ), 20 );
-		add_action( 'wp_ajax_ins_ajax_cart_single', array( $this, 'ins_ajax_cart_single' ), 20 );
+		add_action( 'wp_ajax_nopriv_instantio_ajax_cart_single', array( $this, 'instantio_ajax_cart_single' ), 20 );
+		add_action( 'wp_ajax_instantio_ajax_cart_single', array( $this, 'instantio_ajax_cart_single' ), 20 );
 
 		// Ajax Cart Remove To cart
-		add_action( 'wp_ajax_nopriv_ins_ajax_cart_item_remove', array( $this, 'ins_ajax_cart_item_remove' ), 20 );
-		add_action( 'wp_ajax_ins_ajax_cart_item_remove', array( $this, 'ins_ajax_cart_item_remove' ), 20 );
+		add_action( 'wp_ajax_nopriv_instantio_ajax_cart_item_remove', array( $this, 'instantio_ajax_cart_item_remove' ), 20 );
+		add_action( 'wp_ajax_instantio_ajax_cart_item_remove', array( $this, 'instantio_ajax_cart_item_remove' ), 20 );
 
 		// Ajax Cart Remove To cart
-		add_action( 'wp_ajax_nopriv_ins_ajax_empty_cart', array( $this, 'ins_ajax_empty_cart' ), 20 );
-		add_action( 'wp_ajax_ins_ajax_empty_cart', array( $this, 'ins_ajax_empty_cart' ), 20 );
+		add_action( 'wp_ajax_nopriv_instantio_ajax_empty_cart', array( $this, 'instantio_ajax_empty_cart' ), 20 );
+		add_action( 'wp_ajax_instantio_ajax_empty_cart', array( $this, 'instantio_ajax_empty_cart' ), 20 );
 
 		// Ajax Update Cart
-		add_action( 'wp_ajax_nopriv_ins_ajax_update_cart', array( $this, 'ins_ajax_update_cart' ) );
-		add_action( 'wp_ajax_ins_ajax_update_cart', array( $this, 'ins_ajax_update_cart' ) );
+		add_action( 'wp_ajax_nopriv_instantio_ajax_update_cart', array( $this, 'instantio_ajax_update_cart' ) );
+		add_action( 'wp_ajax_instantio_ajax_update_cart', array( $this, 'instantio_ajax_update_cart' ) );
 
 		// Ajax Remove Coupon
-		add_action( 'wp_ajax_nopriv_ins_ajax_remove_coupon', array( $this, 'ins_ajax_remove_coupon' ) );
-		add_action( 'wp_ajax_ins_ajax_remove_coupon', array( $this, 'ins_ajax_remove_coupon' ) );
+		add_action( 'wp_ajax_nopriv_instantio_ajax_remove_coupon', array( $this, 'instantio_ajax_remove_coupon' ) );
+		add_action( 'wp_ajax_instantio_ajax_remove_coupon', array( $this, 'instantio_ajax_remove_coupon' ) );
 
 
 		// Ins Cart Toggle
-		add_action( 'ins_cart_toggle', array( $this, 'ins_cart_toggle' ), 11 );
+		add_action( 'instantio_cart_toggle', array( $this, 'instantio_cart_toggle' ), 11 );
 
 		// Ins Cart Toggle 
-		add_action( 'ins_cart_header', array( $this, 'ins_cart_modern_header' ), 10 );
+		add_action( 'instantio_cart_header', array( $this, 'ins_cart_modern_header' ), 10 );
 
 		// Ins Cart Buttons
-		add_action( 'ins_cart_buttons', array( $this, 'ins_cart_buttons' ), 11 );
+		add_action( 'instantio_cart_buttons', array( $this, 'instantio_cart_buttons' ), 11 );
 
 		// Ins Cart Toggle
-		add_action( 'ins_cart_content', array( $this, 'ins_cart_content_modern' ), 10, 2 );
-		add_action( 'ins_cart_content_single', array( $this, 'ins_modern_cart_only' ), 10, 2 );
+		add_action( 'instantio_cart_content', array( $this, 'instantio_cart_content_modern' ), 10, 2 );
+		add_action( 'instantio_cart_content_single', array( $this, 'ins_modern_cart_only' ), 10, 2 );
 
 		add_shortcode( 'instantio-cart-icon', [ $this, 'instantio_carticon_function' ] );
 
@@ -71,9 +69,9 @@ class App {
 
 	// Instantio Layout Set Data
 	public function ins_layout_set_data() {
-		$ins_layout = ! empty( insopt( 'ins-layout-options' ) ) ? insopt( 'ins-layout-options' ) : '1';
+		$ins_layout = ! empty( instantio_get_option( 'ins-layout-options' ) ) ? instantio_get_option( 'ins-layout-options' ) : '1';
 
-		require_once INS_INC_PATH . "/controller/icon-svg.php";
+		require_once INSTANTIO_INC_PATH . "/controller/icon-svg.php";
 
 		if ( $ins_layout == 1 ) {
 			$this->layout = $ins_layout;
@@ -95,19 +93,19 @@ class App {
 	public function instantio_carticon_function() {
 
 		// Option 
-		$mini_cart_option = ! empty( insopt( 'ins-mini-cart' )['ins-mini-cart-option'] ) ? insopt( 'ins-mini-cart' )['ins-mini-cart-option'] : '0';
+		$mini_cart_option = ! empty( instantio_get_option( 'ins-mini-cart' )['ins-mini-cart-option'] ) ? instantio_get_option( 'ins-mini-cart' )['ins-mini-cart-option'] : '0';
 
 		if ( $mini_cart_option != 1 ) {
 			return;
 		}
 
 		// icons 
-		$cart_icon = ! empty( insopt( 'ins-toggle-tab' )['cart-icon'] ) ? insopt( 'ins-toggle-tab' )['cart-icon'] : 'shopping-bag';
-		$wi_icon_choice = ! empty( insopt( 'ins-toggle-tab' )['wi-icon-choice'] ) ? insopt( 'ins-toggle-tab' )['wi-icon-choice'] : 'icon';
-		$wi_icon_choice_uploder = ! empty( insopt( 'ins-toggle-tab' )['wi-icon-choice-uploder'] ) ? insopt( 'ins-toggle-tab' )['wi-icon-choice-uploder'] : '';
+		$cart_icon = ! empty( instantio_get_option( 'ins-toggle-tab' )['cart-icon'] ) ? instantio_get_option( 'ins-toggle-tab' )['cart-icon'] : 'shopping-bag';
+		$wi_icon_choice = ! empty( instantio_get_option( 'ins-toggle-tab' )['wi-icon-choice'] ) ? instantio_get_option( 'ins-toggle-tab' )['wi-icon-choice'] : 'icon';
+		$wi_icon_choice_uploder = ! empty( instantio_get_option( 'ins-toggle-tab' )['wi-icon-choice-uploder'] ) ? instantio_get_option( 'ins-toggle-tab' )['wi-icon-choice-uploder'] : '';
 
 		if ( $cart_icon == 'shopping-bag' ) {
-			$toggle_icon = apply_filters( 'ins_get_svg_icon_pro', instantio_svg_icon( $cart_icon ) );
+			$toggle_icon = apply_filters( 'instantio_get_svg_icon_pro', instantio_svg_icon( $cart_icon ) );
 		} else {
 			$toggle_icon = '<i class="' . esc_attr( $cart_icon ) . '"></i>';
 		}
@@ -140,7 +138,7 @@ class App {
 	// Ins Cart Header
 	public function ins_cart_modern_header() {
 
-		$ins_single_layout = ! empty( insopt( 'ins-layout-step' ) ) ? insopt( 'ins-layout-step' ) : false;
+		$ins_single_layout = ! empty( instantio_get_option( 'ins-layout-step' ) ) ? instantio_get_option( 'ins-layout-step' ) : false;
 
 
 		ob_start();
@@ -181,9 +179,9 @@ class App {
 			</div>
 			<?php
 			if ( $ins_single_layout == false ) {
-				do_action( 'ins_template_steps' );
+				do_action( 'instantio_template_steps' );
 			}
-			// do_action('ins_template_steps');
+			// do_action('instantio_template_steps');
 			?>
 		</div>
 		<?php
@@ -193,17 +191,17 @@ class App {
 	}
 
 	// Ins Toggle button
-	public function ins_cart_toggle() {
+	public function instantio_cart_toggle() {
 		ob_start();
-		$ins_toggler = insopt( 'ins-toggler' );
+		$ins_toggler = instantio_get_option( 'ins-toggler' );
 
-		$cart_icon = ! empty( insopt( 'ins-toggle-tab' )['cart-icon'] ) ? insopt( 'ins-toggle-tab' )['cart-icon'] : 'shopping-bag';
-		$wi_icon_choice = ! empty( insopt( 'ins-toggle-tab' )['wi-icon-choice'] ) ? insopt( 'ins-toggle-tab' )['wi-icon-choice'] : 'icon';
-		$wi_icon_choice_uploder = ! empty( insopt( 'ins-toggle-tab' )['wi-icon-choice-uploder'] ) ? insopt( 'ins-toggle-tab' )['wi-icon-choice-uploder'] : '';
+		$cart_icon = ! empty( instantio_get_option( 'ins-toggle-tab' )['cart-icon'] ) ? instantio_get_option( 'ins-toggle-tab' )['cart-icon'] : 'shopping-bag';
+		$wi_icon_choice = ! empty( instantio_get_option( 'ins-toggle-tab' )['wi-icon-choice'] ) ? instantio_get_option( 'ins-toggle-tab' )['wi-icon-choice'] : 'icon';
+		$wi_icon_choice_uploder = ! empty( instantio_get_option( 'ins-toggle-tab' )['wi-icon-choice-uploder'] ) ? instantio_get_option( 'ins-toggle-tab' )['wi-icon-choice-uploder'] : '';
 
 		if ( $cart_icon == 'shopping-bag' ) {
 
-			$toggle_icon = apply_filters( 'ins_get_svg_icon_pro', instantio_svg_icon( $cart_icon ) );
+			$toggle_icon = apply_filters( 'instantio_get_svg_icon_pro', instantio_svg_icon( $cart_icon ) );
 		} else {
 			$toggle_icon = '<i class="' . esc_attr( $cart_icon ) . '"></i>';
 		}
@@ -216,12 +214,12 @@ class App {
 		} elseif ( $this->layout == 3 ) {
 			$togglebtnClass = 'popupcart';
 		}
-		$icon_style = ! empty( insopt( 'ins-toggle-tab' )['cart-icon-style'] ) ? insopt( 'ins-toggle-tab' )['cart-icon-style'] : 'cart-style-1';
-		$dedicated_mobile = ! empty( insopt( 'dedicated_mobile' ) ) ? insopt( 'dedicated_mobile' ) : false;
-		$mobile_cart_panel = ! empty( insopt( 'mobile-cart-panel' ) ) ? insopt( 'mobile-cart-panel' ) : false;
+		$icon_style = ! empty( instantio_get_option( 'ins-toggle-tab' )['cart-icon-style'] ) ? instantio_get_option( 'ins-toggle-tab' )['cart-icon-style'] : 'cart-style-1';
+		$dedicated_mobile = ! empty( instantio_get_option( 'dedicated_mobile' ) ) ? instantio_get_option( 'dedicated_mobile' ) : false;
+		$mobile_cart_panel = ! empty( instantio_get_option( 'mobile-cart-panel' ) ) ? instantio_get_option( 'mobile-cart-panel' ) : false;
 		$dedicated_mobile_panel_class = $dedicated_mobile == true && $mobile_cart_panel == true ? ' ins-dedicated-mobile-card-panel' : '';
 
-		$offMain_cart = ! empty( insopt( 'ins-mini-cart' )['ins-sidecart-icon'] ) ? insopt( 'ins-mini-cart' )['ins-sidecart-icon'] : '0';
+		$offMain_cart = ! empty( instantio_get_option( 'ins-mini-cart' )['ins-sidecart-icon'] ) ? instantio_get_option( 'ins-mini-cart' )['ins-sidecart-icon'] : '0';
 
 		if ( $offMain_cart == 1 ) {
 			$hiddenClass = 'hidden';
@@ -242,7 +240,7 @@ class App {
 					<?php echo $toggle_icon; ?>
 				</span>
 
-				<?php // echo insopt( 'ins-toggle-tab' )['ins-cart-emty-hide'];        ?>
+				<?php // echo instantio_get_option( 'ins-toggle-tab' )['ins-cart-emty-hide'];        ?>
 				<span class="ins-items-count"><span id="ins_cart_totals" class="ins_cart_total">
 						<?php echo absint( WC()->cart->get_cart_contents_count() ); ?>
 					</span></span>
@@ -275,13 +273,13 @@ class App {
 
 
 	// Ins Cart Buttons
-	public function ins_cart_buttons() {
+	public function instantio_cart_buttons() {
 		ob_start();
 
 		// Cart Button
-		$on_cart_btn = isset( insopt( 'cart-btn' )['on-cart-btn'] ) ? insopt( 'cart-btn' )['on-cart-btn'] : false;
-		$cart_button_text = isset( insopt( 'cart-btn' )['cart_button_text'] ) ? insopt( 'cart-btn' )['cart_button_text'] : '';
-		$cart_button_url = isset( insopt( 'cart-btn' )['cart_button_url'] ) ? insopt( 'cart-btn' )['cart_button_url'] : '';
+		$on_cart_btn = isset( instantio_get_option( 'cart-btn' )['on-cart-btn'] ) ? instantio_get_option( 'cart-btn' )['on-cart-btn'] : false;
+		$cart_button_text = isset( instantio_get_option( 'cart-btn' )['cart_button_text'] ) ? instantio_get_option( 'cart-btn' )['cart_button_text'] : '';
+		$cart_button_url = isset( instantio_get_option( 'cart-btn' )['cart_button_url'] ) ? instantio_get_option( 'cart-btn' )['cart_button_url'] : '';
 
 			$cart_button_text = ! empty( $cart_button_text ) && $on_cart_btn == true ? wp_strip_all_tags( $cart_button_text ) : __( 'View Cart', 'instantio' );
 		$cart_button_url = ! empty( $cart_button_url ) && $on_cart_btn == true ? $cart_button_url : wc_get_cart_url();
@@ -289,12 +287,12 @@ class App {
 		// Cart Button Link
 		$cart_button = '<a href="' . esc_url( $cart_button_url ) . '" class="view-cart active">' . esc_html( $cart_button_text ) . '</a>';
 
-		// insopt( 'auto-tog-panel' )
+		// instantio_get_option( 'auto-tog-panel' )
 		// Checkout Button
-		$on_checkout_btn = isset( insopt( 'checkout-btn' )['on-checkout-btn'] ) ? insopt( 'checkout-btn' )['on-checkout-btn'] : false;
+		$on_checkout_btn = isset( instantio_get_option( 'checkout-btn' )['on-checkout-btn'] ) ? instantio_get_option( 'checkout-btn' )['on-checkout-btn'] : false;
 
-		$checkout_button_text = isset( insopt( 'checkout-btn' )['checkout_button_text'] ) ? insopt( 'checkout-btn' )['checkout_button_text'] : '';
-		$checkout_button_url = isset( insopt( 'checkout-btn' )['checkout_button_url'] ) ? insopt( 'checkout-btn' )['checkout_button_url'] : '';
+		$checkout_button_text = isset( instantio_get_option( 'checkout-btn' )['checkout_button_text'] ) ? instantio_get_option( 'checkout-btn' )['checkout_button_text'] : '';
+		$checkout_button_url = isset( instantio_get_option( 'checkout-btn' )['checkout_button_url'] ) ? instantio_get_option( 'checkout-btn' )['checkout_button_url'] : '';
 
 			$checkout_button_text = ! empty( $checkout_button_text ) && $on_checkout_btn == true ? wp_strip_all_tags( $checkout_button_text ) : __( 'Checkout Now', 'instantio' );
 		$checkout_button_url = ! empty( $checkout_button_url ) && $on_checkout_btn == true ? $checkout_button_url : wc_get_checkout_url();
@@ -311,19 +309,19 @@ class App {
 		<?php
 
 		$html = ob_get_clean();
-		echo wp_kses_post( apply_filters( 'ins_cart_buttons_pro', $html ) );
+		echo wp_kses_post( apply_filters( 'instantio_cart_buttons_pro', $html ) );
 	}
 
 
 	// Ins Cart Content Modern
-	public function ins_cart_content_modern( $display ) {
+	public function instantio_cart_content_modern( $display ) {
 		ob_start();
 		?>
 		<div class="ins-content <?php echo esc_attr( $display ) ?>">
 			<div class="ins-cart-inner step-1 ins-cart-step active">
-				<?php require_once apply_filters( 'ins_cart_template', INS_INC_PATH . '/templates/cart-modern.php' ); ?>
+				<?php require_once apply_filters( 'instantio_cart_template', INSTANTIO_INC_PATH . '/templates/cart-modern.php' ); ?>
 			</div>
-			<?php do_action( 'ins_template_step_content' ); ?>
+			<?php do_action( 'instantio_template_step_content' ); ?>
 		</div>
 		<?php
 		// The buffer contains a local cart template and registered extension action output.
@@ -337,7 +335,7 @@ class App {
 		?>
 		<div class="ins-content <?php echo esc_attr( $display ) ?>">
 			<div class="ins-cart-inner step-1 ins-cart-step active">
-				<?php require_once apply_filters( 'ins_cart_template', INS_INC_PATH . '/templates/ins_single_step_cart.php' ); ?>
+				<?php require_once apply_filters( 'instantio_cart_template', INSTANTIO_INC_PATH . '/templates/ins_single_step_cart.php' ); ?>
 			</div>
 		</div>
 		<?php
@@ -347,22 +345,22 @@ class App {
 	}
 
 	// Ajax Cart reload After Product Add to Cart
-	public function ins_ajax_cart_reload( $include_fragments = false ) {
+	public function instantio_ajax_cart_reload( $include_fragments = false ) {
 		if ( wp_doing_ajax() && ! $include_fragments ) {
-			check_ajax_referer( 'ins_ajax_nonce', 'nonce' );
+			check_ajax_referer( 'instantio_ajax_nonce', 'nonce' );
 		}
 		ob_start();
-		// require_once apply_filters( 'ins_layout_slug', INS_INC_PATH . $this->layouts_slug );
+		// require_once apply_filters( 'instantio_layout_slug', INSTANTIO_INC_PATH . $this->layouts_slug );
 
 		// checked is single step
-		$ins_single_layout = ! empty( insopt( 'ins-layout-step' ) ) ? insopt( 'ins-layout-step' ) : false;
+		$ins_single_layout = ! empty( instantio_get_option( 'ins-layout-step' ) ) ? instantio_get_option( 'ins-layout-step' ) : false;
 
 		if ( $ins_single_layout ) {
-			require_once INS_TEMPLATES_PATH . '/ins_single_step_cart.php';
+			require_once INSTANTIO_TEMPLATES_PATH . '/ins_single_step_cart.php';
 		} else {
-			require_once INS_TEMPLATES_PATH . '/cart-modern.php';
+			require_once INSTANTIO_TEMPLATES_PATH . '/cart-modern.php';
 		}
-		// require_once INS_INC_PATH .  $this->layouts_slug;
+		// require_once INSTANTIO_INC_PATH .  $this->layouts_slug;
 		$data = ob_get_clean();
 
 		// Override the checkout template
@@ -402,10 +400,10 @@ class App {
 			);
 		}
 		// need to check this again 
-		// $ins_checkout_load = apply_filters('ins_template_step_content');
+		// $ins_checkout_load = apply_filters('instantio_template_step_content');
 
 		$response = array(
-			// 'fragments' => apply_filters( 'ins_cart_count_fragments', array() ),
+			// 'fragments' => apply_filters( 'instantio_cart_count_fragments', array() ),
 			'cart_hash' => apply_filters( 'woocommerce_add_to_cart_hash', WC()->cart->get_cart_for_session() ? md5( json_encode( WC()->cart->get_cart_for_session() ) ) : '', WC()->cart->get_cart_for_session() ),
 			'data' => $data,
 			'cart_total' => WC()->cart->get_cart_total(),
@@ -422,10 +420,10 @@ class App {
 		wp_die();
 	}
 
-	public function ins_ajax_cart_single() {
+	public function instantio_ajax_cart_single() {
 
 			if ( ! isset( $_POST['nonce'] ) ||
-				! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['nonce'] ) ), 'ins_ajax_nonce' ) ) {
+				! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['nonce'] ) ), 'instantio_ajax_nonce' ) ) {
 			wp_send_json( [ 'error' => true ] );
 		}
 
@@ -487,7 +485,7 @@ class App {
 					wc_add_to_cart_message( array( $product_id => 1 ), true );
 				}
 
-					$this->ins_ajax_cart_reload( true );
+					$this->instantio_ajax_cart_reload( true );
 			}
 
 			wp_send_json( [
@@ -590,7 +588,7 @@ class App {
 					wc_add_to_cart_message( array( $product_id => $main_qty  ), true );
 				}
 
-					$this->ins_ajax_cart_reload( true );
+					$this->instantio_ajax_cart_reload( true );
 			}
 
 			wp_send_json( [
@@ -622,7 +620,7 @@ class App {
 				wc_add_to_cart_message( array( $product_id => $quantity ), true );
 			}
 
-				$this->ins_ajax_cart_reload( true );
+				$this->instantio_ajax_cart_reload( true );
 		}
 
 		wp_send_json( [
@@ -636,8 +634,8 @@ class App {
 	}
 
 	// Ajax Cart Remove To cart
-		public function ins_ajax_cart_item_remove() {
-			check_ajax_referer( 'ins_ajax_nonce', 'nonce' );
+		public function instantio_ajax_cart_item_remove() {
+			check_ajax_referer( 'instantio_ajax_nonce', 'nonce' );
 
 			$product_id   = isset( $_POST['product_id'] ) ? absint( wp_unslash( $_POST['product_id'] ) ) : 0;
 			$variation_id = isset( $_POST['variation_id'] ) ? absint( wp_unslash( $_POST['variation_id'] ) ) : 0;
@@ -654,14 +652,14 @@ class App {
 		WC()->cart->calculate_totals();
 		WC()->cart->maybe_set_cart_cookies();
 
-		return $this->ins_ajax_cart_reload();
+		return $this->instantio_ajax_cart_reload();
 
 
 	}
 
 	// Ajax Update Cart
-		public function ins_ajax_update_cart() {
-			check_ajax_referer( 'ins_ajax_nonce', 'nonce' );
+		public function instantio_ajax_update_cart() {
+			check_ajax_referer( 'instantio_ajax_nonce', 'nonce' );
 
 			$cart_item_keys = isset( $_POST['cart_item_keys'] ) && is_array( $_POST['cart_item_keys'] )
 				? array_map( 'sanitize_text_field', wp_unslash( $_POST['cart_item_keys'] ) )
@@ -700,8 +698,8 @@ class App {
 		endif;
 
 		ob_start();
-		// require_once apply_filters( 'ins_layout_slug', INS_INC_PATH . $this->layouts_slug ); 
-		$this->ins_ajax_cart_reload();
+		// require_once apply_filters( 'instantio_layout_slug', INSTANTIO_INC_PATH . $this->layouts_slug );
+		$this->instantio_ajax_cart_reload();
 		$cart_data = ob_get_clean();
 
 		// Override the checkout template
@@ -732,8 +730,8 @@ class App {
 	}
 
 	// Ajax Cart Empty To cart
-		public function ins_ajax_empty_cart() {
-			check_ajax_referer( 'ins_ajax_nonce', 'nonce' );
+		public function instantio_ajax_empty_cart() {
+			check_ajax_referer( 'instantio_ajax_nonce', 'nonce' );
 
 			WC()->cart->empty_cart();
 		WC()->cart->calculate_totals();
@@ -741,8 +739,8 @@ class App {
 
 		ob_start();
 
-		// require_once apply_filters( 'ins_layout_slug', INS_INC_PATH . $this->layouts_slug ); 
-		$this->ins_ajax_cart_reload();
+		// require_once apply_filters( 'instantio_layout_slug', INSTANTIO_INC_PATH . $this->layouts_slug );
+		$this->instantio_ajax_cart_reload();
 		$cart_data = ob_get_clean();
 
 		$data = array(
@@ -756,8 +754,8 @@ class App {
 	}
 
 	// Ajax Remove Coupon
-		public function ins_ajax_remove_coupon() {
-			check_ajax_referer( 'ins_ajax_nonce', 'nonce' );
+		public function instantio_ajax_remove_coupon() {
+			check_ajax_referer( 'instantio_ajax_nonce', 'nonce' );
 
 			$coupon_code = isset( $_POST['coupon'] ) ? wc_format_coupon_code( sanitize_text_field( wp_unslash( $_POST['coupon'] ) ) ) : '';
 			WC()->cart->remove_coupon( $coupon_code );
@@ -767,7 +765,7 @@ class App {
 
 		ob_start();
 
-		require_once apply_filters( 'ins_layout_slug', INS_INC_PATH . $this->layouts_slug );
+		require_once apply_filters( 'instantio_layout_slug', INSTANTIO_INC_PATH . $this->layouts_slug );
 		$cart_data = ob_get_clean();
 
 		$data = array(
@@ -800,7 +798,7 @@ class App {
 		}
 
 		// checked is page seleted or not
-		$ins_page_selected = insopt( 'ins-page-selected' ); // Retrieve the option value
+		$ins_page_selected = instantio_get_option( 'ins-page-selected' ); // Retrieve the option value
 
 		if ( ! empty( $ins_page_selected ) && is_array( $ins_page_selected ) ) {
 			// The option value is an array, so you can proceed with array operations
@@ -817,10 +815,10 @@ class App {
 			}
 		}
 
-		$toggle_position = isset( insopt( 'ins-toggle-tab' )['toggle-position'] ) ? insopt( 'ins-toggle-tab' )['toggle-position'] : 'right-bottom';
+		$toggle_position = isset( instantio_get_option( 'ins-toggle-tab' )['toggle-position'] ) ? instantio_get_option( 'ins-toggle-tab' )['toggle-position'] : 'right-bottom';
 
 		// checked is single step
-		$ins_single_layout = ! empty( insopt( 'ins-layout-step' ) ) ? insopt( 'ins-layout-step' ) : false;
+		$ins_single_layout = ! empty( instantio_get_option( 'ins-layout-step' ) ) ? instantio_get_option( 'ins-layout-step' ) : false;
 
 		if ( ! empty( $toggle_position ) ) {
 			$toggle_position = explode( '-', $toggle_position );
@@ -830,37 +828,37 @@ class App {
 			$toggle_position_horizontal = 'right';
 			$toggle_position_vertical = 'bottom';
 		}
-		$toggle_panel_position = isset( insopt( 'ins-toggle-panel-tab' )['toggle-panel-position'] ) ? 'panel-' . insopt( 'ins-toggle-panel-tab' )['toggle-panel-position'] : 'panel-right';
+		$toggle_panel_position = isset( instantio_get_option( 'ins-toggle-panel-tab' )['toggle-panel-position'] ) ? 'panel-' . instantio_get_option( 'ins-toggle-panel-tab' )['toggle-panel-position'] : 'panel-right';
 		$this->layout_class .= ! empty( $toggle_position_horizontal ) ? 'ins-hori-' . $toggle_position_horizontal . ' ' : 'ins-hori-right ';
 		$this->layout_class .= ! empty( $toggle_panel_position ) ? $toggle_panel_position . ' ' : 'panel-right ';
 		$this->layout_class .= ! empty( $toggle_position_vertical ) ? 'ins-var-cart-' . $toggle_position_vertical . ' ' : 'ins-var-cart-bottom ';
-		$this->layout_class .= ! empty( insopt( 'ins-layout-mode' ) ) ? 'ins-layout-' . insopt( 'ins-layout-mode' ) . ' ' : '';
-		$this->layout_class .= ! empty( insopt( 'ins-layout-animation' ) ) ? insopt( 'ins-layout-animation' ) . ' ' : '';
+		$this->layout_class .= ! empty( instantio_get_option( 'ins-layout-mode' ) ) ? 'ins-layout-' . instantio_get_option( 'ins-layout-mode' ) . ' ' : '';
+		$this->layout_class .= ! empty( instantio_get_option( 'ins-layout-animation' ) ) ? instantio_get_option( 'ins-layout-animation' ) . ' ' : '';
 		$this->layout_class .= $ins_single_layout == true ? 'ins-single-layout-step ' : '';
 
-		$ins_layout_class = apply_filters( 'ins_layout_class', $this->layout_class );
+		$instantio_layout_class = apply_filters( 'instantio_layout_class', $this->layout_class );
 
 
 		// Dedicated mobile Version hook for
-		do_action( 'dedicated_mobile_version' );
+		do_action( 'instantio_dedicated_mobile_version' );
 
 		ob_start();
 
 		if ( $this->layout == 1 || $this->layout == 3 ) :
 			?>
 			<div class="ins-fixed-toogle <?php echo esc_attr( $this->layout_class ) ?>">
-				<?php do_action( 'ins_cart_toggle' ); ?>
+				<?php do_action( 'instantio_cart_toggle' ); ?>
 			</div>
 			<?php
 		endif;
 
 		if ( $this->layout == 2 || $this->layout == 3 ) :
 			?>
-			<div class="ins-checkout-popup ins-checkout-modern <?php echo esc_attr( $ins_layout_class ) ?>">
+			<div class="ins-checkout-popup ins-checkout-modern <?php echo esc_attr( $instantio_layout_class ) ?>">
 				<div class="ins-checkout-overlay"></div>
-				<div id="instantio-cart-panel" role="dialog" aria-modal="true" aria-label="<?php esc_attr_e( 'Shopping cart', 'instantio' ); ?>" tabindex="-1" class="ins-checkout-layout ins-checkout-layout-3 <?php echo esc_attr( $ins_layout_class ) ?>">
+				<div id="instantio-cart-panel" role="dialog" aria-modal="true" aria-label="<?php esc_attr_e( 'Shopping cart', 'instantio' ); ?>" tabindex="-1" class="ins-checkout-layout ins-checkout-layout-3 <?php echo esc_attr( $instantio_layout_class ) ?>">
 					<?php
-					require_once apply_filters( 'ins_layout_slug', INS_INC_PATH . $this->layouts_slug );
+					require_once apply_filters( 'instantio_layout_slug', INSTANTIO_INC_PATH . $this->layouts_slug );
 					?>
 				</div>
 			</div>

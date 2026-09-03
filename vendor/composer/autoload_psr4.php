@@ -6,5 +6,5 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'INS\\Controller\\' => array($baseDir . '/includes/controller'),
+    'Themefic\\Instantio\\Controller\\' => array($baseDir . '/includes/controller'),
 );

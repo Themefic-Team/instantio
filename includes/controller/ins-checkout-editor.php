@@ -3,17 +3,15 @@
 defined( 'ABSPATH' ) || exit;
 
 // Checkout callbacks are established public symbols used by existing installations and extensions.
-// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
-
     /**
      * init Instantio Checkout Editor.
      * @author M Hemel Hasan
      * @since 3.1.0
      */
-    add_action( 'init', 'ins_defualt_billing_checkout_from', 9 );
-    add_action( 'init', 'ins_defualt_shipping_checkout_from', 9 );
+    add_action( 'init', 'instantio_default_billing_checkout_form', 9 );
+    add_action( 'init', 'instantio_default_shipping_checkout_form', 9 );
 
-    function ins_defualt_billing_checkout_from() {
+    function instantio_default_billing_checkout_form() {
         // Make sure WooCommerce is loaded
         if ( function_exists('WC') && is_object(WC()) ) {
 
@@ -44,7 +42,7 @@ defined( 'ABSPATH' ) || exit;
     }
 
     
-    function ins_defualt_shipping_checkout_from() {
+    function instantio_default_shipping_checkout_form() {
         // Make sure WooCommerce is loaded
         if ( function_exists('WC') && is_object(WC()) ) {
 

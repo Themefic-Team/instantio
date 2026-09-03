@@ -30,13 +30,13 @@ class Instantio_Dashboard_Widget {
 		 * Admin Dashboard CSS
 		 */
 		if ( $screen == 'index.php' ) {
-			wp_enqueue_style( 'ins-admin-dashboard', INS_ASSETS_URL . '/admin/css/ins-admin-dashboard.css', '', INSTANTIO_VERSION );
+			wp_enqueue_style( 'instantio-admin-dashboard', INSTANTIO_ASSETS_URL . '/admin/css/ins-admin-dashboard.css', '', INSTANTIO_VERSION );
 		}
 
     }
 
     public function ins_display_dashboard_widget() {
-        $insOptions = insopt();
+        $insOptions = instantio_get_option();
         ?>
         <div class="ins-widget">
 

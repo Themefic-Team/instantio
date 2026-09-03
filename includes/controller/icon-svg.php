@@ -2,9 +2,6 @@
 
 defined( 'ABSPATH' ) || exit;
 
-// These icon helpers are established public functions used by templates and extensions.
-// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
-
 /**
  * SVG Icons function
  *

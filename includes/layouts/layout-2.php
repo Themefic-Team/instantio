@@ -2,8 +2,6 @@
 defined( 'ABSPATH' ) || exit;
 
 // Layout variables and hooks are compatibility points shared with Instantio Pro and theme integrations.
-// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
- 
 //  ob_start();
 
 ?> 
@@ -15,39 +13,39 @@ defined( 'ABSPATH' ) || exit;
 
 <?php 
 
-	do_action('ins_cart_toggle');
+	do_action('instantio_cart_toggle');
 
 	// Empty Cart Content
-	$on_emtpty_cart_content        = isset( insopt( 'empty-cart-content' )['on-empty-cart-content'] ) ? insopt( 'empty-cart-content' )['on-empty-cart-content'] : false;
-	$empty_cart_text               = isset( insopt( 'empty-cart-content' )['empty_cart_text'] ) ? insopt( 'empty-cart-content' )['empty_cart_text'] : '';
-	$empty_cart_button_prefix_text = isset( insopt( 'empty-cart-content' )['empty_cart_button_prefix_info'] ) ? insopt( 'empty-cart-content' )['empty_cart_button_prefix_info'] : '';
-	$empty_cart_button_text        = isset( insopt( 'empty-cart-content' )['empty_cart_button_text'] ) ? insopt( 'empty-cart-content' )['empty_cart_button_text'] : '';
-	$empty_cart_button_url         = isset( insopt( 'empty-cart-content' )['empty_cart_button_url'] ) ? insopt( 'empty-cart-content' )['empty_cart_button_url'] : '';
+	$instantio_empty_cart_enabled        = isset( instantio_get_option( 'empty-cart-content' )['on-empty-cart-content'] ) ? instantio_get_option( 'empty-cart-content' )['on-empty-cart-content'] : false;
+	$instantio_empty_cart_text               = isset( instantio_get_option( 'empty-cart-content' )['empty_cart_text'] ) ? instantio_get_option( 'empty-cart-content' )['empty_cart_text'] : '';
+	$instantio_empty_cart_button_prefix_text = isset( instantio_get_option( 'empty-cart-content' )['empty_cart_button_prefix_info'] ) ? instantio_get_option( 'empty-cart-content' )['empty_cart_button_prefix_info'] : '';
+	$instantio_empty_cart_button_text        = isset( instantio_get_option( 'empty-cart-content' )['empty_cart_button_text'] ) ? instantio_get_option( 'empty-cart-content' )['empty_cart_button_text'] : '';
+	$instantio_empty_cart_button_url         = isset( instantio_get_option( 'empty-cart-content' )['empty_cart_button_url'] ) ? instantio_get_option( 'empty-cart-content' )['empty_cart_button_url'] : '';
 
-	$empty_cart_button_prefix_text = ! empty( $empty_cart_button_prefix_text ) && $on_emtpty_cart_content == true ? wp_strip_all_tags( $empty_cart_button_prefix_text ) : __( 'Please go to', 'instantio' );
-	$empty_cart_text               = ! empty( $empty_cart_text ) && $on_emtpty_cart_content == true ? wp_strip_all_tags( $empty_cart_text ) : __( 'Your cart is empty.', 'instantio' );
-	$empty_cart_button_text        = ! empty( $empty_cart_button_text ) && $on_emtpty_cart_content == true ? wp_strip_all_tags( $empty_cart_button_text ) : __( 'View Cart', 'instantio' );
-	$empty_cart_button_url         = ! empty( $empty_cart_button_url ) && $on_emtpty_cart_content         == true ? $empty_cart_button_url : home_url( '/shop' );
+	$instantio_empty_cart_button_prefix_text = ! empty( $instantio_empty_cart_button_prefix_text ) && $instantio_empty_cart_enabled == true ? wp_strip_all_tags( $instantio_empty_cart_button_prefix_text ) : __( 'Please go to', 'instantio' );
+	$instantio_empty_cart_text               = ! empty( $instantio_empty_cart_text ) && $instantio_empty_cart_enabled == true ? wp_strip_all_tags( $instantio_empty_cart_text ) : __( 'Your cart is empty.', 'instantio' );
+	$instantio_empty_cart_button_text        = ! empty( $instantio_empty_cart_button_text ) && $instantio_empty_cart_enabled == true ? wp_strip_all_tags( $instantio_empty_cart_button_text ) : __( 'View Cart', 'instantio' );
+	$instantio_empty_cart_button_url         = ! empty( $instantio_empty_cart_button_url ) && $instantio_empty_cart_enabled         == true ? $instantio_empty_cart_button_url : home_url( '/shop' );
 
 
-	$display = 'ins-show';
-	$hide_empty = 'hide';
+	$instantio_display = 'ins-show';
+	$instantio_hide_empty = 'hide';
 
 	if(WC()->cart->is_empty()):   
-		$hide_empty = 'ins-show';
-		$display = 'hide'; 
+		$instantio_hide_empty = 'ins-show';
+		$instantio_display = 'hide';
 	endif;
 
 
-	do_action( 'ins_cart_header');
+	do_action( 'instantio_cart_header');
 
 	echo sprintf( '<div class="ins-cart-empty %s"><span>%s <br> %s</span></div>',
-		esc_attr( $hide_empty ),
-		esc_html( $empty_cart_text ),
-		esc_html( $empty_cart_button_prefix_text ) . ' ' . '<a href="' . esc_url( $empty_cart_button_url ) . '">' . esc_html( $empty_cart_button_text ) . '</a>'
+		esc_attr( $instantio_hide_empty ),
+		esc_html( $instantio_empty_cart_text ),
+		esc_html( $instantio_empty_cart_button_prefix_text ) . ' ' . '<a href="' . esc_url( $instantio_empty_cart_button_url ) . '">' . esc_html( $instantio_empty_cart_button_text ) . '</a>'
 	);
 
-	do_action( 'ins_cart_content', $display ); 
+	do_action( 'instantio_cart_content', $instantio_display );
 	//  echo ob_get_clean();
 
 ?>

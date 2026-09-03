@@ -104,7 +104,7 @@ if ( ! class_exists( 'Instantio_Setup_Wizard' ) ) {
             <div class="tf-setup-content-layout tf-welcome-step <?php echo self::$current_step == 'welcome' ? 'active' : ''; ?>">
 
                 <div class="welcome-img">
-                    <img src="<?php echo esc_url( INS_ADMIN_URL . '/tf-options/img/instantio.png' ) ?>" alt="<?php esc_attr_e( 'Welcome to Instantio!', 'instantio' ) ?>">
+                    <img src="<?php echo esc_url( INSTANTIO_ADMIN_URL . '/tf-options/img/instantio.png' ) ?>" alt="<?php esc_attr_e( 'Welcome to Instantio!', 'instantio' ) ?>">
                 </div>
                 
                 <h1 class="tf-setup-welcome-title">
@@ -129,9 +129,9 @@ if ( ! class_exists( 'Instantio_Setup_Wizard' ) ) {
 		 * Setup step one
 		 */
 		private function tf_setup_step_one() { 
-            $ins_layout_options = !empty(insopt( 'ins-layout-options' )) ? insopt( 'ins-layout-options' ) : ''; 
+            $ins_layout_options = !empty(instantio_get_option( 'ins-layout-options' )) ? instantio_get_option( 'ins-layout-options' ) : '';
 
-	            $ins_layout_mode = !empty(insopt( 'ins-layout-mode' )) ? insopt( 'ins-layout-mode' ) : ''; ?>
+	            $ins_layout_mode = !empty(instantio_get_option( 'ins-layout-mode' )) ? instantio_get_option( 'ins-layout-mode' ) : ''; ?>
 
             <div class="tf-setup-step-container tf-setup-step-1 <?php echo self::$current_step == 'step_1' ? 'active' : ''; ?>" data-step="1">
                 <section class="tf-setup-step-layout">
@@ -145,14 +145,14 @@ if ( ! class_exists( 'Instantio_Setup_Wizard' ) ) {
                             <li>
                                 <input type="radio" name="ins-layout-options" value="1" <?php echo !empty($ins_layout_options) && ($ins_layout_options === '1') ? esc_attr( 'checked' ) : ''; ?> />
                                 <label for="ins-layout-options">
-                                    <img src="<?php echo esc_url( INS_ADMIN_URL . '/tf-options/img/layout/Directcheckout.jpg' ) ?>" alt="<?php esc_attr_e( 'Direct-Checkout', 'instantio' ) ?>">
+                                    <img src="<?php echo esc_url( INSTANTIO_ADMIN_URL . '/tf-options/img/layout/Directcheckout.jpg' ) ?>" alt="<?php esc_attr_e( 'Direct-Checkout', 'instantio' ) ?>">
                                     <span><?php esc_html_e( 'Direct Checkout', 'instantio' ) ?></span>
                                 </label>
                             </li>
                             <li>
                                 <input type="radio" name="ins-layout-options" value="2" <?php echo !empty($ins_layout_options) && ($ins_layout_options === '2') ? esc_attr( 'checked' ) : 'checked'; ?> />
                                 <label for="ins-layout-options">
-                                    <img src="<?php echo esc_url( INS_ADMIN_URL . '/tf-options/img/layout/sidecart.jpg' ) ?>" alt="<?php esc_attr_e( 'Side-Cart', 'instantio' ) ?>">
+                                    <img src="<?php echo esc_url( INSTANTIO_ADMIN_URL . '/tf-options/img/layout/sidecart.jpg' ) ?>" alt="<?php esc_attr_e( 'Side-Cart', 'instantio' ) ?>">
                                     <span><?php esc_html_e( 'Side Cart', 'instantio' ) ?></span>
                                 </label>
                             </li>
@@ -160,7 +160,7 @@ if ( ! class_exists( 'Instantio_Setup_Wizard' ) ) {
                             <li>
                                 <input type="radio" name="ins-layout-options" value="3" <?php echo !empty($ins_layout_options) && ($ins_layout_options === '3') ? esc_attr( 'checked' ) : ''; ?> />
                                 <label for="ins-layout-options">
-                                    <img src="<?php echo esc_url( INS_ADMIN_URL . '/tf-options/img/layout/Popup.jpg' ) ?>" alt="<?php esc_attr_e( 'Popup-Cart', 'instantio' ) ?>">
+                                    <img src="<?php echo esc_url( INSTANTIO_ADMIN_URL . '/tf-options/img/layout/Popup.jpg' ) ?>" alt="<?php esc_attr_e( 'Popup-Cart', 'instantio' ) ?>">
                                     <span><?php esc_html_e( 'Popup Cart', 'instantio' ) ?></span>
                                 </label>
                             </li>
@@ -177,7 +177,7 @@ if ( ! class_exists( 'Instantio_Setup_Wizard' ) ) {
                             <li>
                                 <input type="radio" name="ins-layout-mode" value="light" <?php echo !empty($ins_layout_mode) && ( 'light' === $ins_layout_mode) ? esc_attr( 'checked' ) : 'checked'; ?> />
                                 <label for="ins-layout-mode">
-                                    <img src="<?php echo esc_url( INS_ADMIN_URL . '/tf-options/img/layout/Light.png' ) ?>" alt="<?php esc_attr_e( 'light', 'instantio' ) ?>">
+                                    <img src="<?php echo esc_url( INSTANTIO_ADMIN_URL . '/tf-options/img/layout/Light.png' ) ?>" alt="<?php esc_attr_e( 'light', 'instantio' ) ?>">
                                     <span><?php esc_html_e( 'Light', 'instantio' ) ?></span>
                                 </label>
                             </li>
@@ -185,7 +185,7 @@ if ( ! class_exists( 'Instantio_Setup_Wizard' ) ) {
                             <li>
                                 <input type="radio" name="ins-layout-mode" value="dark" <?php echo !empty($ins_layout_mode) && ( 'dark' === $ins_layout_mode) ? esc_attr( 'checked' ) : ''; ?> />
                                 <label for="ins-layout-mode">
-                                    <img src="<?php echo esc_url( INS_ADMIN_URL . '/tf-options/img/layout/Dark.png' ) ?>" alt="<?php esc_attr_e( 'dark', 'instantio' ) ?>">
+                                    <img src="<?php echo esc_url( INSTANTIO_ADMIN_URL . '/tf-options/img/layout/Dark.png' ) ?>" alt="<?php esc_attr_e( 'dark', 'instantio' ) ?>">
                                     <span><?php esc_html_e( 'Dark', 'instantio' ) ?></span>
                                 </label>
                             </li>
@@ -193,7 +193,7 @@ if ( ! class_exists( 'Instantio_Setup_Wizard' ) ) {
                             <li>
                                 <input type="radio" name="ins-layout-mode" value="glass-morphism" <?php echo !empty($ins_layout_mode) && ( 'glass-morphism' === $ins_layout_mode) ? esc_attr( 'checked' ) : ''; ?> />
                                 <label for="ins-layout-mode">
-                                    <img src="<?php echo esc_url( INS_ADMIN_URL . '/tf-options/img/layout/GlassMorphism.png' ) ?>" alt="<?php esc_attr_e( 'GlassMorphism', 'instantio' ) ?>">
+                                    <img src="<?php echo esc_url( INSTANTIO_ADMIN_URL . '/tf-options/img/layout/GlassMorphism.png' ) ?>" alt="<?php esc_attr_e( 'GlassMorphism', 'instantio' ) ?>">
                                     <span><?php esc_html_e( 'Glass Morphism', 'instantio' ) ?></span>
                                 </label>
                             </li>
@@ -201,7 +201,7 @@ if ( ! class_exists( 'Instantio_Setup_Wizard' ) ) {
                             <li>
                                 <input type="radio" name="ins-layout-mode" value="gradient" <?php echo !empty($ins_layout_mode) && ( 'gradient' === $ins_layout_mode) ? esc_attr( 'checked' ) : ''; ?> />
                                 <label for="ins-layout-mode">
-                                    <img src="<?php echo esc_url( INS_ADMIN_URL . '/tf-options/img/layout/Gradient.png' ) ?>" alt="<?php esc_attr_e( 'gradient', 'instantio' ) ?>">
+                                    <img src="<?php echo esc_url( INSTANTIO_ADMIN_URL . '/tf-options/img/layout/Gradient.png' ) ?>" alt="<?php esc_attr_e( 'gradient', 'instantio' ) ?>">
                                     <span><?php esc_html_e( 'Gradient', 'instantio' ) ?></span>
                                 </label>
                             </li>
@@ -226,9 +226,9 @@ if ( ! class_exists( 'Instantio_Setup_Wizard' ) ) {
 		 * Setup step two
 		 */
 		private function setup_step_two() {
-            $ins_layout = !empty(insopt( 'ins-layout' )) ? insopt( 'ins-layout' ) : '';
-            $toggle_position = !empty(insopt( 'toggle-position' )) ? insopt( 'toggle-position' ) : 'right-bottom';
-            $auto_tog_panel = !empty(insopt( 'auto-tog-panel' )) ? insopt( 'auto-tog-panel' ) : '';
+            $ins_layout = !empty(instantio_get_option( 'ins-layout' )) ? instantio_get_option( 'ins-layout' ) : '';
+            $toggle_position = !empty(instantio_get_option( 'toggle-position' )) ? instantio_get_option( 'toggle-position' ) : 'right-bottom';
+            $auto_tog_panel = !empty(instantio_get_option( 'auto-tog-panel' )) ? instantio_get_option( 'auto-tog-panel' ) : '';
             
 			?>
             <div class="tf-setup-step-container tf-setup-step-2 <?php echo self::$current_step == 'step_2' ? 'active' : ''; ?>" data-step="2">
@@ -328,10 +328,10 @@ if ( ! class_exists( 'Instantio_Setup_Wizard' ) ) {
 		 * Setup step three
 		 */
 		private function tf_setup_step_three() {
-            $cart_icon_style = !empty(insopt( 'cart-icon-style' )) ? insopt( 'cart-icon-style' ) : 'cart-style-1';
-            $ins_layout_animation = !empty(insopt( 'ins-layout-animation' )) ? insopt( 'ins-layout-animation' ) : '';
-            $cart_fly_anim = !empty(insopt( 'cart-fly-anim' )) ? insopt( 'cart-fly-anim' ) : '';
-            $ins_cart_emty_hide = !empty(insopt( 'ins-cart-emty-hide' )) ? insopt( 'ins-cart-emty-hide' ) : '';
+            $cart_icon_style = !empty(instantio_get_option( 'cart-icon-style' )) ? instantio_get_option( 'cart-icon-style' ) : 'cart-style-1';
+            $ins_layout_animation = !empty(instantio_get_option( 'ins-layout-animation' )) ? instantio_get_option( 'ins-layout-animation' ) : '';
+            $cart_fly_anim = !empty(instantio_get_option( 'cart-fly-anim' )) ? instantio_get_option( 'cart-fly-anim' ) : '';
+            $ins_cart_emty_hide = !empty(instantio_get_option( 'ins-cart-emty-hide' )) ? instantio_get_option( 'ins-cart-emty-hide' ) : '';
 			?>
             <div class="tf-setup-step-container tf-setup-step-3 <?php echo self::$current_step == 'step_3' ? 'active' : ''; ?>" data-step="3">
                 <section class="tf-setup-step-layout">
@@ -346,7 +346,7 @@ if ( ! class_exists( 'Instantio_Setup_Wizard' ) ) {
                                 <li>
                                     <input type="radio" name="cart-icon-style" value="cart-style-1" <?php echo !empty($cart_icon_style) && ( 'cart-style-1' === $cart_icon_style) ? esc_attr( 'checked' ) : ''; ?>/>
                                     <label for="cart-icon-style">
-                                        <img src="<?php echo esc_url( INS_ADMIN_URL . '/tf-options/img/cart-style-1.svg' ) ?>" alt="<?php esc_attr_e( 'Cart 1', 'instantio' ) ?>">
+                                        <img src="<?php echo esc_url( INSTANTIO_ADMIN_URL . '/tf-options/img/cart-style-1.svg' ) ?>" alt="<?php esc_attr_e( 'Cart 1', 'instantio' ) ?>">
                                         <span><?php esc_html_e( 'Cart 1', 'instantio' ) ?></span>
                                     </label>
                                 </li>
@@ -354,7 +354,7 @@ if ( ! class_exists( 'Instantio_Setup_Wizard' ) ) {
                                 <li>
                                     <input type="radio" name="cart-icon-style" value="cart-style-2" <?php echo !empty($cart_icon_style) && ( 'cart-style-2' === $cart_icon_style) ? esc_attr( 'checked' ) : ''; ?> />
                                     <label for="cart-icon-style">
-                                        <img src="<?php echo esc_url( INS_ADMIN_URL . '/tf-options/img/cart-2.svg' ) ?>" alt="<?php esc_attr_e( 'Cart 2', 'instantio' ) ?>">
+                                        <img src="<?php echo esc_url( INSTANTIO_ADMIN_URL . '/tf-options/img/cart-2.svg' ) ?>" alt="<?php esc_attr_e( 'Cart 2', 'instantio' ) ?>">
                                         <span><?php esc_html_e( 'Cart 2', 'instantio' ) ?></span>
                                     </label>
                                 </li>
@@ -362,7 +362,7 @@ if ( ! class_exists( 'Instantio_Setup_Wizard' ) ) {
                                 <li>
                                     <input type="radio" name="cart-icon-style" value="cart-style-3" <?php echo !empty($cart_icon_style) && ( 'cart-style-3' === $cart_icon_style) ? esc_attr( 'checked' ) : ''; ?> />
                                     <label for="cart-icon-style">
-                                        <img src="<?php echo esc_url( INS_ADMIN_URL . '/tf-options/img/cart-3.svg' ) ?>" alt="<?php esc_attr_e( 'Cart 3', 'instantio' ) ?>">
+                                        <img src="<?php echo esc_url( INSTANTIO_ADMIN_URL . '/tf-options/img/cart-3.svg' ) ?>" alt="<?php esc_attr_e( 'Cart 3', 'instantio' ) ?>">
                                         <span><?php esc_html_e( 'Cart 3', 'instantio' ) ?></span>
                                     </label>
                                 </li>
@@ -370,7 +370,7 @@ if ( ! class_exists( 'Instantio_Setup_Wizard' ) ) {
                                 <li>
                                     <input type="radio" name="cart-icon-style" value="cart-style-4" <?php echo !empty($cart_icon_style) && ( 'cart-style-4' === $cart_icon_style) ? esc_attr( 'checked' ) : ''; ?> />
                                     <label for="cart-icon-style">
-                                        <img src="<?php echo esc_url( INS_ADMIN_URL . '/tf-options/img/cart-4.svg' ) ?>" alt="<?php esc_attr_e( 'Cart 4', 'instantio' ) ?>">
+                                        <img src="<?php echo esc_url( INSTANTIO_ADMIN_URL . '/tf-options/img/cart-4.svg' ) ?>" alt="<?php esc_attr_e( 'Cart 4', 'instantio' ) ?>">
                                         <span><?php esc_html_e( 'Cart 4', 'instantio' ) ?></span>
                                     </label>
                                 </li>
@@ -454,7 +454,7 @@ if ( ! class_exists( 'Instantio_Setup_Wizard' ) ) {
             <div class="tf-setup-content-layout tf-finish-step <?php echo self::$current_step == 'finish' ? 'active' : ''; ?>">
 
                 <div class="ins_quick_setup_finish">
-                    <div class="welcome-img"><img src="<?php  echo esc_url( INS_ADMIN_URL . '/tf-options/img/wizard/quikfinal.png' ) ?>" alt="<?php esc_attr_e( 'Thank you', 'instantio' ) ?>"></div>
+                    <div class="welcome-img"><img src="<?php  echo esc_url( INSTANTIO_ADMIN_URL . '/tf-options/img/wizard/quikfinal.png' ) ?>" alt="<?php esc_attr_e( 'Thank you', 'instantio' ) ?>"></div>
 
                     <h1 class="tf-setup-welcome-title">
                         <?php esc_html_e( 'Hooray! You’re all set', 'instantio' ) ?>
@@ -484,12 +484,6 @@ if ( ! class_exists( 'Instantio_Setup_Wizard' ) ) {
 		 */
 		public function tf_activation_redirect() {
 			$wizard_status = get_option( 'instantio_setup_wizard', false );
-			$legacy_status = get_option( 'tf_setup_wizard', false );
-
-			if ( false === $wizard_status && false !== $legacy_status ) {
-				update_option( 'instantio_setup_wizard', $legacy_status );
-				$wizard_status = $legacy_status;
-			}
 
 			if ( ! $wizard_status ) {
 				update_option( 'instantio_setup_wizard', 'active' );

@@ -93,7 +93,7 @@ if ( ! class_exists( 'Instantio_Field_Repeater' ) ) {
 												$value = ( isset( $re_field['id'] ) && isset( $data[ $key ][ $re_field['id'] ] ) ) ? $data[ $key ][ $re_field['id'] ] : '';
 											}
 
-											$INS_option = new Ins_TF_Options();
+											$INS_option = new Instantio_Options();
 											$INS_option->field( $re_field, $value, $this->settings_id, $parent_field );
 										endforeach;
 										$num++;
@@ -157,7 +157,7 @@ if ( ! class_exists( 'Instantio_Field_Repeater' ) ) {
 								$id = ( ! empty( $this->settings_id ) ) ? $this->settings_id . '[' . $this->field['id'] . '][00]' . '[' . $re_field['id'] . ']' : $this->field['id'] . '[00]' . '[' . $re_field['id'] . ']';
 								$default = isset( $re_field['default'] ) ? $re_field['default'] : '';
 								$value = isset( $INS_meta_box_value[ $id ] ) ? $INS_meta_box_value[ $id ] : $default;
-								$INS_option = new Ins_TF_Options();
+								$INS_option = new Instantio_Options();
 								$INS_option->field( $re_field, $value, '_____' . $this->settings_id, $parent );
 							} ?>
 						</div>

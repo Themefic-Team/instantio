@@ -2,9 +2,6 @@
 // don't load directly
 defined( 'ABSPATH' ) || exit;
 
-// INS_icon_list is a legacy public extension hook and cannot be renamed without breaking integrations.
-// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
-
 if ( ! class_exists( 'Instantio_Field_Icon' ) ) {
 	class Instantio_Field_Icon extends Instantio_Field {
 
@@ -135,7 +132,7 @@ if ( ! class_exists( 'Instantio_Field_Icon' ) ) {
 				),
 			);
 
-			$icons = apply_filters( 'INS_icon_list', $icons );
+			$icons = apply_filters( 'instantio_icon_list', $icons );
 
 			return $icons;
 		}

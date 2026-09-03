@@ -45,8 +45,8 @@ if ( ! class_exists( 'Instantio_Field_Select2' ) ) {
 
 			$field_name = ! empty( $this->field['multiple'] ) ? $this->field_name() . '[]' : $this->field_name();
 			$INS_select2_unique_id = str_replace( array( "[", "]" ), "_", esc_attr( $this->field_name() ) );
-			$parent_class = ( ! empty( $this->parent_field ) ) ? 'tf-select2-parent' : 'tf-select2';
-			$parent_class = ( isset( $this->field['select2'] ) ) ? 'tf-select2' : $parent_class;
+			$parent_class = ( ! empty( $this->parent_field ) ) ? 'tf-select2-parent' : 'instantio-select2';
+			$parent_class = ( isset( $this->field['select2'] ) ) ? 'instantio-select2' : $parent_class;
 
 			// field_attributes() returns an attribute fragment with escaped keys and values.
 			// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped

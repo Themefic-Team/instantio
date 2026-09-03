@@ -3,25 +3,25 @@
 defined( 'ABSPATH' ) || exit;
 
 // The options schema is included into a method scope, and WooCommerce-owned defaults intentionally use its text domain.
-// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals,WordPress.WP.I18n.TextDomainMismatch
+// phpcs:disable WordPress.WP.I18n.TextDomainMismatch
 
 
-if ( file_exists( INS_OPTIONS_PATH . 'options/tf-menu-icon.php' ) ) {
-	require_once INS_OPTIONS_PATH . 'options/tf-menu-icon.php';
+if ( file_exists( INSTANTIO_OPTIONS_PATH . 'options/tf-menu-icon.php' ) ) {
+	require_once INSTANTIO_OPTIONS_PATH . 'options/tf-menu-icon.php';
 } else {
-	$menu_icon = 'dashicons-cart';
+	$instantio_menu_icon = 'dashicons-cart';
 }
 
-if ( file_exists( INS_CONTROLLER_PATH . '/ins-checkout-editor.php' ) ) {
-	require_once INS_CONTROLLER_PATH . '/ins-checkout-editor.php';
+if ( file_exists( INSTANTIO_CONTROLLER_PATH . '/ins-checkout-editor.php' ) ) {
+	require_once INSTANTIO_CONTROLLER_PATH . '/ins-checkout-editor.php';
 }
 
 if ( current_user_can( 'manage_options' ) ) {
-	$my_plugin_billing_fields = ins_defualt_billing_checkout_from();
-	$my_plugin_shipping_fields = ins_defualt_shipping_checkout_from();
+	$instantio_billing_fields = instantio_default_billing_checkout_form();
+	$instantio_shipping_fields = instantio_default_shipping_checkout_form();
 }
 
-Ins_TF_Settings::option( 'wiopt', array(
+Instantio_Settings::option( 'wiopt', array(
 	'title' => __( 'Instantio', 'instantio' ),
 	'icon' => 'dashicons-cart',
 	'position' => 25,
@@ -1055,14 +1055,14 @@ Ins_TF_Settings::option( 'wiopt', array(
 							'subtitle' => __( 'You can able to enable/disable this field required.', 'instantio' ),
 						),
 					),
-					'default' => ! empty( $my_plugin_billing_fields ) ? $my_plugin_billing_fields : '',
+					'default' => ! empty( $instantio_billing_fields ) ? $instantio_billing_fields : '',
 				),
 
 				array(
-					'id' => 'ins_reset_blliling_fields_button',
+					'id' => 'instantio_reset_billing_fields_button',
 					'class' => 'checkout_reset_btn',
 					'type' => 'callback',
-					'function' => 'ins_reset_blliling_fields_button',
+					'function' => 'instantio_reset_billing_fields_button',
 				),
 
 				array(
@@ -1104,14 +1104,14 @@ Ins_TF_Settings::option( 'wiopt', array(
 							'subtitle' => __( 'You can able to enable/disable this field.', 'instantio' ),
 						),
 					),
-					'default' => ! empty( $my_plugin_shipping_fields ) ? $my_plugin_shipping_fields : '',
+					'default' => ! empty( $instantio_shipping_fields ) ? $instantio_shipping_fields : '',
 				),
 
 				array(
-					'id' => 'ins_reset_shipping_fields_button',
+					'id' => 'instantio_reset_shipping_fields_button',
 					'class' => 'checkout_reset_btn',
 					'type' => 'callback',
-					'function' => 'ins_reset_shipping_fields_button',
+					'function' => 'instantio_reset_shipping_fields_button',
 				),
 
 				array(

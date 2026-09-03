@@ -52,7 +52,7 @@ if ( ! class_exists( 'Instantio_Field_Tab' ) ) {
 										}
 									}
 
-									$INS_option = new Ins_TF_Options();
+									$INS_option = new Instantio_Options();
 									$INS_option->field( $field, $value, $this->settings_id, $parent );
 								}
 								?>

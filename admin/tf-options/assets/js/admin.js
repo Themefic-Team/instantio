@@ -24,14 +24,14 @@
             e.preventDefault();
             var $this = $(this);
             var data = {
-                action: 'ins_del_billing_fields',
-                _wpnonce: ins_admin.ajax_nonce
+                action: 'instantio_delete_billing_fields',
+                _wpnonce: instantio_admin.ajax_nonce
             };
 
             $this.addClass("tf-btn-loading");
             $.ajax({
                 type: 'post',
-                url: ins_admin.ajax_url,
+                url: instantio_admin.ajax_url,
                 data: data,
                 success: function (data) {
                     notyf.success('Reset Billing Fields');
@@ -55,14 +55,14 @@
             e.preventDefault();
             var $this = $(this);
             var data = {
-                action: 'ins_del_shipping_fields',
-                _wpnonce: ins_admin.ajax_nonce
+                action: 'instantio_delete_shipping_fields',
+                _wpnonce: instantio_admin.ajax_nonce
             };
 
             $this.addClass("tf-btn-loading");
             $.ajax({
                 type: 'post',
-                url: ins_admin.ajax_url,
+                url: instantio_admin.ajax_url,
                 data: data,
                 success: function (data) {
                     notyf.success('Reset Shipping Fields');

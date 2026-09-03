@@ -1,7 +1,5 @@
 <?php 
 defined( 'ABSPATH' ) || exit;
-// This included data file exposes its legacy variable to the settings renderer.
-// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 
 /**
  *  Instantio Changelog Data.
@@ -12,7 +10,7 @@ defined( 'ABSPATH' ) || exit;
  * @Data Array: Improvement, New, Fix, Optimization, Compatibility!
  */
 
-$change = [
+$instantio_change = [
 
         // Update  start
        'v47' => [

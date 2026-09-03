@@ -8,7 +8,7 @@
 	 * @param {string|Element|JQuery} targets Elements or selector to animate.
 	 * @param {Object} options Animation options.
 	 */
-	window.insAnimateFrom = function (targets, options) {
+	window.instantioAnimateFrom = function (targets, options) {
 		var settings = $.extend({ x: 0, y: 0, duration: 200, delay: 0, reverse: false }, options || {});
 		var reducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 		var elements = typeof targets === "string" ? document.querySelectorAll(targets) : $(targets).toArray();
@@ -33,8 +33,8 @@
 
 	//Single Layout
 	function single_step_order_review_callback() {
-		// Check if inslayoutstep is false, then exit the function
-		if (!inslayoutstep) {
+		// Check if instantio_layout_step is false, then exit the function
+		if (!instantio_layout_step) {
 			return;
 		}
 
@@ -49,10 +49,10 @@
 		});
 
 		$.ajax({
-			url: ins_params.ajax_url,
+			url: instantio_params.ajax_url,
 			type: "POST",
 			data: {
-				action: "ins_update_order_review_callback"
+				action: "instantio_update_order_review_callback"
 			},
 			success: function (response) {
 				$('.ins-cart-inner.payment .ins-contact-wrap').html('');
@@ -107,7 +107,7 @@
 
 
 	var get_url = function (endpoint) {
-		return ins_params.wc_ajax_url.toString().replace(
+		return instantio_params.wc_ajax_url.toString().replace(
 			'%%endpoint%%',
 			endpoint
 		);
@@ -241,8 +241,8 @@
 		/*
 		 * Ajax Quick View
 		 */
-		// alert(noquickview);
-		if (noquickview == false) {
+		// alert(instantio_no_quick_view);
+		if (instantio_no_quick_view == false) {
 			// Add Quick View Panel DIV to body
 
 			// Close Quick View Panel
@@ -285,10 +285,10 @@
 				}
 				$.ajax({
 					type: "post",
-					url: ins_params.ajax_url,
+					url: instantio_params.ajax_url,
 					data: {
-						action: "ins_variable_product_quick_view",
-						security: ins_params.ins_ajax_nonce,
+						action: "instantio_variable_product_quick_view",
+						security: instantio_params.instantio_ajax_nonce,
 						product_id: product_id,
 					},
 					beforeSend: function (data) {
@@ -312,7 +312,7 @@
 
 	// Hide Toggle Button
 	function hide_toggle_btn() {
-		if (hide_toggler == true) {
+		if (instantio_hide_toggler == true) {
 			var cart_item_count = $("#ins_cart_totals").html();
 			if (cart_item_count == 0) {
 				$(".ins-toggle-btn").css({ visibility: "hidden", opacity: "0" });
@@ -340,12 +340,12 @@
 		function ins_refresh_cart_after_add() {
 			var thisbutton = $(document.body);
 		$.ajax({
-			url: ins_params.ajax_url,
+			url: instantio_params.ajax_url,
 			type: "POST",
 			data: {
 				id: "1",
-				nonce: ins_params.ins_ajax_nonce,
-				action: "ins_ajax_cart_reload",
+				nonce: instantio_params.instantio_ajax_nonce,
+				action: "instantio_ajax_cart_reload",
 			},
 			beforeSend: function (response) {
 				thisbutton.removeClass("added").addClass("loading");
@@ -372,7 +372,7 @@
 				$(".ins-checkout-layout .ins-checkout-shipping .ins-cart-content-wrap").html("");
 				$(".ins-checkout-layout .ins-checkout-shipping .ins-cart-content-wrap").append(response.data.ins_shipping_additional);
 
-				if (auto_open_toggle == true) {
+				if (instantio_auto_open_toggle == true) {
 					$(".ins-checkout-layout-3").addClass("active");
 					$(".ins-checkout-overlay").addClass("active");
 					$(".ins-checkout-popup").addClass("active");
@@ -417,7 +417,7 @@
 
 		// Ajax Single Page Add To Cart
 	$(document).on("click", ".single_add_to_cart_button", function (e) {
-		if (disable_ajax_add_cart == true) {
+		if (instantio_disable_ajax_add_cart == true) {
 			return;
 		}
 		e.preventDefault();
@@ -452,11 +452,11 @@
 		});
 
 		$.ajax({
-			url: ins_params.ajax_url,
+			url: instantio_params.ajax_url,
 			type: "POST",
 			data: {
-				action: "ins_ajax_cart_single",
-				nonce: ins_params.ins_ajax_nonce,
+				action: "instantio_ajax_cart_single",
+				nonce: instantio_params.instantio_ajax_nonce,
 				product_id: product_id,
 				quantity: Object.keys(grouped_data).length ? grouped_data : product_qty,
 				variation_id: variation_id,
@@ -487,7 +487,7 @@
 
 				ins_owl_carousel();
 
-				if (auto_open_toggle == true) {
+				if (instantio_auto_open_toggle == true) {
 					$(".ins-checkout-layout-3").addClass("active");
 					$(".ins-checkout-overlay").addClass("active");
 					$(".ins-checkout-popup").addClass("active");
@@ -533,7 +533,7 @@
 			return;
 		}
 
-		if (cart_fly_anim == false) {
+		if (instantio_cart_fly_anim == false) {
 			ins_cart_icon_animation();
 			return;
 		}
@@ -552,9 +552,9 @@
 			ins_cart_icon_animation();
 			return;
 		}
-		if (cart_fly_icon != "" && cart_fly_icon != true) {
+		if (instantio_cart_fly_icon != "" && instantio_cart_fly_icon != true) {
 			var productThumbtag =
-				'<span class="ins-cart-fly-icon">' + cart_fly_icon + "</span>";
+				'<span class="ins-cart-fly-icon">' + instantio_cart_fly_icon + "</span>";
 		} else {
 			productThumbtag = '<img src="' + productThumb + '">';
 		}
@@ -595,7 +595,7 @@
 
 	$(document).on("click", ".single_add_to_cart_button", function () {
 
-		if (cart_fly_anim == false) {
+		if (instantio_cart_fly_anim == false) {
 			return;
 		}
 
@@ -609,7 +609,7 @@
 			}
 		}
 
-		if (cart_fly_anim == false) {
+		if (instantio_cart_fly_anim == false) {
 			return;
 		}
 		var productThumb = $(this)
@@ -629,9 +629,9 @@
 		var productThumbwidth = productThumb.width();
 		var startPos = productThumb.offset();
 		var endPos = $(".ins-toggle-btn").offset();
-		if (cart_fly_icon != "" && cart_fly_icon != true) {
+		if (instantio_cart_fly_icon != "" && instantio_cart_fly_icon != true) {
 			productThumb =
-				'<span class="ins-cart-fly-icon">' + cart_fly_icon + "</span>";
+				'<span class="ins-cart-fly-icon">' + instantio_cart_fly_icon + "</span>";
 		} else {
 			productThumb = '<img src="' + productThumb_src + '">';
 		}
@@ -712,13 +712,13 @@
 		let product_id = $(this).find("a.remove").data("product_id");
 		let variation_id = $(this).find("a.remove").data("variation_id");
 		$.ajax({
-			url: ins_params.ajax_url,
+			url: instantio_params.ajax_url,
 			type: "POST",
 			data: {
-				nonce: ins_params.ins_ajax_nonce,
+				nonce: instantio_params.instantio_ajax_nonce,
 				product_id: product_id,
 				variation_id: variation_id,
-				action: "ins_ajax_cart_item_remove",
+				action: "instantio_ajax_cart_item_remove",
 			},
 			beforeSend: function (response) {
 				$(".loader-container").addClass("active");
@@ -727,7 +727,7 @@
 				$(".loader-container").removeClass("active");
 			},
 			success: function (response) {
-				window.insAnimateFrom(animate_remove, { x: -100, duration: 200, delay: 200, reverse: true });
+				window.instantioAnimateFrom(animate_remove, { x: -100, duration: 200, delay: 200, reverse: true });
 				single_step_order_review_callback();
 				setTimeout(function () {
 					$("#ins_cart_totals").html(response.data.ins_cart_count);
@@ -767,11 +767,11 @@
 		e.preventDefault();
 
 		$.ajax({
-			url: ins_params.ajax_url,
+			url: instantio_params.ajax_url,
 			type: "POST",
 			data: {
-				nonce: ins_params.ins_ajax_nonce,
-				action: "ins_ajax_empty_cart",
+				nonce: instantio_params.instantio_ajax_nonce,
+				action: "instantio_ajax_empty_cart",
 			},
 			beforeSend: function (response) {
 				$(".loader-container").addClass("active");
@@ -836,11 +836,11 @@
 				quantities.push(quantity);
 			});
 			$.ajax({
-				url: ins_params.ajax_url,
+				url: instantio_params.ajax_url,
 				type: "post",
 				data: {
-					nonce: ins_params.ins_ajax_nonce,
-					action: "ins_ajax_update_cart",
+					nonce: instantio_params.instantio_ajax_nonce,
+					action: "instantio_ajax_update_cart",
 					cart_item_keys: cart_item_keys,
 					product_ids: product_ids,
 					quantities: quantities,
@@ -900,12 +900,12 @@
 			e.preventDefault();
 			let coupon = $(this).data("coupon");
 			$.ajax({
-				url: ins_params.ajax_url,
+				url: instantio_params.ajax_url,
 				type: "post",
 				data: {
-					nonce: ins_params.ins_ajax_nonce,
+					nonce: instantio_params.instantio_ajax_nonce,
 					coupon: coupon,
-					action: "ins_ajax_remove_coupon",
+					action: "instantio_ajax_remove_coupon",
 				},
 				beforeSend: function (response) {
 					$(".loader-container").addClass("active");
@@ -934,7 +934,7 @@
 		block($('div.cart_totals'));
 
 		var data = {
-			security: ins_params.update_shipping_method_nonce,
+			security: instantio_params.update_shipping_method_nonce,
 			shipping_method: shipping_methods
 		};
 
@@ -997,10 +997,10 @@
 	// Cart entrance animation.
 	function ins_cart_animation($step = "cart") {
 		if ($step == "cart" && $('.ins_animate_one').length > 0) {
-			window.insAnimateFrom(".ins_animate_one .ins-checkout-header", { y: -100, delay: 200 });
-			window.insAnimateFrom(".ins_animate_one .ins-checkout-steps", { x: -100, delay: 200 });
-			window.insAnimateFrom(".ins_animate_one .step-1 .ins-cart-content-wrap, .step-1 .ins-up-sells", { y: -100, delay: 400 });
-			window.insAnimateFrom(".ins_animate_one .step-1 .ins-cart-footer-content, .step-1 .ins-cart-btns", { x: 100, delay: 600 });
+			window.instantioAnimateFrom(".ins_animate_one .ins-checkout-header", { y: -100, delay: 200 });
+			window.instantioAnimateFrom(".ins_animate_one .ins-checkout-steps", { x: -100, delay: 200 });
+			window.instantioAnimateFrom(".ins_animate_one .step-1 .ins-cart-content-wrap, .step-1 .ins-up-sells", { y: -100, delay: 400 });
+			window.instantioAnimateFrom(".ins_animate_one .step-1 .ins-cart-footer-content, .step-1 .ins-cart-btns", { x: 100, delay: 600 });
 		}
 	}
 })(jQuery);

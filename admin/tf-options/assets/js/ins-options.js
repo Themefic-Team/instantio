@@ -78,7 +78,7 @@
             }
 
             if (query.indexOf("dashboard") > -1) {
-                let submenu = $("#toplevel_page_" + ins_options.option_id).find(
+                let submenu = $("#toplevel_page_" + instantio_options.option_id).find(
                     ".wp-submenu"
                 );
                 submenu
@@ -128,7 +128,7 @@
 
             $(".tf-admin-tab").removeClass("active");
 
-            let submenu = $("#toplevel_page_" + ins_options.option_id).find(
+            let submenu = $("#toplevel_page_" + instantio_options.option_id).find(
                 ".wp-submenu"
             );
             submenu
@@ -454,10 +454,10 @@
                     data.append("file[]", fontsfile[i]);
                 }
             }
-            data.append("action", "ins_options_save");
+            data.append("action", "instantio_options_save");
 
 			$.ajax({
-				url: ins_options.ajax_url,
+				url: instantio_options.ajax_url,
 				type: "POST",
 				dataType: "json",
 				data: data,
@@ -1315,7 +1315,7 @@ var frame, gframe;
             }
         });
 
-        if (ins_options.gmaps != "googlemap") {
+        if (instantio_options.gmaps != "googlemap") {
             $(".tf-field-map").each(function () {
                 var $this = $(this),
                     $map = $this.find(".tf--map-osm"),
@@ -1650,7 +1650,7 @@ var frame, gframe;
 
 (function ($) {
     $(document).ready(function () {
-        if (ins_options.tf_chart_enable == 1) {
+        if (instantio_options.tf_chart_enable == 1) {
             var ctx = document.getElementById("tf_months"); // node
             var ctx = document.getElementById("tf_months").getContext("2d"); // 2d context
             var ctx = $("#tf_months"); // jQuery instance
@@ -1679,14 +1679,14 @@ var frame, gframe;
                             label: "Completed Booking",
                             borderColor: "#003C79",
                             tension: 0.1,
-                            data: ins_options.tf_complete_order,
+                            data: instantio_options.tf_complete_order,
                             fill: false,
                         },
                         {
                             label: "Cancelled Booking",
                             borderColor: "red",
                             tension: 0.1,
-                            data: ins_options.tf_cancel_orders,
+                            data: instantio_options.tf_cancel_orders,
                             fill: false,
                         },
                     ],
@@ -1715,9 +1715,9 @@ var frame, gframe;
                 $(".tf-order-report").find("iframe").remove();
                 jQuery.ajax({
                     type: "post",
-                    url: ins_options.ajax_url,
+                    url: instantio_options.ajax_url,
                     data: {
-                        action: "tf_month_reports",
+                        action: "instantio_month_reports",
                         month: monthTarget,
                     },
                     success: function (data) {

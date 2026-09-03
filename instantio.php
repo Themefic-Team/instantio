@@ -17,9 +17,6 @@
 // don't load directly
 defined( 'ABSPATH' ) || exit;
 
-// Legacy hooks and callback names are public compatibility APIs shared with Instantio Pro.
-// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
-
 class INSTANTIO {
 
 	public function __construct() {
@@ -39,18 +36,18 @@ class INSTANTIO {
 		if ( ! defined( 'INSTANTIO_VERSION' ) ) {
 			define( 'INSTANTIO_VERSION', '3.3.36' );
 		}
-		define( 'INS_URL', plugin_dir_url( __FILE__ ) );
-		define( 'INS_INC_URL', INS_URL . 'includes' );
-		define( 'INS_LAYOUTS_URL', INS_URL . 'includes/layouts' );
-		define( 'INS_ASSETS_URL', INS_URL . 'assets' );
-		define( 'INS_ADMIN_URL', INS_URL . 'admin' );
+		define( 'INSTANTIO_URL', plugin_dir_url( __FILE__ ) );
+		define( 'INSTANTIO_INC_URL', INSTANTIO_URL . 'includes' );
+		define( 'INSTANTIO_LAYOUTS_URL', INSTANTIO_URL . 'includes/layouts' );
+		define( 'INSTANTIO_ASSETS_URL', INSTANTIO_URL . 'assets' );
+		define( 'INSTANTIO_ADMIN_URL', INSTANTIO_URL . 'admin' );
 
-		define( 'INS_PATH', plugin_dir_path( __FILE__ ) );
-		define( 'INS_INC_PATH', INS_PATH . 'includes' );
-		define( 'INS_ADMIN_PATH', INS_PATH . 'admin' );
-		define( 'INS_CONTROLLER_PATH', INS_INC_PATH . '/controller' );
-		define( 'INS_BASE_LOCATION', plugin_basename( __FILE__ ) );
-		define( 'INS_TEMPLATES_PATH', INS_INC_PATH . '/templates' );
+		define( 'INSTANTIO_PATH', plugin_dir_path( __FILE__ ) );
+		define( 'INSTANTIO_INC_PATH', INSTANTIO_PATH . 'includes' );
+		define( 'INSTANTIO_ADMIN_PATH', INSTANTIO_PATH . 'admin' );
+		define( 'INSTANTIO_CONTROLLER_PATH', INSTANTIO_INC_PATH . '/controller' );
+		define( 'INSTANTIO_BASE_LOCATION', plugin_basename( __FILE__ ) );
+		define( 'INSTANTIO_TEMPLATES_PATH', INSTANTIO_INC_PATH . '/templates' );
 
 		/**
 		 * Ajax install & activate WooCommerce
@@ -58,7 +55,7 @@ class INSTANTIO {
 		 * @since 3.0
 		 * @link https://developer.wordpress.org/reference/functions/wp_ajax_install_plugin/
 		 */
-		add_action( "wp_ajax_ins_ajax_install_woocommerce", "wp_ajax_install_plugin" );
+		add_action( "wp_ajax_instantio_ajax_install_woocommerce", "wp_ajax_install_plugin" );
 
 	}
 
@@ -72,15 +69,15 @@ class INSTANTIO {
 
 		// Ins Quick Setup wizard & Ins_checkout_Editor
 		if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
-			require_once INS_INC_PATH . '/controller/class-setup-wizard.php';
+			require_once INSTANTIO_INC_PATH . '/controller/class-setup-wizard.php';
 
 			// Ins_checkout_Editor
-			require_once INS_INC_PATH . '/controller/checkout_editor.php';
+			require_once INSTANTIO_INC_PATH . '/controller/checkout_editor.php';
 		}
 
 		// ins Promo Banner
-		if ( defined('INS_INC_PATH') && !empty(INS_INC_PATH) ) {
-			require_once INS_INC_PATH . '/controller/class-dashboard-widget.php';
+		if ( defined('INSTANTIO_INC_PATH') && !empty(INSTANTIO_INC_PATH) ) {
+			require_once INSTANTIO_INC_PATH . '/controller/class-dashboard-widget.php';
 		}
 
 	}
@@ -101,18 +98,18 @@ class INSTANTIO {
 		add_action( 'init', array( $this, 'ins_plugin_loaded_action' ) );
 
 		if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
-			new INS\Controller\Assets();
+			new Themefic\Instantio\Controller\Assets();
 		}
 
 		if ( is_admin() && ! wp_doing_ajax() ) {
-			new INS\Controller\Admin();
+			new Themefic\Instantio\Controller\Admin();
 
 		} else {
-			new INS\Controller\App();
+			new Themefic\Instantio\Controller\App();
 
 			// ins Variation product Quick Views
-			add_action( 'wp_ajax_ins_variable_product_quick_view', array( $this, 'ins_ajax_quickview_variable_products' ) );
-			add_action( 'wp_ajax_nopriv_ins_variable_product_quick_view', array( $this, 'ins_ajax_quickview_variable_products' ) );
+			add_action( 'wp_ajax_instantio_variable_product_quick_view', array( $this, 'ins_ajax_quickview_variable_products' ) );
+			add_action( 'wp_ajax_nopriv_instantio_variable_product_quick_view', array( $this, 'ins_ajax_quickview_variable_products' ) );
 		}
 
 	}
@@ -126,8 +123,8 @@ class INSTANTIO {
 	 */
 	public function ins_plugin_loaded_action() {
 
-		if ( defined('INS_PATH') && !empty(INS_PATH) ) {
-			require_once INS_PATH . 'admin/tf-options/Ins_TF_Options.php';
+		if ( defined('INSTANTIO_PATH') && !empty(INSTANTIO_PATH) ) {
+			require_once INSTANTIO_PATH . 'admin/tf-options/Instantio_Options.php';
 		}
 
 	}
@@ -140,9 +137,9 @@ class INSTANTIO {
 		global $post, $product, $woocommerce;
 
 		// return 1;
-		check_ajax_referer( 'ins_ajax_nonce', 'security' );
+		check_ajax_referer( 'instantio_ajax_nonce', 'security' );
 
-		add_action( 'wcqv_product_data', 'woocommerce_template_single_add_to_cart' );
+		add_action( 'instantio_product_data', 'woocommerce_template_single_add_to_cart' );
 
 		$product_id = isset( $_POST['product_id'] ) ? absint( wp_unslash( $_POST['product_id'] ) ) : 0;
 		if ( ! $product_id ) {
@@ -163,7 +160,7 @@ class INSTANTIO {
 					jQuery.getScript("<?php echo esc_url( $woocommerce->plugin_url() . '/assets/js/frontend/add-to-cart-variation.min.js' ); ?>");
 				</script>
 				<?php
-				do_action( 'wcqv_product_data' );
+				do_action( 'instantio_product_data' );
 			endwhile;
 		endif;
 		wp_reset_postdata();
@@ -176,13 +173,13 @@ class INSTANTIO {
 	}
 
 	public function ins_check_editor() {
-		$ins_billing_fields = apply_filters( 'ins_billing_fields_priority', 1000 );
-		$ins_shipping_fields = apply_filters( 'ins_shipping_fields_priority', 1000 );
+		$ins_billing_fields = apply_filters( 'instantio_billing_fields_priority', 1000 );
+		$ins_shipping_fields = apply_filters( 'instantio_shipping_fields_priority', 1000 );
 
-		add_filter( 'woocommerce_default_address_fields', 'ins_over_checkout_billing_address', $ins_billing_fields, 2 );
-		add_filter( 'woocommerce_checkout_fields', 'ins_over_checkout_billing_fields', $ins_billing_fields, 2 );
-		add_filter( 'woocommerce_checkout_fields', 'ins_over_checkout_shipping_fields', $ins_shipping_fields, 2 );
-		// add_filter('woocommerce_default_address_fields', 'ins_over_checkout_shiping_address');
+		add_filter( 'woocommerce_default_address_fields', 'instantio_override_checkout_billing_address', $ins_billing_fields, 2 );
+		add_filter( 'woocommerce_checkout_fields', 'instantio_override_checkout_billing_fields', $ins_billing_fields, 2 );
+		add_filter( 'woocommerce_checkout_fields', 'instantio_override_checkout_shipping_fields', $ins_shipping_fields, 2 );
+		// add_filter('woocommerce_default_address_fields', 'instantio_override_checkout_shipping_address');
 	}
 
 	public function Ins_tourfic_admin_denqueue_script( $screen ) {
@@ -211,22 +208,22 @@ class INSTANTIO {
 
 new INSTANTIO();
 
-add_action( 'admin_enqueue_scripts', 'ins_admin_enqueue_scripts' );
-add_action( 'before_woocommerce_init', 'ins_before_woocommerce_init' );
+add_action( 'admin_enqueue_scripts', 'instantio_admin_enqueue_scripts' );
+add_action( 'before_woocommerce_init', 'instantio_before_woocommerce_init' );
 
-function ins_before_woocommerce_init() {
+function instantio_before_woocommerce_init() {
 	if ( class_exists( '\Automattic\WooCommerce\Utilities\FeaturesUtil' ) ) {
 		\Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'custom_order_tables', __FILE__, true );
 	}
 }
 
-function ins_admin_enqueue_scripts($screen) {
-	wp_enqueue_style( 'ins-admin', INS_ASSETS_URL . '/admin/css/instantio-admin-style.css', array(), INSTANTIO_VERSION );
-	wp_enqueue_script( 'ins-admin-script', INS_ASSETS_URL . '/admin/js/instantio-admin-script.js', array( 'jquery' ), INSTANTIO_VERSION, true );
+function instantio_admin_enqueue_scripts($screen) {
+	wp_enqueue_style( 'instantio-admin', INSTANTIO_ASSETS_URL . '/admin/css/instantio-admin-style.css', array(), INSTANTIO_VERSION );
+	wp_enqueue_script( 'instantio-admin-script', INSTANTIO_ASSETS_URL . '/admin/js/instantio-admin-script.js', array( 'jquery' ), INSTANTIO_VERSION, true );
 
-	wp_localize_script( 'ins-admin-script', 'ins_admin_params',
+	wp_localize_script( 'instantio-admin-script', 'instantio_admin_params',
 		array(
-			'ins_nonce' => wp_create_nonce( 'ins_updates' ),
+			'ins_nonce' => wp_create_nonce( 'instantio_updates' ),
 			'ajax_url' => admin_url( 'admin-ajax.php' ),
 		)
 	);

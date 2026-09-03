@@ -2,11 +2,8 @@
 // don't load directly
 defined( 'ABSPATH' ) || exit;
 
-// Existing settings extension hooks are public compatibility points used by Instantio integrations.
-// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
-
-if ( ! class_exists( 'Ins_TF_Settings' ) ) {
-	class Ins_TF_Settings {
+if ( ! class_exists( 'Instantio_Settings' ) ) {
+	class Instantio_Settings {
 
 		public $option_id       = null;
 		public $option_title    = null;
@@ -19,10 +16,10 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 
 		public function __construct( $key, $params = array() ) {
 			$this->option_id = $key;
-			$this->option_title = ! empty( $params['title'] ) ? apply_filters( $key . '_title', $params['title'] ) : '';
-			$this->option_icon = ! empty( $params['icon'] ) ? apply_filters( $key . '_icon', $params['icon'] ) : '';
-			$this->option_position = ! empty( $params['position'] ) ? apply_filters( $key . '_position', $params['position'] ) : 5;
-			$this->option_sections = ! empty( $params['sections'] ) ? apply_filters( $key . '_sections', $params['sections'] ) : array();
+			$this->option_title = ! empty( $params['title'] ) ? apply_filters( 'instantio_' . $key . '_title', $params['title'] ) : '';
+			$this->option_icon = ! empty( $params['icon'] ) ? apply_filters( 'instantio_' . $key . '_icon', $params['icon'] ) : '';
+			$this->option_position = ! empty( $params['position'] ) ? apply_filters( 'instantio_' . $key . '_position', $params['position'] ) : 5;
+			$this->option_sections = ! empty( $params['sections'] ) ? apply_filters( 'instantio_' . $key . '_sections', $params['sections'] ) : array();
 
 			// run only is admin panel options, avoid performance loss
 			$this->pre_tabs = $this->pre_tabs( $this->option_sections );
@@ -36,7 +33,8 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 			add_action( 'admin_init', array( $this, 'save_options' ) );
 
 			//ajax save options
-			add_action( 'wp_ajax_ins_options_save', array( $this, 'tf_ajax_save_options' ) );
+			add_action( 'wp_ajax_instantio_options_save', array( $this, 'tf_ajax_save_options' ) );
+			add_action( 'wp_ajax_instantio_themefic_manage_plugin', array( $this, 'instantio_themefic_manage_plugin' ) );
 
 			// constent defined
 			if ( ! defined( 'INSTANTIO_OPTION_ID' ) ) {
@@ -155,7 +153,7 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 			?>
 			<div class="tf-setting-top-bar">
 				<div class="version">
-					<img src="<?php echo esc_url( INS_ADMIN_URL . '/tf-options/img/instanio-logo.png' ); ?>" alt="logo">
+					<img src="<?php echo esc_url( INSTANTIO_ADMIN_URL . '/tf-options/img/instanio-logo.png' ); ?>" alt="logo">
 					<span>
 						<?php echo esc_html( INSTANTIO_VERSION ); ?>
 					</span>
@@ -222,7 +220,7 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 				<?php $this->ins_admin_top_header(); ?>
 				
 				<div class="ins-dashboard-promo-banner-header">
-					<?php do_action( 'ins_dashboard_promo_notice' ); ?>
+					<?php do_action( 'instantio_dashboard_promo_notice' ); ?>
 				</div>
 				<div class="ins-dashboad-wrapper">
 					<ul class="dashboad-tab">
@@ -258,7 +256,7 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 						<div class="dashboad-content help-center active">
 							<div class="tf-settings-help-center">
 								<div class="tf-help-center-banner"
-							style="background-image: url('<?php echo esc_url( INS_ADMIN_URL . '/tf-options/img/wizard/setup_wizard_bg.png' ); ?>')">
+							style="background-image: url('<?php echo esc_url( INSTANTIO_ADMIN_URL . '/tf-options/img/wizard/setup_wizard_bg.png' ); ?>')">
 									<div class="tf-help-center-content">
 										<h2>
 											<?php esc_html_e( "Setup Wizard", "instantio" ); ?>
@@ -272,7 +270,7 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 										</a>
 									</div>
 									<!-- <div class="tf-help-center-content-img">
-										<img src="<?php // echo INS_ADMIN_URL ?>/tf-options/img/wizard/setup_wizard_icon.svg" alt="image"/>
+										<img src="<?php // echo INSTANTIO_ADMIN_URL ?>/tf-options/img/wizard/setup_wizard_icon.svg" alt="image"/>
 									</div> -->
 
 								</div>
@@ -700,8 +698,8 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 								</div>
 								<div class="whatnew_updates">
 									<?php
-									if ( ! empty( $change ) ) {
-										foreach ( $change as $key => $value ) { ?>
+									if ( ! empty( $instantio_change ) ) {
+										foreach ( $instantio_change as $key => $value ) { ?>
 
 											<div class="whatnew_updates_card">
 												<div class="cardleft_date_version">
@@ -839,7 +837,7 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 														$default = isset( $field['default'] ) ? $field['default'] : '';
 														$value = isset( $tf_option_value[ $field['id'] ] ) ? $tf_option_value[ $field['id'] ] : $default;
 
-														$tf_option = new Ins_TF_Options();
+														$tf_option = new Instantio_Options();
 														$tf_option->field( $field, $value, $this->option_id );
 
 													endforeach;
@@ -856,7 +854,7 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 										</div>
 									</div>
 								</div>
-								<?php wp_nonce_field( 'ins_option_nonce_action', 'ins_option_nonce' ); ?>
+								<?php wp_nonce_field( 'instantio_option_nonce_action', 'instantio_option_nonce' ); ?>
 							</form>
 						</div>					
 					</div>
@@ -872,7 +870,7 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 					'slug'       => 'hydra-booking',
 					'file_name'  => 'hydra-booking',
 					'subtitle'   => 'All in One Appointment Booking System',
-					'image'      => INS_ADMIN_URL . '/tf-options/img/instanio-logo.png',
+					'image'      => INSTANTIO_ADMIN_URL . '/tf-options/img/instanio-logo.png',
 					// 'pro'        => [
 					// 	'slug'      => 'hydra-booking-pro',
 					// 	'file_name' => 'hydra-booking-pro',
@@ -884,7 +882,7 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 					'slug'       => 'ultimate-addons-for-contact-form-7',
 					'file_name'  => 'ultimate-addons-for-contact-form-7',
 					'subtitle'   => '40+ Essential Addons for Contact Form 7',
-					'image'      => INS_ADMIN_URL . '/tf-options/img/instanio-logo.png',
+					'image'      => INSTANTIO_ADMIN_URL . '/tf-options/img/instanio-logo.png',
 					// 'pro'        => [
 					// 	'slug'      => 'ultimate-addons-for-contact-form-7-pro',
 					// 	'file_name' => 'ultimate-addons-for-contact-form-7-pro',
@@ -896,7 +894,7 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 					'slug'       => 'beaf-before-and-after-gallery',
 					'file_name'  => 'before-and-after-gallery',
 					'subtitle'   => 'Ultimate Before After Image Slider & Gallery',
-					'image'      => INS_ADMIN_URL . '/tf-options/img/instanio-logo.png',
+					'image'      => INSTANTIO_ADMIN_URL . '/tf-options/img/instanio-logo.png',
 					// 'pro'        => [
 					// 	'slug'      => 'beaf-before-and-after-gallery-pro',
 					// 	'file_name' => 'before-and-after-gallery-pro',
@@ -908,7 +906,7 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 					'slug'       => 'tourfic',
 					'file_name'  => 'tourfic',
 					'subtitle'   => 'Travel, Hotel Booking & Car Rental WP Plugin',
-					'image'      => INS_ADMIN_URL . '/tf-options/img/instanio-logo.png',
+					'image'      => INSTANTIO_ADMIN_URL . '/tf-options/img/instanio-logo.png',
 					// 'pro'        => [
 					// 	'slug'      => 'tourfic-pro',
 					// 	'file_name' => 'tourfic-pro',
@@ -1004,7 +1002,7 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 			<?php
 		}
 
-		public function ins_themefic_manage_plugin() {
+		public function instantio_themefic_manage_plugin() {
 			check_ajax_referer('themefic_plugin_nonce', 'security');
 
 			if (!current_user_can('install_plugins')) {
@@ -1419,7 +1417,7 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 		public function save_options() {
 
 			// Check if a nonce is valid.
-			if ( ! isset( $_POST['ins_option_nonce'] ) || ! isset( $_POST[ $this->option_id ] ) ) {
+			if ( ! isset( $_POST['instantio_option_nonce'] ) || ! isset( $_POST[ $this->option_id ] ) ) {
 				return;
 			}
 
@@ -1428,7 +1426,7 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 			}
 
 			// Check nonce
-				if ( ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['ins_option_nonce'] ) ), 'ins_option_nonce_action' ) ) {
+				if ( ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['instantio_option_nonce'] ) ), 'instantio_option_nonce_action' ) ) {
 				return;
 			}
 
@@ -1501,14 +1499,14 @@ if ( ! class_exists( 'Ins_TF_Settings' ) ) {
 				);
 			}
 
-			if ( ! check_ajax_referer( 'ins_option_nonce_action', 'ins_option_nonce', false ) ) {
+			if ( ! check_ajax_referer( 'instantio_option_nonce_action', 'instantio_option_nonce', false ) ) {
 				wp_send_json_error(
 					array( 'message' => __( 'The security check failed. Refresh the page and try again.', 'instantio' ) ),
 					403
 				);
 			}
 
-			if ( ! empty( $_POST['ins_option_nonce'] ) ) {
+			if ( ! empty( $_POST['instantio_option_nonce'] ) ) {
 				$this->save_options();
 				$response = [ 
 					'status' => 'success',

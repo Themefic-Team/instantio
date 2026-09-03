@@ -29,14 +29,14 @@
         //     console.log('click');
 
         //     var data = {
-        //         action: 'ins_ajax_install_plugin',
-        //         _ajax_nonce: ins_admin_params.ins_nonce,
+        //         action: 'instantio_ajax_install_plugin',
+        //         _ajax_nonce: instantio_admin_params.ins_nonce,
         //         slug: plugin_slug,
         //     };
 
         //     console.log(data);
 
-        //     jQuery.post(ins_admin_params.ajax_url, data, function (response) {
+        //     jQuery.post(instantio_admin_params.ajax_url, data, function (response) {
         //         console.log(response);
         //         //console.log(response.data.activateUrl);
         //         current.removeClass('updating-message');
@@ -67,12 +67,12 @@
             current.addClass('updating-message').text('Installing...');
 
             var data = {
-                action: 'ins_ajax_install_woocommerce',
-                _ajax_nonce: ins_admin_params.ins_nonce,
+                action: 'instantio_ajax_install_woocommerce',
+                _ajax_nonce: instantio_admin_params.ins_nonce,
                 slug: plugin_slug,
             };
 
-            jQuery.post(ins_admin_params.ajax_url, data, function (response) {
+            jQuery.post(instantio_admin_params.ajax_url, data, function (response) {
                 // console.log(response);
                 // console.log(response.data.activateUrl);
                 current.removeClass('updating-message');
@@ -131,8 +131,8 @@ jQuery(document).ready(function($) {
             url: ajaxurl,
             type: 'POST',
             data: {
-                action: 'ins_themefic_manage_plugin',
-                security: ins_admin_data.themefic_nonce,
+                action: 'instantio_themefic_manage_plugin',
+                security: instantio_admin_data.themefic_nonce,
                 plugin_slug: pluginSlug,
                 plugin_filename: pluginFileName,
                 plugin_action: action
@@ -160,30 +160,4 @@ jQuery(document).ready(function($) {
             }
         });
     });
-});
-
-
-jQuery(function ($) {
-
-	$(document).on(
-		'click',
-		'.ins-promo-close',
-		function () {
-
-			const $banner = $(this).closest(
-				'.ins-promo-banner'
-			);
-
-			$.post(
-				insPromo.ajaxurl,
-				{
-					action: 'ins_dismiss_promo_notice',
-					nonce: insPromo.nonce
-				},
-				function () {
-					$banner.slideUp(200);
-				}
-			);
-		}
-	);
 });

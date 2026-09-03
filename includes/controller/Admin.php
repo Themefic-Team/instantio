@@ -1,7 +1,5 @@
 <?php
-// INS is the established Instantio namespace and its hooks are public compatibility APIs.
-// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
-namespace INS\Controller;
+namespace Themefic\Instantio\Controller;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -10,12 +8,6 @@ class Admin {
 	public function __construct() {
 
 		add_action( 'init', array( $this, 'ins_update_option' ) );
-
-		$ins_review_notice_status = get_option( 'ins_review_notice_status' );
-		$ins_installation_date = get_option( 'ins_installation_date' );
-		if ( isset( $ins_review_notice_status ) && $ins_review_notice_status <= 0 && $ins_installation_date == 1 && ! isset( $_COOKIE['ins_review_notice_status'] ) && ! isset( $_COOKIE['ins_installation_date'] ) ) {
-			// add_action( 'admin_notices', array($this, 'ins_review_notice') );  
-		}
 
 		/**
 		 * Check if WooCommerce is active, and if it isn't, disable the plugin.
@@ -43,11 +35,11 @@ class Admin {
 		}
 
 		// Define Plugin Action Links.
-		add_filter( 'plugin_action_links_' . INS_BASE_LOCATION, array( $this, 'instantio_plugin_action_links' ) );
+		add_filter( 'plugin_action_links_' . INSTANTIO_BASE_LOCATION, array( $this, 'instantio_plugin_action_links' ) );
 
 		// Activation & Dactivation Hook
-		register_activation_hook( INS_PATH . 'instantio.php', array( $this, 'ins_activate' ) );
-		register_deactivation_hook( INS_PATH . 'instantio.php', array( $this, 'ins_deactivate' ) );
+		register_activation_hook( INSTANTIO_PATH . 'instantio.php', array( $this, 'ins_activate' ) );
+		register_deactivation_hook( INSTANTIO_PATH . 'instantio.php', array( $this, 'ins_deactivate' ) );
 	}
 
 

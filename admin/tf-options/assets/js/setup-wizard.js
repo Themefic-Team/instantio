@@ -97,7 +97,7 @@
             formData.append('action', 'instantio_setup_wizard_submit');
 
             $.ajax({
-                url: ins_options.ajax_url,
+                url: instantio_options.ajax_url,
                 type: 'POST',
                 data: formData,
                 dataType: 'json',
